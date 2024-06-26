@@ -6,122 +6,74 @@
 .content
   @include m.dye(bg, c.$alpha)
   @include m.dye(c, c.$nu)
-  // margin: 0 auto
-  border-radius: 25px
+  border-radius: f.px(25)
   min-height: 415px
+  @include m.flex($fd: column, $jc: space-evenly)
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(28))
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(36))
 
 .spanLine
-  // text-align: center
-  // display: flex
-  // flex-direction: column
-  // align-items: center
   margin: 0 auto
   width: 88%
   border-bottom: 1px solid white
-  @include m.gap($ptb: f.px(20))
+  @include m.gap($pt: f.px(35), $pb:f.px(30))
   &:nth-last-child(2)
-    // @include m.gap($ptb: f.px(19))
     border: none
     @include m.media(phone, tablet)
       @include m.gap($pb: f.px(0))
 
-
 .flexMonth
-  
-  display: flex
-  justify-content: space-between
-  align-items: baseline
+  @include m.flex($fd: column, $ai: center)
   @include m.gap($mb: f.px(2))
   @include m.media(laptop, desktop)
-    height: 56px
-    // @include m.gap($pb: f.px(15))
-    
+    @include m.gap($mb: f.px(20))
   @include m.media(phone)
-    // padding-top: 20px
     align-items: center
     white-space: nowrap
 
-.costMonth
-  text-align: center
-  @include m.media(desktop)
-    font-size: f.px(18)
-    @include m.gap($pr: f.px(24))
-  @include m.media(laptop)
-    font-size: f.px(15)
-    @include m.gap($pr: f.px(40))
-  font-weight: 150
-  line-height: 120%
-  @include m.gap($pt: f.px(12))
-  @include m.media(tablet)
-    font-size: f.px(18)
-    // 
-  @include m.media(phone)
-    
-    width: f.px(260)
-    margin: 0 auto
-    @include m.gap($mb: f.px(10))
-    text-align: center
-    font-size: f.px(15)
-  
-  b
-    font-weight: 500
-
-.loan
-  font-size: f.px(10)
-  @include m.gap($pt: f.px(12), $mb: f.px(0))
-  font-weight: 350
-  @include m.media(phone, tablet)
-    text-align: center
-
 .fullPrice
-  
+  text-align: center
+  font-size: f.px(18)
+  font-style: normal
   font-weight: 350
+  line-height: 120%
   @include m.media(laptop, desktop)
-    font-size: f.px(16)
-    @include m.gap($mb: f.px(16))
+    font-size: f.px(18)
+    @include m.gap($mb: f.px(10))
   @include m.media(phone, tablet)
-    font-size: f.px(13)
-    @include m.gap($mb: f.px(7))
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(30))
+
+.bold
+  display: block
+  font-weight: 500
 
 .discount
   height: 100%
   font-weight: 500
   line-height: 110%
   @include m.media(phone)
-    & span
-      padding-right: 10px
-    display: flex
-    justify-content: center
-    font-size: f.px(40)
+    font-size: f.px(30)
   @include m.media(tablet)
     display: flex
     justify-content: center
     font-size: f.px(48)
   @include m.media(desktop)
-    // @include m.gap($mr: f.px(23))
     font-size: f.px(48)
   @include m.media(laptop)
     font-size: f.px(40)
-  .full
-    font-size: f.px(21)
-    font-weight: 350
-  .fullLight
-    font-size: f.px(21)
-    font-weight: 300
 
 .regular
   position: relative
   font-weight: 500
+  @include m.media(laptop, desktop)
+    font-size: f.px(25)
+    line-height: f.px(39)
   @include m.media(phone, tablet)
     font-size: f.px(21)
     line-height: f.px(32)
-  @include m.media(laptop, desktop)
-    font-size: f.px(20)
-    line-height: f.px(39)
   &::after
     content: ''
     position: absolute
@@ -132,13 +84,9 @@
     height: f.px(2)
     @include m.dye(bg, #F87E1B)
 
-.light
-  font-weight: 300
-
 .btns
   display: flex
   justify-content: center
-  // height:90px
   flex-direction: column
   align-items: center
   width: 100%
@@ -150,14 +98,14 @@
       font-size: f.px(15)
       font-weight: 350
       text-align: center
-      
+
     @include m.media(phone)
       max-width: f.px(300)
 
   button
     width: 305px
     @include m.gap($mb: f.px(16))
-    
+
   .btnquestion
     display: flex
     justify-content: center
@@ -168,8 +116,7 @@
       width: 100%
       @include m.gap($mlr: f.px(20))
       @include m.media(phone, tablet)
-        
-        // max-width: 305px
+
     button
       width: 100%
       border: 1px solid #FFFFFF
@@ -177,7 +124,6 @@
       font-size: 18px
       font-weight: 500
       @include m.media(desktop)
-        // margin-top: 3px
         height: 65px
         width: 100%
         border-radius: 10px
@@ -194,3 +140,6 @@
   @include m.gap($plr: f.px(20), $mb: f.px(20))
   @include m.media(laptop, desktop)
     display: none
+
+.icon
+  @include m.flex($jc:space-around)

@@ -11,13 +11,13 @@
   @include m.dye(bg, c.$epsilon)
 
 .title
+  font-weight: 500
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15))
     font-size: f.px(26)
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(0))
     font-size: f.px(44)
-  font-weight: 500
 
 .content
   @include m.media(phone, tablet)
@@ -34,10 +34,10 @@
     @include m.flex($display: false, $fb: 33%)
 
 .heading
+  position: relative
   @include m.media(phone, tablet)
   @include m.media(laptop, desktop)
     @include m.flex($fd: column, $jc: space-between)
-  position: relative
 
 .info
   @include m.gap($mb: f.px(30))
@@ -98,7 +98,7 @@
   @media screen and ( max-width: 985px ) and (min-width: bp.$tablet)
     & > *
       & > *:nth-child(1)
-        display: block
+        // display: block
   @include m.media(laptop, desktop)
     @include m.gap($mb: f.px(45))
 
@@ -144,7 +144,6 @@
   // .forGap
   //   height: 1px
   //   @include m.gap($mt: f.px(96))
-
 
 .bgForm
   border-radius: 25px

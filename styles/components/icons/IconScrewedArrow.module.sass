@@ -1,0 +1,9 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  display: block
+  @include m.sizeIcon($w: 170, $h: 40)
+  @include m.media(tablet)
+    transform: scale(0.7)
