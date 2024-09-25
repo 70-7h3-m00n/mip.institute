@@ -65,10 +65,10 @@
         <price>80000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">56160</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">6</param>
         
         <param name="План" order="1" unit="Модуль 1. ОКонцепции и принципы прикладного анализа поведения (АВА)" >
@@ -119,10 +119,10 @@
         <price>165000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">115260</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">8</param>
         
         <param name="План" order="1" unit="Модуль 1. Общая психология" >
@@ -174,10 +174,10 @@
         <price>128000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">89460</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">6</param>
         
         <param name="План" order="1" unit="Модуль 1. Основы арт-терапии" >
@@ -226,10 +226,10 @@
         <price>148000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">103320</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">10</param>
         
         <param name="План" order="1" unit="Модуль 1. Нейропсихология детского возраста. Диагностика и коррекция" >
@@ -283,10 +283,10 @@
         <price>208000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">145740</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">18</param>
         
         <param name="План" order="1" unit="Модуль 1. Введение в клиническую психологию" >
@@ -350,10 +350,10 @@
         <price>160000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">112320</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">6</param>
         
         <param name="План" order="1" unit="Модуль 1. Основы когнитивно-поведенческой терапии (КПТ)" >
@@ -410,10 +410,10 @@
         <price>193000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">135180</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">11</param>
         
         <param name="План" order="1" unit="Модуль 1. Общая анатомия человека" >
@@ -467,10 +467,10 @@
         <price>128000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">89460</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">9</param>
         
         <param name="План" order="1" unit="Модуль 1. Психологическое бизнес-консультирование" >
@@ -530,10 +530,10 @@
         <price>222000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">155520</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">12</param>
         
         <param name="План" order="1" unit="Модуль 1. Психологическое консультирование" >
@@ -594,10 +594,10 @@
         <price>148000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">103320</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">10</param>
         
         <param name="План" order="1" unit="Модуль 1. Психология семьи и семейная психотерапия" >
@@ -651,14 +651,14 @@
         <price>185700</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">130000</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param> 
 
         <param name="Ежемесячная цена">15500</param>
         <param name="Ежемесячная цена по скидке">10800</param>
-        <param name="Дата окончания ежемесячной скидки">2024-09-25</param>
+        <param name="Дата окончания ежемесячной скидки">2024-10-02</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">12</param>
 
         <param name="План" order="1" unit="Модуль 1. Основы современной психологии" >
@@ -722,10 +722,10 @@
         <price>160000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">112320</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">10</param>
         
         <param name="План" order="1" unit="Модуль 1. Основы сексологии и сексопатологии" >
@@ -783,10 +783,10 @@
         <price>128000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">89460</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">8</param>
         
         <param name="План" order="1" unit="Модуль 1. Детская нейропсихология" >
@@ -836,10 +836,10 @@
         <price>128000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">89460</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">9</param>
         
         <param name="План" order="1" unit="Модуль 1. Организационная психология" >
@@ -896,10 +896,10 @@
         <price>81000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">56460</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">10</param>
         
         <param name="План" order="1" unit="Модуль 1. Педагогическая психология" >
@@ -953,10 +953,10 @@
         <price>160000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">112320</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">10</param>
         
         <param name="План" order="1" unit="Модуль 1. Основы современной психологии" >
@@ -1011,10 +1011,10 @@
         <price>93000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">65340</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">10</param>
         
         <param name="План" order="1" unit="Модуль 1. Основы медиации: понятие, принципы, фазы медиации" >
@@ -1066,10 +1066,10 @@
         <price>121000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">84720</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">9</param>
         
         <param name="План" order="1" unit="Модуль 1. Методологические основы спортивной психологии" >
@@ -1125,10 +1125,10 @@
         <price>80000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">56160</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">8</param>
         
         <param name="План" order="1" unit="Модуль 1. Основы современной психологии" >
@@ -1184,10 +1184,10 @@
         <price>250000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">175320</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">24</param>
         
         <param name="План" order="1" unit="Модуль 1. Основы современной психологии" >
@@ -1256,10 +1256,10 @@
         <price>121000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">84720</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">9</param>
         
         <param name="План" order="1" unit="Модуль 1. Семейная психология и семейная психотерапия" >
@@ -1316,10 +1316,10 @@
         <price>136000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">95460</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">9</param>
         
         <param name="План" order="1" unit="Модуль 1. Введение в психосоматику и телесную психотерапию" >
@@ -1374,10 +1374,10 @@
         <price>136000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">95460</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">9</param>
         
         <param name="План" order="1" unit="Модуль 1. Организационная психология" >
@@ -1436,10 +1436,10 @@
         <price>94000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">65460</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">6</param>
         
         <param name="План" order="1" unit="Модуль 1. Профессиональная этика психолога" >
@@ -1498,10 +1498,10 @@
         <price>87000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">61000</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">6</param>
         
         <param name="План" order="1" unit="Модуль 1. Профессиональная этика психолога" >
@@ -1562,10 +1562,10 @@
         <price>93000</price>
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке">65340</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
 
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">10</param>
         
         <param name="План" order="1" unit="Модуль 1. Инклюзивное образование" >
@@ -1619,12 +1619,12 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке за семестр">65000</param>
         <param name="Цена по скидке за год">120000</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
         <param name="Ежемесячная цена">10850</param>
         <param name="Ежемесячная цена по скидке">10000</param>
-        <param name="Дата окончания ежемесячной скидки">2024-09-25</param>
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Дата окончания ежемесячной скидки">2024-10-02</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">54</param>
         <param name="Цель">Обучение профессии</param>
         <param name="Тип обучения">Профессия</param>
@@ -1691,12 +1691,12 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке за семестр">65000</param>
         <param name="Цена по скидке за год">120000</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
         <param name="Ежемесячная цена">10850</param>
         <param name="Ежемесячная цена по скидке">10000</param>
-        <param name="Дата окончания ежемесячной скидки">2024-09-25</param>
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Дата окончания ежемесячной скидки">2024-10-02</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">54</param>
         <param name="Цель">Обучение профессии</param>
         <param name="Тип обучения">Профессия</param>
@@ -1757,12 +1757,12 @@
         <currencyId>RUR</currencyId>
         <param name="Цена по скидке за семестр">65000</param>
         <param name="Цена по скидке за год">120000</param>
-        <param name="Дата окончания скидки">2024-09-25</param>
+        <param name="Дата окончания скидки">2024-10-02</param>
         <param name="Оплата в рассрочку" unit="месяц">12</param>
         <param name="Ежемесячная цена">10850</param>
         <param name="Ежемесячная цена по скидке">10000</param>
-        <param name="Дата окончания ежемесячной скидки">2024-09-25</param>
-        <param name="Ближайшая дата">2024-09-25</param>
+        <param name="Дата окончания ежемесячной скидки">2024-10-02</param>
+        <param name="Ближайшая дата">2024-10-02</param>
         <param name="Продолжительность" unit="месяц">54</param>
         <param name="Цель">Обучение профессии</param>
         <param name="Тип обучения">Профессия</param>
