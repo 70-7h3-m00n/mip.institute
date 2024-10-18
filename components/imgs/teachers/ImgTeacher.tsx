@@ -14,8 +14,7 @@ const ImgTeacher = ({ src, alt, width = 0, height = 0 }) => {
         placeholder='blur'
         blurDataURL={base64pixel}
         style={{
-          width: '100%',
-          height: 'auto'
+          width: '100%'
         }}
       />
     </div>
