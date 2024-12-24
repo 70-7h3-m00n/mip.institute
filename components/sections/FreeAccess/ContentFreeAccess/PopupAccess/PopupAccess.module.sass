@@ -1,0 +1,50 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.popupContainer
+  background: c.$purple-600
+  color: c.$white-900
+  @include m.gap($p: f.px(40))
+  border-radius: 20px
+  width: 100%
+  max-width: 1170px
+  font-family: Stem
+  font-style: normal
+  font-weight: 500
+  line-height: 115%
+
+.title
+  font-size: f.px(35)
+  text-align: center
+  @include m.media(phone, tablet)
+    font-size: f.px(22)
+
+.details
+  font-size: f.px(18)
+  line-height: 115%
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  &p
+    word-break: break-word
+
+.details a
+  color: c.$white-900
+
+.infoText
+  text-align: center
+  font-size: f.px(35)
+  line-height: 115%
+  @include m.media(phone, tablet)
+    font-size: f.px(22)
+
+.footerText
+  font-size: f.px(18)
+  line-height: 115%
+  text-align: center
+  word-break: break-word
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+
+.footerText a
+  color: c.$white-900

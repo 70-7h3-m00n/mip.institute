@@ -1,26 +1,65 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
 .container
-  display: flex
-  flex-direction: column
-  align-items: flex-start
-  font-family: 'Arial', sans-serif
-  margin-top: 20px
+  width: 100%
+  position: relative
 
-.text
-  font-size: 16px
-  color: #3d3d3d
-  font-weight: 400
-  line-height: 1.5
-  margin-bottom: 10px
+.text  
+  color: c.$purple-900
+  font-family: Stem
+  font-size: f.px(35)
+  font-style: normal
+  font-weight: 500
+  line-height: 115%
 
-.imageContainer
-  display: flex
-  align-items: center
+.violetTitle
+  color: c.$purple-600
+
+.imageContainer 
+  position: absolute
 
 .giftBox
-  margin-right: 10px
+  position: absolute
+  @include m.media(tablet)
+    z-index: -1
+    top: f.px(200)
+    left: f.px(250)
+  @include m.media(desktop)
+    top: f.px(180)
+    left: f.px(320)
+  @include m.media(laptop)
+    top: f.px(170)
+    left: f.px(220)
+  @include m.media(phone)
+    position: static
+    z-index: -1
+    top: f.px(330)
+    left: f.px(180)
+    img
+      width: 83px
+      height: 83px
 
-.star
-  margin-left: 10px
-  display: flex
-  align-items: center
-  justify-content: center
+.star 
+  position: absolute
+  @include m.media(desktop) 
+    top: f.px(170)
+    left: f.px(500)
+  @include m.media(laptop)
+    top: f.px(160)
+    left: f.px(400)
+  @include m.media(tablet)
+    z-index: -1
+    top: f.px(180)
+    left: f.px(340)
+  @include m.media(phone)
+    position: static
+    z-index: -1
+    top: f.px(300)
+    left: f.px(250)
+    img
+      width: 13px
+      height: 13px
+    
+

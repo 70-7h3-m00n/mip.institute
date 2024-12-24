@@ -1,0 +1,28 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.submitBtn
+  @include m.gap($mt: f.px(20))
+  @include m.gap($ptb: f.px(29))
+  height: 89px
+  width: 100%
+  background-color: c.$purple-600
+  border-radius: 20px
+  border: 1px solid c.$purple-600
+  font-size: f.px(25)
+  cursor: pointer
+  transition: background-color 0.3s ease
+  color: c.$white-900
+  font-family: Stem
+  font-style: normal
+  font-weight: 500
+  line-height: 130%
+  text-transform: uppercase
+
+.submitBtn:hover
+  background-color:  c.$purple-800
+
+.onDesktop
+  @include m.media(phone, tablet)
+    display: none

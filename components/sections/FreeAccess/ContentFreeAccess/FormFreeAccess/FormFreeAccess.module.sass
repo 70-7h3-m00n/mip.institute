@@ -1,38 +1,53 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
 .form
-  display: flex
-  flex-direction: column
+  @include m.flex($fd: column)
   gap: 10px
   width: 100%
-  max-width: 400px
   margin: 0 auto
 
 .formGroup
-  display: flex
-  flex-direction: column
+  @include m.flex($fd: column)
 
 .input
-  border: 1px solid #855EDF
-  background: #FFF
+  border: 1px solid c.$purple-600
+  background: c.$white-900
   border-radius: 4px
-  font-size: 16px
-  margin-bottom: 15px
-  padding: 21px 45px 17px 16px
-  // transition: border 0.3s ease
+  font-size: f.px(16)
+  @include m.gap($pt: f.px(21), $pr: f.px(45), $pb: f.px(17),$pl: f.px(16))
+  transition: border 0.3s ease
   outline: none
 
 .input:focus
-  border-color: #855EDF
+  border-color: c.$purple-600
   
-
 .submitBtn
-  padding: 10px
-  background-color: #6F43B6
-  color: white
+  @include m.gap($pt: f.px(19), $pr: f.px(93), $pb: f.px(20),$pl: f.px(94))
+  height: 60px
+  background-color: c.$purple-800
   border: none
   border-radius: 4px
-  font-size: 16px
+  font-size: f.px(16)
   cursor: pointer
   transition: background-color 0.3s ease
+  color: c.$white-900
+  font-family: Stem
+  font-style: normal
+  font-weight: 500
+  line-height: 130%
+  text-transform: uppercase
 
 .submitBtn:hover
-  background-color: #5a34a5
+  background-color: c.$purple-800
+
+.error 
+  color: red
+  font-size: f.px(14)
+  @include m.gap($mt: f.px(5))
+
+.onMobile
+  @include m.media(desktop, laptop)
+    display: none
+
