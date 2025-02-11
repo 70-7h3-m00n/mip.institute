@@ -16,9 +16,10 @@ import CardReviewsPlatform from '../cards/CardReviewsPlatform'
 import CustomPrevButton from '@/ui/CustomPrevButton'
 import CustomNextButton from '@/ui/CustomNextButton'
 import React from 'react'
+import Image from 'next/image'
 SwiperCore.use([Navigation, Pagination])
 
-const HappyStudents = () => {
+const HappyStudents = ({ isManePage = true }: { isManePage?: boolean }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   const navigationPrevRef = React.useRef(null)
@@ -84,9 +85,44 @@ const HappyStudents = () => {
   }
 
   return (
-    <section className={stls.section}>
+    <section className={isManePage ? stls.section : stls.newSection}>
       <Wrapper>
-        <h2 className={stls.title}>Студенты довольны обучением в МИП</h2>
+        {isManePage ? (
+          <h2 className={stls.title}>Студенты довольны обучением в МИП</h2>
+        ) : (
+          <div className={stls.container_title}>
+            <h2 className={stls.newTitle}>
+              <span className={stls.coloured}>Студенты довольны </span>
+              обучением в МИП
+            </h2>
+            {isMobileAndTabletLayout ? (
+              <div className={stls.container_imageMob}>
+                <Image
+                  src='https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739200031/vybor_bolshinstva_mob1_2837e1504c.png'
+                  alt=''
+                  width={164}
+                  height={73}
+                  className={stls.image}
+                />
+                <Image
+                  src='https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739200031/vybor_bolshinstva_mob2_440d9fa503.png'
+                  alt=''
+                  width={164}
+                  height={73}
+                  className={stls.image}
+                />
+              </div>
+            ) : (
+              <Image
+                src='https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739199056/vybor_bolshinstva_ce9c167123.png'
+                alt=''
+                width={233}
+                height={102}
+                className={stls.image}
+              />
+            )}
+          </div>
+        )}
         <div className={stls.content}>
           <div className={stls.textContainer}>
             <IconCurveLineReview
@@ -96,12 +132,11 @@ const HappyStudents = () => {
             <div className={stls.textblock}>
               <p className={stls.students}>98% студентов считают,</p>
               <p className={stls.program}>
-                что программы Московского Института Психологии превзошли их
-                ожидания
+                что программы Московского Института Психологии превзошли их ожидания
               </p>
               <p className={stls.portal}>
-                Данные исходя из результатов отзывов на ведущих порталах
-                сравнения образовательных учреждений
+                Данные исходя из результатов отзывов на ведущих порталах сравнения образовательных
+                учреждений
               </p>
             </div>
           </div>

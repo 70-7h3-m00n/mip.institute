@@ -4,12 +4,30 @@
 
 .section
 
+.newSection
+  background: #FFF
+  border-radius: 30px
+  @include m.gap($ptb: f.px(40))
+
 .content
   background: #FBF4FF
   border-radius: f.px(20)
   display: flex
   @include m.media(phone, tablet)
     flex-direction: column
+
+.container_title
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $ai: normal)
+
+.newTitle
+  font-size: f.px(44)
+  font-style: normal
+  font-weight: 500
+  @include m.gap($mb: f.px(0))
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
 
 .title
   font-size: f.px(44)
@@ -19,6 +37,10 @@
   @include m.gap($mb: f.px(30))
   @include m.media(phone, tablet)
     display: none
+
+.coloured
+  @include m.dye(c, c.$orange-700)
+
 .textContainer
   flex: 0 0 52%
   overflow: hidden
@@ -98,3 +120,16 @@
   height: 10px
   background: red
   z-index: 100000
+
+.container_imageMob
+  @include m.flex()
+  gap: 13px
+  @include m.media(phone, tablet)
+    @include m.flex($jc: space-between)
+
+.image
+  max-width: 100%
+  object-fit: cover
+  margin-right: 10px
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0)
