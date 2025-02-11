@@ -25,7 +25,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
 import dynamic from 'next/dynamic'
-import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
+import stls from '@/styles/pages/Index.module.sass'
 import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '../helpers'
 
 const PopupCta = dynamic(() => import('@/components/popups/PopupCta'), {
@@ -36,58 +36,37 @@ const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), {
   ssr: false
 })
 
-const YouTubeVideo = dynamic(
-  () => import('@/components/sections/YouTubeVideo'),
-  {
-    ssr: false
-  }
-)
+const YouTubeVideo = dynamic(() => import('@/components/sections/YouTubeVideo'), {
+  ssr: false
+})
 
-const SalaryCounter = dynamic(
-  () => import('@/components/sections/SalaryCounter'),
-  {
-    ssr: false
-  }
-)
+const SalaryCounter = dynamic(() => import('@/components/sections/SalaryCounter'), {
+  ssr: false
+})
 
-const DistanceEducation = dynamic(
-  () => import('@/components/sections/DistanceEducation'),
-  {
-    ssr: false
-  }
-)
+const DistanceEducation = dynamic(() => import('@/components/sections/DistanceEducation'), {
+  ssr: false
+})
 
-const HappyStudents = dynamic(
-  () => import('@/components/sections/HappyStudents'),
-  {
-    ssr: false
-  }
-)
+const HappyStudents = dynamic(() => import('@/components/sections/HappyStudents'), {
+  ssr: false
+})
 
-const ProfessionalLeague = dynamic(
-  () => import('@/components/sections/ProfessionalLeague'),
-  {
-    ssr: false
-  }
-)
+const ProfessionalLeague = dynamic(() => import('@/components/sections/ProfessionalLeague'), {
+  ssr: false
+})
 
-const EducationProcess = dynamic(
-  () => import('@/components/sections/EducationProcess'),
-  {
-    ssr: false
-  }
-)
+const EducationProcess = dynamic(() => import('@/components/sections/EducationProcess'), {
+  ssr: false
+})
 
 const Teachers = dynamic(() => import('@/components/sections/Teachers'), {
   ssr: false
 })
 
-const WhatYouWillLearn = dynamic(
-  () => import('@/components/sections/WhatYouWillLearn'),
-  {
-    ssr: false
-  }
-)
+const WhatYouWillLearn = dynamic(() => import('@/components/sections/WhatYouWillLearn'), {
+  ssr: false
+})
 
 const HomePage: NextPage<TypePageHomeProps> = ({
   programs,
@@ -97,10 +76,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   practicalTrainings
 }) => {
   useHandleContextStaticProps({ programs })
-
   const [layout, setLayout] = useState<'old' | 'new'>('old')
   const [open, setOpen] = useState(false)
-  const [mustSpin, setMustSpin] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
@@ -112,9 +89,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
     }
   }, [router.query])
 
-  const teachersFromMain = teachers?.filter(teacher =>
-    allowedNames.includes(teacher.name)
-  )
+  const teachersFromMain = teachers?.filter(teacher => allowedNames.includes(teacher.name))
 
   const reviewsSorted = sortBasedOnNumericOrder({
     reviews: sortReviewsCreatedAtASC({ reviews })
@@ -131,8 +106,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
 
   const desc = (
     <>
-      У Вас есть вопросы? Оставьте заявку! <br /> И сотрудник приемной комиссии
-      свяжется с вами, чтобы рассказать все подробности
+      У Вас есть вопросы? Оставьте заявку! <br /> И сотрудник приемной комиссии свяжется с вами,
+      чтобы рассказать все подробности
     </>
   )
 
@@ -171,11 +146,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         desc='Оставьте заявку на консультацию менеджера приёмной комиссии'
         cta='chooseProgram'
       />
-      <WhatYouWillLearn
-        key='whatYouWillLearnOld'
-        title='Чему вы научитесь в МИП'
-        onMain
-      />
+      <WhatYouWillLearn key='whatYouWillLearnOld' title='Чему вы научитесь в МИП' onMain />
       <SalaryCounter key='salaryCounterOld' title='Психология' />
       <Teachers
         key='teachersOld'
@@ -226,11 +197,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <TopCourses key='topCourses' />
       <ButtonToTop key='buttonToTop' />
       <div className={stls.youLearnPadding}>
-        <WhatYouWillLearn
-          key='whatYouWillLearn'
-          title='Чему вы научитесь в МИП'
-          onMain
-        />
+        <WhatYouWillLearn key='whatYouWillLearn' title='Чему вы научитесь в МИП' onMain />
       </div>
       <SalaryCounter key='salaryCounter' title='Психология' />
       <Teachers
@@ -300,9 +267,9 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         }
       </Popup>
 
-      {(layout === 'old' ? oldLayoutComponents : newLayoutComponents).map(
-        component => component
-      )}
+      <div className={stls.container}>
+        {(layout === 'old' ? oldLayoutComponents : newLayoutComponents).map(component => component)}
+      </div>
     </>
   )
 }
