@@ -1,4 +1,3 @@
-import React from 'react'
 import stls from '@/styles/components/sections/HappyStudents.module.sass'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore from 'swiper'
@@ -18,15 +17,15 @@ import CustomPrevButton from '@/ui/CustomPrevButton'
 import CustomNextButton from '@/ui/CustomNextButton'
 import Image from 'next/image'
 import SliderNavigation from '@/ui/SliderNavigation/SliderNavigation'
+import { useRef } from 'react'
 
 SwiperCore.use([Navigation, Pagination])
 
-const HappyStudents = ({ isManePage = true }: { isManePage?: boolean }) => {
+const HappyStudents = ({ isMainPage = true }: { isMainPage?: boolean }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-  const swiperRef = React.useRef<SwiperCore | null>(null)
-
-  const navigationPrevRef = React.useRef(null)
-  const navigationNextRef = React.useRef(null)
+  const swiperRef = useRef<SwiperCore | null>(null)
+  const navigationPrevRef = useRef(null)
+  const navigationNextRef = useRef(null)
 
   const list = [
     {
@@ -87,9 +86,9 @@ const HappyStudents = ({ isManePage = true }: { isManePage?: boolean }) => {
   }
 
   return (
-    <section className={isManePage ? stls.section : stls.newSection}>
+    <section className={isMainPage ? stls.section : stls.newSection}>
       <Wrapper>
-        {isManePage ? (
+        {isMainPage ? (
           <h2 className={stls.title}>Студенты довольны обучением в МИП</h2>
         ) : (
           <div className={stls.container_title}>
@@ -152,13 +151,13 @@ const HappyStudents = ({ isManePage = true }: { isManePage?: boolean }) => {
               slidesPerView={isMobileAndTabletLayout ? 1 : 1.6}
               spaceBetween={30}
               modules={[Pagination]}
-              className={isManePage ? stls.mySwiper : stls.newSwiper}>
+              className={isMainPage ? stls.mySwiper : stls.newSwiper}>
               {list.map((el, i) => (
                 <SwiperSlide key={i} className={stls.slide}>
                   <CardReviewsPlatform el={el} />
                 </SwiperSlide>
               ))}
-              {isManePage && (
+              {isMainPage && (
                 <>
                   <div ref={navigationPrevRef} className={stls.prevBtn}>
                     <CustomPrevButton showOnMobile happyStudents />
@@ -169,7 +168,7 @@ const HappyStudents = ({ isManePage = true }: { isManePage?: boolean }) => {
                 </>
               )}
             </Swiper>
-            {!isManePage && (
+            {!isMainPage && (
               <SliderNavigation
                 onPrev={() => swiperRef.current?.slidePrev()}
                 onNext={() => swiperRef.current?.slideNext()}

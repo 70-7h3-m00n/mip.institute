@@ -68,7 +68,7 @@ const ProgramSelectionTop = () => {
   const [type, setType] = useState(incomersStudyOptions[0]?.value)
 
   const filteredCards = isMobileAndTabletLayout ? cards.filter(card => card.value === type) : cards
-  console.log({ type })
+
   return (
     <section className={stls.container}>
       <Wrapper>

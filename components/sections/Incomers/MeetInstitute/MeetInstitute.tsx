@@ -16,8 +16,6 @@ type Props = {
 }
 
 const MeetInstitute = ({ data }: any) => {
-  console.log(data, 'data')
-
   return (
     <section className={stls.container}>
       <Wrapper>
