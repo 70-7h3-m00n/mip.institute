@@ -1,3 +1,4 @@
+import React from 'react'
 import stls from '@/styles/components/sections/HappyStudents.module.sass'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore from 'swiper'
@@ -15,12 +16,14 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import CardReviewsPlatform from '../cards/CardReviewsPlatform'
 import CustomPrevButton from '@/ui/CustomPrevButton'
 import CustomNextButton from '@/ui/CustomNextButton'
-import React from 'react'
 import Image from 'next/image'
+import SliderNavigation from '@/ui/SliderNavigation/SliderNavigation'
+
 SwiperCore.use([Navigation, Pagination])
 
 const HappyStudents = ({ isManePage = true }: { isManePage?: boolean }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+  const swiperRef = React.useRef<SwiperCore | null>(null)
 
   const navigationPrevRef = React.useRef(null)
   const navigationNextRef = React.useRef(null)
@@ -62,7 +65,6 @@ const HappyStudents = ({ isManePage = true }: { isManePage?: boolean }) => {
       quantity: '7',
       rating: '5.0'
     },
-
     {
       node: (
         <FooterReviews href={routes.external.ucheba}>
@@ -145,23 +147,34 @@ const HappyStudents = ({ isManePage = true }: { isManePage?: boolean }) => {
               Больше 250 отзывов на различных независимых площадках!
             </p>
             <Swiper
+              onSwiper={swiper => (swiperRef.current = swiper)}
               onBeforeInit={onBeforeInit}
               slidesPerView={isMobileAndTabletLayout ? 1 : 1.6}
               spaceBetween={30}
               modules={[Pagination]}
-              className={stls.mySwiper}>
+              className={isManePage ? stls.mySwiper : stls.newSwiper}>
               {list.map((el, i) => (
                 <SwiperSlide key={i} className={stls.slide}>
                   <CardReviewsPlatform el={el} />
                 </SwiperSlide>
               ))}
-              <div ref={navigationPrevRef} className={stls.prevBtn}>
-                <CustomPrevButton showOnMobile happyStudents />
-              </div>
-              <div ref={navigationNextRef} className={stls.prevBtn}>
-                <CustomNextButton showOnMobile happyStudents />
-              </div>
+              {isManePage && (
+                <>
+                  <div ref={navigationPrevRef} className={stls.prevBtn}>
+                    <CustomPrevButton showOnMobile happyStudents />
+                  </div>
+                  <div ref={navigationNextRef} className={stls.prevBtn}>
+                    <CustomNextButton showOnMobile happyStudents />
+                  </div>
+                </>
+              )}
             </Swiper>
+            {!isManePage && (
+              <SliderNavigation
+                onPrev={() => swiperRef.current?.slidePrev()}
+                onNext={() => swiperRef.current?.slideNext()}
+              />
+            )}
           </div>
         </div>
       </Wrapper>

@@ -1,0 +1,33 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.navigationContainer
+  @include m.flex($jc: start, $ai: center)
+  gap: 15px
+  padding-left: f.px(77)
+  @include m.gap($pl: f.px(77))
+  @include m.media(phone, tablet)
+    @include m.flex($jc: center, $ai: center)
+    @include m.gap($pl: f.px(0), $mb: f.px(32))
+
+.btnPrev, .btnNext
+  background: none
+  border: none
+  cursor: pointer
+  transition: transform 0.2s ease-in-out
+  svg, rect, path
+    transition: fill 0.2s ease-in-out, stroke 0.2s ease-in-out
+
+  &:hover
+    transform: scale(1.1) // Увеличиваем кнопку
+
+    // Цвет обводки и заливки у SVG
+    svg rect
+      fill: c.$purple-800
+      stroke: c.$white-900
+      stroke-width: 1px
+    // Цвет стрелки
+    svg path
+      fill: c.$white-900
+
