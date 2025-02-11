@@ -4,6 +4,7 @@ import OurPossibilities from '../sections/Incomers/OurPossibilities/OurPossibili
 import MeetInstitute from '../sections/Incomers/MeetInstitute/MeetInstitute'
 import HappyStudents from '../sections/HappyStudents'
 import CareerCenter from '@/components/sections/Incomers/CareerCenter/CareerCenter'
+import Incomers from '../sections/Incomers/Incomers/Incomers'
 
 // type Props = {
 //   incomers: Lectorium
@@ -13,6 +14,7 @@ const PageIncomers = ({ incomers }: any) => {
   console.log({ incomers })
   return (
     <div className={stls.container}>
+      <Incomers title={incomers.title} data={incomers.incomersInfo} />
       <MeetInstitute data={incomers.MeetInstitute} />
       <HappyStudents isMainPage={false} />
       <ProgramSelectionTop />
