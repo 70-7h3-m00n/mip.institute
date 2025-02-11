@@ -17,6 +17,7 @@ import Wrapper from '@/ui/Wrapper'
 import PopupLoading from '@/components/popups/PopupLoading'
 import getNextFriday from '@/helpers/getNextFriday'
 import { CldImage } from 'next-cloudinary'
+import 'react-phone-input-2/lib/style.css'
 
 type Props = {
   price: number
@@ -73,10 +74,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
       ymUid,
       price: finalPrice,
       blockForAmo: 'Поступить',
-      utm:
-        typeof clickId === 'string'
-          ? JSON.parse(decodeURIComponent(clickId))
-          : null,
+      utm: typeof clickId === 'string' ? JSON.parse(decodeURIComponent(clickId)) : null,
       advcake_track_id,
       advcake_track_url,
       roistat_visit
@@ -85,10 +83,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
     const req = await genezis(reqData)
 
     if (req === 200) {
-      window.open(
-        `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
-        '_blank'
-      )
+      window.open(`${routes.front.gratefull}?email=${data.email}&name=${data.name}`, '_blank')
       setIsLoading(false)
       setIsIpCheckFailed(false)
     } else {
@@ -165,8 +160,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
                   </div>
                 ))}
                 <p className={stls.remark}>
-                  *При одновременном поступлении на программу проф.
-                  переподготовки
+                  *При одновременном поступлении на программу проф. переподготовки
                 </p>
               </div>
 
@@ -174,14 +168,8 @@ const PracticalPaymentForm = ({ price }: Props) => {
 
               <div className={stls.giftBlock}>
                 <p className={stls.giftTitle}>ИТОГО:</p>
-                <p className={stls.giftSubtitle}>
-                  (стоимость программы практики)
-                </p>
-                {oldPrice && (
-                  <p className={stls.oldPrice}>
-                    {toNumberWithSpaces(oldPrice)} ₽
-                  </p>
-                )}
+                <p className={stls.giftSubtitle}>(стоимость программы практики)</p>
+                {oldPrice && <p className={stls.oldPrice}>{toNumberWithSpaces(oldPrice)} ₽</p>}
                 <p
                   className={classNames({
                     [stls.newPrice]: true,
@@ -234,9 +222,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
                       }
                     })}
                   />
-                  <p className={stls.err}>
-                    {errors.name && errors.name.message}
-                  </p>
+                  <p className={stls.err}>{errors.name && errors.name.message}</p>
                 </div>
                 <div className={classNames(stls.inpt, stls.name)}>
                   <input
@@ -256,9 +242,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
                       }
                     })}
                   />
-                  <p className={stls.err}>
-                    {errors.surname && errors.surname.message}
-                  </p>
+                  <p className={stls.err}>{errors.surname && errors.surname.message}</p>
                 </div>
 
                 <div className={classNames(stls.inpt, stls.phone)}>
@@ -291,9 +275,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
                     )}
                   />
                   {errors.phone && (
-                    <p className={stls.err}>
-                      {errors.phone && errors.phone.message}
-                    </p>
+                    <p className={stls.err}>{errors.phone && errors.phone.message}</p>
                   )}
                 </div>
                 <div className={classNames(stls.inpt, stls.email)}>
@@ -311,9 +293,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
                       }
                     })}
                   />
-                  <p className={stls.err}>
-                    {errors.email && errors.email.message}
-                  </p>
+                  <p className={stls.err}>{errors.email && errors.email.message}</p>
                 </div>
               </div>
               <div className={stls.footer} style={{ flexBasis: '100%' }}>
