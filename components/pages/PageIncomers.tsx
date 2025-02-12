@@ -5,6 +5,14 @@ import MeetInstitute from '../sections/Incomers/MeetInstitute/MeetInstitute'
 import HappyStudents from '../sections/HappyStudents'
 import CareerCenter from '@/components/sections/Incomers/CareerCenter/CareerCenter'
 import Incomers from '../sections/Incomers/Incomers/Incomers'
+import dynamic from 'next/dynamic'
+
+const ProgramForRequest = dynamic(
+  () => import('@/components/sections/Incomers/ProgramForRequest/ProgramForRequest'),
+  {
+    ssr: false
+  }
+)
 
 // type Props = {
 //   incomers: Lectorium
@@ -20,6 +28,7 @@ const PageIncomers = ({ incomers }: any) => {
       <ProgramSelectionTop />
       <OurPossibilities data={incomers.ourPossibilities} />
       <CareerCenter data={incomers.careerCenter} />
+      <ProgramForRequest data={incomers.programForRequest} />
     </div>
   )
 }

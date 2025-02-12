@@ -10,8 +10,8 @@ export default function IconCheck({ noBackground = false }) {
         viewBox='0 0 14 12'
         fill='none'>
         <path
-          fill-rule='evenodd'
-          clip-rule='evenodd'
+          fillRule='evenodd'
+          clipRule='evenodd'
           d='M5.11531 8.48459L12.4773 0L14 1.76056L5.11531 12L0 6.10468L1.52271 4.34416L5.11531 8.48459Z'
           fill='#FF8F52'
         />
