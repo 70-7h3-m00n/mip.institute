@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  overflow-x: hidden !important
 
 .title
   display: inline-block
@@ -29,6 +30,18 @@
 
 .btn
   width: 100%
+  @include m.media(laptop, desktop)
+    display: block
+  @include m.media(phone, tablet)
+    display: none
+
+.mobileBtn
+  width: 100%
+  @include m.media(laptop, desktop)
+    display: none
+  @include m.media(phone, tablet)
+    margin-top: f.px(15)
+    display: block
 
 .subtitle, .mainSubtitle
   line-height: 130%
@@ -144,3 +157,15 @@
     @include m.media(laptop)
       margin-top: f.px(10)
       scale: 1.062
+
+.addInfo
+  margin-top: f.px(15)
+  margin-bottom: 0
+  @include m.dye(c, c.$purple-800)
+  font-size: f.px(16)
+  font-weight: 300
+  max-width: f.px(600)
+  @include m.media(phone, tablet)
+    max-width: 330px
+    margin-top: 0
+    font-size: f.px(12)

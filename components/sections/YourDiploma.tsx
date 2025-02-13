@@ -25,14 +25,25 @@ type YourDiplomaType = {
   onMain?: boolean
   isBachelor?: boolean
   close?: () => void
+  programSlug?: string
 }
+
+const withAddInfo = [
+  'nejropsiholog',
+  'detskij-nejropsiholog',
+  'detskij-psiholog',
+  'klinicheskaya-psihologiya',
+  'logoped-s-dop.-kvalifikaciej-specialnyj-psiholog',
+  'pedagog-psiholog'
+]
 
 const YourDiploma = ({
   ofType = null,
   diplomaRef = null,
   onMain = false,
   isBachelor = false,
-  close
+  close,
+  programSlug
 }: YourDiplomaType) => {
   const slides = []
 
@@ -158,15 +169,6 @@ const YourDiploma = ({
       </div>
     )
 
-  const mobileSwiperOptions = {
-    slidesNum: 1,
-    spaceBetween: 10
-  }
-  const tabletLaptopDesktopSwiperOptions = {
-    slidesNum: 1,
-    spaceBetween: 30
-  }
-
   const [cut, setCut] = useState(184)
   const [showFullText, setShowFullText] = useState(false)
 
@@ -196,12 +198,8 @@ const YourDiploma = ({
             <div className={stls.subtitleContainer}>
               {onMain && (
                 <>
-                  <p className={stls.mainSubtitle}>
-                    {subtitleMain.slice(0, cut)}
-                  </p>
-                  {!showFullText && (
-                    <span className={stls.threePoints}>...</span>
-                  )}
+                  <p className={stls.mainSubtitle}>{subtitleMain.slice(0, cut)}</p>
+                  {!showFullText && <span className={stls.threePoints}>...</span>}
                   <p onClick={cutHandler} className={stls.moreText}>
                     {showFullText ? 'Скрыть описание' : 'Читать далее'}
                   </p>
@@ -209,10 +207,9 @@ const YourDiploma = ({
               )}
               {!onMain && (
                 <p className={stls.subtitle}>
-                  Все наши программы лицензированы, а дипломы имеют
-                  международные приложения, поэтому они ценятся клиентами и
-                  профессиональным психологическим сообществом как в России, так
-                  и за рубежом!
+                  Все наши программы лицензированы, а дипломы имеют международные приложения,
+                  поэтому они ценятся клиентами и профессиональным психологическим сообществом как в
+                  России, так и за рубежом!
                 </p>
               )}
               <div className={stls.btn}>
@@ -232,6 +229,15 @@ const YourDiploma = ({
             ))}
           </div>
         </div>
+        <div className={stls.mobileBtn}>
+          <LicensePopUp onBachelor showFullText={showFullText} />
+        </div>
+        {withAddInfo.includes(programSlug) && (
+          <p className={stls.addInfo}>
+            *Диплом и присваиваемая квалификация отображены при условии профильного высшего
+            образования
+          </p>
+        )}
       </Wrapper>
     </section>
   )
