@@ -7,6 +7,7 @@ import CareerCenter from '@/components/sections/Incomers/CareerCenter/CareerCent
 import Incomers from '../sections/Incomers/Incomers/Incomers'
 import PaymentTraining from '../sections/Incomers/PaymentTraining/PaymentTraining'
 import dynamic from 'next/dynamic'
+import StudyProcess from '@/components/sections/Incomers/StudyProcess/StudyProcess'
 
 const ProgramForRequest = dynamic(
   () => import('@/components/sections/Incomers/ProgramForRequest/ProgramForRequest'),
@@ -26,10 +27,11 @@ const PageIncomers = ({ incomers }: any) => {
       <Incomers title={incomers.title} data={incomers.incomersInfo} />
       <MeetInstitute data={incomers.MeetInstitute} />
       <HappyStudents isMainPage={false} />
+      <StudyProcess />
       <ProgramSelectionTop />
       <OurPossibilities data={incomers.ourPossibilities} />
       <CareerCenter data={incomers.careerCenter} />
-      <PaymentTraining/>
+      <PaymentTraining />
       <ProgramForRequest data={incomers.programForRequest} />
     </div>
   )

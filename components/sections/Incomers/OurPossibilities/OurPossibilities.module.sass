@@ -10,8 +10,6 @@
   gap: f.px(35)
 
 .title
-  font-family: Stem
-  font-style: normal
   font-weight: 500
   color: c.$black-800
   font-size: f.px(44)
@@ -53,9 +51,7 @@
 
 .containerBlock_One_title
   color: c.$white-900
-  font-family: Stem
   font-size: f.px(26)
-  font-style: normal
   font-weight: 500
   line-height: 110%
   @include m.gap($mb: f.px(20), $mt: f.px(116), $pl: f.px(22), $pr: f.px(8))
@@ -65,9 +61,7 @@
 
 .containerBlock_One_description
   color: c.$white-900
-  font-family: Stem
   font-size: f.px(20)
-  font-style: normal
   font-weight: 350
   line-height: 110%
   @include m.gap($mb: f.px(72), $pl: f.px(22), $pr: f.px(8))
@@ -83,7 +77,7 @@
     border-radius: f.px(15)
 
 .containerBlock_Two_topIcon
-  @include m.flex($jc: start)
+  @include m.flex($jc: flex-start)
   gap: f.px(7)
   @include m.gap($pt: f.px(15), $pl: f.px(15))
   @include m.media(phone, tablet)
@@ -114,12 +108,9 @@
       path
         fill: c.$black-900
 
-
 .containerBlock_Two_title
   color: c.$purple-350
-  font-family: Stem
   font-size: f.px(26)
-  font-style: normal
   font-weight: 500
   line-height: 110%
   @include m.gap($mb: f.px(20), $mt: f.px(49), $plr: f.px(15))
@@ -129,9 +120,7 @@
 
 .containerBlock_Two_description
   color: c.$purple-350
-  font-family: Stem
   font-size: f.px(20)
-  font-style: normal
   font-weight: 350
   line-height: 110%
   @include m.gap($mb: f.px(49), $plr: f.px(15))
@@ -140,7 +129,7 @@
     @include m.gap($mb: f.px(15), $pl: f.px(25), $pr: f.px(38))
 
 .containerBlock_Two_bottomIcon
-  @include m.flex($jc: end)
+  @include m.flex($jc: flex-end)
   gap: f.px(7)
   @include m.gap($pb: f.px(15), $pr: f.px(15))
   a
@@ -171,7 +160,7 @@
 
 .containerBlock_Three
   @include m.flex($fd: column, $jc: center)
-  background: c.$purple-350
+  background-color: c.$purple-350
   border-radius: f.px(20)
   background-image: url(https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739182648/Fon_Three_Block_6fdc8fbb3d.png)
   background-size: cover
@@ -180,9 +169,7 @@
 
 .containerBlock_Three_title
   color: c.$white-900
-  font-family: Stem
   font-size: f.px(26)
-  font-style: normal
   font-weight: 500
   line-height: 110%
   @include m.gap($mb: f.px(20), $mt: f.px(116), $plr: f.px(26))
@@ -192,9 +179,7 @@
 
 .containerBlock_Three_description
   color: c.$white-900
-  font-family: Stem
   font-size: f.px(20)
-  font-style: normal
   font-weight: 350
   line-height: 110%
   @include m.gap($mb: f.px(182), $plr: f.px(26))

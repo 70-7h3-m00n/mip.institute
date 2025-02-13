@@ -22,16 +22,14 @@
 .containerBlock_title
   @include m.flex($jc: space-between, $ai: center)
   @include m.media(phone, tablet)
-    @include m.flex($fd: column, $ai: start)
+    @include m.flex($fd: column, $ai: flex-start)
     gap: 15px
 
 .containerBlock_title_left
   color: c.$gray-800
-  font-family: Stem
-  font-size: f.px(16)
-  font-style: normal
-  font-weight: 300
   line-height: 110%
+  font-size: f.px(16)
+  font-weight: 300
   text-align: left
   @include m.gap($pl: f.px(57))
   width: 50%
@@ -42,9 +40,7 @@
 
 .containerBlock_title_right
   color: c.$black-800
-  font-family: Stem
   font-size: f.px(44)
-  font-style: normal
   font-weight: 500
   line-height: 120%
   width: 60%
@@ -71,9 +67,7 @@
 .containerBlock_info_left
   text-align: left
   color: c.$purple-800
-  font-family: Stem
   font-size: f.px(36)
-  font-style: normal
   font-weight: 500
   line-height: 120%
   width: 50%
@@ -84,9 +78,7 @@
 
 .containerBlock_info_right
   color: c.$black-700
-  font-family: Stem
   font-size: f.px(24)
-  font-style: normal
   font-weight: 350
   line-height: 110%
   text-align: left

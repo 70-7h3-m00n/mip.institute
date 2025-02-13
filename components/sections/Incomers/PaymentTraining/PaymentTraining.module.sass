@@ -4,16 +4,16 @@
 
 .container
   border-radius: 30px
-  background: c.$purple-100
+  @include m.dye(bg, c.$purple-100)
+  background: url("../group.png") center center
+  background-size: cover
   @include m.gap($ptb: f.px(40))
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(23))
 
 .title
   color: c.$black-800
-  font-family: Stem
   font-size: f.px(44)
-  font-style: normal
   font-weight: 500
   line-height: 120%
   @include m.gap($mb: f.px(35))
@@ -40,9 +40,6 @@
   cursor: pointer
   transition: 0.3s
   color: c.$black-700
-  font-family: Stem
-  font-size: f.px(20)
-  font-style: normal
   font-weight: 350
   line-height: 110%
 
