@@ -7,6 +7,7 @@ import CareerCenter from '@/components/sections/Incomers/CareerCenter/CareerCent
 import Incomers from '../sections/Incomers/Incomers/Incomers'
 import PaymentTraining from '../sections/Incomers/PaymentTraining/PaymentTraining'
 import dynamic from 'next/dynamic'
+import AdventuresCards from '../sections/Incomers/AdventuresCards/AdventuresCards'
 import StudyProcess from '@/components/sections/Incomers/StudyProcess/StudyProcess'
 
 const ProgramForRequest = dynamic(
@@ -21,10 +22,11 @@ const ProgramForRequest = dynamic(
 // }
 
 const PageIncomers = ({ incomers }: any) => {
-  console.log({ incomers })
+  console.log({ incomers }, 'incomers')
   return (
     <div className={stls.container}>
       <Incomers title={incomers.title} data={incomers.incomersInfo} />
+      <AdventuresCards data={incomers.AdventureCards}/>
       <MeetInstitute data={incomers.MeetInstitute} />
       <HappyStudents isMainPage={false} />
       <StudyProcess />
