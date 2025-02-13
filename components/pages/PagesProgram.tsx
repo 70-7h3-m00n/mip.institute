@@ -12,10 +12,7 @@ import WhatYouWillLearn from '@/components/sections/WhatYouWillLearn'
 import WhyBother from '@/components/sections/WhyBother'
 import YourDiploma from '@/components/sections/YourDiploma'
 import { discount } from '@/data/price'
-import {
-  sortBasedOnNumericOrder,
-  sortReviewsCreatedAtASC
-} from '@/helpers/index'
+import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '@/helpers/index'
 import { TypeLibReviews } from '@/types/index'
 import { useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
@@ -88,7 +85,7 @@ const PagesProgram = ({
   })
 
   const checkSlug = ['pedagog-psiholog', 'nejropsiholog']
-
+  console.log({ program })
   return (
     <>
       <ButtonToTop />
@@ -96,10 +93,7 @@ const PagesProgram = ({
       <PageNavigation sections={sections} />
       <WhyBother />
       {programOverview && (
-        <ProgramOverview
-          showDescription={showDescription}
-          toggleOverview={toggleOverview}
-        />
+        <ProgramOverview showDescription={showDescription} toggleOverview={toggleOverview} />
       )}
 
       {checkSlug.includes(slug) ? (
@@ -115,16 +109,14 @@ const PagesProgram = ({
       )}
       <EducationProcess />
       <DistanceEducation paddingBottomMobile={35} paddingBottom={90} />
-      <YourDiploma diplomaRef={diplomaRef} ofType={ofType} />
+      <YourDiploma diplomaRef={diplomaRef} ofType={ofType} programSlug={program.slug} />
       {ofType === 'Profession' && <ProfessionalLeague />}
       <BriefProgramContents planRef={planRef} />
       <FullProgram />
       <RequestsCard />
 
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
-      {program.portfolio && (
-        <YourResumeNew program={program} resumeRef={resumeRef} />
-      )}
+      {program.portfolio && <YourResumeNew program={program} resumeRef={resumeRef} />}
       {ofType === 'Profession' && <SalaryCounter title='Психология' />}
 
       {ofType === 'Profession' && (
@@ -137,9 +129,7 @@ const PagesProgram = ({
           desc={
             isPsyKonsultirovanie
               ? 'Оставьте заявку сейчас и забронируйте лучшее условия при зачислении'
-              : `Забронируйте программу по спеццене — со скидкой ${discount.substring(
-                  1
-                )}`
+              : `Забронируйте программу по спеццене — со скидкой ${discount.substring(1)}`
           }
           cta='reserve'
         />
