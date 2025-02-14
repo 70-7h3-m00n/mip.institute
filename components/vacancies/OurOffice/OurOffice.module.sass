@@ -1,0 +1,91 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$white-900)
+  @include m.gap($mb: 0, $ptb: f.px(40))
+  border-radius: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0, $ptb: f.px(25))
+    border-radius: f.px(20)
+
+.blockWrapper
+  display: flex
+  gap: f.px(29)
+  @include m.media(tablet, phone)
+    flex-direction: column
+
+.officeText
+  @include m.gap($pl: f.px(20),$pr: f.px(12), $ptb: f.px(30))
+  border-radius: f.px(10)
+  color: c.$white-900
+  @include m.media(laptop, desktop)
+    width: f.px(370)
+  background-color: c.$purple-800
+  @include m.media(tablet, phone)
+    @include m.gap($pr: f.px(17), $ptb: f.px(20))
+  .title
+    font-weight: 500
+    line-height: 100%
+    font-size: f.px(32)
+    max-width: f.px(200)
+    @include m.media(tablet, phone)
+      font-size: f.px(28)
+  .text
+    font-size: f.px(17)
+    font-weight: 350
+    @include m.media(tablet, phone)
+      font-size: f.px(15)
+.sliderContainer 
+  display: flex
+  align-items: center
+  justify-content: center
+
+.slider 
+  display: flex
+  overflow: hidden
+  width: 100%
+  border-radius: 10px
+  position: relative
+  @include m.media(laptop, desktop)
+    width: f.px(471)
+  height: f.px(342)
+  @include m.media(tablet, phone)
+    height: f.px(315)
+
+.slide 
+  flex: 0 0 100%
+  transition: opacity 0.5s ease-in-out
+  
+  .img
+    object-fit: cover
+    width: 100%
+    height: 100%
+  &.activeSlide
+    opacity: 1
+
+
+.btnPrev, .nextBtn
+  position: absolute
+  top: 45%
+
+.btnPrev
+  left: f.px(30)
+
+.nextBtn
+  right: f.px(30)
+
+.imgLeft
+  object-fit: cover
+  display: none
+
+  @include m.media( desktop)
+    width: f.px(270)
+    height: 100%
+    display: flex
+  @include m.media( phone)
+    display: flex
+    height: f.px(315)
+    width: 100%
+    border-radius: f.px(10)

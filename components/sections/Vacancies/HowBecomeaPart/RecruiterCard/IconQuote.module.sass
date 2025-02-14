@@ -1,0 +1,8 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container > svg
+  @include m.sizeIcon($w: 60, $h: 50)
+  @include m.media(phone, tablet)
+    @include m.sizeIcon($w: 40, $h: 30)

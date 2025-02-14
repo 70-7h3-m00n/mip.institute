@@ -20,9 +20,7 @@ const LectoriumFAQ = ({ faq }: Props) => {
             </h2>
             <p className={stls.contact}>
               Вопросы по участию вы можете задать нашему администратору&nbsp;
-              <span className={stls.bold}>
-                по телефону: 8&nbsp;(999) 888-88-88 (WhatsApp)
-              </span>
+              <span className={stls.bold}>по телефону: 8&nbsp;(999) 888-88-88 (WhatsApp)</span>
             </p>
           </div>
           {faq?.map((qna, idx) => (
@@ -36,7 +34,9 @@ const LectoriumFAQ = ({ faq }: Props) => {
               }
               content={
                 <div className={stls.content}>
-                  <IconArrowRightLong />
+                  <span>
+                    <IconArrowRightLong />
+                  </span>
                   <p className={stls.textContent}>{qna.answer}</p>
                 </div>
               }

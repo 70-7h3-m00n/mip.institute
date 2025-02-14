@@ -1,0 +1,63 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$white-900)
+  @include m.gap($mb: 0, $ptb: f.px(40))
+  border-radius: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0, $ptb: f.px(25))
+    border-radius: f.px(20)
+
+.title
+  font-size: f.px(42)
+  font-weight: 500
+  @include m.media(phone, tablet)
+    font-size: f.px(28)
+
+.cards
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  gap: f.px(30)
+  counter-reset: cardNumber
+
+  & > div
+    position: relative
+    counter-increment: cardNumber
+
+    &.skipNumber
+      counter-increment: none
+      &::before
+        display: none
+
+    &::before
+      content: counter(cardNumber)
+      position: absolute
+      @include m.flex($jc: center, $ai: center)
+      @include m.dye(c, c.$white-900)
+      @include m.dye(bg, c.$orange-700)
+      padding: f.px(10) f.px(5)
+      border-radius: f.px(100)
+      width: f.px(22)
+
+  @include m.media(phone, tablet)
+    grid-template-columns: repeat(1, 1fr)
+    gap: f.px(15)
+
+.mobImages
+  display: flex
+  flex-direction: column
+  & > span:nth-child(1)
+    align-self: flex-end
+    margin-right: f.px(-20)
+    @include m.media(tablet)
+      margin-right: f.px(20)
+
+  & > span:nth-child(2)
+    align-self: flex-start
+    margin-left: f.px(-20)
+    @include m.media(tablet)
+      margin-left: f.px(20)
+  @include m.media(tablet)
+    transform: scale(1.1)

@@ -1,0 +1,93 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  width: 100%
+  @include m.gap($ptb: f.px(40))
+  background: c.$white-900 
+  border-radius: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(25))
+
+.content
+  @include m.flex($ai:center,$jc:center)
+  width: 100%
+
+.textBlock
+  flex: 1
+  max-width: 50%
+  color: c.$black-900
+  font-family: Stem
+  font-style: normal
+  @include m.gap($mr: f.px(65))
+  @include m.media(phone, tablet)
+    margin-right: 0px
+    flex: none
+    max-width: 100%
+  
+.title
+  font-size: f.px(42)
+  font-weight: 500
+  line-height: 100%
+  @include m.gap($mb: f.px(10))
+  @include m.media(phone, tablet)
+    font-size: f.px(28)
+
+.description
+  font-size: f.px(18)
+  font-weight: 350
+  line-height: 110%
+  @include m.gap($mb: f.px(50))
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    margin-bottom: 15px
+
+.button
+  @include m.flex($ai:center,$jc:center)
+  text-align: center
+  text-decoration: none
+  border-radius: f.px(100)
+  background: c.$purple-800
+  color: c.$white-900 
+  font-weight: 500
+  font-size: f.px(22)
+  line-height: normal
+  transition: background 0.3s  
+  @include m.gap($ptb: f.px(17))
+  width: 100%
+  &:hover
+    background: #5a00a5
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    width: 100%
+
+.videoBlock
+  flex: 1
+  @include m.flex($ai:center,$jc:center)
+  @include m.gap($ml: f.px(65))
+  border-radius: f.px(20)
+  max-width: 100%
+  height: auto
+  @include m.media(phone, tablet)
+    display: none
+
+.mobVideoBlock
+  display: none
+  @include m.media(phone, tablet)
+    display: block
+    width: 100%
+    @include m.gap($mb: f.px(19))
+
+.playerWrapper
+  width: 100%
+  position: relative
+  padding-top: 52%
+
+.iframe
+  position: absolute
+  top: 0
+  left: 0
+  width: 98%
+  height: 98%
+  border-radius: 10px

@@ -27,7 +27,10 @@ const AboutPage: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
   }
 
   return (
-    <>
+    <div
+      style={{
+        overflow: 'hidden'
+      }}>
       <NextSeo
         title={seoParams.title}
         description={seoParams.desc}
@@ -57,7 +60,7 @@ const AboutPage: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
       <ChooseProgram />
       <ActiveLicenses />
       <AboutPageContactForm />
-    </>
+    </div>
   )
 }
 

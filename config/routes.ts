@@ -48,6 +48,7 @@ const routes: TRoutes = {
     about: '/about',
     reviews: '/reviews',
     legal: '/legal',
+    vacancies: '/vacancies',
     svedenCommon: '/sveden/common',
     legal_edu: '/legal_edu',
     payment: '/payment_edu_mip',

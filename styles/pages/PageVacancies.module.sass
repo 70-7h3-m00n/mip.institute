@@ -1,0 +1,9 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.flex($fd: column)
+  @include m.dye(bg, c.$gray-100)
+  @include m.gap($plr: f.px(20))
+  gap: f.px(20)

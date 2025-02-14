@@ -42,6 +42,10 @@ export default function SearchProgramsDropDown() {
       {
         href: routes.front.reviews,
         val: 'Отзывы'
+      },
+      {
+        href: routes.front.vacancies,
+        val: 'Вакансии'
       }
       // {
       //   href: routes.front.payment,
@@ -111,12 +115,7 @@ export default function SearchProgramsDropDown() {
     fetchPrograms()
   }, [])
 
-  const firstShownPrograms = [
-    programs[11],
-    programs[19],
-    programs[8],
-    programs[0]
-  ]
+  const firstShownPrograms = [programs[11], programs[19], programs[8], programs[0]]
 
   useEffect(() => {
     const filtered = programs.filter(program => {
@@ -171,41 +170,28 @@ export default function SearchProgramsDropDown() {
           onClick={handleIconSearchClick}>
           <IconSearchAlt />
         </div>
-        <div
-          className={
-            isInputVisible ? stls.programsPopUp : stls.hiddenProgramsPopUp
-          }>
+        <div className={isInputVisible ? stls.programsPopUp : stls.hiddenProgramsPopUp}>
           <div className={isInputVisible ? stls.card : stls.hidden}>
             {!searchQuery &&
               programs[0] !== undefined &&
               firstShownPrograms &&
               firstShownPrograms?.map((el, i) => (
                 <React.Fragment key={el.id}>
-                  <CardTooltip
-                    profession={el}
-                    clickHandler={cardClickHandler}
-                  />
+                  <CardTooltip profession={el} clickHandler={cardClickHandler} />
                 </React.Fragment>
               ))}
             {searchQuery &&
               filteredPrograms?.slice(0, 4).map((el, i) => (
                 <React.Fragment key={i}>
-                  <CardTooltip
-                    profession={el}
-                    clickHandler={cardClickHandler}
-                  />
+                  <CardTooltip profession={el} clickHandler={cardClickHandler} />
                 </React.Fragment>
               ))}
           </div>
           {filteredPrograms.length === 0 && searchQuery && (
             <div className={stls.notFound}>
-              <p className={stls.sorryText}>
-                К сожалению, по вашему запросу ничего не найдено
-              </p>
+              <p className={stls.sorryText}>К сожалению, по вашему запросу ничего не найдено</p>
               <div onClick={cardClickHandler} className={stls.allPrograms}>
-                <BtnField href='/programs'>
-                  Ознакомиться со всеми направлениями
-                </BtnField>
+                <BtnField href='/programs'>Ознакомиться со всеми направлениями</BtnField>
               </div>
             </div>
           )}
@@ -215,12 +201,7 @@ export default function SearchProgramsDropDown() {
         className={stls.desriptionPopup}
         onMouseEnter={directionsOnHoverHandler}
         onMouseLeave={directionsOnHoverHandler}>
-        <p
-          className={
-            directionOnHover
-              ? stls.directionPopupTextShown
-              : stls.desriptionPopupText
-          }>
+        <p className={directionOnHover ? stls.directionPopupTextShown : stls.desriptionPopupText}>
           {descriptionText}
         </p>
         <div className={directionOnHover ? stls.directionsPopup : stls.hidden}>

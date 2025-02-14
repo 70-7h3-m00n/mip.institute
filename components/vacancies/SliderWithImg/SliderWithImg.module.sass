@@ -1,0 +1,122 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  border-radius: f.px(30)
+  background: c.$white-900 
+  @include m.gap($pb: f.px(40))
+  overflow: visible
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(25))
+
+.title
+  color: c.$black-800
+  font-family: Stem
+  font-size: f.px(42)
+  @include m.gap($pt: f.px(40))
+  position: sticky
+  top: 0
+  font-weight: 500
+  line-height: 100%
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(25))
+    font-size: f.px(28) 
+    
+.container_slides
+  gap: f.px(30)
+  @include m.flex($fd: column)
+
+.slide
+  @include m.gap($plr: f.px(30),$pb: f.px(30),$mr:f.px(30))
+  border-radius: f.px(12)
+  text-align: center
+  background-image: url('https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738056726/Frame_2087325607_117b572f28.png')
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+  min-height: 498px
+  position: sticky
+  z-index: 5
+  top: f.px(110)
+  @include m.media(descktop)
+    min-height: 494px
+  @include m.media(laptop)
+    min-height: 413px
+  @include m.media(phone)
+    min-height: 0
+  @include m.media(phone, tablet)
+    top: f.px(90)
+    @include m.gap($mr:f.px(0))
+    @include m.gap($plr: f.px(13),$pb: f.px(0))
+
+.containerIndex
+  display: flex
+  justify-content: center
+
+.index
+  background:  c.$white-900
+  color: c.$purple-800
+  font-family: Stem
+  font-size: f.px(18)
+  font-style: normal
+  font-weight: 450
+  line-height: 110%
+  @include m.gap($mb:f.px(115), $mt: f.px(40))
+  width: 66px
+  height: 40px
+  border-radius: 8px
+  @include m.flex($jc: center, $ai: center)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.gap($mb:f.px(72),$mt: f.px(20))
+
+
+.subtitle
+  color: c.$black-800
+  text-align: center
+  font-family: Stem
+  font-size: f.px(28)
+  font-style: normal
+  font-weight: 500
+  line-height: 110%
+  @include m.gap($mb:f.px(10))
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+
+.description
+  color: c.$gray-800
+  text-align: center
+  font-family: Stem
+  font-size: f.px(18)
+  font-style: normal
+  font-weight: 350
+  line-height: 110%
+  @include m.gap($plr:f.px(54))
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.gap($plr:f.px(0),$mb: f.px(73))
+    
+.chatImage
+  display: flex
+  border-radius: f.px(12)
+  position: sticky
+  top: f.px(110)
+  max-width: 100%
+  flex-shrink: 0
+  @include m.media(laptop, desktop)
+    width: 50%
+    max-width: 570px
+  @include m.media(phone, tablet)
+    top: f.px(90)
+    width: 100%
+    min-height: f.px(200)
+    @include m.gap($mb:f.px(30))
+
+.containerTwoColumns
+  width: 100%
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: space-between)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column-reverse)
+    

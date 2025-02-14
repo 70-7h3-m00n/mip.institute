@@ -1,0 +1,72 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$white-900)
+  @include m.gap($mb: 0, $ptb: f.px(40))
+  border-radius: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0, $ptb: f.px(25))
+    border-radius: f.px(20)
+
+.title
+  font-size: f.px(42)
+  font-weight: 500
+  @include m.media(phone, tablet)
+    font-size: f.px(28)
+
+.cards
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: f.px(30)
+  @include m.media(phone, tablet)
+    grid-template-columns: repeat(1, 1fr)
+    gap: f.px(15)
+
+.card
+  @include m.dye(bg, c.$pink-50)
+  border-radius: f.px(10)
+  min-height: f.px(240)
+  @include m.gap($ptb: f.px(30), $plr: f.px(20))
+  background-size: cover
+  background-repeat: no-repeat
+  &:nth-child(1)
+    background-image: url("/assets/imgs/vacancies/benefits/card1.png")
+    background-position: center center
+  &:nth-child(6)
+    background-image: url("/assets/imgs/vacancies/benefits/card6.png")
+    background-position: center top
+  &:nth-child(2)
+    text-align: center
+    background: none
+    @include m.media(phone, tablet)
+      @include m.gap($plr: f.px(10), $ptb: f.px(0))
+      min-height: f.px(130)
+    & > .cardTitle
+      @include m.gap($mb: f.px(20))
+      @include m.media(phone, tablet)
+        @include m.gap($mb: f.px(10))
+    & > .cardDescription
+      @include m.gap($pr: 0)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20), $pr: f.px(40))
+    min-height: f.px(170)
+
+.cardTitle
+  display: block
+  @include m.dye(c, c.$purple-800)
+  @include m.gap($mb: f.px(10))
+  font-size: f.px(36)
+  font-weight: 450
+  @include m.media(phone, tablet)
+    font-size: f.px(24)
+
+.cardDescription
+  display: block
+  font-size: f.px(18)
+  font-weight: 350
+  @include m.gap($pr: f.px(30))
+  @include m.media(phone, tablet)
+    @include m.gap($pr: 0)
+    font-size: f.px(15)

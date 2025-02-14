@@ -1,0 +1,242 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.gap($ptb: f.px(25))
+
+.content
+  @include m.flex($ai:center,$jc:center)
+  width: 100%
+  @include m.media(phone, tablet)
+    @include m.flex($fd:column-reverse)
+
+.textBlock
+  flex: 1
+  z-index: 3
+  max-width: 50%
+  color: c.$black-900
+  font-family: Stem
+  font-style: normal
+  @include m.media(phone, tablet)
+    @include m.gap($mr: f.px(0))
+    flex: none
+    max-width: 100%
+
+.vacancyTag
+  display: inline-block
+  @include m.gap($mb: f.px(20))
+  border-radius: f.px(80)
+  border: 1px solid c.$purple-370
+
+.vacancyTitle
+  color: c.$purple-370
+  font-family: Stem
+  font-size: f.px(16)
+  font-weight: 500
+  line-height: normal
+  @include m.gap($mb: f.px(0),$ptb: f.px(11),$plr: f.px(25))
+  @include m.media(phone, tablet)
+    font-size: f.px(10)
+    @include m.gap($ptb: f.px(7),$plr: f.px(18))
+
+.title
+  font-size: f.px(60)
+  font-weight: 500
+  line-height: 100%
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(44)
+    @include m.gap($mb: f.px(10))
+
+.description
+  font-size: f.px(22)
+  font-weight: 350
+  line-height: 110%
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(20))
+
+.button
+  @include m.flex($ai:center,$jc:center)
+  text-align: center
+  text-decoration: none
+  border-radius: f.px(100)
+  background: c.$purple-800
+  color: c.$white-900 
+  font-weight: 500
+  font-size: f.px(22)
+  line-height: normal
+  transition: background 0.3s  
+  @include m.gap($ptb: f.px(17))
+  width: 100%
+  &:hover
+    background: #5a00a5
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    width: 100%
+
+.imageWrapper
+  flex: 1
+  @include m.flex($ai:center,$jc:center)
+  max-width: 50%
+  position: relative
+
+  @include m.media(phone, tablet)
+    max-width: 100%
+
+.imageContainer
+  position: relative
+  @include m.media(tablet)
+    height: auto
+    max-width: 100%
+  @include m.media(phone)
+    transform: scale(1.1)
+
+.parallaxImage
+  width: clamp(4.5rem, -8.084rem + 25.2vw, 7rem)
+  height: auto
+  max-width: 100%
+  border-radius: 10px
+  object-fit: cover
+  position: absolute
+  transition: transform 0.1s ease-out
+  
+.parallaxImage[data-id="1"]
+  @include m.media(desktop)
+    top: 11%
+    left: 37%
+  @include m.media(laptop)
+    top: 9%
+    left: 30%
+  @include m.media(tablet)
+    top: 11%
+    left: 37%
+  @include m.media(phone)
+    top: 11%
+    left: 34%
+
+.parallaxImage[data-id="2"]
+  @include m.media(desktop)
+    top: 22%
+    right: 20%
+  @include m.media(laptop)
+    top: 20%
+    right: 20%
+  @include m.media(tablet)
+    top: 22%
+    right: 13%
+  @include m.media(phone)
+    top: 22%
+    right: 16%
+
+.parallaxImage[data-id="3"]
+  @include m.media(desktop)
+    bottom: 30%
+    right: 57%
+  @include m.media(laptop)
+    bottom: 23%
+    right: 57%
+  @include m.media(tablet)
+    bottom: 20%
+    right: 42%
+  @include m.media(phone)
+    bottom: 20%
+    right: 45%
+
+.parallaxImage[data-id="4"]
+  @include m.media(desktop)
+    bottom: 19%
+    right: 25%
+  @include m.media(laptop)
+    bottom: 17%
+    right: 25%
+  @include m.media(tablet)
+    bottom: 15%
+    right: 10%
+  @include m.media(phone)
+    bottom: 15%
+    right: 13%
+
+.parallaxImage[data-id="5"]
+  @include m.media(desktop)
+    top: 35%
+    left: 10%
+  @include m.media(laptop)
+    top: 35%
+    left: 8%
+  @include m.media(tablet)
+    top: 40%
+    left: 10%
+  @include m.media(phone)
+    top: 40%
+    left: 10%
+
+.specialImageFoto
+  @include m.media(desktop,laptop)
+    width: 110px
+    height: 110px
+  @include m.media(tablet)
+    width: 160px
+    height: 160px
+  @include m.media(phone)
+    width: 85px
+    height: 85px
+    
+.specialImageChat
+  @include m.media(desktop,laptop)
+    width: 80px
+    height: 80px
+  @include m.media(tablet)
+    width: 120px
+    height: 120px
+  @include m.media(phone)
+    width: 63px
+    height: 63px
+
+.specialImageMip
+  @include m.media(desktop,laptop)
+    width: 90px
+    height: 90px
+  @include m.media(tablet)
+    width: 140px
+    height: 140px
+  @include m.media(phone)
+    width: 65px
+    height: 65px
+
+.specialImagePointer
+  @include m.media(desktop,laptop)
+    width: 90px
+    height: 90px
+  @include m.media(tablet)
+    width: 140px
+    height: 140px
+  @include m.media(phone)
+    width: 65px
+    height: 65px
+    
+.svgBackgroundDes
+  & svg
+    @include m.media(phone, tablet)
+      opacity: 0
+
+
+.svgBackgroundMob
+  @include m.media(desktop,laptop)
+    display: none
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+
+  & svg
+    width: 100%
+    height: auto
+    max-width: 100vw
+    object-fit: cover

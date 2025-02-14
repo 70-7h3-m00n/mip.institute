@@ -1,0 +1,39 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.card
+  @include m.dye(bg, c.$gray-100)
+  border-radius: f.px(10)
+  min-height: f.px(270)
+  @include m.gap($ptb: f.px(30), $pl: f.px(20), $pr: f.px(15))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20), $pr: f.px(20))
+    min-height: f.px(170)
+
+.cardHeader
+  @include m.flex($ai: center)
+  min-height: f.px(40)
+  gap: f.px(15)
+  @include m.gap($mb: f.px(15))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(15))
+
+.cardTitle
+  white-space: pre-line
+  @include m.dye(c, c.$orange-700)
+  @include m.gap($ml: f.px(30))
+  font-size: f.px(18)
+  font-weight: 500
+
+.cardDescription
+  font-size: f.px(16)
+  font-weight: 350
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+
+.cardImage
+  width: f.px(100)
+
+.img
+  transform: scale(0.5)

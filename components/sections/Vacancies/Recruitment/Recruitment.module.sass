@@ -1,0 +1,51 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  position: relative
+  @include m.dye(bg, c.$white-900)
+  @include m.gap($mb: 0, $ptb: f.px(40))
+  border-radius: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0, $ptb: f.px(25))
+    border-radius: f.px(20)
+
+.title
+  font-size: f.px(42)
+  font-weight: 500
+  @include m.media(phone, tablet)
+    font-size: f.px(28)
+
+.cards
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: f.px(30)
+  grid-auto-rows: auto
+  @include m.media(phone, tablet)
+    grid-template-columns: repeat(1, 1fr)
+    gap: f.px(20)
+
+.cardWithName
+  @include m.flex($fd: column)
+  gap: f.px(10)
+
+.name
+  font-size: f.px(24)
+  margin-bottom: 0
+  font-weight: 500
+  @include m.media(phone, tablet)
+    font-size: f.px(22)
+
+.imageWrapper
+  position: absolute
+  margin-top: f.px(-75)
+  @include m.flex($jc: center)
+  right: f.px(250)
+  top: f.px(300)
+  @include m.media(laptop)
+    transform: scale(.8)
+    right: 0
+
+.imageMobile
+  margin-top: f.px(-50)
