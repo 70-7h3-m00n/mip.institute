@@ -8,6 +8,8 @@
   border-radius: f.px(30)
   @include m.gap($ptb: f.px(40))
   gap: f.px(35)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(25))
 
 .title
   font-weight: 500

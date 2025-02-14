@@ -3,6 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
+  overflow: hidden
   @include m.dye(bg, c.$gray-100)
   @include m.flex($fd: column)
   gap: f.px(20)
