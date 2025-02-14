@@ -7,14 +7,14 @@
   background: url('/assets/imgs/general/stars404.png')
   @include m.dye(bg, c.$purple-950)
   @include m.media(desktop, laptop)
-    @include m.gap($pt: f.px(140))
+    @include m.gap($ptb: f.px(100))
   @include m.media(tablet)
     @include m.gap($pt: f.px(130))
   @include m.media(phone)
     @include m.gap($pt: f.px(200))
 
 .image
-  transform: translateY(f.px(-200))
+  transform: translateY(f.px(-150))
 
 .errorText
   @include m.flex($jc: center, $ai: flex-end)
@@ -30,7 +30,7 @@
   @include m.media(laptop)
     transform: translate(0, f.px(580))
   @include m.media(tablet)
-    transform: translate(0, f.px(400))
+    transform: translate(0, f.px(300))
   @include m.media(phone)
     transform: translate(0, f.px(400))
 
