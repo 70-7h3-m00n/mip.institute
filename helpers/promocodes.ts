@@ -26,7 +26,8 @@ const promocodes = {
   vasilisavolodinaofficial: 'ВАСИЛИСА',
   dorogedeneg: 'ДОРОЖЕ',
   '1000idey2': '1000',
-  tanyamint: 'MINT'
+  tanyamint: 'MINT',
+  dukalis: 'ДУКАЛИС'
 }
 
 export default promocodes
