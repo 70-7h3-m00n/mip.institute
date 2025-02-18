@@ -2,72 +2,77 @@ import Wrapper from '@/ui/Wrapper'
 import stls from './ProgramSelectionTop.module.sass'
 import IconCheck from '@/components/icons/IconCheck'
 import Image from 'next/image'
-import pic from './pic.png'
 import ArrowButton from '@/components/sections/Incomers/ArrowButton/ArrowButton'
 import { incomersStudyOptions } from 'constants/customSelect'
 import CustomSelect from '@/ui/CustomSelect'
 import { useState } from 'react'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import { DataItem, ListBlock } from '@/types/page/incomers/incomersTypes'
 
-const ProgramSelectionTop = () => {
-  const purples = [
-    {
-      title: 'Доверие',
-      text: 'Мы собрали команду из ведущих преподавателей-практиков и разработали программы обучения, отвечающие международным стандартам в сфере образования.'
-    },
-    {
-      title: 'Доступное и качественное обучение',
-      text: 'Программы института объединяют глубокую теорию и насыщенную практику, помогая освоить научную базу и уверенно применять психологические инструменты в работе с клиентами в удобном для вас формате формате.'
-    }
-  ]
+interface MappedCard {
+  link: string
+  title: string
+  points: string[]
+  image: string
+}
 
-  const cards = [
-    {
-      title: 'Профессиональная переподготовка',
-      value: 'profession',
-      points: [
-        '8 основных направлений в изучении психологии',
-        'Для тех, кто решил освоить новую профессию с нуля',
-        'Длительность обучения — от 6 до 24 месяцев в ависимости от выбранного направления',
-        'По окончании обучения выдается диплом'
-      ]
-    },
-    {
-      title: 'Практическая подготовка',
-      value: 'practicalTraining',
-      points: [
-        '8 основных направлений в изучении психологии',
-        'Для тех, кто решил освоить новую профессию с нуля',
-        'Длительность обучения — от 6 до 24 месяцев в ависимости от выбранного направления',
-        'По окончании обучения выдается диплом'
-      ]
-    },
-    {
-      title: 'Повышение квалификации',
-      value: 'course',
-      points: [
-        '8 основных направлений в изучении психологии',
-        'Для тех, кто решил освоить новую профессию с нуля',
-        'Длительность обучения — от 6 до 24 месяцев в ависимости от выбранного направления',
-        'По окончании обучения выдается диплом'
-      ]
-    },
-    {
-      title: 'Бакалавриат',
-      value: 'bachelor',
-      points: [
-        '8 основных направлений в изучении психологии',
-        'Для тех, кто решил освоить новую профессию с нуля',
-        'Длительность обучения — от 6 до 24 месяцев в ависимости от выбранного направления',
-        'По окончании обучения выдается диплом'
-      ]
-    }
-  ]
+interface PurpleCard {
+  id: number
+  title: string
+  text: string
+}
+
+interface Props {
+  bottomCards: DataItem[]
+  topCards: DataItem[]
+}
+
+const ProgramSelectionTop = ({ bottomCards, topCards }: Props) => {
+  const [type, setType] = useState(incomersStudyOptions[0]?.value)
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
-  const [type, setType] = useState(incomersStudyOptions[0]?.value)
+  const purples: PurpleCard[] = topCards.map(({ id, text }) => {
+    const title =
+      text.find(block => block.type === 'paragraph' && 'children' in block)?.children[0]?.text || ''
 
-  const filteredCards = isMobileAndTabletLayout ? cards.filter(card => card.value === type) : cards
+    const textContent = text
+      .filter(block => block.type === 'paragraph' && 'children' in block)
+      .slice(1)
+      .map(block => block.children[0]?.text.replace(/ /g, '\n'))
+      .join('\n\n')
+
+    return { id, title, text: textContent }
+  })
+
+  const mappedCards: MappedCard[] = bottomCards?.map(({ text, img }) => {
+    const title = text
+      .find(block => block.type === 'paragraph' && 'children' in block)
+      ?.children[0]?.text.replace(' ', '\n')
+
+    const cleanedTitle = title.replace(/{|}/g, '').trim()
+
+    let link: string
+    if (cleanedTitle.toLowerCase().includes('переподготовка')) {
+      link = 'professions'
+    } else if (cleanedTitle.toLowerCase().includes('бакалавриат')) {
+      link = 'bachelor'
+    } else if (cleanedTitle.toLowerCase().includes('подготовка')) {
+      link = 'practical-training'
+    } else if (cleanedTitle.toLowerCase().includes('повышение')) {
+      link = 'courses'
+    }
+
+    const points =
+      text
+        .find((block): block is ListBlock => block.type === 'list' && 'children' in block)
+        ?.children.map(item => item.children[0]?.text) || []
+
+    return { link, title, points, image: img.url }
+  })
+
+  const filteredCards = isMobileAndTabletLayout
+    ? mappedCards.filter(card => card.link === type)
+    : mappedCards
 
   return (
     <section className={stls.container}>
@@ -99,10 +104,10 @@ const ProgramSelectionTop = () => {
           />
         )}
         <div className={stls.cards}>
-          {filteredCards.map((item, index) => (
+          {filteredCards?.map((item, index) => (
             <div key={index} className={stls.greyCard}>
               <div className={stls.btnContainer}>
-                <ArrowButton />
+                <ArrowButton href={item.link} />
               </div>
               <div>
                 <span className={stls.greyCardTitle}>{item.title}</span>
@@ -119,8 +124,8 @@ const ProgramSelectionTop = () => {
               </div>
               <div className={stls.imageDiv}>
                 <Image
-                  src={pic}
-                  alt=''
+                  src={item.image}
+                  alt='Фото'
                   width={230}
                   height={150}
                   style={{ height: '100%', width: '100%' }}

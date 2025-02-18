@@ -87,6 +87,7 @@
     @include m.gap($ptb: f.px(20), $plr: f.px(20))
 
 .greyCardTitle
+  white-space: pre-wrap
   text-align: center
   display: block
   font-size: f.px(18)
@@ -117,5 +118,6 @@
   @include m.gap($mb: f.px(-10))
   max-width: 100%
   object-fit: cover
+  max-height: f.px(150)
   @include m.media(phone, tablet)
     @include m.gap($mb: 0)

@@ -64,7 +64,7 @@ const OurPossibilities = ({ data }: Props) => {
           {data[0] && (
             <div className={stls.containerBlock_One}>
               <div className={stls.containerBlock_One_btn}>
-                <ArrowButton />
+                <ArrowButton href={'lectoriums'} />
               </div>
               <div className={stls.containerBlock_One_title}>
                 {data[0].text[0]?.children[0]?.text}

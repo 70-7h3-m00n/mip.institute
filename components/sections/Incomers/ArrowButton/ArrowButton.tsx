@@ -1,4 +1,6 @@
 import stls from './ArrowButton.module.sass'
+import Link from 'next/link'
+import routes from '@/config/routes'
 
 const Icon = () => {
   return (
@@ -21,11 +23,15 @@ const Icon = () => {
   )
 }
 
-const ArrowButton = () => {
+interface Props {
+  href: string
+}
+
+const ArrowButton = ({ href }: Props) => {
   return (
-    <button className={stls.btn}>
+    <Link className={stls.btn} href={routes.front[href] || ''} target={'_blank'} passHref>
       <Icon />
-    </button>
+    </Link>
   )
 }
 

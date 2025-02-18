@@ -38,9 +38,9 @@ const lectoriumPriceOptions = [
 ]
 
 const incomersStudyOptions = [
-  { value: 'profession', label: 'Профессиональная переподготовка' },
-  { value: 'practicalTraining', label: 'Практическая подготовка' },
-  { value: 'course', label: 'Повышение квалификации' },
+  { value: 'professions', label: 'Профессиональная переподготовка' },
+  { value: 'practical-training', label: 'Практическая подготовка' },
+  { value: 'courses', label: 'Повышение квалификации' },
   { value: 'bachelor', label: 'Бакалавриат' }
 ]
 
