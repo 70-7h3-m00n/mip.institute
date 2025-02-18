@@ -1,8 +1,8 @@
 import stls from './ProgramForRequest.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import { useRef } from 'react'
-import BtnGamma from '@/components/btns/BtnGamma'
 import { KinescopePlayer } from '@/ui/Player/Player'
+import PopupTrigger from '@/ui/PopupTrigger'
 
 type TextItemType = {
   children: Array<{ text: string }>
@@ -57,7 +57,7 @@ const ProgramForRequest = ({ data }: Props) => {
                 />
               </div>
             </div>
-            <BtnGamma text='Оставить заявку' />
+            <PopupTrigger btn='gamma' cta='submitApplication' />
           </div>
 
           <div className={stls.videoBlock}>

@@ -87,8 +87,7 @@
   @include m.media(phone, tablet)
     @include m.gap($pl: f.px(27))
 
-
-.containerBlock_main_left_btn
+.button-base
   width: 100%
   height: auto
   bottom: 0
@@ -99,9 +98,8 @@
   font-size: f.px(18)
   font-weight: 500
   border-radius: 100px
-  background: c.$orange-700
-  &:hover
-    transform: scale(1.05)
+  &::after
+    display: none
   @include m.gap($ptb: f.px(19), $mb: f.px(20))
   @include m.media(laptop)
     @include m.gap($mb: f.px(7))
@@ -111,6 +109,9 @@
   @include m.media(phone)
     @include m.gap($ptb: f.px(17), $mb: f.px(10))
     font-size: f.px(16)
+
+.container_img_btn > [aria-describedby^="popup-"] > button
+  @extend .button-base
 
 .containerBlock_main_right
   width: 100%

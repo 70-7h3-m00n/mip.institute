@@ -2,6 +2,7 @@ import React from 'react'
 import Wrapper from '@/ui/Wrapper'
 import stls from './Incomers.module.sass'
 import Image from 'next/image'
+import PopupTrigger from '@/ui/PopupTrigger'
 
 const Incomers = ({ title, data }: any) => {
   return (
@@ -39,7 +40,7 @@ const Incomers = ({ title, data }: any) => {
                   src='https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739277866/Postuplenie_Left_bd89a2f31b.png'
                   alt='прогресс'
                 />
-                <button className={stls.containerBlock_main_left_btn}>Задать вопрос</button>
+                <PopupTrigger btn='alpha' cta='askQuestion' />
               </div>
             </div>
             <Image
