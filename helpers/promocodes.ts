@@ -27,7 +27,9 @@ const promocodes = {
   dorogedeneg: 'ДОРОЖЕ',
   '1000idey2': '1000',
   tanyamint: 'MINT',
-  dukalis: 'ДУКАЛИС'
+  dukalis: 'ДУКАЛИС',
+  planetaalex: 'ПЛАНЕТА',
+  hotpsyhologies: 'ВИКТОРИЯ'
 }
 
 export default promocodes
