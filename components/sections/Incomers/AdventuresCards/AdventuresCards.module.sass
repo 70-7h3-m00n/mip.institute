@@ -95,10 +95,11 @@
     top: 150px
 
 .image
-  width: 100%
-  height: auto
   border-radius: 30px
   border: 1px solid c.$purple-350
+  @include m.media(laptop)
+    width: 100%
+    height: auto
   @include m.media(tablet)
     width: 100%
     height: auto
