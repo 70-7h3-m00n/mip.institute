@@ -39,7 +39,11 @@ const queryString = qs.stringify(
         populate: '*'
       },
       programSelectionsBottom: {
-        populate: '*'
+        populate: {
+          img :{
+            fields: ['url', 'width', 'height']
+          }
+        }
       },
       ourPossibilities: {
         populate: '*'
