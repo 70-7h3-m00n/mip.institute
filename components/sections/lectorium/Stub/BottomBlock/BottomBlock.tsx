@@ -3,19 +3,9 @@ import loadIcon from '@/helpers/general/loadIcon'
 import stls from './BottomBlock.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import TwoColumns from '@/ui/TwoColumns'
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import Image from 'next/image'
 
 const BottomBlock = () => {
-  const router = useRouter()
-  const [currentUrl, setCurrentUrl] = useState('')
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setCurrentUrl(`${window.location.origin}${router.asPath}`)
-    }
-  }, [router.asPath])
-  const shareText = 'Рекомендую ознакомиться с этим мероприятием!'
   const socialLinks = [
     {
       id: 'vk',
