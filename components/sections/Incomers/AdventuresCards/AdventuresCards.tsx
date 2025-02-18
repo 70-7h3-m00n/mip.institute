@@ -8,28 +8,26 @@ const AdventuresCards = ({ data }: any) => {
   const isMobile = useBetterMediaQuery('(max-width: 768px)')
   const isMobileOrTablet = useBetterMediaQuery('(max-width: 1024px)')
 
-  const imageSizes = {
-    22: { width: 400, height: 500 },
-    23: { width: 470, height: 390 },
-    24: { width: 450, height: 390 },
-    25: { width: 370, height: 560 },
-    26: { width: 270, height: 420 },
-    27: { width: 470, height: 420 },
-    28: { width: 350, height: 420 },
-    29: { width: 270, height: 420 },
-    30: { width: 470, height: 420 }
-  }
+  const presetSizes = [
+    { width: 400, height: 500 },
+    { width: 470, height: 390 },
+    { width: 450, height: 390 },
+    { width: 370, height: 560 },
+    { width: 270, height: 420 },
+    { width: 470, height: 420 },
+    { width: 350, height: 420 },
+    { width: 270, height: 420 },
+    { width: 470, height: 420 }
+  ]
 
-  const images = data.map(item => ({
-    id: item.id,
-    url: item.carousel.slide.files[isMobile ? 1 : 0].url,
-    width: isMobile
-      ? 353
-      : imageSizes[item.id]?.width || item.carousel.slide.files[0].width,
-    height: isMobile
-      ? 322
-      : imageSizes[item.id]?.height || item.carousel.slide.files[0].height
-  }))
+  const images = data.map((item, index) => {
+    const presetSize = presetSizes[index]
+    return {
+      url: item.carousel.slide.files[isMobile ? 1 : 0].url,
+      width: isMobile ? 353 : presetSize?.width,
+      height: isMobile ? 322 : presetSize?.height
+    }
+  })
 
   const firstBlock = images.slice(0, 2)
   const secondBlock = images.slice(2, 4)
@@ -44,7 +42,7 @@ const AdventuresCards = ({ data }: any) => {
             src={item.url}
             width={item.width}
             height={item.height}
-            alt="Образовательный процесс"
+            alt='Образовательный процесс'
             className={stls.image}
           />
         </div>
@@ -72,10 +70,10 @@ const AdventuresCards = ({ data }: any) => {
         {!isMobile && (
           <div className={stls.imageMipContainer}>
             <Image
-              src="https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739393511/MIP_648849f5c7.png"
+              src='https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739393511/MIP_648849f5c7.png'
               width={900}
               height={350}
-              alt="Мип"
+              alt='Мип'
               className={stls.imageMip}
             />
           </div>
@@ -96,7 +94,7 @@ const AdventuresCards = ({ data }: any) => {
                   src={item.url}
                   width={item.width}
                   height={item.height}
-                  alt="Образовательный процесс"
+                  alt='Образовательный процесс'
                   className={stls.image}
                 />
               </div>
