@@ -57,7 +57,7 @@ const LinkComponent = ({
               backgroundImage: `url(${background1?.src})`,
               backgroundSize: 'cover'
             }}>
-            {children[0]}
+            {children?.[0]}
           </div>
           <div
             className={classNames({
@@ -68,7 +68,7 @@ const LinkComponent = ({
               backgroundImage: `url(${background2?.src})`,
               backgroundSize: 'cover'
             }}>
-            {children[1]}
+            {children?.[1]}
           </div>
         </div>
       </Wrapper>

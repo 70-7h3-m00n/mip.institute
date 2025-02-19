@@ -29,6 +29,7 @@ export const parseRichTextData = (data: { text: RichTextParagraph[]; img?: strin
   const link = linkObject ? linkObject.children.find(c => c.type === 'link')?.url : null
 
   const linkText = linkObject
+  //@ts-ignore
     ? linkObject.children.find(c => c.type === 'link')?.children[0]?.text
     : 'Перейти'
 

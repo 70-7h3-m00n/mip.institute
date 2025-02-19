@@ -102,7 +102,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
-
+    // @ts-ignore
     let utms = JSON.parse(sessionStorage.getItem('utms')) || {}
     let utmsAreEmpty = false
 

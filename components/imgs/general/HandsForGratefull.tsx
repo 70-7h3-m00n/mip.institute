@@ -7,8 +7,8 @@ const HandsForGratefull = ({ width = 300, height = 400 }) => {
       <Image
         src={pic}
         alt='Девушка за ноутбуком обучается'
-        width={width !== 0 && width}
-        height={height !== 0 && height}
+        width={width !== 0 && width || undefined}
+        height={height !== 0 && height || undefined}
         placeholder='blur'
       />
     </div>

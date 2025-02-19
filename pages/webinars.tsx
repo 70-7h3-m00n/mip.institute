@@ -14,16 +14,24 @@ const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
   programs,
   webinars
 }) => {
+  //@ts-ignore
   useHandleContextStaticProps({ programs })
-
+//@ts-ignore
   const webinarsSorted: TypeLibWebinars = sortBasedOnNumericOrder({ webinars })
   const seoParams = {
     title: `Вебинары | ${company.desc} | ${company.name}
     `,
     desc: truncate(
-      `${webinarsSorted[webinarsSorted.length - 1].title}, ${
+      //@ts-ignore
+      `${webinarsSorted[webinarsSorted.length - 1].title}, 
+      
+      ${
+        //@ts-ignore
         webinarsSorted[webinarsSorted.length - 1].name
-      } | ${webinarsSorted[webinarsSorted.length - 2].title}, ${
+      } | ${
+        //@ts-ignore
+        webinarsSorted[webinarsSorted.length - 2].title}, ${
+        //@ts-ignore
         webinarsSorted[webinarsSorted.length - 2].name
       }`,
       120

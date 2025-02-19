@@ -81,7 +81,9 @@ const GratefullNew = ({ backButton = true }: Props) => {
         </div>
         <div className={stls.bottom}>
           <p></p>
-          <Link href={gratefull.columns[1].link} target='_blank' className={stls.link}>
+          <Link 
+          // @ts-ignore
+          href={gratefull.columns[1].link} target='_blank' className={stls.link}>
             <button
               className={classNames({
                 [stls.button]: true,

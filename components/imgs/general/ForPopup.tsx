@@ -9,8 +9,8 @@ const ForPopup = ({ src, alt, width = 135, height = 117 }) => {
       src={src}
       alt={alt}
       className={stls.img}
-      width={width !== 0 && width}
-      height={height !== 0 && height}
+      width={width !== 0 && width || undefined}
+      height={height !== 0 && height || undefined}
       placeholder='blur'
       blurDataURL={base64pixel}
       quality={100}

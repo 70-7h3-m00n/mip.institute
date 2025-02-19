@@ -11,6 +11,6 @@ const VacanciesIndexPage = ({ vacancies }) => {
     </>
   )
 }
-
+//@ts-ignore
 export const getStaticProps: GetStaticProps = async () => await getStaticPropsVacancies()
 export default VacanciesIndexPage

@@ -1,22 +1,20 @@
+'use client'
 import PopupTrigger from '@/ui/PopupTrigger'
 import IconCloseCircle from '@/components/icons/IconCloseCircle'
 import IconForStickyBottom from '@/components/icons/IconForStickyBottom'
 import IconInfoOrange from '@/components/icons/IconInfoOrange'
 import Wrapper from '@/ui/Wrapper'
 import ProgramDiscountUntil from '@/components/program/ProgramDiscountUntil'
-import { routes } from '@/config/index'
 import { discount } from '@/data/price'
 import stls from '@/styles/components/sections/StickyBottom.module.sass'
 import cn from 'classnames'
 import classNames from 'classnames'
 import { getCookie } from 'cookies-next'
-import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
 import IconPortalViolet from '../icons/IconPortalViolet'
 
 const StickyBottom = () => {
-  const router = useRouter()
   const [isShown, setIsShown] = useState(true)
   const [isClosed, setIsClosed] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -24,19 +22,8 @@ const StickyBottom = () => {
   const roistat_visit = getCookie('roistat_visit')
 
   useEffect(() => {
-    if (router.asPath !== routes.front.payment) {
-      // document.addEventListener('scroll', () => {
-      //   const scrollHeight = document.body.scrollHeight
-      //   const pageYOffset = window.pageYOffset
-      //   pageYOffset > (scrollHeight * 10) / 1000 &&
-      //   pageYOffset + window.innerHeight < (scrollHeight * 90) / 100 &&
-      //   !isClosed
-      //     ? setIsShown(true)
-      //     : setIsShown(false)
-      // })
-    }
     setIsLoaded(true)
-  }, [router, setIsShown, isClosed])
+  }, [ setIsShown, isClosed])
 
   if (isLoaded)
     return (

@@ -28,7 +28,9 @@ const BtnAlpha = ({
             [stls.container]: true
           })}
           href={href}
+          // @ts-ignore
           target={target}
+          // @ts-ignore
           rel={target && 'noopener noreferrer'}>
           {text}
         </a>

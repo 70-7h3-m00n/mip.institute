@@ -1,3 +1,4 @@
+'use client'
 import BtnFields from '@/components/btns/BtnFields'
 import BtnHumburger from '@/components/btns/BtnHumburger'
 import BtnPhone from '@/components/btns/BtnPhone'
@@ -10,7 +11,7 @@ import { handleSwipedEvt } from '@/helpers/index'
 import stls from '@/styles/components/sections/Header.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { useContext, useEffect } from 'react'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
@@ -21,7 +22,7 @@ type Props = {
 
 const Header = ({ isPromo }: Props) => {
   const { menuIsOpen, closeMenu } = useContext(MenuContext)
-  const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     handleSwipedEvt({ menuIsOpen, closeMenu })
@@ -34,7 +35,7 @@ const Header = ({ isPromo }: Props) => {
       })}>
       <MenuMobile />
       <Wrapper>
-        {router.route === '/' && (
+        {pathname === '/' && (
           <div className={stls.top}>
             <div className={stls.topleft}>
               <Link href={routes.front.svedenCommon} className={stls.linkInfo}>

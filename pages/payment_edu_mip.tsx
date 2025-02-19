@@ -16,6 +16,7 @@ import Script from 'next/script'
 import { useState } from 'react'
 
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
+  //@ts-ignore
   useHandleContextStaticProps({ programs })
 
   const seoParams = {

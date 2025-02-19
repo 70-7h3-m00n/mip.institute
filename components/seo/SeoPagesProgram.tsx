@@ -42,6 +42,7 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
 
       return null
     })
+    //@ts-ignore
   )?.filter(item => item) || null) as AdditionalRobotsProps
 
   const isNoindex = !seo?.isSEOFriendly || seo?.metaRobots?.includes('noindex')

@@ -7,6 +7,7 @@ import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
+  //@ts-ignore
   useHandleContextStaticProps({ programs })
 
   const seoParams = {

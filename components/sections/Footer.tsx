@@ -1,3 +1,4 @@
+'use client'
 import BtnOk from '@/components/btns/BtnOk'
 import BtnTelegram from '@/components/btns/BtnTelegram'
 import BtnVk from '@/components/btns/BtnVk'

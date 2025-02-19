@@ -9,8 +9,8 @@ const ImgSupplement = ({ width = null, height = null }) => {
         src={pic}
         alt='Диплом'
         className={stls.img}
-        width={width}
-        height={height}
+        width={width || undefined}
+        height={height || undefined}
         placeholder='blur'
         sizes='100vw'
         style={{

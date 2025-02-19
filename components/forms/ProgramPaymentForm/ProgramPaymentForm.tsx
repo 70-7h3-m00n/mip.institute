@@ -55,12 +55,15 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
     // handle loader
     data.roistatAB = roistatAB
     data.leadPage = router.asPath
+    // @ts-ignore
     const utms = JSON.parse(sessionStorage.getItem('utms'))
     data.utms = utms
     sessionStorage.removeItem('utms')
+    // @ts-ignore
     const referer = JSON.parse(sessionStorage.getItem('referer'))
     data.referer = referer
     sessionStorage.removeItem('referer')
+    // @ts-ignore
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
     const clickId = getCookie('utm')

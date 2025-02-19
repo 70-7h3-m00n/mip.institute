@@ -53,6 +53,7 @@ const JournalPage = ({ lifeCourse, reviews }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () =>
+  //@ts-ignore
   await handleGetStaticPaths({ page: routes.front.liveCourse })
 
 export const getStaticProps: GetStaticProps = async context =>

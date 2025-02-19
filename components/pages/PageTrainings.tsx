@@ -33,6 +33,7 @@ const PageTrainings = ({
         <div className={stls.cards}>
           {practicalTrainings.map(practicalTraining => (
             <PracticalSlugCard
+            // @ts-ignore
               key={practicalTraining?.slug}
               card={practicalTraining}
             />

@@ -2,20 +2,46 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/config/*": ["config/*"],
-      "@/context/*": ["context/*"],
-      "@/data/*": ["data/*"],
-      "@/helpers/*": ["helpers/*"],
-      "@/hooks/*": ["hooks/*"],
-      "@/lib/*": ["lib/*"],
-      "@/public/*": ["public/*"],
-      "@/styles/*": ["styles/*"],
-      "@/types/*": ["types/*"],
-      "@/ui/*": ["ui/*"],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/config/*": [
+        "config/*"
+      ],
+      "@/context/*": [
+        "context/*"
+      ],
+      "@/data/*": [
+        "data/*"
+      ],
+      "@/helpers/*": [
+        "helpers/*"
+      ],
+      "@/hooks/*": [
+        "hooks/*"
+      ],
+      "@/lib/*": [
+        "lib/*"
+      ],
+      "@/public/*": [
+        "public/*"
+      ],
+      "@/styles/*": [
+        "styles/*"
+      ],
+      "@/types/*": [
+        "types/*"
+      ],
+      "@/ui/*": [
+        "ui/*"
+      ]
     },
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -28,8 +54,23 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "downlevelIteration": true,
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/imgs/general", "pages/[ofType]/[studyFieldSlug]/[slug]"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/imgs/general",
+    "pages/[ofType]/[studyFieldSlug]/[slug]",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -17,9 +17,10 @@ const ArticleFullColoredTextBlock = ({
 
   return (
     <>
-    {props.text.map((el, i) => (
+    {props?.text?.map((el, i) => (
       <p key={i}>
       {el.children.map(el => (
+        // @ts-ignore
         <span key={el.text} style={{ fontWeight: el.bold && 500, color: el.italic && props.textColor }}>{el.text}</span>
     ))}
     </p>

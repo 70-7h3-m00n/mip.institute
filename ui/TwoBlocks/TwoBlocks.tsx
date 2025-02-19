@@ -9,12 +9,12 @@ type Props = {
 const TwoBlocks = ({ children, isRightViolet = false }: Props) => {
   return (
     <div className={stls.container}>
-      <div className={stls.leftBlock}>{children[0]}</div>
+      <div className={stls.leftBlock}>{children?.[0]}</div>
       <div
         className={classNames(stls.rightBlock, {
           [stls.violet]: isRightViolet
         })}>
-        {children[1]}
+        {children?.[1]}
       </div>
     </div>
   )

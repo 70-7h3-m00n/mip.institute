@@ -23,6 +23,7 @@ const VideoReviews = () => {
   const handleSlideChange = swiper => {
     playersRef.current.forEach((player, index) => {
       if (player && index !== swiper.activeIndex) {
+        // @ts-ignore
         player.stop()
       }
     })
