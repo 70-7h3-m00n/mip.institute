@@ -55,9 +55,9 @@ const ProgramSelectionTop = ({ bottomCards, topCards }: Props) => {
     if (cleanedTitle.toLowerCase().includes('переподготовка')) {
       link = 'professions'
     } else if (cleanedTitle.toLowerCase().includes('бакалавриат')) {
-      link = 'bachelor'
+      link = 'bachelors'
     } else if (cleanedTitle.toLowerCase().includes('подготовка')) {
-      link = 'practical-training'
+      link = 'practicalTrainings'
     } else if (cleanedTitle.toLowerCase().includes('повышение')) {
       link = 'courses'
     }
