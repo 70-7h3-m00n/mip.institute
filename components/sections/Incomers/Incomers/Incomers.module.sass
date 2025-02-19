@@ -49,10 +49,10 @@
     gap: f.px(8)
 
 .containerBlock_main_left
-  @include m.flex($fd: column)
+  @include m.flex($fd: column, $jc: space-between)
   border-radius: f.px(30)
   background: c.$white-900
-  @include m.gap($pt: f.px(40), $pb: f.px(36), $pl: f.px(42), $pr: f.px(32))
+  @include m.gap($pt: f.px(40), $pb: f.px(16), $pl: f.px(42), $pr: f.px(32))
   @include m.media(phone, tablet)
     border-radius: f.px(15)
     @include m.gap($pt: f.px(0), $pb: f.px(0), $pl: f.px(0), $pr: f.px(0))
@@ -86,6 +86,8 @@
   @include m.gap($mb: f.px(26))
   @include m.media(phone, tablet)
     @include m.gap($pl: f.px(27))
+  @include m.media(phone)
+    @include m.gap($mb: f.px(34))
 
 .button-base
   width: 100%
@@ -107,7 +109,7 @@
     font-size: f.px(16)
     @include m.gap($ptb: f.px(17), $mb: f.px(26))
   @include m.media(phone)
-    @include m.gap($ptb: f.px(17), $mb: f.px(10))
+    @include m.gap($ptb: f.px(17), $mb: f.px(18))
     font-size: f.px(16)
 
 .container_img_btn > [aria-describedby^="popup-"] > button
