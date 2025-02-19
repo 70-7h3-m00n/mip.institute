@@ -649,7 +649,34 @@
         <param name="Выдаётся сертификат">Да</param>
         <param name="Помощь с трудоустройством"></param>
       </offer>
-
+      <offer id="33_psychologist-consultant" available="true">
+        <name>От мечты к профессии психолога-консультанта</name>
+        <description>
+            В результате обучения вы получите: 
+            — Старт профессионального развития в области психологии;
+            — Практические навыки;
+            — Сертификат и подарки.
+        </description>
+        <param name="Уровень курса">новичок</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">_____</param>
+        <param name="Длительность курса">2 часа</param>
+        <param name="Ссылка на курс">https://mip-institute-formveb.ru/praktikum?utm_source=hh&amp;utm_medium=cpa</param>
+      </offer>
+      <offer id="34_Step_by_step_plan" available="true">
+        <name>Пошаговый план как стать психологом в 2025 году и начать зарабатывать от 100.000 рублей</name>
+        <description>
+            В результате обучения вы получите: 
+            — Алгоритм выхода из кризиса;
+            — Первые шаги в психологии;
+            — Сертификат и подарки.
+        </description>
+        <param name="Уровень курса">новичок</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">_____</param>
+        <param name="Длительность курса">2 часа</param>
+        <param name="Ссылка на курс">https://mip-institute-formveb.ru/mk?utm_source=hh&amp;utm_medium=cpa</param>
+      </offer>
 
     </offers>
   </shop>
