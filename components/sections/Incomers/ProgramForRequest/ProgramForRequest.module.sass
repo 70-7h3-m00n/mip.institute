@@ -5,7 +5,7 @@
 .container
   overflow: hidden
   position: relative
-  @include m.dye(bg, #ff9a5d)
+  @include m.dye(bg, #FF8F53)
   @include m.dye(c, c.$white-900)
   border-radius: f.px(30)
   @include m.gap($ptb: f.px(40))
@@ -74,9 +74,12 @@
     border-radius: f.px(30)
     @include m.gap($ptb: f.px(16), $plr: f.px(0))
     font-size: f.px(16)
+    width: 100%
 
 .textBlock > [aria-describedby^="popup-"]
   width: f.px(300)
+  @include m.media(phone, tablet)
+    width: 100%
   
 .textBlock > [aria-describedby^="popup-"] > button
   @extend .button-base

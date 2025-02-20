@@ -5,8 +5,10 @@
 .container
   @include m.flex
   @include m.sizeIcon($w: 520, $h: 590)
-  @include m.media(phone, tablet)
+  @include m.media(tablet)
     @include m.sizeIcon($w: 420, $h: 190)
+  @include m.media(phone)
+    @include m.sizeIcon($w: 350, $h: 190)
 
 .text
   font-size: f.px(12)

@@ -26,13 +26,14 @@ const PaymentTraining = () => {
             ))}
           </div>
         ) : (
-            <Select
-              styles={customStyles}
-              className={stls.select}
-              options={tabs.map(tab => ({ value: tab, label: tab }))}
-              value={{ value: activeTab, label: activeTab }}
-              onChange={selectedOption => setActiveTab(selectedOption.value)}
-            />
+          <Select
+            styles={customStyles}
+            className={stls.select}
+            options={tabs.map(tab => ({ value: tab, label: tab }))}
+            value={{ value: activeTab, label: activeTab }}
+            onChange={selectedOption => setActiveTab(selectedOption.value)}
+            isSearchable={false}
+          />
         )}
         <ProgramSection data={paymentData[activeTab]} />
       </Wrapper>

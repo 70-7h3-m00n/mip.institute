@@ -23,6 +23,7 @@ SwiperCore.use([Navigation, Pagination])
 
 const HappyStudents = ({ isMainPage = true }: { isMainPage?: boolean }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+  const isMobileLayout = useBetterMediaQuery('(max-width: 435px)')
   const swiperRef = useRef<SwiperCore | null>(null)
   const navigationPrevRef = useRef(null)
   const navigationNextRef = useRef(null)
@@ -93,7 +94,7 @@ const HappyStudents = ({ isMainPage = true }: { isMainPage?: boolean }) => {
         ) : (
           <div className={stls.container_title}>
             <h2 className={stls.newTitle}>
-              <span className={stls.coloured}>Студенты довольны </span>
+              <span className={stls.coloured}>Студенты довольны {isMobileLayout && <br />}</span>
               обучением в МИП
             </h2>
             {isMobileAndTabletLayout ? (

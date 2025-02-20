@@ -1,5 +1,6 @@
 import Wrapper from '@/ui/Wrapper'
 import stls from './MeetInstitute.module.sass'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 type TextItemType = {
   type: string
@@ -16,6 +17,9 @@ type Props = {
 }
 
 const MeetInstitute = ({ data }: any) => {
+  console.log(data, 'data')
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -28,10 +32,22 @@ const MeetInstitute = ({ data }: any) => {
             {data.map(item => (
               <div key={item.id} className={stls.containerBlock_info_lines}>
                 <div className={stls.containerBlock_info_left}>
-                  {item.text[0]?.children[0]?.text}
+                  {item.text[0]?.children.map((el, index) =>
+                    el.code && isMobileAndTabletLayout && el.text === '/n' ? (
+                      <br key={index} />
+                    ) : (
+                      !el.code && <span key={index}>{el.text}</span>
+                    )
+                  )}
                 </div>
                 <div className={stls.containerBlock_info_right}>
-                  {item.text[1]?.children[0]?.text}
+                  {item.text[1]?.children.map((el, index) =>
+                    el.code && isMobileAndTabletLayout && el.text === '/n' ? (
+                      <br key={index} />
+                    ) : (
+                      !el.code && <span key={index}>{el.text}</span>
+                    )
+                  )}
                 </div>
               </div>
             ))}

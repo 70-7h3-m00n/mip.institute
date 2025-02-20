@@ -7,9 +7,9 @@ const positionsByBreakpoint = {
       { top: '45%', left: '45%', rotate: '5deg', scale: 0.65 }
     ],
     final: [
-      { top: '10%', left: '-7%', rotate: '0deg', scale: 0.55 },
+      { top: '10%', left: '0%', rotate: '0deg', scale: 0.55 },
       { top: '10%', left: '37%', rotate: '0deg', scale: 0.55 },
-      { top: '45%', left: '-7%', rotate: '0deg', scale: 0.55 },
+      { top: '45%', left: '0%', rotate: '0deg', scale: 0.55 },
       { top: '45%', left: '37%', rotate: '0deg', scale: 0.55 }
     ]
   },
@@ -21,9 +21,9 @@ const positionsByBreakpoint = {
       { top: '40%', left: '55%', rotate: '0', scale: 1 }
     ],
     final: [
-      { top: '20%', left: '7%', rotate: '0deg', scale: 1 },
+      { top: '20%', left: '12%', rotate: '0deg', scale: 1 },
       { top: '20%', left: '53%', rotate: '0deg', scale: 1 },
-      { top: '55%', left: '7%', rotate: '0deg', scale: 1 },
+      { top: '55%', left: '12%', rotate: '0deg', scale: 1 },
       { top: '55%', left: '53%', rotate: '0deg', scale: 1 }
     ]
   },
@@ -35,9 +35,9 @@ const positionsByBreakpoint = {
       { top: '480px', left: '58%', rotate: '0', scale: 1.3 }
     ],
     final: [
-      { top: '25%', left: '12%', rotate: '0deg', scale: 1.3 },
+      { top: '25%', left: '16%', rotate: '0deg', scale: 1.3 },
       { top: '25%', left: '58%', rotate: '0deg', scale: 1.3 },
-      { top: '60%', left: '12%', rotate: '0deg', scale: 1.3 },
+      { top: '60%', left: '16%', rotate: '0deg', scale: 1.3 },
       { top: '60%', left: '58%', rotate: '0deg', scale: 1.3 }
     ]
   },
