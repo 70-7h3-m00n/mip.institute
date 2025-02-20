@@ -152,43 +152,7 @@ const MyApp = ({ Component, pageProps, router }) => {
     console.log = () => {}
   }
 
-  const [isPromo, setIsPromo] = useState(false)
-  const [promoText, setPromoText] = useState('')
-  const [isWithGift, setIsWithGift] = useState(false)
-
-  const utmCookie = getCookie('utm')
-  const stringedUtm = utmCookie?.toString()
-  useEffect(() => {
-    setTimeout(() => {
-      let foundPromo = false
-      Object.keys(promocodes).forEach(code => {
-        if (stringedUtm?.includes(code)) {
-          setIsPromo(true)
-          setPromoText(promocodes[code])
-          foundPromo = true
-        }
-      })
-      if (!foundPromo) {
-        setIsPromo(false)
-        setPromoText('')
-      }
-
-      let foundPromoWithGift = false
-      Object.keys(promocodesWithGift).forEach(code => {
-        if (stringedUtm?.includes(code)) {
-          setIsWithGift(true)
-          foundPromoWithGift = true
-        }
-      })
-      if (!foundPromoWithGift) {
-        setIsWithGift(false)
-      }
-    }, 2000)
-  }, [utmCookie])
-
-  const closePromo = () => {
-    setIsPromo(false)
-  }
+  
 
   const [roistatVisit, setRoistatVisit] = useState('')
 
@@ -207,7 +171,7 @@ const MyApp = ({ Component, pageProps, router }) => {
           strategy='afterInteractive'
           src='/assets/js/vendors/roistatAB.js'
         />
-        <Script
+      <Script
           id='roistatMain'
           strategy='afterInteractive'
           dangerouslySetInnerHTML={{
@@ -301,14 +265,9 @@ const MyApp = ({ Component, pageProps, router }) => {
           <FieldsTooltipState>
             {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
             {
-              <StickyTop
-                isWithGift={isWithGift}
-                onClick={closePromo}
-                isPromo={isPromo}
-                promoText={promoText}
-              />
+              
             }
-            <Header isPromo={isPromo} />
+            <Header/>
             <main>
               <ApolloProvider client={client}>
                 <Component {...pageProps} />

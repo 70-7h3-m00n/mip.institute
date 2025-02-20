@@ -3,6 +3,11 @@ import axios from 'axios'
 import React from 'react'
 import qs from 'qs'
 
+export const metadata = {
+  title: 'Партнеры',
+  description: '',
+}
+
 
 interface partners {
   data: {
@@ -77,11 +82,12 @@ export default async function Partners({
   console.log('typeDD',onePartner);
   
   return (
-    <div>
+    <>
+    <meta name="robots" content="noindex,nofollow" />
       <h1>lalalss</h1>
-      <p>{onePartner.map(partner => (
+      {onePartner.map(partner => (
         <p key={partner.id}>{partner.title}</p>
-      ))}</p>
-    </div>
+      ))}
+    </>
   )
 }
