@@ -22,7 +22,6 @@ const ProgramForRequest = dynamic(
 // }
 
 const PageIncomers = ({ incomers }: any) => {
-  console.log({ incomers }, 'incomers')
   return (
     <div className={stls.container}>
       <Incomers title={incomers.title} data={incomers.incomersInfo} />

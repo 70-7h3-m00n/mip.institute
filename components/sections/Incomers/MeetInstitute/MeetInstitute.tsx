@@ -17,7 +17,6 @@ type Props = {
 }
 
 const MeetInstitute = ({ data }: any) => {
-  console.log(data, 'data')
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (
