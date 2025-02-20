@@ -17,31 +17,7 @@ type Props = {
 }
 
 const ProgramForRequest = ({ data }: Props) => {
-  // const playerRefDesktop = useRef<Player | null>(null)
-  // const playerRefMobile = useRef<Player | null>(null)
-
   const VIDEO_ID = '7b39ee7e-288d-431d-b1b7-f83336ce9ce6'
-
-  // Автоматически запускаем видео после загрузки
-  // useEffect(() => {
-  //   const playVideo = (playerRef: React.MutableRefObject<Player | null>) => {
-  //     if (playerRef.current) {
-  //       playerRef.current.play().catch(() => {
-  //         console.warn('Автоплей заблокирован браузером')
-  //       })
-  //     }
-  //   }
-
-  //   playVideo(playerRefDesktop)
-  //   playVideo(playerRefMobile)
-  // }, [])
-
-  // // Повторяем видео после окончания
-  // const handleRestart = (playerRef: React.MutableRefObject<Player | null>) => {
-  //   if (playerRef.current) {
-  //     playerRef.current.play()
-  //   }
-  // }
 
   return (
     <section className={stls.container}>
@@ -53,19 +29,14 @@ const ProgramForRequest = ({ data }: Props) => {
             <div className={stls.mobVideoBlock}>
               <div className={stls.playerWrapper}>
                 <KinescopePlayer
-                  // ref={playerRefMobile}
                   title="Подберем программу под ваш запрос"
                   videoId={VIDEO_ID}
                   autoPlay={true}
-                  // preload={true}
-                  // loop={true}
                   muted={true}
                   playsInline={true}
-                  // controls={false}
                   className={stls.iframe}
                   autoPause={false}
-                  // onReady={() => console.log('Мобильное видео готово')}
-                  // onEnded={() => handleRestart(playerRefMobile)}
+                  controls={false}
                 />
               </div>
             </div>
@@ -75,19 +46,15 @@ const ProgramForRequest = ({ data }: Props) => {
           <div className={stls.videoBlock}>
             <div className={stls.playerWrapper}>
               <KinescopePlayer
-                // ref={playerRefDesktop}
                 title="Подберем программу под ваш запрос"
                 videoId={VIDEO_ID}
                 autoPlay={true}
-                // preload={true}
                 loop={true}
                 muted={true}
                 autoPause={false}
-                // playsInline={true}
-                // controls={false}
+                controls={false}
+                playsInline={true}
                 className={stls.iframe}
-                // onReady={() => console.log('Десктопное видео готово')}
-                // onEnded={() => handleRestart(playerRefDesktop)}
               />
             </div>
           </div>
