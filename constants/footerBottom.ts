@@ -1,20 +1,33 @@
-import { routes } from "../config"
+import { routes } from '../config'
 
-const footerLinks = [
-    { href: routes.external.advCake, title: 'Партнерская программа' },
-    { href: routes.external.referralProgram, title: 'Пригласи друга' },
-    { href: routes.front.policiesTerms, title: 'Договор оферты' },
-    { href: routes.front.policiesOfertaEvent, title: 'Договор оферты мероприятий' },
-    { href: routes.front.policiesPrivacy, title: 'Политика конфиденциальности' },
+const bottomFooterLinks = [
+  [
+    { text: `© МИП, 2020 - ${new Date().getFullYear()}` } // Просто текст
+  ],
+  [
+    { title: 'Сведения об образовательной организации', href: routes.front.svedenCommon },
+    { title: 'Договор оферты мероприятий', href: routes.front.policiesOfertaEvent },
+    { title: 'Договор оферты', href: routes.front.policiesTerms }
+  ],
+  [
     {
-      href: routes.external.license,
-      title: 'Лицензия на образовательную деятельность №041363 от 14.04.2021 г.'
-    },
-    {
-      href: routes.front.yandexAnalytics,
       title:
-        'Согласие на обработку персональных данных с помощью сервисов «Яндекс.Метрика» и «Google Analytics»'
+        'Согласие на обработку персональных данных с помощью сервисов «Яндекс.Метрика» и «Google Analytics»',
+      href: routes.front.yandexAnalytics
+    },
+    { title: 'Политика конфиденциальности', href: routes.front.policiesPrivacy }
+  ],
+  [
+    {
+      text: 'Департамент'
+    },
+    { title: 'Информация о правилах использования материала', href: routes.front.regulation }
+  ],
+  [
+    {
+      text: 'Научная автономная некоммерческая организация «Московский институт психологии» (НАНО «МИП») ИНН 9725041321 ОГРН 1207700479260'
     }
   ]
+]
 
-export default footerLinks
+export default bottomFooterLinks

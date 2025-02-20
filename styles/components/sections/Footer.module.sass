@@ -4,197 +4,69 @@
 
 .container
   position: relative
+  @include m.gap($ptb: f.px(45))
   @include m.dye(bg, c.$black-700)
   @include m.dye(c, c.$gray-50)
   & > *
     display: flex
 
-.left
-  @include m.gap($pt: f.px(40))
-  @include m.media(laptop, desktop)
-    @include m.flex($display: false)
-
-.top
-  @include m.media(laptop, desktop)
-    @include m.flex($jc: space-between)
-
-.links
-  @include m.media(phone, tablet)
-    display: none
-  @include m.media(laptop, desktop)
-    @include m.flex($fd: column, $fw: wrap)
-    @include m.gap($m: 0, $p: 0)
-
-.staticLinks
-  @include m.media(laptop, desktop)
-    @include m.flex($display: false, $fb: 15%)
-
-.linkItem
-  @include m.media(laptop, desktop)
-    @include m.flex
-
-.link
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(27))
-    font-size: f.px(18)
-    font-weight: 300
-    @include m.dye(c, c.$white-900)
-
-.numbers
-  font-weight: 300
-  line-height: 130%
-  font-size: f.px(18)
+.wrapper
   @include m.flex($fd: column)
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(25))
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(15))
-  & > *:nth-child(1)
-    @include m.gap($mb: f.px(9, em))
 
-.number
-  font-size: f.px(22)
-  font-weight: 300
-  @include m.gap($mb: f.px(15))
-  @include m.dye(c, c.$gray-50)
+.topFooter
+  width: 100%
+  @include m.flex($jc: space-between)
+  @include m.gap($pb: f.px(45))
 
-.address
-  font-weight: 500
-  @include m.media(phone, tablet)
-    font-size: f.px(16)
-    white-space: nowrap
-  @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(33))
-    font-size: f.px(18)
+.leftBlockWithLogo
+  @include m.flex($fd: column)
+  gap: f.px(60)
 
-.reviews
-  background: white
+.logoMIP
+  transform: scale(1.1)
+  @include m.gap($ml: f.px(15), $mt: f.px(5))
 
 .sm
-  @include m.flex
-  max-width: f.px(200)
-  min-width: f.px(200)
-  flex-wrap: wrap
-  @include m.gap($mb: f.px(25), $mr: f.px(0))
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: f.px(13)
   @include m.media(phone, tablet)
     display: none
 
-.btn
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(37))
-    & > *
-      width: f.px(300)
-  @include m.media(laptop, desktop)
-    display: none
+.licenseButton
+  min-width: f.px(175)
+  @include m.flex($ai: center)
+  text-align: left
+  gap: f.px(15)
+  border-radius: f.px(10)
+  @include m.dye(bg, c.$black-600)
+  @include m.gap($ptb: f.px(15), $pl: f.px(15), $pr: f.px(20))
+  color: white
+  font-size: f.px(12)
+  font-weight: 350
 
-.bottom
-  @include m.media(phone, tablet)
-    display: none
-  @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(67))
+.rightBlockWithPrograms
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: f.px(60)
 
-.right
-  @include m.media(phone, tablet)
-    display: none
-  @include m.media(laptop, desktop)
-    position: relative
-    z-index: 2
-    @include m.flex($display: false, $fb: 20%)
-    @include m.gap($p: f.px(50))
-    @include m.dye(bg, c.$black-700)
-
-.formTitles
-  @include m.gap($mb: f.px(17))
-
-.formTitle
-  @include m.gap($mb: f.px(5))
-  font-size: f.px(22)
-  font-weight: 500
-
-.footerBottom
-  @include m.media(laptop, desktop)
-    display: none
-
-.bgRight
-  @include m.media(phone, tablet)
-    display: none
-  @include m.media(laptop, desktop)
-    position: absolute
-    top: 0
-    right: 0
-    width: 30%
-    height: 100%
-    @include m.dye(bg, c.$black-700)
-
-.newRight
-  @include m.media(phone, tablet)
-    display: none
-  width: f.px(291)
-  flex-direction: column
-  align-items: flex-end
-
-.contact
-  padding-left: 10px
-  font-weight: 300
-  font-size: 18px
-
-.fieldsLink
-  width: f.px(250)
-
-.email
-  @include m.gap($mtb: f.px(15))
-  font-size: f.px(18)
-  @include m.media(phone, tablet)
-    display: none
-  p
-    @include m.gap($mb: f.px(10))
-  .eadress
-    font-weight: 300
-    font-size: f.px(22)
-
-.enterToPortal
+.column
   display: flex
-  align-items: center
-  justify-content: center
-  @include m.gap($mtb: f.px(25))
-  @include m.dye(c, c.$white-900)
-  width: f.px(268)
-  height: f.px(56)
-  border: 1px solid c.$orange-700
-  font-size: f.px(18)
+  flex-direction: column
+  gap: f.px(15)
+
+.title
+  font-size: f.px(20)
   font-weight: 500
-  border-radius: 4px
-  & > *
-    margin: 0 auto
+  color: white
+  margin-bottom: f.px(10)
 
-.leaveApp
-  & > *
-    & > *
-      width: f.px(268)
+.link
+  display: inline-block
+  max-width: f.px(230)
+  font-size: f.px(15)
+  color: c.$gray-550
+  font-weight: 350
+  text-decoration: none
+  transition: color 0.3s ease
 
-.primary
-  &:nth-of-type(2)
-    @include m.gap($mb: f.px(18))
-
-  @include m.gap($mb: f.px(25))
-  width: f.px(268)
-  font-size: 13px
-  font-style: normal
-  font-weight: 700
-  line-height: 120%
-  @include m.dye(c, c.$gray-700)
-  span
-    display: block
-    text-decoration-line: underline
-    text-underline-offset: f.px(2)
-
-.logo
-  list-style-type: none
-
-.linkToLicense
-  @include m.dye(c, c.$gray-700)
-  font-size: f.px(13)
-  font-weight: 700
-  line-height: 120%
-  &:hover
-    @include m.dye(c, c.$gray-500)
