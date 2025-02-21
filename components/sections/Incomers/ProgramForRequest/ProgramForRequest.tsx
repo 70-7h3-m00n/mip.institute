@@ -24,39 +24,30 @@ const ProgramForRequest = ({ data }: Props) => {
       <Wrapper>
         <div className={stls.content}>
           <div className={stls.textBlock}>
-            <h2 className={stls.title}>{data?.[0]?.children?.[0]?.text}</h2>
+            <h2 className={stls.title}>
+              {data?.[0]?.children.map((el, index) =>
+                el.code  && el.text === '/n' ? (
+                  <br key={index} />
+                ) : (
+                  !el.code && <span key={index}>{el.text}</span>
+                )
+              )}
+            </h2>
             <p className={stls.description}>{data?.[1]?.children?.[0]?.text}</p>
-            <div className={stls.mobVideoBlock}>
-              <div className={stls.playerWrapper}>
-                <KinescopePlayer
-                  title="Подберем программу под ваш запрос"
-                  videoId={VIDEO_ID}
-                  autoPlay={true}
-                  muted={true}
-                  playsInline={true}
-                  className={stls.iframe}
-                  autoPause={false}
-                  controls={false}
-                />
-              </div>
-            </div>
-            <PopupTrigger btn="gamma" cta="submitApplication" />
+            <PopupTrigger btn='gamma' cta='submitApplication' />
           </div>
-
           <div className={stls.videoBlock}>
-            <div className={stls.playerWrapper}>
-              <KinescopePlayer
-                title="Подберем программу под ваш запрос"
-                videoId={VIDEO_ID}
-                autoPlay={true}
-                loop={true}
-                muted={true}
-                autoPause={false}
-                controls={false}
-                playsInline={true}
-                className={stls.iframe}
-              />
-            </div>
+            <KinescopePlayer
+              title='Подберем программу под ваш запрос'
+              videoId={VIDEO_ID}
+              autoPlay={true}
+              loop={true}
+              muted={true}
+              autoPause={false}
+              controls={false}
+              playsInline={true}
+              className={stls.iframe}
+            />
           </div>
         </div>
       </Wrapper>
