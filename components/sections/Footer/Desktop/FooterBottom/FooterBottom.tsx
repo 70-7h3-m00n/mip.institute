@@ -1,6 +1,6 @@
 import React from 'react'
-import stls from '@/styles/components/sections/FooterBottom.module.sass'
-import bottomFooterLinks from 'constants/footerBottom'
+import stls from './FooterBottom.module.sass'
+import { bottomFooterLinks } from 'constants/footer'
 
 const FooterBottom = () => {
   return (

@@ -25,7 +25,7 @@ import StickyBottom from '@/components/sections/StickyBottom'
 import dynamic from 'next/dynamic'
 import getDefaultStateProps from '@/helpers/funcs/getDefaultStateProps'
 
-const Footer = dynamic(() => import('@/components/sections/Footer'), {
+const Footer = dynamic(() => import('@/components/sections/Footer/Footer'), {
   ssr: false
 })
 
@@ -243,7 +243,6 @@ const MyApp = ({ Component, pageProps, router }) => {
             {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
             {}
             <Header />
-            <Footer />
             <main>
               <ApolloProvider client={client}>
                 <Component {...pageProps} />
@@ -252,6 +251,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             <div>
               <StickyBottom />
             </div>
+            <Footer />
             {/* </div> */}
           </FieldsTooltipState>
         </MenuState>

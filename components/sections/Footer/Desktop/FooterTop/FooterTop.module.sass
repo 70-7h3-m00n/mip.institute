@@ -2,21 +2,11 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
-  position: relative
-  @include m.gap($ptb: f.px(45))
-  @include m.dye(bg, c.$black-700)
-  @include m.dye(c, c.$gray-50)
-  & > *
-    display: flex
-
-.wrapper
-  @include m.flex($fd: column)
-
 .topFooter
   width: 100%
   @include m.flex($jc: space-between)
   @include m.gap($pb: f.px(45))
+  gap: f.px(40)
 
 .leftBlockWithLogo
   @include m.flex($fd: column)
@@ -30,8 +20,6 @@
   display: grid
   grid-template-columns: repeat(3, 1fr)
   gap: f.px(13)
-  @include m.media(phone, tablet)
-    display: none
 
 .licenseButton
   min-width: f.px(175)
@@ -48,7 +36,7 @@
 .rightBlockWithPrograms
   display: grid
   grid-template-columns: repeat(3, 1fr)
-  gap: f.px(60)
+  gap: f.px(50)
 
 .column
   display: flex

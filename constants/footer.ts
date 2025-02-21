@@ -1,4 +1,4 @@
-import { routes } from '../config'
+import { routes } from '@/config/index'
 
 const topFooterLinks = [
   [
@@ -112,4 +112,72 @@ const topFooterLinks = [
   ]
 ]
 
-export { topFooterLinks }
+const footerCards = [
+  {
+    title: 'Адрес:',
+    description: 'Москва,\nДокучаев переулок, 8'
+  },
+  {
+    title: 'Приемная комиссия:',
+    description: '+7 (499) 110-88-19\n+7 (800) 600-29-03'
+  },
+  {
+    title: 'Кураторский отдел:',
+    description: '+7 (499) 110-82-11'
+  },
+  {
+    title: 'Электронный адрес:',
+    description: 'info@mip.institute'
+  }
+]
+
+const bottomFooterLinks = [
+  [{ text: `© МИП, 2020 - ${new Date().getFullYear()}` }],
+  [
+    { title: 'Сведения об образовательной организации', href: routes.front.svedenCommon },
+    { title: 'Договор оферты мероприятий', href: routes.front.policiesOfertaEvent },
+    { title: 'Договор оферты', href: routes.front.policiesTerms }
+  ],
+  [
+    {
+      title:
+        'Согласие на обработку персональных данных с помощью сервисов «Яндекс.Метрика» и «Google Analytics»',
+      href: routes.front.yandexAnalytics
+    },
+    { title: 'Политика конфиденциальности', href: routes.front.policiesPrivacy }
+  ],
+  [
+    {
+      text: 'Департамент'
+    },
+    { title: 'Информация о правилах использования материала', href: routes.front.regulation }
+  ],
+  [
+    {
+      text: 'Научная автономная некоммерческая организация «Московский институт психологии» (НАНО «МИП») ИНН 9725041321 ОГРН 1207700479260'
+    }
+  ]
+]
+
+const footerMobileLinks = [
+  { text: `© МИП, 2020 - ${new Date().getFullYear()}` },
+  { title: 'Договор оферты', href: routes.front.policiesTerms },
+  { title: 'Политика конфиденциальности', href: routes.front.policiesPrivacy },
+  {
+    title: 'Лицензия на образовательную деятельность\n№041363 от 14.04.2021 г.',
+    href: routes.front.policiesPrivacy
+  }
+]
+
+const contactBlocks = [
+  {
+    title: 'Приемная комиссия:',
+    contacts: ['+7 (499) 110-88-19', '+7 (800) 600-29-03']
+  },
+  {
+    title: 'Кураторский отдел:',
+    contacts: ['+7 (499) 110-82-11']
+  }
+]
+
+export { topFooterLinks, footerCards, bottomFooterLinks, footerMobileLinks, contactBlocks }
