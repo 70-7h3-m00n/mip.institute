@@ -3,8 +3,11 @@ import Wrapper from '@/ui/Wrapper'
 import stls from './Incomers.module.sass'
 import Image from 'next/image'
 import PopupTrigger from '@/ui/PopupTrigger'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const Incomers = ({ title, data }: any) => {
+  const isMobDescriptionLayout = useBetterMediaQuery('(max-width: 376px)')
+  const isMobTitleLayout = useBetterMediaQuery('(max-width: 431px)')
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -27,10 +30,22 @@ const Incomers = ({ title, data }: any) => {
           <div className={stls.containerBlock_main}>
             <div className={stls.containerBlock_main_left}>
               <div className={stls.containerBlock_main_left_title}>
-                {data?.text[0]?.children[0]?.text}
+                {data?.text[0]?.children.map((el, index) =>
+                  el.code && isMobTitleLayout && el.text === '/n' ? (
+                    <br key={index} />
+                  ) : (
+                    !el.code && <span key={index}>{el.text}</span>
+                  )
+                )}
               </div>
               <div className={stls.containerBlock_main_left_description}>
-                {data?.text[1]?.children[0]?.text}
+                {data?.text[1]?.children.map((el, index) =>
+                  el.code && isMobDescriptionLayout && el.text === '/n' ? (
+                    <br key={index} />
+                  ) : (
+                    !el.code && <span key={index}>{el.text}</span>
+                  )
+                )}
               </div>
               <div className={stls.container_img_btn}>
                 <Image

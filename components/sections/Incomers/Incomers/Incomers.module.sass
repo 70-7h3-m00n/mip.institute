@@ -75,7 +75,7 @@
   line-height: 110%
   @include m.media(phone, tablet)
     font-size: f.px(16)
-    @include m.gap($pl: f.px(27))
+    @include m.gap($pl: f.px(27),$mb: f.px(10))
 
 .container_img_btn
   position: relative
@@ -87,7 +87,8 @@
   @include m.media(phone, tablet)
     @include m.gap($pl: f.px(27))
   @include m.media(phone)
-    @include m.gap($mb: f.px(34))
+    width: 90%
+    @include m.gap($mb: f.px(28))
 
 .button-base
   width: 100%
