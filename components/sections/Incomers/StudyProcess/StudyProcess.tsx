@@ -13,6 +13,7 @@ import positionsByBreakpoint from '@/components/sections/Incomers/StudyProcess/c
 const images = [slide1, slide2, slide3, slide4]
 
 const StudyProcess = () => {
+  const isSmallMobile = useBetterMediaQuery('(max-width: 391px)')
   const isMobile = useBetterMediaQuery('(max-width: 480px)')
   const isTablet = useBetterMediaQuery('(max-width: 768px)')
   const isLaptop = useBetterMediaQuery('(max-width: 1200px)')
@@ -84,7 +85,7 @@ const StudyProcess = () => {
                 src={item}
                 key={`Слайд-${index}`}
                 alt={`Слайд-${index}`}
-                width={250}
+                width={isSmallMobile ? 215 : 250}
                 height={150}
                 className={stls.slide}
                 style={{
