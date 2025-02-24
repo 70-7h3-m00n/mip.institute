@@ -9,7 +9,7 @@ const AdventuresCards = ({ data }: any) => {
   const isMobileOrTablet = useBetterMediaQuery('(max-width: 1024px)')
 
   const presetSizes = [
-    { width: 400, height: 500 },
+    { width: 370, height: 560 },
     { width: 470, height: 390 },
     { width: 450, height: 390 },
     { width: 370, height: 560 },
