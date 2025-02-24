@@ -1,0 +1,48 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  border-top: f.px(1) solid c.$gray-800
+  @include m.gap($pt: f.px(30))
+  @include m.media(desktop)
+    @include m.flex($fd: row, $jc: space-between)
+
+.footerGrid
+  display: grid
+  grid-template-columns: repeat(5, 1fr)
+  gap: f.px(30)
+  width: 100%
+
+  @include m.media(tablet)
+    grid-template-columns: repeat(3, 1fr)
+
+  @include m.media(phone)
+    grid-template-columns: repeat(1, 1fr)
+    text-align: center
+
+.footerColumn
+  @include m.flex($fd: column)
+  gap: f.px(10)
+
+.copy
+  font-size: f.px(12)
+  text-align: center
+  @include m.dye(c, c.$gray-700)
+
+.link
+  font-size: f.px(12)
+  color: c.$gray-700
+  text-decoration: none
+  transition: color 0.2s ease-in-out
+
+  &:hover
+    color: gray
+    text-decoration: underline
+
+.text
+  font-size: f.px(12)
+  color: c.$gray-700
+
+.highlight
+  text-decoration: underline

@@ -1,10 +1,8 @@
 import Header from '@/components/sections/Header'
-import StickyTop from '@/components/sections/StickyTop'
 import { gtmId, prod, routes } from '@/config/index'
 import FieldsTooltipState from '@/context/fieldsTooltip/FieldsTooltipState'
 import { ContextStaticProps } from '@/context/index'
 import MenuState from '@/context/menu/MenuState'
-import promocodes from '@/helpers/promocodes'
 import client from '@/lib/apolloClient'
 import '@/styles/app.sass'
 import { ApolloProvider } from '@apollo/client'
@@ -23,12 +21,11 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
-import promocodesWithGift from '@/helpers/promoWithGIfts'
 import StickyBottom from '@/components/sections/StickyBottom'
 import dynamic from 'next/dynamic'
 import getDefaultStateProps from '@/helpers/funcs/getDefaultStateProps'
 
-const Footer = dynamic(() => import('@/components/sections/Footer'), {
+const Footer = dynamic(() => import('@/components/sections/Footer/Footer'), {
   ssr: false
 })
 
@@ -45,26 +42,18 @@ const MyApp = ({ Component, pageProps, router }) => {
   const [studyFieldsProfessions, setStudyFieldsProfessions] = useState(
     defaultStateProps.studyFieldsProfessions
   )
-  const [studyFieldsCourses, setStudyFieldsCourses] = useState(
-    defaultStateProps.studyFieldsCourses
-  )
-  const [curProgramsType, setCurProgramsType] = useState(
-    defaultStateProps.curProgramsType
-  )
+  const [studyFieldsCourses, setStudyFieldsCourses] = useState(defaultStateProps.studyFieldsCourses)
+  const [curProgramsType, setCurProgramsType] = useState(defaultStateProps.curProgramsType)
   const [curProgramsStudyFieldSlug, setCurProgramsStudyFieldSlug] = useState(
     defaultStateProps.curProgramsStudyFieldSlug
   )
   const [searchTerm, setSearchTerm] = useState(defaultStateProps.searchTerm)
-  const [filteredPrograms, setFilteredPrograms] = useState(
-    defaultStateProps.filteredPrograms
-  )
+  const [filteredPrograms, setFilteredPrograms] = useState(defaultStateProps.filteredPrograms)
 
   const [blogs, setBlogs] = useState(defaultStateProps.blogs)
   const [seminar, setSeminar] = useState(defaultStateProps.seminar)
   const [bachelor, setBachelor] = useState(defaultStateProps.bachelor)
-  const [practicalTrainings, setPracticalTrainings] = useState(
-    defaultStateProps.practicalTrainings
-  )
+  const [practicalTrainings, setPracticalTrainings] = useState(defaultStateProps.practicalTrainings)
   const updateTicketsQuantity = newQuantity => {
     setSeminar(prevSeminar => ({
       ...prevSeminar,
@@ -152,8 +141,6 @@ const MyApp = ({ Component, pageProps, router }) => {
     console.log = () => {}
   }
 
-  
-
   const [roistatVisit, setRoistatVisit] = useState('')
 
   const roistat_visit = getCookie('roistat_visit')
@@ -167,11 +154,8 @@ const MyApp = ({ Component, pageProps, router }) => {
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
       {/* {!dev && ( */}
       <>
+        <Script strategy='afterInteractive' src='/assets/js/vendors/roistatAB.js' />
         <Script
-          strategy='afterInteractive'
-          src='/assets/js/vendors/roistatAB.js'
-        />
-      <Script
           id='roistatMain'
           strategy='afterInteractive'
           dangerouslySetInnerHTML={{
@@ -191,18 +175,13 @@ const MyApp = ({ Component, pageProps, router }) => {
       {/* )} */}
 
       {roistatVisit && (
-        <div
-          className='js-whatsapp-message-container'
-          style={{ display: 'none' }}>
-          Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер
-          обращения: {roistatVisit}
+        <div className='js-whatsapp-message-container' style={{ display: 'none' }}>
+          Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер обращения:{' '}
+          {roistatVisit}
         </div>
       )}
 
-      <Script
-        async
-        src='https://www.googletagmanager.com/gtag/js?id=AW-822792302'
-      />
+      <Script async src='https://www.googletagmanager.com/gtag/js?id=AW-822792302' />
       <Script
         id='google-tag'
         dangerouslySetInnerHTML={{
@@ -218,9 +197,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
       <DefaultSeo {...SEO} />
       <div style={{ display: 'none' }}>
-        <Link href='/professions/detskaya-psihologiya/ava-terapevt'>
-          АВА-терапевт
-        </Link>
+        <Link href='/professions/detskaya-psihologiya/ava-terapevt'>АВА-терапевт</Link>
       </div>
       <LogoJsonLd
         logo={`${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`}
@@ -264,16 +241,16 @@ const MyApp = ({ Component, pageProps, router }) => {
         <MenuState>
           <FieldsTooltipState>
             {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
-            {
-              
-            }
-            <Header/>
+            {}
+            <Header />
             <main>
               <ApolloProvider client={client}>
                 <Component {...pageProps} />
               </ApolloProvider>
             </main>
-            <div><StickyBottom /></div>
+            <div>
+              <StickyBottom />
+            </div>
             <Footer />
             {/* </div> */}
           </FieldsTooltipState>
@@ -285,16 +262,8 @@ const MyApp = ({ Component, pageProps, router }) => {
         href='https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css'
       />
       <Script src='/assets/js/vendors/swiped-events.min.js' />
-      <Script
-        type='text/javascript'
-        id='carrot'
-        src='/assets/js/vendors/carrot.js'
-      />
-      <Script
-        type='text/javascript'
-        id='advcakeAsync'
-        src='/assets/js/vendors/advCake.js'
-      />
+      <Script type='text/javascript' id='carrot' src='/assets/js/vendors/carrot.js' />
+      <Script type='text/javascript' id='advcakeAsync' src='/assets/js/vendors/advCake.js' />
       {prod && (
         <>
           <Script async src='/assets/js/vendors/roistatWA.js' />
@@ -359,10 +328,7 @@ const MyApp = ({ Component, pageProps, router }) => {
           `
         }}
       />
-      <Script
-        id='WA AMO script'
-        src='https://cdn.gnzs.ru/blablachat/scripts/roistat-whatsapp.js'
-      />
+      <Script id='WA AMO script' src='https://cdn.gnzs.ru/blablachat/scripts/roistat-whatsapp.js' />
       <Script
         id='WA AMO second script'
         dangerouslySetInnerHTML={{

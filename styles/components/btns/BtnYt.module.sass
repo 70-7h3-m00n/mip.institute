@@ -3,10 +3,7 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  display: flex
-  justify-content: center
-  align-items: center
-
+  @include m.flex($jc: center, $ai: center)
   @include m.gap($mtb: f.px(4),$mr: f.px(6),  $ptb: f.px(7), $plr: f.px(10))
   border: f.px(1) solid
   @include m.dye(border, c.$purple-600)
@@ -15,6 +12,12 @@
   // & > *
   //   height: 16px
   &.dark
-    @include m.dye(border, rgba(c.$white-900, .1))
+    border: none
+    border-radius: f.px(10)
+    padding: f.px(14) f.px(11)
+    margin: 0
+    height: f.px(50)
+    width: f.px(50)
+    @include m.dye(bg, c.$black-600)
     &:focus, &:hover
       @include m.dye(bg, rgba(c.$white-900, .1))
