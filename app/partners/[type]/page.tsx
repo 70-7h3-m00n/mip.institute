@@ -2,92 +2,113 @@ import routes from '@/config/routes'
 import axios from 'axios'
 import React from 'react'
 import qs from 'qs'
+import PartnersNavigation from '@/components/partners/PartnersNavigation/PartnersNavigation'
+import Wrapper from '@/ui/Wrapper'
+import Player from '@/ui/Player/Player'
 
 export const metadata = {
   title: 'Партнеры',
   description: '',
 }
 
+// Интерфейс для изображения
+interface Image {
+  id: number;
+  documentId: string;
+  url: string;
+  width: number;
+  height: number;
+}
 
-interface partners {
-  data: {
-    data: {
-      id: string
+// Интерфейс для партнера
+interface Partner {
+  id: number;
+  documentId: string;
+  title: string;
+  subtitle: string;
+  type: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  image: Image;
+}
 
-    }[]
-  }
-  title: string
-  content: string
+// Интерфейс для параметров страницы
+interface Params {
+  type: string;
 }
 
 const queryString = qs.stringify(
   {
-
-    populate: '*'
+    populate: {
+      image: {
+        fields: ['url', 'width', 'height'],
+      },
+    },
   },
   {
     encodeValuesOnly: true,
-    skipNulls: true
+    skipNulls: true,
   }
 )
 
-export const revalidate = 60
-export const dynamicParams = true 
+export const revalidate = false
+export const dynamicParams = false
 
-export async function generateStaticParams() {
-  const partners =  await axios.get(`${routes.back.rootv2}/api/partners?${queryString}`, {
-    headers: {
-      Authorization: `Bearer ${process.env.STRAPI_BEARER}` // Замените на ваш токен
+// Функция получения всех партнеров
+async function getAllPartners(): Promise<Partner[]> {
+  const response = await axios.get<{ data: Partner[] }>(
+    `${routes.back.rootv2}/api/partners?${queryString}`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.STRAPI_BEARER}`,
+      },
     }
-  })
-
-  const categories = Array.from(
-    new Set(partners?.data?.data?.map((partner) => partner.type))
   )
-  console.log('AAA',categories);
-  
+
+  return response.data.data
+}
+
+// Генерация статических параметров для ISR
+export async function generateStaticParams(): Promise<Params[]> {
+  const partners = await getAllPartners()
+  const categories = Array.from(new Set(partners.map((partner) => partner.type)))
   return categories.map((type) => ({ type }))
 }
 
-export default async function Partners({
-  params,
-}: {
-  params: Promise<{ type: string }>
-}) {
+// Главный компонент
+export default async function Partners({ params }: { params: Params }) {
+  const { type } = params
 
-  
-  const type = (await params).type
+  // Получаем всех партнеров
+  const allPartners = await getAllPartners()
 
-  const filter = qs.stringify(
-    {
-      filters: {
-        type: {
-          $eq: type
-        }
-      },
-      populate: '*'
-    },
-    {
-      encodeValuesOnly: true,
-      skipNulls: true
-    }
-  )
+  // Получаем все уникальные типы партнеров
+  const allTypes: string[] = Array.from(new Set(allPartners.map((partner) => partner.type)))
 
-  const onePartner =  await axios.get(`${routes.back.rootv2}/api/partners?${filter}`, {
-    headers: {
-      Authorization: `Bearer ${process.env.STRAPI_BEARER}` // Замените на ваш токен
-    }
-  }).then((partner) => partner.data.data)
+  // Фильтруем партнеров по указанному типу
+  const onePartner = allPartners.filter((partner) => partner.type === type)
 
-  console.log('typeDD',onePartner);
-  
   return (
-    <>
-    <meta name="robots" content="noindex,nofollow" />
-      <h1>lalalss</h1>
-      {onePartner.map(partner => (
-        <p key={partner.id}>{partner.title}</p>
-      ))}
-    </>
+    <Wrapper>
+      <meta name="robots" content="noindex,nofollow" />
+      <h1>Наши партнеры</h1>
+
+      {/* Навигация по типам партнеров */}
+        <PartnersNavigation types={allTypes} currentType={type} />
+      {/* Отображение партнеров по типу */}
+      
+      {onePartner.length > 0 ? (
+        onePartner.map((partner) => (
+          <div key={partner.id} className="border p-4 my-4">
+            <h2>{partner.title}</h2>
+            <p>{partner.subtitle}</p>
+            <img src={partner.image.url} alt={partner.title} width={200} />
+          </div>
+        ))
+      ) : (
+        <p>Партнеров данного типа нет.</p>
+      )}
+    </Wrapper>
   )
 }
