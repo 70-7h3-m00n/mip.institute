@@ -1,0 +1,147 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.content
+  @include m.flex($ai: stretch, $jc: space-between)
+  gap: f.px(40)
+  @include m.media(phone, tablet)
+    flex-direction: column
+    gap: f.px(15)
+
+.left
+  @include m.flex($fd: column, $jc: space-between)
+  width: 50%
+  @include m.media(phone, tablet)
+    width: 100%
+
+.title
+  color: #6F01C6
+  font-size: f.px(34)
+  font-weight: 500
+  line-height: 120%
+  @include m.gap($mb: f.px(25))
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+    @include m.gap($mb: f.px(15))
+
+.description
+  color: c.$black-700
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 110%
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(10))
+
+.img
+  width: 100%
+  height: auto
+  border-radius: f.px(10)
+  background-size: cover
+  background-repeat: no-repeat
+  
+.right
+  width: 50%
+  @include m.flex($fd: column, $jc: space-between)
+  @include m.gap($mt: f.px(18))
+  gap: f.px(24)
+  @include m.media(phone, tablet)
+    width: 100%
+    gap: f.px(10)
+    @include m.gap($mt: f.px(0))
+
+.card
+  @include m.gap($ptb: f.px(20),$plr: f.px(35))
+  border-radius: 20px
+  border: 1px solid c.$purple-350
+  background: c.$white-900
+  transition: 0.3s
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20),$pl: f.px(27),$pr: f.px(41))
+
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15)
+
+.cardTitle
+  color: c.$black-700
+  font-size: f.px(26)
+  font-weight: 500
+  line-height: 110%
+  @include m.gap($mb: f.px(15))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(10))
+
+.cardDescription
+  color: c.$black-700
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 350
+  line-height: 110%
+  @include m.gap($mb: f.px(0))
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+
+.rightSection
+  width: 50%
+  @include m.flex()
+  @include m.media(phone, tablet)
+    width: 100%
+
+.rightBlock
+  @include m.flex($fd: column, $jc: space-between)
+  @include m.gap($pt: f.px(30))
+  border-radius: 15px
+  border: 1px solid c.$purple-350
+  background: c.$white-900
+  transition: 0.3s
+
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15)
+
+.rightTitle
+  color: c.$black-700
+  font-size: f.px(26)
+  font-weight: 500
+  line-height: 110%
+  @include m.gap($mb: f.px(10),$pl: f.px(35))
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+    @include m.gap($mb: f.px(10),$pl: f.px(27))
+
+.rightDescription
+  color: c.$purple-800
+  font-family: Stem
+  font-size: f.px(20)
+  font-weight: 500
+  line-height: 110%
+  @include m.gap($mb: f.px(20),$pl: f.px(35),$pr: f.px(58))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(10),$pl: f.px(27))
+
+.rightList
+  color: c.$black-700
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 130%
+  list-style-type: disc
+  @include m.gap($mb: f.px(22),$ml: f.px(55),$pl: f.px(0),$mt: f.px(0),$pr: f.px(47))
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+    @include m.gap($mb: f.px(16),$ml: f.px(44),$pl: f.px(0),$mt: f.px(0),$pr: f.px(32))
+
+.rightImage
+  width: 100%
+  height: auto
+  border-radius: 10px 10px 0px 0px
+  @include m.gap($plr: f.px(30))
+  background-size: cover
+  background-repeat: no-repeat
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(0))
+    border-radius: 14px

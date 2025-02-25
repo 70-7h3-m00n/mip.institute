@@ -1,0 +1,123 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$white-900)
+  @include m.gap($ptb: f.px(40))
+  border-radius: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20))
+    border-radius: f.px(15)
+
+.btnContainer
+  position: absolute
+  right: f.px(-10)
+  top: f.px(-10)
+  z-index: 1
+  overflow: visible
+  @include m.media(phone, tablet)
+    right: 0
+    top: 0
+
+.title
+  font-size: f.px(44)
+  font-weight: 500
+  @include m.media(phone, tablet)
+    max-width: f.px(300)
+    font-size: f.px(26)
+    @include m.gap($mb: f.px(15))
+
+.coloured
+  @include m.dye(c, c.$orange-700)
+
+.purples
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  gap: f.px(30)
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    grid-template-columns: 1fr
+    @include m.gap($mb: f.px(10))
+    gap: f.px(10)
+
+.purpleCard
+  border-radius: f.px(20)
+  @include m.gap($pt: f.px(30), $pb: f.px(50), $plr: f.px(20))
+  border: f.px(1) solid c.$purple-350
+  @include m.dye(bg, c.$purple-350)
+  background: url('Group.png')
+  @include m.dye(c, c.$white-900)
+  text-align: center
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(30), $plr: f.px(12))
+    border-radius: f.px(12)
+
+.purpleCardTitle
+  display: block
+  font-size: f.px(26)
+  font-weight: 500
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+
+.purpleCardText
+  font-size: f.px(18)
+  font-weight: 350
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+
+.cards
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  gap: f.px(20)
+  @include m.media(phone, tablet)
+    grid-template-columns: 1fr
+    @include m.gap($mt: f.px(10))
+
+.greyCard
+  position: relative
+  @include m.flex($fd: column, $jc: space-between)
+  min-height: f.px(450)
+  border-radius: f.px(14)
+  @include m.gap($pt: f.px(30), $pb: 0, $plr: f.px(15))
+  @include m.dye(bg, c.$pink-50)
+  @include m.media(phone, tablet)
+    border-radius: f.px(20)
+    @include m.gap($ptb: f.px(20), $plr: f.px(20))
+
+.greyCardTitle
+  white-space: pre-wrap
+  text-align: center
+  display: block
+  font-size: f.px(18)
+  font-weight: 500
+
+.list
+  @include m.gap($pl: 0)
+  @include m.flex($fd: column)
+  gap: f.px(20)
+
+.point
+  @include m.flex($ai: center)
+  gap: f.px(10)
+  font-size: f.px(14)
+  font-weight: 350
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    gap: f.px(15)
+
+.imageDiv
+  position: relative
+  width: 100%
+  overflow: hidden
+  @include m.flex($ai: center, $jc: center)
+
+.image
+  border-radius: f.px(10)
+  @include m.gap($mb: f.px(-10))
+  max-width: 100%
+  object-fit: cover
+  max-height: f.px(150)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0)
