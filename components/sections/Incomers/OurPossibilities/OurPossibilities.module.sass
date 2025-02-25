@@ -1,0 +1,190 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.flex($fd: column, $jc: space-between)
+  background: c.$white-900
+  border-radius: f.px(30)
+  @include m.gap($ptb: f.px(40))
+  gap: f.px(35)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(25))
+
+.title
+  font-weight: 500
+  color: c.$black-800
+  font-size: f.px(44)
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+
+.containerBlock
+  @include m.flex($jc: space-between)
+  gap: f.px(30)
+  & > div
+    flex-grow: 1         
+    flex-basis: 0        
+    width: 100%          
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+    gap: f.px(10)
+
+.containerBlock_One
+  @include m.flex($fd: column, $jc: center)
+  background: c.$purple-350
+  border-radius: f.px(20)
+  position: relative
+  @include m.media(phone, tablet)
+    border-radius: f.px(15)
+
+.containerBlock_One_btn
+  position: absolute
+  right: f.px(15)
+  top: f.px(15)
+  @include m.media(phone, tablet)
+    right: f.px(25)
+    top: f.px(15)
+    
+.containerBlock_One_fon
+  position: absolute
+  top: -65px
+  left: -65px
+
+.containerBlock_One_title
+  color: c.$white-900
+  font-size: f.px(26)
+  font-weight: 500
+  line-height: 110%
+  @include m.gap($mb: f.px(20), $mt: f.px(116), $pl: f.px(22), $pr: f.px(8))
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+    @include m.gap($mb: f.px(18), $mt: f.px(77), $pl: f.px(27), $pr: f.px(49))
+
+.containerBlock_One_description
+  color: c.$white-900
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 110%
+  @include m.gap($mb: f.px(72), $pl: f.px(22), $pr: f.px(8))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(49), $pl: f.px(27), $pr: f.px(49))
+
+.containerBlock_Two
+  @include m.flex($fd: column, $jc: center)
+  background: c.$purple-100
+  border-radius: f.px(20)
+  @include m.media(phone, tablet)
+    border-radius: f.px(15)
+
+.containerBlock_Two_topIcon
+  @include m.flex($jc: flex-start)
+  gap: f.px(7)
+  @include m.gap($pt: f.px(15), $pl: f.px(15))
+  @include m.media(phone, tablet)
+    @include m.gap($pl: f.px(25))
+  a
+    background-color: c.$white-900
+    border-radius: 50%
+    span
+      @include m.flex($jc: center, $ai: center)
+      width: 60px
+      height: 60px
+      @include m.media(tablet)
+        width: 47px
+        height: 47px
+      @include m.media(phone, tablet)
+        width: 42px
+        height: 42px
+      & > svg
+        fill: c.$black-900
+        width: 25px
+        height: 25px
+        @include m.media(tablet)
+          width: 22px
+          height: 22px
+        @include m.media(phone, tablet)
+          width: 19px
+          height: 19px
+      path
+        fill: c.$black-900
+
+.containerBlock_Two_title
+  color: c.$purple-350
+  font-size: f.px(26)
+  font-weight: 500
+  line-height: 110%
+  @include m.gap($mb: f.px(20), $mt: f.px(49), $plr: f.px(15))
+  @include m.media(phone, tablet)
+    font-size: f.px(22)
+    @include m.gap($mb: f.px(15), $mt: f.px(15), $pl: f.px(25), $pr: f.px(38))
+
+.containerBlock_Two_description
+  color: c.$purple-350
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 110%
+  @include m.gap($mb: f.px(49), $plr: f.px(15))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(15), $pl: f.px(25), $pr: f.px(38))
+
+.containerBlock_Two_bottomIcon
+  @include m.flex($jc: flex-end)
+  gap: f.px(7)
+  @include m.gap($pb: f.px(15), $pr: f.px(15))
+  a
+    background-color: c.$white-900
+    border-radius: 50%
+    span
+      @include m.flex($jc: center, $ai: center)
+      width: 60px
+      height: 60px
+      @include m.media(tablet)
+        width: 47px
+        height: 47px
+      @include m.media(phone, tablet)
+        width: 42px
+        height: 42px
+      & > svg
+        fill: c.$black-900
+        width: 25px
+        height: 25px
+        @include m.media(tablet)
+          width: 22px
+          height: 22px
+        @include m.media(phone, tablet)
+          width: 19px
+          height: 19px
+      path
+        fill: c.$black-900
+
+.containerBlock_Three
+  @include m.flex($fd: column, $jc: center)
+  background-color: c.$purple-350
+  border-radius: f.px(20)
+  background-image: url(https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739182648/Fon_Three_Block_6fdc8fbb3d.png)
+  background-size: cover
+  @include m.media(phone, tablet)
+    border-radius: f.px(15)
+
+.containerBlock_Three_title
+  color: c.$white-900
+  font-size: f.px(26)
+  font-weight: 500
+  line-height: 110%
+  @include m.gap($mb: f.px(20), $mt: f.px(116), $plr: f.px(26))
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+    @include m.gap($mb: f.px(15), $mt: f.px(77), $pl: f.px(27), $pr: f.px(29))
+
+.containerBlock_Three_description
+  color: c.$white-900
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 110%
+  @include m.gap($mb: f.px(182), $plr: f.px(26))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(142), $pl: f.px(27), $pr: f.px(29))
