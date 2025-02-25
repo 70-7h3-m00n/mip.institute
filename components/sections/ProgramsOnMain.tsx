@@ -39,7 +39,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
         : true
 
       const labelMatch = selectedLabel
-        ? currentType.value === 'Bachelor'
+        ? currentType?.value === 'Bachelor'
           ? program.slug === selectedLabel.value
           : program.studyFieldSlug === selectedLabel.value
         : true
@@ -93,12 +93,14 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
           onChange={handleSetCurrentType}
           options={levelOptions}
           placeholder='Уровень образования'
+          //@ts-ignore
           value={currentType}
         />
         <CustomSelect
           onChange={handleSelectedLabel}
           options={programsMap[currentType?.value.toLowerCase()] || []}
           placeholder='Направления'
+          //@ts-ignore
           value={selectedLabel}
           isDisabled={!currentType || currentType.value === 'PracticalTraining'}
         />

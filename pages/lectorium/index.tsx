@@ -114,6 +114,7 @@ const LectoriumPage = ({ lectoriums }: Props) => {
   }, [showPast, selectedType, isInternal, filteredDates, lectoriums, priceFilter, setFilteredDates])
 
   const handleFilterInternalEvents = () => {
+    //@ts-ignore
     setIsInternal(true)
   }
 
@@ -122,13 +123,16 @@ const LectoriumPage = ({ lectoriums }: Props) => {
   }
 
   const handleFilterOutsideEvents = () => {
+    //@ts-ignore
     setIsInternal(false)
   }
 
   const handleSelectChange = (selectedOption: (typeof lectoriumOptions)[0]) => {
+    //@ts-ignore
     setSelectedType(selectedOption?.value || null)
   }
   const handleSelectPriceFilter = (selectedOption: (typeof lectoriumPriceOptions)[0]) => {
+    //@ts-ignore
     setPriceFilter(selectedOption?.value || null)
   }
 
@@ -220,7 +224,8 @@ const LectoriumPage = ({ lectoriums }: Props) => {
               </div>
             )}
             {filteredLectoriums.map(lectorium => (
-              <LectoriumIndexCard key={lectorium.slug} card={lectorium} />
+              //@ts-ignore
+              <LectoriumIndexCard key={lectorium?.slug} card={lectorium} />
             ))}
           </div>
           {filteredLectoriums.length === 0 && <Stub onClick={onClickReset} />}

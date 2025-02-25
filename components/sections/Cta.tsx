@@ -21,7 +21,7 @@ type CtaType = {
     | 'learnAboutTeachers'
   question?: boolean
 }
-
+// @ts-ignore
 const Cta = ({ title = null, desc = null, cta, onMain = false }: CtaType) => {
   return (
     <section

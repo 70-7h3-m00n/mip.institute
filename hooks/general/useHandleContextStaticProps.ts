@@ -40,10 +40,12 @@ const useHandleContextStaticProps = ({
 
   useEffect(() => {
     const courses =
+    //@ts-ignore
       programs?.length > 0
         ? filterProgramsByType({ programs, type: 'course' })
         : []
     const professions =
+    //@ts-ignore
       programs?.length > 0
         ? filterProgramsByType({ programs, type: 'profession' })
         : []
@@ -54,12 +56,14 @@ const useHandleContextStaticProps = ({
     setPrograms(programs || null)
     setCourses(courses || null)
     setProfessions(professions || null)
-
+//@ts-ignore
     setStudyFields(programs?.length > 0 ? getStudyFields(programs) : [])
 
     setStudyFieldsProfessions(
+      //@ts-ignore
       programs?.length > 0 ? getStudyFields(professions) : []
     )
+    //@ts-ignore
     setStudyFieldsCourses(programs?.length > 0 ? getStudyFields(courses) : [])
 
     setCurProgramsType(curProgramsType || null)

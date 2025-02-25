@@ -124,8 +124,7 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
       },
       {
         source: '/professions/konsultirovanie/detskij-nejropsiholog',
-        destination:
-          '/professions/klinicheskaya-psihologiya/detskij-nejropsiholog',
+        destination: '/professions/klinicheskaya-psihologiya/detskij-nejropsiholog',
         permanent: true
       },
       {
@@ -139,22 +138,17 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/konsultirovanie/kognitivno-povedencheskij-psihoterapevt',
-        destination:
-          '/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt',
+        source: '/professions/konsultirovanie/kognitivno-povedencheskij-psihoterapevt',
+        destination: '/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt',
         permanent: true
       },
       {
-        source:
-          '/professions/korporativnaya-psihologiya/korporativnyj-psiholog',
-        destination:
-          '/professions/organizacionnaya-psihologiya/korporativnyj-psiholog',
+        source: '/professions/korporativnaya-psihologiya/korporativnyj-psiholog',
+        destination: '/professions/organizacionnaya-psihologiya/korporativnyj-psiholog',
         permanent: true
       },
       {
-        source:
-          '/professions/pedagogika/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog',
+        source: '/professions/pedagogika/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog',
         destination:
           '/professions/detskaya-psihologiya/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog',
         permanent: true
@@ -194,8 +188,7 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/prakticheskaya-psihologiya/prakticheskij-psiholog',
+        source: '/professions/prakticheskaya-psihologiya/prakticheskij-psiholog',
         destination: '/professions/konsultirovanie/prakticheskij-psiholog',
         permanent: true
       },
@@ -207,10 +200,8 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/konsultirovanie/psihoanaliz-i-psihologicheskaya-psihoterapiya',
-        destination:
-          '/professions/psihoterapiya/psihoanaliz-i-psihologicheskaya-psihoterapiya',
+        source: '/professions/konsultirovanie/psihoanaliz-i-psihologicheskaya-psihoterapiya',
+        destination: '/professions/psihoterapiya/psihoanaliz-i-psihologicheskaya-psihoterapiya',
         permanent: true
       },
       {
@@ -220,16 +211,13 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/korporativnaya-psihologiya/psiholog-biznes-konsultant',
-        destination:
-          '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+        source: '/professions/korporativnaya-psihologiya/psiholog-biznes-konsultant',
+        destination: '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
         permanent: true
       },
       {
         source: '/professions/dietologiya/psiholog-dietolog',
-        destination:
-          '/professions/dietologiya-i-nutriciologiya/psiholog-dietolog.-nutriciolog',
+        destination: '/professions/dietologiya-i-nutriciologiya/psiholog-dietolog.-nutriciolog',
         permanent: true
       },
       {
@@ -243,8 +231,7 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/prakticheskaya-psihologiya/psihologiya-obsheniya-v-delovoj-sfere',
+        source: '/professions/prakticheskaya-psihologiya/psihologiya-obsheniya-v-delovoj-sfere',
         destination:
           '/professions/organizacionnaya-psihologiya/psihologiya-obsheniya-v-delovoj-sfere',
         permanent: true
@@ -252,15 +239,12 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
       {
         source:
           '/professions/prakticheskaya-psihologiya/psihosintez-v-psihoterapevticheskoj-praktike',
-        destination:
-          '/professions/psihoterapiya/psihosintez-v-psihoterapevticheskoj-praktike',
+        destination: '/professions/psihoterapiya/psihosintez-v-psihoterapevticheskoj-praktike',
         permanent: true
       },
       {
-        source:
-          '/professions/konsultirovanie/psihosomatika-i-telesnaya-psihoterapiya',
-        destination:
-          '/professions/psihoterapiya/psihosomatika-i-telesnaya-psihoterapiya',
+        source: '/professions/konsultirovanie/psihosomatika-i-telesnaya-psihoterapiya',
+        destination: '/professions/psihoterapiya/psihosomatika-i-telesnaya-psihoterapiya',
         permanent: true
       },
       {
@@ -286,10 +270,8 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/konsultirovanie/telesno-orientirovannaya-terapiya',
-        destination:
-          '/professions/psihoterapiya/telesno-orientirovannaya-terapiya',
+        source: '/professions/konsultirovanie/telesno-orientirovannaya-terapiya',
+        destination: '/professions/psihoterapiya/telesno-orientirovannaya-terapiya',
         permanent: true
       },
       {
@@ -298,10 +280,8 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/courses/konsultirovanie/narcissizm-i-narcissicheskie-rasstrojstva',
-        destination:
-          '/courses/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
+        source: '/courses/konsultirovanie/narcissizm-i-narcissicheskie-rasstrojstva',
+        destination: '/courses/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
         permanent: true
       },
       {
@@ -335,36 +315,29 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/courses/konsultirovanie/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
-        destination:
-          '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
+        source: '/courses/konsultirovanie/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
+        destination: '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
         permanent: true
       },
       {
         source: '/courses/konsultirovanie/psihologiya-effektivnyh-peregovorov',
-        destination:
-          '/courses/organizacionnaya-psihologiya/psihologiya-effektivnyh-peregovorov',
+        destination: '/courses/organizacionnaya-psihologiya/psihologiya-effektivnyh-peregovorov',
         permanent: true
       },
       {
-        source:
-          '/courses/konsultirovanie/sovremennaya-kognitivno-povedencheskaya-terapiya',
-        destination:
-          '/courses/psihoterapiya/sovremennaya-kognitivno-povedencheskaya-terapiya',
+        source: '/courses/konsultirovanie/sovremennaya-kognitivno-povedencheskaya-terapiya',
+        destination: '/courses/psihoterapiya/sovremennaya-kognitivno-povedencheskaya-terapiya',
         permanent: true
       },
       {
-        source:
-          '/courses/konsultirovanie/sovremennye-metody-samoregulyacii-psihologii-zdorovya',
+        source: '/courses/konsultirovanie/sovremennye-metody-samoregulyacii-psihologii-zdorovya',
         destination:
           '/courses/obshaya-psihologiya/sovremennye-metody-samoregulyacii-psihologii-zdorovya',
         permanent: true
       },
       {
         source: '/courses/konsultirovanie/upravlenie-konfliktami',
-        destination:
-          '/courses/organizacionnaya-psihologiya/upravlenie-konfliktami',
+        destination: '/courses/organizacionnaya-psihologiya/upravlenie-konfliktami',
         permanent: true
       },
       {
@@ -412,8 +385,7 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
       },
       {
         source: '/programs/etika-professionalnoj-deyatelnosti-psihologa',
-        destination:
-          '/courses/konsultirovanie/etika-professionalnoj-deyatelnosti-psihologa',
+        destination: '/courses/konsultirovanie/etika-professionalnoj-deyatelnosti-psihologa',
         permanent: true
       },
       {
@@ -428,22 +400,18 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/korporativnaya-psihologiya/psiholog-biznes-konsultant',
-        destination:
-          '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+        source: '/professions/korporativnaya-psihologiya/psiholog-biznes-konsultant',
+        destination: '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
         permanent: true
       },
       {
         source: '/professions/kouching',
-        destination:
-          '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+        destination: '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
         permanent: true
       },
       {
         source: '/professions/korporativnaya-psihologiya',
-        destination:
-          '/professions/organizacionnaya-psihologiya/korporativnyj-psiholog',
+        destination: '/professions/organizacionnaya-psihologiya/korporativnyj-psiholog',
         permanent: true
       },
       {
@@ -459,8 +427,7 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
       },
       {
         source: '/professions/klinicheskaya-psihologiya/klinicheskij-psiholog',
-        destination:
-          '/professions/klinicheskaya-psihologiya/klinicheskaya-psihologiya',
+        destination: '/professions/klinicheskaya-psihologiya/klinicheskaya-psihologiya',
         permanent: true
       },
       {
@@ -470,23 +437,19 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/korporativnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
-        destination:
-          '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+        source: '/professions/korporativnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+        destination: '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
         permanent: true
       },
       {
-        source:
-          '/professions/konsultirovanie/prakticheskaya-konfliktologiya-i-mediaciya',
+        source: '/professions/konsultirovanie/prakticheskaya-konfliktologiya-i-mediaciya',
         destination:
           '/professions/organizacionnaya-psihologiya/prakticheskaya-konfliktologiya-i-mediaciya',
         permanent: true
       },
       {
         source: '/professions/konsultirovanie/kratkosrochnaya-psihoterapiya',
-        destination:
-          '/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt',
+        destination: '/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt',
         permanent: true
       },
       {
@@ -496,10 +459,8 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/psihoterapiya/psihosintez-v-psihoterapevticheskoj-praktike',
-        destination:
-          '/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt',
+        source: '/professions/psihoterapiya/psihosintez-v-psihoterapevticheskoj-praktike',
+        destination: '/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt',
         permanent: true
       },
       {
@@ -509,8 +470,7 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/konsultirovanie/skazkoterapiya-v-psihologicheskom-konsultirovanii',
+        source: '/professions/konsultirovanie/skazkoterapiya-v-psihologicheskom-konsultirovanii',
         destination: '/professions/konsultirovanie/art-terapevt',
         permanent: true
       },
@@ -527,16 +487,13 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/organizacionnaya-psihologiya/psihologiya-obsheniya-v-delovoj-sfere',
-        destination:
-          '/professions/organizacionnaya-psihologiya/korporativnyj-psiholog',
+        source: '/professions/organizacionnaya-psihologiya/psihologiya-obsheniya-v-delovoj-sfere',
+        destination: '/professions/organizacionnaya-psihologiya/korporativnyj-psiholog',
         permanent: true
       },
       {
         source: '/professions/dietologiya-i-nutriciologiya/nutriciologiya',
-        destination:
-          '/professions/dietologiya-i-nutriciologiya/psiholog-dietolog.-nutriciolog',
+        destination: '/professions/dietologiya-i-nutriciologiya/psiholog-dietolog.-nutriciolog',
         permanent: true
       },
       {
@@ -561,8 +518,7 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/konsultirovanie/psihodiagnostika-v-psihologicheskom-konsultirovanii',
+        source: '/professions/konsultirovanie/psihodiagnostika-v-psihologicheskom-konsultirovanii',
         destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
@@ -573,14 +529,12 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/konsultirovanie/psihologicheskoe-internet-konsultirovanie',
+        source: '/professions/konsultirovanie/psihologicheskoe-internet-konsultirovanie',
         destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
       {
-        source:
-          '/professions/konsultirovanie/psihologicheskoe-konsultirovanie-detej-i-podrostkov',
+        source: '/professions/konsultirovanie/psihologicheskoe-konsultirovanie-detej-i-podrostkov',
         destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
@@ -599,8 +553,7 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
       {
         source:
           '/professions/konsultirovanie/osnovy-psihologicheskogo-konsultirovaniya-i-professionalnyj-kouching',
-        destination:
-          '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
+        destination: '/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch',
         permanent: true
       },
       {
@@ -610,24 +563,19 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/professions/konsultirovanie/konsultirovanie-v-sfere-seksualnyh-otnoshenij',
-        destination:
-          '/professions/konsultirovanie/seksologiya-v-psihologicheskom-konsultirovanii',
+        source: '/professions/konsultirovanie/konsultirovanie-v-sfere-seksualnyh-otnoshenij',
+        destination: '/professions/konsultirovanie/seksologiya-v-psihologicheskom-konsultirovanii',
         permanent: true
       },
       {
-        source:
-          '/professions/konsultirovanie/semejnoe-psihologicheskoe-konsultirovanie',
-        destination:
-          '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
+        source: '/professions/konsultirovanie/semejnoe-psihologicheskoe-konsultirovanie',
+        destination: '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
         permanent: true
       },
       {
         source:
           '/professions/konsultirovanie/teoriya-i-praktika-individualnogo-i-semejnogo-konsultirovaniya',
-        destination:
-          '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
+        destination: '/courses/obshaya-psihologiya/psihologiya-semi-i-semejnyh-vzaimootnoshenij',
         permanent: true
       },
       {
@@ -636,50 +584,42 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source:
-          '/journal/kak-obshhatsya-s-podrostkom-rasprostranennye-oshibki-i-sovety-roditelyam',
+        source: '/journal/kak-obshhatsya-s-podrostkom-rasprostranennye-oshibki-i-sovety-roditelyam',
         destination: '/journal',
         permanent: true
       },
       {
-        source:
-          '/journal/krizisy-po-vozrastam-u-detej-kogda-nachinayutsya-i-kak-proyavlyayutsya',
+        source: '/journal/krizisy-po-vozrastam-u-detej-kogda-nachinayutsya-i-kak-proyavlyayutsya',
         destination: '/journal',
         permanent: true
       },
       {
-        source:
-          '/journal/muzykoterapiya-kak-mozhet-pomoch-v-lechenii-psihologicheskih-problem',
+        source: '/journal/muzykoterapiya-kak-mozhet-pomoch-v-lechenii-psihologicheskih-problem',
         destination: '/journal',
         permanent: true
       },
       {
-        source:
-          '/journal/socziofobiya-eto-stesnitelnost-ili-rasstrojstvo-simptomy-i-prichiny',
+        source: '/journal/socziofobiya-eto-stesnitelnost-ili-rasstrojstvo-simptomy-i-prichiny',
         destination: '/journal',
         permanent: true
       },
       {
-        source:
-          '/journal/art-terapiya-v-psihologii-chto-nuzhno-znat-chtoby-pomogat-lyudyam-1',
+        source: '/journal/art-terapiya-v-psihologii-chto-nuzhno-znat-chtoby-pomogat-lyudyam-1',
         destination: '/journal',
         permanent: true
       },
       {
-        source:
-          '/journal/vygoranie-na-rabote-kak-raspoznat-i-spravitsya-s-problemoj',
+        source: '/journal/vygoranie-na-rabote-kak-raspoznat-i-spravitsya-s-problemoj',
         destination: '/journal',
         permanent: true
       },
       {
-        source:
-          '/journal/chto-takoe-tajm-menedzhment-vremya-kak-resurs-dlya-uspeha',
+        source: '/journal/chto-takoe-tajm-menedzhment-vremya-kak-resurs-dlya-uspeha',
         destination: '/journal',
         permanent: true
       },
       {
-        source:
-          '/journal/kognitivnie-iskazheniya-kak-ne-stat-zalozhnikom-lovushek-soznaniya',
+        source: '/journal/kognitivnie-iskazheniya-kak-ne-stat-zalozhnikom-lovushek-soznaniya',
         destination: '/journal',
         permanent: true
       },
@@ -704,7 +644,8 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source: '/courses/obshaya-psihologiya/sovremennye-metody-samoregulyacii-psihologii-zdorovya',
+        source:
+          '/courses/obshaya-psihologiya/sovremennye-metody-samoregulyacii-psihologii-zdorovya',
         destination: '/',
         permanent: true
       },
@@ -714,7 +655,8 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source: '/courses/konsultirovanie/sovremennaya-masterskaya-psihologicheskogo-konsultirovaniya',
+        source:
+          '/courses/konsultirovanie/sovremennaya-masterskaya-psihologicheskogo-konsultirovaniya',
         destination: '/professions/konsultirovanie/psiholog-konsultant',
         permanent: true
       },
@@ -769,8 +711,10 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source: '/courses/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
-        destination: '/shortTerm/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
+        source:
+          '/courses/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
+        destination:
+          '/shortTerm/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
         permanent: true
       },
       {
@@ -798,7 +742,8 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         source: '/professions/organizacionnaya-psihologiya/upravlenie-konfliktami',
         destination: '/shortTerm/organizacionnaya-psihologiya/upravlenie-konfliktami',
         permanent: true
-      },{
+      },
+      {
         source: '/professions/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
         destination: '/shortTerm/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva',
         permanent: true
@@ -809,8 +754,10 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         permanent: true
       },
       {
-        source: '/professions/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
-        destination: '/shortTerm/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
+        source:
+          '/professions/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
+        destination:
+          '/shortTerm/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya',
         permanent: true
       },
       {
@@ -823,6 +770,12 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
         destination: '/sveden/common',
         permanent: true
       },
+      {
+        source:
+          '/professions/detskaya-psihologiya/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog',
+        destination: '/professions/detskaya-psihologiya/logoped',
+        permanent: true
+      }
     ]
   }
 })

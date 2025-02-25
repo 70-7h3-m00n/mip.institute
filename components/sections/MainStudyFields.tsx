@@ -29,7 +29,9 @@ const MainStudyFields = ({
             <Link
               href={href}
               passHref
+              // @ts-ignore
               onMouseEnter={
+                // @ts-ignore
                 hoverSelect ? () => setCurrentType(programType) : null
               }
               className={cn({

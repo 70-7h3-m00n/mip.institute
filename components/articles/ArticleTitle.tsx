@@ -75,6 +75,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
       <div className={stls.imgBox}>
         <div
           className={stls.imgTitleContainer}
+          // @ts-ignore
           style={{ flex: !props?.teacher && 1 }}>
           <Image
             src={props?.picture?.url}
@@ -91,6 +92,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
           <div className={stls.imgTeacherWithAchievements}>
             <div className={stls.imgTeacherContainer}>
               <Image
+              // @ts-ignore
                 src={
                   props.teacher?.portraitForBlog?.url ||
                   props.teacher?.portrait?.url

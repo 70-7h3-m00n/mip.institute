@@ -19,7 +19,7 @@ const ArticleBlogTable = ({ props }: ArticleBlogTableType) => {
     <div className={stls.container}>
       <table className={stls.table}>
         <tbody>
-          {row.map((oneColumn, i) => (
+          {row?.map((oneColumn, i) => (
             <tr key={oneColumn.id}>
               {oneColumn?.record?.map(el =>
                 i !== 0 ? (

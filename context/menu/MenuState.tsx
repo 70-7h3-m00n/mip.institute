@@ -1,3 +1,4 @@
+'use client'
 import { useReducer } from 'react'
 import MenuContext from '@/context/menu/menuContext'
 import menuReducer from '@/context/menu/menuReducer'

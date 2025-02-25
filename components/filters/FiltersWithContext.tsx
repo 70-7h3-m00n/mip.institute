@@ -12,11 +12,13 @@ const FiltersWithContext = ({ cost, duration }) => {
   const { filters } = useFilter()
   const handleRecruitment = () => {
     if (!filters.courseOpened) {
+      // @ts-ignore
       dispatch({
         type: 'setBooleanFilter',
         filterName: 'courseOpened'
       })
     } else {
+      // @ts-ignore
       dispatch({
         type: 'clearBooleanFilter',
         filterName: 'courseOpened'

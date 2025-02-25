@@ -9,8 +9,8 @@ const ImgResume1 = ({ width = 0, height = 0 }) => {
         src={pic}
         alt='Семейный психолог'
         className={stls.img}
-        width={width !== 0 && width}
-        height={height !== 0 && height}
+        width={width !== 0 && width || undefined}
+        height={height !== 0 && height || undefined}
         placeholder='blur'
         style={{
           width: '100%',

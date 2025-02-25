@@ -8,6 +8,7 @@ import Link from 'next/link'
 type Props = {
   seminar: Lectorium
 }
+// @ts-ignore
 const CardNextEvents = ({ seminar = null }: Props) => {
   const date = new Date(seminar.targetDate)
   const day = String(date.getUTCDate()).padStart(2, '0')

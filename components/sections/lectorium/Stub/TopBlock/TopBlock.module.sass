@@ -75,13 +75,44 @@
     font-size: f.px(15)
     border-radius: f.px(5)
 
-.img
+.sliderContainer 
+  @include m.flex($jc: center, $ai: center)
+ 
+.slider 
   display: flex
-  height: 100%
-  flex: 1 1
-  object-fit: cover
-  border-radius: f.px(10)
-  @include m.media(phone, tablet)
-    border-radius: f.px(5)
-    min-height: f.px(220)
-    max-width: 100%
+  overflow: hidden
+  width: 100%
+  border-radius: 10px
+  position: relative
+  @include m.media(desktop)
+    width: f.px(600)
+    height: f.px(420)
+  @include m.media(laptop)
+    width: clamp(350px, 50vw, 550px)
+    height: clamp(420px, 50vw, 430px)
+  @include m.media(tablet, phone)
+    height: f.px(345)
+
+.slide 
+  flex: 0 0 100%
+  height: f.px(345)
+  transition: opacity 0.5s ease-in-out
+  
+  .img
+    @include m.media(tablet, phone)
+      object-fit: cover
+      width: 100%
+      height: 100%
+
+  &.activeSlide
+    opacity: 1
+
+.btnPrev, .nextBtn
+  position: absolute
+  top: 45%
+
+.btnPrev
+  left: f.px(30)
+
+.nextBtn
+  right: f.px(30)

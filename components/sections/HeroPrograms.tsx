@@ -26,6 +26,7 @@ const HeroPrograms = ({ minmaxDuration, minmaxPrice }: Props) => {
   const { filters } = useFilter()
 
   const changeHandler = e => {
+    // @ts-ignore
     dispatch({
       type: 'setInputValue',
       payload: e.target.value

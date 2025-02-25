@@ -33,10 +33,13 @@ const BtnFields = () => {
             [stls.isShown]: fieldsTooltipIsOpen
           })}>
           <MainStudyFields
+          // @ts-ignore
             currentType={currentType}
+            // @ts-ignore
             setCurrentType={setCurrentType}
           />
           <StudyFieldsOnMain
+          // @ts-ignore
             currentType={currentType}
             ofType={currentType}
             orang

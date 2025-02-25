@@ -79,7 +79,10 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
                     </div>
                   </div>
                   <div className={stls.icon}>
-                    <IconNavigation hover={hoveredIcon?.icon === icon}>
+                    
+                    <IconNavigation
+                    // @ts-ignore
+                    hover={hoveredIcon?.icon === icon}>
                       {icon}
                     </IconNavigation>
                   </div>

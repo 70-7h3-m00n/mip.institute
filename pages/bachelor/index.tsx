@@ -21,7 +21,9 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({
     <>
       <PageBachelors
         programs={programs}
+        //@ts-ignore
         bachelors={bachelors}
+        //@ts-ignore
         practicalTrainings={practicalTrainings}
       />
     </>

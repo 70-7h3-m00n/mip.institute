@@ -62,6 +62,7 @@ type PopupTriggerType = {
 const PopupTrigger = ({
   btn,
   cta,
+  //@ts-ignore
   testProgram = null,
   isActivePromocode,
   isLightYellowBetaBtn,

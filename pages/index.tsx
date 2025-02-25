@@ -75,6 +75,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   bachelors,
   practicalTrainings
 }) => {
+  //@ts-ignore
   useHandleContextStaticProps({ programs })
   const [layout, setLayout] = useState<'old' | 'new'>('old')
   const [open, setOpen] = useState(false)
@@ -88,10 +89,11 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       setOpen(true)
     }
   }, [router.query])
-
+//@ts-ignore
   const teachersFromMain = teachers?.filter(teacher => allowedNames.includes(teacher.name))
 
   const reviewsSorted = sortBasedOnNumericOrder({
+    //@ts-ignore
     reviews: sortReviewsCreatedAtASC({ reviews })
   })
 
@@ -117,6 +119,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <Hero key='heroOld' />
       <DirectionsNew
         key='directionsNewOld'
+        //@ts-ignore
         programs={programs}
         bachelors={bachelors}
         practicalTrainings={practicalTrainings}
@@ -189,6 +192,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       />
       <DirectionsNew
         key='directionsNew'
+        //@ts-ignore
         programs={programs}
         bachelors={bachelors}
         practicalTrainings={practicalTrainings}

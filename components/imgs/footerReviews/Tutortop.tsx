@@ -9,8 +9,8 @@ const Tutortop = ({ width = 80, height = 17 }) => {
         src={pic}
         alt='dzen icon'
         className={stls.img}
-        width={width !== 0 && width}
-        height={height !== 0 && height}
+        width={width !== 0 && width || undefined}
+        height={height !== 0 && height || undefined}
         // placeholder='blur'
         quality={100}
       />

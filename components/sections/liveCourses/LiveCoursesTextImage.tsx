@@ -27,7 +27,7 @@ const LiveCoursesTextImage = ({ props }: LiveCorsesTextImageProps) => {
       <div className={styles.container}>
         {block?.map((el, i) => (
           <div key={i} className={styles.block}>
-            {el.map((one, idx) => (
+            {el?.map((one, idx) => (
               <div key={idx} className={styles.content}>
                 {one.txt && (
                   <p
@@ -38,7 +38,7 @@ const LiveCoursesTextImage = ({ props }: LiveCorsesTextImageProps) => {
                     {one.txt}
                   </p>
                 )}
-                {one.photo[0] && (
+                {one?.photo?.[0] && (
                   <div className={styles.imgContainer}>
                     <Image
                       className={styles.img}

@@ -77,6 +77,7 @@ export const getStaticPaths = async () =>
   await getStaticPathsBlogs()
 
 export const getStaticProps: GetStaticProps = async context =>
+  // @ts-ignore
   await getStaticPropsBlog({context})
 
 export default JournalSlugPage

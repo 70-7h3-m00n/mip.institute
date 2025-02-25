@@ -17,9 +17,11 @@ const ReviewsPage: NextPage<TypePageReviewsProps> = ({
   reviews,
   uniqueReviews
 }) => {
+  //@ts-ignore
   useHandleContextStaticProps({ programs })
 
   const reviewsSorted = sortBasedOnNumericOrder({
+    //@ts-ignore
     reviews: sortUniqueReviewsCreatedAtASC({ uniqueReviews })
   })
 

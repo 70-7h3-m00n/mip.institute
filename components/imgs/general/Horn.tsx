@@ -14,8 +14,8 @@ const Horn = ({ url, width = 569, height = 317 }: Props) => {
         src={url}
         alt='Горн'
         className={stls.img}
-        width={width !== 0 && width}
-        height={height !== 0 && height}
+        width={width !== 0 && width || undefined}
+        height={height !== 0 && height || undefined}
         placeholder='blur'
       />
     </div>

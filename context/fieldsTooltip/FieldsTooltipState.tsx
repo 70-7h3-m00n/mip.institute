@@ -1,3 +1,4 @@
+'use client'
 import { useReducer } from 'react'
 import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'
 import fieldsTooltipReducer from '@/context/fieldsTooltip/fieldsTooltipReducer'

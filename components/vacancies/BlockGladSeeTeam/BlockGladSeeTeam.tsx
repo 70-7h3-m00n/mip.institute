@@ -35,8 +35,8 @@ const BlockGladSeeTeam = ({ props }: PropsType) => {
       <Wrapper>
         <div className={styles.content}>
           <div className={styles.textBlock}>
-            <h2 className={styles.title}>{parsedData.title}</h2>
-            <p className={styles.description}>{parsedData.description}</p>
+            <h2 className={styles.title}>{parsedData?.title}</h2>
+            <p className={styles.description}>{parsedData?.description}</p>
             <div className={styles.mobVideoBlock}>
               <div className={styles.playerWrapper}>
                 <KinescopePlayer
@@ -54,7 +54,7 @@ const BlockGladSeeTeam = ({ props }: PropsType) => {
                 />
               </div>
             </div>
-            {parsedData.link && (
+            {parsedData?.link && (
               <a
                 href={parsedData.link}
                 className={styles.button}
