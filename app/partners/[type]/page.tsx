@@ -2,43 +2,12 @@ import routes from '@/config/routes'
 import axios from 'axios'
 import React from 'react'
 import qs from 'qs'
-import PartnersNavigation from '@/components/partners/OurPartners/PartnersNavigation/PartnersNavigation'
 import Wrapper from '@/ui/Wrapper'
-import Player from '@/ui/Player/Player'
-import PartnersCard from '@/components/partners/OurPartners/PartnersList/PartnersCard'
-import PartnersList from '@/components/partners/OurPartners/PartnersList/PartnersList'
 import OurPartners from '@/components/partners/OurPartners/OurPartners'
 
 export const metadata = {
   title: 'Партнеры',
   description: ''
-}
-
-// Интерфейс для изображения
-interface Image {
-  id: number
-  documentId: string
-  url: string
-  width: number
-  height: number
-}
-
-// Интерфейс для партнера
-interface Partner {
-  id: number
-  documentId: string
-  title: string
-  subtitle: string
-  type: string
-  createdAt: string
-  updatedAt: string
-  publishedAt: string
-  image: Image
-}
-
-// Интерфейс для параметров страницы
-interface Params {
-  type: string
 }
 
 const queryString = qs.stringify(

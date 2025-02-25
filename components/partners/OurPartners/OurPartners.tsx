@@ -1,8 +1,9 @@
 import PartnersNavigation from '@/components/partners/OurPartners/PartnersNavigation/PartnersNavigation'
 import PartnersList from '@/components/partners/OurPartners/PartnersList/PartnersList'
 import styles from './OurPartners.module.sass'
+import { PropsOurPartners } from '../type'
 
-const OurPartners = ({ allTypes, currentType, onePartner }) => {
+const OurPartners: React.FC<PropsOurPartners> = ({ allTypes, currentType, onePartner }) => {
   return (
     <section className={styles.container}>
       <h1 className={styles.title}>Наши партнеры</h1>

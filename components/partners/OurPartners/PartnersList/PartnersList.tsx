@@ -1,7 +1,8 @@
+import { PropsList } from '../../type'
 import PartnersCard from './PartnersCard'
 import styles from './PartnersList.module.sass'
 
-const PartnersList = ({ partners }) => {
+const PartnersList: React.FC<PropsList>  = ({ partners }) => {
   return (
     <div className={styles.containerList}>
       {partners.length > 0

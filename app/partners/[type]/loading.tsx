@@ -1,3 +1,4 @@
+'use client'
 import Wrapper from '@/ui/Wrapper'
 import styles from './Loading.module.sass'
 

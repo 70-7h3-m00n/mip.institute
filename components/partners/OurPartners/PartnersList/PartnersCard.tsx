@@ -2,10 +2,11 @@
 import { useState } from 'react'
 import styles from './PartnersCard.module.sass'
 import Image from 'next/image'
+import { PropsCard } from '../../type'
 
-const PartnersCard = ({ partner }) => {
+
+const PartnersCard: React.FC<PropsCard> = ({ partner }) => {
   const [expanded, setExpanded] = useState(false)
-
   return (
     <div className={styles.card}>
       <div className={styles.imageWrapper}>
