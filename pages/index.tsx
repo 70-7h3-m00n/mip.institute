@@ -228,6 +228,9 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <Faq key='faq' />
     </>
   ]
+
+  const hasQueryParams = Object.keys(router.query).length > 0;
+
   // TODO: удалить временные стили после отката основной страницы к обычному состоянию
   return (
     <>
@@ -235,8 +238,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
-        nofollow={preview}
-        noindex={preview}
+        nofollow={hasQueryParams || preview}
+        noindex={hasQueryParams || preview}
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,
