@@ -19,7 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='ru'>
-      <body>
+      <body style={{ backgroundColor: '#F4F4F4' }}>
         <MenuState>
           <FieldsTooltipState>
             {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}

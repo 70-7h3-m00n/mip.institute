@@ -1,0 +1,16 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+  
+.container
+  @include m.gap($pt: f.px(70),$pb: f.px(44))
+
+.title
+  color: c.$black-800
+  font-size: f.px(44)
+  font-weight: 500
+  line-height: 100%
+  @include m.gap($mb: f.px(39))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(32)
