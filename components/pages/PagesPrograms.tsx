@@ -65,7 +65,14 @@ const PagesPrograms = ({
     })
     // @ts-ignore
     dispatch({ type: 'setItems', payload: programs })
-  }, [programs])
+  }, [
+    programs,
+    dispatch,
+    minmaxDuration?.max,
+    minmaxDuration?.min,
+    minmaxPrice?.max,
+    minmaxPrice?.min
+  ])
 
   const router = useRouter()
 
@@ -84,7 +91,7 @@ const PagesPrograms = ({
       // @ts-ignore
       dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
     }
-  }, [filter])
+  }, [filter, dispatch])
 
   useEffect(() => {
     if (opened) {
@@ -94,7 +101,7 @@ const PagesPrograms = ({
       // @ts-ignore
       dispatch({ type: 'clearBooleanFilter', filterName: 'courseOpened' })
     }
-  }, [opened])
+  }, [opened, dispatch])
 
   const handleResetFilters = () => {
     const { ofType, studyFieldSlug, ...rest } = router.query
@@ -140,10 +147,7 @@ const PagesPrograms = ({
           <div className={stls.filters}>
             <ResetFilter onClick={handleResetFilters} onIndex />
             {minmaxDuration && minmaxPrice && (
-              <FiltersForLifeCourses
-                cost={minmaxPrice}
-                duration={minmaxDuration}
-              />
+              <FiltersForLifeCourses cost={minmaxPrice} duration={minmaxDuration} />
             )}
           </div>
 
@@ -151,10 +155,7 @@ const PagesPrograms = ({
             <div className={stls.programs}>
               {sortedPrograms?.length > 0 ? (
                 sortedPrograms?.map((profession, idx) => (
-                  <CardProfession
-                    key={`${profession.price}+${idx}`}
-                    profession={profession}
-                  />
+                  <CardProfession key={`${profession.price}+${idx}`} profession={profession} />
                 ))
               ) : (
                 <>Кажется, что по вашему запросу ничего не нашлось</>

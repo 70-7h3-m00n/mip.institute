@@ -70,7 +70,7 @@ const Header = () => {
         setIsWithGift(false)
       }
     }, 2000)
-  }, [utmCookie])
+  }, [utmCookie,stringedUtm])
 
   const closePromo = () => {
     setIsPromo(false)
@@ -145,7 +145,7 @@ const Header = () => {
       Router.events.off('routeChangeComplete', end)
       Router.events.off('routeChangeError', end)
     }
-  }, [])
+  }, [searchParams])
   return (
     <>
       <StickyTop

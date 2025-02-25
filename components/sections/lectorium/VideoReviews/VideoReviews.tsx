@@ -30,7 +30,7 @@ const VideoReviews = () => {
   }
   useEffect(() => {
     playersRef.current = playersRef.current.slice(0, videoReviewList.length)
-  }, [videoReviewList.length])
+  }, [])
 
   return (
     <section className={stls.container}>

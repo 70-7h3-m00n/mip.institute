@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react'
 import stls from './RangeSlide.module.sass'
 import RangeSlider from 'react-range-slider-input'
 import 'react-range-slider-input/dist/style.css'
-import {
-  useFilter,
-  useFilterDispatch
-} from '@/context/FilterContext/FilterContext'
+import { useFilter, useFilterDispatch } from '@/context/FilterContext/FilterContext'
 import classNames from 'classnames'
 
 type Props = {
@@ -45,7 +42,7 @@ const RangeSlide = ({
       type: 'setBool',
       payload: false
     })
-  }, [additional.reset])
+  }, [additional.reset, dispatch, min, max])
 
   useEffect(() => {
     //@ts-ignore
@@ -54,7 +51,7 @@ const RangeSlide = ({
       min: value[0],
       max: value[1]
     })
-  }, [value])
+  }, [value, dispatch, dispatchFilterType])
 
   return (
     <div className={stls.container}>

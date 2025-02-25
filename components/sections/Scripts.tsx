@@ -6,7 +6,6 @@ import Script from 'next/script'
 import { useEffect, useState } from 'react'
 
 const Scripts = () => {
-
   const pathname = usePathname()
   const [roistatVisit, setRoistatVisit] = useState('')
 
@@ -56,22 +55,13 @@ const Scripts = () => {
         }}
       />
 
-
-<link
+      <link
         rel='stylesheet'
         href='https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css'
       />
       <Script src='/assets/js/vendors/swiped-events.min.js' />
-      <Script
-        type='text/javascript'
-        id='carrot'
-        src='/assets/js/vendors/carrot.js'
-      />
-      <Script
-        type='text/javascript'
-        id='advcakeAsync'
-        src='/assets/js/vendors/advCake.js'
-      />
+      <Script type='text/javascript' id='carrot' src='/assets/js/vendors/carrot.js' />
+      <Script type='text/javascript' id='advcakeAsync' src='/assets/js/vendors/advCake.js' />
       {prod && (
         <>
           <Script async src='/assets/js/vendors/roistatWA.js' />
@@ -136,10 +126,7 @@ const Scripts = () => {
           `
         }}
       />
-      <Script
-        id='WA AMO script'
-        src='https://cdn.gnzs.ru/blablachat/scripts/roistat-whatsapp.js'
-      />
+      <Script id='WA AMO script' src='https://cdn.gnzs.ru/blablachat/scripts/roistat-whatsapp.js' />
       <Script
         id='WA AMO second script'
         dangerouslySetInnerHTML={{
@@ -175,6 +162,7 @@ const Scripts = () => {
 
       <noscript>
         <div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src='https://top-fwz1.mail.ru/counter?id=3477294;js=na'
             style={{ position: 'absolute', left: '-9999px' }}
@@ -183,6 +171,7 @@ const Scripts = () => {
         </div>
       </noscript>
       <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src='https://vk.com/rtrg?p=VK-RTRG-1904296-h2y40'
           style={{ position: 'fixed', left: '-999px' }}

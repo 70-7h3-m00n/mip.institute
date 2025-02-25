@@ -82,7 +82,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
       setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
     }
-  }, [router.query])
+  }, [router.query,router.asPath])
 
   //cookie for edPartners
   // ?utm_source=yandex_alexej&utm_medium=cpc&utm_campaign=компания&utm_content=[Поиск] Логопед с доп. квалификацией - GZ / RF / CPC&utm_term=ключ
@@ -135,7 +135,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       Router.events.off('routeChangeComplete', end)
       Router.events.off('routeChangeError', end)
     }
-  }, [])
+  }, [router.asPath])
 
   if (prod) {
     console.log = () => {}
@@ -364,6 +364,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
       <noscript>
         <div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src='https://top-fwz1.mail.ru/counter?id=3477294;js=na'
             style={{ position: 'absolute', left: '-9999px' }}
@@ -372,6 +373,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         </div>
       </noscript>
       <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src='https://vk.com/rtrg?p=VK-RTRG-1904296-h2y40'
           style={{ position: 'fixed', left: '-999px' }}

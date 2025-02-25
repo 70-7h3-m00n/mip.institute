@@ -14,7 +14,7 @@ const BtnFields = () => {
 
   useEffect(() => {
     closeFieldsTooltipOnOuterClick(closeFieldsTooltip)
-  }, [])
+  }, [closeFieldsTooltip])
 
   const [currentType, setCurrentType] = useState(null)
 

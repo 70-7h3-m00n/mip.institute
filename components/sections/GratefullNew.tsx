@@ -39,7 +39,7 @@ const GratefullNew = ({ backButton = true }: Props) => {
         setIsPromo(false)
       }
     }, 2000)
-  }, [utmCookie])
+  }, [utmCookie,stringedUtm])
 
   return (
     <LinkComponent
