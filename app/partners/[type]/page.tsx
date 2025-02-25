@@ -4,6 +4,7 @@ import React from 'react'
 import qs from 'qs'
 import Wrapper from '@/ui/Wrapper'
 import OurPartners from '@/components/partners/OurPartners/OurPartners'
+import { Params, Partner } from '@/components/partners/type'
 
 export const metadata = {
   title: 'Партнеры',
@@ -64,7 +65,7 @@ export default async function Partners({ params }: { params: Params }) {
   return (
     <Wrapper>
       <meta name='robots' content='noindex,nofollow' />
-      <OurPartners allTypes={allTypes} currentType={type} onePartner={onePartner} />
+        <OurPartners allTypes={allTypes} currentType={type} onePartner={onePartner} />
     </Wrapper>
   )
 }
