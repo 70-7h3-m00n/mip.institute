@@ -6,7 +6,7 @@ import { NextSeo } from 'next-seo'
 const IncomersIndexPage = ({ incomers }) => {
   return (
     <>
-      <NextSeo noindex={true} nofollow={true} />
+      <NextSeo title='Поступление в МИП (Московский Институт Психологии)' description='Подробная информация для поступающих и абитуриентов Московского Института Психологии (МИП): условия поступления, широкий выбор программ, учебный процесс, условия оплаты, а так же помощь в подборе программы от наших специалистов.' noindex={true} nofollow={true} />
       <PageIncomers incomers={incomers} />
     </>
   )
