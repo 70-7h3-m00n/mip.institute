@@ -4,12 +4,36 @@
 
 .section
 
+.newSection
+  background: #FFF
+  border-radius: 30px
+  @include m.gap($ptb: f.px(39))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(24))
+
 .content
   background: #FBF4FF
   border-radius: f.px(20)
   display: flex
+  border: 1px solid c.$purple-350
   @include m.media(phone, tablet)
     flex-direction: column
+
+.container_title
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.gap($mb: f.px(5))
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $ai: normal)
+    @include m.gap($mb: f.px(16))
+
+.newTitle
+  font-size: f.px(44)
+  font-style: normal
+  font-weight: 500
+  @include m.gap($mb: f.px(0))
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+    @include m.gap($mb: f.px(11))
 
 .title
   font-size: f.px(44)
@@ -19,6 +43,10 @@
   @include m.gap($mb: f.px(30))
   @include m.media(phone, tablet)
     display: none
+
+.coloured
+  @include m.dye(c, c.$orange-700)
+
 .textContainer
   flex: 0 0 52%
   overflow: hidden
@@ -36,7 +64,7 @@
   max-width: f.px(410)
   margin: 0 auto
   @include m.media(phone, tablet)
-    font-size: f.px(30)
+    font-size: f.px(24)
     max-width: f.px(240)
   &::after
     content: ''
@@ -47,7 +75,7 @@
     left: 0
     bottom: 0
     @include m.media(phone, tablet)
-      bottom: f.px(36)
+      bottom: f.px(25)
 
 .program
   font-size: f.px(18)
@@ -55,16 +83,17 @@
   @include m.gap($mt: f.px(11))
   @include m.media(phone, tablet)
     font-size: f.px(16)
+    @include m.gap($mt: f.px(20), $mb: f.px(23))
 
 .portal
   font-size: f.px(14)
   color: #808080
-  @include m.gap($mt: f.px(121), $mb: f.px(78))
+  @include m.gap($mt: f.px(123), $mb: f.px(78))
   @include m.media(phone, tablet)
     font-size: f.px(10)
     max-width: f.px(260)
     margin: 0 auto
-    @include m.gap($ptb: f.px(33))
+    @include m.gap($pb: f.px(33))
 
 .reviews
   flex: 1 1 auto
@@ -77,8 +106,11 @@
     text-align: center
     max-width: f.px(450)
     margin: 0 auto
-    @include m.gap($ptb: f.px(56))
+    @include m.gap($ptb: f.px(56), $pb: f.px(35))
     font-size: f.px(18)
+    @include m.media(phone, tablet)
+      font-size: f.px(14)
+      @include m.gap($pt: f.px(32),$ptb: f.px(20))
 
 .mySwiper
   height: f.px(350)
@@ -87,14 +119,34 @@
     @include m.gap($plr: f.px(13), $ml: f.px(0))
     height: f.px(350)
 
+.newSwiper
+  @include m.gap($pl: f.px(71), $ml: f.px(10))
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(13), $ml: f.px(0))
+
 .slide
   background: #FBF4FF
   @include m.gap( $mb: f.px(30))
   height: f.px(250)
   border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    @include m.gap( $mb: f.px(20))
 
 .prevBtn
   width: 10px
   height: 10px
   background: red
   z-index: 100000
+
+.container_imageMob
+  @include m.flex()
+  gap: 13px
+  @include m.media(phone, tablet)
+    @include m.flex($jc: space-between)
+
+.image
+  max-width: 100%
+  object-fit: cover
+  margin-right: 10px
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0)

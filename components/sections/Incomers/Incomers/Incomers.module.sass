@@ -1,0 +1,128 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  border-radius: 30px 30px 0px 0px
+  @include m.gap($pt: f.px(35), $pb: f.px(54))
+  background: c.$purple-100
+  @include m.media(phone, tablet)
+    border-radius: 15px 15px 0px 0px
+    @include m.gap($pt: f.px(24), $pb: f.px(39))
+
+.containerBlock
+  @include m.flex($fd: column)
+  gap: f.px(26)
+  @include m.media(phone, tablet)
+    gap: f.px(13)
+
+.containerBlock_title
+  position: relative
+
+.coloured
+  @include m.dye(c, c.$black-700)
+  font-size: f.px(60)
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+
+.containerBlock_title_text
+  color: c.$purple-800
+  font-size: f.px(60)
+  font-weight: 500
+  line-height: 85%
+  @include m.media(phone, tablet)
+    font-size: f.px(34)
+
+.containerBlock_title_img
+  position: absolute
+  top: 0
+  right: 0
+  @include m.media(phone, tablet)
+    display: none
+
+.containerBlock_main
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: f.px(35)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+    gap: f.px(8)
+
+.containerBlock_main_left
+  @include m.flex($fd: column, $jc: space-between)
+  border-radius: f.px(30)
+  background: c.$white-900
+  @include m.gap($pt: f.px(40), $pb: f.px(16), $pl: f.px(42), $pr: f.px(32))
+  @include m.media(phone, tablet)
+    border-radius: f.px(15)
+    @include m.gap($pt: f.px(0), $pb: f.px(0), $pl: f.px(0), $pr: f.px(0))
+
+.containerBlock_main_left_title
+  color: c.$gray-800
+  font-size: f.px(20)
+  font-weight: 500
+  line-height: 110%
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
+    @include m.gap($mb: f.px(12), $pt: f.px(24), $pl: f.px(27), $pr: f.px(45))
+
+
+.containerBlock_main_left_description
+  color: c.$black-700
+  font-size: f.px(26)
+  font-weight: 300
+  line-height: 110%
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($pl: f.px(27),$mb: f.px(10))
+
+.container_img_btn
+  position: relative
+
+.containerBlock_main_left_img
+  width: 80%
+  height: auto
+  @include m.gap($mb: f.px(26))
+  @include m.media(phone, tablet)
+    @include m.gap($pl: f.px(27))
+  @include m.media(phone)
+    width: 90%
+    @include m.gap($mb: f.px(28))
+
+.button-base
+  width: 100%
+  height: auto
+  bottom: 0
+  left: 0
+  position: absolute
+  color: c.$white-900
+  text-align: center
+  font-size: f.px(18)
+  font-weight: 500
+  border-radius: 100px
+  &::after
+    display: none
+  @include m.gap($ptb: f.px(19), $mb: f.px(20))
+  @include m.media(laptop)
+    @include m.gap($mb: f.px(7))
+  @include m.media(tablet)
+    font-size: f.px(16)
+    @include m.gap($ptb: f.px(17), $mb: f.px(26))
+  @include m.media(phone)
+    @include m.gap($ptb: f.px(17), $mb: f.px(18))
+    font-size: f.px(16)
+
+.container_img_btn > [aria-describedby^="popup-"] > button
+  @extend .button-base
+
+.containerBlock_main_right
+  width: 100%
+  height: 100%
+  border-radius: f.px(30)
+  background-color: c.$white-900
+  background-size: cover
+  background-repeat: no-repeat
+  @include m.media(phone, tablet)
+    border-radius: f.px(15)
+

@@ -17,6 +17,9 @@ type Props = {
   isDisabled?: boolean
   radius?: string
   height?: string
+  bgColor?: string
+  textColor?: string
+  menuBorderColor?: string
   onToggleCalendar?
 }
 
@@ -31,6 +34,9 @@ const CustomSelect = ({
   isDisabled,
   radius,
   height,
+  bgColor,
+  textColor,
+  menuBorderColor,
   onToggleCalendar
 }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -43,15 +49,15 @@ const CustomSelect = ({
         flexWrap: 'nowrap',
         borderColor: `${isDisabled ? '#E9E9E9' : mainColor}`,
         borderRadius: `${radius ? radius : 10}px`,
-        // minWidth: '180px',
         width: '100%',
         maxWidth: `380px`,
         height: `${height ? height : 50}px`,
+        backgroundColor: `${bgColor ? bgColor : 'white'}`,
         fontFamily: 'Stem',
         fontSize: '14px',
         boxShadow: 'none',
         cursor: 'pointer',
-        color: 'black',
+        color: textColor ? `${textColor}` : 'black',
         '@media (max-width: 768px)': {
           maxWidth: '100%'
         },
@@ -73,7 +79,7 @@ const CustomSelect = ({
     menu: base => ({
       ...base,
       background: 'white',
-      borderColor: '#E9E9E9',
+      border: `1px solid ${menuBorderColor ? menuBorderColor : '#E9E9E9'}`,
       borderRadius: '10px',
       marginTop: `5px`,
       width: '100%',
@@ -90,7 +96,7 @@ const CustomSelect = ({
     }),
     dropdownIndicator: base => ({
       ...base,
-      color: 'black',
+      color: textColor ? `${textColor}` : 'black',
       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
       transition: 'transform 0.3s ease',
       width: '30px',
@@ -125,6 +131,7 @@ const CustomSelect = ({
         ...base,
         paddingLeft: '10px',
         paddingRight: '5px',
+        color: textColor ? `${textColor}` : 'black',
         '&:hover': {
           color: 'white'
         }

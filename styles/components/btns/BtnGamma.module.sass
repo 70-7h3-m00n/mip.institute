@@ -22,21 +22,6 @@
   @include m.dye(bg, c.$purple-800)
   @include m.dye(c, c.$white-900)
 
-.test
-  @include m.gap($plr: f.px(28), $ptb: f.px(18), $mt: f.px(10))
-  @include m.flex($ai:center, $jc:center)
-  @include m.dye(bg, c.$purple-800)
-  @include m.dye(c, c.$white-900)
-  text-align: center
-  font-size: f.px(18)
-  font-style: normal
-  font-weight: 500
-  @include m.media(laptop)
-    @include m.gap($plr: f.px(15))
-  @include m.media(phone, tablet)
-    @include m.gap($plr: f.px(10), $ptb: f.px(9))
-    font-size: f.px(12)
-
   &::after
     content: ''
     position: absolute
@@ -54,3 +39,19 @@
     transform: scale(0.98)
     &::after
       opacity: 0
+
+.test
+  @include m.gap($plr: f.px(28), $ptb: f.px(18), $mt: f.px(10))
+  @include m.flex($ai:center, $jc:center)
+  @include m.dye(bg, c.$purple-800)
+  @include m.dye(c, c.$white-900)
+  text-align: center
+  font-size: f.px(18)
+  font-style: normal
+  font-weight: 500
+  @include m.media(laptop)
+    @include m.gap($plr: f.px(15))
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(10), $ptb: f.px(9))
+    font-size: f.px(12)
+
