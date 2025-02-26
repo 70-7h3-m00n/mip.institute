@@ -28,6 +28,10 @@ export default function SearchProgramsDropDown() {
         val: 'Супервизия'
       },
       {
+        href: routes.front.incomers,
+        val: 'Поступающим'
+      },
+      {
         href: routes.front.teachers,
         val: 'Преподаватели'
       },
@@ -47,14 +51,6 @@ export default function SearchProgramsDropDown() {
         href: routes.front.vacancies,
         val: 'Вакансии'
       },
-      {
-        href: routes.front.incomers,
-        val: 'Поступающим'
-      }
-      // {
-      //   href: routes.front.payment,
-      //   val: 'Оплата обучения'
-      // }
     ],
     []
   )
