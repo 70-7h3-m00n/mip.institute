@@ -6,9 +6,13 @@ import BtnClose from '@/components/btns/BtnClose'
 import { v4 as uuidv4 } from 'uuid'
 import GratefullNew from '../sections/GratefullNew'
 import Script from 'next/script'
+import { useRouter } from 'next/router'
 
 const PopupThankyouNew = ({ close }) => {
   const { program } = useContext(ContextStaticProps)
+
+  const router = useRouter()
+  const isPsyCons = router.query.slug === "psiholog-konsultant"
 
   useEffect(() => {
     const tagManagerArgs = {
@@ -48,11 +52,16 @@ const PopupThankyouNew = ({ close }) => {
           `
         }}
       />
-      {/* <div
-        className='i-flocktory'
-        data-fl-action='exchange'
-        data-fl-user-name={name}
-        data-fl-user-email={email}></div> */}
+      {isPsyCons && (
+        <Script
+        id='sendFormPsyCons'
+        dangerouslySetInnerHTML={{
+          __html: `
+            dataLayer.push({'event':'sendForm2401'});
+          `
+        }}
+      />
+      )}
     </div>
   )
 }

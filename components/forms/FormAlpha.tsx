@@ -125,6 +125,7 @@ const FormAlpha = ({
     sessionStorage.removeItem('referer')
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     data.ymUid = ymUid
+    data.program = program?.title || null
     const clickId = getCookie('utm')
 
     const roistat_visit = getCookie('roistat_visit')
@@ -158,6 +159,7 @@ const FormAlpha = ({
       data.advcake_track_url = advcake_track_url
       data.roistat_visit = roistat_visit
       if(dev) {
+        // const req = await genezis(data)
         setThanksIsOpen(true)
         setLoading(false)
       } else {
