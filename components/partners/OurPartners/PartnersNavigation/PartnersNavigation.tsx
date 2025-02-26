@@ -5,23 +5,19 @@ import classNames from 'classnames'
 
 export default function PartnersNavigation({ types, currentType }) {
   return (
-    <nav
-      className={classNames({
-        [styles.navigation]: true
-      })}>
+    <nav className={styles.navigation}>
       {types
         .slice()
         .reverse()
         .map(t => (
-          <p
-          className={classNames(styles.link, {
-            [styles.active]: t === currentType
-          })}
-            key={t}>
-            <Link prefetch={true} href={`/partners/${t}`}>
+          <Link prefetch={true} href={`/partners/${t}`} key={t} passHref>
+            <p
+              className={classNames(styles.link, {
+                [styles.active]: t === currentType
+              })}>
               {t}
-            </Link>
-          </p>
+            </p>
+          </Link>
         ))}
     </nav>
   )
