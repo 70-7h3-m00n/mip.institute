@@ -46,6 +46,10 @@ export default function SearchProgramsDropDown() {
       {
         href: routes.front.vacancies,
         val: 'Вакансии'
+      },
+      {
+        href: routes.front.incomers,
+        val: 'Поступающим'
       }
       // {
       //   href: routes.front.payment,

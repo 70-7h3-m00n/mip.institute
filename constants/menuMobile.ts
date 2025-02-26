@@ -14,6 +14,7 @@ const links = [
   { text: 'Вакансии', href: routes.front.vacancies, withIcon: false },
   { text: 'Отзывы', href: routes.front.reviews, withIcon: false },
   { text: 'Об институте', href: routes.front.about, withIcon: false },
+  { text: 'Поступающим', href: routes.front.incomers, withIcon: false },
   {
     text: 'Сведения об образовательной организации',
     href: routes.front.svedenCommon,
