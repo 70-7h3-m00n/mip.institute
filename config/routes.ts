@@ -43,6 +43,7 @@ const routes: TRoutes = {
     courses: '/courses',
     program: '/programs/studyField/slug',
     webinars: '/webinars',
+    incomers: '/incomers',
     rating: '/rating',
     teachers: '/teachers',
     about: '/about',
