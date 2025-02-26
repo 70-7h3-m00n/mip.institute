@@ -19,7 +19,7 @@ import { useHandleContextStaticProps } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { TypePageHomeProps } from '@/types/index'
 import allowedNames from 'constants/indexMain'
-import { GetStaticProps, NextPage } from 'next'
+import { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -73,7 +73,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   reviews,
   teachers,
   bachelors,
-  practicalTrainings
+  practicalTrainings,
+  hasQueryParams
 }) => {
   useHandleContextStaticProps({ programs })
   const [layout, setLayout] = useState<'old' | 'new'>('old')
@@ -225,7 +226,9 @@ const HomePage: NextPage<TypePageHomeProps> = ({
     </>
   ]
 
-  const hasQueryParams = Object.keys(router.query).length > 0;
+
+  console.log(hasQueryParams);
+  
 
   // TODO: удалить временные стили после отката основной страницы к обычному состоянию
   return (
@@ -234,8 +237,8 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
-        nofollow={hasQueryParams || preview}
-        noindex={hasQueryParams || preview}
+        nofollow={hasQueryParams }
+        noindex={hasQueryParams }
         openGraph={{
           url: seoParams.canonical,
           title: seoParams.title,
@@ -277,7 +280,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   )
 }
 
-export const getStaticProps: GetStaticProps = async () =>
-  await handleGetStaticProps({ page: routes.front.home })
+export const getServerSideProps: GetServerSideProps = async (context) =>
+  await handleGetStaticProps({context, page: routes.front.home })
 
 export default HomePage

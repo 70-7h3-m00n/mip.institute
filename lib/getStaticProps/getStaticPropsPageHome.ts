@@ -8,10 +8,10 @@ import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
 
 const getStaticPropsPageHome = async ({
-  context
-}: TypeGeneralGetStaticPropsContext): Promise<{
+  context,
+}): Promise<{
   props: TypePageHomeProps
-  revalidate: number | boolean
+  // revalidate: number | boolean
 }> => {
   try {
     const res = await apolloClient.query<TypePageHomePropsQuery>({
@@ -97,10 +97,17 @@ const getStaticPropsPageHome = async ({
         }
       `
     })
-
     return {
-      props: res.data,
-      revalidate: revalidate.default
+      props: {
+        programs: res.data.programs,
+        reviews: res.data.reviews,
+        teachers: res.data.teachers,
+        bachelors: res.data.bachelors,
+        practicalTrainings: res.data.practicalTrainings,
+        hasQueryParams: Object.keys(context.query).length > 0
+      },
+      
+      // revalidate: revalidate.default
     }
   } catch (error) {
     console.error('Ошибка запроса:', error)
