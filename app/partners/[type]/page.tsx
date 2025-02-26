@@ -2,9 +2,9 @@ import routes from '@/config/routes'
 import axios from 'axios'
 import React from 'react'
 import qs from 'qs'
-import Wrapper from '@/ui/Wrapper'
 import OurPartners from '@/components/partners/OurPartners/OurPartners'
 import { Params, Partner } from '@/components/partners/type'
+import CommunitySection from '@/components/partners/CommunitySection/CommunitySection'
 
 export const metadata = {
   title: 'Партнеры',
@@ -63,9 +63,10 @@ export default async function Partners({ params }: { params: Params }) {
   const onePartner = allPartners.filter(partner => partner.type === type)
 
   return (
-    <Wrapper>
+    <>
       <meta name='robots' content='noindex,nofollow' />
-        <OurPartners allTypes={allTypes} currentType={type} onePartner={onePartner} />
-    </Wrapper>
+      <CommunitySection/>
+      <OurPartners allTypes={allTypes} currentType={type} onePartner={onePartner} />
+    </>
   )
 }
