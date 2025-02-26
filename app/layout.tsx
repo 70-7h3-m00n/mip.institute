@@ -7,6 +7,7 @@ import Footer from '@/components/sections/Footer/Footer'
 import '@/styles/app.sass'
 import truncate from '@/helpers/general/truncate'
 import Scripts from '@/components/sections/Scripts'
+import { Suspense } from 'react'
 
 export const metadata = {
   title: 'Московский Институт Психологии',
@@ -20,29 +21,32 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='ru'>
       <body style={{ backgroundColor: '#F4F4F4' }}>
-        <MenuState>
-          <FieldsTooltipState>
-            {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
+        <Suspense>
+          <MenuState>
+            <FieldsTooltipState>
+              {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
 
-            {/* <StickyTop
+              {/* <StickyTop
                 isWithGift={isWithGift}
                 onClick={closePromo}
                 isPromo={isPromo}
                 promoText={promoText}
               /> */}
 
-            <Header />
-            <Scripts />
-            {children}
-            <Footer />
+              <Header />
 
-            <div>
-              <StickyBottom />
-            </div>
-            {/* </div> */}
-          </FieldsTooltipState>
-        </MenuState>
-        <Analytics />
+              <Scripts />
+              {children}
+              <Footer />
+
+              <div>
+                <StickyBottom />
+              </div>
+              {/* </div> */}
+            </FieldsTooltipState>
+          </MenuState>
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   )
