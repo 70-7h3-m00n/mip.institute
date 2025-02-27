@@ -5,6 +5,7 @@ import qs from 'qs'
 import OurPartners from '@/components/partners/OurPartners/OurPartners'
 import { Params, Partner } from '@/components/partners/type'
 import CommunitySection from '@/components/partners/CommunitySection/CommunitySection'
+import BecomePartner from '@/components/partners/BecomePartner/BecomePartner'
 
 export const metadata = {
   title: 'Партнеры',
@@ -67,6 +68,7 @@ export default async function Partners({ params }: { params: Params }) {
       <meta name='robots' content='noindex,nofollow' />
       <CommunitySection/>
       <OurPartners allTypes={allTypes} currentType={type} onePartner={onePartner} />
+      <BecomePartner/>
     </>
   )
 }
