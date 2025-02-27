@@ -1,3 +1,4 @@
+'use client'
 import stls from './PopupTrigger.module.sass'
 import Popup from 'reactjs-popup'
 import PopupCta from '@/components/popups/PopupCta'

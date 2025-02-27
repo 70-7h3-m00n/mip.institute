@@ -1,3 +1,4 @@
+'use client'
 import BtnAlpha from '@/components/btns/BtnAlpha'
 import BtnBeta from '@/components/btns/BtnBeta'
 import PopupLoading from '@/components/popups/PopupLoading'
@@ -7,7 +8,7 @@ import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/forms/FormAlpha.module.sass'
 import classNames from 'classnames'
 import { getCookie } from 'cookies-next'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useContext, useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import PhoneInput from 'react-phone-input-2'
@@ -160,7 +161,7 @@ const FormAlpha = ({
       data.advcake_track_id = advcake_track_id
       data.advcake_track_url = advcake_track_url
       data.roistat_visit = roistat_visit
-      if(dev) {
+      if (dev) {
         setThanksIsOpen(true)
         setLoading(false)
       } else {
@@ -186,11 +187,8 @@ const FormAlpha = ({
 
   return (
     <>
-      <Popup
-        open={thanksIsOpen}
-        closeOnDocumentClick
-        onClose={() => setThanksIsOpen(false)}>
-        <PopupThankyouNew  close={() => setThanksIsOpen(false)} />
+      <Popup open={thanksIsOpen} closeOnDocumentClick onClose={() => setThanksIsOpen(false)}>
+        <PopupThankyouNew close={() => setThanksIsOpen(false)} />
       </Popup>
 
       <Popup open={loading} onClose={() => setLoading(false)}>
@@ -256,9 +254,7 @@ const FormAlpha = ({
                 />
               )}
             />
-            {errors.phone && (
-              <p className={stls.err}>{errors.phone && errors.phone.message}</p>
-            )}
+            {errors.phone && <p className={stls.err}>{errors.phone && errors.phone.message}</p>}
           </div>
           <div className={classNames(stls.inpt, stls.email)}>
             <input
@@ -321,8 +317,7 @@ const FormAlpha = ({
               <p>{tickets}</p>
               <p
                 style={{
-                  visibility:
-                    seminar?.tickets_quantity > tickets ? 'visible' : 'hidden'
+                  visibility: seminar?.tickets_quantity > tickets ? 'visible' : 'hidden'
                 }}
                 onClick={() => setTickets(prev => prev + 1)}>
                 +
@@ -341,9 +336,7 @@ const FormAlpha = ({
                     message: `*Максимальная длинна вопроса 320 символов`
                   }
                 })}></textarea>
-              <p className={stls.err}>
-                {errors.question && errors.question.message}
-              </p>
+              <p className={stls.err}>{errors.question && errors.question.message}</p>
             </div>
           )}
 
@@ -362,8 +355,7 @@ const FormAlpha = ({
 
           {agreement && (
             <p className={stls.agreement}>
-              Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших
-              персональных данных
+              Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших персональных данных
             </p>
           )}
           {isIpCheckFailed && (
