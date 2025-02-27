@@ -51,6 +51,7 @@
   @include m.gap($ptb: f.px(19), $plr: f.px(89))
   @include m.dye(bg, c.$orange-400)
   border-color: c.$orange-400
+  color: c.$white-900
   border-radius: 100px
   font-size: f.px(18)
   transition: background 0.3s
@@ -62,6 +63,7 @@
 .buttonMob
   @include m.media(phone, tablet)
     font-size: f.px(16)
+    color: c.$white-900
     @include m.gap($ptb: f.px(17))
     @include m.dye(bg, c.$orange-400)
     border-color: c.$orange-400
@@ -71,12 +73,12 @@
     &::after
       display: none
   
-.left > [aria-describedby^="popup-"] > button
-  @extend .buttonDesc
-.content > [aria-describedby^="popup-"]
-  width: 100%
-.content > [aria-describedby^="popup-"] > button
-  @extend .buttonMob
+// .left > [aria-describedby^="popup-"] > button
+//   @extend .buttonDesc
+// .content > [aria-describedby^="popup-"]
+//   width: 100%
+// .content > [aria-describedby^="popup-"] > button
+//   @extend .buttonMob
 
 .imageRight
   @include m.flex($ai:center,$jc:center)

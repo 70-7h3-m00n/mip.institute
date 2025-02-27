@@ -82,7 +82,8 @@ const CommunitySection = () => {
             Мы создаем партнерства, которые помогают нашим студентам развиваться, набираться опыта и
             строить карьеру.
           </p>
-          <PopupTrigger btn='alpha' cta='submitApplication' />
+          {/* <PopupTrigger btn='alpha' cta='submitApplication' /> */}
+            <button className={styles.button_base}>Оставить заявку</button>
         </div>
         {/* Нижние теги */}
         <div className={styles.bottomTags}>

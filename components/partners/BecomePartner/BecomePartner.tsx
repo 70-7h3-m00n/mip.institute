@@ -21,7 +21,10 @@ export default function BecomePartner() {
               Заполните короткую форму, и мы свяжемся с вами,
               {!isMobileAndTabletLayout && <br />} чтобы обсудить все детали
             </p>
-            {!isMobileAndTabletLayout && <PopupTrigger btn='alpha' cta='submitApplication' />}
+            {/* {!isMobileAndTabletLayout && <PopupTrigger btn='alpha' cta='submitApplication' />} */}
+            {!isMobileAndTabletLayout && (
+              <button className={styles.buttonDesc}>Присоединиться</button>
+            )}
           </div>
           <Image
             src='https://res.cloudinary.com/dp3iuhwtp/image/upload/v1740587591/kartochki_gruppa_2_1_2f717ea434.png'
@@ -31,7 +34,8 @@ export default function BecomePartner() {
             height={417}
             priority={true}
           />
-          {isMobileAndTabletLayout && <PopupTrigger btn='alpha' cta='submitApplication' />}
+          {/* {isMobileAndTabletLayout && <PopupTrigger btn='alpha' cta='submitApplication' />} */}
+          {isMobileAndTabletLayout && <button className={styles.buttonMob}>Присоединиться</button>}
         </div>
       </Wrapper>
     </section>
