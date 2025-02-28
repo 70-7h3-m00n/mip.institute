@@ -4,6 +4,8 @@
   
 .container
   @include m.gap($ptb: f.px(70))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(30))
 
 .title
   color: c.$black-800
