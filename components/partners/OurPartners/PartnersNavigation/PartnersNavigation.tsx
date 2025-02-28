@@ -3,7 +3,17 @@ import React from 'react'
 import styles from './PartnersNavigation.module.sass'
 import classNames from 'classnames'
 
-export default function PartnersNavigation({ types, currentType }) {
+interface PartnersNavigationProps {
+  types: string[]
+  currentType: string
+}
+
+export default function PartnersNavigation({ types, currentType }: PartnersNavigationProps) {
+  const translations: Record<string, string> = {
+    association: 'Ассоциации',
+    fund: 'Фонды',
+    park: 'Парки'
+  }
   return (
     <nav className={styles.navigation}>
       {types
@@ -15,7 +25,7 @@ export default function PartnersNavigation({ types, currentType }) {
               className={classNames(styles.link, {
                 [styles.active]: t === currentType
               })}>
-              {t}
+              {translations[t] || t}
             </p>
           </Link>
         ))}
