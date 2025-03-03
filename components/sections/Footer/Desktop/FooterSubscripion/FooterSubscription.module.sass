@@ -81,3 +81,20 @@
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(20))
     font-size: f.px(12)
+
+.message
+  margin-top: 10px
+  padding: 8px
+  border-radius: 4px
+  font-size: f.px(14)
+  text-align: center
+
+  &.success
+    color: #155724
+    background-color: #d4edda
+    border: 1px solid #c3e6cb
+
+  &.error
+    color: #721c24
+    background-color: #f8d7da
+    border: 1px solid #f5c6cb
