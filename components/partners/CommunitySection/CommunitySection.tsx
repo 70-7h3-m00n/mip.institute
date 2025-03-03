@@ -4,6 +4,7 @@ import styles from './CommunitySection.module.sass'
 import Image from 'next/image'
 import Wrapper from '@/ui/Wrapper'
 import PopupTrigger from '@/ui/PopupTrigger'
+import PopupPartners from '../PopupPatners/PopupPatners'
 
 // Компонент для SVG звездочки
 const StarIcon = () => (
@@ -83,7 +84,8 @@ const CommunitySection = () => {
             строить карьеру.
           </p>
           {/* <PopupTrigger btn='alpha' cta='submitApplication' /> */}
-            <button className={styles.button_base}>Оставить заявку</button>
+          {/* <button className={styles.button_base}>Оставить заявку</button> */}
+          <PopupPartners text='Оставить заявку' />
         </div>
         {/* Нижние теги */}
         <div className={styles.bottomTags}>

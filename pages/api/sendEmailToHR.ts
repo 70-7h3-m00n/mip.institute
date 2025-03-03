@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer'
 
 export default async function handler(req, res) {
   try {
-    const { name, email, phone, messageToHR } = req.body
+    const { name, email, phone, messageToHR, pagePartners } = req.body
 
     if (!name || !email || !phone || !messageToHR) {
       return res.status(400).json({ message: 'Заполните все поля' })
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         name: 'HR Bot НАНО "МИП"',
         address: process.env.SMTP_FROM
       },
-      to: dev ? 'vanjaklp@yandex.ru' : 'hr@mip.institute', // Адрес HR-рекрутера
+      to: dev ? 'vanjaklp@yandex.ru' : pagePartners ? 'info@mip.institute' : 'hr@mip.institute', // Адрес HR-рекрутера
       subject: 'Форма обратной связи: хочу стать частью вашей команды',
       text: `Имя: ${name}\nТелефон: ${phone}\nEmail: ${email}\nСообщение: ${messageToHR}`,
       html: `

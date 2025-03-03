@@ -137,10 +137,12 @@
   transition: background 0.3s
   &::after
     display: none
+  &:hover
+    transform: scale(1.02)
   @include m.media(phone, tablet)
     font-size: f.px(16)
     @include m.gap($ptb: f.px(17))
     width: 100%    
   
-// .content > [aria-describedby^="popup-"] > button
-//   @extend .button_base
+.content > button
+  @extend .button_base

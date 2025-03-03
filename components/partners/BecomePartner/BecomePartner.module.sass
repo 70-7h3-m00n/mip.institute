@@ -58,6 +58,8 @@
   transition: background 0.3s
   &::after
     display: none
+  &:hover
+    transform: scale(1.02)
   @include m.media(phone, tablet)
     display: none 
 
@@ -73,13 +75,16 @@
     transition: background 0.3s
     &::after
       display: none
+    &:hover
+      transform: scale(1.02)
+
   
-// .left > [aria-describedby^="popup-"] > button
-//   @extend .buttonDesc
-// .content > [aria-describedby^="popup-"]
-//   width: 100%
-// .content > [aria-describedby^="popup-"] > button
-//   @extend .buttonMob
+.left> button
+  @extend .buttonDesc
+.content > [aria-describedby^="popup-"]
+  width: 100%
+.content > button
+  @extend .buttonMob
 
 .imageRight
   @include m.flex($ai:center,$jc:center)

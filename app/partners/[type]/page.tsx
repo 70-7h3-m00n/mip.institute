@@ -8,8 +8,8 @@ import CommunitySection from '@/components/partners/CommunitySection/CommunitySe
 import BecomePartner from '@/components/partners/BecomePartner/BecomePartner'
 
 export const metadata = {
-  title: 'Партнеры',
-  description: ''
+  title: 'Партнеры Московского Института Психологии (МИП)',
+  description: 'Подробная информация о действующих партнерах Московского Института Психологии (МИП)'
 }
 
 const queryString = qs.stringify(
@@ -66,9 +66,9 @@ export default async function Partners({ params }: { params: Params }) {
   return (
     <>
       <meta name='robots' content='noindex,nofollow' />
-      <CommunitySection/>
+      <CommunitySection />
       <OurPartners allTypes={allTypes} currentType={type} onePartner={onePartner} />
-      <BecomePartner/>
+      <BecomePartner />
     </>
   )
 }

@@ -2,8 +2,8 @@
 import Wrapper from '@/ui/Wrapper'
 import styles from './BecomePartner.module.sass'
 import Image from 'next/image'
-import PopupTrigger from '@/ui/PopupTrigger'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import PopupPatners from '../PopupPatners/PopupPatners'
 
 export default function BecomePartner() {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 769px)')
@@ -18,9 +18,7 @@ export default function BecomePartner() {
               {!isMobileAndTabletLayout && <br />} чтобы обсудить все детали
             </p>
             {/* {!isMobileAndTabletLayout && <PopupTrigger btn='alpha' cta='submitApplication' />} */}
-            {!isMobileAndTabletLayout && (
-              <button className={styles.buttonDesc}>Присоединиться</button>
-            )}
+            {!isMobileAndTabletLayout && <PopupPatners text='Присоединиться' />}
           </div>
           <Image
             src='https://res.cloudinary.com/dp3iuhwtp/image/upload/v1740587591/kartochki_gruppa_2_1_2f717ea434.png'
@@ -31,7 +29,7 @@ export default function BecomePartner() {
             priority={true}
           />
           {/* {isMobileAndTabletLayout && <PopupTrigger btn='alpha' cta='submitApplication' />} */}
-          {isMobileAndTabletLayout && <button className={styles.buttonMob}>Присоединиться</button>}
+          {isMobileAndTabletLayout && <PopupPatners text='Присоединиться' />}
         </div>
       </Wrapper>
     </section>
