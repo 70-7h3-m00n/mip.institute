@@ -79,11 +79,11 @@ const topFooterLinks = [
     { title: 'Образование' },
     {
       val: 'Все программы',
-      href: routes.front.courses
+      href: routes.front.programs
     },
     {
       val: 'Курсы',
-      href: routes.front.courses
+      href: routes.front.shortTerm
     },
     {
       val: 'Повышение квалификации',
