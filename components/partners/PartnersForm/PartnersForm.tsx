@@ -48,11 +48,14 @@ const PartnersForm = ({ onClose, title }: Props) => {
       if (response.status === 200) {
         reset()
         alert('Форма успешно отправлена!')
+        onClose()
       } else {
         alert('Ошибка! Попробуйте позже.')
+        onClose()
       }
     } catch (err) {
       alert('Ошибка! Попробуйте позже.')
+      onClose()
     } finally {
       setIsSubmitting(false)
     }
