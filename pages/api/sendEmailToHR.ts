@@ -19,14 +19,16 @@ export default async function handler(req, res) {
       }
     })
 
-    const title = pagePartners ? '' : 'Данные кандидата'
+    const title = pagePartners ? 'Данные партнёра' : 'Данные кандидата'
     const mailOptions = {
       from: {
-        name: pagePartners ? '' : 'HR Bot НАНО "МИП"',
+        name: pagePartners ? 'Стать партнёром' : 'HR Bot НАНО "МИП"',
         address: process.env.SMTP_FROM
       },
       to: dev ? 'vanjaklp@yandex.ru' : pagePartners ? 'info@mip.institute' : 'hr@mip.institute', // Адрес HR-рекрутера
-      subject: !pagePartners && 'Форма обратной связи: хочу стать частью вашей команды',
+      subject: pagePartners
+        ? 'Предложение о партнёрстве'
+        : 'Форма обратной связи: хочу стать частью вашей команды',
       text: `Имя: ${name}\nТелефон: ${phone}\nEmail: ${email}\nСообщение: ${messageToHR}`,
       html: `
         <div

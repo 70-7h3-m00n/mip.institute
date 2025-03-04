@@ -47,7 +47,7 @@ const PartnersForm = ({ onClose, title }: Props) => {
       const response = await axios.post(`${routes.front.root}/api/sendEmailToHR`, data)
       if (response.status === 200) {
         reset()
-        alert('Форма успешно отправлено!')
+        alert('Форма успешно отправлена!')
       } else {
         alert('Ошибка! Попробуйте позже.')
       }
