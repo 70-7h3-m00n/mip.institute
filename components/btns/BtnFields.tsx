@@ -1,37 +1,53 @@
-import stls from '@/styles/components/btns/BtnFields.module.sass'
-import IconMenu from '@/components/icons/IconMenu'
-import { useContext, useEffect, useState } from 'react'
-import classNames from 'classnames'
-import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'
-import { closeFieldsTooltipOnOuterClick } from '@/helpers/index'
-import Wrapper from '@/ui/Wrapper'
-import MainStudyFields from '../sections/MainStudyFields'
-import StudyFieldsOnMain from '../sections/StudyFieldsOnMain'
+import { useContext, useRef, useEffect, useState } from 'react';
+import classNames from 'classnames';
+import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext';
+import Wrapper from '@/ui/Wrapper';
+import IconMenu from '@/components/icons/IconMenu';
+import stls from '@/styles/components/btns/BtnFields.module.sass';
+import MainStudyFields from '../sections/MainStudyFields';
+import StudyFieldsOnMain from '../sections/StudyFieldsOnMain';
 
 const BtnFields = () => {
-  const { fieldsTooltipIsOpen, toggleFieldsTooltip, closeFieldsTooltip } =
-    useContext(FieldsTooltipContext)
+  const { fieldsTooltipIsOpen, toggleFieldsTooltip, closeFieldsTooltip } = useContext(FieldsTooltipContext);
+  const [currentType, setCurrentType] = useState(null)
+  const btnRef = useRef<HTMLButtonElement | null>(null);
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    closeFieldsTooltipOnOuterClick(closeFieldsTooltip)
-  }, [closeFieldsTooltip])
+    const handleClickOutside = (event: MouseEvent) => {
+      if (btnRef.current && tooltipRef.current) {
+        if (!btnRef.current.contains(event.target as Node) && !tooltipRef.current.contains(event.target as Node)) {
+          closeFieldsTooltip();
+        }
+      }
+    };
 
-  const [currentType, setCurrentType] = useState(null)
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [closeFieldsTooltip]);
 
   return (
     <Wrapper>
       <div id='btnFieldsContainer' className={stls.container}>
-        <button className={stls.btn} onClick={toggleFieldsTooltip}>
+        <button
+          ref={btnRef} 
+          className={stls.btn}
+          onClick={toggleFieldsTooltip}
+        >
           <span className={stls.icon}>
             <IconMenu />
           </span>
           <span className={stls.text}>Программы обучения</span>
         </button>
         <div
+          ref={tooltipRef} 
           className={classNames({
             [stls.tooltip]: true,
-            [stls.isShown]: fieldsTooltipIsOpen
-          })}>
+            [stls.isShown]: fieldsTooltipIsOpen, 
+          })}
+        >
           <MainStudyFields
           // @ts-ignore
             currentType={currentType}
@@ -47,7 +63,7 @@ const BtnFields = () => {
         </div>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default BtnFields
+export default BtnFields;

@@ -5,7 +5,6 @@ export { default as sortReviewsCreatedAtASC } from '@/helpers/general/sortReview
 export { default as sortUniqueReviewsCreatedAtASC } from '@/helpers/general/sortUniqueReviewsCreatedAtASC'
 
 // ./
-export { default as closeFieldsTooltipOnOuterClick } from '@/helpers/closeFieldsTooltipOnOuterClick'
 export { default as filterProgramsByType } from '@/helpers/filterProgramsByType'
 export { default as getCasedRuMonthString } from '@/helpers/getCasedRuMonthString'
 export { default as getCasedRuYearString } from '@/helpers/getCasedRuYearString'
