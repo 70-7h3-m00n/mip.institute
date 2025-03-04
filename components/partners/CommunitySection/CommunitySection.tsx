@@ -3,7 +3,6 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import styles from './CommunitySection.module.sass'
 import Image from 'next/image'
 import Wrapper from '@/ui/Wrapper'
-import PopupTrigger from '@/ui/PopupTrigger'
 import PopupPartners from '../PopupPatners/PopupPatners'
 
 // Компонент для SVG звездочки
@@ -83,9 +82,7 @@ const CommunitySection = () => {
             Мы создаем партнерства, которые помогают нашим студентам развиваться, набираться опыта и
             строить карьеру.
           </p>
-          {/* <PopupTrigger btn='alpha' cta='submitApplication' /> */}
-          {/* <button className={styles.button_base}>Оставить заявку</button> */}
-          <PopupPartners text='Оставить заявку' />
+          <PopupPartners text='Оставить заявку' btnClass='btn_alpha' />
         </div>
         {/* Нижние теги */}
         <div className={styles.bottomTags}>

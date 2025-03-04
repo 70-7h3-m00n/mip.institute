@@ -1,0 +1,47 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.button
+  position: relative
+  border-radius: f.px(4, em)
+  font-size: f.px(18)
+  font-weight: 500
+  text-align: center
+  display: inline-block
+  @include m.media(phone, tablet)
+    min-width: 100%
+    max-width: 100%
+    font-size: f.px(12)
+    @include m.gap($ptb: f.px(16, em), $plr: f.px(10))
+  @include m.media(laptop)
+    @include m.gap($ptb: f.px(16, em), $plr: f.px(19))
+  @include m.media(desktop)
+    @include m.gap($ptb: f.px(16, em), $plr: f.px(29))
+    border: f.px(2) solid
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      opacity: 0
+      box-shadow: 0 0 f.px(20, em) f.px(5, em) rgba(c.$black-800, 0.2)
+    &:hover
+      transform: scale(1.02)
+      &::after
+        opacity: 1
+    &:focus
+      transform: scale(0.98)
+      &::after
+        opacity: 0
+
+.btn_alpha
+  @include m.dye(border, c.$orange-700)
+  @include m.dye(bg, c.$orange-700)
+  @include m.dye(c, c.$white-900)
+
+.btn_beta
+  @include m.dye(border, c.$white-900)
+  @include m.dye(c, c.$white-900)

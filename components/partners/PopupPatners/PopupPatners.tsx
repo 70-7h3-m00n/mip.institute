@@ -1,10 +1,15 @@
 'use client'
 import Popup from 'reactjs-popup'
-import BtnAlpha from '@/components/btns/BtnAlpha'
 import PartnersForm from '../PartnersForm/PartnersForm'
 import { useState } from 'react'
+import CustomButton from '../CustomButton/CustomButton'
 
-const PopupPartners = ({ text }) => {
+interface IPopupPartnersProps {
+  text: string
+  btnClass: string
+}
+
+const PopupPartners = ({ text, btnClass }: IPopupPartnersProps) => {
   const [open, setOpen] = useState(false)
 
   const handleOpen = () => {
@@ -17,7 +22,7 @@ const PopupPartners = ({ text }) => {
 
   return (
     <>
-      <BtnAlpha text={text} onClick={handleOpen} />
+      <CustomButton text={text} onClick={handleOpen} className={btnClass} />
       <Popup open={open} onClose={handleClose} modal>
         {
           // @ts-ignore

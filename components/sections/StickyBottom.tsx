@@ -13,8 +13,12 @@ import { getCookie } from 'cookies-next'
 import { useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
 import IconPortalViolet from '../icons/IconPortalViolet'
+import PopupPartnersStickyBottom from '../partners/PopupPatners/PopupPartnersStickyBottom'
 
-const StickyBottom = () => {
+interface Props {
+  pageAppRouter?: boolean
+}
+const StickyBottom = ({ pageAppRouter = false }: Props) => {
   const [isShown, setIsShown] = useState(true)
   const [isClosed, setIsClosed] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -23,7 +27,7 @@ const StickyBottom = () => {
 
   useEffect(() => {
     setIsLoaded(true)
-  }, [ setIsShown, isClosed])
+  }, [setIsShown, isClosed])
 
   if (isLoaded)
     return (
@@ -40,9 +44,7 @@ const StickyBottom = () => {
           <div className={stls.content}>
             <div className={stls.text}>
               <span className={stls.title}>Скидка до {discount}</span>
-              <span className={stls.description}>
-                на все программы и курсы{' '}
-              </span>
+              <span className={stls.description}>на все программы и курсы </span>
               <span className={stls.discount}>
                 <ProgramDiscountUntil />
               </span>
@@ -79,27 +81,37 @@ const StickyBottom = () => {
                 <div className={stls.icon}>
                   <IconInfoOrange />
                 </div>
-                Информацию о скидках и дополнительных бонусах при поступлении
-                уточняйте у менеджеров приемной комиссии
+                Информацию о скидках и дополнительных бонусах при поступлении уточняйте у менеджеров
+                приемной комиссии
               </div>
             </Popup>
           </div>
           <div className={stls.btns}>
-            <PopupTrigger btn='alpha' cta='submitApplication' />
+            {pageAppRouter ? (
+              <PopupPartnersStickyBottom btnClass='btn_alpha' text={'Оставить заявку'} />
+            ) : (
+              <PopupTrigger btn='alpha' cta='submitApplication' />
+            )}
             <div className={stls.btn2}>
-              <PopupTrigger btn='beta' cta='consultMe' />
+              {pageAppRouter ? (
+                <PopupPartnersStickyBottom btnClass='btn_beta' text={'Хочу консультацию'} />
+              ) : (
+                <PopupTrigger btn='beta' cta='consultMe' />
+              )}
             </div>
           </div>
-          <div
-            className='js-whatsapp-message-container'
-            style={{ display: 'none' }}>
+          <div className='js-whatsapp-message-container' style={{ display: 'none' }}>
             <p>
-              Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер
-              обращения: {roistat_visit}
+              Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер обращения:{' '}
+              {roistat_visit}
             </p>
           </div>
           <div className={stls.btnMobile}>
-            <PopupTrigger btn='alpha' cta='submitApplication' />
+            {pageAppRouter ? (
+              <PopupPartnersStickyBottom btnClass='btn_alpha' text={'Оставить заявку'} />
+            ) : (
+              <PopupTrigger btn='alpha' cta='submitApplication' />
+            )}
           </div>
         </Wrapper>
         <button className={stls.close} onClick={() => setIsClosed(true)}>

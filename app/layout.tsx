@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Footer />
 
               <div>
-                <StickyBottom />
+                <StickyBottom pageAppRouter={true} />
               </div>
               {/* </div> */}
             </FieldsTooltipState>
