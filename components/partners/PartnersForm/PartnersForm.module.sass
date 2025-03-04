@@ -44,6 +44,22 @@
   top: f.px(10)
   right: f.px(10)
 
+.title
+  @include m.gap($mb: f.px(5))
+  font-size: f.px(36)
+  font-weight: 500
+  @include m.dye(c, c.$white-900)
+  @include m.media(phone, tablet)
+    font-size: f.px(28)
+
+.desc
+  font-size: f.px(20)
+  @include m.dye(c, c.$white-900)
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(20))
+
 .form
   @include m.flex($fd: column, $jc: space-between)
   gap: f.px(15)

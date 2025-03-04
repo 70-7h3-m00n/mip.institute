@@ -21,7 +21,7 @@ const PopupPartners = ({ text }) => {
       <Popup open={open} onClose={handleClose} modal>
         {
           // @ts-ignore
-          close => <PartnersForm onClose={handleClose} />
+          close => <PartnersForm onClose={handleClose} title={text} />
         }
       </Popup>
     </>

@@ -18,12 +18,13 @@ type FormValues = {
   email: string
   pagePartners: boolean
 }
+type Props = {
+  onClose: () => void
+  title: string
+}
 
-const PartnersForm = ({ onClose }) => {
+const PartnersForm = ({ onClose, title }: Props) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [success, setSuccess] = useState<string | null>(null)
-  const [error, setError] = useState<string | null>(null)
-
   const {
     register,
     handleSubmit,
@@ -38,25 +39,20 @@ const PartnersForm = ({ onClose }) => {
       messageToHR: ''
     }
   })
-
+  const description = 'Что бы стать партнером заполните короткую форму'
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true)
-    setError(null)
-    setSuccess(null)
     data.pagePartners = true
     try {
       const response = await axios.post(`${routes.front.root}/api/sendEmailToHR`, data)
       if (response.status === 200) {
         reset()
-        setSuccess('Форма успешно отправлено!')
-        alert(success)
+        alert('Форма успешно отправлено!')
       } else {
-        setError('Ошибка! Попробуйте позже.')
-        alert(error)
+        alert('Ошибка! Попробуйте позже.')
       }
     } catch (err) {
-      setError('Ошибка! Попробуйте позже.')
-      alert(error)
+      alert('Ошибка! Попробуйте позже.')
     } finally {
       setIsSubmitting(false)
     }
@@ -74,6 +70,8 @@ const PartnersForm = ({ onClose }) => {
       <div className={stls.close}>
         <BtnClose onClick={onClose} iconCloseCircle />
       </div>
+      <h3 className={stls.title}>{title}</h3>
+      <p className={stls.desc}>{description}</p>
       <form method='post' className={stls.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={classNames(stls.inpt, stls.name)}>
           <input
