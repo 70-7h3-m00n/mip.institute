@@ -6,11 +6,16 @@ import { discountNum } from '@/data/price'
 import PopupTrigger from '@/ui/PopupTrigger'
 import classNames from 'classnames'
 import IconScrewedArrow from '../icons/IconScrewedArrow'
+import { useRouter } from 'next/router'
 
 const ProgramCost = ({ withPerMonth = false }) => {
   const { program } = useContext(ContextStaticProps)
   const isProfession = program?.type === 'Profession'
 
+  const router = useRouter()
+  console.log(router.query.slug === 'psiholog-konsultant');
+  
+  const isPsyCons = router.query.slug === 'psiholog-konsultant'
   const showCost = program?.studyMounthsDuration <= 5
   const price = (program && program.price) || 0
   const discount = (program && program.discount) || discountNum
@@ -52,7 +57,8 @@ const ProgramCost = ({ withPerMonth = false }) => {
                   Обучение можно оплатить сразу или воспользоваться <b>рассрочкой*</b>
                 </p>
                 <span className={stls.discount}>
-                  <span className={stls.bold}>{toNumberWithSpaces(perMonthPrice)}</span>{' '}
+                  <span className={stls.bold}>{isPsyCons && 'от'} {toNumberWithSpaces(perMonthPrice)}</span>{' '}
+                  
                   <span className={stls.bold}>&#8381;/мес</span>
                 </span>
                 <p className={stls.loan}>
@@ -63,10 +69,11 @@ const ProgramCost = ({ withPerMonth = false }) => {
                 <p className={stls.fullPrice}>Стоимость программы за весь курс:</p>
                 <div className={stls.flexMonth}>
                   <span className={stls.discount}>
-                    <span className={stls.full}>{toNumberWithSpaces(price)}</span>{' '}
+                    <span className={stls.full}>{isPsyCons && 'от'} {toNumberWithSpaces(price)}</span>{' '}
                     <span className={stls.fullLight}>&#8381;</span>
                   </span>{' '}
                   <span className={stls.regular}>
+                  {isPsyCons && 'от'}{' '}
                     <span className={stls.bold}>{toNumberWithSpaces(rprice)}</span>{' '}
                     <span className={stls.light}>&#8381;</span>
                   </span>
