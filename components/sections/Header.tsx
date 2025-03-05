@@ -12,7 +12,7 @@ import stls from '@/styles/components/sections/Header.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useMemo, useState } from 'react'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
@@ -22,10 +22,6 @@ import StickyTop from './StickyTop'
 import NProgress from 'nprogress'
 import TagManager from 'react-gtm-module'
 import Router from 'next/router'
-
-type Props = {
-  isPromo?: boolean
-}
 
 const Header = () => {
   const { menuIsOpen, closeMenu } = useContext(MenuContext)
@@ -41,111 +37,80 @@ const Header = () => {
   const [promoText, setPromoText] = useState('')
   const [isWithGift, setIsWithGift] = useState(false)
 
-  const utmCookie = getCookie('utm')
-  const stringedUtm = utmCookie?.toString()
+  const utmCookie = useMemo(() => getCookie('utm')?.toString() || '', []);
 
   useEffect(() => {
-    setTimeout(() => {
-      let foundPromo = false
-      Object.keys(promocodes).forEach(code => {
-        if (stringedUtm?.includes(code)) {
-          setIsPromo(true)
-          setPromoText(promocodes[code])
-          foundPromo = true
-        }
-      })
-      if (!foundPromo) {
-        setIsPromo(false)
-        setPromoText('')
-      }
+    const timer = setTimeout(() => {
+      const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
+      const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
 
-      let foundPromoWithGift = false
-      Object.keys(promocodesWithGift).forEach(code => {
-        if (stringedUtm?.includes(code)) {
-          setIsWithGift(true)
-          foundPromoWithGift = true
-        }
-      })
-      if (!foundPromoWithGift) {
-        setIsWithGift(false)
-      }
+      setIsPromo(!!promoCode)
+      setPromoText(promoCode ? promocodes[promoCode] : '')
+      setIsWithGift(!!giftCode)
     }, 2000)
-  }, [utmCookie,stringedUtm])
 
-  const closePromo = () => {
-    setIsPromo(false)
-  }
+    return () => clearTimeout(timer) // Очищаем таймер при размонтировании
+  }, [utmCookie])
+
+  const closePromo = () => setIsPromo(false)
   // /SticyTop
 
   useEffect(() => {
-    const utmCookie = getCookie('utm')
-    let arr
-    if (typeof utmCookie === 'string') {
-      arr = JSON.parse(utmCookie)
-    }
-    const urlUtmsArr = String(searchParams)
+    const urlUtmsArr = String(searchParams);
+  
+    if (!urlUtmsArr.length) return; // Если в URL нет UTM-меток, выходим
+  
+    const utms = urlUtmsArr.split('&').reduce((acc, utm) => {
+      const [key, value] = utm.split('=');
+      acc[key] = decodeURIComponent(value); // Декодируем значение UTM
+      return acc;
+    }, {} as Record<string, string>);
+  
+    setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 });
+  }, [searchParams]);
 
-    // переписываем куку если отличается сурс от того, что был до этого
-    if (urlUtmsArr.length > 0) {
-      const urlUtmsArr = String(searchParams)
-      let utms = {}
-      urlUtmsArr &&
-        urlUtmsArr?.split('&').forEach(utm => {
-          const [key, value] = utm.split('=')
-          utms[key] = decodeURIComponent(value) // Декодирование URL-кодированной строки
-        })
-
-      setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
-    }
-  }, [searchParams])
 
   useEffect(() => {
-    TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
-    // @ts-ignore
-    let utms = JSON.parse(sessionStorage.getItem('utms')) || {}
-    let utmsAreEmpty = false
-
-    for (const key in utms) {
-      if (utms.hasOwnProperty(key)) {
-        utmsAreEmpty = true
-        break
+    TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' });
+  
+    // Загружаем utm из sessionStorage
+    const storedUtms = sessionStorage.getItem('utms');
+    const utms = storedUtms ? JSON.parse(storedUtms) : {};
+  
+    if (Object.keys(utms).length === 0) {
+      const utmParams = String(searchParams);
+      if (utmParams) {
+        const parsedUtms = Object.fromEntries(
+          utmParams.split('&').map(utm => utm.split('=').map(decodeURIComponent))
+        );
+  
+        sessionStorage.setItem('utms', JSON.stringify(parsedUtms));
       }
     }
-
-    if (!utmsAreEmpty) {
-      const urlUtmsArr = String(searchParams)
-
-      urlUtmsArr &&
-        urlUtmsArr.split('&').forEach(utm => {
-          utms[utm.split('=')[0]] = utm.split('=')[1]
-        })
-      sessionStorage.setItem('utms', JSON.stringify(utms))
+  
+    // Сохраняем реферер, если его нет в sessionStorage
+    if (!sessionStorage.getItem('referrer')) {
+      sessionStorage.setItem('referrer', JSON.stringify(document.referrer));
     }
-
-    const referer = sessionStorage.getItem('referrer')
-    if (!referer) {
-      sessionStorage.setItem('referer', JSON.stringify(document.referrer))
-    }
-
-    NProgress.configure({
-      showSpinner: false
-    })
-
-    const start = () => {
-      NProgress.start()
-    }
-    const end = () => {
-      NProgress.done()
-    }
-    Router.events.on('routeChangeStart', start)
-    Router.events.on('routeChangeComplete', end)
-    Router.events.on('routeChangeError', end)
+  
+    // Настраиваем NProgress
+    NProgress.configure({ showSpinner: false });
+  
+    const start = () => NProgress.start();
+    const end = () => NProgress.done();
+  
+    Router.events.on('routeChangeStart', start);
+    Router.events.on('routeChangeComplete', end);
+    Router.events.on('routeChangeError', end);
+  
     return () => {
-      Router.events.off('routeChangeStart', start)
-      Router.events.off('routeChangeComplete', end)
-      Router.events.off('routeChangeError', end)
-    }
-  }, [searchParams])
+      Router.events.off('routeChangeStart', start);
+      Router.events.off('routeChangeComplete', end);
+      Router.events.off('routeChangeError', end);
+    };
+  }, [searchParams]);
+  
+  
   return (
     <>
       <StickyTop

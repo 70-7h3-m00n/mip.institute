@@ -15,10 +15,11 @@ const Footer = () => {
 
   const partCookie = getCookie('utm')
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       const utmSource = getUtmSourceFromCookie()
       setIsEdpartners(utmSource === 'edpartners')
     }, 300)
+    return () => clearTimeout(timer) // Очищаем таймер при размонтировании
   }, [isEdpartners, partCookie])
 
   return (
