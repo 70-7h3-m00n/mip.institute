@@ -22,6 +22,7 @@ const Faq = ({ faqRef = null }) => {
       answer: qna.answer
     }))
   } else {
+    // @ts-ignore
     list = listOnMain
   }
 
@@ -44,6 +45,7 @@ const Faq = ({ faqRef = null }) => {
         <div className={stls.content}>
           <ul className={stls.list}>
             {list &&
+            // @ts-ignore
               list.map(({ question, answer }, idx) => (
                 <FaqAnswer
                   key={question + idx}

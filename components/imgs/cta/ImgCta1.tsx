@@ -7,8 +7,8 @@ const ImgCta1 = ({ width = 0, height = 0 }) => {
       <Image
         src={pic}
         alt='Девушка в очках и с книгой'
-        width={width !== 0 && width}
-        height={height !== 0 && height}
+        width={width !== 0 && width || undefined}
+        height={height !== 0 && height || undefined}
         placeholder='blur'
       />
     </div>

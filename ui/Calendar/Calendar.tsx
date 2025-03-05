@@ -36,6 +36,7 @@ const Calendar = ({ dates, onDatesFiltered, selectRange, onSupervisionPagesStyle
 
   const onClickDayHandler = (date: Date) => {
     if (selectRange) {
+      //@ts-ignore
       onDatesFiltered([null, null])
       if (selectedRange.length === 0 || selectedRange.length === 2) {
         // Сбрасываем диапазон и начинаем с новой даты

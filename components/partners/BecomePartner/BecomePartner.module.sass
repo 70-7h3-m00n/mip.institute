@@ -1,0 +1,100 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.flex($ai:center,$jc:space-between)
+  background: #A78CFF
+  border-radius: 30px
+  position: relative
+  overflow: hidden
+  @include m.gap($mb: f.px(70),$pb: f.px(0))
+  @include m.media(phone, tablet)
+    @include m.flex($fd:column)
+    @include m.gap($ptb: f.px(26),$mb: f.px(30))
+    
+
+.content
+  @include m.flex($ai:center,$jc:space-between)
+  width: 100%
+  @include m.media(phone, tablet)
+    @include m.flex($fd:column)
+
+.left
+  max-width: 70%
+  color: c.$white-900
+  @include m.media(laptop)
+    @include m.gap($pb: f.px(50))
+  @include m.media(phone, tablet)
+    max-width: 100%
+
+.title
+  font-size: f.px(44)
+  font-weight: 500
+  line-height: 100%
+  @include m.gap($mb: f.px(25))
+  @include m.media(laptop)
+    @include m.gap($mt:f.px(50))
+  @include m.media(phone, tablet)
+    font-size: f.px(32)
+    @include m.gap($mb: f.px(15), $mt:f.px(0))
+
+.description
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 110%
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(19))
+
+.buttonDesc
+  @include m.gap($ptb: f.px(19), $plr: f.px(89))
+  @include m.dye(bg, c.$orange-400)
+  border-color: c.$orange-400
+  color: c.$white-900
+  border-radius: 100px
+  font-size: f.px(18)
+  transition: background 0.3s
+  &::after
+    display: none
+  &:hover
+    transform: scale(1.02)
+  @include m.media(phone, tablet)
+    display: none 
+
+.buttonMob
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    color: c.$white-900
+    @include m.gap($ptb: f.px(17))
+    @include m.dye(bg, c.$orange-400)
+    border-color: c.$orange-400
+    width: 100%  
+    border-radius: 100px
+    transition: background 0.3s
+    &::after
+      display: none
+    &:hover
+      transform: scale(1.02)
+
+  
+.left> button
+  @extend .buttonDesc
+.content > [aria-describedby^="popup-"]
+  width: 100%
+.content > button
+  @extend .buttonMob
+
+.imageRight
+  @include m.flex($ai:center,$jc:center)
+  @include m.gap($mb: f.px(-115), $mt:f.px(-40))
+  object-fit: cover
+  width: auto
+  height: 100%
+  overflow: hidden
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(-40), $mt:f.px(0))
+    width: 100%
+    height: auto
+

@@ -27,6 +27,7 @@ const CardReview = ({
 
   const cutHandler = () => {
     setThreePoints(false)
+    // @ts-ignore
     setCut(fullStory)
     setIsFull(true)
   }
@@ -36,6 +37,8 @@ const CardReview = ({
     setIsFull(false)
   }
   useEffect(() => {
+    // @ts-ignore
+
     fullStory > cut && setThreePoints(true)
   }, [cut, fullStory, isFull])
 
@@ -59,10 +62,10 @@ const CardReview = ({
       </div>
       <div className={isFull ? `${stls.fullBottom}` : `${stls.bottom}`}>
         <p className={stls.story}>
-          {story.slice(0, cut)}
+          {story?.slice(0, cut)}
           {threePoints ? <span>...</span> : ''}
         </p>
-        {story?.length > cut && (
+        {story && story?.length > cut && (
           <p className={stls.moreText} onClick={cutHandler}>
             Читать полностью
           </p>

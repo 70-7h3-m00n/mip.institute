@@ -45,13 +45,14 @@ const ProgramSelectionTop = ({ bottomCards, topCards }: Props) => {
   })
 
   const mappedCards: MappedCard[] = bottomCards?.map(({ text, img }) => {
-    const title = text
-      .find(block => block.type === 'paragraph' && 'children' in block)
-      ?.children[0]?.text.replace(' ', '\n')
+    const title =
+      text
+        .find(block => block.type === 'paragraph' && 'children' in block)
+        ?.children[0]?.text.replace(' ', '\n') || ''
 
     const cleanedTitle = title.replace(/{|}/g, '').trim()
 
-    let link: string
+    let link: string = ''
     if (cleanedTitle.toLowerCase().includes('переподготовка')) {
       link = 'professions'
     } else if (cleanedTitle.toLowerCase().includes('бакалавриат')) {

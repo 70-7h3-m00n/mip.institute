@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import LectoriumIndexCard from '@/components/cards/LectoriumIndexCard/LectoriumIndexCard'
 import routes from '@/config/routes'
 import { handleGetStaticProps } from '@/lib/index'
@@ -53,7 +53,7 @@ const LectoriumPage = ({ lectoriums }: Props) => {
     setFilteredDates(dates)
   }
 
-  const filterLectoriums = () => {
+  const filterLectoriums = useCallback(() => {
     let baseFilter = lectoriums
 
     if (selectedType) {
@@ -81,7 +81,6 @@ const LectoriumPage = ({ lectoriums }: Props) => {
 
     baseFilter = baseFilter.filter(lect => {
       const targetDate = dayjs(lect.targetDate).tz('Europe/Moscow')
-      // const formattedDateToCompare = dayjs(card.targetDate).tz('Europe/Moscow')
       const isDateInFuture = targetDate.isAfter(today)
 
       return showPast ? targetDate.isBefore(today, 'hour') : targetDate.isAfter(today, 'hour')
@@ -107,13 +106,14 @@ const LectoriumPage = ({ lectoriums }: Props) => {
 
     setFilteredLectoriums(sortedByDate)
     setDates(sortedByDate.map(lectorium => lectorium.targetDate))
-  }
+  },[filteredDates, isInternal, lectoriums, priceFilter, selectedType, showPast,today])
 
   useEffect(() => {
     filterLectoriums()
-  }, [showPast, selectedType, isInternal, filteredDates, lectoriums, priceFilter, setFilteredDates])
+  }, [showPast, selectedType, isInternal, filteredDates, lectoriums, priceFilter, setFilteredDates,filterLectoriums])
 
   const handleFilterInternalEvents = () => {
+    //@ts-ignore
     setIsInternal(true)
   }
 
@@ -122,13 +122,16 @@ const LectoriumPage = ({ lectoriums }: Props) => {
   }
 
   const handleFilterOutsideEvents = () => {
+    //@ts-ignore
     setIsInternal(false)
   }
 
   const handleSelectChange = (selectedOption: (typeof lectoriumOptions)[0]) => {
+    //@ts-ignore
     setSelectedType(selectedOption?.value || null)
   }
   const handleSelectPriceFilter = (selectedOption: (typeof lectoriumPriceOptions)[0]) => {
+    //@ts-ignore
     setPriceFilter(selectedOption?.value || null)
   }
 
@@ -220,7 +223,8 @@ const LectoriumPage = ({ lectoriums }: Props) => {
               </div>
             )}
             {filteredLectoriums.map(lectorium => (
-              <LectoriumIndexCard key={lectorium.slug} card={lectorium} />
+              //@ts-ignore
+              <LectoriumIndexCard key={lectorium?.slug} card={lectorium} />
             ))}
           </div>
           {filteredLectoriums.length === 0 && <Stub onClick={onClickReset} />}

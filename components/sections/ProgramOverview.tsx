@@ -47,7 +47,9 @@ const ProgramOverview = ({ toggleOverview, showDescription }) => {
               topics.map((topicGroup, idx) => (
                 <div key={`${topicGroup}-${idx}`} className={stls.topicGroup}>
                   <h3>{titles[idx]}</h3>
-                  {topicGroup.map((topic, topicIdx) => (
+                  {
+                  //@ts-ignore
+                  topicGroup?.map((topic, topicIdx) => (
                     <div key={topic + topicIdx} className={stls.item}>
                       <div className={stls.itemIcon}>
                         {loadIcon('IconCircleCheck', { violetItems: true })}

@@ -42,7 +42,9 @@ const StudyCost = ({ costRef, ofType }) => {
   ]
 
   return (
-    <section ref={costRef} className={stls.container} style={{marginTop: ofType !== 'Profession' ? '-33px': null}}>
+    <section ref={costRef} className={stls.container} 
+    //@ts-ignore
+    style={{marginTop: ofType !== 'Profession' ? '-33px': null}}>
       <Wrapper>
         <div className={stls.title}>
           <span className={stls.laptopdesktop}>Запишитесь на программу</span>

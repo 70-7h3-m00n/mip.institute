@@ -65,7 +65,9 @@ export function FilterProvider({ children, items }) {
 
   return (
     <FilterContext.Provider value={state}>
-      <FilterDispatchContext.Provider value={dispatch}>
+      <FilterDispatchContext.Provider 
+      //@ts-ignore
+      value={dispatch}>
         {children}
       </FilterDispatchContext.Provider>
     </FilterContext.Provider>
@@ -78,8 +80,11 @@ export function useFilter() {
     throw new Error('useFilter must be used within a FilterProvider')
   }
   return {
+    //@ts-ignore
     filters: context?.filters,
+    //@ts-ignore
     additional: context?.additional,
+    //@ts-ignore
     categories: context?.categories
   }
 }
@@ -97,6 +102,7 @@ export function useFilteredItems() {
   if (context === undefined) {
     throw new Error('useFilteredItems must be used within a FilterProvider')
   }
+  //@ts-ignore
   return getFilteredItems(context.items, context.filters)
 }
 

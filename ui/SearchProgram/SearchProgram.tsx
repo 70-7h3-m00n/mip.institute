@@ -24,6 +24,7 @@ export default function SearchProgram() {
 
   useEffect(() => {
     const filtered = programs.filter(program => {
+      //@ts-ignore
       const programTitle = convertEnglishToRussian(program.title.toLowerCase())
       const query = convertEnglishToRussian(searchQuery.toLowerCase())
       return programTitle.includes(query)

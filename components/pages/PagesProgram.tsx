@@ -34,6 +34,7 @@ type PagesProgramType = {
 }
 
 const PagesProgram = ({
+  // @ts-ignore
   ofType = null,
   reviews,
   programOverview,
@@ -116,7 +117,10 @@ const PagesProgram = ({
       <RequestsCard />
 
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
-      {program.portfolio && <YourResumeNew program={program} resumeRef={resumeRef} />}
+      
+      {program.portfolio && <YourResumeNew program={program} 
+      // @ts-ignore
+      resumeRef={resumeRef} />}
       {ofType === 'Profession' && <SalaryCounter title='Психология' />}
 
       {ofType === 'Profession' && (
@@ -138,7 +142,9 @@ const PagesProgram = ({
       <StudyCost costRef={costRef} ofType={ofType} />
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
       <EntryForm />
-      <Faq faqRef={faqRef} />
+      <Faq 
+      // @ts-ignore
+      faqRef={faqRef} />
     </>
   )
 }

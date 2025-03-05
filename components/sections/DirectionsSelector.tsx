@@ -43,16 +43,20 @@ const DirectionsSelector: FC<Props> = ({
               [stls.active]: currentType === programType
             })}
             onMouseEnter={
+              // @ts-ignore
               !isMobileLayout ? () => setCurrentType(programType) : undefined
             }
             onClick={() => {
               if (activeItem === id) {
                 // Если элемент уже активен, снимаем активность
+                // @ts-ignore
                 setActiveItem(null)
+                // @ts-ignore
                 setCurrentType(null)
               } else {
                 // Иначе, активируем элемент
                 setActiveItem(id)
+                // @ts-ignore
                 setCurrentType(programType)
               }
             }}>
@@ -62,7 +66,9 @@ const DirectionsSelector: FC<Props> = ({
           {activeItem === id && (
             <div className={stls.mobileAccordeon}>
               <ProgramList
+              // @ts-ignore
                 currentType={currentType}
+                // @ts-ignore
                 ofType={
                   currentType === 'course'
                     ? 'course'

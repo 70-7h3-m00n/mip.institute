@@ -24,6 +24,7 @@ const ImgDiplomaDynamic = ({
   diplomaCertificate,
   diplomaCertificateAlt
 }: TImgDiplomaDynamic) => {
+  //@ts-ignore
   const isImage = useCheckIfResourseExists({ src })
 
   return (

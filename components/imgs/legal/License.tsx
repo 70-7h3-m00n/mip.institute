@@ -7,8 +7,8 @@ const License = ({ width = 180, height = 240 }) => {
       <Image
         src={pic}
         alt='Курс 2'
-        width={width !== 0 && width}
-        height={height !== 0 && height}
+        width={width !== 0 && width || undefined}
+        height={height !== 0 && height || undefined}
         placeholder='blur'
       />
     </div>

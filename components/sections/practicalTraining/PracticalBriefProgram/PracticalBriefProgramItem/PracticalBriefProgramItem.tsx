@@ -16,9 +16,9 @@ const PracticalBriefProgramItem = ({ title, description }: Props) => {
           <IconVioletSquare />
         </div>
       </div>
-      {description.length !== 0 && (
+      {description?.length !== 0 && (
         <ul className={stls.description}>
-          {description.map(el => (
+          {description?.map(el => (
             <li className={stls.descriptionItem} key={el.text}>
               {el.text}
             </li>

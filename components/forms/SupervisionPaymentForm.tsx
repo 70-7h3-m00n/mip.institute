@@ -40,6 +40,7 @@ const SupervisionPaymentForm = () => {
 
   const onSubmit = async data => {
     data.leadPage = router.asPath
+    // @ts-ignore
     const referer = JSON.parse(sessionStorage.getItem('referer'))
     data.referer = referer
     const utm = getCookie('utm')

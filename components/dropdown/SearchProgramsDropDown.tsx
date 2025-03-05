@@ -8,7 +8,7 @@ import getProgramsData from '@/lib/data/getProgramsData'
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import routes from '@/config/routes'
 import BtnField from '../btns/BtnField'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { getCookie } from 'cookies-next'
 import getUtmSourceFromCookie from '@/helpers/funcs/getUtmSourceFromCookie'
 
@@ -54,11 +54,12 @@ export default function SearchProgramsDropDown() {
     ],
     []
   )
-  const router = useRouter()
+
+  const pathname = usePathname()
   const [descriptionText, setDescriptionText] = useState('Об институте')
 
   useEffect(() => {
-    const currentRoute = router.pathname
+    const currentRoute = pathname
 
     // Ищем элемент списка, соответствующий текущему пути
     const currentItem = list.find(item => item.href === currentRoute)
@@ -68,7 +69,7 @@ export default function SearchProgramsDropDown() {
     } else {
       setDescriptionText('Об институте')
     }
-  }, [router.pathname, list])
+  }, [pathname, list])
 
   // направления
   const [directionOnHover, setDirectionOnHover] = useState(false)
@@ -91,8 +92,10 @@ export default function SearchProgramsDropDown() {
     const handleDocumentClick = event => {
       // Проверяем, является ли цель клика иконкой или ее родителями
       if (
-        (iconRef && iconRef.current.contains(event.target)) ||
-        (inputRef && inputRef.current.contains(event.target))
+        // @ts-ignore
+        (iconRef.current && iconRef?.current?.contains(event.target)) ||
+        // @ts-ignore
+        (inputRef.current && inputRef.current.contains(event.target))
       ) {
         return
       }
@@ -119,7 +122,8 @@ export default function SearchProgramsDropDown() {
 
   useEffect(() => {
     const filtered = programs.filter(program => {
-      const programTitle = convertEnglishToRussian(program.title.toLowerCase())
+      // @ts-ignore
+      const programTitle = convertEnglishToRussian(program?.title.toLowerCase())
       const query = convertEnglishToRussian(searchQuery.toLowerCase())
       return programTitle.includes(query)
     })
@@ -132,6 +136,7 @@ export default function SearchProgramsDropDown() {
       setTimeout(() => {
         if (inputRef.current) {
           setTimeout(() => {
+            // @ts-ignore
             inputRef.current.focus()
           }, 100)
         }
@@ -176,6 +181,7 @@ export default function SearchProgramsDropDown() {
               programs[0] !== undefined &&
               firstShownPrograms &&
               firstShownPrograms?.map((el, i) => (
+// @ts-ignore
                 <React.Fragment key={el.id}>
                   <CardTooltip profession={el} clickHandler={cardClickHandler} />
                 </React.Fragment>

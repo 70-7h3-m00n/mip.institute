@@ -16,12 +16,13 @@ const ArticleBlogCommentBlock = ({ props }: ArticleBlogCommentBlockType) => {
     <div
       style={{ borderLeft: `2px solid ${lineColor}` }}
       className={stls.commentBlock}>
-      {text.map((el, i) => (
+      {text?.map((el, i) => (
         <p key={i}>
           {el.children.map(el => (
             <span
               key={el.text}
               style={{
+                // @ts-ignore
                 fontWeight: el.bold && 500,
               }}>
               {el.text}

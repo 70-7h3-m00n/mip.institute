@@ -21,7 +21,7 @@ const BachelorProgramModule = ({ title, topics, isOpened }: Props) => {
 
   useEffect(() => {
     isOpened && setOpen(true)
-  }, [])
+  }, [isOpened])
 
   const customRenderers = {
     p: ({ children }: { children: React.ReactNode }) => (

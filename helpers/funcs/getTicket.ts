@@ -7,7 +7,7 @@ const getTicket = async values => {
   try {
     values.id = uuidv4()
     const checkToken =  await checkOrUpdateTokens()
-    const access_token = checkToken.access_token
+    const access_token = checkToken?.access_token
     values.access = access_token
 
     const { data } = await client.mutate({

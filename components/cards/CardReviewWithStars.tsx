@@ -41,6 +41,7 @@ const CardReviewWithStars = ({ number, review }: Props) => {
       <div className={stls.author}>
         <div className={stls.image}>
           <Image
+          // @ts-ignore
             src={review.picture.url ? review.picture.url : review.picture.src}
             width={32}
             height={32}

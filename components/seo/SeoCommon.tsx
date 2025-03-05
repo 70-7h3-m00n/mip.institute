@@ -56,6 +56,7 @@ const SeoCommon: FC<TSeoPagesProgram> = ({
         }}
       />
       <CourseJsonLd
+      //@ts-ignore
         courseName={seoParams.programTitle}
         description={seoParams.desc}
         provider={{

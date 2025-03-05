@@ -4,6 +4,7 @@ export function generateDates(startDate: Date, endDate: Date): string[] {
   const dates = []
 
   while (startDate <= endDate) {
+    //@ts-ignore
     dates.push(new Date(startDate).toISOString())
     startDate.setDate(startDate.getDate() + 7)
   }

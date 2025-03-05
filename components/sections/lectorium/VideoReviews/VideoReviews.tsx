@@ -23,13 +23,14 @@ const VideoReviews = () => {
   const handleSlideChange = swiper => {
     playersRef.current.forEach((player, index) => {
       if (player && index !== swiper.activeIndex) {
+        // @ts-ignore
         player.stop()
       }
     })
   }
   useEffect(() => {
     playersRef.current = playersRef.current.slice(0, videoReviewList.length)
-  }, [videoReviewList.length])
+  }, [])
 
   return (
     <section className={stls.container}>

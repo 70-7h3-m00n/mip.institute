@@ -14,24 +14,25 @@ const PracticalSlugCard: FC<Step> = ({ card }) => {
     <Link
       passHref
       className={stls.oneCard}
-      href={`${routes.front.practicalTrainings}/${card.slug}`}>
+      href={`${routes.front.practicalTrainings}/${card?.slug}`}>
       <div className={stls.img}>
         <Image
           className={stls.image}
-          src={card.heroPicture.url}
+          // @ts-ignore
+          src={card?.heroPicture.url}
           width={740}
           height={480}
           alt='Программа'
         />
       </div>
       <div className={stls.cardText}>
-        <p className={stls.cardTitle}>{card.title}</p>
+        <p className={stls.cardTitle}>{card?.title}</p>
         <div className={stls.additionalInfo}>
           <p>
             <span>Ближайшие зачисления:</span> ежемесячное
           </p>
           <p>
-            <span>Срок обучения:</span> {card.duration}
+            <span>Срок обучения:</span> {card?.duration}
           </p>
         </div>
       </div>

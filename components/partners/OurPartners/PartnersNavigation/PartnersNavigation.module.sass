@@ -1,0 +1,27 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+  
+.navigation
+  @include m.flex($fw: wrap)
+  gap: 20px
+  @include m.gap($mb: f.px(25))
+
+.link
+  @include m.flex($jc: center, $ai: center)
+  gap: 10px
+  @include m.gap($ptb: f.px(11), $plr: f.px(20),$mb: f.px(0))
+  border-radius: f.px(50)
+  border: 1px solid c.$purple-300
+  font-size: f.px(14)
+  font-weight: 350
+  color: c.$black-800
+  line-height: 120%
+  a
+    color: inherit
+    text-decoration: none
+  
+.active
+  background: c.$purple-300
+  color: c.$white-900
+  font-weight: 500

@@ -1,0 +1,101 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.gap($ptb: f.px(40), $pl: f.px(20), $mtb: f.px(40), $pr: f.px(50))
+  @include m.dye(bg, c.$black-600)
+  border-radius: f.px(10)
+  display: grid
+  grid-template-columns: 2fr 3fr
+  gap: f.px(30)
+  width: 100%
+  @include m.media(laptop)
+    grid-template-columns: 1fr
+
+.header
+  @include m.dye(c, c.$white-900)
+  font-size: f.px(22)
+  font-weight: 500
+  white-space: pre-wrap
+
+.description
+  display: block
+  @include m.dye(c, c.$gray-500)
+  font-size: f.px(14)
+  font-weight: 300
+  @include m.gap($mt: f.px(15))
+  @include m.media(laptop)
+    max-width: f.px(500)
+
+.interactive
+  @include m.flex($jc: space-between, $ai: flex-start)
+  @include m.media(laptop)
+    @include m.flex($jc: flex-start)
+    gap: f.px(30)
+
+.interactive > button
+  @include m.dye(bg, c.$black-700)
+  @include m.dye(c, c.$gray-500)
+  font-size: f.px(16)
+  font-weight: 500
+  border-radius: f.px(10)
+  @include m.gap($ptb: f.px(21), $plr: f.px(50))
+  border: none
+
+.inputWrapper
+  @include m.flex($jc: flex-end, $ai: flex-start, $fd: column)
+
+.input
+  border-radius: f.px(10)
+  @include m.dye(bg, c.$gray-500)
+  height: f.px(60)
+  min-width: f.px(400)
+  @include m.gap($pl: f.px(20))
+
+.checkboxBlock > label
+  @include m.flex($ai: flex-start)
+  @include m.dye(c, c.$gray-500)
+  font-size: f.px(10)
+  font-weight: 300
+  gap: f.px(5)
+  @include m.gap($mt: f.px(10))
+  & > input[type="checkbox"]
+    display: grid
+    place-content: center
+    appearance: none
+    @include m.dye(bg, c.$black-600)
+    margin: 0
+    width: f.px(10)
+    height: f.px(10)
+    border: 0.1em solid c.$gray-500
+    border-radius: 0.15em
+    &::before
+      content: ""
+      width: f.px(10)
+      height: f.px(10)
+      transform: scale(0)
+      transition: 120ms transform ease-in-out
+      box-shadow: inset 1em 1em c.$gray-500
+    &:checked::before
+      transform: scale(1)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(12)
+
+.message
+  margin-top: 10px
+  padding: 8px
+  border-radius: 4px
+  font-size: f.px(14)
+  text-align: center
+
+  &.success
+    color: #155724
+    background-color: #d4edda
+    border: 1px solid #c3e6cb
+
+  &.error
+    color: #721c24
+    background-color: #f8d7da
+    border: 1px solid #f5c6cb

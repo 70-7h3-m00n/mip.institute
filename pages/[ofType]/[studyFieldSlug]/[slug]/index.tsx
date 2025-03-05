@@ -15,6 +15,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
   studyFieldSlug
 }) => {
   useHandleContextStaticProps({
+    //@ts-ignore
     programs,
     program,
     curProgramsType: program?.type,
@@ -29,14 +30,14 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
     <>
       <SeoPagesProgram
         program={program}
+        //@ts-ignore
         ofType={program?.type}
+        //@ts-ignore
         curProgramsStudyFieldSlug={studyFieldSlug}
       />
       <PagesProgram
-        slug={slug}
-        programOverview={programOverview}
-        reviews={reviews}
-        ofType={program?.type}
+      //@ts-ignore
+        slug={slug}  programOverview={programOverview} reviews={reviews} ofType={program?.type}
         program={program}
       />
     </>
@@ -44,6 +45,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  //@ts-ignore
   const { slug, ofType, studyFieldSlug } = params
 
   const res = await apolloClient.query<TypePageProgramsPropsQuery>({
@@ -85,21 +87,26 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   // Фильтрация программ на основе параметра ofType
   let filteredPrograms = programs
   if (ofType === 'professions') {
-    filteredPrograms = programs.filter(program => program.type === 'Profession')
+    //@ts-ignore
+    filteredPrograms = programs?.filter(program => program?.type === 'Profession')
   } else if (ofType === 'courses') {
-    filteredPrograms = programs.filter(program => program.type === 'Course')
+    //@ts-ignore
+    filteredPrograms = programs?.filter(program => program?.type === 'Course')
   } else if (ofType === 'shortTerm') {
-    filteredPrograms = programs.filter(program => program.type === 'ShortTerm')
+    //@ts-ignore
+    filteredPrograms = programs?.filter(program => program?.type === 'ShortTerm')
   } else if (ofType === 'programs') {
     filteredPrograms = programs
   }
 
   const studyFieldMap = {}
-  filteredPrograms.forEach(program => {
-    if (!studyFieldMap[program.studyFieldSlug]) {
-      studyFieldMap[program.studyFieldSlug] = {
-        studyField: program.studyField,
-        studyFieldSlug: program.studyFieldSlug
+  filteredPrograms?.forEach(program => {
+    //@ts-ignore
+    if (!studyFieldMap[program?.studyFieldSlug]) {
+      //@ts-ignore
+      studyFieldMap[program?.studyFieldSlug] = {
+        studyField: program?.studyField,
+        studyFieldSlug: program?.studyFieldSlug
       }
     }
   })
@@ -262,7 +269,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     })
     const reviewsData = res?.data?.reviews || []
     const validSlug = res?.data?.program?.[0]
-    const validOfType = validOfTypeValues.find(el => el === params.ofType)
+    const validOfType = validOfTypeValues.find(el => el === params?.ofType)
 
     const validStudyFieldSlug = studyFields.find(
       el => el.studyFieldSlug === studyFieldSlug

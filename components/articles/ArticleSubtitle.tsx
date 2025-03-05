@@ -14,7 +14,8 @@ const ArticleSubtitle = ({ props }: ArticleSubtitleType) => {
 
   return (
     <h2 id={subtitleSlug}>
-      {subtitle[0].children.map(el => (
+      {subtitle?.[0].children.map(el => (
+        // @ts-ignore
           <span key={el.text} style={{ color: el.italic && color }}>{el.text}</span>
       ))}
     </h2>

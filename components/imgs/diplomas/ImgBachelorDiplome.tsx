@@ -7,8 +7,8 @@ const ImgBachelorDiploma = ({ width = null, height = null }) => {
       <Image
         src={pic}
         alt='Диплом Бакалавра'
-        width={width}
-        height={height}
+        width={width || undefined}
+        height={height || undefined}
         placeholder='blur'
         sizes='100vw'
         style={{
