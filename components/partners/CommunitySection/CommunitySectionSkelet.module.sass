@@ -1,0 +1,181 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+/* Анимация для скелетонов */
+@keyframes skeleton-loading
+  0%
+    background-position: -200px 0
+  100%
+    background-position: 200px 0
+
+.skeleton
+  text-align: center
+  background: #E7E0FF
+  border-radius: 30px
+  gap: 20px
+  width: 100%
+  @include m.gap($pt: f.px(50), $pb: f.px(36))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(28))
+
+.imagesWrapper
+  display: flex
+  justify-content: center
+  align-items: center
+  gap: 20px
+  margin-bottom: 20px
+  @include m.media(phone, tablet)
+    justify-content: space-between
+
+.skeletonImage
+  width: 108px
+  height: 108px
+  border-radius: 5px
+  background: c.$gray-200
+  animation: skeleton-loading 1.5s infinite linear
+  background: linear-gradient(90deg, c.$gray-200 25%, c.$gray-100 50%, c.$gray-200 75%)
+  background-size: 400% 100%
+  @include m.media(desktop)
+    width: 168px
+    height: 168px
+
+.topTags
+  @include m.flex($ai: flex-start, $fd: column)
+  gap: 14px
+  @include m.gap($mb: f.px(65))
+  position: relative
+  @include m.media(phone, tablet)
+    @include m.flex($ai: center)
+    gap: 10px
+    @include m.gap($mb: f.px(20))
+
+.skeletonTag:nth-child(1)
+  position: relative
+  left: 150px
+  @include m.media(phone, tablet)
+    left: 0px
+    width: 150px
+
+.skeletonTag:nth-child(2)
+  width: 400px
+  @include m.media(phone)
+    width: 300px
+
+.skeletonTag
+  width: 220px
+  height: 30px
+  border-radius: 50px
+  background: c.$gray-200
+  animation: skeleton-loading 1.5s infinite linear
+  background: linear-gradient(90deg, c.$gray-200 25%, c.$gray-100 50%, c.$gray-200 75%)
+  background-size: 400% 100%
+
+.skeletonTagBottom
+  width: 220px
+  height: 30px
+  border-radius: 50px
+  background: c.$gray-200
+  animation: skeleton-loading 1.5s infinite linear
+  background: linear-gradient(90deg, c.$gray-200 25%, c.$gray-100 50%, c.$gray-200 75%)
+  background-size: 400% 100%
+  @include m.media(phone, tablet)
+    width: 180px
+    height: 25px
+
+.skeletonTagBottom:nth-child(2)
+  width: 400px
+  @include m.media(phone)
+    width: 270px
+
+.skeletonContent
+  @include m.flex($ai: center, $fd: column, $jc: center)
+  text-align: center
+
+.skeletonTitle
+  width: 600px
+  height: 180px
+  background: c.$gray-200
+  border-radius: 5px
+  margin-bottom: 35px
+  animation: skeleton-loading 1.5s infinite linear
+  background: linear-gradient(90deg, c.$gray-200 25%, c.$gray-100 50%, c.$gray-200 75%)
+  background-size: 400% 100%
+  @include m.media(tablet)
+    height: 110px
+    width: 440px
+  @include m.media(phone)
+    height: 90px
+    width: 350px
+    margin-bottom: 25px
+
+.skeletonText
+  width: 480px
+  height: 70px
+  background: c.$gray-200
+  border-radius: 5px
+  margin-bottom: 25px
+  animation: skeleton-loading 1.5s infinite linear
+  background: linear-gradient(90deg, c.$gray-200 25%, c.$gray-100 50%, c.$gray-200 75%)
+  background-size: 400% 100%
+  @include m.media(tablet)
+    height: 66px
+    width: 400px
+  @include m.media(phone)
+    height: 50px
+    width: 330px
+    margin-bottom: 15px
+
+.skeletonButton
+  width: 320px
+  height: 60px
+  border-radius: 100px
+  background: c.$gray-200
+  animation: skeleton-loading 1.5s infinite linear
+  background: linear-gradient(90deg, c.$gray-200 25%, c.$gray-100 50%, c.$gray-200 75%)
+  background-size: 400% 100%
+  @include m.media(tablet)
+    height: 62px
+    width: 360px
+  @include m.media(phone)
+    height: 50px
+    width: 300px
+
+.bottomTags
+  @include m.flex($ai: flex-end, $fd: column)
+  gap: 14px
+  position: relative
+  @include m.gap($mt: f.px(-20))
+  @include m.media(phone,tablet)
+    gap: 10px
+    @include m.gap($mt: f.px(25))
+
+.skeletonImageLeft
+  width: 270px
+  height: 270px
+  border-radius: 10px
+  background: c.$gray-200
+  position: absolute
+  left: 0px
+  bottom: 0px
+  animation: skeleton-loading 1.5s infinite linear
+  background: linear-gradient(90deg, c.$gray-200 25%, c.$gray-100 50%, c.$gray-200 75%)
+  background-size: 400% 100%
+  @include m.media(laptop)
+    width: 160px
+    height: 160px
+
+.skeletonImageRight
+  width: 168px
+  height: 168px
+  border-radius: 10px
+  background: c.$gray-200
+  position: absolute
+  right: 0px
+  top: 0px
+  animation: skeleton-loading 1.5s infinite linear
+  background: linear-gradient(90deg, c.$gray-200 25%, c.$gray-100 50%, c.$gray-200 75%)
+  background-size: 400% 100%
+  @include m.media(laptop)
+    width: 125px
+    height: 125px

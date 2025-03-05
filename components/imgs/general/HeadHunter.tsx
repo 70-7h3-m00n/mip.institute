@@ -9,8 +9,8 @@ const HeadHunter = ({ width = 101, height = 100 }) => {
         src={pic}
         alt='clip'
         className={stls.img}
-        width={width !== 0 && width}
-        height={height !== 0 && height}
+        width={width !== 0 && width || undefined}
+        height={height !== 0 && height || undefined}
         placeholder='blur'
         quality={100}
       />

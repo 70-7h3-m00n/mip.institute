@@ -5,12 +5,14 @@
 
 .container
   cursor: pointer
-  padding: f.px(12) f.px(12) f.px(8) f.px(12)
-  border-radius: f.px(4)
-  align-self: center
-  margin-left: f.px(8)
-  border: f.px(1) solid
-  @include m.dye(border, rgba(c.$white-900, .1))
+  padding: f.px(13)
+  border-radius: f.px(10)
+  border: none
+  margin: 0
+  height: f.px(50)
+  width: f.px(50)
+  @include m.flex($jc: center, $ai: center)
+  @include m.dye(bg, c.$black-600)
   &:focus, &:hover
     @include m.dye(bg, rgba(c.$white-900, .1))
   @include m.media(tablet)
@@ -18,5 +20,3 @@
   @include m.media(phone)
     padding: f.px(13) f.px(13) f.px(9) f.px(13)
 
-.img
-  @include m.media(laptop)

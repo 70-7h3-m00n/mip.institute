@@ -25,6 +25,7 @@ const PageBachelors = ({
         />
         <div className={stls.cards}>
           {bachelors.map(bachelor => (
+            // @ts-ignore
             <BachelorSlugCard key={bachelor?.slug} card={bachelor} />
           ))}
         </div>

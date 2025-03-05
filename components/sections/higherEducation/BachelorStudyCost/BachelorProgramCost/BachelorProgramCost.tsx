@@ -48,12 +48,16 @@ const BachelorProgramCost = ({
         <div className={stls.flexMonth}>
           <span className={stls.regular}>
             <span className={stls.bold}>
-              {toNumberWithSpaces(priceWithDiscount)}
+              {
+              // @ts-ignore
+              toNumberWithSpaces(priceWithDiscount)}
             </span>{' '}
             <span className={stls.light}>&#8381;</span>
           </span>{' '}
           <span className={stls.regular}>
-            <span className={stls.bold}>{toNumberWithSpaces(fullPrice)}</span>{' '}
+            <span className={stls.bold}>{
+              // @ts-ignore
+            toNumberWithSpaces(fullPrice)}</span>{' '}
             <span className={stls.light}>&#8381;</span>
             <span
               style={{ background: crossLineColor }}

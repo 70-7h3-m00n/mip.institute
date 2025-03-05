@@ -38,7 +38,9 @@ const withAddInfo = [
 ]
 
 const YourDiploma = ({
+  //@ts-ignore
   ofType = null,
+  //@ts-ignore
   diplomaRef = null,
   onMain = false,
   isBachelor = false,
@@ -50,7 +52,9 @@ const YourDiploma = ({
   const { program } = useContext(ContextStaticProps)
 
   ofType === 'Profession' &&
+
     slides.push(
+      //@ts-ignore
       <div className={stls.diploma}>
         {program?.diploma2 ? (
           <ImgDiplomaDynamic
@@ -92,6 +96,7 @@ const YourDiploma = ({
 
   isBachelor &&
     slides.push(
+      //@ts-ignore
       <div className={stls.diploma}>
         {program?.diploma2 ? (
           <ImgDiplomaDynamic
@@ -133,6 +138,7 @@ const YourDiploma = ({
 
   ofType === 'Course' &&
     slides.push(
+      //@ts-ignore
       <div className={stls.diploma}>
         {program?.diploma1 ? (
           <ImgDiplomaDynamic
@@ -184,7 +190,9 @@ const YourDiploma = ({
     'Все наши программы лицензированы, а дипломы имеют международные приложения, поэтому они ценятся клиентами и профессиональным психологическим сообществом как в России, так и за рубежом! По окончании программ профессиональной переподготовки и курсов повышения квалификации выпускники института получают официальный документ установленного образца, который вносится в реестр ФРДО, а в дополнение — сертификат Московского Института Психологии в формате А4'
 
   return (
-    <section ref={diplomaRef} className={stls.container}>
+    <section 
+      //@ts-ignore
+      ref={diplomaRef} className={stls.container}>
       <Wrapper>
         {onMain && (
           <div className={stls.tag}>
@@ -224,7 +232,9 @@ const YourDiploma = ({
                 trigger={<div className={stls.trigger}>{slide}</div>}
                 modal
                 nested>
-                <PopupImage image={slide.props.children} close={close} />
+                <PopupImage 
+                //@ts-ignore
+                image={slide.props.children} close={close} />
               </Popup>
             ))}
           </div>
@@ -232,7 +242,9 @@ const YourDiploma = ({
         <div className={stls.mobileBtn}>
           <LicensePopUp onBachelor showFullText={showFullText} />
         </div>
-        {withAddInfo.includes(programSlug) && (
+        {
+        //@ts-ignore
+        withAddInfo.includes(programSlug) && (
           <p className={stls.addInfo}>
             *Диплом и присваиваемая квалификация отображены при условии профильного высшего
             образования

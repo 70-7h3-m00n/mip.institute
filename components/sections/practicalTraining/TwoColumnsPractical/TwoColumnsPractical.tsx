@@ -43,7 +43,7 @@ const TwoColumnsPractical = ({
           flexBasis: bigLeft ? '65%' : '35%',
           borderRadius: radius
         }}>
-        {children[0]}
+        {children?.[0]}
       </div>
       <div
         className={classNames({
@@ -54,7 +54,7 @@ const TwoColumnsPractical = ({
           flexBasis: bigLeft ? '35%' : '65%',
           borderRadius: radius
         }}>
-        {children[1]}
+        {children?.[1]}
       </div>
     </div>
   )

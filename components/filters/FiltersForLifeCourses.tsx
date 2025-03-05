@@ -20,6 +20,7 @@ const Filters = ({ cost, duration }) => {
         pathname: router.pathname,
         query: { ...router.query, opened: true }
       })
+      // @ts-ignore
       dispatch({
         type: 'sortFilter',
         payload: { field: 'price', direction: 'desc' }
@@ -30,6 +31,7 @@ const Filters = ({ cost, duration }) => {
         pathname: router.pathname,
         query: rest
       })
+      // @ts-ignore
       dispatch({
         type: 'sortFilter',
         payload: { field: '', direction: '' }

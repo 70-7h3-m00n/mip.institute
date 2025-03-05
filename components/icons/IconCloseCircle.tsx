@@ -6,6 +6,7 @@ type TypeIconCloseCircle = {
 
 const IconCloseCircle = ({ blackCross = false, onClick=null }) => {
   return (
+    // @ts-ignore
     <span onClick={onClick} className={stls.container}>
       <svg viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Закрыть</title>

@@ -20,6 +20,7 @@ const QuizResults = ({ result }: Props) => {
   const marker = []
 
   resultValues.forEach(item => {
+    //@ts-ignore
     marker.push(...testResultsMarker(item))
   })
 

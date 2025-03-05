@@ -1,3 +1,4 @@
+'use client'
 import stls from './PopupTrigger.module.sass'
 import Popup from 'reactjs-popup'
 import PopupCta from '@/components/popups/PopupCta'
@@ -62,6 +63,7 @@ type PopupTriggerType = {
 const PopupTrigger = ({
   btn,
   cta,
+  //@ts-ignore
   testProgram = null,
   isActivePromocode,
   isLightYellowBetaBtn,

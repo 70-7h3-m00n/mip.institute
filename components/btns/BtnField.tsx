@@ -44,6 +44,7 @@ const BtnField = ({
         [stls.orang]: orang,
         [stls.violet]: isViolet
       })}
+      // @ts-ignore
       onClick={!aside && closeFieldsTooltip}>
       {children}
     </Link>

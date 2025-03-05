@@ -91,7 +91,9 @@ const payment = async (
 			requestData,
 			{
 				auth: {
+					//@ts-ignore
 					username: shopId,
+					//@ts-ignore
 					password: secretKey
 				},
 				headers: {

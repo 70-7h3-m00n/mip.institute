@@ -12,9 +12,11 @@ const ResetWrapper = ({ onIndex = false, onClick }: WrapperProps) => {
 
 
   const removeFilters = () => {
+    // @ts-ignore
     dispatch({
       type: 'clearFilters'
     })
+    // @ts-ignore
     dispatch({
       type: 'setBool',
       payload: true

@@ -11,7 +11,7 @@ export default async function handler(req, res) {
       const newLead = await checkOrUpdateTokens()
       const checkLeadId = `https://crmamomipinstitute.amocrm.ru/api/v4/leads/${id}`
 
-      const access_token = newLead.access_token
+      const access_token = newLead?.access_token
 
       const options = {
         headers: {

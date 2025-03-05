@@ -15,25 +15,26 @@ const PracticalWhatYouWillLearnItem = React.memo(({ block, number }: Props) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const { ref, inView } = useInView({
     threshold: 0.1,
-    rootMargin: `${
-      isMobileAndTabletLayout ? '0px 0px -50% 0px' : '-20% 0px -50% 0px'
-    }`,
+    rootMargin: `${isMobileAndTabletLayout ? '0px 0px -50% 0px' : '-20% 0px -50% 0px'}`,
     triggerOnce: false,
     delay: 200
   })
 
-  const customRenderers = {
-    strong: ({ children }: { children: React.ReactNode }) => (
-      <span className={stls.strongText}>{children}</span>
-    )
-  }
+  const customRenderers = useMemo(
+    () => ({
+      strong: ({ children }: { children: React.ReactNode }) => (
+        <span className={stls.strongText}>{children}</span>
+      )
+    }),
+    []
+  )
 
   const parsedText = useMemo(() => {
     if (!block) return null
     return block.text ? (
       <ReactMarkdown components={customRenderers}>{block.text}</ReactMarkdown>
     ) : null
-  }, [block])
+  }, [block, customRenderers])
 
   return (
     <div

@@ -47,7 +47,8 @@ export default function FiltersForLifeCoursesMobile({
               <button
                 className={stls.btn}
                 onClick={() => {
-                  scrollToRef.current.scrollIntoView({ behavior: 'smooth' })
+                  // @ts-ignore
+                  scrollToRef?.current?.scrollIntoView({ behavior: 'smooth' })
                   close()
                 }}>
                 {btnTitle}

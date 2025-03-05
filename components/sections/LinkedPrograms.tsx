@@ -125,10 +125,10 @@ const LinkedPrograms = ({ specializations, title, close }: Props) => {
           onClose={() => setIsOpen(false)}
           position={'center center'}>
           <PopupSpecialization
-            image={currentSlide?.image}
-            title={currentSlide?.title}
+          // @ts-ignore
+            image={currentSlide?.image} title={currentSlide?.title} onClose={close}
             descriptionList={currentSlide?.record}
-            onClose={close}
+            
           />
         </Popup>
       </Wrapper>

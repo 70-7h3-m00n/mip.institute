@@ -1,0 +1,148 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+  
+.container
+  text-align: center
+  background: #E7E0FF
+  border-radius: 30px
+  gap: 20px
+  width: 100%
+  @include m.gap($pt: f.px(50), $pb: f.px(36),$mt: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(28))
+
+.imagesWrapper
+  @include m.media(phone, tablet)
+    @include m.flex($jc: space-between)
+    @include m.gap($mb: f.px(20))
+    
+.image
+  border-radius: 5px
+
+.topTags
+  @include m.flex($ai: flex-start,$fd: column)
+  gap: 14px
+  @include m.gap($mb: f.px(35))
+  position: relative
+  @include m.media(phone, tablet)
+    gap: 10px
+    @include m.flex($ai: center)
+    @include m.gap($mb: f.px(20))
+
+.topTags .tagContainer:first-child
+  position: relative
+  left: 150px
+  @include m.media(phone, tablet)
+    left: 0px
+  
+.imageRight
+  width: 168px
+  height: 168px
+  flex-shrink: 0
+  border-radius: 10px
+  position: absolute
+  right: 0px
+  top: 0px
+  @include m.media(laptop)
+    width: 125px
+    height: 125px
+  @include m.media(phone, tablet)
+    display: none
+    
+.bottomTags
+  @include m.flex($ai: flex-end,$fd: column)
+  gap: 14px
+  position: relative
+  @include m.gap($mt: f.px(-20))
+  @include m.media(phone, tablet)
+    gap: 10px
+    @include m.gap($mt: f.px(25))
+
+.imageLeft
+  width: 270px
+  height: 326px
+  border-radius: 10px
+  position: absolute
+  left: 0px
+  bottom: 0px
+  @include m.media(laptop)
+    width: 175px
+    height: 175px
+  @include m.media(phone, tablet)
+    display: none
+
+.tagContainer
+  @include m.flex($ai: center)
+  gap: 5px
+
+.starIcon
+  min-width: 20px
+  min-height: 20px
+  max-width: 20px
+  max-height: 20px
+
+.tag
+  @include m.flex($ai: center,$jc: center)
+  @include m.gap($ptb: f.px(14), $plr: f.px(19))
+  gap: 10px
+  flex-shrink: 0
+  border-radius: f.px(50)
+  background: c.$white-900
+  color: c.$black-800
+  font-size: f.px(14)
+  font-weight: 350
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(11)
+    @include m.gap($ptb: f.px(7), $plr: f.px(10))
+
+.content
+  @include m.flex($ai: center,$fd: column,$jc: center)
+  text-align: center
+
+.title
+  color: c.$black-800
+  font-size: f.px(60)
+  font-weight: 500
+  line-height: 100%
+  width: 100%
+  max-width: 681px
+  @include m.gap($mb: f.px(35))
+  @include m.media(phone, tablet)
+    font-size: f.px(31)
+    @include m.gap($mb: f.px(25))
+
+.highlight
+  color: #855EDF
+
+.description
+  color: c.$black-800
+  font-size: f.px(20)
+  font-weight: 350
+  width: 100%
+  max-width: 489px
+  @include m.gap($mb: f.px(25))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(15))
+
+.button_base
+  @include m.gap($ptb: f.px(19), $plr: f.px(89))
+  @include m.dye(bg, c.$orange-400)
+  border-color: c.$orange-400
+  border-radius: 100px
+  font-size: f.px(18)
+  color: c.$white-900
+  transition: background 0.3s
+  &::after
+    display: none
+  &:hover
+    transform: scale(1.02)
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($ptb: f.px(17))
+    width: 100%    
+  
+.content > button
+  @extend .button_base

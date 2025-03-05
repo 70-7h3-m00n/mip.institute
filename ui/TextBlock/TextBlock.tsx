@@ -42,7 +42,9 @@ const TextBlock: React.FC<TextBlockProps> = ({
           {textBlock.links?.map((el, idx) => (
             <li key={`${el}-${idx}`}>
               {el?.val}{' '}
-              <Link href={el?.href} target='_blank' className={stls.link}>
+              <Link
+              // @ts-ignore
+              href={el?.href} target='_blank' className={stls.link}>
                 {el?.href}
               </Link>
             </li>
@@ -53,7 +55,10 @@ const TextBlock: React.FC<TextBlockProps> = ({
         <ul>
           {textBlock.links?.map((el, idx) => (
             <li key={`${el}-${idx}`}>
-              <Link href={el?.href} target='_blank' className={stls.link}>
+              
+              <Link
+              // @ts-ignore 
+              href={el?.href} target='_blank' className={stls.link}>
                 {el?.val}
               </Link>
             </li>

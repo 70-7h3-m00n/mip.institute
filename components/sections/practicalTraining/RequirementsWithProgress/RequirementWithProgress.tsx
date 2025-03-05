@@ -21,6 +21,7 @@ const RequirementsWithProgress = ({
         setProgress(currentProgress)
         if (currentProgress >= targetProgress) {
           clearInterval(interval)
+          // @ts-ignore
           onComplete?.() // Оповещаем, что анимация завершена
         }
       }, 25) // Скорость анимации (в миллисекундах)

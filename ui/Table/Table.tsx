@@ -50,7 +50,7 @@ const Table: React.FC<TableProps> = ({
             <th colSpan={rows[0]?.cells?.length - 1 || 1}>{subTitle}</th>
           </tr>
         )}
-        {headers?.length > 0 && (
+        {headers && headers?.length > 0 && (
           <tr {...(itemPropHeader ? { itemProp: itemPropHeader } : {})}>
             {headers.map((header, index) => (
               <th key={index}>{header}</th>
@@ -65,7 +65,7 @@ const Table: React.FC<TableProps> = ({
             // Полная строка
             return (
               <tr key={rowIndex} {...(row.itemProp ? { itemProp: row.itemProp } : {})}>
-                <td className={styles.fullRow} colSpan={headers.length}>
+                <td className={styles.fullRow} colSpan={headers && headers.length}>
                   {row.cells[0]?.content}
                 </td>
               </tr>

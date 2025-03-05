@@ -13,6 +13,7 @@ const PageNavigation = ({ sections }) => {
   }
 
   const handleScroll = () => {
+    // @ts-ignore
     const pointTop = pointRef.current?.getBoundingClientRect().top
 
     if (pointTop < -70) {

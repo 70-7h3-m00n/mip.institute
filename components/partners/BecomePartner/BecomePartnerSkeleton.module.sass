@@ -1,0 +1,86 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+@keyframes skeleton-loading
+  0%
+    background-position: -200px 0
+  100%
+    background-position: 200px 0
+
+.skeletonContainer
+  @include m.flex($ai:center,$jc:space-between)
+  background: #A78CFF
+  border-radius: 30px
+  position: relative
+  overflow: hidden
+  @include m.gap($mb: f.px(70), $pb: f.px(0))
+  @include m.media(phone, tablet)
+    @include m.flex($fd:column)
+    @include m.gap($ptb: f.px(26))
+
+.skeletonContent
+  @include m.flex($ai:center,$jc:space-between)
+  width: 100%
+  gap: 30px
+  @include m.media(phone, tablet)
+    @include m.flex($fd:column,$ai:baseline)
+
+.skeletonLeft
+  max-width: 70%
+  @include m.media(phone, tablet)
+    max-width: 100%
+    width: 100%
+
+.skeletonTitle
+  width: 400px
+  height: 44px
+  background: c.$gray-200
+  border-radius: 5px
+  animation: skeleton-loading 1.5s infinite linear
+  background: linear-gradient(90deg, c.$gray-200 25%, c.$gray-100 50%, c.$gray-200 75%)
+  background-size: 400% 100%
+  @include m.gap($mb: f.px(25))
+  @include m.media(phone, tablet)
+    width: 100%
+    max-width: 100%
+    min-width: 100%
+    height: 32px
+
+.skeletonText
+  width: 380px
+  height: 20px
+  background: c.$gray-200
+  border-radius: 5px
+  animation: skeleton-loading 1.5s infinite linear
+  background: linear-gradient(90deg, c.$gray-200 25%, c.$gray-100 50%, c.$gray-200 75%)
+  background-size: 400% 100%
+  @include m.gap($mb: f.px(15))
+  @include m.media(phone, tablet)
+    width: 100%
+    max-width: 100%
+    height: 16px
+
+.skeletonButton
+  width: 220px
+  height: 50px
+  background: c.$gray-200
+  border-radius: 100px
+  animation: skeleton-loading 1.5s infinite linear
+  background: linear-gradient(90deg, c.$gray-200 25%, c.$gray-100 50%, c.$gray-200 75%)
+  background-size: 400% 100%
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone, tablet)
+    display: none
+
+.skeletonImage
+  width: 514px
+  height: 417px
+  background: c.$gray-200
+  border-radius: 20px
+  animation: skeleton-loading 1.5s infinite linear
+  background: linear-gradient(90deg, c.$gray-200 25%, c.$gray-100 50%, c.$gray-200 75%)
+  background-size: 400% 100%
+  @include m.media(phone, tablet)
+    width: 100%
+    height: 300px

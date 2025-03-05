@@ -13,15 +13,16 @@ const TeachersPage: NextPage<TypePageTeachersProps> = ({
   programs,
   teachers
 }) => {
+  //@ts-ignore
   useHandleContextStaticProps({ programs })
-
+//@ts-ignore
   const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })
 
   const seoParams = {
     title: `Преподаватели | ${company.desc} | ${company.name}
     `,
     desc: truncate(
-      `${teachersSorted[0].name}, ${teachersSorted[0].achievements} | ${teachersSorted[1].name}, ${teachersSorted[1].achievements}`,
+      `${teachersSorted?.[0]?.name}, ${teachersSorted?.[0]?.achievements} | ${teachersSorted?.[1]?.name}, ${teachersSorted?.[1]?.achievements}`,
       120
     ),
     canonical: `${routes.front.root}${routes.front.teachers}`

@@ -81,14 +81,17 @@ const CallMeBackForm = ({
 
   const onSubmit = async formData => {
     setServerErrorMeassage('')
-    const utms = JSON.parse(sessionStorage.getItem('utms'))
+    // @ts-ignore
+    const utms = JSON.parse( sessionStorage.getItem('utms'))
     formData.utms = utms
     sessionStorage.removeItem('utms')
     formData.leadPage = router.asPath
+    // @ts-ignore
     const referer = JSON.parse(sessionStorage.getItem('referer'))
     formData.referer = referer
     formData.differenceInTime = differenceInTime
     sessionStorage.removeItem('referer')
+    // @ts-ignore
     const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
     formData.ymUid = ymUid
     const clickId = getCookie('utm')

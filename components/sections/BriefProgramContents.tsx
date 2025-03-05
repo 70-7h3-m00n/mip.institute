@@ -17,6 +17,7 @@ type Props = {
 const BriefProgramContents = ({
   planRef,
   program = null,
+  // @ts-ignore
   title = null,
   coloredBackground = false
 }: Props) => {

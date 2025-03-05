@@ -18,6 +18,7 @@ import { TypePageDefaultProps } from '@/types/index'
 import { GetStaticProps, NextPage } from 'next'
 
 const LegalEduPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
+  //@ts-ignore
   useHandleContextStaticProps({ programs })
 
   const seoParams = {

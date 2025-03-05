@@ -49,7 +49,10 @@ const StickyTop = ({
         </div>
       </Wrapper>
       <div className={stls.close}>
-        <IconCloseCircle onClick={onClick} blackCross />
+        
+        <IconCloseCircle
+        //@ts-ignore
+        onClick={onClick} blackCross />
       </div>
     </div>
   )

@@ -43,7 +43,7 @@ const PagesPrograms = ({
 
   const categories = getUniqueCategories(filteredItems)
 
-  const prices = programs && programs.map(el => el.price)
+  const prices = programs && programs.map(el => el?.price)
   const programsDuration =
     programs && programs.map(el => el?.studyMounthsDuration)
   const minmaxDuration =
@@ -51,18 +51,28 @@ const PagesPrograms = ({
   const minmaxPrice = prices && findMinMaxForSlider(prices)
 
   useEffect(() => {
+    // @ts-ignore
     dispatch({
       type: 'setDurationFilter',
-      min: minmaxDuration.min,
-      max: minmaxDuration.max
+      min: minmaxDuration?.min,
+      max: minmaxDuration?.max
     })
+    // @ts-ignore
     dispatch({
       type: 'setPriceFilter',
-      min: minmaxPrice.min,
-      max: minmaxPrice.max
+      min: minmaxPrice?.min,
+      max: minmaxPrice?.max
     })
+    // @ts-ignore
     dispatch({ type: 'setItems', payload: programs })
-  }, [programs])
+  }, [
+    programs,
+    dispatch,
+    minmaxDuration?.max,
+    minmaxDuration?.min,
+    minmaxPrice?.max,
+    minmaxPrice?.min
+  ])
 
   const router = useRouter()
 
@@ -75,19 +85,23 @@ const PagesPrograms = ({
 
   useEffect(() => {
     if (filter === 'popular') {
+      // @ts-ignore
       dispatch({ type: 'setBooleanFilter', filterName: 'isPopular' })
     } else {
+      // @ts-ignore
       dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
     }
-  }, [filter])
+  }, [filter, dispatch])
 
   useEffect(() => {
     if (opened) {
+      // @ts-ignore
       dispatch({ type: 'setBooleanFilter', filterName: 'courseOpened' })
     } else {
+      // @ts-ignore
       dispatch({ type: 'clearBooleanFilter', filterName: 'courseOpened' })
     }
-  }, [opened])
+  }, [opened, dispatch])
 
   const handleResetFilters = () => {
     const { ofType, studyFieldSlug, ...rest } = router.query
@@ -110,14 +124,16 @@ const PagesPrograms = ({
       <Wrapper>
         <Breadcrumbs isJournal />
       </Wrapper>
-
-      <HeroPrograms minmaxDuration={minmaxDuration} minmaxPrice={minmaxPrice} />
+      
+      <HeroPrograms 
+      // @ts-ignore
+       minmaxDuration={minmaxDuration} minmaxPrice={minmaxPrice} />
       <section className={stls.container}>
         <div className={stls.sorting}>
           <ProgramsFilters
-            bachelors={bachelors}
-            practicalTrainings={practicalTrainings}
-            allPrograms={allPrograms}
+          // @ts-ignore
+            bachelors={bachelors} practicalTrainings={practicalTrainings} allPrograms={allPrograms}
+            // @ts-ignore
             studyFields={
               query.studyFieldSlug && filter === 'popular'
                 ? favcategories
@@ -131,10 +147,7 @@ const PagesPrograms = ({
           <div className={stls.filters}>
             <ResetFilter onClick={handleResetFilters} onIndex />
             {minmaxDuration && minmaxPrice && (
-              <FiltersForLifeCourses
-                cost={minmaxPrice}
-                duration={minmaxDuration}
-              />
+              <FiltersForLifeCourses cost={minmaxPrice} duration={minmaxDuration} />
             )}
           </div>
 
@@ -142,10 +155,7 @@ const PagesPrograms = ({
             <div className={stls.programs}>
               {sortedPrograms?.length > 0 ? (
                 sortedPrograms?.map((profession, idx) => (
-                  <CardProfession
-                    key={`${profession.price}+${idx}`}
-                    profession={profession}
-                  />
+                  <CardProfession key={`${profession.price}+${idx}`} profession={profession} />
                 ))
               ) : (
                 <>Кажется, что по вашему запросу ничего не нашлось</>

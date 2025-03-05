@@ -33,7 +33,7 @@ const PopupThankyouNew = ({ close }) => {
       dataLayerName: 'dataLayer'
     }
     TagManager.dataLayer(tagManagerArgs)
-  }, [])
+  }, [program])
   return (
     <div className={stls.container}>
       <div className={stls.close}>

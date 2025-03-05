@@ -30,6 +30,7 @@ const LectoriumPage = ({ lectorium }: Props) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () =>
+  //@ts-ignore
   await handleGetStaticPaths({ page: routes.front.lectorium })
 
 export const getStaticProps: GetStaticProps = async context =>

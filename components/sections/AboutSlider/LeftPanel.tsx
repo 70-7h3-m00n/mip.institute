@@ -16,21 +16,26 @@ const LeftPanel = ({
 }: Props) => {
   return (
     <div className={stls.container}>
-      {component.map((slide, index) => (
+      {component?.map((slide, index) => (
         <div
           key={index}
           className={index === currentIndex ? stls.block : stls.hidden}>
           {slide}
         </div>
       ))}
-      <div onClick={() => onArrowClick('left')} className={stls.prevBtn}>
+      
+      <div
+      // @ts-ignore
+      onClick={() => onArrowClick('left')} className={stls.prevBtn}>
         <IconPrevButton
           fourtyPx
           fourtyPxViolet={currentIndex === 2 ? true : false}
           isLiveCourse={isLiveCourse}
         />
       </div>
-      <div onClick={() => onArrowClick('right')} className={stls.nextBtn}>
+      <div 
+      // @ts-ignore
+      onClick={() => onArrowClick('right')} className={stls.nextBtn}>
         <IconNextButton
           fourtyPx
           fourtyPxViolet={currentIndex === 2 ? true : false}

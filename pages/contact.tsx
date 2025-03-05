@@ -11,6 +11,7 @@ import { GetStaticProps, NextPage } from 'next'
 import { CorporateContactJsonLd, NextSeo } from 'next-seo'
 
 const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
+  //@ts-ignore
   useHandleContextStaticProps({ programs })
 
   const seoParams = {

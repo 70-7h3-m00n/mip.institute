@@ -9,6 +9,7 @@ type TSeoPagesProgram = {
 
 const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
   // const { metaTitle, metaDescription } = blog?.seo
+  //@ts-ignore
   const publishDate = new Date(blog?.date)
 
   const additionalMetaRobotsKeys = [
@@ -60,6 +61,7 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
       <ArticleJsonLd
         type='BlogPosting'
         url={`${routes.front.root}${routes.front.journals}/${blog?.slug}`}
+        //@ts-ignore
         title={blog?.title}
         images={[
           'https://example.com/photos/1x1/photo.jpg',
@@ -69,6 +71,7 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
         datePublished={publishDate?.toISOString()}
         dateModified={publishDate?.toISOString()}
         authorName={blog?.teacher?.name}
+        //@ts-ignore
         description={blog?.subtitle}
       />
     </>

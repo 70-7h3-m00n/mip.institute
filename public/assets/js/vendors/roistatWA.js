@@ -38,8 +38,8 @@
         }
 
         function appendMessageToLinks() {
-            var message = document.querySelector('.js-whatsapp-message-container').textContent;
-            var text = message.replace(/{roistat_visit}/g, window.roistatGetCookie('roistat_visit'));
+            var message = document.querySelector('.js-whatsapp-message-container')?.textContent;
+            var text = message?.replace(/{roistat_visit}/g, window.roistatGetCookie('roistat_visit'));
             text = encodeURI(text);
             var linkElements = document.querySelectorAll('[href*="//wa.me"], [href*="//api.whatsapp.com/send"], [href*="//web.whatsapp.com/send"], [href^="whatsapp://send"]');
             for (var elementKey in linkElements) {

@@ -22,7 +22,9 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({
       <SeoPractical />
       <PageTrainings
         programs={programs}
+        //@ts-ignore
         practicalTrainings={practicalTrainings}
+        //@ts-ignore
         bachelors={bachelors}
       />
     </>

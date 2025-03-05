@@ -37,6 +37,7 @@ const Teachers = ({
   teachersFromMain,
   title,
   onMain = false,
+  //@ts-ignore
   teachersList = null,
   isExperienceHidden,
   halfScreenTitle = false,
@@ -58,7 +59,7 @@ const Teachers = ({
       image: (
         <ImgTeacher
           src={teacher?.portrait?.url}
-          alt={teacher.name}
+          alt={teacher?.name}
           width={160}
           height={getImageHeight({
             width: 160,
@@ -71,6 +72,7 @@ const Teachers = ({
 
   return (
     <section
+    //@ts-ignore
       ref={teachersRef}
       className={classNames({
         [stls.container]: true,
@@ -115,12 +117,13 @@ const Teachers = ({
             scrollbar={isMobileAndTabletLayout ? false : true}
             modules={[Scrollbar]}>
             {list?.map((teacher, idx) => (
-              <SwiperSlide key={teacher.name + idx}>
+              <SwiperSlide 
+              //@ts-ignore
+              key={teacher?.name + idx}>
                 <CardTeacher
                   portrait={teacher.image}
-                  name={teacher.name}
-                  achievements={teacher.achievements}
-                  experience={teacher.experience}
+                  //@ts-ignore
+                  name={teacher.name} achievements={teacher.achievements} experience={teacher.experience}
                   isExperienceHidden={isExperienceHidden}
                   isWhiteBackground={isWhiteBackground}
                 />
