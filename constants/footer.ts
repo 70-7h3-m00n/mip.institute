@@ -102,6 +102,10 @@ const topFooterLinks = [
       href: routes.front.practicalTrainings
     },
     {
+      val: 'Супервизии',
+      href: routes.front.supervision
+    },
+    {
       val: 'Семинары',
       href: routes.front.lectorium
     },
