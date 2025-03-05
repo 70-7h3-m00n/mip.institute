@@ -14,6 +14,8 @@ const promocodesWithGift = {
   planetaalex: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
   porakpsihologu: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
   hotpsyhologies: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
+  pogrebjiskaya3: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
+  annashow: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
 
 }
 
