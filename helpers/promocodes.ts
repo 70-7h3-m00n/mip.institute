@@ -31,7 +31,8 @@ const promocodes = {
   planetaalex: 'ПЛАНЕТА',
   hotpsyhologies: 'ВИКТОРИЯ',
   pogrebjiskaya3: 'Погребижская',
-  annashow: 'АННА ШОУ'
+  annashow: 'АННА ШОУ',
+  Barabanshchykava: 'ЛИЗА МАТРИКС'
 }
 
 export default promocodes
