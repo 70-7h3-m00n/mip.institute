@@ -29,7 +29,9 @@ const promocodes = {
   tanyamint: 'MINT',
   dukalis: 'ДУКАЛИС',
   planetaalex: 'ПЛАНЕТА',
-  hotpsyhologies: 'ВИКТОРИЯ'
+  hotpsyhologies: 'ВИКТОРИЯ',
+  pogrebjiskaya3: 'Погребижская',
+  annashow: 'АННА ШОУ'
 }
 
 export default promocodes
