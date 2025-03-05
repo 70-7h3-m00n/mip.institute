@@ -16,7 +16,7 @@ const promocodesWithGift = {
   hotpsyhologies: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
   pogrebjiskaya3: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
   annashow: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
-
+  Barabanshchykava: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
 }
 
 export default promocodesWithGift
