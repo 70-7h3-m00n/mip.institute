@@ -14,17 +14,19 @@ export default function PartnersNavigation({ types, currentType }: PartnersNavig
     fund: 'Фонды',
     park: 'Парки'
   }
+
   return (
     <nav className={styles.navigation}>
       {types
-        .slice()
-        .reverse()
+        .slice() // Создаем копию массива
+        .sort((a, b) => a.localeCompare(b)) // Сортируем в алфавитном порядке
         .map(t => (
           <Link prefetch={true} href={`/partners/${t}`} key={t} passHref>
             <p
               className={classNames(styles.link, {
                 [styles.active]: t === currentType
-              })}>
+              })}
+            >
               {translations[t] || t}
             </p>
           </Link>
