@@ -37,7 +37,7 @@ const topFooterLinks = [
     },
     {
       val: 'Вакансии',
-      href: routes.front.incomers
+      href: routes.front.vacancies
     },
     {
       val: 'Контакты',
