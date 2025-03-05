@@ -65,7 +65,7 @@ export default async function Partners({ params }: { params: Params }) {
 
   return (
     <>
-      <meta name='robots' content='noindex,nofollow' />
+      <meta name='robots' content='index, follow' />
       <CommunitySection />
       <OurPartners allTypes={allTypes} currentType={type} onePartner={onePartner} />
       <BecomePartner />
