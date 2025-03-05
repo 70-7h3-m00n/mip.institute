@@ -21,7 +21,7 @@ const topFooterLinks = [
     },
     {
       val: 'Журнал',
-      href: routes.front.journal
+      href: routes.front.journals
     },
     {
       val: 'Пригласи друга',
