@@ -37,7 +37,7 @@ const Header = () => {
   const [promoText, setPromoText] = useState('')
   const [isWithGift, setIsWithGift] = useState(false)
 
-  const utmCookie = useMemo(() => getCookie('utm')?.toString() || '', []);
+  const utmCookie =  getCookie('utm')?.toString() || '';
 
   useEffect(() => {
     const timer = setTimeout(() => {
