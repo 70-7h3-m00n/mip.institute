@@ -2,6 +2,9 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.container
+  @include m.gap($plr: f.px(15),$ptb: f.px(30))
+  
 .wrapper
   @include m.flex($fd: column)
   gap: f.px(15)
