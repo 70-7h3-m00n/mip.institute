@@ -18,10 +18,23 @@ const FooterBottom = () => {
                   {item.text?.includes('Департамент') ? (
                     <>
                       Государственный контроль (надзор) в сфере образования:{' '}
-                      <span className={stls.highlight}>
-                        Департамент образования и науки города Москвы Федеральная служба по надзору
-                        в сфере образования и науки
-                      </span>
+                      <div className={stls.highlight}>
+                        <a
+                          href='https://www.mos.ru/donm/'
+                          target='_blank'
+                          rel='noopener noreferrer'>
+                          Департамент образования и науки города Москвы,
+                        </a>
+                      </div>
+                      <br />
+                      <div className={stls.highlight}>
+                        <a
+                          href='https://obrnadzor.gov.ru'
+                          target='_blank'
+                          rel='noopener noreferrer'>
+                          Федеральная служба по надзору в сфере образования и науки
+                        </a>
+                      </div>
                     </>
                   ) : (
                     item.text

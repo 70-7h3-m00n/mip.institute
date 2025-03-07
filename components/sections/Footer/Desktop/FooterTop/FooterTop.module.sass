@@ -58,3 +58,18 @@
   text-decoration: none
   transition: color 0.3s ease
 
+.licenseContainer 
+  @include m.flex($fd:column)
+  width: 100%
+  
+.licenseText 
+  font-size: f.px(11)
+  font-weight: 350
+  color: c.$white-900
+  @include m.flex($ai:center)
+  gap:5px
+
+.licenseLink
+  @include m.flex()
+  width: f.px(6)
+  height: f.px(6)
