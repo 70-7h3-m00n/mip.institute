@@ -43,7 +43,7 @@ const ProgramSection: React.FC<ProgramSectionProps> = ({ data }) => {
         <div className={stls.right}>
           {data.rightContent.cards.map((card, index) => (
             <div className={stls.card} key={index}>
-              <h3 className={stls.cardTitle}>{card.title}</h3>
+              <p className={stls.cardTitle}>{card.title}</p>
               <p className={stls.cardDescription}>{card.description}</p>
             </div>
           ))}
@@ -51,7 +51,7 @@ const ProgramSection: React.FC<ProgramSectionProps> = ({ data }) => {
       ) : (
         <div className={stls.rightSection}>
           <div className={stls.rightBlock}>
-            <h3 className={stls.rightTitle}>{data.rightContent.title}</h3>
+            <p className={stls.rightTitle}>{data.rightContent.title}</p>
             <p className={stls.rightDescription}>{data.rightContent.description}</p>
             <ul className={stls.rightList}>
               {data.rightContent.list.map((item, index) => (
