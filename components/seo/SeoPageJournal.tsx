@@ -68,8 +68,8 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
           'https://example.com/photos/4x3/photo.jpg',
           'https://example.com/photos/16x9/photo.jpg'
         ]}
-        datePublished={publishDate?.toISOString()}
-        dateModified={publishDate?.toISOString()}
+        // datePublished={publishDate?.toISOString()}
+        // dateModified={publishDate?.toISOString()}
         authorName={blog?.teacher?.name}
         //@ts-ignore
         description={blog?.subtitle}

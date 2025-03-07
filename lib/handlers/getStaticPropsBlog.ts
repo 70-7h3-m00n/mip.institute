@@ -4,6 +4,9 @@ import axios from 'axios'
 import qs from 'qs'
 
 export const getStaticPropsBlog = async ({ context }) => {
+
+  console.log('CONTEEEEXT',context);
+  
   const queryString = qs.stringify(
     {
       filters: {
@@ -87,12 +90,16 @@ export const getStaticPropsBlog = async ({ context }) => {
             }
           }
         }
-      }
+      },
+      status: 'draft'
+
     },
     {
       encodeValuesOnly: true // Кодирует только значения
     }
   )
+
+  // queryString.status = 'draft'
 
   try {
     const response = await axios.get(
