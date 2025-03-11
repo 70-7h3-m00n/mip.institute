@@ -1,40 +1,45 @@
 import routes from '@/config/routes'
-import loadIcon from '@/helpers/general/loadIcon'
 import stls from './BottomBlock.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import TwoColumns from '@/ui/TwoColumns'
 import Image from 'next/image'
+import IconVk from '@/components/icons/IconVk'
+import IconWhatsapp from '@/components/icons/IconWhatsapp'
+import IconTelegram from '@/components/icons/IconTelegram'
+import IconYt from '@/components/icons/IconYt'
+import IconOk from '@/components/icons/IconOk'
+import IconDzen from '@/components/icons/IconDzen'
 
 const BottomBlock = () => {
   const socialLinks = [
     {
       id: 'vk',
-      icon: loadIcon('IconVk'),
+      icon: <IconVk />,
       link: routes.external.vk
     },
     {
       id: 'whatsapp',
-      icon: loadIcon('IconWhatsapp'),
+      icon: <IconWhatsapp />,
       link: routes.external.whatsapp
     },
     {
       id: 'telegram',
-      icon: loadIcon('IconTelegram'),
+      icon: <IconTelegram />,
       link: routes.external.telegram
     },
     {
       id: 'youtube',
-      icon: loadIcon('IconYt'),
+      icon: <IconYt />,
       link: routes.external.youtube
     },
     {
       id: 'IconOk',
-      icon: loadIcon('IconOk'),
+      icon: <IconOk />,
       link: routes.external.ok
     },
     {
       id: 'dzen',
-      icon: loadIcon('IconDzen'),
+      icon: <IconDzen />,
       link: routes.external.dzen
     }
   ]
