@@ -13,10 +13,10 @@ import BtnClose from '../../btns/BtnClose'
 
 type FormValues = {
   name: string
-  messageToHR: string
+  message: string
   phone: string
   email: string
-  pagePartners: boolean
+  mail_type: string
 }
 type Props = {
   onClose: () => void
@@ -36,15 +36,16 @@ const PartnersForm = ({ onClose, title }: Props) => {
       name: '',
       email: '',
       phone: '',
-      messageToHR: ''
+      message: '',
+      mail_type: 'info'
     }
   })
   const description = 'Что бы стать партнером заполните короткую форму'
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true)
-    data.pagePartners = true
+
     try {
-      const response = await axios.post(`${routes.front.root}/api/sendEmailToHR`, data)
+      const response = await axios.post(`${routes.back.api}/mails/send`, data)
       if (response.status === 200) {
         reset()
         alert('Форма успешно отправлена!')
@@ -65,7 +66,7 @@ const PartnersForm = ({ onClose, title }: Props) => {
     !dirtyFields.email ||
     !dirtyFields.name ||
     !dirtyFields.phone ||
-    !dirtyFields.messageToHR ||
+    !dirtyFields.message ||
     isSubmitting
 
   return (
@@ -147,7 +148,7 @@ const PartnersForm = ({ onClose, title }: Props) => {
             <textarea
               aria-label='Сообщение рекрутеру'
               placeholder='Сообщение'
-              {...register('messageToHR', {
+              {...register('message', {
                 required: `*Введите ваше сообщение рекрутеру`,
                 maxLength: {
                   value: 300,
@@ -155,7 +156,7 @@ const PartnersForm = ({ onClose, title }: Props) => {
                 }
               })}
             />
-            {errors.messageToHR && <p className={stls.err}>{errors.messageToHR.message}</p>}
+            {errors.message && <p className={stls.err}>{errors.message.message}</p>}
           </div>
         </div>
         <Button text='Отправить' isDisabled={disabled} />

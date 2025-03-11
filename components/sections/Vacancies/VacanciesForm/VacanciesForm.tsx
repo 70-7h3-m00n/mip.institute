@@ -13,9 +13,10 @@ import routes from '@/config/routes'
 
 type FormValues = {
   name: string
-  messageToHR: string
+  message: string
   phone: string
   email: string
+  mail_type: string
 }
 
 const VacanciesForm = () => {
@@ -36,7 +37,8 @@ const VacanciesForm = () => {
       name: '',
       email: '',
       phone: '',
-      messageToHR: ''
+      message: '',
+      mail_type: 'hr'
     }
   })
 
@@ -45,7 +47,7 @@ const VacanciesForm = () => {
     setError(null)
     setSuccess(null)
     try {
-      const response = await axios.post(`${routes.front.root}/api/sendEmailToHR`, data)
+      const response = await axios.post(`${routes.back.api}/mails/send`, data)
       if (response.status === 200) {
         reset()
         setSuccess('Форма успешно отправлено!')
@@ -66,7 +68,7 @@ const VacanciesForm = () => {
     !dirtyFields.email ||
     !dirtyFields.name ||
     !dirtyFields.phone ||
-    !dirtyFields.messageToHR ||
+    !dirtyFields.message ||
     isSubmitting
 
   return (
@@ -75,8 +77,9 @@ const VacanciesForm = () => {
         <div className={stls.left}>
           <h2 className={stls.title}>Не нашли подходящей для себя вакансии?</h2>
           <p className={stls.description}>
-            Мы будем рады познакомиться с талантливыми и целеустремленными соискателями! Заполните форму
-            обратной связи, расскажите о себе, даже если не нашли вакансии под свои требования и навыки&nbsp;
+            Мы будем рады познакомиться с талантливыми и целеустремленными соискателями! Заполните
+            форму обратной связи, расскажите о себе, даже если не нашли вакансии под свои требования
+            и навыки&nbsp;
             <span className={stls.bold}>
               Поделитесь, почему вы хотите стать частью нашей команды.
             </span>
@@ -161,7 +164,7 @@ const VacanciesForm = () => {
                 <textarea
                   aria-label='Сообщение рекрутеру'
                   placeholder='Сообщение'
-                  {...register('messageToHR', {
+                  {...register('message', {
                     required: `*Введите ваше сообщение рекрутеру`,
                     maxLength: {
                       value: 300,
@@ -169,7 +172,7 @@ const VacanciesForm = () => {
                     }
                   })}
                 />
-                {errors.messageToHR && <p className={stls.err}>{errors.messageToHR.message}</p>}
+                {errors.message && <p className={stls.err}>{errors.message.message}</p>}
               </div>
             </div>
             <Button text='Отправить' isDisabled={disabled} />
