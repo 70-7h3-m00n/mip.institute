@@ -7,29 +7,32 @@
   border-radius: f.px(10)
 
 .container_text
-  @include m.gap($ptb: f.px(30),$plr: f.px(18))
+  @include m.gap($ptb: f.px(30),$pl: f.px(18))
   color: c.$white-900
   height: 100%
+  flex: 1 1 50%
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(20), $plr: f.px(15))
+    @include m.gap($ptb: f.px(20), $pl: f.px(15), $pr: f.px(13))
 
 .title
-  font-size: f.px(28)
+  font-size: f.px(42)
   font-style: normal
   font-weight: 500
-  @include m.gap($mb: f.px(12))
+  line-height: 100%
+  @include m.gap($mb: f.px(30))
   @include m.media(phone, tablet)
-    font-size: f.px(20)
+    font-size: f.px(28)
     @include m.gap($mb: f.px(10))
+    line-height: 110%
 
 .description
   font-size: f.px(20)
   font-weight: 350
   line-height: 120%
-  max-width: 430px
+  max-width: 480px
   @include m.gap($mb: f.px(30))
   @include m.media(phone, tablet)
-    font-size: f.px(15)
+    font-size: f.px(14)
     @include m.gap($mb: f.px(22))
 
 .socials
@@ -43,29 +46,30 @@
     border-radius: 50%
     span
       @include m.flex($jc: center, $ai: center)
-      width: 60px
-      height: 60px
-      @include m.media(tablet)
+      width: 37px
+      height: 37px
+      @include m.media(phone, tablet)
         width: 47px
         height: 47px
-      @include m.media(phone, tablet)
-        width: 42px
-        height: 42px
       & > svg
         fill: c.$purple-350
-        width: 29px
-        height: 29px
-        @include m.media(tablet)
+        width: 19px
+        height: 19px
+        @include m.media(phone, tablet)
           width: 22px
           height: 22px
-        @include m.media(phone, tablet)
-          width: 19px
-          height: 19px
       path
         fill: c.$purple-350
 
 .container_img
   display: flex
+  justify-content: flex-end
+  align-items: flex-end
+  flex: 1 1 50%
+  @include m.media(phone, tablet)
+    flex: 1 1 50%
 
 .img
-  object-fit: cover
+  width: 100%
+  height: auto
+  object-fit: contain

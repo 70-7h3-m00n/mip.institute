@@ -1,0 +1,73 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.gap($ptb: f.px(40),$mlr: f.px(20))
+  border-radius: f.px(30)
+  background: c.$white-900
+  @include m.media(phone)
+    @include m.gap($ptb: f.px(25),$mlr: f.px(15))
+
+.title
+  color: c.$black-800
+  font-size: f.px(42)
+  font-weight: 500
+  line-height: 110%
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone)
+    font-size: f.px(28)
+    @include m.gap($mb: f.px(25))
+
+.cards
+  @include m.flex($fw:wrap)
+  gap: f.px(30)
+  @include m.media(phone)
+    @include m.flex($fd: column )
+    gap: f.px(10)
+
+.card
+  @include m.flex($ai:center )
+  gap: f.px(20)
+  @include m.gap($ptb: f.px(38),$plr: f.px(20))
+  background: #f6f4ff
+  border-radius: f.px(10)
+  flex: 1
+  text-decoration: none
+  color: c.$black-900
+  @include m.media(phone)
+    @include m.gap($ptb: f.px(20),$pr: f.px(18))
+    gap: f.px(17)
+  svg
+    width: 73px
+    height: 73px
+    flex-shrink: 0
+    @include m.media(phone)
+      width: 51px
+      height: 51px
+
+.highlight
+  color: c.$purple-350
+  font-weight: 500
+
+.licenseContainer 
+  @include m.flex($fd:column)
+  width: 100%
+   
+.licenseText 
+  display: inline
+  color: c.$black-900
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 120%
+  @include m.media(phone)
+    font-size: f.px(14)
+  
+  svg
+    display: inline
+    width: f.px(12)
+    height: f.px(12)
+    margin-left: 10px
+    @include m.media(phone)
+      width: f.px(10)
+      height: f.px(10)
