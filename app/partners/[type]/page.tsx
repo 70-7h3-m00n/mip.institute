@@ -6,6 +6,11 @@ import OurPartners from '@/components/partners/OurPartners/OurPartners'
 import { Params, Partner } from '@/components/partners/type'
 import CommunitySection from '@/components/partners/CommunitySection/CommunitySection'
 import BecomePartner from '@/components/partners/BecomePartner/BecomePartner'
+import Office from '@/components/contacts/Office/Office'
+import Requisites from '@/components/contacts/Requisites/Requisites'
+import BottomBlock from '@/components/sections/lectorium/Stub/BottomBlock/BottomBlock'
+import Wrapper from '@/ui/Wrapper'
+import RouteMIP from '@/components/contacts/RouteMIP/RouteMIP'
 
 export const metadata = {
   title: 'Партнеры Московского Института Психологии (МИП)',
@@ -66,6 +71,12 @@ export default async function Partners({ params }: { params: Params }) {
   return (
     <>
       <meta name='robots' content='index, follow' />
+      <RouteMIP />
+      <Wrapper>
+        <BottomBlock />
+      </Wrapper>
+      <Office />
+      <Requisites />
       <CommunitySection />
       <OurPartners allTypes={allTypes} currentType={type} onePartner={onePartner} />
       <BecomePartner />
