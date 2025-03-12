@@ -15,12 +15,9 @@ import CHECK_TOKENS from '@/lib/graphQL/CHECK_TOKENS'
 import UPDATE_TOKEN from '@/lib/graphQL/UPDATE_TOKENS'
 import dynamic from 'next/dynamic'
 
-const PopupThankyou = dynamic(
-  () => import('@/components/popups/PopupThankyou'),
-  {
-    ssr: false
-  }
-)
+const PopupThankyou = dynamic(() => import('@/components/popups/PopupThankyou'), {
+  ssr: false
+})
 
 type FormValues = {
   name: string
@@ -81,18 +78,18 @@ const CallMeBackForm = ({
 
   const onSubmit = async formData => {
     setServerErrorMeassage('')
-    // @ts-ignore
-    const utms = JSON.parse( sessionStorage.getItem('utms'))
+
+    const utms = JSON.parse(sessionStorage.getItem('utms') ?? '{}')
     formData.utms = utms
     sessionStorage.removeItem('utms')
     formData.leadPage = router.asPath
-    // @ts-ignore
-    const referer = JSON.parse(sessionStorage.getItem('referer'))
+
+    const referer = JSON.parse(sessionStorage.getItem('referer') ?? '')
     formData.referer = referer
     formData.differenceInTime = differenceInTime
     sessionStorage.removeItem('referer')
-    // @ts-ignore
-    const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+
+    const ymUid = JSON.parse(localStorage.getItem('_ym_uid') ?? '')
     formData.ymUid = ymUid
     const clickId = getCookie('utm')
 
@@ -149,10 +146,7 @@ const CallMeBackForm = ({
                 setServerErrorMeassage(
                   `Другая ошибка при запросе на обмен токенов ${error.response.status}`
                 )
-                console.error(
-                  'Не удалось обновить токены для записи Amo:',
-                  error
-                )
+                console.error('Не удалось обновить токены для записи Amo:', error)
               }
             }
           }
@@ -186,10 +180,7 @@ const CallMeBackForm = ({
 
   return (
     <>
-      <Popup
-        open={thanksIsOpen}
-        closeOnDocumentClick
-        onClose={() => setThanksIsOpen(false)}>
+      <Popup open={thanksIsOpen} closeOnDocumentClick onClose={() => setThanksIsOpen(false)}>
         <PopupThankyou close={() => setThanksIsOpen(false)} />
       </Popup>
       <form
@@ -241,8 +232,7 @@ const CallMeBackForm = ({
                 pattern: {
                   value:
                     /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
-                  message:
-                    'Пожалуйста, введите корректный адрес электронной почты'
+                  message: 'Пожалуйста, введите корректный адрес электронной почты'
                 }
               })}
             />
@@ -260,9 +250,7 @@ const CallMeBackForm = ({
                     message: `*Максимальная длинна вопроса 320 символов`
                   }
                 })}></textarea>
-              <p className={stls.err}>
-                {errors.question && errors.question.message}
-              </p>
+              <p className={stls.err}>{errors.question && errors.question.message}</p>
             </div>
           )}
 
@@ -276,8 +264,7 @@ const CallMeBackForm = ({
 
           {agreement && (
             <p className={stls.agreement}>
-              Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших
-              персональных данных
+              Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших персональных данных
             </p>
           )}
         </div>

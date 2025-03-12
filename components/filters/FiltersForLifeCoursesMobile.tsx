@@ -15,7 +15,7 @@ export default function FiltersForLifeCoursesMobile({
   btnTitle,
   isProgram = false
 }: Props) {
-  const scrollToRef = useRef(null)
+  const scrollToRef = useRef<HTMLDivElement | null>(null)
 
   return (
     <div ref={scrollToRef} className={stls.container}>
@@ -39,22 +39,20 @@ export default function FiltersForLifeCoursesMobile({
         }}
         overlayStyle={{ background: 'rgba(0, 0, 0, 0.35)' }}>
         {
-          // @ts-ignore
-          close => (
+          ((close: () => void) => (
             <div className={stls.modal}>
               <ResetFilter />
               {children}
               <button
                 className={stls.btn}
                 onClick={() => {
-                  // @ts-ignore
                   scrollToRef?.current?.scrollIntoView({ behavior: 'smooth' })
                   close()
                 }}>
                 {btnTitle}
               </button>
             </div>
-          )
+          )) as unknown as ReactNode
         }
       </Popup>
     </div>

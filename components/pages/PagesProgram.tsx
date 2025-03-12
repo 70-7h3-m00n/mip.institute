@@ -26,7 +26,7 @@ import SalaryCounter from '../sections/SalaryCounter'
 import YourResumeNew from '../sections/YourResumeNew'
 
 type PagesProgramType = {
-  ofType: string
+  ofType: string | undefined
   reviews: TypeLibReviews
   programOverview: string
   slug: string
@@ -34,8 +34,7 @@ type PagesProgramType = {
 }
 
 const PagesProgram = ({
-  // @ts-ignore
-  ofType = null,
+  ofType = undefined,
   reviews,
   programOverview,
   slug,
@@ -44,10 +43,10 @@ const PagesProgram = ({
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
   const teachersRef = useRef(null)
-  const resumeRef = useRef(null)
+  const resumeRef = useRef<HTMLDivElement | null>(null)
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
-  const faqRef = useRef(null)
+  const faqRef = useRef<HTMLDivElement | null>(null)
   const isPsyKonsultirovanie = slug === 'psihologicheskoe-konsultirovanie'
 
   const sections = [
@@ -86,7 +85,6 @@ const PagesProgram = ({
   })
 
   const checkSlug = ['pedagog-psiholog', 'nejropsiholog']
-  console.log({ program })
   return (
     <>
       <ButtonToTop />
@@ -117,10 +115,8 @@ const PagesProgram = ({
       <RequestsCard />
 
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
-      
-      {program.portfolio && <YourResumeNew program={program} 
-      // @ts-ignore
-      resumeRef={resumeRef} />}
+
+      {program.portfolio && <YourResumeNew program={program} resumeRef={resumeRef} />}
       {ofType === 'Profession' && <SalaryCounter title='Психология' />}
 
       {ofType === 'Profession' && (
@@ -142,9 +138,7 @@ const PagesProgram = ({
       <StudyCost costRef={costRef} ofType={ofType} />
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
       <EntryForm />
-      <Faq 
-      // @ts-ignore
-      faqRef={faqRef} />
+      <Faq faqRef={faqRef} />
     </>
   )
 }

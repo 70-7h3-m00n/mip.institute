@@ -5,8 +5,15 @@ import Breadcrumbs from '@/ui/Breadcrumbs'
 import Wrapper from '@/ui/Wrapper'
 import BachelorSlugCard from '../cards/BachelorSlugCard'
 import { SeoPageBachelors } from '../seo'
+import { Bachelor, PracticalTraining, Program } from '@/types/lib/bachelors/TypeLibBachelors'
 
-const PageBachelors = ({
+interface PageBachelorsProps {
+  programs?: Program[]
+  bachelors?: Bachelor[]
+  practicalTrainings?: PracticalTraining[]
+}
+
+const PageBachelors: React.FC<PageBachelorsProps> = ({
   programs = [],
   bachelors = [],
   practicalTrainings = []
@@ -25,12 +32,12 @@ const PageBachelors = ({
         />
         <div className={stls.cards}>
           {bachelors.map(bachelor => (
-            // @ts-ignore
-            <BachelorSlugCard key={bachelor?.slug} card={bachelor} />
+            <BachelorSlugCard key={bachelor.slug} card={bachelor} />
           ))}
         </div>
       </FilterProvider>
     </Wrapper>
   )
 }
+
 export default PageBachelors

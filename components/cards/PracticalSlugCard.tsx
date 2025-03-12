@@ -1,9 +1,9 @@
 import routes from '@/config/routes'
 import stls from '@/styles/components/cards/PracticalSlugCard.module.sass'
-import { PracticalTraining } from '@/types/page/practicalTraining/TypePagePracticalTrainingPropsQuery'
+import { PracticalTraining } from '@/types/lib/practicalTrainings/TypeLibPracticalTrainings'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FC, ReactNode } from 'react'
+import { FC } from 'react'
 
 interface Step {
   card: PracticalTraining
@@ -16,14 +16,15 @@ const PracticalSlugCard: FC<Step> = ({ card }) => {
       className={stls.oneCard}
       href={`${routes.front.practicalTrainings}/${card?.slug}`}>
       <div className={stls.img}>
-        <Image
-          className={stls.image}
-          // @ts-ignore
-          src={card?.heroPicture.url}
-          width={740}
-          height={480}
-          alt='Программа'
-        />
+        {card?.heroPicture?.url && (
+          <Image
+            className={stls.image}
+            src={card.heroPicture.url}
+            width={740}
+            height={480}
+            alt='Программа'
+          />
+        )}
       </div>
       <div className={stls.cardText}>
         <p className={stls.cardTitle}>{card?.title}</p>

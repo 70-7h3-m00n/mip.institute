@@ -12,22 +12,14 @@ interface Props {
   story?: string
 }
 
-const CardReview = ({
-  title,
-  photo,
-  name,
-  occupation,
-  story,
-  isLiveCourse
-}: Props) => {
+const CardReview = ({ title, photo, name, occupation, story, isLiveCourse }: Props) => {
   const [cut, setCut] = useState(355)
   const [isFull, setIsFull] = useState(false)
   const [threePoints, setThreePoints] = useState(false)
-  const fullStory = story?.length
+  const fullStory = story?.length ?? 0
 
   const cutHandler = () => {
     setThreePoints(false)
-    // @ts-ignore
     setCut(fullStory)
     setIsFull(true)
   }
@@ -37,8 +29,6 @@ const CardReview = ({
     setIsFull(false)
   }
   useEffect(() => {
-    // @ts-ignore
-
     fullStory > cut && setThreePoints(true)
   }, [cut, fullStory, isFull])
 

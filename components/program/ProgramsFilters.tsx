@@ -1,7 +1,4 @@
-import {
-  useFilterDispatch,
-  useFilteredItems
-} from '@/context/FilterContext/FilterContext'
+import { useFilterDispatch, useFilteredItems } from '@/context/FilterContext/FilterContext'
 import { findFilteredProgramsLength } from '@/helpers/general/findFilteredProgramsLength'
 import { findProgramsLength } from '@/helpers/general/findProgramsLength'
 import { findProgrmasLengthByCustomProperty } from '@/helpers/general/findProgrmasLengthByCustomProperty'
@@ -10,8 +7,16 @@ import stls from '@/styles/components/program/ProgramsFilters.module.sass'
 import { useRouter } from 'next/router'
 import FilterTag from '../filters/FilterTag'
 import ProgramSelect from '../program/ProgramSelect'
+import { Bachelor, PracticalTraining, Program } from '@/types/lib/bachelors/TypeLibBachelors'
 
-const ProgramsFilters = ({
+interface ProgramsFiltersProps {
+  allPrograms?: Program[]
+  bachelors?: Bachelor[]
+  practicalTrainings?: PracticalTraining[]
+  studyFields: any[] | undefined // нужно правильно типизировать
+}
+
+const ProgramsFilters: React.FC<ProgramsFiltersProps> = ({
   studyFields = [],
   allPrograms = [],
   bachelors = [],
@@ -24,7 +29,6 @@ const ProgramsFilters = ({
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   const handleSelect = (value: any) => {
-    // @ts-ignore
     dispatch({
       type: 'sortFilter',
       payload: value.value
@@ -51,8 +55,8 @@ const ProgramsFilters = ({
 
   const handleNavigation = (destination: string) => {
     const { ofType, studyFieldSlug, ...rest } = router.query
-    console.log(ofType, studyFieldSlug, destination);
-    
+    console.log(ofType, studyFieldSlug, destination)
+
     router.push({
       pathname: destination,
       query: rest
@@ -79,7 +83,7 @@ const ProgramsFilters = ({
     // @ts-ignore
     label: el.studyField
   }))
-// @ts-ignore
+  // @ts-ignore
   const favprograms = allPrograms.filter(el => el.isPopular === true)
 
   return (
@@ -95,16 +99,8 @@ const ProgramsFilters = ({
                 ? favprograms?.length
                 : ofType === 'programs' && studyFieldSlug
                   ? findProgramsLength(allPrograms, 'programs') -
-                    findFilteredProgramsLength(
-                      allPrograms,
-                      studyFieldSlug,
-                      ofType as string
-                    ) +
-                    findFilteredProgramsLength(
-                      filteredItems,
-                      studyFieldSlug,
-                      ofType as string
-                    )
+                    findFilteredProgramsLength(allPrograms, studyFieldSlug, ofType as string) +
+                    findFilteredProgramsLength(filteredItems, studyFieldSlug, ofType as string)
                   : findProgramsLength(allPrograms, 'programs')
           }
           isProgram>
@@ -123,16 +119,8 @@ const ProgramsFilters = ({
                 ? favprograms?.length
                 : ofType === 'professions' && studyFieldSlug
                   ? findProgramsLength(allPrograms, 'professions') -
-                    findFilteredProgramsLength(
-                      allPrograms,
-                      studyFieldSlug,
-                      ofType as string
-                    ) +
-                    findFilteredProgramsLength(
-                      filteredItems,
-                      studyFieldSlug,
-                      ofType as string
-                    )
+                    findFilteredProgramsLength(allPrograms, studyFieldSlug, ofType as string) +
+                    findFilteredProgramsLength(filteredItems, studyFieldSlug, ofType as string)
                   : findProgramsLength(allPrograms, 'professions')
           }
           isProgram>
@@ -155,16 +143,8 @@ const ProgramsFilters = ({
                 ? findProgramsLength(favprograms, 'courses')
                 : ofType === 'courses' && studyFieldSlug
                   ? findProgramsLength(allPrograms, 'courses') -
-                    findFilteredProgramsLength(
-                      allPrograms,
-                      studyFieldSlug,
-                      ofType as string
-                    ) +
-                    findFilteredProgramsLength(
-                      filteredItems,
-                      studyFieldSlug,
-                      ofType as string
-                    )
+                    findFilteredProgramsLength(allPrograms, studyFieldSlug, ofType as string) +
+                    findFilteredProgramsLength(filteredItems, studyFieldSlug, ofType as string)
                   : findProgramsLength(allPrograms, 'courses')
           }
           isProgram>
@@ -218,32 +198,25 @@ const ProgramsFilters = ({
         )} */}
         {findProgramsLength(allPrograms, 'shortTerm') > 0 && (
           <FilterTag
-          onClick={() => handleNavigation('/shortTerm')}
-          // withPopup
-          // position='right center'
-          // popupText='Программы повышения квалификации подходят тем, кто хочет углубить
-          // знания и получить новые навыки по профилю своей деятельности.
-          // Длительность обучения — от 1 до 6 месяцев. Выпускники получают
-          // удостоверение о повышении квалификации установленного образца
-          // (заносится в реестр ФИС ФРДО).'
-          isActive={ofType === 'shortTerm'}
-          quantity={
-             findProgramsLength(allPrograms, 'shortTerm')
-          }
-          isProgram>
-          Курсы
-        </FilterTag> 
+            onClick={() => handleNavigation('/shortTerm')}
+            // withPopup
+            // position='right center'
+            // popupText='Программы повышения квалификации подходят тем, кто хочет углубить
+            // знания и получить новые навыки по профилю своей деятельности.
+            // Длительность обучения — от 1 до 6 месяцев. Выпускники получают
+            // удостоверение о повышении квалификации установленного образца
+            // (заносится в реестр ФИС ФРДО).'
+            isActive={ofType === 'shortTerm'}
+            quantity={findProgramsLength(allPrograms, 'shortTerm')}
+            isProgram>
+            Курсы
+          </FilterTag>
         )}
-         
 
         <FilterTag
           onClick={handleSetPopularCourses}
           isActive={filter === 'popular'}
-          quantity={findProgrmasLengthByCustomProperty(
-            filteredItems,
-            'isPopular',
-            true
-          )}
+          quantity={findProgrmasLengthByCustomProperty(filteredItems, 'isPopular', true)}
           isProgram>
           Популярные курсы
         </FilterTag>
@@ -254,7 +227,7 @@ const ProgramsFilters = ({
         {!isMobileAndTabletLayout &&
           studyFields.map((el, i) => (
             <FilterTag
-            // @ts-ignore
+              // @ts-ignore
               key={el.studyField + i}
               onClick={() =>
                 // @ts-ignore
@@ -287,21 +260,16 @@ const ProgramsFilters = ({
                       )
               }
               isCategories>
-
               {
-              // @ts-ignore
-              el.studyField}
+                // @ts-ignore
+                el.studyField
+              }
             </FilterTag>
           ))}
       </div>
       {isMobileAndTabletLayout && (
         <div className={stls.mobileSelect}>
-          <ProgramSelect
-            options={options}
-            onChange={handleTag}
-            mainColor='#fb6c2e'
-            width='345'
-          />
+          <ProgramSelect options={options} onChange={handleTag} mainColor='#fb6c2e' width='345' />
           <ProgramSelect onChange={handleSelect} marginTop='10' />
         </div>
       )}

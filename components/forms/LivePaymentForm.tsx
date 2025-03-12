@@ -49,8 +49,7 @@ const LivePaymentForm = ({
 
   const onSubmit = async data => {
     data.leadPage = router.asPath
-    // @ts-ignore
-    const referer = JSON.parse(sessionStorage.getItem('referer'))
+    const referer = JSON.parse(sessionStorage.getItem('referer') ?? '')
     data.referer = referer
     data.price = program.price
     data.lmsId = program.lmsId
@@ -127,9 +126,7 @@ const LivePaymentForm = ({
                 />
               )}
             />
-            {errors.phone && (
-              <p className={stls.err}>{errors.phone && errors.phone.message}</p>
-            )}
+            {errors.phone && <p className={stls.err}>{errors.phone && errors.phone.message}</p>}
           </div>
           <div className={classNames(stls.inpt, stls.email)}>
             <input
@@ -150,11 +147,7 @@ const LivePaymentForm = ({
           </div>
 
           <div className={stls.btn}>
-            <BtnAlpha
-              text={cta}
-              isDisabled={isDisabled}
-              isLiveCourse={isLiveCourse}
-            />
+            <BtnAlpha text={cta} isDisabled={isDisabled} isLiveCourse={isLiveCourse} />
           </div>
         </div>
       </form>
