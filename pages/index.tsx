@@ -27,6 +27,7 @@ import Popup from 'reactjs-popup'
 import dynamic from 'next/dynamic'
 import stls from '@/styles/pages/Index.module.sass'
 import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '../helpers'
+import Locations from '@/components/sections/Locations/Locations'
 
 const PopupCta = dynamic(() => import('@/components/popups/PopupCta'), {
   ssr: false
@@ -89,7 +90,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       setOpen(true)
     }
   }, [router.query])
-//@ts-ignore
+  //@ts-ignore
   const teachersFromMain = teachers?.filter(teacher => allowedNames.includes(teacher.name))
 
   const reviewsSorted = sortBasedOnNumericOrder({
@@ -229,7 +230,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
     </>
   ]
 
-  const hasQueryParams = Object.keys(router.query).length > 0;
+  const hasQueryParams = Object.keys(router.query).length > 0
 
   // TODO: удалить временные стили после отката основной страницы к обычному состоянию
   return (
@@ -273,7 +274,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
           )
         }
       </Popup>
-
+      <Locations />
       <div className={stls.container}>
         {(layout === 'old' ? oldLayoutComponents : newLayoutComponents).map(component => component)}
       </div>
