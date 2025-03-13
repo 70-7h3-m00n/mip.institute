@@ -17,8 +17,7 @@ type Props = {
 const BriefProgramContents = ({
   planRef,
   program = null,
-  // @ts-ignore
-  title = null,
+  title,
   coloredBackground = false
 }: Props) => {
   const { semesters } = splitIntoSemesters(program)

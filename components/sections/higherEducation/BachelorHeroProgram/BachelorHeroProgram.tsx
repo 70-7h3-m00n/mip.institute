@@ -4,7 +4,7 @@ import { ContextStaticProps } from '@/context/index'
 import stls from './BachelorHeroProgram.module.sass'
 import classNames from 'classnames'
 import validTitles from 'constants/higherEducation/bachelorHeroProgram'
-import { useContext, useState } from 'react'
+import { ReactNode, useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import BachelorFullProgramPopup from '@/components/popups/BachelorFullProgramPopup'
@@ -40,16 +40,12 @@ const BachelorHeroProgram = () => {
                 </h1>
                 <div className={stls.mobileFlex}>
                   <div className={stls.descriptionMobile}>
-                    <p className={stls.mobiledesc}>
-                      {bachelor?.shortDescription}
-                    </p>
+                    <p className={stls.mobiledesc}>{bachelor?.shortDescription}</p>
                     <Popup
                       open={open}
                       onClose={closeModal}
                       trigger={
-                        <button
-                          onClick={() => setOpen(o => !o)}
-                          className={stls.moreText}>
+                        <button onClick={() => setOpen(o => !o)} className={stls.moreText}>
                           Читать описание
                         </button>
                       }
@@ -57,13 +53,12 @@ const BachelorHeroProgram = () => {
                       modal
                       nested>
                       {
-                        // @ts-ignore
-                        close => (
+                        ((close: () => void) => (
                           <BachelorFullProgramPopup
                             close={close}
                             content={bachelor?.fullDescription}
                           />
-                        )
+                        )) as unknown as ReactNode
                       }
                     </Popup>
                   </div>
@@ -100,20 +95,12 @@ const BachelorHeroProgram = () => {
                   {bachelor?.title}
                 </h1>
                 <div className={stls.descriptionDesktop}>
-                  <p className={stls.mobiledesc}>
-                    {bachelor?.shortDescription}
-                  </p>
+                  <p className={stls.mobiledesc}>{bachelor?.shortDescription}</p>
                   <Popup
                     onClose={closeModal}
-                    trigger={
-                      <button className={stls.moreText}>
-                        {'Читать описание'}
-                      </button>
-                    }
+                    trigger={<button className={stls.moreText}>{'Читать описание'}</button>}
                     position='right center'>
-                    <BachelorFullProgramPopup
-                      content={bachelor?.fullDescription}
-                    />
+                    <BachelorFullProgramPopup content={bachelor?.fullDescription} />
                   </Popup>
                 </div>
                 <div className={stls.btnsDesktop}>

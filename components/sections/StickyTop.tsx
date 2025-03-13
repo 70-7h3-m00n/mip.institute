@@ -51,7 +51,6 @@ const StickyTop = ({
       <div className={stls.close}>
         
         <IconCloseCircle
-        //@ts-ignore
         onClick={onClick} blackCross />
       </div>
     </div>

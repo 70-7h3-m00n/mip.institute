@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import Popup from 'reactjs-popup'
 import IconPracticalStepInfo from '../icons/IconPracticalStepInfo'
 import IconClosePopupSteps from '../icons/IconClosePopupSteps'
+import { ReactNode } from 'react'
 
 type PopupTrainStepsType = {
   title: string
@@ -26,8 +27,7 @@ const PopupTrainSteps = ({ title, text }: PopupTrainStepsType) => {
       modal
       nested>
       {
-        // @ts-ignore
-        close => (
+        ((close: () => void) => (
           <div className={stls.container}>
             <h2 className={stls.title}>{title}</h2>
             <div className={stls.text}>
@@ -38,7 +38,7 @@ const PopupTrainSteps = ({ title, text }: PopupTrainStepsType) => {
               <IconClosePopupSteps />
             </button>
           </div>
-        )
+        )) as unknown as ReactNode
       }
     </Popup>
   )

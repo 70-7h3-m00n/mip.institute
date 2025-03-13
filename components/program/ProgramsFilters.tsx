@@ -13,7 +13,7 @@ interface ProgramsFiltersProps {
   allPrograms?: Program[]
   bachelors?: Bachelor[]
   practicalTrainings?: PracticalTraining[]
-  studyFields: any[] | undefined // нужно правильно типизировать
+  studyFields?: any[] | undefined // нужно правильно типизировать
 }
 
 const ProgramsFilters: React.FC<ProgramsFiltersProps> = ({
@@ -78,12 +78,9 @@ const ProgramsFilters: React.FC<ProgramsFiltersProps> = ({
   }
 
   const options = studyFields.map(el => ({
-    // @ts-ignore
     value: el.studyFieldSlug,
-    // @ts-ignore
     label: el.studyField
   }))
-  // @ts-ignore
   const favprograms = allPrograms.filter(el => el.isPopular === true)
 
   return (
@@ -227,33 +224,26 @@ const ProgramsFilters: React.FC<ProgramsFiltersProps> = ({
         {!isMobileAndTabletLayout &&
           studyFields.map((el, i) => (
             <FilterTag
-              // @ts-ignore
               key={el.studyField + i}
               onClick={() =>
-                // @ts-ignore
                 handleNavigation(`/${ofType}/${el.studyFieldSlug}`)
               }
-              // @ts-ignore
               isActive={studyFieldSlug === el.studyFieldSlug}
               quantity={
-                // @ts-ignore
                 studyFieldSlug === el.studyFieldSlug
                   ? findFilteredProgramsLength(
                       filteredItems,
-                      // @ts-ignore
                       el.studyFieldSlug,
                       ofType as string
                     )
                   : !studyFieldSlug
                     ? findFilteredProgramsLength(
                         filteredItems,
-                        // @ts-ignore
                         el.studyFieldSlug,
                         ofType as string
                       )
                     : findFilteredProgramsLength(
                         allPrograms,
-                        // @ts-ignore
                         el.studyFieldSlug,
                         ofType as string,
                         filter as string
@@ -261,7 +251,6 @@ const ProgramsFilters: React.FC<ProgramsFiltersProps> = ({
               }
               isCategories>
               {
-                // @ts-ignore
                 el.studyField
               }
             </FilterTag>

@@ -13,8 +13,8 @@ type Props = {
 }
 
 const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
-  const [hoveredIcon, setHoveredIcon] = useState(null)
-  const handleMouseEnter = icon => {
+  const [hoveredIcon, setHoveredIcon] = useState<{ icon: string } | null>(null)
+  const handleMouseEnter = (icon: { icon: string }) => {
     setHoveredIcon(icon)
   }
 
@@ -23,9 +23,7 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
   }
 
   const amountOfCourses = programs.filter(el => el.type === 'Course').length
-  const amountOfProfessions = programs.filter(
-    el => el.type === 'Profession'
-  ).length
+  const amountOfProfessions = programs.filter(el => el.type === 'Profession').length
 
   const amountOfShortTerm = programs.filter(el => el.type === 'ShortTerm').length
 
@@ -79,12 +77,7 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
                     </div>
                   </div>
                   <div className={stls.icon}>
-                    
-                    <IconNavigation
-                    // @ts-ignore
-                    hover={hoveredIcon?.icon === icon}>
-                      {icon}
-                    </IconNavigation>
+                    <IconNavigation hover={hoveredIcon?.icon === icon}>{icon}</IconNavigation>
                   </div>
                 </div>
               </Link>

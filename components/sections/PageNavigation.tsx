@@ -1,11 +1,21 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, MutableRefObject } from 'react'
 import stls from '@/styles/components/sections/PageNavigation.module.sass'
 import Wrapper from '@/ui/Wrapper'
 
-const PageNavigation = ({ sections }) => {
+type Section = {
+  id: string
+  label: string
+  ref: MutableRefObject<HTMLDivElement | null>
+  condition: boolean
+}
+
+type PageNavigationProps = {
+  sections: Section[]
+}
+const PageNavigation = ({ sections }: PageNavigationProps) => {
   const [activeSection, setActiveSection] = useState('')
   const navigationRef = useRef(null)
-  const pointRef = useRef(null)
+  const pointRef = useRef<HTMLDivElement | null>(null)
   const [stickyNav, setStickyNav] = useState(false)
 
   const handleScrollToSection = ref => {
@@ -13,10 +23,9 @@ const PageNavigation = ({ sections }) => {
   }
 
   const handleScroll = () => {
-    // @ts-ignore
     const pointTop = pointRef.current?.getBoundingClientRect().top
 
-    if (pointTop < -70) {
+    if (pointTop !== undefined && pointTop < -70) {
       setStickyNav(true)
     } else {
       setStickyNav(false)
@@ -24,7 +33,8 @@ const PageNavigation = ({ sections }) => {
 
     let foundActiveSection = false
     for (const section of sections) {
-      if (section.ref?.current?.getBoundingClientRect().top <= 53) {
+      const sectionTop = section.ref?.current?.getBoundingClientRect().top
+      if (sectionTop !== undefined && sectionTop <= 53) {
         setActiveSection(section.id)
         foundActiveSection = true
       }
@@ -61,9 +71,7 @@ const PageNavigation = ({ sections }) => {
           <ul>{sections?.map(section => renderNavItem(section))}</ul>
         </div>
         <div
-          className={`${stls.navigation} ${
-            stickyNav ? stls.sticky : stls.hidden
-          }`}
+          className={`${stls.navigation} ${stickyNav ? stls.sticky : stls.hidden}`}
           ref={navigationRef}>
           <ul>{sections?.map(section => renderNavItem(section))}</ul>
         </div>

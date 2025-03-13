@@ -6,17 +6,18 @@ type CardContactType = {
   city: string
   street: string
   numbers: { href: string; val: string }[]
-  studyDivision: { href: string; val: string; contactType: string }
+  studyDivision?: {
+    city: string
+    href: string
+    val: string
+    contactType: string
+    areaServed: string[]
+    languages: string[]
+  }
   email: { href: string; val: string }
 }
 
-const CardContact = ({
-  city,
-  street,
-  numbers,
-  email,
-  studyDivision
-}: CardContactType) => {
+const CardContact = ({ city, street, numbers, email, studyDivision }: CardContactType) => {
   return (
     <div className={stls.container}>
       <div className={stls.row}>

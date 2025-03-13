@@ -7,7 +7,7 @@ import { Fragment } from 'react'
 type StudyFieldsType = {
   ofType?: 'course' | 'profession' | null
   close?: any
-  setCurrentType?: (type: string) => void
+  setCurrentType: (type: string) => void
   currentType?: string
 }
 
@@ -29,10 +29,8 @@ const MainStudyFields = ({
             <Link
               href={href}
               passHref
-              // @ts-ignore
               onMouseEnter={
-                // @ts-ignore
-                hoverSelect ? () => setCurrentType(programType) : null
+                hoverSelect ? () => setCurrentType(programType) : undefined
               }
               className={cn({
                 [stls.mainFields]: true,

@@ -6,7 +6,7 @@ import { GetStaticProps } from 'next'
 const VacanciesIndexPage = ({ vacancies }) => {
   return (
     <>
-      <SeoCommon seo={vacancies.seo[0]} />
+      <SeoCommon seo={vacancies.seo[0]} programTitle='Вакансии МИП'/>
       <PageVacancies vacancies={vacancies} />
     </>
   )
