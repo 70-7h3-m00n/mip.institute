@@ -1,26 +1,33 @@
 'use client'
 import Wrapper from '@/ui/Wrapper'
 import stls from './Locations.module.sass'
-import { useState } from 'react'
+import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps'
 import FilterTag from '@/components/filters/FilterTag'
 import { almaty, moscow } from 'constants/contacts/locations'
-import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps'
 
-const Locations = () => {
-  const [tabIndex, setTabIndex] = useState(0)
-  const data = tabIndex === 0 ? moscow : almaty
+type LocationsProps = {
+  selectedCity: 'moscow' | 'almaty'
+  setSelectedCity: (city: 'moscow' | 'almaty') => void
+}
 
-  const handleTabChange = (index: number) => setTabIndex(index)
+const Locations = ({ selectedCity, setSelectedCity }: LocationsProps) => {
+  const data = selectedCity === 'moscow' ? moscow : almaty
 
   return (
     <section className={stls.container}>
       <Wrapper>
         <h1 className={stls.mainTitle}>Контакты</h1>
         <div className={stls.toggles}>
-          <FilterTag isCategories isActive={tabIndex === 0} onClick={() => handleTabChange(0)}>
+          <FilterTag
+            isCategories
+            isActive={selectedCity === 'moscow'}
+            onClick={() => setSelectedCity('moscow')}>
             Москва
           </FilterTag>
-          <FilterTag isCategories isActive={tabIndex === 1} onClick={() => handleTabChange(1)}>
+          <FilterTag
+            isCategories
+            isActive={selectedCity === 'almaty'}
+            onClick={() => setSelectedCity('almaty')}>
             Алматы
           </FilterTag>
         </div>
@@ -48,7 +55,7 @@ const Locations = () => {
           </YMaps>
 
           <div className={stls.cards}>
-            {data.cards.map(({ mainTitle, items }, index) => (
+            {data.cards.map(({ mainTitle, items }) => (
               <div key={mainTitle} className={stls.card}>
                 <span className={stls.cardTitle}>{mainTitle}</span>
                 <ul className={stls.list}>

@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import Office from '@/components/contacts/Office/Office'
 import Requisites from '@/components/contacts/Requisites/Requisites'
 import RouteMIP from '@/components/contacts/RouteMIP/RouteMIP'
@@ -20,7 +21,9 @@ const seoParams = {
   logoUrl: `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`
 }
 
-export default async function Contacts() {
+export default function Contacts() {
+  const [selectedCity, setSelectedCity] = useState<'moscow' | 'almaty'>('moscow') // Используем строки
+
   return (
     <div className={stls.pageContainer}>
       <SeoAppRouter
@@ -29,8 +32,8 @@ export default async function Contacts() {
         canonical={seoParams.canonical}
         logoUrl={seoParams.logoUrl}
       />
-      <Locations />
-      <RouteMIP />
+      <Locations selectedCity={selectedCity} setSelectedCity={setSelectedCity} />
+      {selectedCity === 'moscow' && <RouteMIP />}
       <div className={stls.wrapper}>
         <JoinCommunity />
       </div>

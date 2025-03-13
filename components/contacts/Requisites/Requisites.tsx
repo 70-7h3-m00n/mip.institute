@@ -1,4 +1,5 @@
 import React from 'react'
+import routes from '@/config/routes' // Убедитесь, что routes импортирован
 import stls from './Requisites.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import { ArrowIcon, DocumentIcon, LicenseIcon } from './constant'
@@ -10,15 +11,15 @@ const Requisites = () => {
         <h2 className={stls.title}>Реквизиты</h2>
         <div className={stls.cards}>
           <a
-            href='https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/'
+            href={`${routes.front.docsDetails}/mip-sberbank-details.pdf`} // Путь к загруженному файлу href: `${routes.front.docsDetails}/mip-sberbank-details.pdf`,
             target='_blank'
             rel='noopener noreferrer'
             className={stls.card}>
             <DocumentIcon />
             <span className={stls.licenseText}>
               <span className={stls.highlight}>Реквизиты: </span>
-              Научная автономная 
-              некоммерческая организация «Московский институт психологии» (НАНО «МИП»)
+              Научная автономная некоммерческая организация «Московский институт психологии» (НАНО
+              «МИП»)
               <ArrowIcon />
             </span>
           </a>

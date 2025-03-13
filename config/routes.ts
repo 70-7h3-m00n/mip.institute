@@ -31,6 +31,7 @@ const routes: TRoutes = {
     contact: '/contact',
     courses: '/courses',
     docs: '/docs',
+    docsDetails: '/docs/details',
     docsConstituent: '/docs/constituent',
     docsGeneral: '/docs/general',
     docsRegulations: 'docs/regulations',
