@@ -4,10 +4,10 @@
 
 .container
   @include m.dye(bg, c.$white-900)
-  @include m.gap($ptb: f.px(40),$mlr: f.px(20),$mb: f.px(20),$mt: f.px(40))
+  @include m.gap($ptb: f.px(40), $mt: f.px(20))
   border-radius: f.px(30)
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(25),$mlr: f.px(15),$mt: f.px(35))
+    @include m.gap($ptb: f.px(25), $mt: 0)
     border-radius: f.px(20)
 
 .blockWrapper
@@ -16,6 +16,7 @@
   width: 100%
   @include m.media(tablet, phone)
     @include m.flex($fd:column,$ai: center)
+    gap: f.px(15)
 
 .officeText
   position: relative

@@ -3,11 +3,11 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($ptb: f.px(40),$mlr: f.px(20))
+  @include m.gap($ptb: f.px(40))
   border-radius: f.px(30)
   background: c.$white-900
   @include m.media(phone)
-    @include m.gap($ptb: f.px(25),$mlr: f.px(15))
+    @include m.gap($ptb: f.px(25))
 
 .title
   color: c.$black-800

@@ -25,7 +25,7 @@ const RouteMIP = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h1 className={stls.title}>Как до нас добраться?</h1>
+        <h2 className={stls.title}>Как до нас добраться?</h2>
         <div className={stls.controls}>
           <MetroSelectButton selectedStation={selectedStation} onChange={handleChange} />
           <IconTextButton

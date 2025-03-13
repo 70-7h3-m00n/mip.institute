@@ -1,5 +1,4 @@
-import stls from './TopBlock.module.sass'
-import Wrapper from '@/ui/Wrapper'
+import stls from './NoPlannedEvents.module.sass'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { useCallback, useState } from 'react'
@@ -37,7 +36,7 @@ const images = [
 type TopBlockProps = {
   onClick: () => void
 }
-const TopBlock = ({ onClick }: TopBlockProps) => {
+const NoPlannedEvents = ({ onClick }: TopBlockProps) => {
   const [imageList, setImageList] = useState(images)
 
   const nextSlide = useCallback(() => {
@@ -128,4 +127,4 @@ const TopBlock = ({ onClick }: TopBlockProps) => {
   )
 }
 
-export default TopBlock
+export default NoPlannedEvents

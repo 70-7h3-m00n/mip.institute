@@ -3,11 +3,11 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.gap($mlr: f.px(20), $ptb: f.px(40))
+  @include m.gap($ptb: f.px(40))
   @include m.dye(bg, c.$white-900)
   border-radius: f.px(30)
   @include m.media(phone, tablet)
-    @include m.gap($mlr: f.px(15), $ptb: f.px(25))
+    @include m.gap($ptb: f.px(25))
 
 .fontStyle
   font-weight: 500
@@ -23,6 +23,9 @@
   @include m.flex()
   @include m.gap($mb: f.px(30))
   gap: f.px(30)
+  @include m.media(phone, tablet)
+    justify-content: space-between
+    @include m.gap($mb: f.px(20))
   & > span
     font-size: f.px(20)
     @include m.flex($jc: center)

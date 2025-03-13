@@ -1,6 +1,5 @@
 import routes from '@/config/routes'
-import stls from './BottomBlock.module.sass'
-import Wrapper from '@/ui/Wrapper'
+import stls from './JoinCommunity.module.sass'
 import TwoColumns from '@/ui/TwoColumns'
 import Image from 'next/image'
 import IconVk from '@/components/icons/IconVk'
@@ -10,7 +9,7 @@ import IconYt from '@/components/icons/IconYt'
 import IconOk from '@/components/icons/IconOk'
 import IconDzen from '@/components/icons/IconDzen'
 
-const BottomBlock = () => {
+const JoinCommunity = () => {
   const socialLinks = [
     {
       id: 'vk',
@@ -84,4 +83,4 @@ const BottomBlock = () => {
   )
 }
 
-export default BottomBlock
+export default JoinCommunity

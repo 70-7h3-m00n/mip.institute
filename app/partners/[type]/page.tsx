@@ -8,7 +8,7 @@ import CommunitySection from '@/components/partners/CommunitySection/CommunitySe
 import BecomePartner from '@/components/partners/BecomePartner/BecomePartner'
 import Office from '@/components/contacts/Office/Office'
 import Requisites from '@/components/contacts/Requisites/Requisites'
-import BottomBlock from '@/components/sections/lectorium/Stub/BottomBlock/BottomBlock'
+import JoinCommunity from '@/components/sections/lectorium/Stub/JoinCommunity/JoinCommunity'
 import Wrapper from '@/ui/Wrapper'
 import RouteMIP from '@/components/contacts/RouteMIP/RouteMIP'
 
@@ -73,7 +73,7 @@ export default async function Partners({ params }: { params: Params }) {
       <meta name='robots' content='index, follow' />
       <RouteMIP />
       <Wrapper>
-        <BottomBlock />
+        <JoinCommunity />
       </Wrapper>
       <Office />
       <Requisites />

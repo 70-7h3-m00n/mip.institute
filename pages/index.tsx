@@ -27,7 +27,6 @@ import Popup from 'reactjs-popup'
 import dynamic from 'next/dynamic'
 import stls from '@/styles/pages/Index.module.sass'
 import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '../helpers'
-import Locations from '@/components/sections/Locations/Locations'
 
 const PopupCta = dynamic(() => import('@/components/popups/PopupCta'), {
   ssr: false
@@ -274,7 +273,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
           )
         }
       </Popup>
-      <Locations />
       <div className={stls.container}>
         {(layout === 'old' ? oldLayoutComponents : newLayoutComponents).map(component => component)}
       </div>

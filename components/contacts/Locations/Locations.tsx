@@ -1,3 +1,4 @@
+'use client'
 import Wrapper from '@/ui/Wrapper'
 import stls from './Locations.module.sass'
 import { useState } from 'react'
