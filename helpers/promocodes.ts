@@ -34,7 +34,8 @@ const promocodes = {
   annashow: 'АННА ШОУ',
   Barabanshchykava: 'ЛИЗА МАТРИКС',
   angelapodcast: 'Секс и деньги',
-  likapsychology: 'ЛИКА10'
+  likapsychology: 'ЛИКА10',
+  julso:'ДЖУЛСО',
 }
 
 export default promocodes
