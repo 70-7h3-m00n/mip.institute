@@ -6,7 +6,7 @@ import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/TopCourses.module.sass'
 import SwiperContainer from '@/ui/SwiperContainer'
 import Tag from '@/ui/Tag'
-import targetTitles from 'constants/topCourses'
+import targetSlugs from 'constants/topCourses'
 import { useContext } from 'react'
 
 const TopCourses = () => {
@@ -15,10 +15,8 @@ const TopCourses = () => {
   if (!programs || !programs.length) {
     return null // Если нет данных, не рендерим ничего
   }
-
-  const topCourses = targetTitles.map(title =>
-    programs.find(profession => profession.title === title)
-  )
+  
+  const topCourses = targetSlugs.map(slug => programs.find(profession => profession.slug === slug))
 
   const list =
     programs &&

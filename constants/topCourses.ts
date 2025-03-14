@@ -1,11 +1,11 @@
-const targetTitles = [
-  'Психосоматика и телесная психотерапия',
-  'Психологическое консультирование',
-  'Когнитивно-поведенческий психотерапевт',
-  'Психолог-диетолог. Нутрициолог',
-  'Гештальт-терапевт',
-  'Клиническая психология',
-  'Детский психолог'
+const targetSlugs = [
+  'kognitivno-povedencheskij-psihoterapevt',
+  'psihosomatika-i-telesnaya-psihoterapiya',
+  'psiholog-konsultant',
+  'psiholog-dietolog.-nutriciolog',
+  'geshtalt-terapevt',
+  'klinicheskaya-psihologiya',
+  'detskij-psiholog'
 ]
 
-export default targetTitles
+export default targetSlugs
