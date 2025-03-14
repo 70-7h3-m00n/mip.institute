@@ -71,12 +71,6 @@ export default async function Partners({ params }: { params: Params }) {
   return (
     <>
       <meta name='robots' content='index, follow' />
-      <RouteMIP />
-      <Wrapper>
-        <JoinCommunity />
-      </Wrapper>
-      <Office />
-      <Requisites />
       <CommunitySection />
       <OurPartners allTypes={allTypes} currentType={type} onePartner={onePartner} />
       <BecomePartner />
