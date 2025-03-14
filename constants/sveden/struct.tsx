@@ -20,7 +20,7 @@ const structOrgUpravRows = [
   {
     itemProp: 'structOrgUprav',
     cells: [
-      { content: 'Ректорат', itemProp: 'name', rowspan: 2 },
+      { content: 'Ректорат', itemProp: 'name', rowspan: 3 },
       { content: 'Багаев Евгений Александрович', itemProp: 'fio' },
       { content: 'Ректор', itemProp: 'post' },
       {
@@ -47,6 +47,30 @@ const structOrgUpravRows = [
     cells: [
       { content: 'Стибунов Алексей Васильевич', itemProp: 'fio' },
       { content: 'Первый проректор', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  {
+    itemProp: 'structOrgUprav',
+    cells: [
+      { content: 'Токарева Мария Вадимовна', itemProp: 'fio' },
+      { content: 'Проректор по учебной работе', itemProp: 'post' },
       {
         content: '115114, Москва, Дербеневская набережная, дом 11',
         itemProp: 'addressStr'
@@ -123,13 +147,13 @@ const structOrgUpravRows = [
       { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
     ]
   },
-  // Учебный отдел
+  // Отдел по подбору персонала
   {
     itemProp: 'structAdmin',
     cells: [
-      { content: 'Учебный отдел', itemProp: 'name' },
-      { content: 'Губанова Ольга Викторовна', itemProp: 'fio' },
-      { content: 'Начальник отдела', itemProp: 'post' },
+      { content: 'Отдел по подбору персонала', itemProp: 'name' },
+      { content: 'Кунаева Анна Евгеньевна', itemProp: 'fio' },
+      { content: 'Руководитель', itemProp: 'post' },
       {
         content: '115114, Москва, Дербеневская набережная, дом 11',
         itemProp: 'addressStr'
@@ -149,13 +173,169 @@ const structOrgUpravRows = [
       { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
     ]
   },
-  // Отдел маркетинга
+  // Отдел продвижения личного бренда
   {
     itemProp: 'structAdmin',
     cells: [
-      { content: 'Отдел маркетинга', itemProp: 'name' },
-      { content: '', itemProp: 'fio' },
-      { content: '', itemProp: 'post' },
+      { content: 'Отдел продвижения личного бренда', itemProp: 'name' },
+      { content: 'Рубцова Надежда Леонидовна', itemProp: 'fio' },
+      { content: 'Руководитель', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  // Отдел сопровождения образовательных программ
+  {
+    itemProp: 'structAdmin',
+    cells: [
+      { content: 'Отдел сопровождения образовательных программ', itemProp: 'name' },
+      { content: 'Курочкина Алёна Викторовна', itemProp: 'fio' },
+      { content: 'Руководитель', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  // Кафедра психологии
+  {
+    itemProp: 'structAdmin',
+    cells: [
+      { content: 'Кафедра психологии', itemProp: 'name' },
+      { content: 'Ермолова Вера Михайловна', itemProp: 'fio' },
+      { content: 'Заведующий кафедрой', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  // Отдел практики и карьеры
+  {
+    itemProp: 'structAdmin',
+    cells: [
+      { content: 'Отдел практики и карьеры', itemProp: 'name' },
+      { content: 'Малеева Лорета Александровна', itemProp: 'fio' },
+      { content: 'Главный специалист', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  // Отдел кадров
+  {
+    itemProp: 'structAdmin',
+    cells: [
+      { content: 'Отдел кадров', itemProp: 'name' },
+      { content: 'Балкарова Марина Валерьевна', itemProp: 'fio' },
+      { content: 'Старший специалист', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  // Учебный отдел
+  {
+    itemProp: 'structAdmin',
+    cells: [
+      { content: 'Учебный отдел', itemProp: 'name' },
+      { content: 'Мнацаканова Александра Ашотовна', itemProp: 'fio' },
+      { content: 'Руководитель', itemProp: 'post' },
+      {
+        content: '115114, Москва, Дербеневская набережная, дом 11',
+        itemProp: 'addressStr'
+      },
+      {
+        content: (
+          <Link href='https://mip.institute/' target='_blank' rel='noopener noreferrer'>
+            https://mip.institute/
+          </Link>
+        ),
+        itemProp: 'site'
+      },
+      {
+        content: <a href='mailto:info@mip.institute'>info@mip.institute</a>,
+        itemProp: 'email'
+      },
+      { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
+    ]
+  },
+  // Учебно-методический отдел
+  {
+    itemProp: 'structAdmin',
+    cells: [
+      { content: 'Учебно-методический отдел', itemProp: 'name' },
+      { content: 'Губанова Ольга Викторовна', itemProp: 'fio' },
+      { content: 'Руководитель', itemProp: 'post' },
       {
         content: '115114, Москва, Дербеневская набережная, дом 11',
         itemProp: 'addressStr'
@@ -227,11 +407,11 @@ const structOrgUpravRows = [
       { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
     ]
   },
-  // Отдел практики и карьеры
+  // Отдел маркетинга
   {
     itemProp: 'structAdmin',
     cells: [
-      { content: 'Отдел практики и карьеры', itemProp: 'name' },
+      { content: 'Отдел маркетинга', itemProp: 'name' },
       { content: '', itemProp: 'fio' },
       { content: '', itemProp: 'post' },
       {
