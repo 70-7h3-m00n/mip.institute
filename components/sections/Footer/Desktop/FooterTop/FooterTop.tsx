@@ -8,6 +8,14 @@ import BtnOk from '@/components/btns/BtnOk'
 import BtnDzen from '@/components/btns/BtnDzen'
 import EagleIcon from '@/components/icons/EagleIcon'
 import { topFooterLinks } from 'constants/footer'
+import routes from '@/config/routes'
+
+// удалить когда contacts будут вмержены в dev
+const ArrowIcon = () => (
+  <svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'>
+    <path d='M1 13L13 1M13 1H1M13 1V13' stroke='#855EDF' stroke-width='2' />
+  </svg>
+)
 
 const FooterTop = () => {
   return (
@@ -24,13 +32,24 @@ const FooterTop = () => {
           <BtnOk dark />
           <BtnDzen />
         </div>
-        <button className={stls.licenseButton} onClick={() => {}}>
-          <span>
+        <a
+          className={stls.licenseButton}
+          href={routes.external.license}
+          target='_blank'
+          rel='noopener noreferrer'>
+          <span className={stls.eagleIcon}>
             <EagleIcon />
           </span>
-          Государственная
-          <br /> лицензия
-        </button>
+          <div className={stls.textWrapper}>
+            <div className={stls.licenseText}>Государственная</div>
+            <div className={stls.arrowWrapper}>
+              лицензия
+              <span className={stls.arrowIcon}>
+                <ArrowIcon />
+              </span>
+            </div>
+          </div>
+        </a>
       </div>
 
       <div className={stls.rightBlockWithPrograms}>

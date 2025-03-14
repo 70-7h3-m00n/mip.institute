@@ -152,7 +152,14 @@ const bottomFooterLinks = [
   ],
   [
     {
-      text: 'Департамент'
+      title: 'Департамент образования и науки города Москвы',
+      href: routes.external.donm,
+      common: true
+    },
+    {
+      title: 'Федеральная служба по надзору в сфере образования и науки',
+      href: routes.external.obrnadzor,
+      target: '_blank'
     },
     { title: 'Информация о правилах использования материала', href: routes.front.regulation }
   ],

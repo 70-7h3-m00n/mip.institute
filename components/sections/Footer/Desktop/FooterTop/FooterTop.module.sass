@@ -22,16 +22,33 @@
   gap: f.px(13)
 
 .licenseButton
-  min-width: f.px(175)
+  max-width: f.px(175)
   @include m.flex($ai: center)
   text-align: left
-  gap: f.px(15)
+  gap: f.px(10)
   border-radius: f.px(10)
   @include m.dye(bg, c.$black-600)
   @include m.gap($ptb: f.px(15), $pl: f.px(15), $pr: f.px(20))
   color: white
   font-size: f.px(12)
   font-weight: 350
+
+.licenseText
+  display: block
+  gap: f.px(10)
+
+.arrowWrapper
+  @include m.flex($ai: center)
+  width: 100%
+
+.arrowIcon
+  display: inline-block
+  @include m.sizeIcon($w: 10, $h: 17)
+  margin-left: f.px(10)
+  & > svg > path
+    stroke: white
+    opacity: 0.4
+    width: 6px
 
 .rightBlockWithPrograms
   display: grid
