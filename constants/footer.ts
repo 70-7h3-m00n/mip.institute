@@ -107,7 +107,7 @@ const topFooterLinks = [
     },
     {
       val: 'Семинары',
-      href: routes.front.lectorium
+      href: routes.front.lectoriums
     },
     {
       val: 'Вебинары',

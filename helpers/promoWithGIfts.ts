@@ -1,5 +1,4 @@
 const promocodesWithGift = {
-  pogrebjiskaya: { gift: 'https://mipinstitute.getcourse.ru/podp_mini_two' },
   alexandraposnova: { gift: 'https://mipinstitute.getcourse.ru/podp_mini_two' },
   pogrebjiskaya2: { gift: 'https://mipinstitute.getcourse.ru/podp_mini_two' },
   irenaponaroshku: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
@@ -17,6 +16,10 @@ const promocodesWithGift = {
   pogrebjiskaya3: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
   annashow: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
   Barabanshchykava: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
+  pogrebjiskaya: { gift: 'https://mipinstitute.getcourse.ru/podp_mini_two' },
+  angelapodcast: { gift: 'https://mipinstitute.getcourse.ru/podp_mini_two' },
+  likapsychology: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
+  julso: { gift: 'https://mip.institute/free-access' },
 }
 
 export default promocodesWithGift

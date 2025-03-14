@@ -21,7 +21,7 @@ const promocodes = {
   pogrebjiskaya2: 'Погребижская',
   irenaponaroshku: 'Ирена',
   morskaya: 'МОРСКАЯ',
-  veronikastepanova20011: 'СТЕПАНОВА',
+  // veronikastepanova20011: 'СТЕПАНОВА',
   sobchak0702: 'Собчак',
   vasilisavolodinaofficial: 'ВАСИЛИСА',
   dorogedeneg: 'ДОРОЖЕ',
@@ -32,7 +32,10 @@ const promocodes = {
   hotpsyhologies: 'ВИКТОРИЯ',
   pogrebjiskaya3: 'Погребижская',
   annashow: 'АННА ШОУ',
-  Barabanshchykava: 'ЛИЗА МАТРИКС'
+  Barabanshchykava: 'ЛИЗА МАТРИКС',
+  angelapodcast: 'Секс и деньги',
+  likapsychology: 'ЛИКА10',
+  julso:'ДЖУЛСО',
 }
 
 export default promocodes

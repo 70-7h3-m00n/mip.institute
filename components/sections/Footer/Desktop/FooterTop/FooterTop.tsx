@@ -65,9 +65,9 @@ const FooterTop = () => {
           <div className={stls.column} key={index}>
             {column.map((item, i) =>
               item.title ? (
-                <h3 key={i} className={stls.title}>
+                <p key={i} className={stls.title}>
                   {item.title}
-                </h3>
+                </p>
               ) : (
                 <a key={i} href={item.href} className={stls.link}>
                   {item.val}

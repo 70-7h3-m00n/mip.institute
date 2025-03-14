@@ -14,7 +14,7 @@ const Incomers = ({ title, data }: any) => {
         <div className={stls.containerBlock}>
           <div className={stls.containerBlock_title}>
             <div className={stls.containerBlock_title_text}>
-              {title[0]?.children[0]?.text} <br />
+              <h1 className={stls.title}>{title[0]?.children[0]?.text}</h1>
               <span className={stls.coloured}>{title[1]?.children[0]?.text}</span>
             </div>
             <div className={stls.containerBlock_title_img}>
