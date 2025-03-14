@@ -118,16 +118,16 @@ const topFooterLinks = [
 
 const footerCards = [
   {
-    title: 'Адрес:',
-    description: 'Москва,\nДокучаев переулок, 8'
-  },
-  {
     title: 'Приемная комиссия:',
     description: '+7 (499) 110-88-19\n+7 (800) 600-29-03'
   },
   {
     title: 'Кураторский отдел:',
     description: '+7 (499) 110-82-11'
+  },
+  {
+    title: 'Адрес:',
+    description: 'Москва,\nДокучаев переулок, 8'
   },
   {
     title: 'Электронный адрес:',
