@@ -36,6 +36,14 @@ const promocodes = {
   angelapodcast: 'Секс и деньги',
   likapsychology: 'ЛИКА10',
   julso:'ДЖУЛСО',
+  karina_che: 'КАРИНА',
+  matilda: 'МАТИЛЬДА',
+  polyanka: 'ПОЛЯНКА',
+  alena_ily: 'АЛЕНА',
+  poechka: 'ПОЕЧКА',
+  ginevskaya: 'ГИНЕВСКАЯ',
+  arinahlus: 'АРИНА',
+  prohorshalyzpin: 'СЧАСТЬЕ',
 }
 
 export default promocodes
