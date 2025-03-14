@@ -1,3 +1,11 @@
+import IconVk from '@/components/icons/IconVk'
+import routes from '@/config/routes'
+import IconWhatsapp from '@/components/icons/IconWhatsapp'
+import IconTelegram from '@/components/icons/IconTelegram'
+import IconYt from '@/components/icons/IconYt'
+import IconOk from '@/components/icons/IconOk'
+import IconDzen from '@/components/icons/IconDzen'
+
 export const ArrowIcon = () => (
   <svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'>
     <path d='M1 13L13 1M13 1H1M13 1V13' stroke='#855EDF' stroke-width='2' />
@@ -129,3 +137,36 @@ export const IconBG = () => {
     </svg>
   )
 }
+
+export const socialLinks = [
+  {
+    id: 'vk',
+    icon: <IconVk />,
+    link: routes.external.vk
+  },
+  {
+    id: 'whatsapp',
+    icon: <IconWhatsapp />,
+    link: routes.external.whatsapp
+  },
+  {
+    id: 'telegram',
+    icon: <IconTelegram />,
+    link: routes.external.telegram
+  },
+  {
+    id: 'youtube',
+    icon: <IconYt />,
+    link: routes.external.youtube
+  },
+  {
+    id: 'IconOk',
+    icon: <IconOk />,
+    link: routes.external.ok
+  },
+  {
+    id: 'dzen',
+    icon: <IconDzen />,
+    link: routes.external.dzen
+  }
+]

@@ -1,47 +1,9 @@
-import routes from '@/config/routes'
 import stls from './JoinCommunity.module.sass'
 import TwoColumns from '@/ui/TwoColumns'
 import Image from 'next/image'
-import IconVk from '@/components/icons/IconVk'
-import IconWhatsapp from '@/components/icons/IconWhatsapp'
-import IconTelegram from '@/components/icons/IconTelegram'
-import IconYt from '@/components/icons/IconYt'
-import IconOk from '@/components/icons/IconOk'
-import IconDzen from '@/components/icons/IconDzen'
+import { socialLinks } from 'constants/contacts/contactsIcons'
 
 const JoinCommunity = () => {
-  const socialLinks = [
-    {
-      id: 'vk',
-      icon: <IconVk />,
-      link: routes.external.vk
-    },
-    {
-      id: 'whatsapp',
-      icon: <IconWhatsapp />,
-      link: routes.external.whatsapp
-    },
-    {
-      id: 'telegram',
-      icon: <IconTelegram />,
-      link: routes.external.telegram
-    },
-    {
-      id: 'youtube',
-      icon: <IconYt />,
-      link: routes.external.youtube
-    },
-    {
-      id: 'IconOk',
-      icon: <IconOk />,
-      link: routes.external.ok
-    },
-    {
-      id: 'dzen',
-      icon: <IconDzen />,
-      link: routes.external.dzen
-    }
-  ]
   return (
     <>
       <div className={stls.container}>
