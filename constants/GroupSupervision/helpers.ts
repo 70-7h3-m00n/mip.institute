@@ -1,10 +1,9 @@
 import dayjs from 'dayjs'
 
 export function generateDates(startDate: Date, endDate: Date): string[] {
-  const dates = []
+  const dates: string[] = []
 
   while (startDate <= endDate) {
-    //@ts-ignore
     dates.push(new Date(startDate).toISOString())
     startDate.setDate(startDate.getDate() + 7)
   }
@@ -36,12 +35,8 @@ export const groupsData = [
 export const formatDateRange = (dates: string[]): string => {
   const parsedDates = dates.map(date => dayjs(date))
 
-  const minDate = parsedDates.reduce((min, date) =>
-    date.isBefore(min) ? date : min
-  )
-  const maxDate = parsedDates.reduce((max, date) =>
-    date.isAfter(max) ? date : max
-  )
+  const minDate = parsedDates.reduce((min, date) => (date.isBefore(min) ? date : min))
+  const maxDate = parsedDates.reduce((max, date) => (date.isAfter(max) ? date : max))
 
   return `${minDate.format('DD.MM')}-${maxDate.format('DD.MM.YYYY')}`
 }

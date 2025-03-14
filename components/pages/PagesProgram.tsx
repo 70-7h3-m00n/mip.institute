@@ -13,7 +13,7 @@ import WhyBother from '@/components/sections/WhyBother'
 import YourDiploma from '@/components/sections/YourDiploma'
 import { discount } from '@/data/price'
 import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '@/helpers/index'
-import { TypeLibReviews } from '@/types/index'
+import { TypeLibProgram, TypeLibReviews } from '@/types/index'
 import { useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
 import DistanceEducation from '../sections/DistanceEducation'
@@ -30,7 +30,7 @@ type PagesProgramType = {
   reviews: TypeLibReviews
   programOverview: string
   slug: string
-  program: any
+  program: TypeLibProgram
 }
 
 const PagesProgram = ({
@@ -47,8 +47,11 @@ const PagesProgram = ({
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
   const faqRef = useRef<HTMLDivElement | null>(null)
+  const [showDescription, setShowDescription] = useState(true)
   const isPsyKonsultirovanie = slug === 'psihologicheskoe-konsultirovanie'
-
+  if (!program) {
+    return <div>Программа не найдена</div> // ✅ Защита от null
+  }
   const sections = [
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
     { id: 'plan', label: 'Учебный план', ref: planRef, condition: true },
@@ -73,8 +76,6 @@ const PagesProgram = ({
     { id: 'reviews', label: 'Отзывы', ref: reviewsRef, condition: true },
     { id: 'faq', label: 'FAQ', ref: faqRef, condition: true }
   ]
-
-  const [showDescription, setShowDescription] = useState(true)
 
   const toggleOverview = () => {
     setShowDescription(!showDescription)

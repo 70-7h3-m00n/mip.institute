@@ -5,9 +5,10 @@ import Link from 'next/link'
 import { useState } from 'react'
 import IconNavigation from '../icons/IconNavigation'
 import ProgramsOnMain from './ProgramsOnMain'
+import { TypeLibPrograms } from '@/types/index'
 
 type Props = {
-  programs: any[]
+  programs: TypeLibPrograms | null
   bachelors: any[]
   practicalTrainings: any[]
 }
@@ -22,12 +23,14 @@ const DirectionsNew = ({ programs, bachelors, practicalTrainings }: Props) => {
     setHoveredIcon(null)
   }
 
-  const amountOfCourses = programs.filter(el => el.type === 'Course').length
-  const amountOfProfessions = programs.filter(el => el.type === 'Profession').length
+  // Проверяем, что programs не null, иначе используем пустой массив
+  const safePrograms = programs ?? []
 
-  const amountOfShortTerm = programs.filter(el => el.type === 'ShortTerm').length
+  const amountOfCourses = safePrograms.filter(el => el && el.type === 'Course').length
+  const amountOfProfessions = safePrograms.filter(el => el && el.type === 'Profession').length
+  const amountOfShortTerm = safePrograms.filter(el => el && el.type === 'ShortTerm').length
 
-  const allPrograms = programs.concat(bachelors, practicalTrainings)
+  const allPrograms = safePrograms.concat(bachelors, practicalTrainings)
   const renderCounter = (type: string) => {
     switch (type) {
       case 'bachelor':

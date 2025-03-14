@@ -13,9 +13,7 @@ const TeachersPage: NextPage<TypePageTeachersProps> = ({
   programs,
   teachers
 }) => {
-  //@ts-ignore
   useHandleContextStaticProps({ programs })
-//@ts-ignore
   const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })
 
   const seoParams = {

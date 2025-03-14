@@ -82,7 +82,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
       setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
     }
-  }, [router.query,router.asPath])
+  }, [router.query, router.asPath])
 
   //cookie for edPartners
   // ?utm_source=yandex_alexej&utm_medium=cpc&utm_campaign=компания&utm_content=[Поиск] Логопед с доп. квалификацией - GZ / RF / CPC&utm_term=ключ
@@ -91,8 +91,8 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
-    // @ts-ignore
-    let utms = JSON.parse(sessionStorage.getItem('utms')) || {}
+    const storedUtms = sessionStorage.getItem('utms')
+    let utms = storedUtms ? JSON.parse(storedUtms) : {}
     let utmsAreEmpty = false
 
     for (const key in utms) {
@@ -152,7 +152,6 @@ const MyApp = ({ Component, pageProps, router }) => {
   return (
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
-      {/* {!dev && ( */}
       <>
         <Script strategy='afterInteractive' src='/assets/js/vendors/roistatAB.js' />
         <Script
@@ -169,11 +168,8 @@ const MyApp = ({ Component, pageProps, router }) => {
               `
           }}
         />
-        {/* <RoistatScript /> */}
         <Script async src='/assets/js/vendors/roistatWA.js' />
       </>
-      {/* )} */}
-
       {roistatVisit && (
         <div className='js-whatsapp-message-container' style={{ display: 'none' }}>
           Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер обращения:{' '}
@@ -240,7 +236,6 @@ const MyApp = ({ Component, pageProps, router }) => {
         }}>
         <MenuState>
           <FieldsTooltipState>
-            {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
             {}
             <Header />
             <main>
@@ -252,7 +247,6 @@ const MyApp = ({ Component, pageProps, router }) => {
               <StickyBottom />
             </div>
             <Footer />
-            {/* </div> */}
           </FieldsTooltipState>
         </MenuState>
       </ContextStaticProps.Provider>

@@ -25,7 +25,7 @@ type YourDiplomaType = {
   onMain?: boolean
   isBachelor?: boolean
   close?: () => void
-  programSlug?: string
+  programSlug?: string | null
 }
 
 const withAddInfo = [

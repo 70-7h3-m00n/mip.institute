@@ -2,14 +2,13 @@ import { GetStaticProps } from 'next'
 import { routes } from '@/config/index'
 import { PageBachelors } from '@/components/pages'
 import { handleGetStaticProps } from '@/lib/index'
-import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelorsProps'
-import TypePagePracticalTrainingsProps from '@/types/page/practicalTrainings/props/TypePagePracticalTrainingsProps'
+import { Bachelor, PracticalTraining } from '@/types/lib/bachelors/TypeLibBachelors'
 
 // Типизация Props для компонента
 interface ProgramsPageProps {
-  bachelors: TypePageBachelorsProps[] | null
+  bachelors?: Bachelor[]
   programs: any
-  practicalTrainings: TypePagePracticalTrainingsProps[] | null
+  practicalTrainings?: PracticalTraining[]
 }
 
 const ProgramsPage: React.FC<ProgramsPageProps> = ({
@@ -21,9 +20,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({
     <>
       <PageBachelors
         programs={programs}
-        //@ts-ignore
         bachelors={bachelors}
-        //@ts-ignore
         practicalTrainings={practicalTrainings}
       />
     </>

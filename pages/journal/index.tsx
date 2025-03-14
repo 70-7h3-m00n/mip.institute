@@ -51,7 +51,6 @@ const JournalPage = ({ blogs }) => {
 }
 
 export const getStaticProps: GetStaticProps = async context =>
-  //@ts-ignore
   await getStaticPropsBlogs()
 
 export default JournalPage

@@ -36,9 +36,9 @@ const LectoriumPage = ({ lectoriums }: Props) => {
   const today = dayjs()
 
   const [showPast, setShowPast] = useState(false)
-  const [isInternal, setIsInternal] = useState(null)
-  const [selectedType, setSelectedType] = useState(null)
-  const [priceFilter, setPriceFilter] = useState(null)
+  const [isInternal, setIsInternal] = useState<boolean | null>(null)
+  const [selectedType, setSelectedType] = useState<string | null>(null)
+  const [priceFilter, setPriceFilter] = useState<string | null>(null)
   const [filteredDates, setFilteredDates] = useState([null, null])
   const [filteredLectoriums, setFilteredLectoriums] = useState([])
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
@@ -73,8 +73,6 @@ const LectoriumPage = ({ lectoriums }: Props) => {
       }
     }
 
-    
-
     if (isInternal !== null) {
       baseFilter = baseFilter.filter(lect => lect.isInternal === isInternal)
     }
@@ -106,14 +104,22 @@ const LectoriumPage = ({ lectoriums }: Props) => {
 
     setFilteredLectoriums(sortedByDate)
     setDates(sortedByDate.map(lectorium => lectorium.targetDate))
-  },[filteredDates, isInternal, lectoriums, priceFilter, selectedType, showPast,today])
+  }, [filteredDates, isInternal, lectoriums, priceFilter, selectedType, showPast, today])
 
   useEffect(() => {
     filterLectoriums()
-  }, [showPast, selectedType, isInternal, filteredDates, lectoriums, priceFilter, setFilteredDates,filterLectoriums])
+  }, [
+    showPast,
+    selectedType,
+    isInternal,
+    filteredDates,
+    lectoriums,
+    priceFilter,
+    setFilteredDates,
+    filterLectoriums
+  ])
 
   const handleFilterInternalEvents = () => {
-    //@ts-ignore
     setIsInternal(true)
   }
 
@@ -122,16 +128,13 @@ const LectoriumPage = ({ lectoriums }: Props) => {
   }
 
   const handleFilterOutsideEvents = () => {
-    //@ts-ignore
     setIsInternal(false)
   }
 
   const handleSelectChange = (selectedOption: (typeof lectoriumOptions)[0]) => {
-    //@ts-ignore
     setSelectedType(selectedOption?.value || null)
   }
   const handleSelectPriceFilter = (selectedOption: (typeof lectoriumPriceOptions)[0]) => {
-    //@ts-ignore
     setPriceFilter(selectedOption?.value || null)
   }
 
@@ -153,8 +156,6 @@ const LectoriumPage = ({ lectoriums }: Props) => {
             воркшопы и т.п
           </p>
           <div className={stls.tags}>
-            
-
             <FilterTag onClick={handleFilterAllEvents} isActive={isInternal === null} isCategories>
               Все мероприятия
             </FilterTag>
@@ -196,18 +197,16 @@ const LectoriumPage = ({ lectoriums }: Props) => {
               </span>
             </button>
             <CustomSelect
-            onChange={handleSelectPriceFilter}
-            options={lectoriumPriceOptions}
-            // isDisabled={!isInternal}
-            radius='50'
-            height='30'
-            mainColor='#6F6F6F'
-            placeholder='Тип'
-            value={lectoriumPriceOptions.find(
-              option => option.value === priceFilter
-            )}
-          />
-          <FilterTag isActive={!!showPast} onClick={() => setShowPast(prev => !prev)}>
+              onChange={handleSelectPriceFilter}
+              options={lectoriumPriceOptions}
+              // isDisabled={!isInternal}
+              radius='50'
+              height='30'
+              mainColor='#6F6F6F'
+              placeholder='Тип'
+              value={lectoriumPriceOptions.find(option => option.value === priceFilter)}
+            />
+            <FilterTag isActive={!!showPast} onClick={() => setShowPast(prev => !prev)}>
               Прошедшие
             </FilterTag>
           </div>
@@ -222,8 +221,7 @@ const LectoriumPage = ({ lectoriums }: Props) => {
                 />
               </div>
             )}
-            {filteredLectoriums.map(lectorium => (
-              //@ts-ignore
+            {filteredLectoriums?.map((lectorium: any) => (
               <LectoriumIndexCard key={lectorium?.slug} card={lectorium} />
             ))}
           </div>

@@ -16,7 +16,7 @@ const supervision: any = {
 }
 interface Props {
   programs: Program[]
-  practicalTrainings: PracticalTraining[]
+  practicalTrainings: PracticalTraining[] 
   bachelors: Bachelor[]
 }
 

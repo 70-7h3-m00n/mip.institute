@@ -76,8 +76,10 @@ const JournalSlugPage = ({ blog }) => {
 export const getStaticPaths = async () =>
   await getStaticPathsBlogs()
 
-export const getStaticProps: GetStaticProps = async context =>
-  // @ts-ignore
-  await getStaticPropsBlog({context})
+export const getStaticProps: GetStaticProps = async (context) => {
+  const result = await getStaticPropsBlog({ context });
+
+  return result ?? { notFound: true }; // Если result === undefined, возвращаем 404
+};
 
 export default JournalSlugPage

@@ -1,11 +1,12 @@
 import { useContext, useEffect } from 'react'
 import { ContextStaticProps } from '@/context/index'
 import { filterProgramsByType, getStudyFields } from '@/helpers/index'
+import { TypeLibPrograms } from '@/types/index'
 
 type THandleContextStaticPropsProps = {
   program?: any
   seminar?: any
-  programs?: any[]
+  programs?: TypeLibPrograms | null
   curProgramsType?: string | null
   curProgramsStudyFieldSlug?: string | null
   tickets_quantity?: number
@@ -40,15 +41,9 @@ const useHandleContextStaticProps = ({
 
   useEffect(() => {
     const courses =
-    //@ts-ignore
-      programs?.length > 0
-        ? filterProgramsByType({ programs, type: 'course' })
-        : []
+      programs && programs?.length > 0 ? filterProgramsByType({ programs, type: 'course' }) : []
     const professions =
-    //@ts-ignore
-      programs?.length > 0
-        ? filterProgramsByType({ programs, type: 'profession' })
-        : []
+      programs && programs?.length > 0 ? filterProgramsByType({ programs, type: 'profession' }) : []
     setSeminar(seminar || null)
     setProgram(program || null)
     setBachelor(bachelor || null)
@@ -56,19 +51,34 @@ const useHandleContextStaticProps = ({
     setPrograms(programs || null)
     setCourses(courses || null)
     setProfessions(professions || null)
-//@ts-ignore
-    setStudyFields(programs?.length > 0 ? getStudyFields(programs) : [])
+    setStudyFields(programs && programs?.length > 0 ? getStudyFields(programs) : [])
 
-    setStudyFieldsProfessions(
-      //@ts-ignore
-      programs?.length > 0 ? getStudyFields(professions) : []
-    )
-    //@ts-ignore
-    setStudyFieldsCourses(programs?.length > 0 ? getStudyFields(courses) : [])
+    setStudyFieldsProfessions(programs && programs?.length > 0 ? getStudyFields(professions) : [])
+    setStudyFieldsCourses(programs && programs?.length > 0 ? getStudyFields(courses) : [])
 
     setCurProgramsType(curProgramsType || null)
     setCurProgramsStudyFieldSlug(curProgramsStudyFieldSlug || null)
-  }, [curProgramsStudyFieldSlug, curProgramsType, program, programs, seminar, bachelor, practicalTrainings])
+  }, [
+    curProgramsStudyFieldSlug,
+    curProgramsType,
+    program,
+    programs,
+    seminar,
+    bachelor,
+    practicalTrainings,
+    setSeminar,
+    setProgram,
+    setBachelor,
+    setPracticalTrainings,
+    setPrograms,
+    setCourses,
+    setProfessions,
+    setStudyFields,
+    setStudyFieldsProfessions,
+    setStudyFieldsCourses,
+    setCurProgramsType,
+    setCurProgramsStudyFieldSlug
+  ])
 }
 
 export default useHandleContextStaticProps
