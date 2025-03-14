@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import stls from './MetroSelectButton.module.sass'
-import { metroStations } from './constant'
+import { metroStations } from 'constants/contacts/contacts'
 import IconTextButton from '@/ui/IconTextButton'
 import IconPlus from '@/components/icons/IconPlus'
 import IconMinus from '@/components/icons/IconMinus'

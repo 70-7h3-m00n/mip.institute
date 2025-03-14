@@ -1,14 +1,12 @@
-'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import Office from '@/components/contacts/Office/Office'
 import Requisites from '@/components/contacts/Requisites/Requisites'
-import RouteMIP from '@/components/contacts/RouteMIP/RouteMIP'
-import Locations from '@/components/contacts/Locations/Locations'
 import stls from './PageContacts.module.sass'
 import JoinCommunity from '@/components/sections/lectorium/Stub/JoinCommunity/JoinCommunity'
 import truncate from '@/helpers/general/truncate'
 import { company, routes } from '@/config/index'
 import SeoAppRouter from '@/components/seo/SeoAppRouter'
+import ContactsClient from '@/components/contacts/ContactsClient'
 
 const seoParams = {
   title: `Контакты | ${company.name}`,
@@ -22,8 +20,6 @@ const seoParams = {
 }
 
 export default function Contacts() {
-  const [selectedCity, setSelectedCity] = useState<'moscow' | 'almaty'>('moscow') // Используем строки
-
   return (
     <div className={stls.pageContainer}>
       <SeoAppRouter
@@ -32,8 +28,7 @@ export default function Contacts() {
         canonical={seoParams.canonical}
         logoUrl={seoParams.logoUrl}
       />
-      <Locations selectedCity={selectedCity} setSelectedCity={setSelectedCity} />
-      {selectedCity === 'moscow' && <RouteMIP />}
+      <ContactsClient />
       <div className={stls.wrapper}>
         <JoinCommunity />
       </div>

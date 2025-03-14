@@ -2,7 +2,7 @@ import React from 'react'
 import routes from '@/config/routes' // Убедитесь, что routes импортирован
 import stls from './Requisites.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import { ArrowIcon, DocumentIcon, LicenseIcon } from './constant'
+import { ArrowIcon, DocumentIcon, LicenseIcon } from 'constants/contacts/contactsIcons'
 
 const Requisites = () => {
   return (

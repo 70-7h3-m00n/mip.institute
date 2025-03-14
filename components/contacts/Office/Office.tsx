@@ -4,7 +4,7 @@ import stls from './Office.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import { useState } from 'react'
 import classNames from 'classnames'
-import { BtnPrev, IconBG, images, NextBtn } from './constant'
+import { BtnPrev, IconBG, images, NextBtn } from 'constants/contacts/contactsIcons'
 
 const Office = () => {
   const [imageList, setImageList] = useState(images)

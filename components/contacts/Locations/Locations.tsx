@@ -3,15 +3,16 @@ import Wrapper from '@/ui/Wrapper'
 import stls from './Locations.module.sass'
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps'
 import FilterTag from '@/components/filters/FilterTag'
-import { almaty, moscow } from 'constants/contacts/locations'
+import { almaty, moscow } from 'constants/contacts/contacts'
+import { City } from '@/components/contacts/ContactsClient'
 
 type LocationsProps = {
-  selectedCity: 'moscow' | 'almaty'
-  setSelectedCity: (city: 'moscow' | 'almaty') => void
+  selectedCity: City
+  setSelectedCity: (city: City) => void
 }
 
 const Locations = ({ selectedCity, setSelectedCity }: LocationsProps) => {
-  const data = selectedCity === 'moscow' ? moscow : almaty
+  const data = selectedCity === City.Moscow ? moscow : almaty
 
   return (
     <section className={stls.container}>
@@ -20,14 +21,14 @@ const Locations = ({ selectedCity, setSelectedCity }: LocationsProps) => {
         <div className={stls.toggles}>
           <FilterTag
             isCategories
-            isActive={selectedCity === 'moscow'}
-            onClick={() => setSelectedCity('moscow')}>
+            isActive={selectedCity === City.Moscow}
+            onClick={() => setSelectedCity(City.Moscow)}>
             Москва
           </FilterTag>
           <FilterTag
             isCategories
-            isActive={selectedCity === 'almaty'}
-            onClick={() => setSelectedCity('almaty')}>
+            isActive={selectedCity === City.Almaty}
+            onClick={() => setSelectedCity(City.Almaty)}>
             Алматы
           </FilterTag>
         </div>

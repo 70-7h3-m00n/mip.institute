@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import stls from './RouteMIP.module.sass'
-import { metroStations } from './constant'
+import { metroStations } from 'constants/contacts/contacts'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import Wrapper from '@/ui/Wrapper'
 import routes from '@/config/routes'
