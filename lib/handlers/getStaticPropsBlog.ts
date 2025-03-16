@@ -5,7 +5,8 @@ import qs from 'qs'
 
 export const getStaticPropsBlog = async ({ context }) => {
 
-  console.log('CONTEEEEXT',context);
+  // console.log('CONTEEEEXT',context.draftMode);
+  const status = context.draftMode ? 'draft' : 'published'
   
   const queryString = qs.stringify(
     {
@@ -91,7 +92,7 @@ export const getStaticPropsBlog = async ({ context }) => {
           }
         }
       },
-      status: 'draft'
+      status
 
     },
     {
@@ -99,7 +100,6 @@ export const getStaticPropsBlog = async ({ context }) => {
     }
   )
 
-  // queryString.status = 'draft'
 
   try {
     const response = await axios.get(
