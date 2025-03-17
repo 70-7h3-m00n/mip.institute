@@ -1,6 +1,7 @@
+'use client'
 import stls from './ProgramForRequest.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import { KinescopePlayer } from '@/ui/Player/Player'
+import Player from '@/ui/Player/Player'
 import PopupTrigger from '@/ui/PopupTrigger'
 
 type TextItemType = {
@@ -26,7 +27,7 @@ const ProgramForRequest = ({ data }: Props) => {
           <div className={stls.textBlock}>
             <h2 className={stls.title}>
               {data?.[0]?.children.map((el, index) =>
-                el.code  && el.text === '/n' ? (
+                el.code && el.text === '/n' ? (
                   <br key={index} />
                 ) : (
                   !el.code && <span key={index}>{el.text}</span>
@@ -37,7 +38,7 @@ const ProgramForRequest = ({ data }: Props) => {
             <PopupTrigger btn='gamma' cta='submitApplication' />
           </div>
           <div className={stls.videoBlock}>
-            <KinescopePlayer
+            <Player
               title='Подберем программу под ваш запрос'
               videoId={VIDEO_ID}
               autoPlay={true}
