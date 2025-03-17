@@ -13,6 +13,7 @@ import stls from '@/styles/pages/JournalSlug.module.sass'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { getStaticPropsBlog } from '@/lib/handlers/getStaticPropsBlog'
 import { getStaticPathsBlogs } from '@/lib/getStaticPaths/getStaticPathsBlog'
+import routes from '@/config/routes'
 
 const JournalSlugPage = ({ blog }) => {
   console.log(blog);
@@ -52,6 +53,7 @@ const JournalSlugPage = ({ blog }) => {
     <Wrapper>
       <SeoPagesJournal blog={blog} />
       <div className={stls.in}>
+      {routes.back.rootv2}
         <ReadingProgressbar />
         <Breadcrumbs isJournal journalSlug={blog?.studyFieldSlug} lastLabel={blog?.studyField}/>
         {articleHeading && <ArticleTitle props={articleHeading} />}
