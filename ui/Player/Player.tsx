@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, RefObject, useRef } from 'react'
 import KinescopePlayer, { PlayerPropsTypes } from '@kinescope/react-kinescope-player'
+export { KinescopePlayer }
 
 type Props = PlayerPropsTypes & {
   forwardRef?: RefObject<KinescopePlayer>
