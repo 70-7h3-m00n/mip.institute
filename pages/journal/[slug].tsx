@@ -10,12 +10,11 @@ import Wrapper from '@/ui/Wrapper'
 import ButtonToTop from '@/components/sections/ButtonToTop'
 import SeoPagesJournal from '@/components/seo/SeoPageJournal'
 import stls from '@/styles/pages/JournalSlug.module.sass'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticProps } from 'next'
 import { getStaticPropsBlog } from '@/lib/handlers/getStaticPropsBlog'
 import { getStaticPathsBlogs } from '@/lib/getStaticPaths/getStaticPathsBlog'
 
 const JournalSlugPage = ({ blog }) => {
-  console.log(blog.seo);
   
   const articleHeading = {
     studyField: blog?.studyField,
@@ -32,21 +31,6 @@ const JournalSlugPage = ({ blog }) => {
   const headingLinks = blog?.article?.filter(
     el => el.__component === "blog.subtitle"
   )
-
-  const slug = ['', blog?.studyFieldSlug]
-
-  const segments = ['journal', 'journal']
-
-  const labels = ['Журнал', blog?.studyField]
-  const breadcrumbs = segments.map((segment, index) => {
-    const breadcrumb = {
-      label: labels[index],
-      path: '/' + segments[index],
-      // path: '/' + segments.slice(0, index + 1).join('/'),
-      slug: slug[index]
-    }
-    return breadcrumb
-  })
 
   return (
     <Wrapper>

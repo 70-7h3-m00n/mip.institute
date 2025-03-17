@@ -29,11 +29,7 @@ const JournalPage = ({ blogs }) => {
   const blogsFilter =
     selectedField.studyField == 'Все cтатьи'
       ? blogs
-      : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
-
-
-      console.log(blogs);
-      
+      : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)      
 
   return (
     <Wrapper>

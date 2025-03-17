@@ -162,8 +162,6 @@ const PartnersFormStickyBottom = ({
         setThanksIsOpen(true)
         setLoading(false)
       } else {
-        console.log('adwdadw')
-
         const req = await genezis(data)
 
         if (req === 200) {

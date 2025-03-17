@@ -87,8 +87,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
           <div className={stls.imgTeacherWithAchievements}>
             <div className={stls.imgTeacherContainer}>
               <Image
-                // @ts-ignore
-                src={props.teacher?.portraitForBlog?.url || props.teacher?.portrait?.url}
+                src={props.teacher?.portraitForBlog?.url ?? props.teacher?.portrait?.url ?? ''}
                 alt={'Фото преподавателя'}
                 className={classNames({
                   [stls.imgTeacher]: true,

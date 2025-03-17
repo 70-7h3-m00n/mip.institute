@@ -104,13 +104,10 @@ const CallMeBackForm = ({
     if (differenceInTime < 1800) {
       try {
         // отправляем запрос на обновление токенов, нам нужен из базы рефреш токен
-        //
-        console.log(refresh_token, 'in submit')
         const exchangeTokensResponse = await axios.post(
           `${routes.front.root}/api/amoCRMexchangeToken`,
           data?.amos[0]
         )
-        console.log(exchangeTokensResponse.data)
         if (exchangeTokensResponse.status === 200) {
           // update token as time close to end
           console.log('Обновляем токен')

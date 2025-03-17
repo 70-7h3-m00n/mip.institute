@@ -7,10 +7,18 @@ import stls from '@/styles/components/btns/BtnFields.module.sass'
 import MainStudyFields from '../sections/MainStudyFields'
 import StudyFieldsOnMain from '../sections/StudyFieldsOnMain'
 
+enum StudyFieldType {
+  Course = 'course',
+  Profession = 'profession',
+  Bachelor = 'bachelor',
+  PracticalTraining = 'practicalTraining',
+  ShortTerm = 'shortTerm'
+}
+
 const BtnFields = () => {
   const { fieldsTooltipIsOpen, toggleFieldsTooltip, closeFieldsTooltip } =
     useContext(FieldsTooltipContext)
-  const [currentType, setCurrentType] = useState<string | undefined>(undefined)
+  const [currentType, setCurrentType] = useState<StudyFieldType | undefined>(undefined)
   const btnRef = useRef<HTMLButtonElement | null>(null)
   const tooltipRef = useRef<HTMLDivElement | null>(null)
 
@@ -48,12 +56,7 @@ const BtnFields = () => {
             [stls.isShown]: fieldsTooltipIsOpen
           })}>
           <MainStudyFields currentType={currentType} setCurrentType={setCurrentType} />
-          <StudyFieldsOnMain
-            currentType={currentType}
-            // @ts-ignore
-            ofType={currentType}
-            orang
-          />
+          <StudyFieldsOnMain ofType={currentType} orang />
         </div>
       </div>
     </Wrapper>

@@ -55,8 +55,6 @@ const ProgramsFilters: React.FC<ProgramsFiltersProps> = ({
 
   const handleNavigation = (destination: string) => {
     const { ofType, studyFieldSlug, ...rest } = router.query
-    console.log(ofType, studyFieldSlug, destination)
-
     router.push({
       pathname: destination,
       query: rest

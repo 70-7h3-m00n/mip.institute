@@ -22,7 +22,7 @@ import allowedNames from 'constants/indexMain'
 import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
-import { ReactNode, useEffect, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
 import dynamic from 'next/dynamic'
 import stls from '@/styles/pages/Index.module.sass'
@@ -271,7 +271,9 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       </Popup>
 
       <div className={stls.container}>
-        {(layout === 'old' ? oldLayoutComponents : newLayoutComponents).map(component => component)}
+        {(layout === 'old' ? oldLayoutComponents : newLayoutComponents).map(component => (
+          <React.Fragment key={component.key}>{component}</React.Fragment>
+        ))}
       </div>
     </>
   )

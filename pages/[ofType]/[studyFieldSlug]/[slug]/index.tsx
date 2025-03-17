@@ -30,15 +30,14 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
     <>
       <SeoPagesProgram
         program={program}
-        ofType={program?.type ?? 'unknown'} // ✅ Защита от null/undefined
-        curProgramsStudyFieldSlug={studyFieldSlug ?? undefined} // ✅ Оставляем undefined, если null
+        ofType={program?.type ?? 'unknown'}
       />
 
       <PagesProgram
-        slug={slug ?? 'default-slug'} // ✅ Подставляем дефолтное значение
-        programOverview={programOverview ?? ''} // ✅ Если null/undefined → передаем пустую строку
-        reviews={reviews ?? []} // ✅ Если null, передаем пустой массив
-        ofType={program?.type ?? 'unknown'} // ✅ Гарантируем строку
+        slug={slug ?? 'default-slug'}
+        programOverview={programOverview ?? ''}
+        reviews={reviews ?? []}
+        ofType={program?.type ?? 'unknown'}
         program={program}
       />
     </>
@@ -109,7 +108,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   > = {}
 
   filteredPrograms?.forEach(program => {
-    const slug = program?.studyFieldSlug ?? 'unknown' // Используем 'unknown' вместо null/undefined
+    const slug = program?.studyFieldSlug ?? 'unknown'
 
     if (!studyFieldMap[slug]) {
       studyFieldMap[slug] = {

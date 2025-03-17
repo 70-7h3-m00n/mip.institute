@@ -23,34 +23,35 @@ type Props = {
 const PageLectorium = ({ lectorium }: Props) => {
   return (
     <div className={stls.container}>
-      {lectorium &&
-      <>
-      <LectoriumHero lectorium={lectorium} />
-      {lectorium.type !== 'studentsOnly' && (
-        <EventRegistration
-        timepadHref={lectorium?.timepadHref}
-        targetDate={lectorium?.targetDate}
-      />
-      ) }
-      
-      {lectorium?.speaker && <Speaker speaker={lectorium?.speaker} />}
-      <Advantages />
-      <LectoriumWhoIsEventFor />
-      {lectorium?.whatYouWillLearn && <LectoriumWhatYouWillLearn
-        whatYouWillLearn={lectorium.whatYouWillLearn}
-      />}
-      {lectorium?.pdf && <DownloadProgram lectorium={lectorium} />}
-      {lectorium?.diploma && <LectoriumCertificate href={lectorium.timepadHref} diploma={lectorium?.diploma} />}
-      <LectoriumHowGoesClasses />
-      <HaveQuestions />
-      <VideoReviews />
-      <ReviewsWithStars reviews={lectorium?.reviewWithDate} />
-      {lectorium.isInternal && <Maps />}
-      <LectoriumFAQ faq={lectorium?.faq} />
-      {lectorium?.lectoriums?.length > 0 && <NextEvents lectorium={lectorium} />}
-      </>
-      }
-      
+      {lectorium && (
+        <>
+          <LectoriumHero lectorium={lectorium} />
+          {lectorium.type !== 'studentsOnly' && (
+            <EventRegistration
+              timepadHref={lectorium?.timepadHref}
+              targetDate={lectorium?.targetDate}
+            />
+          )}
+
+          {lectorium?.speaker && <Speaker speaker={lectorium?.speaker} />}
+          <Advantages />
+          <LectoriumWhoIsEventFor />
+          {lectorium?.whatYouWillLearn && (
+            <LectoriumWhatYouWillLearn whatYouWillLearn={lectorium.whatYouWillLearn} />
+          )}
+          {lectorium?.pdf && <DownloadProgram lectorium={lectorium} />}
+          {lectorium?.diploma && (
+            <LectoriumCertificate href={lectorium.timepadHref} diploma={lectorium?.diploma} />
+          )}
+          <LectoriumHowGoesClasses />
+          <HaveQuestions />
+          <VideoReviews />
+          <ReviewsWithStars reviews={lectorium?.reviewWithDate} />
+          {lectorium.isInternal && <Maps />}
+          <LectoriumFAQ faq={lectorium?.faq} />
+          {lectorium?.lectoriums?.length > 0 && <NextEvents lectorium={lectorium} />}
+        </>
+      )}
     </div>
   )
 }
