@@ -77,11 +77,11 @@ const routes: TRoutes = {
       : preview
         ? 'https://dev.api.mip.institute'
         : 'https://api.mip.institute',
-    rootv2: prod
-      ? 'https://api-v2.mip.institute'
+    rootv2: dev
+      ?  'http://localhost:1338'
       : preview
         ? 'https://dev.api-v2.mip.institute'
-        : 'http://localhost:1338',
+        : 'https://api-v2.mip.institute',
     home: '/',
     graphql: '/graphql',
     programs: '/programs',
