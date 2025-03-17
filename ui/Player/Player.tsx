@@ -11,8 +11,6 @@ export default function Player({ forwardRef, ...props }: Props) {
   const [isClient, setIsClient] = useState(false)
   const [isLoading, setIsLoading] = useState(true) // 💡 Флаг загрузки
 
-  const playerRef = useRef<KinescopePlayer>(null)
-
   useEffect(() => {
     setIsClient(true) // Запускается только на клиенте
   }, [])
@@ -30,7 +28,6 @@ export default function Player({ forwardRef, ...props }: Props) {
         <KinescopePlayer
           {...props}
           ref={forwardRef}
-          onWaiting={() => console.log('wait...')}
           onReady={() => setIsLoading(false)} // 🔥 Убираем Skeleton, когда плеер загружен
         />
       )}
