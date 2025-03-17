@@ -28,6 +28,9 @@ const promocodesWithGift = {
   ginevskaya: { gift: 'https://mip.institute/free-access' },
   arinahlus: { gift: 'https://mip.institute/free-access' },
   prohorshalyzpin: { gift: 'https://mip.institute/free-access' },
+  sanya_florida:  { gift: 'https://mip.institute/free-access' },
+  'liz.zolotareva':  { gift: 'https://mip.institute/free-access' },
+  moscowmap:  { gift: 'https://mip.institute/free-access' },
 }
 
 export default promocodesWithGift
