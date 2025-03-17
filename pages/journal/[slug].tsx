@@ -15,7 +15,7 @@ import { getStaticPropsBlog } from '@/lib/handlers/getStaticPropsBlog'
 import { getStaticPathsBlogs } from '@/lib/getStaticPaths/getStaticPathsBlog'
 
 const JournalSlugPage = ({ blog }) => {
-  console.log(blog);
+  // console.log(blog);
   
   const articleHeading = {
     studyField: blog?.studyField,

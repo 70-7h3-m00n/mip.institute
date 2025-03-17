@@ -27,8 +27,8 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
     title: `${
       blog?.seo?.[0]?.metaTitle ? blog?.seo?.[0]?.metaTitle : 'статья Московского Института Психологии'
     }`,
-    desc: blog?.seo?.[0].metaDescription
-      ? blog?.seo?.[0].metaDescription
+    desc: blog?.seo?.[0]?.metaDescription
+      ? blog?.seo?.[0]?.metaDescription
       : 'Интересная статья о психологии' + ' ' + blog?.title,
     canonical: `${routes.front.root}${routes.front.journals}/${blog?.slug}`
   }

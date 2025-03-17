@@ -1,15 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { routes } from '@/config/index'
-import { draftMode } from 'next/headers'
 
 const preview = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { url, status } = req.query
-
-  console.log('QUERY', req.query);
-  
+  const { url, status, secret } = req.query
 
   if (!url || typeof url !== 'string') {
     return res.status(400).json({ message: 'Missing or invalid URL' })
+  }
+
+  if (secret !== process.env.PREVIEW_SECRET) {
+    return res.status(401).json({ message: 'Route forbidden' })
   }
 
   // Включаем или выключаем draft mode
