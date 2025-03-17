@@ -51,7 +51,7 @@ const FooterTop = () => {
                     opacity='0.4'
                     d='M1 7L7 1M7 1H1M7 1V7'
                     stroke='white'
-                    stroke-width='0.9825'
+                    strokeWidth='0.9825'
                   />
                 </svg>
               </span>

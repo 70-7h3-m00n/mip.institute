@@ -11,8 +11,13 @@ export type SortOption = {
   }
 }
 
+type Option = {
+  label: string
+  value: string
+}
+
 type Props = {
-  options?: Array<SortOption>
+  options?: Array<SortOption | Option>
   mainColor?: string
   onChange: (value: SortOption) => void
   marginTop?: string
@@ -142,14 +147,31 @@ const ProgramSelect = ({
     }
   }
 
+  const isSortOption = (option: SortOption | Option): option is SortOption =>
+    typeof option.value !== 'string'
+
+  let defaultOption: SortOption | Option | undefined
+
+  for (const option of options) {
+    if (isSortOption(option)) {
+      if (option.value.field === query.filter) {
+        defaultOption = option
+        break
+      }
+    } else {
+      if (option.value === query.studyFieldSlug) {
+        defaultOption = option
+        break
+      }
+    }
+  }
+
   return (
     <Select
       options={options}
       placeholder='Выберите направление'
       noOptionsMessage={() => 'Не нашлось подходящих направлений'}
-      defaultValue={
-        options.find(opt => opt.value.field === query.filter) || options[0]
-      }
+      defaultValue={defaultOption}
       styles={customStyles}
       isSearchable={false}
       onChange={handleSelectChange}
