@@ -14,6 +14,8 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { getStaticPropsBlog } from '@/lib/handlers/getStaticPropsBlog'
 import { getStaticPathsBlogs } from '@/lib/getStaticPaths/getStaticPathsBlog'
 import routes from '@/config/routes'
+import preview from '@/config/preview'
+import prod from '@/config/prod'
 
 const JournalSlugPage = ({ blog }) => {
   console.log(blog);
@@ -49,11 +51,17 @@ const JournalSlugPage = ({ blog }) => {
     return breadcrumb
   })
 
+  console.log(preview);
+  
+
   return (
     <Wrapper>
       <SeoPagesJournal blog={blog} />
       <div className={stls.in}>
-      {routes.back.rootv2}
+      <p>root2 {routes.back.rootv2 }</p>
+      <p>root1 {routes.back.root}</p>
+      <p>preview {String(preview)}</p>
+      <p>prod {String(prod)}</p>
         <ReadingProgressbar />
         <Breadcrumbs isJournal journalSlug={blog?.studyFieldSlug} lastLabel={blog?.studyField}/>
         {articleHeading && <ArticleTitle props={articleHeading} />}
