@@ -775,6 +775,11 @@ module.exports = /* withPWA( */ withBundleAnalyzer({
           '/professions/detskaya-psihologiya/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog',
         destination: '/professions/detskaya-psihologiya/logoped',
         permanent: true
+      },
+      {
+        source: '/professions/psihoterapiya/telesno-orientirovannaya-terapiya',
+        destination: '/professions/psihoterapiya/psihosomatika-i-telesnaya-psihoterapiya ',
+        permanent: true
       }
     ]
   }
