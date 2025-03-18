@@ -8,6 +8,10 @@ import '@/styles/app.sass'
 import truncate from '@/helpers/general/truncate'
 import Scripts from '@/components/sections/Scripts'
 import { Suspense } from 'react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
 
 export const metadata = {
   title: 'Московский Институт Психологии',

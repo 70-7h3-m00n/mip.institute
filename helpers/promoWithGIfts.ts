@@ -19,6 +19,15 @@ const promocodesWithGift = {
   pogrebjiskaya: { gift: 'https://mipinstitute.getcourse.ru/podp_mini_two' },
   angelapodcast: { gift: 'https://mipinstitute.getcourse.ru/podp_mini_two' },
   likapsychology: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
+  julso: { gift: 'https://mip.institute/free-access' },
+  karina_che: { gift: 'https://mip.institute/free-access' },
+  matilda: { gift: 'https://mip.institute/free-access' },
+  polyanka: { gift: 'https://mip.institute/free-access' },
+  alena_ily: { gift: 'https://mip.institute/free-access' },
+  poechka: { gift: 'https://mip.institute/free-access' },
+  ginevskaya: { gift: 'https://mip.institute/free-access' },
+  arinahlus: { gift: 'https://mip.institute/free-access' },
+  prohorshalyzpin: { gift: 'https://mip.institute/free-access' },
 }
 
 export default promocodesWithGift

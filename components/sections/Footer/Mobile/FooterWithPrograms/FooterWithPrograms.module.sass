@@ -1,0 +1,43 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.accordion
+  @include m.flex($fd: column)
+  gap: f.px(10)
+  width: 100%
+
+.accordionItem
+  border-bottom: f.px(1) solid c.$gray-800
+
+.accordionHeader
+  @include m.flex($jc: space-between, $ai: center)
+  width: 100%
+  @include m.gap($ptb: f.px(20))
+  font-size: f.px(16)
+  font-weight: 500
+  color: c.$white-900
+  cursor: pointer
+
+.icon
+  transition: transform 0.3s ease
+  transform: rotate(90deg)
+  @include m.gap($mr: f.px(10))
+
+.rotate
+  transform: rotate(-90deg)
+
+.accordionContent
+  display: none
+  flex-direction: column
+  gap: f.px(20)
+  padding-bottom: f.px(10)
+
+.open
+  display: flex
+
+.link
+  font-size: f.px(15)
+  color: c.$gray-500
+  text-decoration: none
+  transition: color 0.3s ease

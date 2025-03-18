@@ -7,6 +7,8 @@
   @include m.gap($pt: f.px(40), $pb: f.px(90))
   @include m.dye(bg, c.$black-700)
   @include m.dye(c, c.$gray-50)
+  @include m.media(phone,tablet)
+    @include m.gap($pt: f.px(0), $pb: f.px(0))
 
 .wrapper
   @include m.flex($fd: column)

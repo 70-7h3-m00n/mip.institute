@@ -1,7 +1,13 @@
+'use client'
 import stls from './ProgramForRequest.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import { KinescopePlayer } from '@/ui/Player/Player'
+// import Player from '@/ui/Player/Player'
 import PopupTrigger from '@/ui/PopupTrigger'
+
+import dynamic from 'next/dynamic'
+
+// Динамически импортируем плеер, отключая SSR
+const Player = dynamic(() => import('@/ui/Player/Player'), { ssr: false })
 
 type TextItemType = {
   children: Array<{ text: string }>
@@ -37,7 +43,7 @@ const ProgramForRequest = ({ data }: Props) => {
             <PopupTrigger btn='gamma' cta='submitApplication' />
           </div>
           <div className={stls.videoBlock}>
-            <KinescopePlayer
+            <Player
               title='Подберем программу под ваш запрос'
               videoId={VIDEO_ID}
               autoPlay={true}

@@ -1,21 +1,37 @@
-import React, { forwardRef } from 'react'
+'use client' // 💡 Указываем, что код выполняется только на клиенте
+
+import React, { useState, useEffect, RefObject, useRef } from 'react'
 import KinescopePlayer, { PlayerPropsTypes } from '@kinescope/react-kinescope-player'
 export { KinescopePlayer }
 
-type Props = PlayerPropsTypes
+type Props = PlayerPropsTypes & {
+  forwardRef?: RefObject<KinescopePlayer>
+}
 
-// Проверка на серверное окружение
-const isServer = () => typeof window === 'undefined'
+export default function Player({ forwardRef, ...props }: Props) {
+  const [isClient, setIsClient] = useState(false)
+  const [isLoading, setIsLoading] = useState(true) // 💡 Флаг загрузки
 
-// Используем forwardRef для передачи рефа родителю
-const Player = forwardRef<KinescopePlayer, Props>((props, ref) => {
-  if (isServer()) {
-    return null
-  }
-  return <KinescopePlayer {...props} ref={ref} />
-})
+  useEffect(() => {
+    setIsClient(true) // Запускается только на клиенте
+  }, [])
 
-// Добавляем displayName для ESLint
-Player.displayName = 'Player'
+  return (
+    <div className="player-container">
+      {/* Показываем Skeleton, пока плеер загружается */}
+      {(!isClient || isLoading) && (
+        <div className="skeleton">
+          <p>Загружаем видео...</p>
+        </div>
+      )}
 
-export default Player
+      {isClient && (
+        <KinescopePlayer
+          {...props}
+          ref={forwardRef}
+          onReady={() => setIsLoading(false)} // 🔥 Убираем Skeleton, когда плеер загружен
+        />
+      )}
+    </div>
+  )
+}
