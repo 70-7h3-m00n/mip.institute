@@ -60,6 +60,7 @@ const VideoReviews = () => {
                       playersRef.current[idx] = el as KinescopePlayer | null
                     }}
                     className={stls.kinescope}
+                    preload='auto'
                     controls={false}
                     videoId={videoId}
                   />

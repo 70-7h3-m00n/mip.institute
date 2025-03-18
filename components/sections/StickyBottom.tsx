@@ -26,6 +26,12 @@ const StickyBottom = ({ pageAppRouter = false }: Props) => {
 
   const roistat_visit = getCookie('roistat_visit')
 
+  const [rs_visit, setRsVisit] = useState('')
+
+  useEffect(() => {
+    setRsVisit(roistat_visit as string)
+  }, [roistat_visit])
+
   // Если `isShown === false`, ждем анимацию, а потом удаляем компонент
   if (!isShown) {
     setTimeout(() => {
@@ -103,7 +109,7 @@ const StickyBottom = ({ pageAppRouter = false }: Props) => {
         </div>
 
         <div className='js-whatsapp-message-container' style={{ display: 'none' }}>
-          <p>Ваш номер обращения: {roistat_visit}</p>
+          <p>Ваш номер обращения: {rs_visit}</p>
         </div>
 
         <div className={stls.btnMobile}>
