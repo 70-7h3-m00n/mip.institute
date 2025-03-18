@@ -22,7 +22,7 @@ import allowedNames from 'constants/indexMain'
 import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
 import dynamic from 'next/dynamic'
 import stls from '@/styles/pages/Index.module.sass'
@@ -75,7 +75,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   bachelors,
   practicalTrainings
 }) => {
-  //@ts-ignore
   useHandleContextStaticProps({ programs })
   const [layout, setLayout] = useState<'old' | 'new'>('old')
   const [open, setOpen] = useState(false)
@@ -89,12 +88,12 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       setOpen(true)
     }
   }, [router.query])
-  //@ts-ignore
-  const teachersFromMain = teachers?.filter(teacher => allowedNames.includes(teacher.name))
+  const teachersFromMain = teachers
+    ? teachers.filter(teacher => teacher && allowedNames.includes(teacher.name || ''))
+    : []
 
   const reviewsSorted = sortBasedOnNumericOrder({
-    //@ts-ignore
-    reviews: sortReviewsCreatedAtASC({ reviews })
+    reviews: reviews ? sortReviewsCreatedAtASC({ reviews }) : []
   })
 
   const seoParams = {
@@ -119,7 +118,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <Hero key='heroOld' />
       <DirectionsNew
         key='directionsNewOld'
-        //@ts-ignore
         programs={programs}
         bachelors={bachelors}
         practicalTrainings={practicalTrainings}
@@ -192,7 +190,6 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       />
       <DirectionsNew
         key='directionsNew'
-        //@ts-ignore
         programs={programs}
         bachelors={bachelors}
         practicalTrainings={practicalTrainings}
@@ -260,8 +257,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
 
       <Popup open={open} modal nested>
         {
-          // @ts-ignore
-          close => (
+          ((close: () => void) => (
             <PopupCta
               title='Задать вопрос'
               desc={desc}
@@ -270,11 +266,13 @@ const HomePage: NextPage<TypePageHomeProps> = ({
               close={close}
               blockForAmo='Переход по ссылке'
             />
-          )
+          )) as unknown as ReactNode
         }
       </Popup>
       <div className={stls.container}>
-        {(layout === 'old' ? oldLayoutComponents : newLayoutComponents).map(component => component)}
+        {(layout === 'old' ? oldLayoutComponents : newLayoutComponents).map(component => (
+          <React.Fragment key={component.key}>{component}</React.Fragment>
+        ))}
       </div>
     </>
   )

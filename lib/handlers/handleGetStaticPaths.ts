@@ -11,59 +11,66 @@ import getStaticPathsPageBachelor from '../getStaticPaths/getStaticPathsPageBach
 import getStaticPathsPageLectorium from '../getStaticPaths/getStaticPathsPageLectorium'
 import getStaticPathsPageLiveCourse from '../getStaticPaths/getStaticPathsPageLiveCourse'
 import getStaticPathsPagePracticalTraining from '../getStaticPaths/getStaticPathsPagePracticalTraining'
+import { GetStaticPathsResult } from 'next'
 
 type TypeHandleGetStaticPathsProps = {
   page: string
   type?: 'Course' | 'Profession'
 }
 
+// 🔹 Определяем тип для результата
+type GetStaticPathsResponse = {
+  paths: TypePageProgramsPaths | TypePageProgramPaths | TypePageJournalPaths | []
+  fallback: boolean | 'blocking'
+}
+
 const handleGetStaticPaths = async ({
   page,
   type
-}: TypeHandleGetStaticPathsProps): Promise<{
-  paths:
-    | TypePageProgramsPaths
-    | TypePageProgramPaths
-    | TypePageJournalPaths
-    | []
-  fallback: boolean | 'blocking'
-}> => {
+}: TypeHandleGetStaticPathsProps): Promise<GetStaticPathsResult> => {
+  
+  let result: GetStaticPathsResponse
+
   switch (page) {
     case routes.front.programs:
-      return await getStaticPathsPagePrograms({ type })
-
+      result = await getStaticPathsPagePrograms({ type })
+      break
     case routes.front.program:
-      return await getStaticPathsPageProgram({ type })
-
+      result = await getStaticPathsPageProgram({ type })
+      break
     case routes.front.seminar:
-      return await getStaticPathsPageSeminar()
-
+      result = await getStaticPathsPageSeminar()
+      break
     case routes.front.seminars:
-      return await getStaticPathsPageSeminars()
-
+      result = await getStaticPathsPageSeminars()
+      break
     case routes.front.journal:
-      return await getStaticPathsPageJournal()
-
+      result = await getStaticPathsPageJournal()
+      break
     case routes.front.journals:
-      return await getStaticPathsPageJournals()
-
+      result = await getStaticPathsPageJournals()
+      break
     case routes.front.liveCourse:
-      return await getStaticPathsPageLiveCourse()
-
+      result = await getStaticPathsPageLiveCourse()
+      break
     case routes.front.bachelor:
-      return await getStaticPathsPageBachelor()
-
+      result = await getStaticPathsPageBachelor()
+      break
     case routes.front.practicalTraining:
-      return await getStaticPathsPagePracticalTraining()
-
+      result = await getStaticPathsPagePracticalTraining()
+      break
     case routes.front.lectorium:
-      return await getStaticPathsPageLectorium()
-
+      result = await getStaticPathsPageLectorium()
+      break
     default:
-      return {
-        paths: [],
-        fallback: 'blocking'
-      }
+      return { paths: [], fallback: 'blocking' }
+  }
+
+  return {
+    paths: result.paths.map(({ params }) => ({
+      params: { ...params, studyFieldSlug: params.studyFieldSlug ?? '' }
+    })),
+    fallback: result.fallback
   }
 }
 

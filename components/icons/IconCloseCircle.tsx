@@ -2,11 +2,11 @@ import stls from '@/styles/components/icons/IconCloseCircle.module.sass'
 
 type TypeIconCloseCircle = {
   blackCross?: boolean
+  onClick?: () => void
 }
 
-const IconCloseCircle = ({ blackCross = false, onClick=null }) => {
+const IconCloseCircle = ({ blackCross = false, onClick }: TypeIconCloseCircle) => {
   return (
-    // @ts-ignore
     <span onClick={onClick} className={stls.container}>
       <svg viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Закрыть</title>

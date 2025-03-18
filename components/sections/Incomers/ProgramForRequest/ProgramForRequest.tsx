@@ -26,7 +26,7 @@ const ProgramForRequest = ({ data }: Props) => {
           <div className={stls.textBlock}>
             <h2 className={stls.title}>
               {data?.[0]?.children.map((el, index) =>
-                el.code  && el.text === '/n' ? (
+                el.code && el.text === '/n' ? (
                   <br key={index} />
                 ) : (
                   !el.code && <span key={index}>{el.text}</span>

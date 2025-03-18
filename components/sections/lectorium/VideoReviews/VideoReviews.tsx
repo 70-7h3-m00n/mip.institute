@@ -4,33 +4,33 @@ import CustomNextButton from '@/ui/CustomNextButton'
 import CustomPrevButton from '@/ui/CustomPrevButton'
 import Wrapper from '@/ui/Wrapper'
 import dynamic from 'next/dynamic'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import SwiperCore from 'swiper'
 import { Navigation, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import videoReviewList from 'constants/lectorium/videoReviewList'
+import { KinescopePlayer } from '@/ui/Player/Player'
 
 const Player = dynamic(() => import('@/ui/Player/Player'), {
   ssr: false
 })
+
 SwiperCore.use([Navigation, Scrollbar])
 
 const VideoReviews = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+  // Cоздали массив заданной длины и заполнили null
+  const playersRef = useRef<(KinescopePlayer | null)[]>(
+    new Array(videoReviewList.length).fill(null)
+  )
 
-  const playersRef = useRef([])
-
-  const handleSlideChange = swiper => {
+  const handleSlideChange = (swiper: SwiperCore) => {
     playersRef.current.forEach((player, index) => {
-      if (player && index !== swiper.activeIndex) {
-        // @ts-ignore
+      if (player && typeof player.stop === 'function' && index !== swiper.activeIndex) {
         player.stop()
       }
     })
   }
-  useEffect(() => {
-    playersRef.current = playersRef.current.slice(0, videoReviewList.length)
-  }, [])
 
   return (
     <section className={stls.container}>
@@ -50,15 +50,15 @@ const VideoReviews = () => {
             spaceBetween={20}
             allowTouchMove={false}
             speed={2000}
-            slidesPerGroupAuto={false}
             modules={[Scrollbar]}
             className={stls.mySwiper}>
             {videoReviewList.map((videoId, idx) => (
               <SwiperSlide key={videoId + idx} className={stls.slide}>
                 <div className={stls.playerWrapper}>
                   <Player
-                    // @ts-ignore
-                    forwardRef={el => (playersRef.current[idx] = el)}
+                    ref={el => {
+                      playersRef.current[idx] = el as KinescopePlayer | null
+                    }}
                     className={stls.kinescope}
                     controls={false}
                     videoId={videoId}

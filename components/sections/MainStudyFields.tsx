@@ -2,46 +2,36 @@ import stls from '@/styles/components/sections/MainStudyFields.module.sass'
 import cn from 'classnames'
 import list from 'constants/mainStudyFields'
 import Link from 'next/link'
-import { Fragment } from 'react'
 
-type StudyFieldsType = {
-  ofType?: 'course' | 'profession' | null
-  close?: any
-  setCurrentType?: (type: string) => void
-  currentType?: string
+type StudyFieldType =
+  | 'course'
+  | 'profession'
+  | 'bachelor'
+  | 'practicalTraining'
+  | 'shortTerm'
+  | undefined
+
+type StudyFieldsProps = {
+  currentType: StudyFieldType
+  setCurrentType: React.Dispatch<React.SetStateAction<StudyFieldType>>
 }
 
-const MainStudyFields = ({
-  setCurrentType,
-  close = null,
-  currentType
-}: StudyFieldsType) => {
+const MainStudyFields = ({ currentType, setCurrentType }: StudyFieldsProps) => {
   return (
     <ul className={stls.wrapper}>
       {list.map(({ label, href, programType, hoverSelect }, idx) => (
-        <Fragment key={idx}>
-          <li
-            className={cn({
-              [stls.studyField]: true,
-              [stls.active]: currentType === programType
-            })}
-            onClick={close && close}>
-            <Link
-              href={href}
-              passHref
-              // @ts-ignore
-              onMouseEnter={
-                // @ts-ignore
-                hoverSelect ? () => setCurrentType(programType) : null
-              }
-              className={cn({
-                [stls.mainFields]: true,
-                [stls.active]: currentType === programType
-              })}>
-              {label}
-            </Link>
-          </li>
-        </Fragment>
+        <li
+          key={idx}
+          className={cn(stls.studyField, { [stls.active]: currentType === programType })}>
+          <Link
+            href={href}
+            onMouseEnter={
+              hoverSelect ? () => setCurrentType(programType as StudyFieldType) : undefined
+            }
+            className={cn(stls.mainFields, { [stls.active]: currentType === programType })}>
+            {label}
+          </Link>
+        </li>
       ))}
     </ul>
   )

@@ -19,9 +19,7 @@ const ProgramOverview = ({ toggleOverview, showDescription }) => {
     : { titles: [], topics: [] }
 
   const customRenderers = {
-    p: ({ children }: { children: React.ReactNode }) => (
-      <p className={stls.p}>{children}</p>
-    )
+    p: ({ children }: { children: React.ReactNode }) => <p className={stls.p}>{children}</p>
   }
 
   return (
@@ -47,16 +45,12 @@ const ProgramOverview = ({ toggleOverview, showDescription }) => {
               topics.map((topicGroup, idx) => (
                 <div key={`${topicGroup}-${idx}`} className={stls.topicGroup}>
                   <h3>{titles[idx]}</h3>
-                  {
-                  //@ts-ignore
-                  topicGroup?.map((topic, topicIdx) => (
+                  {topicGroup?.map((topic, topicIdx) => (
                     <div key={topic + topicIdx} className={stls.item}>
                       <div className={stls.itemIcon}>
                         {loadIcon('IconCircleCheck', { violetItems: true })}
                       </div>
-                      <ReactMarkdown components={customRenderers}>
-                        {topic}
-                      </ReactMarkdown>
+                      <ReactMarkdown components={customRenderers}>{topic}</ReactMarkdown>
                     </div>
                   ))}
                 </div>

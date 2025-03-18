@@ -18,7 +18,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 SwiperCore.use([Navigation, Pagination, Scrollbar, Autoplay])
 
 type TeacherProps = {
-  teachersRef?: React.RefObject<HTMLElement | null>
+  teachersRef?: React.RefObject<HTMLElement>
   teachersFromMain?: TypeLibTeachers
   title: string
   onMain?: boolean
@@ -37,8 +37,7 @@ const Teachers = ({
   teachersFromMain,
   title,
   onMain = false,
-  //@ts-ignore
-  teachersList = null,
+  teachersList,
   isExperienceHidden,
   halfScreenTitle = false,
   isWhiteBackground,
@@ -72,7 +71,6 @@ const Teachers = ({
 
   return (
     <section
-    //@ts-ignore
       ref={teachersRef}
       className={classNames({
         [stls.container]: true,
@@ -117,13 +115,12 @@ const Teachers = ({
             scrollbar={isMobileAndTabletLayout ? false : true}
             modules={[Scrollbar]}>
             {list?.map((teacher, idx) => (
-              <SwiperSlide 
-              //@ts-ignore
-              key={teacher?.name + idx}>
+              <SwiperSlide key={`${teacher?.name ?? 'Без имени'}-${idx}`}>
                 <CardTeacher
                   portrait={teacher.image}
-                  //@ts-ignore
-                  name={teacher.name} achievements={teacher.achievements} experience={teacher.experience}
+                  name={teacher.name || 'Имя не указано'}
+                  achievements={teacher.achievements || 'Достижения не указаны'}
+                  experience={teacher.experience || 'Опыт работы не указан'}
                   isExperienceHidden={isExperienceHidden}
                   isWhiteBackground={isWhiteBackground}
                 />

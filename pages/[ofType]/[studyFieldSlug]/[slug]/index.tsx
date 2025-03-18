@@ -7,6 +7,7 @@ import { TypePageProgramProps, TypePageProgramsPropsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import { validOfTypeValues } from 'constants/staticPropsValidation'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { ParsedUrlQuery } from 'querystring'
 
 const ProfessionPage: NextPage<TypePageProgramProps> = ({
   programs,
@@ -15,7 +16,6 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
   studyFieldSlug
 }) => {
   useHandleContextStaticProps({
-    //@ts-ignore
     programs,
     program,
     curProgramsType: program?.type,
@@ -30,14 +30,14 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
     <>
       <SeoPagesProgram
         program={program}
-        //@ts-ignore
-        ofType={program?.type}
-        //@ts-ignore
-        curProgramsStudyFieldSlug={studyFieldSlug}
+        ofType={program?.type ?? 'unknown'}
       />
+
       <PagesProgram
-      //@ts-ignore
-        slug={slug}  programOverview={programOverview} reviews={reviews} ofType={program?.type}
+        slug={slug ?? 'default-slug'}
+        programOverview={programOverview ?? ''}
+        reviews={reviews ?? []}
+        ofType={program?.type ?? 'unknown'}
         program={program}
       />
     </>
@@ -45,8 +45,14 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  //@ts-ignore
-  const { slug, ofType, studyFieldSlug } = params
+  const { slug, ofType } = params as ParsedUrlQuery
+  const studyFieldSlug = (params as ParsedUrlQuery)?.studyFieldSlug || null
+  //Если slug отсутствует или не является строкой, возвращаем { notFound: true }
+  if (!slug || typeof slug !== 'string') {
+    return {
+      notFound: true
+    }
+  }
 
   const res = await apolloClient.query<TypePageProgramsPropsQuery>({
     query: gql`
@@ -87,26 +93,27 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   // Фильтрация программ на основе параметра ofType
   let filteredPrograms = programs
   if (ofType === 'professions') {
-    //@ts-ignore
     filteredPrograms = programs?.filter(program => program?.type === 'Profession')
   } else if (ofType === 'courses') {
-    //@ts-ignore
     filteredPrograms = programs?.filter(program => program?.type === 'Course')
   } else if (ofType === 'shortTerm') {
-    //@ts-ignore
     filteredPrograms = programs?.filter(program => program?.type === 'ShortTerm')
   } else if (ofType === 'programs') {
     filteredPrograms = programs
   }
 
-  const studyFieldMap = {}
+  const studyFieldMap: Record<
+    string,
+    { studyField: string | null; studyFieldSlug: string | null }
+  > = {}
+
   filteredPrograms?.forEach(program => {
-    //@ts-ignore
-    if (!studyFieldMap[program?.studyFieldSlug]) {
-      //@ts-ignore
-      studyFieldMap[program?.studyFieldSlug] = {
-        studyField: program?.studyField,
-        studyFieldSlug: program?.studyFieldSlug
+    const slug = program?.studyFieldSlug ?? 'unknown'
+
+    if (!studyFieldMap[slug]) {
+      studyFieldMap[slug] = {
+        studyField: program?.studyField ?? 'Неизвестное направление',
+        studyFieldSlug: slug
       }
     }
   })
@@ -271,9 +278,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const validSlug = res?.data?.program?.[0]
     const validOfType = validOfTypeValues.find(el => el === params?.ofType)
 
-    const validStudyFieldSlug = studyFields.find(
-      el => el.studyFieldSlug === studyFieldSlug
-    )
+    const validStudyFieldSlug = studyFields.find(el => el.studyFieldSlug === studyFieldSlug)
     if (!validOfType || !validStudyFieldSlug || !validSlug) {
       return {
         notFound: true

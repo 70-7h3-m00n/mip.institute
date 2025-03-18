@@ -2,14 +2,14 @@ import { GetStaticProps } from 'next'
 import { routes } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import PageTrainings from '@/components/pages/PageTrainings'
-import TypePagePracticalTrainingsProps from '@/types/page/practicalTrainings/props/TypePagePracticalTrainingsProps'
 import TypePageBachelorsProps from '@/types/page/bachelors/props/TypePageBachelorsProps'
 import SeoPractical from '@/components/seo/SeoPractical'
+import { Bachelor, PracticalTraining } from '@/types/lib/bachelors/TypeLibBachelors'
 
 interface ProgramsPageProps {
-  practicalTrainings: TypePagePracticalTrainingsProps[] | null
+  practicalTrainings: PracticalTraining[]
   programs: any
-  bachelors: TypePageBachelorsProps[] | null
+  bachelors: Bachelor[]
 }
 
 const ProgramsPage: React.FC<ProgramsPageProps> = ({
@@ -22,9 +22,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({
       <SeoPractical />
       <PageTrainings
         programs={programs}
-        //@ts-ignore
         practicalTrainings={practicalTrainings}
-        //@ts-ignore
         bachelors={bachelors}
       />
     </>

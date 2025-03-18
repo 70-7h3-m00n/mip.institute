@@ -6,36 +6,25 @@ interface Props {
   isLiveCourse?: boolean
   currentIndex?: number
   component?: JSX.Element[]
-  onArrowClick?: (direction: any) => void
+  onArrowClick: (direction: any) => void
 }
-const LeftPanel = ({
-  component,
-  onArrowClick,
-  currentIndex,
-  isLiveCourse
-}: Props) => {
+const LeftPanel = ({ component, onArrowClick, currentIndex, isLiveCourse }: Props) => {
   return (
     <div className={stls.container}>
       {component?.map((slide, index) => (
-        <div
-          key={index}
-          className={index === currentIndex ? stls.block : stls.hidden}>
+        <div key={index} className={index === currentIndex ? stls.block : stls.hidden}>
           {slide}
         </div>
       ))}
-      
-      <div
-      // @ts-ignore
-      onClick={() => onArrowClick('left')} className={stls.prevBtn}>
+
+      <div onClick={() => onArrowClick('left')} className={stls.prevBtn}>
         <IconPrevButton
           fourtyPx
           fourtyPxViolet={currentIndex === 2 ? true : false}
           isLiveCourse={isLiveCourse}
         />
       </div>
-      <div 
-      // @ts-ignore
-      onClick={() => onArrowClick('right')} className={stls.nextBtn}>
+      <div onClick={() => onArrowClick('right')} className={stls.nextBtn}>
         <IconNextButton
           fourtyPx
           fourtyPxViolet={currentIndex === 2 ? true : false}

@@ -55,16 +55,13 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
     // handle loader
     data.roistatAB = roistatAB
     data.leadPage = router.asPath
-    // @ts-ignore
-    const utms = JSON.parse(sessionStorage.getItem('utms'))
+    const utms = JSON.parse(sessionStorage.getItem('utms') ?? '{}')
     data.utms = utms
     sessionStorage.removeItem('utms')
-    // @ts-ignore
-    const referer = JSON.parse(sessionStorage.getItem('referer'))
+    const referer = JSON.parse(sessionStorage.getItem('referer') ?? '')
     data.referer = referer
     sessionStorage.removeItem('referer')
-    // @ts-ignore
-    const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+    const ymUid = JSON.parse(localStorage.getItem('_ym_uid') ?? '')
     data.ymUid = ymUid
     const clickId = getCookie('utm')
 
@@ -88,10 +85,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
     const req = await genezis(data)
 
     if (req === 200) {
-      window.open(
-        `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
-        '_blank'
-      )
+      window.open(`${routes.front.gratefull}?email=${data.email}&name=${data.name}`, '_blank')
       setIsLoading(false)
       setIsIpCheckFailed(false)
     } else {
@@ -102,9 +96,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
 
   const renderType = () => {
     const type =
-      program.type === 'Profession' || program.type === 'Course'
-        ? program.type
-        : program.__typename
+      program.type === 'Profession' || program.type === 'Course' ? program.type : program.__typename
 
     switch (type) {
       case 'Profession':
@@ -119,11 +111,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
   }
 
   const disabled =
-    !dirtyFields.email ||
-    !dirtyFields.name ||
-    !dirtyFields.phone ||
-    !isAgree ||
-    isDisabled
+    !dirtyFields.email || !dirtyFields.name || !dirtyFields.phone || !isAgree || isDisabled
 
   return (
     <>
@@ -190,11 +178,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
                   />
                 )}
               />
-              {errors.phone && (
-                <p className={stls.err}>
-                  {errors.phone && errors.phone.message}
-                </p>
-              )}
+              {errors.phone && <p className={stls.err}>{errors.phone && errors.phone.message}</p>}
             </div>
             <div className={classNames(stls.inpt, stls.email)}>
               <input
@@ -242,8 +226,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
             <span>Срок обучения</span>
             <div className={stls.line}></div>
             <span>
-              {program.studyMounthsDuration} месяцев / {program.studyHours}{' '}
-              часов
+              {program.studyMounthsDuration} месяцев / {program.studyHours} часов
             </span>
           </div>
         )}

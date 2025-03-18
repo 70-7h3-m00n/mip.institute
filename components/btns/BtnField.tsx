@@ -6,9 +6,9 @@ import { ReactNode, useContext } from 'react'
 import classNames from 'classnames'
 
 interface Props {
-  href?: any
+  href?: string
   aside?: boolean
-  slug?: any
+  slug?: string
   children: ReactNode
   smallText?: boolean
   mainFields?: boolean
@@ -16,9 +16,9 @@ interface Props {
   isViolet?: boolean
 }
 const BtnField = ({
-  href = null,
+  href = '#',
   aside = false,
-  slug = null,
+  slug = '',
   children,
   smallText = false,
   mainFields = false,
@@ -37,15 +37,12 @@ const BtnField = ({
         [stls.tooltip]: !aside && !smallText,
         [stls.aside]: aside,
         [stls.active]:
-          aside &&
-          (slug === curProgramsStudyFieldSlug ||
-            (!slug && !curProgramsStudyFieldSlug)),
+          aside && (slug === curProgramsStudyFieldSlug || (!slug && !curProgramsStudyFieldSlug)),
         [stls.smallText]: smallText,
         [stls.orang]: orang,
         [stls.violet]: isViolet
       })}
-      // @ts-ignore
-      onClick={!aside && closeFieldsTooltip}>
+      onClick={!aside ? () => closeFieldsTooltip() : undefined}>
       {children}
     </Link>
   )

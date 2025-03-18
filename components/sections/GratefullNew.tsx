@@ -26,20 +26,20 @@ const GratefullNew = ({ backButton = true }: Props) => {
   useEffect(() => {
     setTimeout(() => {
       let foundPromo = false
-    for (const key in promocodesWithGift) {
+      for (const key in promocodesWithGift) {
         if (stringedUtm?.includes(key)) {
-          const { gift } = promocodesWithGift[key];
-          setIsPromoLinkGift(gift);
-          setIsPromo(true);
-          foundPromo = true;
-          break;
+          const { gift } = promocodesWithGift[key]
+          setIsPromoLinkGift(gift)
+          setIsPromo(true)
+          foundPromo = true
+          break
+        }
       }
-    }
       if (!foundPromo) {
         setIsPromo(false)
       }
     }, 2000)
-  }, [utmCookie,stringedUtm])
+  }, [utmCookie, stringedUtm])
 
   return (
     <LinkComponent
@@ -81,9 +81,7 @@ const GratefullNew = ({ backButton = true }: Props) => {
         </div>
         <div className={stls.bottom}>
           <p></p>
-          <Link 
-          // @ts-ignore
-          href={gratefull.columns[1].link} target='_blank' className={stls.link}>
+          <Link href={gratefull.columns[1].link ?? '#'} target='_blank' className={stls.link}>
             <button
               className={classNames({
                 [stls.button]: true,

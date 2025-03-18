@@ -1,4 +1,4 @@
-const testResultsMarker = item => {
+const testResultsMarker = (item: string): string[] => {
   switch (item) {
     case 'childrenPsy':
       return [
@@ -15,16 +15,12 @@ const testResultsMarker = item => {
         'Психоанализ и психоаналитическая психотерапия'
       ]
     case 'organization':
-      return [
-        'Психолог бизнес - консультант. Коуч',
-        'Корпоративный психолог',
-        'Медиатор'
-      ]
+      return ['Психолог бизнес - консультант. Коуч', 'Корпоративный психолог', 'Медиатор']
     case 'psySomatic':
       return [
         'Психосоматика и телесная психотерапия',
         'Телесно-ориентированная терапия',
-        'Когнитивно-поведенческий психотерапевт',
+        'Когнитивно-поведенческий психотерапевт'
       ]
     default:
       return ['Программа']
