@@ -21,13 +21,14 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
-import StickyBottom from '@/components/sections/StickyBottom'
 import dynamic from 'next/dynamic'
 import getDefaultStateProps from '@/helpers/funcs/getDefaultStateProps'
 
 const Footer = dynamic(() => import('@/components/sections/Footer/Footer'), {
   ssr: false
 })
+// Динамический импорт StickyBottom без SSR чтобы не перерендеривался на изменения на странице
+const StickyBottom = dynamic(() => import('@/components/sections/StickyBottom'), { ssr: false })
 
 const MyApp = ({ Component, pageProps, router }) => {
   const defaultStateProps = getDefaultStateProps(pageProps)

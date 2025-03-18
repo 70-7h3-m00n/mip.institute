@@ -26,7 +26,7 @@ const VideoReviews = () => {
 
   const handleSlideChange = (swiper: SwiperCore) => {
     playersRef.current.forEach((player, index) => {
-      if (player && index !== swiper.activeIndex) {
+      if (player && typeof player.stop === 'function' && index !== swiper.activeIndex) {
         player.stop()
       }
     })
