@@ -5,9 +5,6 @@ export default async function handler(req, res) {
 
   const { price, utm,promocode, program } = req.body
 
-  console.log(`https://career.hh.ru/events?transaction_id=${utm.transaction_id}&offer_id=1&adv_id=67&offer_name=${program}&action=ORDER&amount=${price}&promocode=${promocode}`);
-  
-  
   try {
     const newresponse = await axios.get(
       `https://career.hh.ru/events?transaction_id=${utm.transaction_id}&offer_id={1}&adv_id={67}&offer_name=psy&action=ORDER&amount=${price}&promocode=${promocode || null}`
