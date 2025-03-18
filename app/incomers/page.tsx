@@ -3,11 +3,8 @@ import axios from 'axios'
 import React from 'react'
 import qs from 'qs'
 import IncomersClient from '@/components/clientComponents/IncomersClient'
-
-// export const metadata = {
-//   title: 'Партнеры Московского Института Психологии (МИП)',
-//   description: 'Подробная информация о действующих партнерах Московского Института Психологии (МИП)'
-// }
+import { company, preview } from '@/config/index'
+import { Metadata } from 'next'
 
 const queryString = qs.stringify(
   {
@@ -63,6 +60,41 @@ const queryString = qs.stringify(
     skipNulls: true
   }
 )
+
+export const generateMetadata = (): Metadata => {
+  const title = 'Поступление в МИП (Московский Институт Психологии)'
+  const description =
+    'Подробная информация для поступающих и абитуриентов Московского Института Психологии (МИП): условия поступления, широкий выбор программ, учебный процесс, условия оплаты, а так же помощь в подборе программы от наших специалистов.'
+  const canonical = `${routes.front.root}${routes.front.incomers}`
+  const logoUrl = `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical
+    },
+    robots: {
+      index: preview,
+      follow: preview
+    },
+    openGraph: {
+      url: canonical,
+      title,
+      description,
+      images: [
+        {
+          url: logoUrl,
+          width: 512,
+          height: 512,
+          alt: title,
+          type: 'image/png'
+        }
+      ],
+      siteName: company.name
+    }
+  }
+}
 
 export const revalidate = false
 
