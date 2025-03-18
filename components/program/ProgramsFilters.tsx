@@ -88,25 +88,6 @@ const ProgramsFilters = ({
         <FilterTag
           onClick={() => handleNavigation('/programs')}
           isActive={ofType === 'programs'}
-          quantity={
-            ofType === 'programs' && !studyFieldSlug
-              ? findProgramsLength(filteredItems, 'programs')
-              : filter === 'popular'
-                ? favprograms?.length
-                : ofType === 'programs' && studyFieldSlug
-                  ? findProgramsLength(allPrograms, 'programs') -
-                    findFilteredProgramsLength(
-                      allPrograms,
-                      studyFieldSlug,
-                      ofType as string
-                    ) +
-                    findFilteredProgramsLength(
-                      filteredItems,
-                      studyFieldSlug,
-                      ofType as string
-                    )
-                  : findProgramsLength(allPrograms, 'programs')
-          }
           isProgram>
           Все курсы
         </FilterTag>

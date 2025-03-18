@@ -51,7 +51,7 @@ const FilterTag = ({
         [stls.disabled]: disabled
       })}>
       {children}
-      {<span className={stls.quantity}>{quantity}</span>}
+      {quantity && <span className={stls.quantity}>{quantity}</span>}
       {withPopup && (
         <Popup
           trigger={open => (
