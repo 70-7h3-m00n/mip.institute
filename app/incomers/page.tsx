@@ -3,7 +3,7 @@ import axios from 'axios'
 import React from 'react'
 import qs from 'qs'
 import IncomersClient from '@/components/clientComponents/IncomersClient'
-import { company, preview } from '@/config/index'
+import { company, prod } from '@/config/index'
 import { Metadata } from 'next'
 
 const queryString = qs.stringify(
@@ -75,8 +75,8 @@ export const generateMetadata = (): Metadata => {
       canonical
     },
     robots: {
-      index: preview,
-      follow: preview
+      index: prod,
+      follow: prod
     },
     openGraph: {
       url: canonical,

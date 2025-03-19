@@ -1,16 +1,13 @@
 import React from 'react'
 import ContactsClient from '@/components/contacts/ContactsClient'
 import { Metadata } from 'next'
-import { company, routes } from '@/config/index'
+import { company, prod, routes } from '@/config/index'
 import truncate from '@/helpers/general/truncate'
 
 export const generateMetadata = (): Metadata => {
   // исправить каноникал перед продом и поменять noindex/nofollow на preview
-  const title = `Контакты | ${company.name}`
-  const description = truncate(
-    `${company.addresses.default.city}, ${company.addresses.default.street.name} ${company.addresses.default.street.type} ${company.addresses.default.street.door}, ${company.phoneNumbers.default.val}, ${company.phoneNumbers.defaultAlt.val}, ${company.emails.default.val}`,
-    120
-  )
+  const title = `Контакты МИП (Московский Институт Психологии)`
+  const description =`Подробная информация о контактах и всех способах связи Московского Института Психологии: адреса в г. Москве (Докучаев переулок, 8) и г. Алматы, телефон +7 (499) 388-92-34 , электронная почта info@mip.institute`
   const canonical = `${routes.front.root}${routes.front.contact}`
   const logoUrl = `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`
 
@@ -21,8 +18,8 @@ export const generateMetadata = (): Metadata => {
       canonical
     },
     robots: {
-      index: false,
-      follow: false
+      index: prod,
+      follow: prod
     },
     openGraph: {
       url: canonical,
