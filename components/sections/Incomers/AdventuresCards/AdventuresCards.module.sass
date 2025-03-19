@@ -10,7 +10,8 @@
   position: relative 
   overflow: visible
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(24),$pb: f.px(34))
+    @include m.gap($ptb: f.px(24))
+    margin-top: -20px
 
 .imageMipContainer
     position: sticky
@@ -31,7 +32,7 @@
   top: 20px
   @include m.media(phone, tablet)
     font-size: f.px(26)
-    @include m.gap($mb: f.px(19))
+    @include m.gap($mb: f.px(70))
 
 .left
   text-align: left
@@ -109,3 +110,23 @@
     width: 100%
     height: auto
     border-radius: 15px
+
+.buttonContainer
+  @include m.flex($jc: center, $ai: center) 
+  z-index: 2
+  border-radius: f.px(10)
+  background: #FF8F52
+  width: 100%
+  @include m.gap($mt: f.px(30))
+  @include m.media(phone,tablet)
+    @include m.gap($mt: f.px(10))
+    border-radius: f.px(5)
+
+.text
+  color: c.$white-900
+  font-size: f.px(22)
+  font-weight: 500
+  @include m.gap($mb: f.px(0),$ptb: f.px(21))
+  @include m.media(phone,tablet)
+    @include m.gap($ptb: f.px(18))
+    font-size: f.px(16)
