@@ -4,4 +4,8 @@
 
 .container
   @include m.dye(bg, c.$gray-100)
-  
+  @include m.flex($fd: column)
+  gap: f.px(30)
+  @include m.gap($plr: f.px(15), $ptb: f.px(30))
+  @include m.media(tablet, phone)
+    @include m.gap($plr: 0, $ptb: f.px(10))

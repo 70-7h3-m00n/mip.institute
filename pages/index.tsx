@@ -27,6 +27,7 @@ import Popup from 'reactjs-popup'
 import dynamic from 'next/dynamic'
 import stls from '@/styles/pages/Index.module.sass'
 import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '../helpers'
+import PsyTestMain from '@/components/sections/PsyTestMain'
 
 const PopupCta = dynamic(() => import('@/components/popups/PopupCta'), {
   ssr: false
@@ -122,7 +123,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         bachelors={bachelors}
         practicalTrainings={practicalTrainings}
       />
-      <PsyTest key='psyTestOld' />
+      <PsyTest key='psyTestOld' fallbackComponent={PsyTestMain} />
       <TopCourses key='topCoursesOld' />
       <ButtonToTop key='buttonToTopOld' />
       <WhyBother key='whyBotherOld' />
@@ -194,7 +195,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         bachelors={bachelors}
         practicalTrainings={practicalTrainings}
       />
-      <PsyTest key='psyTest' />
+      <PsyTest key='psyTest' fallbackComponent={PsyTestMain} />
       <TopCourses key='topCourses' />
       <ButtonToTop key='buttonToTop' />
       <div className={stls.youLearnPadding}>

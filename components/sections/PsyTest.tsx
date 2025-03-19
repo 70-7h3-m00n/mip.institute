@@ -1,3 +1,4 @@
+'use client'
 import stls from '@/styles/components/sections/PsyTest.module.sass'
 import { useState } from 'react'
 import SwiperCore from 'swiper'
@@ -5,11 +6,17 @@ import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import quiz from '../../constants/quizQuestions'
 import Wrapper from '@/ui/Wrapper'
-import QuizResults from './QuizResults'
-import PsyTestMain from './PsyTestMain'
+import dynamic from 'next/dynamic'
+
+const QuizResults = dynamic(() => import('./QuizResults'), { ssr: false })
+
 SwiperCore.use([Navigation, Pagination])
 
-const PsyTest = () => {
+const PsyTest = ({
+  fallbackComponent
+}: {
+  fallbackComponent: React.FC<{ startHandler: () => void }>
+}) => {
   const [_, setInputs] = useState('')
   const [result, setResult] = useState<Array<Array<string>>>([])
   const [showResult, setShowResult] = useState(false)
@@ -46,12 +53,15 @@ const PsyTest = () => {
     })
     setCategory(maxKey)
   }
-  if (showResult) return <QuizResults result={category} />
+  if (showResult) {
+    console.log('Rendering QuizResults with category:', category)
+    return <QuizResults result={category} />
+  }
 
   const handleStart = () => {
     setIsTestStarted(true)
   }
-
+  const FallbackComponent = fallbackComponent
   return (
     <>
       {isTestStarted ? (
@@ -70,9 +80,7 @@ const PsyTest = () => {
                   <h3 className={stls.questionTitle}>{el.title}</h3>
                   <div className={stls.card}>
                     <div className={stls.leftBlock}>
-                      <div
-                        className='quiz'
-                        onClick={() => handleAnswer(el.value1, el.idx)}>
+                      <div className='quiz' onClick={() => handleAnswer(el.value1, el.idx)}>
                         <input
                           type='radio'
                           className={stls.radioQuiz}
@@ -81,9 +89,7 @@ const PsyTest = () => {
                         />
                         <label className={stls.label}>{el.question1}</label>
                       </div>
-                      <div
-                        className='quiz'
-                        onClick={() => handleAnswer(el.value2, el.idx)}>
+                      <div className='quiz' onClick={() => handleAnswer(el.value2, el.idx)}>
                         <input
                           type='radio'
                           className={stls.radioQuiz}
@@ -93,9 +99,7 @@ const PsyTest = () => {
                         <label className={stls.label}>{el.question2}</label>
                       </div>
                       {el.value3 && (
-                        <div
-                          className='quiz'
-                          onClick={() => handleAnswer(el.value3, el.idx)}>
+                        <div className='quiz' onClick={() => handleAnswer(el.value3, el.idx)}>
                           <input
                             type='radio'
                             className={stls.radioQuiz}
@@ -107,9 +111,7 @@ const PsyTest = () => {
                       )}
 
                       {el.value4 && (
-                        <div
-                          className='quiz'
-                          onClick={() => handleAnswer(el.value4, el.idx)}>
+                        <div className='quiz' onClick={() => handleAnswer(el.value4, el.idx)}>
                           <input
                             type='radio'
                             className={stls.radioQuiz}
@@ -122,10 +124,7 @@ const PsyTest = () => {
                     </div>
                   </div>
                   <div className={stls.btn}>
-                    <button
-                      disabled={el.idx === 1}
-                      onClick={handleBack}
-                      className='back'>
+                    <button disabled={el.idx === 1} onClick={handleBack} className='back'>
                       Назад
                     </button>
                   </div>
@@ -135,7 +134,7 @@ const PsyTest = () => {
           </Wrapper>
         </section>
       ) : (
-        <PsyTestMain startHandler={handleStart} />
+        <FallbackComponent startHandler={handleStart} />
       )}
     </>
   )
