@@ -7,12 +7,18 @@ import BtnField from '@/components/btns/BtnField'
 import CardTooltip from '@/components/cards/CardTooltip'
 import loadIcon from '@/helpers/general/loadIcon'
 
+type Program = {
+  id: string
+  title: string
+  description?: string
+  slug: string
+} // TODO проверить типизацию
 export default function SearchProgram() {
   const { closeFieldsTooltip } = useContext(fieldsTooltipContext)
 
   const [searchQuery, setSearchQuery] = useState('')
-  const [filteredPrograms, setFilteredPrograms] = useState([])
-  const [programs, setPrograms] = useState([])
+  const [filteredPrograms, setFilteredPrograms] = useState<Program[]>([])
+  const [programs, setPrograms] = useState<Program[]>([])
 
   useEffect(() => {
     const fetchPrograms = async () => {
@@ -24,7 +30,6 @@ export default function SearchProgram() {
 
   useEffect(() => {
     const filtered = programs.filter(program => {
-      //@ts-ignore
       const programTitle = convertEnglishToRussian(program.title.toLowerCase())
       const query = convertEnglishToRussian(searchQuery.toLowerCase())
       return programTitle.includes(query)
@@ -79,9 +84,7 @@ export default function SearchProgram() {
             <>
               <p>К сожалению по вашему запросу ничего не найдено</p>
               <div className={stls.allPrograms}>
-                <BtnField href='/programs'>
-                  Ознакомиться со всеми направлениями
-                </BtnField>
+                <BtnField href='/programs'>Ознакомиться со всеми направлениями</BtnField>
               </div>
             </>
           )}

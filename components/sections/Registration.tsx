@@ -29,8 +29,6 @@ function Register() {
           }
         }
       })
-
-      console.log('User registered:', data)
     } catch (error) {
       console.error('Registration error:', error)
     }

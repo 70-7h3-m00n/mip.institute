@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import Popup from 'reactjs-popup'
 
 // Компонент первого шага - ввод почты
@@ -77,14 +77,13 @@ function RegistrationFlow() {
   return (
     <Popup open={true} modal closeOnDocumentClick={false}>
       {
-        // @ts-ignore
-        close => (
+        ((close: () => void) => (
           <div>
             {step === 1 && <Step1 onNext={handleNextStep} />}
             {step === 2 && <Step2 onNext={handleNextStep} />}
-            {step === 3 && <Step3 onComplete={close} />}
+            {step === 3 && <Step3 onComplete={() => close()} />}
           </div>
-        )
+        )) as unknown as ReactNode
       }
     </Popup>
   )

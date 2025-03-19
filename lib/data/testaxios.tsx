@@ -33,8 +33,6 @@ const getProgramsDatav5axios = async () => {
         'Authorization': 'Bearer ' + token
       }
     })
-    console.log(data)
-
     return data
   } catch (error) {
     console.error('Failed to fetch programs data:', error)

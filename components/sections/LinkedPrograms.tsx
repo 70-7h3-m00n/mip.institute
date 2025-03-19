@@ -55,12 +55,7 @@ const LinkedPrograms = ({ specializations, title, close }: Props) => {
     [...specializations]?.map(course => ({
       ...course,
       image: (
-        <ImgTopCourse
-          src={course?.heroPicture?.url}
-          alt={course?.title}
-          width={780}
-          height={380}
-        />
+        <ImgTopCourse src={course?.heroPicture?.url} alt={course?.title} width={780} height={380} />
       )
     }))
 
@@ -120,15 +115,12 @@ const LinkedPrograms = ({ specializations, title, close }: Props) => {
             )}
           </Swiper>
         </div>
-        <Popup
-          open={isOpen}
-          onClose={() => setIsOpen(false)}
-          position={'center center'}>
+        <Popup open={isOpen} onClose={() => setIsOpen(false)} position={'center center'}>
           <PopupSpecialization
-          // @ts-ignore
-            image={currentSlide?.image} title={currentSlide?.title} onClose={close}
+            image={currentSlide?.image ?? ''}
+            title={currentSlide?.title ?? ''}
+            onClose={close ?? (() => {})}
             descriptionList={currentSlide?.record}
-            
           />
         </Popup>
       </Wrapper>

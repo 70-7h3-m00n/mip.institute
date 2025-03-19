@@ -27,8 +27,7 @@ const CardReviewWithStars = ({ number, review }: Props) => {
   }).format(date)
 
   return (
-    <div
-      className={classNames(stls.container, { [stls.violetBg]: number === 2 })}>
+    <div className={classNames(stls.container, { [stls.violetBg]: number === 2 })}>
       <div>
         <p className={stls.date}>{formattedDate}</p>
         <div className={stls.stars}>
@@ -40,13 +39,15 @@ const CardReviewWithStars = ({ number, review }: Props) => {
       </div>
       <div className={stls.author}>
         <div className={stls.image}>
-          <Image
-          // @ts-ignore
-            src={review.picture.url ? review.picture.url : review.picture.src}
-            width={32}
-            height={32}
-            alt='Автор'
-          />
+          {review.picture.url ||
+            (review.picture.src && (
+              <Image
+                src={review.picture.url || review.picture.src}
+                width={32}
+                height={32}
+                alt='Автор'
+              />
+            ))}
         </div>
         <p className={stls.name}>{review.name}</p>
       </div>

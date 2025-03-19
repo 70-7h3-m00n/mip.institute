@@ -64,16 +64,13 @@ const NewForm = ({
     if (ipCheck === 200) {
       setIsDisabled(true)
       data.leadPage = router.asPath
-      // @ts-ignore
-      const utms = JSON.parse(sessionStorage.getItem('utms'))
+      const utms = JSON.parse(sessionStorage.getItem('utms') ?? '{}')
       data.utms = utms
       sessionStorage.removeItem('utms')
-      // @ts-ignore
-      const referer = JSON.parse(sessionStorage.getItem('referer'))
+      const referer = JSON.parse(sessionStorage.getItem('referer') ?? '')
       data.referer = referer
       sessionStorage.removeItem('referer')
-      // @ts-ignore
-      const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+      const ymUid = JSON.parse(localStorage.getItem('_ym_uid') ?? '')
       data.ymUid = ymUid
       const clickId = getCookie('utm')
       const roistat_visit = getCookie('roistat_visit')
@@ -103,10 +100,7 @@ const NewForm = ({
 
   return (
     <>
-      <Popup
-        open={thanksIsOpen}
-        closeOnDocumentClick
-        onClose={() => setThanksIsOpen(false)}>
+      <Popup open={thanksIsOpen} closeOnDocumentClick onClose={() => setThanksIsOpen(false)}>
         <PopupThankyou close={() => setThanksIsOpen(false)} />
       </Popup>
 
@@ -167,8 +161,7 @@ const NewForm = ({
                 pattern: {
                   value:
                     /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
-                  message:
-                    'Пожалуйста, введите корректный адрес электронной почты'
+                  message: 'Пожалуйста, введите корректный адрес электронной почты'
                 }
               })}
             />
@@ -186,9 +179,7 @@ const NewForm = ({
                     message: `*Максимальная длинна вопроса 320 символов`
                   }
                 })}></textarea>
-              <p className={stls.err}>
-                {errors.question && errors.question.message}
-              </p>
+              <p className={stls.err}>{errors.question && errors.question.message}</p>
             </div>
           )}
 
@@ -200,8 +191,7 @@ const NewForm = ({
 
           {agreement && (
             <p className={stls.agreement}>
-              Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших
-              персональных данных
+              Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших персональных данных
             </p>
           )}
         </div>

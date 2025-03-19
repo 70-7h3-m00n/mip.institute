@@ -3,7 +3,7 @@ import { routes } from '@/config/index'
 import stls from '@/styles/components/cards/CardProfession.module.sass'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import Popup from 'reactjs-popup'
 import Button from '../btns/Button'
 import ProgramPaymentForm from '../forms/ProgramPaymentForm/ProgramPaymentForm'
@@ -38,14 +38,11 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
     }
 
     const studyFieldSlug =
-      profession.__typename === 'Bachelor' ||
-      profession.__typename === 'PracticalTraining'
+      profession.__typename === 'Bachelor' || profession.__typename === 'PracticalTraining'
         ? ''
         : profession.studyFieldSlug || 'studyfield'
 
-    return `${baseRoute}/${studyFieldSlug}${studyFieldSlug ? '/' : ''}${
-      profession.slug
-    }`
+    return `${baseRoute}/${studyFieldSlug}${studyFieldSlug ? '/' : ''}${profession.slug}`
   }
 
   const renderTypeTag = () => {
@@ -72,7 +69,8 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
 
   const renderDocTag = () => {
     const type =
-      profession.type === 'Profession' || profession.type === 'Course'||
+      profession.type === 'Profession' ||
+      profession.type === 'Course' ||
       profession.type === 'ShortTerm'
         ? profession.type
         : profession.__typename
@@ -124,10 +122,7 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
                         monthsOnly
                       />{' '}
                     </span>
-                    <span
-                      className={
-                        stls.hours
-                      }>{`/ ${profession.studyHours} часов`}</span>
+                    <span className={stls.hours}>{`/ ${profession.studyHours} часов`}</span>
                   </div>
                 )}
                 <div className={stls.btns}>
@@ -172,28 +167,17 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
                     monthsOnly
                   />{' '}
                 </span>
-                <span
-                  className={
-                    stls.hours
-                  }>{`/ ${profession.studyHours} часов`}</span>
+                <span className={stls.hours}>{`/ ${profession.studyHours} часов`}</span>
               </div>
             )}
           </div>
         </Link>
       )}
-      <Popup
-        open={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        position={'center center'}>
+      <Popup open={isModalOpen} onClose={() => setIsModalOpen(false)} position={'center center'}>
         {
-          // @ts-ignore
-          close => (
-            <ProgramPaymentForm
-              program={profession}
-              onClose={close}
-              showMore={showMoreHandler}
-            />
-          )
+          ((close: () => void) => (
+            <ProgramPaymentForm program={profession} onClose={close} showMore={showMoreHandler} />
+          )) as unknown as ReactNode
         }
       </Popup>
     </>

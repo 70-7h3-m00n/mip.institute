@@ -1,0 +1,20 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.pageContainer
+  @include m.gap($mlr: f.px(20), $mtb: f.px(40))
+  @include m.flex($fd: column)
+  gap: f.px(20)
+  @include m.media(phone, tablet)
+    @include m.gap($m: f.px(15))
+
+.wrapper
+  margin: 0 auto
+  width: 100%
+  @include m.media(desktop, laptop)
+    @include m.gap($plr: f.px(15, em))
+    max-width: f.px(1200, em)
+  @include m.media(phone, tablet)
+    max-width: none
+    @include m.gap($plr: 0)

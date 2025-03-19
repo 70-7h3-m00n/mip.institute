@@ -1,5 +1,5 @@
 import stls from './DiplomaExpandableItem.module.sass'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import classNames from 'classnames'
 import Popup from 'reactjs-popup'
 import IconMinus from '@/components/icons/IconMinus'
@@ -19,16 +19,10 @@ const DiplomaExpandableItem = ({ title, diplomas, idx }: Props) => {
   const [isOpen, setOpen] = useState(idx === 0 ? true : false)
 
   return (
-    <li
-      className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>
+    <li className={classNames({ [stls.container]: true, [stls.isOpen]: isOpen })}>
       <button className={stls.title} onClick={() => setOpen(!isOpen)}>
-        <span className={stls.icon}>
-          {isOpen ? <IconMinus /> : <IconPlus />}
-        </span>
-        <span
-          className={classNames({ [stls.pTitle]: true, [stls.bold]: isOpen })}>
-          {title}
-        </span>
+        <span className={stls.icon}>{isOpen ? <IconMinus /> : <IconPlus />}</span>
+        <span className={classNames({ [stls.pTitle]: true, [stls.bold]: isOpen })}>{title}</span>
       </button>
       <div className={stls.diplomas}>
         <ul className={stls.list}>
@@ -40,12 +34,8 @@ const DiplomaExpandableItem = ({ title, diplomas, idx }: Props) => {
                     <button className={stls.trigger}>
                       <span className={stls.img}>{diploma.image}</span>
                       <span className={stls.label}>
-                        <span className={stls.labelIcon}>
-                          {loadIcon('IconDoc')}
-                        </span>
-                        <span className={stls.diplomaTitle}>
-                          {diploma.title}
-                        </span>
+                        <span className={stls.labelIcon}>{loadIcon('IconDoc')}</span>
+                        <span className={stls.diplomaTitle}>{diploma.title}</span>
                       </span>
                     </button>
                   }
@@ -53,8 +43,9 @@ const DiplomaExpandableItem = ({ title, diplomas, idx }: Props) => {
                   modal
                   nested>
                   {
-                    // @ts-ignore
-                    close => <PopupImage image={diploma.image} close={close} />
+                    ((close: () => void) => (
+                      <PopupImage image={diploma.image} close={close} />
+                    )) as unknown as ReactNode
                   }
                 </Popup>
               </li>

@@ -11,19 +11,10 @@ import BtnGamma from '@/components/btns/BtnGamma'
 import BtnText from '@/components/btns/BtnText'
 import BtnTheta from '@/components/btns/BtnTheta'
 import BtnZeta from '@/components/btns/BtnZeta'
+import { ReactNode } from 'react'
 
 type PopupTriggerType = {
-  btn:
-    | 'alpha'
-    | 'beta'
-    | 'gamma'
-    | 'delta'
-    | 'epsilon'
-    | 'zeta'
-    | 'eta'
-    | 'theta'
-    | 'text'
-    | 'test'
+  btn: 'alpha' | 'beta' | 'gamma' | 'delta' | 'epsilon' | 'zeta' | 'eta' | 'theta' | 'text' | 'test'
   cta:
     | 'askQuestion'
     | 'callMeBack'
@@ -63,8 +54,7 @@ type PopupTriggerType = {
 const PopupTrigger = ({
   btn,
   cta,
-  //@ts-ignore
-  testProgram = null,
+  testProgram = undefined,
   isActivePromocode,
   isLightYellowBetaBtn,
   isModalOpen = false,
@@ -150,85 +140,73 @@ const PopupTrigger = ({
     desc: {
       askQuestion: (
         <>
-          У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
-          свяжется с вами, чтобы рассказать все подробности
+          У Вас есть вопросы? Оставьте заявку! <br className={stls.phonetablet} /> И сотрудник
+          приемной комиссии свяжется с вами, чтобы рассказать все подробности
         </>
       ),
       callMeBack: (
         <>
-          У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
-          свяжется с вами, чтобы рассказать все подробности
+          У Вас есть вопросы? Оставьте заявку! <br className={stls.phonetablet} /> И сотрудник
+          приемной комиссии свяжется с вами, чтобы рассказать все подробности
         </>
       ),
       signUpForCourse: (
         <>
-          У Вас есть вопросы? Оставьте заявку!{' '}
-          <br className={stls.phonetablet} /> И сотрудник приемной комиссии
-          свяжется с вами, чтобы рассказать все подробности
+          У Вас есть вопросы? Оставьте заявку! <br className={stls.phonetablet} /> И сотрудник
+          приемной комиссии свяжется с вами, чтобы рассказать все подробности
         </>
       ),
       getFullProgram: (
         <>
-          Заполните форму. <br className={stls.phonetablet} /> И получите полную
-          программу!
+          Заполните форму. <br className={stls.phonetablet} /> И получите полную программу!
         </>
       ),
       help: (
         <>
-          Оставьте заявку, мы свяжемся с Вами в рабочие часы, ответим на Ваши
-          вопросы и решим проблему
+          Оставьте заявку, мы свяжемся с Вами в рабочие часы, ответим на Ваши вопросы и решим
+          проблему
         </>
       ),
       getFullList: (
         <>
-          Оставьте заявку, мы свяжемся с Вами в рабочие часы и предоставим
-          полный список преподавателей
+          Оставьте заявку, мы свяжемся с Вами в рабочие часы и предоставим полный список
+          преподавателей
         </>
       ),
       seeAllWebinars: (
         <>
-          Оставьте заявку, мы свяжемся с Вами в рабочие часы и предоставим
-          полный список вебинаров
+          Оставьте заявку, мы свяжемся с Вами в рабочие часы и предоставим полный список вебинаров
         </>
       ),
       learnMore: (
-        <>
-          Оставьте заявку, мы свяжемся с Вами в рабочие часы и расскажем
-          подробнее о вебинаре
-        </>
+        <>Оставьте заявку, мы свяжемся с Вами в рабочие часы и расскажем подробнее о вебинаре</>
       ),
       programQuestion: (
         <>
           У вас появились вопросы по программе или конкретному модулю?{' '}
-          <br className={stls.phonetablet} /> Напишите нам в форме обратной
-          связи
+          <br className={stls.phonetablet} /> Напишите нам в форме обратной связи
         </>
       ),
       participate: (
         <>
-          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы
-          рассказать все условия акции!
+          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы рассказать все
+          условия акции!
         </>
       ),
       familiarize: (
         <>
-          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы
-          рассказать все о программе
+          Оставьте заявку и сотрудник приемной комиссии свяжется с вами, чтобы рассказать все о
+          программе
         </>
       ),
       takePart: (
         <>
-          У Вас есть вопросы? Оставьте заявку! И сотрудник приемной комиссии
-          свяжется с вами, чтобы рассказать все подробности
+          У Вас есть вопросы? Оставьте заявку! И сотрудник приемной комиссии свяжется с вами, чтобы
+          рассказать все подробности
         </>
       ),
       takeGift: (
-        <>
-          Оставьте заявку, чтобы сотрудник приемной комиссии рассказал, как
-          забрать подарок
-        </>
+        <>Оставьте заявку, чтобы сотрудник приемной комиссии рассказал, как забрать подарок</>
       )
     },
     blockForAmo: {
@@ -283,22 +261,19 @@ const PopupTrigger = ({
       }
       modal
       nested>
-      {
-        // @ts-ignore
-        close => (
-          <PopupCta
-            promo={promo}
-            title={strings.title[cta]}
-            desc={strings.desc[cta]}
-            cta={strings.trigger[cta]}
-            question={question}
-            close={close}
-            blockForAmo={strings.blockForAmo[cta]}
-            isActivePromocode={isActivePromocode}
-            withGift={withGift}
-          />
-        )
-      }
+      {((close:()=> void) => (
+        <PopupCta
+          promo={promo}
+          title={strings.title[cta]}
+          desc={strings.desc[cta]}
+          cta={strings.trigger[cta]}
+          question={question}
+          close={close}
+          blockForAmo={strings.blockForAmo[cta]}
+          isActivePromocode={isActivePromocode}
+          withGift={withGift}
+        />
+      )) as unknown as ReactNode}
     </Popup>
   )
 }

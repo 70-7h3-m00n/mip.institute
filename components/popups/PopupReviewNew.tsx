@@ -13,19 +13,10 @@ import ReactMarkdown from 'react-markdown'
 import Popup from 'reactjs-popup'
 import IconClosePopupPractical from '../icons/IconClosePopupPractical'
 import person from '@/public/assets/imgs/practicalTraining/person.png'
+import { ReactNode } from 'react'
 
 type PopupReviewNewType = {
-  btn:
-    | 'alpha'
-    | 'beta'
-    | 'gamma'
-    | 'delta'
-    | 'epsilon'
-    | 'zeta'
-    | 'eta'
-    | 'theta'
-    | 'text'
-    | 'test'
+  btn: 'alpha' | 'beta' | 'gamma' | 'delta' | 'epsilon' | 'zeta' | 'eta' | 'theta' | 'text' | 'test'
   cta: 'askQuestion'
   name: string
   slides: {
@@ -37,13 +28,7 @@ type PopupReviewNewType = {
   }
 }
 
-const PopupReviewNew = ({
-  btn,
-  cta,
-  slides,
-  image,
-  name
-}: PopupReviewNewType) => {
+const PopupReviewNew = ({ btn, cta, slides, image, name }: PopupReviewNewType) => {
   const strings = {
     trigger: {
       askQuestion: 'Читать всю историю'
@@ -70,9 +55,7 @@ const PopupReviewNew = ({
   }[btn]
 
   const SlideContent = ({ slide, isFirstSlide }) => {
-    const formattedAnswer = slide.answer
-      .replace(/(–\s)/g, '\n\n$1')
-      .replace(/(\d+\.\s)/g, '\n\n$1')
+    const formattedAnswer = slide.answer.replace(/(–\s)/g, '\n\n$1').replace(/(\d+\.\s)/g, '\n\n$1')
 
     return (
       <>
@@ -98,8 +81,7 @@ const PopupReviewNew = ({
       modal
       nested>
       {
-        // @ts-ignore
-        close => (
+        ((close: () => void) => (
           <div className={stls.container}>
             <div className={stls.leftBlock}>
               <div className={stls.personImage}>
@@ -121,7 +103,7 @@ const PopupReviewNew = ({
               <IconClosePopupPractical />
             </button>
           </div>
-        )
+        )) as unknown as ReactNode
       }
     </Popup>
   )

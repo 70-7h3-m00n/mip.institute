@@ -10,34 +10,26 @@ import { lazy } from 'react'
 import truncate from '@/helpers/general/truncate'
 const WebinarsAlt = lazy(() => import('@/components/sections/WebinarsAlt'))
 
-const WebinarsPage: NextPage<TypePageWebinarsProps> = ({
-  programs,
-  webinars
-}) => {
-  //@ts-ignore
+const WebinarsPage: NextPage<TypePageWebinarsProps> = ({ programs, webinars }) => {
   useHandleContextStaticProps({ programs })
-//@ts-ignore
-  const webinarsSorted: TypeLibWebinars = sortBasedOnNumericOrder({ webinars })
+
+  // Проверяем, есть ли вебинары, если нет — используем пустой массив
+  const webinarsSorted: TypeLibWebinars = sortBasedOnNumericOrder({ webinars: webinars || [] })
+
   const seoParams = {
-    title: `Вебинары | ${company.desc} | ${company.name}
-    `,
+    title: `Вебинары | ${company.desc} | ${company.name}`,
     desc: truncate(
-      //@ts-ignore
-      `${webinarsSorted[webinarsSorted.length - 1].title}, 
-      
-      ${
-        //@ts-ignore
-        webinarsSorted[webinarsSorted.length - 1].name
-      } | ${
-        //@ts-ignore
-        webinarsSorted[webinarsSorted.length - 2].title}, ${
-        //@ts-ignore
-        webinarsSorted[webinarsSorted.length - 2].name
-      }`,
+      webinarsSorted.length > 1 // Проверяем, есть ли минимум 2 вебинара
+        ? `${webinarsSorted[webinarsSorted.length - 1]?.title || 'Без названия'}, 
+         ${webinarsSorted[webinarsSorted.length - 1]?.name || 'Без имени'} | 
+         ${webinarsSorted[webinarsSorted.length - 2]?.title || 'Без названия'}, 
+         ${webinarsSorted[webinarsSorted.length - 2]?.name || 'Без имени'}`
+        : 'Актуальные вебинары Московского Института Психологии',
       120
     ),
     canonical: `${routes.front.root}${routes.front.webinars}`
   }
+
   return (
     <>
       <NextSeo

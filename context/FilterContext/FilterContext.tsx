@@ -1,5 +1,5 @@
 import { getUniqueCategories } from '@/helpers/funcs/getUniqueCategories'
-import { createContext, useContext, useReducer } from 'react'
+import { createContext, Dispatch, useContext, useReducer } from 'react'
 
 interface IFilter {
   bool: boolean
@@ -9,7 +9,6 @@ interface IFilter {
   courseOpened: boolean
   isPopular: boolean
   type: ProgramTypes
-  // duration: { min: number; max: number }
   sort: { field: string | null; direction: string }
 }
 
@@ -19,14 +18,22 @@ export enum ProgramTypes {
   All = ''
 }
 
-const FilterContext = createContext(null)
-const FilterDispatchContext = createContext(null)
+type FilterDispatch = Dispatch<any> // Заменить на конкретный тип
+
+type FilterContextType = {
+  filters: any // Заменить на конкретный тип
+  additional: any // Заменить на конкретный тип
+  categories: any // Заменить на конкретный тип
+  items: any // Заменить на конкретный тип
+}
+
+const FilterContext = createContext<FilterContextType | undefined>(undefined)
+const FilterDispatchContext = createContext<FilterDispatch | undefined>(undefined)
 const initialFilters: IFilter = {
   bool: false,
   input: { text: '' },
   courseOpened: false,
   isPopular: false,
-  // duration: { min: 0, max: 6 },
   type: ProgramTypes.All,
   sort: { field: 'default', direction: 'asc' }
 }
@@ -39,57 +46,22 @@ export function FilterProvider({ children, items }) {
     categories: getUniqueCategories(items)
   })
 
-  // useEffect(() => {
-  //   if (!state.filters.category) {
-  //     const filteredItems = getFilteredItems(state.items, state.filters)
-  //     dispatch({
-  //       type: 'updateCategories',
-  //       categories: getUniqueCategories(filteredItems)
-  //     })
-  //   }
-  // }, [state.filters])
-
-  // useEffect(() => {
-  //   getFilteredItems(items, state.filters)
-  // }, [items])
-
-  // const durations = items.map(el => el.duration)
-  // const prices = items.map(el => el.price)
-
-  // const minmaxDuration = findMinMaxForSlider(durations)
-  // const minmaxPrice = findMinMaxForSlider(prices)
-  // initialFilters.duration = {
-  //   min: minmaxDuration.min,
-  //   max: minmaxDuration.max
-  // }
-
   return (
     <FilterContext.Provider value={state}>
-      <FilterDispatchContext.Provider 
-      //@ts-ignore
-      value={dispatch}>
-        {children}
-      </FilterDispatchContext.Provider>
+      <FilterDispatchContext.Provider value={dispatch}>{children}</FilterDispatchContext.Provider>
     </FilterContext.Provider>
   )
 }
 
-export function useFilter() {
+export function useFilter(): FilterContextType {
   const context = useContext(FilterContext)
   if (context === undefined) {
     throw new Error('useFilter must be used within a FilterProvider')
   }
-  return {
-    //@ts-ignore
-    filters: context?.filters,
-    //@ts-ignore
-    additional: context?.additional,
-    //@ts-ignore
-    categories: context?.categories
-  }
+  return context
 }
 
-export function useFilterDispatch() {
+export function useFilterDispatch(): FilterDispatch {
   const context = useContext(FilterDispatchContext)
   if (context === undefined) {
     throw new Error('useFilterDispatch must be used within a FilterProvider')
@@ -102,7 +74,6 @@ export function useFilteredItems() {
   if (context === undefined) {
     throw new Error('useFilteredItems must be used within a FilterProvider')
   }
-  //@ts-ignore
   return getFilteredItems(context.items, context.filters)
 }
 
@@ -181,7 +152,6 @@ function filtersReducer(state, action) {
       return {
         ...state,
         filters: initialFilters
-        // bool: true
       }
     }
     case 'setBool': {
@@ -243,10 +213,7 @@ function getFilteredItems(items, filters) {
       }
     }
     if (filters.duration && item.duration) {
-      if (
-        item.duration < filters.duration.min ||
-        item.duration > filters.duration.max
-      ) {
+      if (item.duration < filters.duration.min || item.duration > filters.duration.max) {
         return false
       }
     }
@@ -264,9 +231,7 @@ function getFilteredItems(items, filters) {
       }
     }
     if (filters.input.text) {
-      if (
-        !item.title.toLowerCase().includes(filters.input.text.toLowerCase())
-      ) {
+      if (!item.title.toLowerCase().includes(filters.input.text.toLowerCase())) {
         return false
       }
     }
@@ -276,11 +241,7 @@ function getFilteredItems(items, filters) {
       }
     }
     for (const key in filters) {
-      if (
-        typeof filters[key] === 'boolean' &&
-        filters[key] === true &&
-        !item[key]
-      ) {
+      if (typeof filters[key] === 'boolean' && filters[key] === true && !item[key]) {
         return false
       }
     }

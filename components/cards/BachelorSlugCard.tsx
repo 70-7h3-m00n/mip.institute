@@ -6,7 +6,7 @@ import { FC, ReactNode } from 'react'
 
 interface Step {
   card: {
-    id: number
+    id?: number
     icon?: ReactNode
     title?: string
     educationCode: string

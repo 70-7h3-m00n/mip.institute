@@ -31,6 +31,7 @@ const routes: TRoutes = {
     contact: '/contact',
     courses: '/courses',
     docs: '/docs',
+    docsDetails: '/docs/details',
     docsConstituent: '/docs/constituent',
     docsGeneral: '/docs/general',
     docsRegulations: 'docs/regulations',
@@ -105,7 +106,7 @@ const routes: TRoutes = {
     turtop:
       'https://tutortop.ru/school-reviews/moskovskij-institut-psihologii/?cid=1685112262621940498',
     otzovic: 'https://otzovik.com/reviews/nano_moskovskiy_institut_psihologii_russia_moscow',
-    yandex: 'https://yandex.ru/profile/-/CDfB5OYg',
+    yandex: 'https://yandex.ru/profile/-/CDfB5OYg', 
     twoGis: 'https://go.2gis.com/y85xl6',
     ucheba: 'https://www.ucheba.ru/uz/107383/opinions#new-comments-panel',
     dzen: 'https://dzen.ru/institute_mip',

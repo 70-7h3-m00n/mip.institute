@@ -8,16 +8,12 @@ type Props = {
   onClick?: () => void
   iconCloseCircle?: boolean
 }
-// @ts-ignore
-const BtnClose = ({ onClick = null, iconCloseCircle = false }: Props) => {
+
+const BtnClose = ({ onClick, iconCloseCircle = false }: Props) => {
   const { closeMenu } = useContext(MenuContext)
 
   return (
-    <button
-      className={stls.container}
-      // @ts-ignore
-      onClick={onClick ? onClick : closeMenu}
-      aria-label='Закрыть'>
+    <button className={stls.container} onClick={onClick ?? closeMenu} aria-label='Закрыть'>
       {iconCloseCircle ? <IconCloseCircle /> : <IconClose />}
     </button>
   )

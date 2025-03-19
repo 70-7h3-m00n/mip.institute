@@ -9,17 +9,19 @@ import { FC } from 'react'
 type TSeoPagesProgram = {
   ofType: string
   program: TypeLibProgram
-  curProgramsStudyFieldSlug?: string
 }
 
-const SeoPagesProgram: FC<TSeoPagesProgram> = ({
-  ofType,
-  program,
-  curProgramsStudyFieldSlug
-}) => {
+// Вынесли объект маппинга типов программ в маршруты
+const PROGRAM_ROUTE_MAP = {
+  Course: routes.front.courses,
+  Profession: routes.front.professions,
+  ShortTerm: routes.front.shortTerm
+} as const
+
+const SeoPagesProgram: FC<TSeoPagesProgram> = ({ ofType, program }) => {
   const seo = program?.seo
 
-  const additionalMetaRobotsKeys = [
+  const additionalMetaRobotsKeys = new Set([
     'nosnippet',
     'maxSnippet',
     'maxImagePreview',
@@ -28,49 +30,31 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
     'unavailableAfter',
     'noimageindex',
     'notranslate'
-  ]
-  const parsedMetaRobots = ((
-    seo?.metaRobots &&
-    seo?.metaRobots.split(',').map(item => {
-      const trimmedItem = item?.trim()
+  ])
 
-      if (additionalMetaRobotsKeys.some(key => trimmedItem?.includes(key))) {
-        const [key, value] = trimmedItem?.split(':')
-
-        return { [key]: value || true }
-      }
-
-      return null
-    })
-    //@ts-ignore
-  )?.filter(item => item) || null) as AdditionalRobotsProps
+  // Упрощённый парсинг metaRobots
+  const parsedMetaRobots: AdditionalRobotsProps | null = seo?.metaRobots
+    ? (seo.metaRobots
+        .split(',')
+        .map(item => {
+          const [key, value] = item.trim().split(':')
+          return additionalMetaRobotsKeys.has(key) ? { [key]: value || true } : null
+        })
+        .filter(Boolean) as AdditionalRobotsProps)
+    : null
 
   const isNoindex = !seo?.isSEOFriendly || seo?.metaRobots?.includes('noindex')
-
-  const isNofollow =
-    !seo?.isSEOFriendly || seo?.metaRobots?.includes('nofollow')
+  const isNofollow = !seo?.isSEOFriendly || seo?.metaRobots?.includes('nofollow')
 
   const seoParams = {
     title:
       seo?.metaTitle ||
-      `${program?.title ? program.title + ' | ' : 'Программа | '}${
-        program?.typeLabel || 'Курс'
-      } | ${company.name}`,
+      `${program?.title ? `${program.title} | ` : 'Программа | '}${program?.typeLabel || 'Курс'} | ${company.name}`,
     programTitle: program?.title || 'Программа',
-    desc:
-      seo?.metaDescription ||
-      (program?.description ? truncate(program?.description, 120) : ''),
+    desc: seo?.metaDescription || truncate(program?.description || '', 120),
     canonical:
       seo?.canonicalURL ||
-      `${routes.front.root}${
-        ofType === 'Course'
-          ? routes.front.courses
-          : ofType === 'Profession'
-          ? routes.front.professions
-          : ofType === 'ShortTerm'
-          ? routes.front.shortTerm
-          : routes.front.professions
-      }/${program?.studyFieldSlug}/${program?.slug}`
+      `${routes.front.root}${PROGRAM_ROUTE_MAP[ofType] || routes.front.professions}/${program?.studyFieldSlug}/${program?.slug}`
   }
 
   return (
@@ -80,8 +64,8 @@ const SeoPagesProgram: FC<TSeoPagesProgram> = ({
         description={seoParams.desc}
         canonical={seoParams.canonical}
         themeColor={themeColor}
-        nofollow={preview ? true : isNofollow}
-        noindex={preview ? true : isNoindex}
+        nofollow={preview || isNofollow}
+        noindex={preview || isNoindex}
         {...((parsedMetaRobots && { robotsProps: parsedMetaRobots }) || {})}
         openGraph={{
           url: seoParams.canonical,

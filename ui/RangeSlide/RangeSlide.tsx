@@ -37,7 +37,6 @@ const RangeSlide = ({
     if (additional.reset) {
       setValue([min, max])
     }
-    //@ts-ignore
     dispatch({
       type: 'setBool',
       payload: false
@@ -45,7 +44,6 @@ const RangeSlide = ({
   }, [additional.reset, dispatch, min, max])
 
   useEffect(() => {
-    //@ts-ignore
     dispatch({
       type: dispatchFilterType,
       min: value[0],

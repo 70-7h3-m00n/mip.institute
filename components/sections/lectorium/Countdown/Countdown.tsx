@@ -1,6 +1,6 @@
 import stls from './Countdown.module.sass'
 import dayjs from 'dayjs'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import duration from 'dayjs/plugin/duration'
 import {
   declensionForDays,
@@ -18,38 +18,28 @@ type Props = {
 }
 
 const Countdown = ({ targetDate = '2024-12-31T20:59:59.000Z' }: Props) => {
-  const [isMounted, setIsMounted] = useState(false)
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate))
+  const [eventOver, setEventOver] = useState(false) // Флаг завершения
 
   useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
-  const calculate = useCallback(
-    () => calculateTimeLeft(targetDate),
-    [targetDate]
-  )
-
-  const [timeLeft, setTimeLeft] = useState(calculate())
-
-  useEffect(() => {
-    if (!isMounted) return
-
-    const updateTimer = () => {
-      setTimeLeft(calculate())
-      requestAnimationFrame(updateTimer)
+    if (
+      timeLeft.totalDaysLeft <= 0 &&
+      timeLeft.hoursLeft <= 0 &&
+      timeLeft.minutesLeft <= 0 &&
+      timeLeft.secondsLeft <= 0
+    ) {
+      setEventOver(true) // Отмечаем, что событие прошло
+      return
     }
-    const timerId = requestAnimationFrame(updateTimer)
-    return () => cancelAnimationFrame(timerId)
-  }, [calculate, isMounted])
 
-  if (!isMounted) return null
+    const timerId = setInterval(() => {
+      setTimeLeft(calculateTimeLeft(targetDate))
+    }, 1000)
 
-  if (
-    timeLeft.totalDaysLeft <= 0 &&
-    timeLeft.hoursLeft <= 0 &&
-    timeLeft.minutesLeft <= 0 &&
-    timeLeft.secondsLeft <= 0
-  ) {
+    return () => clearInterval(timerId)
+  }, [targetDate, timeLeft])
+
+  if (eventOver) {
     return (
       <div className={classNames(stls.countdown, stls.countdownEnd)}>
         <p className={stls.countdownTitle}>Мероприятие состоялось!</p>

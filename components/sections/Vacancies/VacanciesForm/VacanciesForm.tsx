@@ -24,7 +24,6 @@ const VacanciesForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [success, setSuccess] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
-  console.log(isSubmitting, success, error)
   const {
     register,
     handleSubmit,

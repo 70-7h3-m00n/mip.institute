@@ -52,8 +52,7 @@ const OurOffice = ({ props }: OurOfficeType) => {
                   <span
                     key={i}
                     className={stls.text}
-                    //@ts-ignore
-                    style={{ fontWeight: el.bold && 500 }}>
+                    style={{ fontWeight: el.bold ? 500 : 'normal' }}>
                     {el.text}
                   </span>
                 ))}

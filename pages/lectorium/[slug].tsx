@@ -12,9 +12,6 @@ type Props = {
 }
 
 const LectoriumPage = ({ lectorium }: Props) => {
-  // console.log(lectorium);
-  
-
   const router = useRouter()
   const today = new Date()
 
@@ -23,14 +20,19 @@ const LectoriumPage = ({ lectorium }: Props) => {
 
   return (
     <>
-      <SeoLectorium isNoFollow={isNoFollow} isNoindex={isNoindex}  canonical={`${routes.front.root}${router.asPath}`} seo={lectorium?.seo} programTitle={`${lectorium?.title} ${lectorium?.description}: очный семинар в Москве`} />
+      <SeoLectorium
+        isNoFollow={isNoFollow}
+        isNoindex={isNoindex}
+        canonical={`${routes.front.root}${router.asPath}`}
+        seo={lectorium?.seo}
+        programTitle={`${lectorium?.title} ${lectorium?.description}: очный семинар в Москве`}
+      />
       <PageLectorium lectorium={lectorium} />
     </>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () =>
-  //@ts-ignore
   await handleGetStaticPaths({ page: routes.front.lectorium })
 
 export const getStaticProps: GetStaticProps = async context =>

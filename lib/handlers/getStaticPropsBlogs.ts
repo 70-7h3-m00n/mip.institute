@@ -1,9 +1,9 @@
-import revalidate from "@/config/revalidate"
-import routes from "@/config/routes"
-import axios from "axios"
-import qs from "qs"
+import revalidate from '@/config/revalidate'
+import routes from '@/config/routes'
+import axios from 'axios'
+import qs from 'qs'
 
-// test token strapi v 5 
+// test token strapi v 5
 
 const queryString = qs.stringify(
   {
@@ -13,7 +13,16 @@ const queryString = qs.stringify(
         fields: ['url', 'width', 'height']
       }
     },
-    fields: ['id', 'title', 'slug', 'subtitle', 'studyField', 'studyFieldSlug', 'date', 'previewOnly']
+    fields: [
+      'id',
+      'title',
+      'slug',
+      'subtitle',
+      'studyField',
+      'studyFieldSlug',
+      'date',
+      'previewOnly'
+    ]
   },
   {
     encodeValuesOnly: true,
@@ -21,20 +30,27 @@ const queryString = qs.stringify(
   }
 )
 export const getStaticPropsBlogs = async () => {
-try {
-  const response = await axios.get(`${routes.back.rootv2}/api/blogs?${queryString}`, {
-    headers: {
-      'Authorization': `Bearer ${process.env.STRAPI_BEARER}`, // Замените на ваш токен
-    },
-  })
-  
-  return {
-    props: {
-      blogs: response?.data?.data || []
-    },
-    revalidate: revalidate.default
-  }
-}catch(e){
-  console.log(e)}
+  try {
+    const response = await axios.get(`${routes.back.rootv2}/api/blogs?${queryString}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.STRAPI_BEARER}` // Токен из .env
+      }
+    })
 
+    return {
+      props: {
+        blogs: response?.data?.data || []
+      },
+      revalidate: revalidate.default ?? 10 // Добавляем fallback значение
+    }
+  } catch (e) {
+    console.error('Ошибка при получении блогов:', e)
+
+    return {
+      props: {
+        blogs: [] // Гарантируем, что будет корректный объект
+      },
+      revalidate: 10 // Подстраховка, если упал запрос
+    }
+  }
 }
