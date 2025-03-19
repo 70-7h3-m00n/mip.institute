@@ -10,67 +10,80 @@ import {
 } from 'constants/studyFieldsOnMain'
 import { Fragment } from 'react'
 
-type StudyFieldsType = {
+type StudyFieldType =
+  | 'course'
+  | 'profession'
+  | 'bachelor'
+  | 'practicalTraining'
+  | 'shortTerm'
+  | null
+  | undefined
+
+type StudyFieldsProps = {
   aside?: boolean
-  ofType?:
-    | 'course'
-    | 'profession'
-    | null
-    | 'bachelor'
-    | 'practicalTraining'
-    | 'shortTerm'
-  close?: any
+  ofType?: StudyFieldType
+  close?: () => void
   flexend?: boolean
   smallText?: boolean
   onMain?: boolean
   orang?: boolean
-  currentType?: string
 }
 
 const StudyFieldsOnMain = ({
   aside = false,
-  ofType = null,
-  close = null,
+  ofType,
+  close,
   flexend = false,
   orang = false,
-  smallText,
-  onMain,
-  currentType
-}: StudyFieldsType) => {
-  const list =
-    ofType === 'course'
-      ? studyFieldsCourses
-      : ofType === 'profession'
-        ? studyFieldsProfessions
-        : ofType === 'shortTerm'
-          ? studyFieldsShortTerm
-          : ofType === 'bachelor' || ofType === 'practicalTraining'
-            ? null
-            : studyFields
+  smallText
+}: StudyFieldsProps) => {
+  // Определяем список направлений по типу
+  const getListByType = (type: StudyFieldType) => {
+    switch (type) {
+      case 'course':
+        return studyFieldsCourses
+      case 'profession':
+        return studyFieldsProfessions
+      case 'shortTerm':
+        return studyFieldsShortTerm
+      case 'bachelor':
+      case 'practicalTraining':
+        return null
+      default:
+        return studyFields
+    }
+  }
+
+  const list = getListByType(ofType)
+
+  // Определяем путь в зависимости от типа
+  const getRouteByType = (type: StudyFieldType) => {
+    switch (type) {
+      case 'course':
+        return routes.front.courses
+      case 'profession':
+        return routes.front.professions
+      case 'shortTerm':
+        return routes.front.shortTerm
+      default:
+        return routes.front.programs
+    }
+  }
 
   return (
     <ul
-      className={cn({
-        [stls.container]: true,
+      className={cn(stls.container, {
         [stls.aside]: aside,
         [stls.tooltip]: !aside,
         [stls.flexend]: flexend
       })}>
-      {list?.map(({ label, value }, idx) => (
-        <Fragment key={value + idx}>
-          <li className={stls.studyField} onClick={close && close}>
+      {list?.map(({ label, value }) => (
+        <Fragment key={value}>
+          <li className={stls.studyField} onClick={close || undefined}>
             <BtnField
               smallText={smallText}
               orang={orang}
-              href={`${
-                currentType === 'course'
-                  ? routes.front.courses
-                  : currentType === 'profession'
-                    ? routes.front.professions
-                    : currentType === 'shortTerm'
-                      ? routes.front.shortTerm
-                      : routes.front.programs
-              }/${value}`}
+              href={`${getRouteByType(ofType)}/${value}`}
               aside={aside}
               slug={value}>
               {label}

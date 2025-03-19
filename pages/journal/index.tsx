@@ -29,11 +29,7 @@ const JournalPage = ({ blogs }) => {
   const blogsFilter =
     selectedField.studyField == 'Все cтатьи'
       ? blogs
-      : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
-
-
-      console.log(blogs);
-      
+      : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)      
 
   return (
     <Wrapper>
@@ -51,7 +47,6 @@ const JournalPage = ({ blogs }) => {
 }
 
 export const getStaticProps: GetStaticProps = async context =>
-  //@ts-ignore
   await getStaticPropsBlogs()
 
 export default JournalPage

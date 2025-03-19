@@ -2,13 +2,10 @@
 import BtnAlpha from '@/components/btns/BtnAlpha'
 import BtnBeta from '@/components/btns/BtnBeta'
 import PopupLoading from '@/components/popups/PopupLoading'
-import PopupThankyou from '@/components/popups/PopupThankyou'
-import routes from '@/config/routes'
 import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/forms/FormAlpha.module.sass'
 import classNames from 'classnames'
 import { getCookie } from 'cookies-next'
-import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import PhoneInput from 'react-phone-input-2'
@@ -20,6 +17,7 @@ import getTicket from '@/helpers/funcs/getTicket'
 import { segmentsObject } from '@/ui/FortuneWheel/constants'
 import dev from '@/config/dev'
 import PopupThankyouNew from '../popups/PopupThankYouNew'
+import { usePathname } from 'next/navigation'
 
 type FormValues = {
   name: string
@@ -107,8 +105,33 @@ const FormAlpha = ({
   useEffect(() => {
     popup && setFocus('name')
   }, [setFocus, popup])
+  const [clientReferer, setClientReferer] = useState<string | null>(null)
 
-  const router = useRouter()
+  const [clientUtms, setClientUtms] = useState<string | null>(null)
+
+  const [yandexMetricaId, setYandexMetricaId] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') { // Проверяем, что код выполняется в браузере
+      try {
+        const storedReferer = sessionStorage.getItem('referrer')
+        const storedUTMS = sessionStorage.getItem('utms')
+        const ym_uid = localStorage.getItem('ym_uid')
+
+        setClientReferer(storedReferer ? storedReferer : '')
+        setClientUtms(storedUTMS ? storedUTMS : '{}')
+        setYandexMetricaId(ym_uid ? ym_uid : '')
+      } catch (error) {
+        console.error('Ошибка парсинга referer:', error)
+        setClientReferer(null)
+      }
+
+    }
+  }, [])
+
+  const pathname = usePathname()
+  console.log(pathname, clientReferer);
+  
   const onSubmit = async data => {
     setIsDisabled(true)
     setLoading(true)
@@ -117,17 +140,14 @@ const FormAlpha = ({
 
     // handle loader
     data.roistatAB = roistatAB
-    data.leadPage = router.asPath
-    // @ts-ignore
-    const utms = JSON.parse(sessionStorage.getItem('utms'))
+    data.leadPage = pathname
+    const utms = clientUtms
     data.utms = utms
     sessionStorage.removeItem('utms')
-    // @ts-ignore
-    const referer = JSON.parse(sessionStorage.getItem('referer'))
+    const referer = clientReferer
     data.referer = referer
     sessionStorage.removeItem('referer')
-    // @ts-ignore
-    const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+    const ymUid = yandexMetricaId
     data.ymUid = ymUid
     const clickId = getCookie('utm')
 
@@ -162,6 +182,7 @@ const FormAlpha = ({
       data.advcake_track_url = advcake_track_url
       data.roistat_visit = roistat_visit
       if (dev) {
+        const req = await genezis(data)
         setThanksIsOpen(true)
         setLoading(false)
       } else {

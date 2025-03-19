@@ -10,7 +10,7 @@ type TSeoPagesProgram = {
     metaDescription: string
     metaTitle: string
   }
-  programTitle?: string
+  programTitle: string
   canonical?: string
 }
 
@@ -56,7 +56,6 @@ const SeoCommon: FC<TSeoPagesProgram> = ({
         }}
       />
       <CourseJsonLd
-      //@ts-ignore
         courseName={seoParams.programTitle}
         description={seoParams.desc}
         provider={{

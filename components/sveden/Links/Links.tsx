@@ -15,8 +15,7 @@ const Links = () => {
           <li key={`${el.val}-${idx}`} className={stls.line}>
             <Link
               href={`/sveden/${el.href}`}
-              //@ts-ignore
-              aria-current={isActive ? 'page' : undefined}
+              aria-current={isActive(el.href) ? 'page' : undefined}
               className={classNames(stls.link, {
                 [stls.active]: isActive(el.href)
               })}>

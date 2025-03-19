@@ -23,14 +23,12 @@ const queryString = qs.stringify(
           },
           'vacancies.slider-with-image': {
             populate: {
-              
               slider: {
                 populate: '*'
               },
               img: {
                 populate: '*'
               }
-
             }
           },
           'shared.rich-text': {
@@ -72,13 +70,22 @@ export const getStaticPropsVacancies = async () => {
         Authorization: `Bearer ${process.env.STRAPI_BEARER}` // Замените на ваш токен
       }
     })
+
     return {
       props: {
-        vacancies: response?.data?.data || []
+        vacancies: response?.data?.data || [] // Если данных нет, вернём пустой массив
       },
       revalidate: revalidate.default
     }
   } catch (e) {
-    console.log(e)
+    console.error('Ошибка при загрузке вакансий:', e)
+
+    // Возвращаем "fallback" данные, чтобы избежать ошибки в Next.js
+    return {
+      props: {
+        vacancies: [] // Если произошла ошибка, возвращаем пустой массив вместо undefined
+      },
+      revalidate: revalidate.default
+    }
   }
 }

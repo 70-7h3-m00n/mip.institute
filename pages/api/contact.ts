@@ -35,8 +35,13 @@ const contact = async (req, res) => {
   }
 
   // geoip2 init
-  //@ts-ignore
-  const geoip2 = new WebServiceClient('550199', process.env.GEO2_APIKEY, {
+  // Проверяем, что API-ключ существует
+  if (!process.env.GEO2_APIKEY) {
+    throw new Error('GEO2_APIKEY не установлен в переменных окружения')
+  }
+
+  // Инициализируем geoip2 с гарантированным API-ключом
+  const geoip2 = new WebServiceClient('550199', process.env.GEO2_APIKEY as string, {
     host: 'geolite.info'
   })
 
@@ -46,17 +51,11 @@ const contact = async (req, res) => {
   // get protocol
   const protocol = req.headers['x-forwarded-proto']
 
-  // get referer
-  // const referer = req.headers['referer']
-
   // get root path
   const root = protocol + '://' + req.headers.host
 
   // get ip
-  const ip =
-    req.headers['x-forwarded-for'] ||
-    req.connection.remoteAddress ||
-    null
+  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || null
 
   const getUserLocation = async () => {
     try {
@@ -125,22 +124,21 @@ const contact = async (req, res) => {
     continentCode: (locationData && locationData.continent.code) || null,
     continentEn: (locationData && locationData.continent.names.en) || null,
     continentRu: (locationData && locationData.continent.names.ru) || null,
-    accuracyRadius:
-      (locationData && locationData.coordinates.accuracyRadius) || null,
+    accuracyRadius: (locationData && locationData.coordinates.accuracyRadius) || null,
     latitude: (locationData && locationData.coordinates.latitude) || null,
     longitude: (locationData && locationData.coordinates.longitude) || null,
     timeZone: (locationData && locationData.timeZone) || null,
     postalCode: (locationData && locationData.postalCode) || null,
     programTitle: programTitle || null,
-    utmSource: (utm && utm.utm_source) ||(utms && utms.utm_source) || referer || null,
-    utmMedium: (utm && utm.utm_medium) ||(utms && utms.utm_medium) || null,
+    utmSource: (utm && utm.utm_source) || (utms && utms.utm_source) || referer || null,
+    utmMedium: (utm && utm.utm_medium) || (utms && utms.utm_medium) || null,
     clickid: (utm && utm.cl_uid) || null,
     utmCampaign: (utm && utm.utm_campaign) || (utms && utms.utm_campaign) || null,
     utmContent: (utm && utm.utm_content) || (utms && utms.utm_content) || null,
-    utmTerm: (utm && utm.utm_medium) ||(utms && utms.utm_term) || null,
-  errorStatus: (error && error.status) || null,
-  errorDetail: (error && error.detail) || null,
-  roistat_visit: roistat_visit || ''
+    utmTerm: (utm && utm.utm_medium) || (utms && utms.utm_term) || null,
+    errorStatus: (error && error.status) || null,
+    errorDetail: (error && error.detail) || null,
+    roistat_visit: roistat_visit || ''
   }
 
   const subject = 'Новая заявка с mip.institute'
@@ -149,8 +147,8 @@ const contact = async (req, res) => {
     const createTr = (item, idx) => {
       const output = /* html */ `
         <tr id='tr-item-${idx}' class="${idx % 2 === 0 && 'bgOnEven'} ${
-        item.tdKey === 'Телефон' && 'active-row'
-      } ${!(idx + 1) && 'bgBorderHighlight'}">
+          item.tdKey === 'Телефон' && 'active-row'
+        } ${!(idx + 1) && 'bgBorderHighlight'}">
           <td class="counterCell">${idx + 1}</td>
           <td>${item.tdKey}</td>
           <td>${item.tdVal}</td>
@@ -324,18 +322,18 @@ const contact = async (req, res) => {
         tdKey: 'Дубль',
         tdVal: null
       },
-        {
-          tdKey: 'Код ошибки',
-          tdVal: data.errorStatus
-        },
-        {
-          tdKey: 'Описание ошибки ',
-          tdVal: data.errorDetail
-        },
-        {
-          tdKey: 'roistat_visit',
-          tdVal: data.roistat_visit
-        },
+      {
+        tdKey: 'Код ошибки',
+        tdVal: data.errorStatus
+      },
+      {
+        tdKey: 'Описание ошибки ',
+        tdVal: data.errorDetail
+      },
+      {
+        tdKey: 'roistat_visit',
+        tdVal: data.roistat_visit
+      }
     ]
 
     const output = /* html */ `
@@ -412,11 +410,8 @@ const contact = async (req, res) => {
 
   const html = createEmailBody()
 
-  // const testAccount = await nodemailer.createTestAccount()
-
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    // host: 'smtp.jino.ru',
     port: Number(process.env.SMTP_PORT),
     secure: false, // true for 465, false for other ports
     logger: true,
@@ -431,19 +426,19 @@ const contact = async (req, res) => {
   })
 
   try {
-      const emailRes = await transporter.sendMail({
-        from: process.env.SMTP_FROM,
-        to: `${dev ? process.env.SMTP_TO_DEV : process.env.SMTP_TO_PROD}`,
-        subject, // Subject line
-        text: `
+    const emailRes = await transporter.sendMail({
+      from: process.env.SMTP_FROM,
+      to: `${dev ? process.env.SMTP_TO_DEV : process.env.SMTP_TO_PROD}`,
+      subject, // Subject line
+      text: `
         ${name}, \n
         ${phone},
         ${email}
         `, // plain text body
-        html
-      })
+      html
+    })
 
-      res.status(200).json({ status: 200, msg: 'Email is sent' })
+    res.status(200).json({ status: 200, msg: 'Email is sent' })
   } catch (err) {
     res.status(500).json({ status: 500, err, msg: 'Unexpected server error' })
     console.error(err)

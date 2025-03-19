@@ -1,5 +1,5 @@
-import TopBlock from './TopBlock/TopBlock'
-import BottomBlock from './BottomBlock/BottomBlock'
+import NoPlannedEvents from './NoPlannedEvents/NoPlannedEvents'
+import JoinCommunity from '@/components/sections/lectorium/Stub/JoinCommunity/JoinCommunity'
 
 type StubProps = {
   onClick: () => void
@@ -7,8 +7,8 @@ type StubProps = {
 const Stub = ({ onClick }: StubProps) => {
   return (
     <>
-      <TopBlock onClick={onClick} />
-      <BottomBlock />
+      <NoPlannedEvents onClick={onClick} />
+      <JoinCommunity />
     </>
   )
 }

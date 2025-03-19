@@ -25,7 +25,13 @@ type TileClassNameProps = {
   view: string
 }
 
-const Calendar = ({ dates, onDatesFiltered, selectRange, onSupervisionPagesStyle, defaultValue}: Props) => {
+const Calendar = ({
+  dates,
+  onDatesFiltered,
+  selectRange,
+  onSupervisionPagesStyle,
+  defaultValue
+}: Props) => {
   const [isClient, setIsClient] = useState(false)
   const [selectedRange, setSelectedRange] = useState<Date[]>([])
   const eventDatesArray = dates.map(date => dayjs(date).tz('Europe/Moscow').format('YYYY-MM-DD'))
@@ -36,20 +42,22 @@ const Calendar = ({ dates, onDatesFiltered, selectRange, onSupervisionPagesStyle
 
   const onClickDayHandler = (date: Date) => {
     if (selectRange) {
-      //@ts-ignore
-      onDatesFiltered([null, null])
+      if (onDatesFiltered) {
+        onDatesFiltered(['', '']) // Проверяем перед вызовом
+      }
+
       if (selectedRange.length === 0 || selectedRange.length === 2) {
-        // Сбрасываем диапазон и начинаем с новой даты
         setSelectedRange([date])
       } else {
-        // Добавляем вторую дату и упорядочиваем диапазон
-        const newRange = [selectedRange[0], date].sort(
-          (a, b) => a.getTime() - b.getTime()
-        )
+        const newRange = [selectedRange[0], date].sort((a, b) => a.getTime() - b.getTime())
         setSelectedRange(newRange)
+
         const startDate = dayjs(newRange[0]).format('YYYY-MM-DD')
         const endDate = dayjs(newRange[1]).format('YYYY-MM-DD')
-        onDatesFiltered && onDatesFiltered([startDate, endDate])
+
+        if (onDatesFiltered) {
+          onDatesFiltered([startDate, endDate]) // Проверяем перед вызовом
+        }
       }
     } else {
       setSelectedRange([date])
@@ -112,7 +120,7 @@ const Calendar = ({ dates, onDatesFiltered, selectRange, onSupervisionPagesStyle
             className={classNames({
               [stls.arrowCustom]: onSupervisionPagesStyle,
               [stls.arrow]: !onSupervisionPagesStyle,
-              [stls.prev]: true 
+              [stls.prev]: true
             })}></div>
         </div>
       }

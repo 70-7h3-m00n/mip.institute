@@ -27,6 +27,7 @@ const LectoriumHowGoesClasses = () => {
             })}>
             <div className={stls.playerWrapper}>
               <Player
+                preload='auto'
                 className={stls.kinescope}
                 videoId='sPJLpY5fpEK8rg2fJeBia1'
               />

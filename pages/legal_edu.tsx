@@ -3,14 +3,13 @@ import ActiveLicenses from '@/components/sections/ActiveLicenses'
 import Diplomas from '@/components/sections/Diplomas'
 import LegalDocs from '@/components/sections/LegalDocs'
 import LegalInfo from '@/components/sections/LegalInfo'
-import { company, routes } from '@/config/index'
+import { routes } from '@/config/index'
 import {
   dataDocsRegulationsLeft,
   dataDocsRegulationsRight,
   dataOchuVoMipDocsConstituentLeft,
   dataOchuVoMipDocsConstituentRight
 } from '@/data/index'
-import truncate from '@/helpers/general/truncate'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/Legal.module.sass'
@@ -18,44 +17,9 @@ import { TypePageDefaultProps } from '@/types/index'
 import { GetStaticProps, NextPage } from 'next'
 
 const LegalEduPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
-  //@ts-ignore
   useHandleContextStaticProps({ programs })
-
-  const seoParams = {
-    title: `Сведения об образовательной организации | ${company.name}`,
-    desc: truncate(
-      `Действующие лицензии, выдаваемые дипломы
-    и сертификаты, основные сведения и нормативные документы`,
-      120
-    ),
-    canonical: `${routes.front.root}${routes.front.legal}`
-  }
-
   return (
     <>
-      {/* <NextSeo
-        title={seoParams.title}
-        description={seoParams.desc}
-        canonical={seoParams.canonical}
-        nofollow={preview ? true : false}
-        noindex={preview ? true : false}
-        openGraph={{
-          url: seoParams.canonical,
-          title: seoParams.title,
-          description: seoParams.desc,
-          images: [
-            {
-              url: `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`,
-              width: 512,
-              height: 512,
-              alt: company.name,
-              type: 'image/png'
-            }
-          ],
-          site_name: company.name
-        }}
-      /> */}
-      {/* <SeoOrganizationJsonLd /> */}
       <PageTitle>
         Сведения <br className={stls.linebrake} /> об организации
       </PageTitle>
@@ -73,11 +37,7 @@ const LegalEduPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
         listRight={dataDocsRegulationsRight}
         isHEblockVisible
       />
-      <LegalDocs
-        title='Документы, приказы, положения'
-        isRulesBlock
-        isOchuVoMip
-      />
+      <LegalDocs title='Документы, приказы, положения' isRulesBlock isOchuVoMip />
     </>
   )
 }

@@ -25,7 +25,6 @@ const SeminarsSlugPage = ({ seminar }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () =>
-  //@ts-ignore
   await handleGetStaticPaths({ page: routes.front.seminar })
 
 export const getStaticProps: GetStaticProps = async context =>

@@ -13,7 +13,7 @@ import WhyBother from '@/components/sections/WhyBother'
 import YourDiploma from '@/components/sections/YourDiploma'
 import { discount } from '@/data/price'
 import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '@/helpers/index'
-import { TypeLibReviews } from '@/types/index'
+import { TypeLibProgram, TypeLibReviews } from '@/types/index'
 import { useRef, useState } from 'react'
 import ButtonToTop from '../sections/ButtonToTop'
 import DistanceEducation from '../sections/DistanceEducation'
@@ -26,16 +26,15 @@ import SalaryCounter from '../sections/SalaryCounter'
 import YourResumeNew from '../sections/YourResumeNew'
 
 type PagesProgramType = {
-  ofType: string
+  ofType: string | undefined
   reviews: TypeLibReviews
   programOverview: string
   slug: string
-  program: any
+  program: TypeLibProgram
 }
 
 const PagesProgram = ({
-  // @ts-ignore
-  ofType = null,
+  ofType = undefined,
   reviews,
   programOverview,
   slug,
@@ -44,12 +43,15 @@ const PagesProgram = ({
   const diplomaRef = useRef(null)
   const planRef = useRef(null)
   const teachersRef = useRef(null)
-  const resumeRef = useRef(null)
+  const resumeRef = useRef<HTMLDivElement | null>(null)
   const costRef = useRef(null)
   const reviewsRef = useRef(null)
-  const faqRef = useRef(null)
+  const faqRef = useRef<HTMLDivElement | null>(null)
+  const [showDescription, setShowDescription] = useState(true)
   const isPsyKonsultirovanie = slug === 'psihologicheskoe-konsultirovanie'
-
+  if (!program) {
+    return <div>Программа не найдена</div> // ✅ Защита от null
+  }
   const sections = [
     { id: 'diploma', label: 'Диплом', ref: diplomaRef, condition: true },
     { id: 'plan', label: 'Учебный план', ref: planRef, condition: true },
@@ -75,8 +77,6 @@ const PagesProgram = ({
     { id: 'faq', label: 'FAQ', ref: faqRef, condition: true }
   ]
 
-  const [showDescription, setShowDescription] = useState(true)
-
   const toggleOverview = () => {
     setShowDescription(!showDescription)
   }
@@ -86,7 +86,6 @@ const PagesProgram = ({
   })
 
   const checkSlug = ['pedagog-psiholog', 'nejropsiholog']
-  console.log({ program })
   return (
     <>
       <ButtonToTop />
@@ -117,10 +116,8 @@ const PagesProgram = ({
       <RequestsCard />
 
       <Teachers teachersRef={teachersRef} title={'Преподаватели программы'} />
-      
-      {program.portfolio && <YourResumeNew program={program} 
-      // @ts-ignore
-      resumeRef={resumeRef} />}
+
+      {program.portfolio && <YourResumeNew program={program} resumeRef={resumeRef} />}
       {ofType === 'Profession' && <SalaryCounter title='Психология' />}
 
       {ofType === 'Profession' && (
@@ -142,9 +139,7 @@ const PagesProgram = ({
       <StudyCost costRef={costRef} ofType={ofType} />
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
       <EntryForm />
-      <Faq 
-      // @ts-ignore
-      faqRef={faqRef} />
+      <Faq faqRef={faqRef} />
     </>
   )
 }

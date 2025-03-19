@@ -45,9 +45,7 @@ type ArticleTitleType = {
 
 const ArticleTitle = ({ props }: ArticleTitleType) => {
   const [formattedDate, setFormattedDate] = useState('')
-  const isLaptopLayout = useBetterMediaQuery(
-    '(min-width: 769px) and (max-width: 1200px)'
-  )
+  const isLaptopLayout = useBetterMediaQuery('(min-width: 769px) and (max-width: 1200px)')
 
   useEffect(() => {
     if (props.date) {
@@ -73,10 +71,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
 
       <h1 className={stls.articleTitle}>{props.title}</h1>
       <div className={stls.imgBox}>
-        <div
-          className={stls.imgTitleContainer}
-          // @ts-ignore
-          style={{ flex: !props?.teacher && 1 }}>
+        <div className={stls.imgTitleContainer} style={{ flex: !props?.teacher ? 1 : undefined }}>
           <Image
             src={props?.picture?.url}
             alt={'Баннер'}
@@ -92,17 +87,11 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
           <div className={stls.imgTeacherWithAchievements}>
             <div className={stls.imgTeacherContainer}>
               <Image
-              // @ts-ignore
-                src={
-                  props.teacher?.portraitForBlog?.url ||
-                  props.teacher?.portrait?.url
-                }
+                src={props.teacher?.portraitForBlog?.url ?? props.teacher?.portrait?.url ?? ''}
                 alt={'Фото преподавателя'}
                 className={classNames({
                   [stls.imgTeacher]: true,
-                  [stls.imgForBlog]: !Boolean(
-                    props.teacher?.portraitForBlog?.url
-                  )
+                  [stls.imgForBlog]: !Boolean(props.teacher?.portraitForBlog?.url)
                 })}
                 width={isLaptopLayout ? 140 : 170}
                 height={isLaptopLayout ? 150 : 180}
@@ -112,9 +101,7 @@ const ArticleTitle = ({ props }: ArticleTitleType) => {
             </div>
             <div className={stls.teacherText}>
               <p className={stls.teacherName}>{props?.teacher?.name}</p>
-              <p className={stls.achievements}>
-                {props?.teacher?.achievementsJournal}
-              </p>
+              <p className={stls.achievements}>{props?.teacher?.achievementsJournal}</p>
             </div>
           </div>
         )}

@@ -29,7 +29,6 @@ const Contacts = () => {
                 city={city}
                 street={street}
                 numbers={numbers}
-                // @ts-ignore
                 studyDivision={studyDivision}
                 email={email}
               />

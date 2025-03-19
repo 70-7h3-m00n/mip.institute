@@ -6,8 +6,8 @@ import classNames from 'classnames'
 
 type CtaType = {
   onMain?: boolean
-  title: string
-  desc: string
+  title?: string
+  desc?: string
   cta:
     | 'askQuestion'
     | 'callMeBack'
@@ -21,8 +21,7 @@ type CtaType = {
     | 'learnAboutTeachers'
   question?: boolean
 }
-// @ts-ignore
-const Cta = ({ title = null, desc = null, cta, onMain = false }: CtaType) => {
+const Cta = ({ title, desc, cta, onMain = false }: CtaType) => {
   return (
     <section
       className={classNames({

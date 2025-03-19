@@ -44,26 +44,21 @@ const PagesPrograms = ({
   const categories = getUniqueCategories(filteredItems)
 
   const prices = programs && programs.map(el => el?.price)
-  const programsDuration =
-    programs && programs.map(el => el?.studyMounthsDuration)
-  const minmaxDuration =
-    programsDuration && findMinMaxForSlider(programsDuration)
+  const programsDuration = programs && programs.map(el => el?.studyMounthsDuration)
+  const minmaxDuration = programsDuration && findMinMaxForSlider(programsDuration)
   const minmaxPrice = prices && findMinMaxForSlider(prices)
 
   useEffect(() => {
-    // @ts-ignore
     dispatch({
       type: 'setDurationFilter',
       min: minmaxDuration?.min,
       max: minmaxDuration?.max
     })
-    // @ts-ignore
     dispatch({
       type: 'setPriceFilter',
       min: minmaxPrice?.min,
       max: minmaxPrice?.max
     })
-    // @ts-ignore
     dispatch({ type: 'setItems', payload: programs })
   }, [
     programs,
@@ -85,20 +80,16 @@ const PagesPrograms = ({
 
   useEffect(() => {
     if (filter === 'popular') {
-      // @ts-ignore
       dispatch({ type: 'setBooleanFilter', filterName: 'isPopular' })
     } else {
-      // @ts-ignore
       dispatch({ type: 'clearBooleanFilter', filterName: 'isPopular' })
     }
   }, [filter, dispatch])
 
   useEffect(() => {
     if (opened) {
-      // @ts-ignore
       dispatch({ type: 'setBooleanFilter', filterName: 'courseOpened' })
     } else {
-      // @ts-ignore
       dispatch({ type: 'clearBooleanFilter', filterName: 'courseOpened' })
     }
   }, [opened, dispatch])
@@ -124,16 +115,14 @@ const PagesPrograms = ({
       <Wrapper>
         <Breadcrumbs isJournal />
       </Wrapper>
-      
-      <HeroPrograms 
-      // @ts-ignore
-       minmaxDuration={minmaxDuration} minmaxPrice={minmaxPrice} />
+
+      <HeroPrograms minmaxDuration={minmaxDuration} minmaxPrice={minmaxPrice} />
       <section className={stls.container}>
         <div className={stls.sorting}>
           <ProgramsFilters
-          // @ts-ignore
-            bachelors={bachelors} practicalTrainings={practicalTrainings} allPrograms={allPrograms}
-            // @ts-ignore
+            bachelors={bachelors}
+            practicalTrainings={practicalTrainings}
+            allPrograms={allPrograms}
             studyFields={
               query.studyFieldSlug && filter === 'popular'
                 ? favcategories

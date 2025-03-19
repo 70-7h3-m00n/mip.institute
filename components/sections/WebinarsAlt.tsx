@@ -7,6 +7,7 @@ import ImgWebinar from '@/components/imgs/webinars/ImgWebinar'
 import getImageHeight from '@/helpers/getImageHeight'
 
 import dynamic from 'next/dynamic'
+import { ReactNode } from 'react'
 
 const PopupCta = dynamic(() => import('@/components/popups/PopupCta'), {
   ssr: false
@@ -24,14 +25,9 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
         <ul className={stls.webinars}>
           {webinars &&
             [...webinars]
-              .sort(
-                (a, b) =>
-                  new Date(b.date).getTime() - new Date(a.date).getTime()
-              )
+              .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
               .map((webinar, idx) => (
-                <li
-                  key={`${webinar.name || 'CardWebinarAlt'}-${idx}`}
-                  className={stls.webinar}>
+                <li key={`${webinar.name || 'CardWebinarAlt'}-${idx}`} className={stls.webinar}>
                   <Popup
                     trigger={
                       <div className={stls.trigger}>
@@ -57,21 +53,20 @@ const WebinarsAlt = ({ webinars = null }: WebinarsAltType) => {
                     modal
                     nested>
                     {
-                      // @ts-ignore
-                      close => (
+                      ((close: () => void) => (
                         <PopupCta
                           blockForAmo='Узнать про вебинары'
                           title={'Смотреть все вебинары'}
                           desc={
                             <>
-                              Оставьте заявку, мы свяжемся с Вами в рабочие часы
-                              и предоставим полный список вебинаров
+                              Оставьте заявку, мы свяжемся с Вами в рабочие часы и предоставим
+                              полный список вебинаров
                             </>
                           }
                           cta={'Оставить заявку'}
                           close={close}
                         />
-                      )
+                      )) as unknown as ReactNode
                     }
                   </Popup>
                 </li>

@@ -5,11 +5,15 @@ import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/Faq.module.sass'
 import listOnMain from 'constants/faq'
 import { useContext } from 'react'
+import { RefObject } from 'react'
 
-const Faq = ({ faqRef = null }) => {
+interface FaqProps {
+  faqRef?: RefObject<HTMLDivElement>
+}
+const Faq = ({ faqRef }: FaqProps) => {
   const { program, bachelor } = useContext(ContextStaticProps)
 
-  let list = null
+  let list
 
   if (program?.qnas?.length) {
     list = program.qnas.map((qna, idx) => ({
@@ -22,7 +26,6 @@ const Faq = ({ faqRef = null }) => {
       answer: qna.answer
     }))
   } else {
-    // @ts-ignore
     list = listOnMain
   }
 
@@ -45,19 +48,12 @@ const Faq = ({ faqRef = null }) => {
         <div className={stls.content}>
           <ul className={stls.list}>
             {list &&
-            // @ts-ignore
               list.map(({ question, answer }, idx) => (
-                <FaqAnswer
-                  key={question + idx}
-                  question={question}
-                  answer={answer}
-                />
+                <FaqAnswer key={question + idx} question={question} answer={answer} />
               ))}
           </ul>
           <div className={stls.phonetablet}>
-            <p className={stls.p}>
-              У Вас есть вопросы? Оставьте заявку! И мы перезвоним Вам!
-            </p>
+            <p className={stls.p}>У Вас есть вопросы? Оставьте заявку! И мы перезвоним Вам!</p>
           </div>
         </div>
         <div className={stls.phonetablet}>

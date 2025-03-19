@@ -46,8 +46,7 @@ const PaymentForm = ({ onClose, program }: Props) => {
 
   const onSubmit = async data => {
     data.leadPage = router.asPath
-    // @ts-ignore
-    const referer = JSON.parse(sessionStorage.getItem('referer'))
+    const referer = JSON.parse(sessionStorage.getItem('referer') ?? '')
     data.referer = referer
     data.price = program.price
     data.lmsId = program.lmsId
@@ -78,10 +77,7 @@ const PaymentForm = ({ onClose, program }: Props) => {
         <BtnClose onClick={onClose} />
       </span>
 
-      <form
-        method='post'
-        className={stls.form}
-        onSubmit={handleSubmit(data => onSubmit(data))}>
+      <form method='post' className={stls.form} onSubmit={handleSubmit(data => onSubmit(data))}>
         <div className={stls.group}>
           <div className={classNames(stls.inpt, stls.name)}>
             <input
@@ -119,9 +115,7 @@ const PaymentForm = ({ onClose, program }: Props) => {
                 }
               })}
             />
-            <p className={stls.err}>
-              {errors.surname && errors.surname.message}
-            </p>
+            <p className={stls.err}>{errors.surname && errors.surname.message}</p>
           </div>
 
           <div className={classNames(stls.inpt, stls.phone)}>
@@ -152,9 +146,7 @@ const PaymentForm = ({ onClose, program }: Props) => {
                 />
               )}
             />
-            {errors.phone && (
-              <p className={stls.err}>{errors.phone && errors.phone.message}</p>
-            )}
+            {errors.phone && <p className={stls.err}>{errors.phone && errors.phone.message}</p>}
           </div>
           <div className={classNames(stls.inpt, stls.email)}>
             <input

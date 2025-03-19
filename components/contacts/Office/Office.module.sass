@@ -1,0 +1,95 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$white-900)
+  @include m.gap($ptb: f.px(40), $mt: f.px(20))
+  border-radius: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(25), $mt: 0)
+    border-radius: f.px(20)
+
+.blockWrapper
+  @include m.flex($jc:center,$ai: stretch)
+  gap: f.px(40)
+  width: 100%
+  @include m.media(tablet, phone)
+    @include m.flex($fd:column,$ai: center)
+    gap: f.px(15)
+
+.officeText
+  position: relative
+  @include m.gap($pl: f.px(20), $pr: f.px(35), $pt: f.px(30))
+  border-radius: f.px(10)
+  @include m.dye(bg, #F6F4FF)
+  width: 50%
+  max-height: 342px
+  @include m.media(tablet, phone)
+    @include m.gap($pl: f.px(20), $pr: f.px(17), $ptb: f.px(20))
+    width: 100%
+  .iconWrapper
+    position: absolute
+    top: f.px(0)
+    right: f.px(0)
+    height: 100%
+    .svg
+      width: f.px(450)
+      max-height: 342px
+  .title
+    color: c.$purple-350
+    font-size: f.px(42)
+    font-weight: 500
+    line-height: 100%
+    @include m.gap($mb: f.px(30))
+    @include m.media(tablet, phone)
+      font-size: f.px(28)
+      @include m.gap($mb: f.px(10))
+
+  .text
+    color: c.$black-800
+    font-size: f.px(20)
+    font-weight: 350
+    line-height: 120%
+    @include m.media(tablet, phone)
+      font-size: f.px(15)
+  .highlight
+    font-weight: 500
+
+.sliderContainer
+  @include m.flex($jc: center,$ai: center)
+  width: 50%
+  max-height: 342px
+  @include m.media(tablet, phone)
+    width: 100%
+
+.slider
+  @include m.flex()
+  overflow: hidden
+  width: 100%
+  border-radius: 10px
+  position: relative
+  height: 100%
+  @include m.media(tablet, phone)
+    height: f.px(315)
+
+.slide
+  flex: 0 0 100%
+  transition: opacity 0.5s ease-in-out
+  .img
+    object-fit: cover
+    width: 100%
+    height: 100%
+  &.activeSlide
+    opacity: 1
+
+.btnPrev, .nextBtn
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+
+.btnPrev
+  left: f.px(30)
+
+.nextBtn
+  right: f.px(30)

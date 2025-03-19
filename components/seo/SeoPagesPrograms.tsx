@@ -9,7 +9,7 @@ import getSeoTitle from '@/helpers/funcs/getSeoTitle'
 
 type TSeoPagesProgram = {
   curProgramsStudyFieldSlug?: string
-  programs: TypeLibPrograms | null
+  programs: TypeLibPrograms | undefined
 }
 
 const SeoPagesPrograms: FC<TSeoPagesProgram> = ({ programs }) => {

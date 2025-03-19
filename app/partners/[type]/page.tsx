@@ -6,6 +6,11 @@ import OurPartners from '@/components/partners/OurPartners/OurPartners'
 import { Params, Partner } from '@/components/partners/type'
 import CommunitySection from '@/components/partners/CommunitySection/CommunitySection'
 import BecomePartner from '@/components/partners/BecomePartner/BecomePartner'
+import Office from '@/components/contacts/Office/Office'
+import Requisites from '@/components/contacts/Requisites/Requisites'
+import JoinCommunity from '@/components/sections/lectorium/Stub/JoinCommunity/JoinCommunity'
+import Wrapper from '@/ui/Wrapper'
+import RouteMIP from '@/components/contacts/RouteMIP/RouteMIP'
 
 export const metadata = {
   title: 'Партнеры Московского Института Психологии (МИП)',

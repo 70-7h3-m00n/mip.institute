@@ -57,12 +57,9 @@ const PracticalPaymentForm = ({ price }: Props) => {
 
     const roistatAB = localStorage.getItem('AB')
     const leadPage = router.asPath
-    // @ts-ignore
-    const utms = JSON.parse(sessionStorage.getItem('utms'))
-    // @ts-ignore
-    const referer = JSON.parse(sessionStorage.getItem('referer'))
-    // @ts-ignore
-    const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+    const utms = JSON.parse(sessionStorage.getItem('utms') ?? '{}')
+    const referer = JSON.parse(sessionStorage.getItem('referer') ?? '')
+    const ymUid = JSON.parse(localStorage.getItem('_ym_uid') ?? '')
     const clickId = getCookie('utm')
     const roistat_visit = getCookie('roistat_visit')
     const advcake_track_id = getCookie('advcake_track_id')

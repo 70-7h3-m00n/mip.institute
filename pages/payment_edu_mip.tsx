@@ -16,7 +16,6 @@ import Script from 'next/script'
 import { useState } from 'react'
 
 const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
-  //@ts-ignore
   useHandleContextStaticProps({ programs })
 
   const seoParams = {
@@ -27,34 +26,20 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
     ),
     canonical: `${routes.front.root}${routes.front.payment}`
   }
-
-  const [formValues, setFormValues] = useState({
-    sum: '',
-    name: '',
-    email: ''
-  })
-  const handleChange = e => {
-    const { name, value } = e.target
-    setFormValues({
-      ...formValues,
-      [name]: value
-    })
-  }
-
   const [name, setName] = useState('')
   const [dog, setDog] = useState('')
 
   const [email, setEmail] = useState('')
 
-  const handleEmail = e => {
+  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
   }
 
-  const handleName = e => {
+  const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)
   }
 
-  const handleDogovor = e => {
+  const handleDogovor = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setDog(e.target.value)
   }
 
@@ -146,9 +131,7 @@ const PaymentPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
                   step='any'
                 />
               </div>
-              <button
-                data-text='Оплатить'
-                className='ym-btn-pay ym-result-price'>
+              <button data-text='Оплатить' className='ym-btn-pay ym-result-price'>
                 <span className='ym-text-crop'>Оплатить обучение</span>{' '}
                 <span className='ym-price-output'></span>
               </button>

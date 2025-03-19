@@ -1,6 +1,4 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
-import styles from '@/styles/pages/JournalSlug.module.sass'
 import { DocumentContent } from './ArticleContentLinks'
 
 type ArticleFullColoredTextBlockType = {
@@ -10,22 +8,24 @@ type ArticleFullColoredTextBlockType = {
   }
 }
 
-const ArticleFullColoredTextBlock = ({
-  props
-}: ArticleFullColoredTextBlockType) => {
-  
-
+const ArticleFullColoredTextBlock = ({ props }: ArticleFullColoredTextBlockType) => {
   return (
     <>
-    {props?.text?.map((el, i) => (
-      <p key={i}>
-      {el.children.map(el => (
-        // @ts-ignore
-        <span key={el.text} style={{ fontWeight: el.bold && 500, color: el.italic && props.textColor }}>{el.text}</span>
-    ))}
-    </p>
-    ))}
-      </>
+      {props?.text?.map((el, i) => (
+        <p key={i}>
+          {el.children.map(el => (
+            <span
+              key={el.text}
+              style={{
+                fontWeight: el.bold ? 500 : 'normal',
+                color: el.italic ? props.textColor : 'inherit'
+              }}>
+              {el.text}
+            </span>
+          ))}
+        </p>
+      ))}
+    </>
   )
 }
 

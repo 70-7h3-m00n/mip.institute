@@ -20,7 +20,6 @@ import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
 const LegalPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
-  //@ts-ignore
   useHandleContextStaticProps({ programs })
 
   const seoParams = {

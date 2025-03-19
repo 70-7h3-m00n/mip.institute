@@ -6,13 +6,10 @@ import { Dispatch, FC, Fragment, SetStateAction, useState } from 'react'
 import ProgramList from './ChooseProgram/ProgramList'
 
 type Props = {
-  currentType?: string
-  setCurrentType?: Dispatch<SetStateAction<string>>
+  currentType: string
+  setCurrentType: Dispatch<SetStateAction<string | null>>
 }
-const DirectionsSelector: FC<Props> = ({
-  currentType = null,
-  setCurrentType
-}) => {
+const DirectionsSelector: FC<Props> = ({ currentType = null, setCurrentType }) => {
   const list = [
     {
       id: 1,
@@ -31,7 +28,7 @@ const DirectionsSelector: FC<Props> = ({
   const isMobileLayout = useBetterMediaQuery('(max-width: 768px)')
 
   // Состояние для активного элемента
-  const [activeItem, setActiveItem] = useState(1)
+  const [activeItem, setActiveItem] = useState<number | null>(1)
 
   return (
     <div className={stls.container}>
@@ -42,21 +39,15 @@ const DirectionsSelector: FC<Props> = ({
               [stls.studyField]: true,
               [stls.active]: currentType === programType
             })}
-            onMouseEnter={
-              // @ts-ignore
-              !isMobileLayout ? () => setCurrentType(programType) : undefined
-            }
+            onMouseEnter={!isMobileLayout ? () => setCurrentType(programType) : undefined}
             onClick={() => {
               if (activeItem === id) {
                 // Если элемент уже активен, снимаем активность
-                // @ts-ignore
                 setActiveItem(null)
-                // @ts-ignore
                 setCurrentType(null)
               } else {
                 // Иначе, активируем элемент
                 setActiveItem(id)
-                // @ts-ignore
                 setCurrentType(programType)
               }
             }}>
@@ -66,15 +57,13 @@ const DirectionsSelector: FC<Props> = ({
           {activeItem === id && (
             <div className={stls.mobileAccordeon}>
               <ProgramList
-              // @ts-ignore
                 currentType={currentType}
-                // @ts-ignore
                 ofType={
                   currentType === 'course'
                     ? 'course'
                     : currentType === 'profession'
-                    ? 'profession'
-                    : null
+                      ? 'profession'
+                      : null
                 }
               />
             </div>
