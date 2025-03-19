@@ -21,36 +21,29 @@ type Props = {
 }
 
 const PageTraining = ({ practicalTraining }: Props) => {
+  if (!practicalTraining) {
+    return <div>Данные о программе отсутствуют</div>
+  }
   return (
     <div className={stls.pageWrapper}>
-      <SeoPageBachelor
-      // @ts-ignore
-      program={practicalTraining} />
+      <SeoPageBachelor program={practicalTraining} />
       <PracticalHeroProgram practicalTraining={practicalTraining} />
-      <PracticalList 
-      // @ts-ignore
-      list={practicalTraining?.practicalList.item} />
+      <PracticalList list={practicalTraining?.practicalList.item} />
       <PracticalSteps />
       <PracticalWhoIsProgramFor />
-      <PracticalWhatInProgram 
-      // @ts-ignore
-      list={practicalTraining?.whatInProgram.list} />
+      <PracticalWhatInProgram list={practicalTraining?.whatInProgram.list} />
       <PracticalProgramDescription
-      // @ts-ignore
-        description={practicalTraining?.programDescription} cards={practicalTraining?.descriptionCards.item}
+        description={practicalTraining?.programDescription}
+        cards={practicalTraining?.descriptionCards.item}
       />
       <PracticalWhatYouWillLearn
-      // @ts-ignore
-        listLearn={practicalTraining.whatYouWillLearn} photo={practicalTraining.whatYouWillLearnPhoto}
+        listLearn={practicalTraining?.whatYouWillLearn}
+        photo={practicalTraining?.whatYouWillLearnPhoto}
       />
       <PracticalCertificate />
-      <PracticalBriefProgram
-      // @ts-ignore
-      listProgram={practicalTraining?.briefProgram} />
-      
-      {
-      // @ts-ignore
-      practicalTraining?.teachers.length > 0 && (
+      <PracticalBriefProgram listProgram={practicalTraining?.briefProgram} />
+
+      {practicalTraining?.teachers.length > 0 && (
         <Teachers
           title={'Преподаватели'}
           teachersList={practicalTraining?.teachers}
@@ -63,20 +56,13 @@ const PageTraining = ({ practicalTraining }: Props) => {
         />
       )}
       <PracticalConditions />
-      
-      {
-      // @ts-ignore
-      practicalTraining?.review?.length > 0 && (
-        <PracticalReviews
-         // @ts-ignore
-         review={practicalTraining.review} />
+
+      {practicalTraining?.review?.length > 0 && (
+        <PracticalReviews review={practicalTraining.review} />
       )}
       <RequirementsInProfession />
 
-      <PracticalPaymentForm 
-      // @ts-ignore
-      price={practicalTraining.price} />
-      {/*<GeneralFaq qnas={practicalTraining.qnas} isPractical />*/}
+      <PracticalPaymentForm price={practicalTraining.price} />
     </div>
   )
 }

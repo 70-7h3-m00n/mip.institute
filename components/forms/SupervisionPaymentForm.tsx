@@ -22,7 +22,6 @@ type FormValues = {
 }
 
 const SupervisionPaymentForm = () => {
-  const urlId = '3079794'
   const router = useRouter()
   const {
     register,
@@ -40,8 +39,7 @@ const SupervisionPaymentForm = () => {
 
   const onSubmit = async data => {
     data.leadPage = router.asPath
-    // @ts-ignore
-    const referer = JSON.parse(sessionStorage.getItem('referer'))
+    const referer = JSON.parse(sessionStorage.getItem('referer') ?? '')
     data.referer = referer
     const utm = getCookie('utm')
     if (typeof utm === 'string') {
@@ -58,22 +56,15 @@ const SupervisionPaymentForm = () => {
     }
   }
 
-  const isDisabled =
-    !dirtyFields.email || !dirtyFields.name || !dirtyFields.phone
+  const isDisabled = !dirtyFields.email || !dirtyFields.name || !dirtyFields.phone
 
   return (
     <>
-      <Popup
-        open={thanksIsOpen}
-        closeOnDocumentClick
-        onClose={() => setThanksIsOpen(false)}>
+      <Popup open={thanksIsOpen} closeOnDocumentClick onClose={() => setThanksIsOpen(false)}>
         <PopupThankyouNew close={() => setThanksIsOpen(false)} />
       </Popup>
       <div className={stls.container}>
-        <form
-          method='post'
-          className={stls.form}
-          onSubmit={handleSubmit(data => onSubmit(data))}>
+        <form method='post' className={stls.form} onSubmit={handleSubmit(data => onSubmit(data))}>
           <div className={stls.group}>
             <div className={classNames(stls.inpt, stls.name)}>
               <p className={stls.placeholder}>Ваше имя</p>
@@ -124,11 +115,7 @@ const SupervisionPaymentForm = () => {
                   />
                 )}
               />
-              {errors.phone && (
-                <p className={stls.err}>
-                  {errors.phone && errors.phone.message}
-                </p>
-              )}
+              {errors.phone && <p className={stls.err}>{errors.phone && errors.phone.message}</p>}
             </div>
 
             <div className={classNames(stls.inpt, stls.email)}>

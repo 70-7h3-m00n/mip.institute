@@ -118,16 +118,13 @@ const PartnersFormStickyBottom = ({
     // handle loader
     data.roistatAB = roistatAB
     data.leadPage = asPath
-    // @ts-ignore
-    const utms = JSON.parse(sessionStorage.getItem('utms'))
+    const utms = JSON.parse(sessionStorage.getItem('utms') ?? '{}')
     data.utms = utms
     sessionStorage.removeItem('utms')
-    // @ts-ignore
-    const referer = JSON.parse(sessionStorage.getItem('referer'))
+    const referer = JSON.parse(sessionStorage.getItem('referer') ?? '')
     data.referer = referer
     sessionStorage.removeItem('referer')
-    // @ts-ignore
-    const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+    const ymUid = JSON.parse(localStorage.getItem('_ym_uid') ?? '')
     data.ymUid = ymUid
     const clickId = getCookie('utm')
 
@@ -165,8 +162,6 @@ const PartnersFormStickyBottom = ({
         setThanksIsOpen(true)
         setLoading(false)
       } else {
-        console.log('adwdadw')
-
         const req = await genezis(data)
 
         if (req === 200) {

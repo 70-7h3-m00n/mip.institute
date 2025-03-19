@@ -4,17 +4,23 @@ import PracticalSlugCard from '../cards/PracticalSlugCard'
 import Breadcrumbs from '@/ui/Breadcrumbs'
 import ProgramsFilters from '@/components/program/ProgramsFilters'
 import Wrapper from '@/ui/Wrapper'
+import { Bachelor, PracticalTraining, Program } from '@/types/lib/bachelors/TypeLibBachelors'
 
 const supervision: any = {
-  "title": "Групповая супервизия",
-  "duration": "1 месяц / 10 часов",
-  "slug": "supervision",
-  "heroPicture": {
-      "url": "https://res.cloudinary.com/mipinstitute/image/upload/v1733736404/group_supervision_hero_3849e0ac52.jpg",
+  title: 'Групповая супервизия',
+  duration: '1 месяц / 10 часов',
+  slug: 'supervision',
+  heroPicture: {
+    url: 'https://res.cloudinary.com/mipinstitute/image/upload/v1733736404/group_supervision_hero_3849e0ac52.jpg'
   }
 }
+interface Props {
+  programs: Program[]
+  practicalTrainings: PracticalTraining[] 
+  bachelors: Bachelor[]
+}
 
-const PageTrainings = ({
+const PageTrainings: React.FC<Props> = ({
   programs = [],
   practicalTrainings = [],
   bachelors = []
@@ -32,13 +38,9 @@ const PageTrainings = ({
         />
         <div className={stls.cards}>
           {practicalTrainings.map(practicalTraining => (
-            <PracticalSlugCard
-            // @ts-ignore
-              key={practicalTraining?.slug}
-              card={practicalTraining}
-            />
+            <PracticalSlugCard key={practicalTraining?.slug} card={practicalTraining} />
           ))}
-          <PracticalSlugCard card={supervision}/>
+          <PracticalSlugCard card={supervision} />
         </div>
       </FilterProvider>
     </Wrapper>

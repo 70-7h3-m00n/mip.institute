@@ -1,0 +1,124 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$white-900)
+  @include m.gap($ptb: f.px(40),$mb: f.px(20))
+  border-radius: f.px(20)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(25),$plr: f.px(0), $mb: 0)
+    border-radius: f.px(20)
+
+.title
+  color: c.$black-800
+  font-size: f.px(42)
+  font-weight: 500
+  line-height: 110%
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(28)
+
+.controls
+  display: flex
+  gap: 30px
+  @include m.gap($mb: f.px(27))
+  @include m.media(phone, tablet)
+    flex-direction: column
+    gap: 10px
+    @include m.gap($mb: f.px(15))
+    button
+      @include m.gap($mt: f.px(0))
+
+.contentWrapper
+  @include m.flex($jc: space-between,$ai: stretch)
+  gap: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+    gap: f.px(10)
+
+.imageContainer
+  flex: 1
+
+.metroImage
+  width: 100%
+  height: 100%
+  border-radius: f.px(10)
+
+.textContainer
+  flex: 1
+  @include m.flex($fd: column)
+  gap: f.px(20)
+  height: 100%
+  @include m.media(phone, tablet)
+    gap: f.px(10)
+
+.textBlock, .textBlockCar
+  @include m.gap($ptb: f.px(30),$pl: f.px(20),$pr: f.px(30))
+  font-weight: 350
+  border-radius: f.px(10)
+  background: #F6F4FF
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20),$pl: f.px(20),$pr: f.px(15))
+
+.textBlockCar
+  background-image: url('https://res.cloudinary.com/dp3iuhwtp/image/upload/v1741703373/Karta_16906070f1.png')
+  background-size: contain
+  background-position: center
+  background-repeat: no-repeat
+
+.textBlockTitle
+  color: c.$purple-350
+  font-size: f.px(26)
+  font-weight: 500
+  line-height: 100%
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+    @include m.gap($mb: f.px(10))
+
+.description
+  color: c.$black-800
+  font-size: f.px(18)
+  line-height: 130%
+  @include m.gap($mb: f.px(0),$pr: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+    @include m.gap($pr: f.px(0))
+
+.parkingDescription
+  color: c.$black-800
+  font-size: f.px(18)
+  line-height: 130%
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+    @include m.gap($mb: f.px(20))
+
+.radiusDescription
+  color: c.$black-800
+  font-size: f.px(18)
+  line-height: 130%
+  @include m.gap($mb: f.px(0),$pr: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+    @include m.gap($pr: f.px(0),$mb: f.px(18))
+
+.highlight
+  font-weight: 500
+
+.imgBlock
+  width: 100%
+  height: 100%
+  border-radius: f.px(10)
+
+.location > span > svg
+  @include m.dye(bg, c.$white-900)
+  border-radius: 50%
+  @include m.gap($p: f.px(10))
+  @include m.media(desktop, laptop)
+    @include m.sizeIcon($w: 42, $h: 42)
+  @include m.media(phone, tablet)
+    @include m.sizeIcon($w: 30, $h: 30)
+    @include m.gap($p: f.px(7))
+    stroke-width: 2

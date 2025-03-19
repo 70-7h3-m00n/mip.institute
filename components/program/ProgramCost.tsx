@@ -13,8 +13,6 @@ const ProgramCost = ({ withPerMonth = false }) => {
   const isProfession = program?.type === 'Profession'
 
   const router = useRouter()
-  console.log(router.query.slug === 'psiholog-konsultant');
-  
   const isPsyCons = router.query.slug === 'psiholog-konsultant'
   const showCost = program?.studyMounthsDuration <= 5
   const price = (program && program.price) || 0

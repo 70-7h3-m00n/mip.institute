@@ -6,11 +6,10 @@ import { GetStaticProps } from 'next'
 const VacanciesIndexPage = ({ vacancies }) => {
   return (
     <>
-      <SeoCommon seo={vacancies.seo[0]} />
+      <SeoCommon seo={vacancies.seo[0]} programTitle='Вакансии МИП'/>
       <PageVacancies vacancies={vacancies} />
     </>
   )
 }
-//@ts-ignore
 export const getStaticProps: GetStaticProps = async () => await getStaticPropsVacancies()
 export default VacanciesIndexPage

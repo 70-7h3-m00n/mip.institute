@@ -1,7 +1,7 @@
 'use client'
 import Popup from 'reactjs-popup'
 import PartnersForm from '../PartnersForm/PartnersForm'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import CustomButton from '../CustomButton/CustomButton'
 
 interface IPopupPartnersProps {
@@ -25,8 +25,9 @@ const PopupPartners = ({ text, btnClass }: IPopupPartnersProps) => {
       <CustomButton text={text} onClick={handleOpen} className={btnClass} />
       <Popup open={open} onClose={handleClose} modal>
         {
-          // @ts-ignore
-          close => <PartnersForm onClose={handleClose} title={text} />
+          ((close: () => void) => (
+            <PartnersForm onClose={close} title={text} />
+          )) as unknown as ReactNode
         }
       </Popup>
     </>

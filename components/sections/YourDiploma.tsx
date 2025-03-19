@@ -21,11 +21,11 @@ import Tag from '@/ui/Tag'
 
 type YourDiplomaType = {
   ofType?: string
-  diplomaRef?: React.RefObject<HTMLElement | null>
+  diplomaRef?: React.RefObject<HTMLElement>
   onMain?: boolean
   isBachelor?: boolean
   close?: () => void
-  programSlug?: string
+  programSlug?: string | null
 }
 
 const withAddInfo = [
@@ -38,23 +38,19 @@ const withAddInfo = [
 ]
 
 const YourDiploma = ({
-  //@ts-ignore
-  ofType = null,
-  //@ts-ignore
-  diplomaRef = null,
+  ofType,
+  diplomaRef,
   onMain = false,
   isBachelor = false,
   close,
   programSlug
 }: YourDiplomaType) => {
-  const slides = []
+  const slides: JSX.Element[] = []
 
   const { program } = useContext(ContextStaticProps)
 
   ofType === 'Profession' &&
-
     slides.push(
-      //@ts-ignore
       <div className={stls.diploma}>
         {program?.diploma2 ? (
           <ImgDiplomaDynamic
@@ -96,7 +92,6 @@ const YourDiploma = ({
 
   isBachelor &&
     slides.push(
-      //@ts-ignore
       <div className={stls.diploma}>
         {program?.diploma2 ? (
           <ImgDiplomaDynamic
@@ -138,7 +133,6 @@ const YourDiploma = ({
 
   ofType === 'Course' &&
     slides.push(
-      //@ts-ignore
       <div className={stls.diploma}>
         {program?.diploma1 ? (
           <ImgDiplomaDynamic
@@ -190,9 +184,7 @@ const YourDiploma = ({
     'Все наши программы лицензированы, а дипломы имеют международные приложения, поэтому они ценятся клиентами и профессиональным психологическим сообществом как в России, так и за рубежом! По окончании программ профессиональной переподготовки и курсов повышения квалификации выпускники института получают официальный документ установленного образца, который вносится в реестр ФРДО, а в дополнение — сертификат Московского Института Психологии в формате А4'
 
   return (
-    <section 
-      //@ts-ignore
-      ref={diplomaRef} className={stls.container}>
+    <section ref={diplomaRef} className={stls.container}>
       <Wrapper>
         {onMain && (
           <div className={stls.tag}>
@@ -232,9 +224,7 @@ const YourDiploma = ({
                 trigger={<div className={stls.trigger}>{slide}</div>}
                 modal
                 nested>
-                <PopupImage 
-                //@ts-ignore
-                image={slide.props.children} close={close} />
+                <PopupImage image={slide.props.children} close={close} />
               </Popup>
             ))}
           </div>
@@ -242,9 +232,7 @@ const YourDiploma = ({
         <div className={stls.mobileBtn}>
           <LicensePopUp onBachelor showFullText={showFullText} />
         </div>
-        {
-        //@ts-ignore
-        withAddInfo.includes(programSlug) && (
+        {programSlug && withAddInfo.includes(programSlug) && (
           <p className={stls.addInfo}>
             *Диплом и присваиваемая квалификация отображены при условии профильного высшего
             образования

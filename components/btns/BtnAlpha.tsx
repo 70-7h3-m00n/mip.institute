@@ -4,18 +4,18 @@ import classNames from 'classnames'
 interface Props {
   text?: string
   isDisabled?: boolean
-  href?: null | string
-  target?: null | string
+  href?: string
+  target?: string
   isLiveCourse?: boolean
   onClick?: () => void
   isViolet?: boolean
 }
 
 const BtnAlpha = ({
-  text,
+  text = 'Кнопка',
   isDisabled = false,
-  href = null,
-  target = null,
+  href,
+  target,
   isLiveCourse,
   onClick,
   isViolet
@@ -28,9 +28,7 @@ const BtnAlpha = ({
             [stls.container]: true
           })}
           href={href}
-          // @ts-ignore
           target={target}
-          // @ts-ignore
           rel={target && 'noopener noreferrer'}>
           {text}
         </a>
@@ -43,7 +41,7 @@ const BtnAlpha = ({
             [stls.violet]: isViolet
           })}
           disabled={isDisabled}
-          onClick={onClick}>
+          onClick={isDisabled ? undefined : onClick}>
           {text}
         </button>
       )}

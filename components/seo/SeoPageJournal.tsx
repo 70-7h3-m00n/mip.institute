@@ -8,24 +8,13 @@ type TSeoPagesProgram = {
 }
 
 const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
-  // const { metaTitle, metaDescription } = blog?.seo
-  //@ts-ignore
-  const publishDate = new Date(blog?.date)
-
-  const additionalMetaRobotsKeys = [
-    'nosnippet',
-    'maxSnippet',
-    'maxImagePreview',
-    'maxVideoPreview',
-    'noarchive',
-    'unavailableAfter',
-    'noimageindex',
-    'notranslate'
-  ]
+  const publishDate = blog?.date ? new Date(blog.date) : new Date()
 
   const seoParams = {
     title: `${
-      blog?.seo?.[0]?.metaTitle ? blog?.seo?.[0]?.metaTitle : 'статья Московского Института Психологии'
+      blog?.seo?.[0]?.metaTitle
+        ? blog?.seo?.[0]?.metaTitle
+        : 'статья Московского Института Психологии'
     }`,
     desc: blog?.seo?.[0].metaDescription
       ? blog?.seo?.[0].metaDescription
@@ -61,8 +50,7 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
       <ArticleJsonLd
         type='BlogPosting'
         url={`${routes.front.root}${routes.front.journals}/${blog?.slug}`}
-        //@ts-ignore
-        title={blog?.title}
+        title={blog?.title ?? 'Название статьи не указано'}
         images={[
           'https://example.com/photos/1x1/photo.jpg',
           'https://example.com/photos/4x3/photo.jpg',
@@ -71,8 +59,7 @@ const SeoPagesJournal: FC<TSeoPagesProgram> = ({ blog }) => {
         datePublished={publishDate?.toISOString()}
         dateModified={publishDate?.toISOString()}
         authorName={blog?.teacher?.name}
-        //@ts-ignore
-        description={blog?.subtitle}
+        description={blog?.subtitle ?? 'Описание отсутствует'}
       />
     </>
   )

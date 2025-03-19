@@ -2,27 +2,18 @@ import ReviewList from '@/components/sections/Reviews/ReviewList'
 import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, preview, routes } from '@/config/index'
 import truncate from '@/helpers/general/truncate'
-import {
-  sortBasedOnNumericOrder,
-  sortUniqueReviewsCreatedAtASC
-} from '@/helpers/index'
+import { sortBasedOnNumericOrder, sortUniqueReviewsCreatedAtASC } from '@/helpers/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { TypePageReviewsProps } from '@/types/index'
 import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
-const ReviewsPage: NextPage<TypePageReviewsProps> = ({
-  programs,
-  reviews,
-  uniqueReviews
-}) => {
-  //@ts-ignore
+const ReviewsPage: NextPage<TypePageReviewsProps> = ({ programs, reviews, uniqueReviews }) => {
   useHandleContextStaticProps({ programs })
 
   const reviewsSorted = sortBasedOnNumericOrder({
-    //@ts-ignore
-    reviews: sortUniqueReviewsCreatedAtASC({ uniqueReviews })
+    reviews: sortUniqueReviewsCreatedAtASC({ uniqueReviews: uniqueReviews ?? [] })
   })
 
   const seoParams = {

@@ -25,11 +25,6 @@ const BlockGladSeeTeam = ({ props }: PropsType) => {
     }
   }
 
-  const handleReady = async data => {
-    const player = playerRef.current
-    console.log('handleReady', data)
-  }
-
   return (
     <section className={styles.container}>
       <Wrapper>
@@ -49,7 +44,6 @@ const BlockGladSeeTeam = ({ props }: PropsType) => {
                   muted={true}
                   controls={false}
                   className={styles.iframe}
-                  onReady={handleReady}
                   onEnded={handleRestart} // Запуск видео заново при завершении
                 />
               </div>
@@ -77,7 +71,6 @@ const BlockGladSeeTeam = ({ props }: PropsType) => {
                 muted={true}
                 controls={false}
                 className={styles.iframe}
-                onReady={handleReady}
                 onEnded={handleRestart}
               />
             </div>

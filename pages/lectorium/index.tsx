@@ -35,14 +35,15 @@ const LectoriumPage = ({ lectoriums }: Props) => {
   const router = useRouter()
   const today = dayjs()
 
-  const [showPast, setShowPast] = useState(false)
-  const [isInternal, setIsInternal] = useState(null)
-  const [selectedType, setSelectedType] = useState(null)
-  const [priceFilter, setPriceFilter] = useState(null)
-  const [filteredDates, setFilteredDates] = useState([null, null])
-  const [filteredLectoriums, setFilteredLectoriums] = useState([])
+  const [showPast, setShowPast] = useState<boolean>(false)
+  const [isInternal, setIsInternal] = useState<boolean | null>(null)
+  const [selectedType, setSelectedType] = useState<string | null>(null)
+  const [priceFilter, setPriceFilter] = useState<string | null>(null)
+  const [filteredDates, setFilteredDates] = useState<[string | null, string | null]>([null, null])
   const [isCalendarVisible, setIsCalendarVisible] = useState(false)
-  const [dates, setDates] = useState([])
+  const [filteredLectoriums, setFilteredLectoriums] = useState<Lectorium[]>([])
+  const [dates, setDates] = useState<string[]>([])
+  console.log(filteredLectoriums, 'filteredLectoriums')
 
   const handleToggleCalendar = () => {
     setIsCalendarVisible(!isCalendarVisible)
@@ -73,23 +74,17 @@ const LectoriumPage = ({ lectoriums }: Props) => {
       }
     }
 
-    
-
     if (isInternal !== null) {
       baseFilter = baseFilter.filter(lect => lect.isInternal === isInternal)
     }
 
     baseFilter = baseFilter.filter(lect => {
       const targetDate = dayjs(lect.targetDate).tz('Europe/Moscow')
-      const isDateInFuture = targetDate.isAfter(today)
-
       return showPast ? targetDate.isBefore(today, 'hour') : targetDate.isAfter(today, 'hour')
     })
 
     if (filteredDates[0] && filteredDates[1]) {
-      const startDate = dayjs(filteredDates[0])
-      const endDate = dayjs(filteredDates[1])
-
+      const [startDate, endDate] = filteredDates.map(date => dayjs(date))
       baseFilter = baseFilter.filter(lect => {
         const targetDate = dayjs(lect.targetDate)
         return (
@@ -97,23 +92,39 @@ const LectoriumPage = ({ lectoriums }: Props) => {
         )
       })
     }
-    let sortedByDate
-    if (showPast) {
-      sortedByDate = baseFilter.sort((a, b) => dayjs(b.targetDate).diff(dayjs(a.targetDate)))
-    } else {
-      sortedByDate = baseFilter.sort((a, b) => dayjs(a.targetDate).diff(dayjs(b.targetDate)))
+
+    const sortedByDate = baseFilter.sort((a, b) =>
+      showPast
+        ? dayjs(b.targetDate).diff(dayjs(a.targetDate))
+        : dayjs(a.targetDate).diff(dayjs(b.targetDate))
+    )
+
+    // Проверяем, изменились ли данные перед установкой состояния
+    if (JSON.stringify(filteredLectoriums) !== JSON.stringify(sortedByDate)) {
+      setFilteredLectoriums(sortedByDate)
     }
 
-    setFilteredLectoriums(sortedByDate)
-    setDates(sortedByDate.map(lectorium => lectorium.targetDate))
-  },[filteredDates, isInternal, lectoriums, priceFilter, selectedType, showPast,today])
+    const newDates = sortedByDate.map(lectorium => lectorium.targetDate)
+    if (JSON.stringify(dates) !== JSON.stringify(newDates)) {
+      setDates(newDates)
+    }
+  }, [
+    filteredDates,
+    isInternal,
+    lectoriums,
+    priceFilter,
+    selectedType,
+    showPast,
+    today,
+    dates,
+    filteredLectoriums
+  ])
 
   useEffect(() => {
     filterLectoriums()
-  }, [showPast, selectedType, isInternal, filteredDates, lectoriums, priceFilter, setFilteredDates,filterLectoriums])
+  }, [filterLectoriums])
 
   const handleFilterInternalEvents = () => {
-    //@ts-ignore
     setIsInternal(true)
   }
 
@@ -122,16 +133,13 @@ const LectoriumPage = ({ lectoriums }: Props) => {
   }
 
   const handleFilterOutsideEvents = () => {
-    //@ts-ignore
     setIsInternal(false)
   }
 
   const handleSelectChange = (selectedOption: (typeof lectoriumOptions)[0]) => {
-    //@ts-ignore
     setSelectedType(selectedOption?.value || null)
   }
   const handleSelectPriceFilter = (selectedOption: (typeof lectoriumPriceOptions)[0]) => {
-    //@ts-ignore
     setPriceFilter(selectedOption?.value || null)
   }
 
@@ -153,8 +161,6 @@ const LectoriumPage = ({ lectoriums }: Props) => {
             воркшопы и т.п
           </p>
           <div className={stls.tags}>
-            
-
             <FilterTag onClick={handleFilterAllEvents} isActive={isInternal === null} isCategories>
               Все мероприятия
             </FilterTag>
@@ -176,7 +182,6 @@ const LectoriumPage = ({ lectoriums }: Props) => {
             <CustomSelect
               onChange={handleSelectChange}
               options={lectoriumOptions}
-              // isDisabled={!isInternal}
               radius='50'
               height='30'
               mainColor='#6F6F6F'
@@ -196,18 +201,15 @@ const LectoriumPage = ({ lectoriums }: Props) => {
               </span>
             </button>
             <CustomSelect
-            onChange={handleSelectPriceFilter}
-            options={lectoriumPriceOptions}
-            // isDisabled={!isInternal}
-            radius='50'
-            height='30'
-            mainColor='#6F6F6F'
-            placeholder='Тип'
-            value={lectoriumPriceOptions.find(
-              option => option.value === priceFilter
-            )}
-          />
-          <FilterTag isActive={!!showPast} onClick={() => setShowPast(prev => !prev)}>
+              onChange={handleSelectPriceFilter}
+              options={lectoriumPriceOptions}
+              radius='50'
+              height='30'
+              mainColor='#6F6F6F'
+              placeholder='Тип'
+              value={lectoriumPriceOptions.find(option => option.value === priceFilter)}
+            />
+            <FilterTag isActive={!!showPast} onClick={() => setShowPast(prev => !prev)}>
               Прошедшие
             </FilterTag>
           </div>
@@ -222,9 +224,8 @@ const LectoriumPage = ({ lectoriums }: Props) => {
                 />
               </div>
             )}
-            {filteredLectoriums.map(lectorium => (
-              //@ts-ignore
-              <LectoriumIndexCard key={lectorium?.slug} card={lectorium} />
+            {filteredLectoriums.length !== 0 && filteredLectoriums.map((lectorium: Lectorium, index) => (
+              <LectoriumIndexCard key={lectorium?.slug || index} card={lectorium} />
             ))}
           </div>
           {filteredLectoriums.length === 0 && <Stub onClick={onClickReset} />}

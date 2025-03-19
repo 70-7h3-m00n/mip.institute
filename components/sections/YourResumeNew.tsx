@@ -1,13 +1,16 @@
 import stls from '@/styles/components/sections/YourResumeNew.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import { useState } from 'react'
+import { RefObject, useState } from 'react'
 import { toNumberWithSpaces } from '@/helpers/index'
 import classNames from 'classnames'
 import Image from 'next/image'
 import resume from '@/public/assets/imgs/resume/resumeNew.png'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
-
-const YourResumeNew = ({ resumeRef = null, program }) => {
+interface YourResumeNewProps {
+  resumeRef?: RefObject<HTMLDivElement>
+  program: any
+}
+const YourResumeNew = ({ resumeRef, program }: YourResumeNewProps) => {
   const [showFullText, setShowFullText] = useState(false)
   const [visibleSkillsCount, setVisibleSkillsCount] = useState(1)
 
@@ -25,9 +28,7 @@ const YourResumeNew = ({ resumeRef = null, program }) => {
       .split('\n')
       .map(skill => skill.replace(/^- /, '').trim())
       .filter(skill => skill.length > 0) || []
-  const displayedSkills = showFullText
-    ? resumeSkills
-    : resumeSkills.slice(0, visibleSkillsCount)
+  const displayedSkills = showFullText ? resumeSkills : resumeSkills.slice(0, visibleSkillsCount)
 
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
@@ -52,9 +53,7 @@ const YourResumeNew = ({ resumeRef = null, program }) => {
             </div>
             <div className={stls.infoLeft}>
               <div className={stls.line}>
-                <p className={stls.infoText}>
-                  {program?.portfolio?.name || 'Дарья, 30 лет'}
-                </p>
+                <p className={stls.infoText}>{program?.portfolio?.name || 'Дарья, 30 лет'}</p>
               </div>
               <div className={stls.line}>
                 <p className={stls.subTitle}>Профессия:</p>
@@ -68,9 +67,7 @@ const YourResumeNew = ({ resumeRef = null, program }) => {
               </div>
               <div className={stls.line}>
                 <p className={stls.subTitle}>Специальность:</p>
-                <p className={stls.infoText}>
-                  {program?.portfolio?.specialization}
-                </p>
+                <p className={stls.infoText}>{program?.portfolio?.specialization}</p>
               </div>
               <div className={stls.line}>
                 <p className={stls.subTitle}>Заработок:</p>
@@ -111,9 +108,7 @@ const YourResumeNew = ({ resumeRef = null, program }) => {
             <div className={stls.infoRight}>
               <div className={stls.titleBlock}>
                 <div className={stls.icon}>3</div>
-                <p className={stls.subTitleRight}>
-                  Ключевые профессиональные навыки:
-                </p>
+                <p className={stls.subTitleRight}>Ключевые профессиональные навыки:</p>
               </div>
               <ul className={stls.list}>
                 {displayedSkills.map((skill, index) => (

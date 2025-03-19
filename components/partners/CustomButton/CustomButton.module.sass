@@ -16,26 +16,24 @@
     @include m.gap($ptb: f.px(16, em), $plr: f.px(10))
   @include m.media(laptop)
     @include m.gap($ptb: f.px(16, em), $plr: f.px(19))
+    border: f.px(2) solid
   @include m.media(desktop)
     @include m.gap($ptb: f.px(16, em), $plr: f.px(29))
     border: f.px(2) solid
+    
+  &::after
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    opacity: 0
+    box-shadow: 0 0 f.px(20, em) f.px(5, em) rgba(c.$black-800, 0.2)
+  &:hover
+    transform: scale(1.02)
     &::after
-      content: ''
-      position: absolute
-      top: 0
-      right: 0
-      bottom: 0
-      left: 0
-      opacity: 0
-      box-shadow: 0 0 f.px(20, em) f.px(5, em) rgba(c.$black-800, 0.2)
-    &:hover
-      transform: scale(1.02)
-      &::after
-        opacity: 1
-    &:focus
-      transform: scale(0.98)
-      &::after
-        opacity: 0
+      opacity: 1
 
 .btn_alpha
   @include m.dye(border, c.$orange-700)

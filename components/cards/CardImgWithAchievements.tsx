@@ -27,8 +27,7 @@ const CardImgWithAchievements = ({ person }: Props) => {
     <div className={stls.imgAuthorWithAchievements}>
       <div className={stls.imgAuthorContainer}>
         <Image
-        // @ts-ignore
-          src={person?.portraitForBlog?.url || person?.portrait?.url}
+          src={person?.portraitForBlog?.url ?? person?.portrait?.url ?? ''}
           alt={'alt'}
           className={stls.imgAuthor}
           width={isMobileLayout ? 155 : 180}

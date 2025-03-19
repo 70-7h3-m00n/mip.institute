@@ -1,7 +1,4 @@
-import {
-  useFilter,
-  useFilterDispatch
-} from '@/context/FilterContext/FilterContext'
+import { useFilter, useFilterDispatch } from '@/context/FilterContext/FilterContext'
 import stls from '@/styles/components/filters/FiltersForLifeCourses.module.sass'
 import RangeSlide from '@/ui/RangeSlide'
 import FilterContainer from './FilterContainer'
@@ -12,13 +9,11 @@ const FiltersWithContext = ({ cost, duration }) => {
   const { filters } = useFilter()
   const handleRecruitment = () => {
     if (!filters.courseOpened) {
-      // @ts-ignore
       dispatch({
         type: 'setBooleanFilter',
         filterName: 'courseOpened'
       })
     } else {
-      // @ts-ignore
       dispatch({
         type: 'clearBooleanFilter',
         filterName: 'courseOpened'

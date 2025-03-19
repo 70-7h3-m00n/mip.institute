@@ -2,15 +2,7 @@ import stls from '@/components/sections/practicalTraining/RequirementsInProfessi
 import { useEffect, useState } from 'react'
 import classNames from 'classnames'
 
-const RequirementsWithProgress = ({
-  targetProgress,
-  isActive,
-  onComplete = null,
-  id,
-  text,
-  onClick,
-  card
-}) => {
+const RequirementsWithProgress = ({ targetProgress, isActive, id, text, onClick, card }) => {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
@@ -21,19 +13,15 @@ const RequirementsWithProgress = ({
         setProgress(currentProgress)
         if (currentProgress >= targetProgress) {
           clearInterval(interval)
-          // @ts-ignore
-          onComplete?.() // Оповещаем, что анимация завершена
         }
       }, 25) // Скорость анимации (в миллисекундах)
     }
-  }, [isActive, targetProgress, onComplete])
+  }, [isActive, targetProgress])
 
   return (
     <>
       <div className={stls.progressContainer} onClick={onClick}>
-        <div
-          className={stls.progressFill}
-          style={{ width: `${progress}%` }}></div>
+        <div className={stls.progressFill} style={{ width: `${progress}%` }}></div>
         <div className={stls.textWrapper}>
           <div className={stls.withId}>
             <p className={stls.id}>{id + 1}</p>
@@ -46,9 +34,7 @@ const RequirementsWithProgress = ({
             </span>
           </div>
 
-          {progress > 0 && (
-            <span className={stls.progressText}>{progress} %</span>
-          )}
+          {progress > 0 && <span className={stls.progressText}>{progress} %</span>}
         </div>
         <div
           className={classNames({

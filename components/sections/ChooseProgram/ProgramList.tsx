@@ -1,15 +1,12 @@
 import routes from '@/config/routes'
 import styles from '@/styles/components/sections/ChooseProgram/ProgramList.module.sass'
-import {
-  studyFieldsCourses,
-  studyFieldsProfessions
-} from 'constants/studyFieldsOnMain'
+import { studyFieldsCourses, studyFieldsProfessions } from 'constants/studyFieldsOnMain'
 import { useState } from 'react'
 import Program from './Program'
 
 type Props = {
-  ofType: string
-  currentType?: string
+  ofType: string | null
+  currentType?: string | null
 }
 
 export default function ProgramList({ ofType, currentType }: Props) {
@@ -26,11 +23,7 @@ export default function ProgramList({ ofType, currentType }: Props) {
           slug={value}
           key={`${value}-${index}`}
           label={label}
-          href={`${
-            ofType === 'course'
-              ? routes.front.courses
-              : routes.front.professions
-          }/${value}`}
+          href={`${ofType === 'course' ? routes.front.courses : routes.front.professions}/${value}`}
           openListIndex={openListIndex} // Передаем состояние открытого списка
           setOpenListIndex={setOpenListIndex}
           showIcon={ofType !== 'course'}

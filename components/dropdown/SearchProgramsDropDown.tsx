@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react'
 import Link from 'next/link'
 import stls from '@/styles/components/sections/Header.module.sass'
 import CardTooltip from '../cards/CardTooltip'
@@ -9,154 +9,122 @@ import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import routes from '@/config/routes'
 import BtnField from '../btns/BtnField'
 import { usePathname } from 'next/navigation'
-import { getCookie } from 'cookies-next'
-import getUtmSourceFromCookie from '@/helpers/funcs/getUtmSourceFromCookie'
+
+type Program = {
+  id: string
+  title: string
+  slug: string
+  studyField: string
+  studyFieldSlug: string
+  type: string
+  typeLabel: string
+  studyMounthsDuration: number
+  heroPicture: {
+    url: string
+    width: number
+    height: number
+  }
+  index_number: {
+    idx: number
+  }
+}
 
 export default function SearchProgramsDropDown() {
+  const [descriptionText, setDescriptionText] = useState<string>('Об институте')
+  const [directionOnHover, setDirectionOnHover] = useState<boolean>(false)
+  const [isInputVisible, setInputVisible] = useState<boolean>(false)
+  const [searchQuery, setSearchQuery] = useState<string>('')
+  const [filteredPrograms, setFilteredPrograms] = useState<Program[]>([])
+  const [programs, setPrograms] = useState<Program[]>([])
+
+  const inputRef = useRef<HTMLInputElement | null>(null)
+  const iconRef = useRef<HTMLDivElement | null>(null)
+
+  //Список ссылок
   const list = useMemo(
     () => [
-      {
-        href: routes.front.about,
-        val: 'Об институте'
-      },
-      {
-        href: routes.front.lectoriums,
-        val: 'Семинары'
-      },
-      {
-        href: routes.front.supervision,
-        val: 'Супервизия'
-      },
-      {
-        href: routes.front.incomers,
-        val: 'Поступающим'
-      },
-      {
-        href: routes.front.teachers,
-        val: 'Преподаватели'
-      },
-      {
-        href: routes.front.webinars,
-        val: 'Вебинары'
-      },
-      {
-        href: routes.front.journals,
-        val: 'Журнал'
-      },
-      {
-        href: routes.front.reviews,
-        val: 'Отзывы'
-      },
-      {
-        href: routes.front.vacancies,
-        val: 'Вакансии'
-      },
+      { href: routes.front.about, val: 'Об институте' },
+      { href: routes.front.lectoriums, val: 'Семинары' },
+      { href: routes.front.supervision, val: 'Супервизия' },
+      { href: routes.front.incomers, val: 'Поступающим' },
+      { href: routes.front.teachers, val: 'Преподаватели' },
+      { href: routes.front.webinars, val: 'Вебинары' },
+      { href: routes.front.journals, val: 'Журнал' },
+      { href: routes.front.reviews, val: 'Отзывы' },
+      { href: routes.front.vacancies, val: 'Вакансии' }
     ],
     []
   )
 
   const pathname = usePathname()
-  const [descriptionText, setDescriptionText] = useState('Об институте')
 
+  // Обновляем текст описания при изменении `pathname`
   useEffect(() => {
-    const currentRoute = pathname
-
-    // Ищем элемент списка, соответствующий текущему пути
-    const currentItem = list.find(item => item.href === currentRoute)
-
-    if (currentItem) {
-      setDescriptionText(currentItem.val)
-    } else {
-      setDescriptionText('Об институте')
-    }
+    const currentItem = list.find(item => item.href === pathname)
+    setDescriptionText(currentItem ? currentItem.val : 'Об институте')
   }, [pathname, list])
 
-  // направления
-  const [directionOnHover, setDirectionOnHover] = useState(false)
-
-  const directionsOnHoverHandler = () => {
-    setDirectionOnHover(prev => !prev)
-  }
-  // направления
-
-  // hidden INput
-  const [isInputVisible, setInputVisible] = useState(false)
-  const inputRef = useRef(null)
-  const iconRef = useRef(null)
-
-  const [searchQuery, setSearchQuery] = useState('')
-  const [filteredPrograms, setFilteredPrograms] = useState([])
-  const [programs, setPrograms] = useState([])
-
-  useEffect(() => {
-    const handleDocumentClick = event => {
-      // Проверяем, является ли цель клика иконкой или ее родителями
-      if (
-        // @ts-ignore
-        (iconRef.current && iconRef?.current?.contains(event.target)) ||
-        // @ts-ignore
-        (inputRef.current && inputRef.current.contains(event.target))
-      ) {
-        return
-      }
-      // Если цель клика не связана с иконкой, скрываем инпут
-      setInputVisible(false)
-    }
-
-    document.addEventListener('click', handleDocumentClick)
-
-    return () => {
-      document.removeEventListener('click', handleDocumentClick)
-    }
-  }, [])
-
+  // Загружаем программы
   useEffect(() => {
     const fetchPrograms = async () => {
-      const allPrograms = await getProgramsData()
-      setPrograms(allPrograms)
+      try {
+        const allPrograms: Program[] | undefined = await getProgramsData()
+        if (allPrograms) setPrograms(allPrograms)
+      } catch (error) {
+        console.error('Ошибка загрузки программ:', error)
+      }
     }
     fetchPrograms()
   }, [])
 
-  const firstShownPrograms = [programs[11], programs[19], programs[8], programs[0]]
-
+  // Обновляем `filteredPrograms` при изменении `searchQuery`
   useEffect(() => {
-    const filtered = programs.filter(program => {
-      // @ts-ignore
-      const programTitle = convertEnglishToRussian(program?.title.toLowerCase())
-      const query = convertEnglishToRussian(searchQuery.toLowerCase())
-      return programTitle.includes(query)
-    })
+    if (!searchQuery) {
+      setFilteredPrograms([])
+      return
+    }
+    const filtered = programs.filter(program =>
+      convertEnglishToRussian(program.title.toLowerCase()).includes(
+        convertEnglishToRussian(searchQuery.toLowerCase())
+      )
+    )
     setFilteredPrograms(filtered)
   }, [programs, searchQuery])
 
-  const handleIconSearchClick = () => {
-    setInputVisible(prev => !prev)
-    if (!isInputVisible) {
-      setTimeout(() => {
-        if (inputRef.current) {
-          setTimeout(() => {
-            // @ts-ignore
-            inputRef.current.focus()
-          }, 100)
-        }
-      }, 0)
+  const firstShownPrograms = [programs[11], programs[19], programs[8], programs[0]]
+
+  // Обработчик клика вне инпута
+  const handleDocumentClick = useCallback((event: MouseEvent) => {
+    if (
+      (iconRef.current && iconRef.current.contains(event.target as Node)) ||
+      (inputRef.current && inputRef.current.contains(event.target as Node))
+    ) {
+      return
     }
-  }
+    setInputVisible(false)
+  }, [])
+
+  useEffect(() => {
+    if (isInputVisible) {
+      document.addEventListener('click', handleDocumentClick)
+      return () => document.removeEventListener('click', handleDocumentClick)
+    }
+  }, [isInputVisible, handleDocumentClick])
 
   const cardClickHandler = () => {
     setInputVisible(prev => !prev)
     setSearchQuery('')
   }
 
-  const [isEdpartners, setIsEdpartners] = useState(false)
-  const partCookie = getCookie('utm')
-  useEffect(() => {
-    setTimeout(() => {
-      const utmSource = getUtmSourceFromCookie()
-      setIsEdpartners(utmSource === 'edpartners')
-    }, 300)
-  }, [isEdpartners, partCookie])
+  const handleIconSearchClick = () => {
+    setInputVisible(prev => {
+      const newState = !prev
+      if (newState) {
+        setTimeout(() => inputRef.current?.focus(), 100)
+      }
+      return newState
+    })
+  }
 
   return (
     <div className={stls.searchAndPrograms}>
@@ -178,17 +146,16 @@ export default function SearchProgramsDropDown() {
         <div className={isInputVisible ? stls.programsPopUp : stls.hiddenProgramsPopUp}>
           <div className={isInputVisible ? stls.card : stls.hidden}>
             {!searchQuery &&
-              programs[0] !== undefined &&
-              firstShownPrograms &&
-              firstShownPrograms?.map((el, i) => (
-// @ts-ignore
-                <React.Fragment key={el.id}>
-                  <CardTooltip profession={el} clickHandler={cardClickHandler} />
-                </React.Fragment>
-              ))}
+              firstShownPrograms
+                .filter(el => el !== undefined)
+                .map(el => (
+                  <React.Fragment key={el!.id}>
+                    <CardTooltip profession={el} clickHandler={cardClickHandler} />
+                  </React.Fragment>
+                ))}
             {searchQuery &&
-              filteredPrograms?.slice(0, 4).map((el, i) => (
-                <React.Fragment key={i}>
+              filteredPrograms.slice(0, 4).map(el => (
+                <React.Fragment key={el.id}>
                   <CardTooltip profession={el} clickHandler={cardClickHandler} />
                 </React.Fragment>
               ))}
@@ -205,8 +172,8 @@ export default function SearchProgramsDropDown() {
       </div>
       <div
         className={stls.desriptionPopup}
-        onMouseEnter={directionsOnHoverHandler}
-        onMouseLeave={directionsOnHoverHandler}>
+        onMouseEnter={() => setDirectionOnHover(true)}
+        onMouseLeave={() => setDirectionOnHover(false)}>
         <p className={directionOnHover ? stls.directionPopupTextShown : stls.desriptionPopupText}>
           {descriptionText}
         </p>
@@ -224,11 +191,23 @@ export default function SearchProgramsDropDown() {
             ))}
           </div>
         </div>
+        <div className={directionOnHover ? stls.directionsPopup : stls.hidden}>
+          <div className={stls.oneDirection}>
+            {list.map(item => (
+              <div key={item.href + item.val} className={stls.popupLink}>
+                <Link href={item.href} passHref>
+                  {item.val}
+                </Link>
+                <div className={stls.arrowIcon}>
+                  <IconArrowRight />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>{' '}
       </div>
       <div className={stls.nums}>
-        <a
-          href={'tel:+7-499-110-88-19'}
-          className={isInputVisible ? stls.hiddenText : stls.showText}>
+        <a href='tel:+7-499-110-88-19' className={isInputVisible ? stls.hiddenText : stls.showText}>
           +7 (499) 110-88-19
         </a>
       </div>

@@ -17,10 +17,9 @@ const QuizResults = ({ result }: Props) => {
     return null // Если нет данных, не рендерим ничего
   }
   const resultValues = result.split(',')
-  const marker = []
+  const marker: string[] = []
 
   resultValues.forEach(item => {
-    //@ts-ignore
     marker.push(...testResultsMarker(item))
   })
 

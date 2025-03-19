@@ -13,8 +13,8 @@
   font-weight: 350
   white-space: nowrap
   font-size: f.px(14)
+  @include m.flex($ai:center)
   @include m.media(phone, tablet)
-  display: flex
 
   &.active
     // Стили для активного состояния
@@ -28,14 +28,14 @@
 
 .category
   border: f.px(1) solid
-  @include m.dye(border, c.$orange-700)
+  @include m.dye(border, c.$orange-400)
   &:hover
-    @include m.dye(bg, c.$orange-700)
+    @include m.dye(bg, c.$orange-400)
     @include m.dye(c, c.$white-900)
     font-weight: 500
   &.active
     // Стили для активного состояния
-    @include m.dye(bg, c.$orange-700)
+    @include m.dye(bg, c.$orange-400)
 
 .program
   border: 1px solid

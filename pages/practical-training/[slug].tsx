@@ -21,7 +21,6 @@ const BachelorPage = ({ practicalTraining }: Props) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () =>
-  //@ts-ignore
   await handleGetStaticPaths({ page: routes.front.practicalTraining })
 
 export const getStaticProps: GetStaticProps = async context =>

@@ -1,6 +1,6 @@
 type TGeneralImg = {
   classNames?: string[]
-  src?: string
+  src: string
   alt?: string
   width?: number
   height?: number

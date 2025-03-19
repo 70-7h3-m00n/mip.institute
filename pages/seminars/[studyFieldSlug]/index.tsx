@@ -24,7 +24,6 @@ const SeminarsStudyFieldPage = ({ events }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () =>
-  //@ts-ignore
   await handleGetStaticPaths({ page: routes.front.seminars })
 
 export const getStaticProps: GetStaticProps = async context =>

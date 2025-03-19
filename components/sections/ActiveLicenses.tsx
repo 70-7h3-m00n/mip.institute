@@ -8,6 +8,7 @@ import BtnAlpha from '@/components/btns/BtnAlpha'
 import routes from '@/config/routes'
 import { dataDocsConstituentRight, dataOchuVoMipDocsConstituentRight } from '@/data/index'
 import loadIcon from '@/helpers/general/loadIcon'
+import { ReactNode } from 'react'
 
 type Props = {
   isOchuVoMip?: boolean
@@ -48,10 +49,9 @@ const ActiveLicenses = ({ isOchuVoMip }: Props) => {
               modal
               nested>
               {
-                // @ts-ignore
-                close => (
+                ((close: () => void) => (
                   <PopupImage image={<ImgLicence isOchuVoMip={isOchuVoMip} />} close={close} />
-                )
+                )) as unknown as ReactNode
               }
             </Popup>
             <span className={stls.label}>

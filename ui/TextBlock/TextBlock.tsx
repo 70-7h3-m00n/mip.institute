@@ -20,11 +20,7 @@ interface TextBlockProps {
   }
 }
 
-const TextBlock: React.FC<TextBlockProps> = ({
-  textBlock,
-  isLinkSide = false,
-  isLink = false
-}) => {
+const TextBlock: React.FC<TextBlockProps> = ({ textBlock, isLinkSide = false, isLink = false }) => {
   return (
     <div
       className={stls.container}
@@ -32,21 +28,17 @@ const TextBlock: React.FC<TextBlockProps> = ({
       <p className={stls.title}>{textBlock?.title}</p>
       <p>{textBlock?.text}</p>
       {textBlock.list?.title}
-      <ul>
-        {textBlock.list?.rows.map((el, idx) => (
-          <li key={`${el}-${idx}`}>{el}</li>
-        ))}
-      </ul>
+      <ul>{textBlock.list?.rows.map((el, idx) => <li key={`${el}-${idx}`}>{el}</li>)}</ul>
       {isLinkSide && (
         <ul>
           {textBlock.links?.map((el, idx) => (
             <li key={`${el}-${idx}`}>
               {el?.val}{' '}
-              <Link
-              // @ts-ignore
-              href={el?.href} target='_blank' className={stls.link}>
-                {el?.href}
-              </Link>
+              {el?.href && (
+                <Link href={el?.href} target='_blank' className={stls.link}>
+                  {el?.href}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -55,12 +47,11 @@ const TextBlock: React.FC<TextBlockProps> = ({
         <ul>
           {textBlock.links?.map((el, idx) => (
             <li key={`${el}-${idx}`}>
-              
-              <Link
-              // @ts-ignore 
-              href={el?.href} target='_blank' className={stls.link}>
-                {el?.val}
-              </Link>
+              {el?.href && (
+                <Link href={el?.href} target='_blank' className={stls.link}>
+                  {el?.val}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
