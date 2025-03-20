@@ -29,7 +29,7 @@ export interface StudyProcessData {
 }
 
 interface Props {
-  studyProcess: StudyProcessData
+  studyProcess?: StudyProcessData
   showButton?: boolean
 }
 
