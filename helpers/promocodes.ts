@@ -46,7 +46,8 @@ const promocodes = {
   prohorshalyzpin: 'СЧАСТЬЕ',
   sanya_florida: 'САНЯ',
   'liz.zolotareva': 'ЗОЛОТАРЕВА',
-  moscowmap: 'moscowmap'
+  moscowmap: 'moscowmap',
+  moguchaya: 'МОГУЧАЯ'
 }
 
 export default promocodes
