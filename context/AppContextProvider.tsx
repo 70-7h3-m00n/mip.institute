@@ -103,7 +103,7 @@ const reducer = (state: State, action: Action): State => {
   }
 }
 
-const AppContext = createContext<{ state: State; dispatch: Dispatch<Action> } | null>(null)
+export const AppContext = createContext<{ state: State; dispatch: Dispatch<Action> } | null>(null)
 
 export const AppContextProvider = ({
   children,
