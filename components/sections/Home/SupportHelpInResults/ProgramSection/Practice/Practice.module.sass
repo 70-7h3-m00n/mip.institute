@@ -11,31 +11,37 @@
   
 .top
   @include m.flex($jc: space-between)
-  gap: f.px(54)
+  gap: f.px(29)
   @include m.media(phone, tablet)
     flex-direction: column
-    gap: f.px(15)
+    gap: f.px(10)
 
 .title
-  color: #6F01C6
+  color: #855EDF
   font-size: f.px(30)
-  // // font-family: Mulish
-  font-weight: 500
+  font-family: Mulish
+  font-weight: 600
   line-height: 110%
-  width: 50%
+  flex: 1
   @include m.gap($mb: f.px(0))
   @include m.media(phone, tablet)
     font-size: f.px(20)
-    width: 100%
+
 
 .description
   color: c.$black-700
   font-size: f.px(20)
-  // // font-family: Mulish
-  font-weight: 350
+  font-family: Mulish
+  font-weight: 300
   line-height: 110%
-  width: 50%
-  @include m.gap($mb: f.px(0))
+  @include m.flex($fd: column)
+  gap: 10px
+  flex: 1
+  p
+    @include m.gap($mb: f.px(0))
+  a 
+    color: c.$black-700
+    text-decoration: underline
   @include m.media(phone, tablet)
     font-size: f.px(16)
     width: 100%
@@ -49,7 +55,9 @@
   border-radius: f.px(10)
   background-size: cover
   background-repeat: no-repeat
-  margin-top: -80px
+  margin-top: -30px
+  @include m.media(laptop)
+    margin-top: -40px
   @include m.media(phone, tablet)
     margin-top: 0px
 

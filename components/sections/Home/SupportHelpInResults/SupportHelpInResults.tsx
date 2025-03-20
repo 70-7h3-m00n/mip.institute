@@ -3,7 +3,7 @@ import stls from './SupportHelpInResults.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import ProgramSection from './ProgramSection/ProgramSection'
-import { customStyles, paymentData, tabs } from './const'
+import { customStyles, tabs } from './const'
 import Select from 'react-select'
 
 const SupportHelpInResults = () => {
@@ -35,7 +35,7 @@ const SupportHelpInResults = () => {
             isSearchable={false}
           />
         )}
-        <ProgramSection data={paymentData[activeTab]} activeTab={activeTab} />
+        <ProgramSection activeTab={activeTab} />
       </Wrapper>
     </section>
   )

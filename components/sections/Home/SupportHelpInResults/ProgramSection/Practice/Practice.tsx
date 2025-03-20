@@ -3,7 +3,7 @@ import stls from './Practice.module.sass'
 import Image from 'next/image'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
-const Practice = ({ data }) => {
+const Practice = () => {
   const isMobile = useBetterMediaQuery('(max-width: 768px)')
   const image = {
     imageUrl: '/assets/imgs/home/SupportHelpInResults/image4.png',
@@ -33,15 +33,14 @@ const Practice = ({ data }) => {
           </p>
         </div>
       </div>
-      <div className={stls.bottom}>
-        <Image
-          className={stls.img}
-          src={isMobile ? image.imageMobUrl : image.imageUrl}
-          width={570}
-          height={309}
-          alt={image.imageAlt}
-        />
-      </div>
+
+      <Image
+        className={stls.img}
+        src={isMobile ? image.imageMobUrl : image.imageUrl}
+        width={1170}
+        height={417}
+        alt={image.imageAlt}
+      />
     </div>
   )
 }

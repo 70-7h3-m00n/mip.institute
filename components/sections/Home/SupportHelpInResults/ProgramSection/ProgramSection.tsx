@@ -7,21 +7,20 @@ import Supervision from './Supervision/Supervision'
 
 interface ProgramSectionProps {
   activeTab: string
-  data: any
 }
 
-const ProgramSection: React.FC<ProgramSectionProps> = ({ activeTab, data }) => {
+const ProgramSection: React.FC<ProgramSectionProps> = ({ activeTab }) => {
   switch (activeTab) {
     case 'Опытные кураторы':
-      return <Curators data={data} />
+      return <Curators />
     case 'Центр карьеры':
-      return <CareerCenter data={data} />
+      return <CareerCenter />
     case 'Сообщество выпускников':
-      return <AlumniCommunity data={data} />
+      return <AlumniCommunity />
     case 'Практика':
-      return <Practice data={data} />
+      return <Practice />
     case 'Супервизии':
-      return <Supervision data={data} />
+      return <Supervision />
     default:
       return null
   }

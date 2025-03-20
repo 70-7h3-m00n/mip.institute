@@ -13,17 +13,18 @@
 .title
   color: c.$black-800
   font-size: f.px(44)
-  font-weight: 500
+  font-family: Mulish
+  font-weight: 700
   line-height: 120%
-  @include m.gap($mb: f.px(35))
+  @include m.gap($mb: f.px(25))
   @include m.media(phone, tablet)
-    font-size: f.px(26)
+    font-size: f.px(25)
     @include m.gap($mb: f.px(15))
 
 .tabs
   @include m.flex($jc: space-between)
   gap: 10px
-  border: 1px solid c.$purple-800
+  border: 1px solid #855EDF
   background: #F9F6FF
   border-radius: f.px(100)
   height: 77px
@@ -36,15 +37,17 @@
   @include m.gap( $plr: f.px(20))
   border-radius: 100px
   font-size: f.px(20)
+  font-family: Mulish
   cursor: pointer
   transition: 0.3s
   color: c.$black-700
-  font-weight: 350
+  font-weight: 400
   line-height: 110%
 
   &:hover, &.activeTab
     background: c.$purple-800
     color: white
+    // font-weight: 700
 
 .select
   width: 100%
@@ -52,9 +55,10 @@
   border: none
   background: transparent
   font-size: f.px(20)
+  font-family: Mulish
   color: c.$purple-800
   text-align: center
-  font-weight: 500
+  font-weight: 700
   cursor: pointer
   outline: none
   @include m.gap($mb: f.px(15))

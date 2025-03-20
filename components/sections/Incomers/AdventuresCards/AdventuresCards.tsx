@@ -69,7 +69,6 @@ const AdventuresCards: React.FC<AdventuresCardsProps> = ({ showButton }) => {
             height={item.height}
             alt='Образовательный процесс'
             className={stls.image}
-            layout={isMobile ? 'fixed' : 'intrinsic'}
           />
         </div>
       ))}
