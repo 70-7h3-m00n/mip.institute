@@ -62,6 +62,23 @@
     font-size: f.px(12)
     max-width: f.px(160)
 
+.text
+  display: inline-block
+  font-size: f.px(12)
+  font-style: normal
+  font-weight: 300
+  line-height: 130%
+  max-width: f.px(260)
+  @include m.gap($mt: f.px(10))
+  @include m.media(laptop)
+    font-size: f.px(10)
+  @include m.media(tablet)
+    @include m.gap($mt: f.px(10))
+    font-size: f.px(8)
+  @include m.media(phone)
+    @include m.gap($mt: f.px(5))
+    font-size: f.px(6)
+
 .image
   & > img
     border-radius: f.px(15)
