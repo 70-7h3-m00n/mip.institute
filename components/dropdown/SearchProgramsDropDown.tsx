@@ -4,11 +4,11 @@ import stls from '@/styles/components/sections/Header.module.sass'
 import CardTooltip from '../cards/CardTooltip'
 import IconArrowRight from '@/components/icons/IconArrowRight'
 import IconSearchAlt from '@/components/icons/IconSearchAlt'
-import getProgramsData from '@/lib/data/getProgramsData'
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import routes from '@/config/routes'
 import BtnField from '../btns/BtnField'
 import { usePathname } from 'next/navigation'
+import { useProgramsSafe } from '@/hooks/general/useSafeContext'
 
 type Program = {
   id: string
@@ -35,7 +35,9 @@ export default function SearchProgramsDropDown() {
   const [isInputVisible, setInputVisible] = useState<boolean>(false)
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [filteredPrograms, setFilteredPrograms] = useState<Program[]>([])
-  const [programs, setPrograms] = useState<Program[]>([])
+  const {
+      state: { programs }
+    } = useProgramsSafe()
 
   const inputRef = useRef<HTMLInputElement | null>(null)
   const iconRef = useRef<HTMLDivElement | null>(null)
@@ -63,19 +65,6 @@ export default function SearchProgramsDropDown() {
     const currentItem = list.find(item => item.href === pathname)
     setDescriptionText(currentItem ? currentItem.val : 'Об институте')
   }, [pathname, list])
-
-  // Загружаем программы
-  useEffect(() => {
-    const fetchPrograms = async () => {
-      try {
-        const allPrograms: Program[] | undefined = await getProgramsData()
-        if (allPrograms) setPrograms(allPrograms)
-      } catch (error) {
-        console.error('Ошибка загрузки программ:', error)
-      }
-    }
-    fetchPrograms()
-  }, [])
 
   // Обновляем `filteredPrograms` при изменении `searchQuery`
   useEffect(() => {
