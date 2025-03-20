@@ -8,6 +8,11 @@
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(35))
 
+.rounded
+  border-radius: f.px(20)
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
+    
 .result
   display: block
   text-align: center

@@ -5,6 +5,11 @@
 .container
   @include m.dye(bg, c.$pink-100)
 
+.rounded
+  border-radius: f.px(20)
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
+
 .questionTitle
   font-size: f.px(30)
   font-style: normal

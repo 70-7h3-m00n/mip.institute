@@ -57,6 +57,27 @@
   position: absolute
   transition: all 1s ease-out
   box-shadow: 0 f.px(10) f.px(20) rgba(0, 0, 0, 0.2)
-  border-radius: 10px
   border: f.px(.5) solid c.$purple-800
   z-index: 2
+
+.buttonContainer
+  position: absolute
+  @include m.flex($jc: center, $ai: center)
+  z-index: 2
+  border-radius: f.px(10)
+  background: #FF8F52
+  width: 80%
+  bottom: f.px(150)
+  @include m.gap($mt: f.px(30))
+  @include m.media(phone,tablet)
+    @include m.gap($mt: f.px(10))
+    border-radius: f.px(5)
+
+.text
+  color: c.$white-900
+  font-size: f.px(22)
+  font-weight: 500
+  @include m.gap($mb: f.px(0),$ptb: f.px(21))
+  @include m.media(phone,tablet)
+    @include m.gap($ptb: f.px(18))
+    font-size: f.px(16)

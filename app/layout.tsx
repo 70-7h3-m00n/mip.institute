@@ -12,6 +12,8 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
+import { AppContextProvider } from '@/context/AppContextProvider'
+import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 
 export const metadata = {
   title: 'Московский Институт Психологии',
@@ -21,36 +23,40 @@ export const metadata = {
   )
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const initialData = await fetchAllProgramsData()
+
   return (
     <html lang='ru'>
       <body style={{ backgroundColor: '#F4F4F4' }}>
-        <Suspense>
-          <MenuState>
-            <FieldsTooltipState>
-              {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
+        <AppContextProvider initialData={initialData}>
+          <Suspense>
+            <MenuState>
+              <FieldsTooltipState>
+                {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
 
-              {/* <StickyTop
+                {/* <StickyTop
                 isWithGift={isWithGift}
                 onClick={closePromo}
                 isPromo={isPromo}
                 promoText={promoText}
               /> */}
 
-              <Header />
+                <Header />
 
-              <Scripts />
-              {children}
-              <Footer />
+                <Scripts />
+                {children}
+                <Footer />
 
-              <div>
-                <StickyBottom pageAppRouter={true} />
-              </div>
-              {/* </div> */}
-            </FieldsTooltipState>
-          </MenuState>
-          <Analytics />
-        </Suspense>
+                <div>
+                  <StickyBottom pageAppRouter={true} />
+                </div>
+                {/* </div> */}
+              </FieldsTooltipState>
+            </MenuState>
+            <Analytics />
+          </Suspense>
+        </AppContextProvider>
       </body>
     </html>
   )
