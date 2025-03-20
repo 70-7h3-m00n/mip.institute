@@ -257,28 +257,17 @@ const FormAlpha = ({
                 required: `*Номер телефона обязателен`
               }}
               render={({ field: { onChange, value } }) => {
-                const handlePhoneChange = (inputValue: string) => {
-                  let formattedValue = inputValue
                 
-                  if (formattedValue === '78' || formattedValue === '77') {
-                    // console.log('IFF');
-                    formattedValue = '7'
-                    onChange(formattedValue)
-                    
-                  } else {
-                    onChange(formattedValue)
-                  }
-            
-                }
                 return (
                 <PhoneInput
                   disabled={isDisabled}
                   value={value}
-                  onChange={handlePhoneChange}
-                  country='ru'
+                  onChange={onChange}
+                  // country='ru'
                   // regions={['ex-ussr']}
                   localization={ru}
                   placeholder='Ваш телефон'
+                  jumpCursorToEnd={true}
                   containerClass={stls.containerInput}
                   inputClass={stls.phoneInput}
                   buttonClass={stls.flagButton}
