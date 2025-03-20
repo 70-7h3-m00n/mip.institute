@@ -260,11 +260,13 @@ const FormAlpha = ({
 
                 const handleInputChange = (inputValue: string) => {
                   let formattedValue = inputValue
+                  
                   if(formattedValue === '8') {
                     formattedValue='7'
                   }
-                  onChange(formattedValue)
-
+                  if (formattedValue.startsWith('8') ) {
+                    formattedValue = '7' + formattedValue.slice(1)
+                  }
                 }
                 
                 return (
