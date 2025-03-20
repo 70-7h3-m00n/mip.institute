@@ -267,6 +267,8 @@ const FormAlpha = ({
                   if (formattedValue.startsWith('8') ) {
                     formattedValue = '7' + formattedValue.slice(1)
                   }
+
+                  onChange(formattedValue)
                 }
                 
                 return (
