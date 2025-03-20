@@ -1,3 +1,4 @@
+'use client'
 import Wrapper from '@/ui/Wrapper'
 import React from 'react'
 import stls from './AdventuresCards.module.sass'

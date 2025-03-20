@@ -1,3 +1,4 @@
+'use client'
 import Wrapper from '@/ui/Wrapper'
 import ru from 'react-phone-input-2/lang/ru.json'
 import Button from '@/components/btns/Button'

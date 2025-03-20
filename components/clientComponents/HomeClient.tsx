@@ -1,9 +1,7 @@
-'use client'
 import stls from '@/styles/pages/PageHome.module.sass'
 import HelpWithChoice from '@/components/sections/Home/HelpWithChoice/HelpWithChoice'
 import AdventuresCards from '../sections/Incomers/AdventuresCards/AdventuresCards'
 import SupportHelpInResults from '../sections/Home/SupportHelpInResults/SupportHelpInResults'
-
 import dynamic from 'next/dynamic'
 import StudyProcess, {
   StudyProcessData
@@ -13,6 +11,8 @@ import slide2 from '@/public/assets/imgs/home/studyProcess/slide2.png'
 import slide3 from '@/public/assets/imgs/home/studyProcess/slide3.png'
 import slide4 from '@/public/assets/imgs/home/studyProcess/slide4.png'
 import { homePositionsByBreakpoint } from '@/components/sections/Incomers/StudyProcess/constants'
+import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
+import Title from '../sections/Home/Title/Title'
 
 const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), { ssr: false })
 
@@ -43,9 +43,15 @@ const data: StudyProcessData = {
   ]
 }
 
-const HomeClient = () => {
+const HomeClient = async () => {
+
+  const all = await fetchAllProgramsData()
+  // console.log(all);
+  
+      
   return (
     <div className={stls.container}>
+      <Title all={all} />
       <AdventuresCards showButton />
       <PsyTest fallbackComponent={HelpWithChoice} isRounded />
       <StudyProcess studyProcess={data} showButton />

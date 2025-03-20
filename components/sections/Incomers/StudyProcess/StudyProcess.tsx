@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import stls from './StudyProcess.module.sass'
 import Wrapper from '@/ui/Wrapper'

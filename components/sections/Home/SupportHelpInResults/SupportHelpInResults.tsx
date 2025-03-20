@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react'
 import stls from './SupportHelpInResults.module.sass'
 import Wrapper from '@/ui/Wrapper'
