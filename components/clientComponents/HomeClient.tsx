@@ -10,7 +10,7 @@ const HomeClient = () => {
   return (
     <div className={stls.container}>
       <AdventuresCards showButton />
-      <PsyTest fallbackComponent={HelpWithChoice} />
+      <PsyTest fallbackComponent={HelpWithChoice} isRounded />
     </div>
   )
 }

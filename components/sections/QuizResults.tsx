@@ -1,17 +1,20 @@
 import Wrapper from '@/ui/Wrapper'
-import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/QuizResults.module.sass'
 import Image from 'next/image'
-import { useContext } from 'react'
 import CardQuizResult from '../cards/CardQuizResult'
 import testResultsMarker from '@/helpers/funcs/testResultsMarker'
+import { useProgramsSafe } from '@/hooks/general/useSafeContext'
+import classNames from 'classnames'
 
 interface Props {
   result: string
+  isRounded?: boolean
 }
 
-const QuizResults = ({ result }: Props) => {
-  const { programs } = useContext(ContextStaticProps)
+const QuizResults = ({ result, isRounded }: Props) => {
+  const {
+    state: { programs }
+  } = useProgramsSafe()
 
   if (!programs || !programs.length) {
     return null // Если нет данных, не рендерим ничего
@@ -47,7 +50,11 @@ const QuizResults = ({ result }: Props) => {
     }))
 
   return (
-    <section className={stls.container}>
+    <section
+      className={classNames({
+        [stls.container]: true,
+        [stls.rounded]: isRounded
+      })}>
       <Wrapper>
         <h3 className={stls.result}>
           Вам подойдут <span>профессии</span>:

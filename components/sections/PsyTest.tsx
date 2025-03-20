@@ -7,16 +7,18 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import quiz from '../../constants/quizQuestions'
 import Wrapper from '@/ui/Wrapper'
 import dynamic from 'next/dynamic'
+import classNames from 'classnames'
 
 const QuizResults = dynamic(() => import('./QuizResults'), { ssr: false })
 
 SwiperCore.use([Navigation, Pagination])
 
-const PsyTest = ({
-  fallbackComponent
-}: {
+interface Props {
   fallbackComponent: React.FC<{ startHandler: () => void }>
-}) => {
+  isRounded?: boolean
+}
+
+const PsyTest = ({ fallbackComponent, isRounded }: Props) => {
   const [_, setInputs] = useState('')
   const [result, setResult] = useState<Array<Array<string>>>([])
   const [showResult, setShowResult] = useState(false)
@@ -54,8 +56,7 @@ const PsyTest = ({
     setCategory(maxKey)
   }
   if (showResult) {
-    console.log('Rendering QuizResults with category:', category)
-    return <QuizResults result={category} />
+    return <QuizResults result={category} isRounded={isRounded} />
   }
 
   const handleStart = () => {
@@ -65,7 +66,11 @@ const PsyTest = ({
   return (
     <>
       {isTestStarted ? (
-        <section className={stls.container}>
+        <section
+          className={classNames({
+            [stls.container]: true,
+            [stls.rounded]: isRounded
+          })}>
           <Wrapper>
             <Swiper
               className={stls.a}
