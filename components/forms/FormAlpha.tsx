@@ -246,7 +246,7 @@ const FormAlpha = ({
             <p className={stls.err}>{errors.name && errors.name.message}</p>
           </div>
           <div className={classNames(stls.inpt, stls.phone)}>
-            <Controller
+          <Controller
               name='phone'
               control={control}
               rules={{
@@ -256,11 +256,25 @@ const FormAlpha = ({
                 },
                 required: `*Номер телефона обязателен`
               }}
-              render={({ field: { onChange, value } }) => (
+              render={({ field: { onChange, value } }) => {
+                const handlePhoneChange = (inputValue: string) => {
+                  let formattedValue = inputValue
+                
+                  if (formattedValue === '78' || formattedValue === '77') {
+                    // console.log('IFF');
+                    formattedValue = '7'
+                    onChange(formattedValue)
+                    
+                  } else {
+                    onChange(formattedValue)
+                  }
+            
+                }
+                return (
                 <PhoneInput
                   disabled={isDisabled}
                   value={value}
-                  onChange={onChange}
+                  onChange={handlePhoneChange}
                   country='ru'
                   // regions={['ex-ussr']}
                   localization={ru}
@@ -273,7 +287,9 @@ const FormAlpha = ({
                     marginBottom: `${errors.phone ? '5px' : '20px'}`
                   }}
                 />
-              )}
+                )
+                
+              }}
             />
             {errors.phone && <p className={stls.err}>{errors.phone && errors.phone.message}</p>}
           </div>
