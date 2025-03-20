@@ -2,6 +2,8 @@
 import stls from '@/styles/pages/PageHome.module.sass'
 import HelpWithChoice from '@/components/sections/Home/HelpWithChoice/HelpWithChoice'
 import AdventuresCards from '../sections/Incomers/AdventuresCards/AdventuresCards'
+import SupportHelpInResults from '../sections/Home/SupportHelpInResults/SupportHelpInResults'
+
 import dynamic from 'next/dynamic'
 import StudyProcess, {
   StudyProcessData
@@ -47,6 +49,7 @@ const HomeClient = () => {
       <AdventuresCards showButton />
       <PsyTest fallbackComponent={HelpWithChoice} isRounded />
       <StudyProcess studyProcess={data} showButton />
+      <SupportHelpInResults/>
     </div>
   )
 }

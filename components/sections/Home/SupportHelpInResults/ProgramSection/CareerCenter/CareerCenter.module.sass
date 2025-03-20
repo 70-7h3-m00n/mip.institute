@@ -1,0 +1,76 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.flex()
+  gap: 30px
+  align-items: stretch
+  @include m.media(phone, tablet)
+    flex-direction: column
+    gap: 10px
+
+.left
+  @include m.flex($fd: column)
+  flex: 1
+
+.title
+  color: #855EDF
+  font-size: f.px(30)
+  font-family: Mulish
+  font-style: normal
+  font-weight: 600
+  line-height: 110%
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+    @include m.gap($mb: f.px(10))
+
+.description
+  color: c.$black-700
+  font-family: Mulish
+  font-size: 20px
+  font-style: normal
+  font-weight: 300
+  line-height: 110%
+  @include m.gap($mb: f.px(25))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(10))
+
+.textCard
+  @include m.gap($pt: f.px(15),$pl: f.px(20),$pb: f.px(26),$pr: f.px(95))
+  border-radius: 10px
+  background: #F9F6FF
+  @include m.flex($fd: column)
+  color:  c.$black-700
+  font-family: Mulish
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 300
+  line-height: 110%
+  @include m.media(phone, tablet)
+      @include m.gap($pt: f.px(10),$pb: f.px(17),$plr: f.px(10))
+      font-size: f.px(14)
+    
+.color
+  font-weight: 500
+
+.icon
+  width: 12px
+  height: 12px
+  @include m.gap($mb: f.px(10))
+  @include m.media(phone, tablet)
+    width: 10px
+    height: 10px
+
+.right
+  flex: 1
+  display: flex
+
+.img
+  width: 100%
+  height: auto
+  border-radius: f.px(10)
+  background-size: cover
+  background-repeat: no-repeat
