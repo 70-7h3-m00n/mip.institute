@@ -118,9 +118,9 @@ const Teachers = ({
               <SwiperSlide key={`${teacher?.name ?? 'Без имени'}-${idx}`}>
                 <CardTeacher
                   portrait={teacher.image}
-                  name={teacher.name || 'Имя не указано'}
-                  achievements={teacher.achievements || 'Достижения не указаны'}
-                  experience={teacher.experience || 'Опыт работы не указан'}
+                  name={teacher.name || ''}
+                  achievements={teacher.achievements || ''}
+                  experience={teacher.experience || ''}
                   isExperienceHidden={isExperienceHidden}
                   isWhiteBackground={isWhiteBackground}
                 />
