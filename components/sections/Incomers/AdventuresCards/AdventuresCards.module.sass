@@ -17,6 +17,8 @@
     position: sticky
     top: 120px
     @include m.gap($mb: f.px(136))
+    @include m.media(phone, tablet)
+      display: none
 
 .imageMip
     width: 100%
@@ -35,23 +37,33 @@
     @include m.gap($mb: f.px(70))
 
 .left
+  display: block
   text-align: left
   @include m.gap($mb: f.px(0))
-  @include m.media(phone, tablet)
-    text-align: left
+  @include m.media(phone, tablet, laptop)
+    display: inline
 
 .right
+  display: block
   text-align: right
-  @include m.media(phone, tablet)
-    text-align: left
+  @include m.media(phone, tablet, laptop)
+    display: inline
 
 .blockMain 
   @include m.flex($fd: column) 
   gap: f.px(70)
   z-index: 2
-  @include m.media(phone, tablet)
-    gap: f.px(10)
 
+.desktop
+  @include m.media(phone, tablet)
+    display: none
+
+.mobile
+  display: none
+  @include m.media(phone, tablet)
+    display: flex
+    gap: f.px(10)
+    
 .block 
   @include m.flex() 
   width: 100%
