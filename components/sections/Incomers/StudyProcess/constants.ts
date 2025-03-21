@@ -1,3 +1,10 @@
+import slide1 from '@/components/sections/Incomers/StudyProcess/images/1.png'
+import slide2 from '@/components/sections/Incomers/StudyProcess/images/2.png'
+import slide3 from '@/components/sections/Incomers/StudyProcess/images/3.png'
+import slide4 from '@/components/sections/Incomers/StudyProcess/images/4.png'
+import { StaticImageData } from 'next/image'
+import IPhone from '@/public/assets/imgs/home/studyProcess/IPhone.png'
+
 interface Position {
   top: string
   left: string
@@ -15,6 +22,21 @@ export interface PositionsByBreakpoint {
   tablet: BreakpointPositions
   laptop: BreakpointPositions
   desktop: BreakpointPositions
+}
+
+export interface StudyProcessData {
+  title?: string
+  homePage?: boolean
+  text?: {
+    bold: string
+    normal: string
+    reversed?: boolean
+    normal2?: string
+  }[]
+  positions: PositionsByBreakpoint
+  images?: StaticImageData[]
+  imageSizes: { width: number; height: number }[]
+  mobileImage?: StaticImageData
 }
 
 const positionsByBreakpoint: PositionsByBreakpoint = {
@@ -76,47 +98,71 @@ const positionsByBreakpoint: PositionsByBreakpoint = {
   }
 }
 
+const studyProcessDefaultData: StudyProcessData = {
+  title: 'Учебный процесс',
+  text: [
+    {
+      bold: 'На нашей образовательной платформе СДО размещены все необходимые материалы',
+      normal:
+        '— лекции, дополнительная литература, расписание различных онлайн и очных мероприятий, важные интересные новости.'
+    },
+    {
+      bold: 'А самое главное',
+      normal:
+        '— учебные планы с исчерпывающими модулями по необходимым дисциплинам, оценками с обратной связью и исключительными дополнительными материалами.'
+    }
+  ],
+  positions: positionsByBreakpoint,
+  images: [slide1, slide2, slide3, slide4],
+  imageSizes: [
+    { width: 250, height: 150 },
+    { width: 250, height: 150 },
+    { width: 250, height: 150 },
+    { width: 250, height: 150 }
+  ]
+}
+
 const homePositionsByBreakpoint: PositionsByBreakpoint = {
   mobile: {
     start: [
-      { top: '0', left: '-13%', rotate: '-15deg', scale: 0.65 }, // 1
-      { top: '5%', left: '45%', rotate: '5deg', scale: 0.65 }, // 2
-      { top: '45%', left: '-10%', rotate: '-5deg', scale: 0.7 }, // 3
-      { top: '45%', left: '45%', rotate: '5deg', scale: 0.65 } // 4
+      { top: '0', left: '-13%', rotate: '-15deg', scale: 0.65 },
+      { top: '5%', left: '45%', rotate: '5deg', scale: 0.65 },
+      { top: '45%', left: '-10%', rotate: '-5deg', scale: 0.7 },
+      { top: '45%', left: '45%', rotate: '5deg', scale: 0.65 }
     ],
     final: [
-      { top: '10%', left: '0%', rotate: '0deg', scale: 0.55 }, // 1 (слева)
-      { top: '10%', left: '30%', rotate: '0deg', scale: 0.55 }, // 2 (центр)
-      { top: '55%', left: '30%', rotate: '0deg', scale: 0.55 }, // 3 (центр)
-      { top: '10%', left: '60%', rotate: '0deg', scale: 0.55 } // 4 (справа)
+      { top: '10%', left: '0%', rotate: '0deg', scale: 0.55 },
+      { top: '10%', left: '37%', rotate: '0deg', scale: 0.55 },
+      { top: '45%', left: '0%', rotate: '0deg', scale: 0.55 },
+      { top: '45%', left: '37%', rotate: '0deg', scale: 0.55 }
     ]
   },
   tablet: {
     start: [
-      { top: '5%', left: '5%', rotate: '-10deg', scale: 1.1 }, // 1
-      { top: '5%', left: '55%', rotate: '5deg', scale: 1.1 }, // 2
-      { top: '40%', left: '5%', rotate: '0', scale: 1 }, // 3
-      { top: '40%', left: '55%', rotate: '0', scale: 1 } // 4
+      { top: '5%', left: '5%', rotate: '-10deg', scale: 1.1 },
+      { top: '5%', left: '55%', rotate: '5deg', scale: 1.1 },
+      { top: '40%', left: '5%', rotate: '0', scale: 1 },
+      { top: '40%', left: '55%', rotate: '0', scale: 1 }
     ],
     final: [
-      { top: '15%', left: '0%', rotate: '0deg', scale: 1 }, // 1 (слева)
-      { top: '15%', left: '35%', rotate: '0deg', scale: 1 }, // 2 (центр)
-      { top: '60%', left: '35%', rotate: '0deg', scale: 1 }, // 3 (центр)
-      { top: '15%', left: '70%', rotate: '0deg', scale: 1 } // 4 (справа)
+      { top: '20%', left: '12%', rotate: '0deg', scale: 1 },
+      { top: '20%', left: '53%', rotate: '0deg', scale: 1 },
+      { top: '55%', left: '12%', rotate: '0deg', scale: 1 },
+      { top: '55%', left: '53%', rotate: '0deg', scale: 1 }
     ]
   },
   laptop: {
     start: [
-      { top: '120px', left: '8%', rotate: '-15deg', scale: 1.4 }, // 1
-      { top: '120px', left: '60%', rotate: '8deg', scale: 1.4 }, // 2
-      { top: '480px', left: '22%', rotate: '0', scale: 1.3 }, // 3
-      { top: '480px', left: '58%', rotate: '0', scale: 1.3 } // 4
+      { top: '50px', left: '0%', rotate: '-15deg', scale: 1 },
+      { top: '100px', left: '40%', rotate: '10deg', scale: 1 },
+      { top: '400px', left: '40%', rotate: '0', scale: 1 },
+      { top: '50px', left: '80%', rotate: '10deg', scale: 1 }
     ],
     final: [
-      { top: '20%', left: '5%', rotate: '0deg', scale: 1.3 }, // 1 (слева)
-      { top: '20%', left: '40%', rotate: '0deg', scale: 1.3 }, // 2 (центр)
-      { top: '60%', left: '40%', rotate: '0deg', scale: 1.3 }, // 3 (центр)
-      { top: '20%', left: '75%', rotate: '0deg', scale: 1.3 } // 4 (справа)
+      { top: '15%', left: '5%', rotate: '0deg', scale: 0.75 },
+      { top: '19%', left: '33%', rotate: '0deg', scale: 0.75 },
+      { top: '47%', left: '33%', rotate: '0deg', scale: 0.75 },
+      { top: '15%', left: '61%', rotate: '0deg', scale: 0.75 }
     ]
   },
   desktop: {
@@ -135,4 +181,36 @@ const homePositionsByBreakpoint: PositionsByBreakpoint = {
   }
 }
 
-export { positionsByBreakpoint, homePositionsByBreakpoint }
+const homeStudyProcessData: StudyProcessData = {
+  title: 'Ваши будущие дипломы',
+  homePage: true,
+  text: [
+    {
+      bold: 'Все наши программы лицензированы, ',
+      normal:
+        'а дипломы имеют международные приложения, поэтому они ценятся клиентами и профессиональным психологическим сообществом как в России, так и за рубежом!'
+    },
+    {
+      bold: ' получают официальный документ установленного образца, ',
+      normal:
+        'По окончании программ профессиональной переподготовки и курсов повышения квалификации выпускники института',
+      normal2: 'который вносится в реестр ФРДО.',
+      reversed: true
+    }
+  ],
+  positions: homePositionsByBreakpoint,
+  images: [slide1, slide2, slide3, slide4],
+  imageSizes: [
+    { width: 330, height: 490 },
+    { width: 330, height: 230 },
+    { width: 330, height: 230 },
+    { width: 330, height: 490 }
+  ],
+  mobileImage: IPhone
+}
+export {
+  positionsByBreakpoint,
+  homePositionsByBreakpoint,
+  studyProcessDefaultData,
+  homeStudyProcessData
+}

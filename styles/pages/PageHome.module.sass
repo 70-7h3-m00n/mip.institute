@@ -7,5 +7,12 @@
   @include m.flex($fd: column)
   gap: f.px(30)
   @include m.gap($plr: f.px(15), $ptb: f.px(30))
+  font-family: Mulish, sans-serif
   @include m.media(tablet, phone)
     @include m.gap($plr: 0, $ptb: f.px(10))
+
+.container :global(h1, h2)
+  font-weight: 700
+  font-size: f.px(44)
+  @include m.media(tablet, phone)
+    font-size: f.px(26)

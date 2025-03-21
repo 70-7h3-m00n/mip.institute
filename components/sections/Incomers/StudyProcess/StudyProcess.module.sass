@@ -10,7 +10,14 @@
   background-size: cover
   @include m.gap($ptb: f.px(40))
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(23), $pb: f.px(15))
+    @include m.gap($ptb: f.px(25))
+
+.isHomePage
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
+
+.isHomePage > div > h2
+  font-weight: 700
 
 .title
   font-size: f.px(44)
@@ -28,8 +35,12 @@
   font-weight: 350
   @include m.media(phone, tablet)
     grid-template-columns: 1fr
-    gap: f.px(10)
+    gap: f.px(15)
     font-size: f.px(16)
+
+.textBlock > p
+  font-weight: 400
+  @include m.gap($mb: 0)
 
 .bold
   @include m.dye(c, c.$purple-800)
@@ -41,7 +52,7 @@
   position: relative
   min-height: f.px(900)
   @include m.media(laptop)
-    min-height: f.px(700)
+    min-height: f.px(800)
   @include m.media(tablet)
     min-height: f.px(400)
   @include m.media(phone)
@@ -69,9 +80,16 @@
   width: 80%
   bottom: f.px(150)
   @include m.gap($mt: f.px(30))
+  @include m.media(laptop)
+    bottom: f.px(100)
   @include m.media(phone,tablet)
-    @include m.gap($mt: f.px(10))
+    position: relative
+    width: 100%
+    bottom: 0
+    @include m.gap($mt: 0)
     border-radius: f.px(5)
+  &:hover
+    transform: scale(1.02)
 
 .text
   color: c.$white-900
