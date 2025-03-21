@@ -1,7 +1,11 @@
-import slide1 from '@/components/sections/Incomers/StudyProcess/images/1.png'
-import slide2 from '@/components/sections/Incomers/StudyProcess/images/2.png'
-import slide3 from '@/components/sections/Incomers/StudyProcess/images/3.png'
-import slide4 from '@/components/sections/Incomers/StudyProcess/images/4.png'
+import image1 from '@/components/sections/Incomers/StudyProcess/images/1.png'
+import image2 from '@/components/sections/Incomers/StudyProcess/images/2.png'
+import image3 from '@/components/sections/Incomers/StudyProcess/images/3.png'
+import image4 from '@/components/sections/Incomers/StudyProcess/images/4.png'
+import slide1 from '@/public/assets/imgs/home/studyProcess/slide1.png'
+import slide2 from '@/public/assets/imgs/home/studyProcess/slide2.png'
+import slide3 from '@/public/assets/imgs/home/studyProcess/slide3.png'
+import slide4 from '@/public/assets/imgs/home/studyProcess/slide4.png'
 import { StaticImageData } from 'next/image'
 import IPhone from '@/public/assets/imgs/home/studyProcess/IPhone.png'
 
@@ -113,7 +117,7 @@ const studyProcessDefaultData: StudyProcessData = {
     }
   ],
   positions: positionsByBreakpoint,
-  images: [slide1, slide2, slide3, slide4],
+  images: [image1, image2, image3, image4],
   imageSizes: [
     { width: 250, height: 150 },
     { width: 250, height: 150 },
@@ -159,10 +163,10 @@ const homePositionsByBreakpoint: PositionsByBreakpoint = {
       { top: '50px', left: '80%', rotate: '10deg', scale: 1 }
     ],
     final: [
-      { top: '15%', left: '5%', rotate: '0deg', scale: 0.75 },
-      { top: '19%', left: '33%', rotate: '0deg', scale: 0.75 },
-      { top: '47%', left: '33%', rotate: '0deg', scale: 0.75 },
-      { top: '15%', left: '61%', rotate: '0deg', scale: 0.75 }
+      { top: '15%', left: '4%', rotate: '0deg', scale: 0.75 },
+      { top: '19%', left: '32%', rotate: '0deg', scale: 0.75 },
+      { top: '47%', left: '32%', rotate: '0deg', scale: 0.75 },
+      { top: '15%', left: '60%', rotate: '0deg', scale: 0.75 }
     ]
   },
   desktop: {
