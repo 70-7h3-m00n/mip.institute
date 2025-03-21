@@ -63,7 +63,7 @@ const HelpWithChoice = ({ startHandler }: Props) => {
   const disabled = !dirtyFields.email || !dirtyFields.name || !dirtyFields.phone || isSubmitting
 
   return (
-    <div className={stls.container}>
+    <section className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>Помощь с выбором</h2>
         <div className={stls.blocks}>
@@ -155,7 +155,7 @@ const HelpWithChoice = ({ startHandler }: Props) => {
           </div>
         </div>
       </Wrapper>
-    </div>
+    </section>
   )
 }
 

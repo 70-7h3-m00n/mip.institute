@@ -7,6 +7,7 @@ import StudyProcess from '@/components/sections/Incomers/StudyProcess/StudyProce
 import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 import Title from '../sections/Home/Title/Title'
 import { homeStudyProcessData } from '@/components/sections/Incomers/StudyProcess/constants'
+import HomeFAQ from '@/components/sections/Home/HomeFAQ/HomeFAQ'
 
 const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), { ssr: false })
 
@@ -21,6 +22,7 @@ const HomeClient = async () => {
       <PsyTest fallbackComponent={HelpWithChoice} isRounded />
       <StudyProcess studyProcess={homeStudyProcessData} showButton />
       <SupportHelpInResults />
+      <HomeFAQ />
     </div>
   )
 }

@@ -1,0 +1,17 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  width: 100%
+  background: url("/assets/imgs/home/HelpWithChoice/orangeBg.png") no-repeat center center
+  background-size: cover
+  border-radius: f.px(20)
+  @include m.gap($ptb: f.px(40))
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
+    @include m.gap($ptb: f.px(20))
+
+.title
+  @include m.dye(c, c.$white-900)
+

@@ -4,7 +4,7 @@
 
 .container
   width: 100%
-  background: url("./helpWithChoiceBg.png") no-repeat center center
+  background: url("/assets/imgs/home/HelpWithChoice/orangeBg.png") no-repeat center center
   background-size: cover
   border-radius: f.px(20)
   @include m.gap($ptb: f.px(40))
@@ -14,10 +14,6 @@
 
 .title
   @include m.dye(c, c.$white-900)
-  font-size: f.px(44)
-  font-weight: 700
-  @include m.media(phone, tablet)
-    font-size: f.px(25)
 
 .blocks
   display: grid
@@ -44,7 +40,7 @@
 
 .testBlock
   @extend .block
-  background: url("./helpWithChoiceTestBg.png") no-repeat center center
+  background: url("/assets/imgs/home/HelpWithChoice/helpWithChoiceTestBg.png") no-repeat center center
   background-size: cover
   @include m.flex($fd: column, $jc: space-between)
   @include m.media(phone, tablet)
