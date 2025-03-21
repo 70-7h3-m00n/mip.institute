@@ -6,12 +6,30 @@
   width: 100%
   background: url("/assets/imgs/home/HelpWithChoice/orangeBg.png") no-repeat center center
   background-size: cover
-  border-radius: f.px(20)
-  @include m.gap($ptb: f.px(40))
-  @include m.media(phone, tablet)
-    border-radius: f.px(10)
-    @include m.gap($ptb: f.px(20))
 
 .title
   @include m.dye(c, c.$white-900)
 
+.list
+  @include m.gap($pl: 0, $mb: 0)
+
+.list > li
+  @include m.gap($mb: f.px(15))
+  @include m.dye(bg, c.$white-900)
+  @include m.dye(border, c.$white-900)
+  & > button > p > span:first-child
+    @include m.dye(c, c.$orange-400)
+
+.icon
+  @include m.dye(bg, c.$orange-400)
+  border-radius: 50%
+  padding: f.px(10)
+  margin-right: 0
+  & > span
+    width: f.px(15)
+    & > svg > *
+      stroke: white
+      stroke-width: 3
+  @include m.media(phone, tablet)
+    transform: scale(.5)
+    margin-right: 0 !important

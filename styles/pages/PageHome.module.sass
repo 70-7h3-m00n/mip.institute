@@ -16,3 +16,10 @@
   font-size: f.px(44)
   @include m.media(tablet, phone)
     font-size: f.px(26)
+
+.container :global(section)
+  border-radius: f.px(20)
+  @include m.gap($ptb: f.px(40))
+  @include m.media(tablet, phone)
+    @include m.gap($ptb: f.px(25))
+    border-radius: f.px(10)
