@@ -78,6 +78,7 @@ const createLead = async (req, res) => {
         { key: 'link', value: link || '' },
         { key: 'password', value: password || '' },
         { key: 'login', value: login || '' },
+        {key: 'transaction_id', value: utm?.transaction_id || ''}
       ],
       host: 'mip.institute', // домен вашего сайта (ОБЯЗАТЕЛЬНО)
       token: 'b6ce2e21-c68e-476f-87fe-ae268db2e9c2'
@@ -96,7 +97,7 @@ const createLead = async (req, res) => {
     }
   } catch (error) {
     console.error('Ошибка при создании нового лида:', error.response.data)
-    res.status(200).json(error.response)
+    res.status(400).json(error.response)
   }
 }
 
