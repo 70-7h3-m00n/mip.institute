@@ -159,7 +159,7 @@ const FormAlpha = ({
       data.advcake_track_url = advcake_track_url
       data.roistat_visit = roistat_visit
       if(dev) {
-        // const req = await genezis(data)
+        const req = await genezis(data)
         setThanksIsOpen(true)
         setLoading(false)
       } else {

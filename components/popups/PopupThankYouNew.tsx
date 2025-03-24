@@ -6,13 +6,10 @@ import BtnClose from '@/components/btns/BtnClose'
 import { v4 as uuidv4 } from 'uuid'
 import GratefullNew from '../sections/GratefullNew'
 import Script from 'next/script'
-import { useRouter } from 'next/router'
 
 const PopupThankyouNew = ({ close }) => {
   const { program } = useContext(ContextStaticProps)
 
-  const router = useRouter()
-  const isPsyCons = router.query.slug === "psiholog-konsultant"
 
   useEffect(() => {
     const tagManagerArgs = {
@@ -52,7 +49,7 @@ const PopupThankyouNew = ({ close }) => {
           `
         }}
       />
-      {isPsyCons && (
+      {/* {isPsyCons && (
         <Script
         id='sendFormPsyCons'
         dangerouslySetInnerHTML={{
@@ -61,7 +58,7 @@ const PopupThankyouNew = ({ close }) => {
           `
         }}
       />
-      )}
+      )} */}
     </div>
   )
 }
