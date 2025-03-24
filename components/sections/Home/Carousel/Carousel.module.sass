@@ -1,0 +1,39 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  // overflow: visible
+
+
+.horizontalmediascroller 
+  --size: 150px
+  --gap: 40px
+  display: grid
+  grid-auto-flow: column
+  gap: calc(var(--gap) / 2)
+  margin: 0
+
+  // overflow: visible auto 
+  // overflow-x: auto
+  // overflow-y: scroll
+
+  overflow-x: auto
+  overscroll-behavior-inline: contain
+
+  & > li 
+    overflow: visible
+    display: inline-block /* removes the list-item bullet */
+  
+
+  & picture 
+    overflow: visible
+    inline-size: var(--size)
+    block-size: var(--size)
+  .activeSlide
+    overflow: scroll
+    // position: absolute
+    transform: translateY(-4em)
+    z-index: 10
+  
+

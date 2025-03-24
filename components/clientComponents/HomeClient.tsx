@@ -8,6 +8,7 @@ import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 import Title from '../sections/Home/Title/Title'
 import { homeStudyProcessData } from '@/components/sections/Incomers/StudyProcess/constants'
 import HomeFAQ from '@/components/sections/Home/HomeFAQ/HomeFAQ'
+import Carousel from '../sections/Home/Carousel/Carousel'
 
 const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), { ssr: false })
 
@@ -18,6 +19,7 @@ const HomeClient = async () => {
   return (
     <div className={stls.container}>
       <Title all={all} />
+      <Carousel />
       <AdventuresCards showButton />
       <PsyTest fallbackComponent={HelpWithChoice} isRounded />
       <StudyProcess studyProcess={homeStudyProcessData} showButton />
