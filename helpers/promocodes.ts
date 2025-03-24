@@ -47,7 +47,8 @@ const promocodes = {
   sanya_florida: 'САНЯ',
   'liz.zolotareva': 'ЗОЛОТАРЕВА',
   moscowmap: 'moscowmap',
-  moguchaya: 'МОГУЧАЯ'
+  moguchaya: 'МОГУЧАЯ',
+  kydriwa2403: 'KYDRIWA',
 }
 
 export default promocodes
