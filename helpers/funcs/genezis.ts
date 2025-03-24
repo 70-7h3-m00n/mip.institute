@@ -20,6 +20,10 @@ const genezis = async values => {
       await axios.post(`${routes.front.root}/api/sravni`, values)
     }
 
+    if (values?.utm?.utm_source === 'careerru') {
+      await axios.post(`${routes.front.root}/api/hh`, values)
+    }
+
     let output
     res.status === 200 && (output = 200)
     res.status === 500 && (output = 500)
