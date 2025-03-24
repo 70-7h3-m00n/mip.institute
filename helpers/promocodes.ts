@@ -49,6 +49,8 @@ const promocodes = {
   moscowmap: 'moscowmap',
   moguchaya: 'МОГУЧАЯ',
   kydriwa2403: 'KYDRIWA',
+  neeshpapa: 'ДОКТОР25',
+  vodnay: 'ВОДНАЯ'
 }
 
 export default promocodes
