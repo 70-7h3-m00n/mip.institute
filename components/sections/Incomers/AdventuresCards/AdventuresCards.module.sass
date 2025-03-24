@@ -61,6 +61,7 @@
 .mobile
   display: none
   @include m.media(phone, tablet)
+
     display: flex
     gap: f.px(10)
     
@@ -86,7 +87,7 @@
     gap: f.px(10)
 
 .blockSpaceBetween 
-  @include m.flex($jc: space-between, $ai: flex-end) 
+  @include m.flex($jc: space-between) 
   @include m.media(phone, tablet)
     @include m.flex($jc: center, $ai: center) 
     gap: f.px(10)

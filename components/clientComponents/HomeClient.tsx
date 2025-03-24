@@ -8,8 +8,8 @@ import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 import Title from '../sections/Home/Title/Title'
 import { homeStudyProcessData } from '@/components/sections/Incomers/StudyProcess/constants'
 import HomeFAQ from '@/components/sections/Home/HomeFAQ/HomeFAQ'
+import WhatSayStudents from '../sections/Home/WhatSayStudents/WhatSayStudents'
 import EducationalPrograms from '@/components/sections/Home/EducationalPrograms/EducationalPrograms'
-
 const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), { ssr: false })
 
 const HomeClient = async () => {
@@ -24,6 +24,7 @@ const HomeClient = async () => {
       <PsyTest fallbackComponent={HelpWithChoice} isRounded />
       <StudyProcess studyProcess={homeStudyProcessData} showButton />
       <SupportHelpInResults />
+      <WhatSayStudents />
       <HomeFAQ />
     </div>
   )

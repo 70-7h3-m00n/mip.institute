@@ -93,7 +93,7 @@ function AdventuresCards({ showButton }: AdventuresCardsProps) {
     <section className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>
-          <span className={stls.left}>Представь, что обучение — это путешествие,</span>
+          <span className={stls.left}>Представь, что обучение — это путешествие, </span>
           <span className={stls.right}>где каждый шаг приближает тебя к мечте</span>
         </h2>
 
