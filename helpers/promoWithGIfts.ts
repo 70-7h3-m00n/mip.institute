@@ -33,6 +33,8 @@ const promocodesWithGift = {
   moscowmap:  { gift: 'https://mip.institute/free-access' },
   moguchaya: { gift: 'https://mipinstitute.getcourse.ru/podp_mini_two' },
   kydriwa2403: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
+  neeshpapa: { gift: 'https://mip.institute/free-access' },
+  vodnay: { gift: 'https://mip.institute/free-access' },
 }
 
 export default promocodesWithGift
