@@ -5,8 +5,8 @@ import ArrowRightIcon from './ArrowRightIcon/ArrowRightIcon'
 import classNames from 'classnames'
 
 interface ArrowNavigationProps {
-  onPrev: () => void
-  onNext: () => void
+  onPrev?: () => void
+  onNext?: () => void
   bgColor?: string
   arrowColor?: string
   size?: 'small' | 'medium' | 'large'

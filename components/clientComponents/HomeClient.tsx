@@ -10,6 +10,7 @@ import { homeStudyProcessData } from '@/components/sections/Incomers/StudyProces
 import HomeFAQ from '@/components/sections/Home/HomeFAQ/HomeFAQ'
 import WhatSayStudents from '../sections/Home/WhatSayStudents/WhatSayStudents'
 import EducationalPrograms from '@/components/sections/Home/EducationalPrograms/EducationalPrograms'
+import MIPTeachersAsAuthors from '../sections/Home/MIPTeachersAsAuthors/MIPTeachersAsAuthors'
 const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), { ssr: false })
 
 const HomeClient = async () => {
@@ -25,6 +26,7 @@ const HomeClient = async () => {
       <StudyProcess studyProcess={homeStudyProcessData} showButton />
       <SupportHelpInResults />
       <WhatSayStudents />
+      <MIPTeachersAsAuthors />
       <HomeFAQ />
     </div>
   )
