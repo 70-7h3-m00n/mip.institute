@@ -11,14 +11,37 @@
 .left
   color: white
   max-width: f.px(670)
+  
   h1
     
     font-size: f.px(106)
     line-height: 85%
     font-weight: 700
     margin-bottom: f.px(30)
+    @include m.media(phone, tablet) 
+      font-size: f.px(52)
+      margin-top: f.px(25)
 
 
   p
     font-size: f.px(24)
     margin-bottom: f.px(30)
+    @include m.media(phone, tablet) 
+      font-size: f.px(15)
+
+.btns
+  display: grid
+  max-width: f.px(650)
+  @include m.media(laptop, desktop)
+    grid-template-columns: repeat(2, 1fr)
+    gap: f.px(30)
+
+  @include m.media(phone, tablet) 
+    grid-template-rows: repeat(2, 1fr)
+    gap: f.px(15)
+
+.btn
+  & > *
+    width: 100%
+    & > *
+      width: 100%

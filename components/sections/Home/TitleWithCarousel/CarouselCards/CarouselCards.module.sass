@@ -35,6 +35,8 @@
   font-weight: 600
   @include m.media(laptop)
     max-width: f.px(300)
+  @include m.media(phone, tablet)
+    max-width: f.px(290)
 
 .img
   object-fit: cover
