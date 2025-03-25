@@ -24,11 +24,11 @@ const Carousel = ({ heroCarousel }) => {
 
   return (
     <Wrapper>
-      <div >
+      <div className={stls.carouselContainer}>
         <h2 className={stls.title}>Особенности обучения в МИП</h2>
         <Swiper
         ref={swiperRef}
-          slidesPerView={isMobileAndTabletLayout ? 1: 3}
+          slidesPerView={isMobileAndTabletLayout ? 1.03: 3}
           initialSlide={2}
           centeredSlides={true}
           loop={true}
@@ -36,12 +36,13 @@ const Carousel = ({ heroCarousel }) => {
           modules={[Navigation, Pagination]}
           navigation={{
             prevEl: prevRef.current,
-            nextEl: '.custom-next-button'
+            
           }}
           pagination={
             isMobileAndTabletLayout
-              ? { clickable: true, dynamicBullets: true }
+              ? { clickable: true, dynamicBullets: true, bulletActiveClass: stls.bulletViolet, horizontalClass: stls.pagination }
               : false
+            
           }
           
           className={stls.container}>
@@ -53,8 +54,10 @@ const Carousel = ({ heroCarousel }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <button ref={prevRef} className={stls.btnPrev}>Назад</button>
-        <button ref={nextRef} className={stls.btnPrev}>Назад</button>
+        <div className={stls.btns}>
+          <button ref={prevRef} className={stls.navBtn}> &larr;</button>
+          <button ref={nextRef} className={stls.navBtn}>&rarr;</button>
+        </div>
       </div>
     </Wrapper>
   )
