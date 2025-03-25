@@ -1,7 +1,5 @@
-'use client'
 import stls from './Title.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import imageUrl from '@/public/assets/imgs/home/hero/Herobg.jpeg'
 
 const Title = () => {
   
