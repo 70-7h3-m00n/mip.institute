@@ -5,8 +5,8 @@ import SupportHelpInResults from '../sections/Home/SupportHelpInResults/SupportH
 import dynamic from 'next/dynamic'
 import StudyProcess from '@/components/sections/Incomers/StudyProcess/StudyProcess'
 import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
-import Title from '../sections/Home/Title/Title'
 import { homeStudyProcessData } from '@/components/sections/Incomers/StudyProcess/constants'
+import TitleWithCarousel from '../sections/Home/TitleWithCarousel/TitleWithCarousel'
 import HomeFAQ from '@/components/sections/Home/HomeFAQ/HomeFAQ'
 import WhatSayStudents from '../sections/Home/WhatSayStudents/WhatSayStudents'
 import EducationalPrograms from '@/components/sections/Home/EducationalPrograms/EducationalPrograms'
@@ -14,13 +14,12 @@ import MIPTeachersAsAuthors from '../sections/Home/MIPTeachersAsAuthors/MIPTeach
 import LeadingTeachersMIP from '../sections/Home/LeadingTeachersMIP/LeadingTeachersMIP'
 const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), { ssr: false })
 
-const HomeClient = async () => {
+const HomeClient = async ({props}) => {
   const all = await fetchAllProgramsData()
-  // console.log(all);
 
   return (
     <div className={stls.container}>
-      <Title all={all} />
+      <TitleWithCarousel heroCarousel={props.heroCarousel}/>
       <EducationalPrograms />
       <AdventuresCards showButton />
       <PsyTest fallbackComponent={HelpWithChoice} isRounded />
