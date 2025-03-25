@@ -1,42 +1,43 @@
+'use client'
 import stls from './EducationalProgramsCard.module.sass'
-import { TAGS } from '@/components/sections/Home/EducationalPrograms/EducationalPrograms'
 import classNames from 'classnames'
 import Link from 'next/link'
-import { routes } from '@/config/index'
+import React from 'react'
+import { EducationalProgram } from '@/types/page/home/homeGeneralTypes'
+import {
+  getDurationText,
+  getProgramCategory,
+  getProgramLink
+} from '@/components/sections/Home/EducationalPrograms/helpers'
 
 interface Props {
-  card: {
-    title: string
-    category: string
-    studyHours: number
-    studyMounthsDuration: number
-    tag?: TAGS
-  }
+  card: EducationalProgram
 }
 
 const EducationalProgramsCard = ({ card }: Props) => {
+  const category = getProgramCategory(card)
+  const link = getProgramLink(card)
+  const isPopular = 'isPopular' in card && card.isPopular
+
   return (
     <li className={stls.card}>
-      <Link href={routes.front.programs}>
+      <Link href={link} passHref>
         <div className={stls.header}>
-          <span className={stls.category}>{card.category}</span>
-          {card.tag && (
+          <span className={stls.category}>{category}</span>
+          {isPopular && (
             <span
               className={classNames({
                 [stls.tag]: true,
-                [stls.popular]: card.tag === TAGS.Popular
+                [stls.popular]: isPopular
               })}>
-              {card.tag}
+              Популярно
             </span>
           )}
         </div>
 
         <p className={stls.title}>{card.title}</p>
 
-        <p className={stls.studyHours}>
-          <span>{card.studyMounthsDuration} месяцев </span>
-          <span>/ {card.studyHours} часов</span>
-        </p>
+        <p className={stls.studyHours}>{getDurationText(card) ?? ''}</p>
       </Link>
     </li>
   )

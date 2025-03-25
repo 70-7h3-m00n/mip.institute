@@ -1,10 +1,15 @@
 import { useContext } from 'react'
-import { AppContext } from '@/context/AppContextProvider'
+import { AppContext, State as NewContextState } from '@/context/AppContextProvider'
 import { ContextStaticProps } from '@/context/index'
+import { StaticContextType } from '@/context/simple/ContextStaticProps'
 
-export const useProgramsSafe = () => {
-  const newContext = useContext(AppContext) || null
+export const useProgramsSafe = (): { state: NewContextState } | { state: StaticContextType } => {
+  const newContext = useContext(AppContext)
   const oldContext = useContext(ContextStaticProps)
 
-  return newContext?.state?.programs ? newContext : { state: oldContext }
+  if (newContext?.state?.programs?.length) {
+    return { state: newContext.state }
+  } else {
+    return { state: oldContext }
+  }
 }

@@ -5,11 +5,16 @@
 .container
   @include m.dye(bg, c.$white-900)
 
+.filterContainer
+  @include m.flex
+  gap: f.px(15)
+  flex-wrap: wrap
+
 .blocks
   display: grid
   grid-template-columns: repeat(3, 1fr)
   gap: f.px(15) f.px(30)
-  padding-left: 0
+  @include m.gap($mtb: f.px(30), $pl: 0)
   @include m.media(phone, tablet)
     grid-template-columns: 1fr
     gap: f.px(10)

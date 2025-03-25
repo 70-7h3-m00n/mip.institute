@@ -21,7 +21,7 @@ export enum ProgramsActionTypes {
   UPDATE_TICKETS_QUANTITY = 'UPDATE_TICKETS_QUANTITY'
 }
 
-interface State {
+export interface State {
   program: any
   reviews: any[]
   programs: any[]

@@ -1,7 +1,6 @@
 import { createContext, Dispatch } from 'react'
 
-// TODO: figure out better types
-const ContextStaticProps = createContext<{
+export interface StaticContextType {
   program: any
   reviews: any[]
   programs: any[]
@@ -14,14 +13,14 @@ const ContextStaticProps = createContext<{
   curProgramsStudyFieldSlug: string | null
   searchTerm: string | null
   filteredPrograms: any[]
-  blogs: any[],
-  seminar: any,
-  bachelor: any,
+  blogs: any[]
+  seminar: any
+  bachelor: any
+  practicalTrainings: any
   setBachelor: Dispatch<any>
-  practicalTrainings: any,
   setPracticalTrainings: Dispatch<any>
   setSeminar: Dispatch<any>
-  updateTicketsQuantity: (newQuantity: number) => void;
+  updateTicketsQuantity: (newQuantity: number) => void
   setBlogs: Dispatch<any>
   setProgram: Dispatch<any>
   setPrograms: Dispatch<any>
@@ -34,7 +33,10 @@ const ContextStaticProps = createContext<{
   setCurProgramsStudyFieldSlug: Dispatch<any>
   setSearchTerm: Dispatch<any>
   setFilteredPrograms: Dispatch<any>
-}>({
+}
+
+// TODO: figure out better types
+const ContextStaticProps = createContext<StaticContextType>({
   program: null,
   reviews: [],
   programs: [],
@@ -47,14 +49,14 @@ const ContextStaticProps = createContext<{
   curProgramsStudyFieldSlug: null,
   searchTerm: null,
   filteredPrograms: [],
-  blogs:[],
+  blogs: [],
   seminar: null,
-  bachelor:null,
-  practicalTrainings:null,
+  bachelor: null,
+  practicalTrainings: null,
   setPracticalTrainings: () => {},
   setBachelor: () => {},
   setSeminar: () => {},
-  updateTicketsQuantity: (newQuantity) => {},
+  updateTicketsQuantity: newQuantity => {},
   setBlogs: () => {},
   setProgram: () => {},
   setPrograms: () => {},

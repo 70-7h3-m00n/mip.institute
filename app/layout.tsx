@@ -14,6 +14,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import { AppContextProvider } from '@/context/AppContextProvider'
 import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
+import { MediaQueryProvider } from '@/context/MediaQueryContext'
 
 export const metadata = {
   title: 'Московский Институт Психологии',
@@ -30,32 +31,34 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang='ru'>
       <body style={{ backgroundColor: '#F4F4F4' }}>
         <AppContextProvider initialData={initialData}>
-          <Suspense>
-            <MenuState>
-              <FieldsTooltipState>
-                {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
+          <MediaQueryProvider>
+            <Suspense>
+              <MenuState>
+                <FieldsTooltipState>
+                  {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
 
-                {/* <StickyTop
+                  {/* <StickyTop
                 isWithGift={isWithGift}
                 onClick={closePromo}
                 isPromo={isPromo}
                 promoText={promoText}
               /> */}
 
-                <Header />
+                  <Header />
 
-                <Scripts />
-                {children}
-                <Footer />
+                  <Scripts />
+                  {children}
+                  <Footer />
 
-                <div>
-                  <StickyBottom pageAppRouter={true} />
-                </div>
-                {/* </div> */}
-              </FieldsTooltipState>
-            </MenuState>
-            <Analytics />
-          </Suspense>
+                  <div>
+                    <StickyBottom pageAppRouter={true} />
+                  </div>
+                  {/* </div> */}
+                </FieldsTooltipState>
+              </MenuState>
+              <Analytics />
+            </Suspense>
+          </MediaQueryProvider>
         </AppContextProvider>
       </body>
     </html>

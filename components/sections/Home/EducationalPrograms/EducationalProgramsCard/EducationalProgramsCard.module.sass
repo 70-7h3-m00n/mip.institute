@@ -11,10 +11,11 @@
 .card
   border-radius: f.px(10)
   @include m.gap($plr: f.px(25), $ptb: f.px(20))
-  min-height: f.px(220)
+  min-height: f.px(230)
   background-size: cover
   background-position: center
   list-style: none
+  cursor: pointer
   @include m.media(phone, tablet)
     @include m.gap($p: f.px(15), $pb: f.px(20))
 
@@ -48,6 +49,7 @@
 
 .title
   @include m.gap($mb: 0)
+  font-size: f.px(25)
   @include m.media(phone, tablet)
     font-size: f.px(22)
 

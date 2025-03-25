@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import stls from '@/styles/components/sections/Header.module.sass'
 import CardTooltip from '../cards/CardTooltip'
@@ -36,8 +36,8 @@ export default function SearchProgramsDropDown() {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [filteredPrograms, setFilteredPrograms] = useState<Program[]>([])
   const {
-      state: { programs }
-    } = useProgramsSafe()
+    state: { programs }
+  } = useProgramsSafe()
 
   const inputRef = useRef<HTMLInputElement | null>(null)
   const iconRef = useRef<HTMLDivElement | null>(null)
@@ -80,7 +80,7 @@ export default function SearchProgramsDropDown() {
     setFilteredPrograms(filtered)
   }, [programs, searchQuery])
 
-  const firstShownPrograms = [programs[11], programs[19], programs[8], programs[0]]
+  const firstShownPrograms = [programs?.[11], programs?.[19], programs?.[8], programs?.[0]]
 
   // Обработчик клика вне инпута
   const handleDocumentClick = useCallback((event: MouseEvent) => {
