@@ -11,6 +11,7 @@ import HomeFAQ from '@/components/sections/Home/HomeFAQ/HomeFAQ'
 import WhatSayStudents from '../sections/Home/WhatSayStudents/WhatSayStudents'
 import EducationalPrograms from '@/components/sections/Home/EducationalPrograms/EducationalPrograms'
 import MIPTeachersAsAuthors from '../sections/Home/MIPTeachersAsAuthors/MIPTeachersAsAuthors'
+import LeadingTeachersMIP from '../sections/Home/LeadingTeachersMIP/LeadingTeachersMIP'
 const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), { ssr: false })
 
 const HomeClient = async () => {
@@ -26,6 +27,7 @@ const HomeClient = async () => {
       <StudyProcess studyProcess={homeStudyProcessData} showButton />
       <SupportHelpInResults />
       <WhatSayStudents />
+      <LeadingTeachersMIP />
       <MIPTeachersAsAuthors />
       <HomeFAQ />
     </div>

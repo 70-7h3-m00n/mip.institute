@@ -1,0 +1,37 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$purple-100)
+  background: url('./bg.jpg') no-repeat center center
+  background-size: cover
+
+.title
+  color: c.$black-800
+  font-size: f.px(44)
+  font-weight: 700
+  line-height: 120%
+  @include m.gap($mb: f.px(35))
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+    @include m.gap($mb: f.px(15))
+  p
+    @include m.gap($mb: f.px(0))
+
+.desktop
+  display: block
+  @include m.media(phone)
+    display: none
+
+.mobile
+  display: none
+  @include m.media(phone)
+    display: block
+
+.blockMain
+  @include m.flex($jc: space-between, $ai: stretch)
+  gap: 33px
+  @include m.media(phone, tablet)
+    flex-direction: column
+    gap: 15px

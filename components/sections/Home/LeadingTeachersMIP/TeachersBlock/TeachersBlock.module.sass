@@ -1,0 +1,61 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  border: 1px solid #855EDF
+  border-radius: 10px
+  background: #fff
+  flex: 0.65
+  @include m.gap($plr: f.px(25),$pt: f.px(40),$pb: f.px(20))
+  @include m.flex($fd: column, $jc: space-between)
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(20),$pt: f.px(20),$pb: f.px(30))
+  p
+    @include m.gap($mb: f.px(0))
+
+.containerText
+  @include m.flex($fd: column)
+  gap: 20px
+  @include m.media(phone, tablet)
+    gap: 10px
+
+.title
+  color: #855EDF
+  font-size: f.px(24)
+  font-weight: 700
+  line-height: 110%
+  letter-spacing: -0.24px
+  @include m.gap($pr: f.px(200))
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+    @include m.gap($pr: f.px(0))
+
+.description
+  color: c.$black-800
+  font-size: f.px(18)
+  font-weight: 400
+  line-height: normal
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+
+.bold
+  font-weight: 600
+
+.button
+  @include m.flex($jc: center, $ai: center)
+  @include m.gap($ptb: f.px(19))
+  background: #855EDF
+  border-radius: 10px
+  color: #fff
+  font-size: f.px(20)
+  font-weight: 600
+  text-decoration: none
+  transition: background 0.3s ease
+  @include m.gap($mt: f.px(25))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(16))
+
+  &:hover
+    background: darken(#855EDF, 5%)
+    transform: scale(1.02)
