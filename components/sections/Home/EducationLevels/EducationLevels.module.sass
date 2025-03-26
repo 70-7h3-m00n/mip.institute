@@ -1,20 +1,18 @@
+// styles/EducationLevels.module.sass
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container 
+.container
   @include m.dye(bg, c.$white-900)
 
-.navBlocksContainer 
+.navBlocksContainer
   display: grid
-  list-style: none
   width: 100%
   gap: f.px(20) f.px(30)
-  padding-left: 0
-  grid-template-columns: repeat(3, 1fr)
-  @include m.media(laptop)
-    grid-template-columns: repeat(2, 1fr)
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
   @include m.dye(c, c.$white-900)
+  padding-left: 0
   @include m.media(phone, tablet)
     align-content: flex-start
     gap: f.px(10)
@@ -22,43 +20,24 @@
 
 .item
   width: 100%
-  height: f.px(230)
-  background-position: center center
+  aspect-ratio: 1.6 / 1
+  background-position: center
   background-repeat: no-repeat
-  background-size: contain
+  background-size: cover
   padding: f.px(20) f.px(30)
-  @include m.media(tablet)
-    min-height: f.px(240)
-    padding: f.px(25)
-  @include m.media(phone)
-    padding: f.px(25) f.px(30)
+  border-radius: f.px(20)
+  transition: filter 0.3s ease
   &:hover
     filter: brightness(110%)
     cursor: pointer
+  @include m.media(tablet)
 
-.item > a 
+
+.item > a
   all: unset
   @include m.flex($fd: column, $jc: space-between)
   height: 100%
   width: 100%
-
-.navBlocksContainer > :nth-child(1) 
-  background-image: url('/assets/imgs/home/EducationLevels/bg1.png')
-
-.navBlocksContainer > :nth-child(2) 
-  background-image: url('/assets/imgs/home/EducationLevels/bg2.png')
-
-.navBlocksContainer > :nth-child(3) 
-  background-image: url('/assets/imgs/home/EducationLevels/bg3.png')
-
-.navBlocksContainer > :nth-child(4) 
-  background-image: url('/assets/imgs/home/EducationLevels/bg4.png')
-
-.navBlocksContainer > :nth-child(5) 
-  background-image: url('/assets/imgs/home/EducationLevels/bg5.png')
-
-.navBlocksContainer > :nth-child(6) 
-  background-image: url('/assets/imgs/home/EducationLevels/bg1.png')
 
 .label
   @include m.gap($mb: f.px(0))
@@ -67,14 +46,23 @@
   @include m.media(phone, tablet)
     font-size: f.px(20)
 
-.content 
+.content
   @include m.flex($fd: column, $jc: space-between)
   height: 100%
   font-weight: 350
   font-size: f.px(14)
-  max-width: f.px(255)
+  color: c.$white-900
 
-.countPrograms 
+.navBlocksContainer > :nth-child(3) .description
+  @include m.gap($pr: f.px(80))
+  @include m.media(laptop)
+    @include m.gap($pr: f.px(80))
+  @include m.media(tablet)
+    @include m.gap($pr: f.px(100))
+  @include m.media(phone)
+    @include m.gap($pr: f.px(40))
+
+.countPrograms
   font-size: f.px(12)
   font-weight: 350
   line-height: 130%
