@@ -1,4 +1,5 @@
 import routes from '@/config/routes'
+import { Homev2PageData } from '@/types/index';
 import axios from 'axios'
 import qs from 'qs'
 
@@ -12,43 +13,37 @@ const queryString = qs.stringify(
           }
         }
       },
-      // AdventureCards: {
-      //   populate: {
-      //     carousel: {
-      //       populate: {
-      //         slide: {
-      //           populate: {
-      //             files: {
-      //               fields: ['url', 'width', 'height']
-      //             }
-      //           }
-      //         }
-      //       }
-      //     }
-      //   }
-      // },
-      // MeetInstitute: {
-      //   populate: '*'
-      // },
-      // studyProcess: {
-      //   populate: '*'
-      // },
-      // programSelectionsTop: {
-      //   populate: '*'
-      // },
-      // programSelectionsBottom: {
-      //   populate: '*'
-      // },
-      // ourPossibilities: {
-      //   populate: '*'
-      // },
-      // careerCenter: {
-      //   populate: {
-      //     img: {
-      //       fields: ['url', 'width', 'height']
-      //     }
-      //   }
-      // }
+      publications: {
+        populate: {
+          slide: {
+            populate: {
+              files: {
+                fields: ['url', 'width', 'height']
+              }
+            }
+          }
+        }
+      },
+      blogs: {
+        fields: ['title', 'date'],
+
+        populate: {
+          picture: {
+            fields: ['url'],
+          },
+        }
+      },
+      partners: {
+        fields: ['title', 'subtitle'],
+        populate: {
+          image: {
+            fields: ['url'],
+          },
+        }
+      },
+      reviews: {
+        populate: '*'
+      }
     }
   },
   {
@@ -57,7 +52,7 @@ const queryString = qs.stringify(
   }
 )
 
-async function getStaticPropsHome(): Promise<any> {
+async function getStaticPropsHome(): Promise<Homev2PageData> {
   const response = await axios.get(`${routes.back.rootv2}/api/home?${queryString}`, {
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_BEARER}`

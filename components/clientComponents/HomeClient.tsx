@@ -13,15 +13,20 @@ import EducationalPrograms from '@/components/sections/Home/EducationalPrograms/
 import MIPTeachersAsAuthors from '../sections/Home/MIPTeachersAsAuthors/MIPTeachersAsAuthors'
 import LeadingTeachersMIP from '../sections/Home/LeadingTeachersMIP/LeadingTeachersMIP'
 import EducationLevels from '@/components/sections/Home/EducationLevels/EducationLevels'
+import { THomev2PageData } from '@/types/index'
 
 const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), { ssr: false })
 
-const HomeClient = async ({ props }) => {
+interface THomeClientProps {
+  data: THomev2PageData;
+}
+
+const HomeClient: React.FC<THomeClientProps> = async ({ data }) => {
   const all = await fetchAllProgramsData()
 
   return (
     <div className={stls.container}>
-      <TitleWithCarousel heroCarousel={props.heroCarousel} />
+      <TitleWithCarousel heroCarousel={data.heroCarousel} />
       <EducationalPrograms />
       <PsyTest fallbackComponent={HelpWithChoice} isRounded />
       <AdventuresCards showButton />

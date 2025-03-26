@@ -80,3 +80,8 @@ export type { default as TypePageLiveCoursesPropsQuery } from '@/types/page/live
 
 // ./props
 export type { default as TPropClassNames } from '@/types/props/TPropClassNames'
+
+export type { default as TImage } from '@/types/ui/TImage'
+
+export type {THomev2PageData,THeroCarousel, TPublicationSlide, TPublication, TBlog,TPartner,TReview} from '@/types/page/homev2/HomePagev2Props'
+
