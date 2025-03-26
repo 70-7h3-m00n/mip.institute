@@ -1,5 +1,5 @@
 import routes from '@/config/routes'
-import { Homev2PageData } from '@/types/index';
+import { THomev2PageData } from '@/types/index';
 import axios from 'axios'
 import qs from 'qs'
 
@@ -52,7 +52,7 @@ const queryString = qs.stringify(
   }
 )
 
-async function getStaticPropsHome(): Promise<Homev2PageData> {
+async function getStaticPropsHome(): Promise<THomev2PageData> {
   const response = await axios.get(`${routes.back.rootv2}/api/home?${queryString}`, {
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_BEARER}`
