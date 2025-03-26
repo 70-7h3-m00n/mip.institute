@@ -16,7 +16,7 @@
 .tabs
   @include m.flex($jc: space-between)
   gap: 10px
-  border: 1px solid #855EDF
+  border: 1px solid c.$purple-350
   background: #F9F6FF
   border-radius: f.px(100)
   height: 77px
@@ -29,7 +29,6 @@
   @include m.gap( $plr: f.px(20))
   border-radius: 100px
   font-size: f.px(20)
-  font-family: Mulish
   cursor: pointer
   transition: 0.3s
   color: c.$black-700
@@ -37,9 +36,8 @@
   line-height: 110%
 
   &:hover, &.activeTab
-    background: c.$purple-800
+    background: c.$purple-350
     color: white
-    // font-weight: 700
 
 .select
   width: 100%
@@ -47,7 +45,6 @@
   border: none
   background: transparent
   font-size: f.px(20)
-  font-family: Mulish
   color: c.$purple-800
   text-align: center
   font-weight: 700

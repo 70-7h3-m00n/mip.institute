@@ -1,12 +1,11 @@
 'use client'
-import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import Wrapper from '@/ui/Wrapper'
 import stls from './Carousel.module.sass'
 import CarouselCardNext from '../CarouselCards/CarouselCard'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import { useEffect, useRef } from 'react'
-import { Swiper as SwiperType } from 'swiper'
 
 const Carousel = ({ heroCarousel }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -27,36 +26,43 @@ const Carousel = ({ heroCarousel }) => {
       <div className={stls.carouselContainer}>
         <h2 className={stls.title}>Особенности обучения в МИП</h2>
         <Swiper
-        ref={swiperRef}
-          slidesPerView={isMobileAndTabletLayout ? 1.03: 3}
+          ref={swiperRef}
+          slidesPerView={isMobileAndTabletLayout ? 1.1 : 3}
           initialSlide={2}
           centeredSlides={true}
           loop={true}
           // navigation={true}
           modules={[Navigation, Pagination]}
           navigation={{
-            prevEl: prevRef.current,
-            
+            prevEl: prevRef.current
           }}
           pagination={
             isMobileAndTabletLayout
-              ? { clickable: true, dynamicBullets: true, bulletActiveClass: stls.bulletViolet, horizontalClass: stls.pagination }
+              ? {
+                  clickable: true,
+                  dynamicBullets: true,
+                  bulletActiveClass: stls.bulletViolet,
+                  horizontalClass: stls.pagination
+                }
               : false
-            
           }
-          
           className={stls.container}>
           {heroCarousel.map(card => (
             <SwiperSlide key={card.id} className={`${stls.slide} swiper-slide`}>
               {({ isNext }) => (
-                <CarouselCardNext isNext={isNext} card={card} isMobile={isMobileAndTabletLayout}/>
+                <CarouselCardNext isNext={isNext} card={card} isMobile={isMobileAndTabletLayout} />
               )}
             </SwiperSlide>
           ))}
         </Swiper>
         <div className={stls.btns}>
-          <button ref={prevRef} className={stls.navBtn}> &larr;</button>
-          <button ref={nextRef} className={stls.navBtn}>&rarr;</button>
+          <button ref={prevRef} className={stls.navBtn}>
+            {' '}
+            &larr;
+          </button>
+          <button ref={nextRef} className={stls.navBtn}>
+            &rarr;
+          </button>
         </div>
       </div>
     </Wrapper>

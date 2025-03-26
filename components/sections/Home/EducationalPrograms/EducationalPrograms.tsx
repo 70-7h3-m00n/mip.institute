@@ -70,7 +70,7 @@ const EducationalPrograms = () => {
 
         <ul className={stls.blocks}>
           {displayedPrograms.map(item => (
-            <EducationalProgramsCard key={item.id} card={item} />
+            <EducationalProgramsCard key={item.slug} card={item} />
           ))}
         </ul>
 

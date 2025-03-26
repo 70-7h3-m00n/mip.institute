@@ -4,9 +4,7 @@ import getStaticPropsHome from '@/lib/getStaticPropsv2/getStaticPropsHome'
 
 export const revalidate = 3600
 
-
 export default async function HomePage() {
-const homeProps = await getStaticPropsHome()
-
-  return <HomeClient props={homeProps}/>
+  const homeProps = await getStaticPropsHome()
+  return <HomeClient props={homeProps} />
 }

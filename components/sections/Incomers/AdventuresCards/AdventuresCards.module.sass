@@ -5,13 +5,15 @@
 .container
   background: c.$purple-800
   border-radius: 30px
-  // margin-top: -40px
   @include m.gap($ptb: f.px(45))
   position: relative 
   overflow: visible
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(24))
     margin-top: -20px
+
+.lightColorBg
+  background: c.$purple-350
 
 .imageMipContainer
     position: sticky

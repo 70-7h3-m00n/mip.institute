@@ -12,17 +12,18 @@ import WhatSayStudents from '../sections/Home/WhatSayStudents/WhatSayStudents'
 import EducationalPrograms from '@/components/sections/Home/EducationalPrograms/EducationalPrograms'
 import MIPTeachersAsAuthors from '../sections/Home/MIPTeachersAsAuthors/MIPTeachersAsAuthors'
 import LeadingTeachersMIP from '../sections/Home/LeadingTeachersMIP/LeadingTeachersMIP'
+
 const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), { ssr: false })
 
-const HomeClient = async ({props}) => {
+const HomeClient = async ({ props }) => {
   const all = await fetchAllProgramsData()
 
   return (
     <div className={stls.container}>
-      <TitleWithCarousel heroCarousel={props.heroCarousel}/>
+      <TitleWithCarousel heroCarousel={props.heroCarousel} />
       <EducationalPrograms />
-      <AdventuresCards showButton />
       <PsyTest fallbackComponent={HelpWithChoice} isRounded />
+      <AdventuresCards showButton />
       <StudyProcess studyProcess={homeStudyProcessData} showButton />
       <SupportHelpInResults />
       <WhatSayStudents />

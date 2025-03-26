@@ -3,6 +3,7 @@ import Wrapper from '@/ui/Wrapper'
 import stls from './AdventuresCards.module.sass'
 import Image from 'next/image'
 import Link from 'next/link'
+import classNames from 'classnames'
 
 interface ImageData {
   src: string
@@ -90,7 +91,7 @@ function AdventuresCards({ showButton }: AdventuresCardsProps) {
   }
 
   return (
-    <section className={stls.container}>
+    <section className={classNames({ [stls.container]: true, [stls.lightColorBg]: showButton })}>
       <Wrapper>
         <h2 className={stls.title}>
           <span className={stls.left}>Представь, что обучение — это путешествие, </span>
