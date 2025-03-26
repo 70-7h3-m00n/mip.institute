@@ -6,5 +6,5 @@ export const revalidate = 3600
 
 export default async function HomePage() {
   const homeProps = await getStaticPropsHome()
-  return <HomeClient props={homeProps} />
+  return <HomeClient data={homeProps} />
 }

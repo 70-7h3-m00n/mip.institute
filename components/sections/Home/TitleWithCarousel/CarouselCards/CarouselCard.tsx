@@ -5,8 +5,8 @@ import stls from './CarouselCards.module.sass'
 import Image from 'next/image'
 
 const CarouselCardNext = ({ card, isNext, isMobile }) => {
-  const translateY = useRef(0)
-  const [currentTranslateY, setCurrentTranslateY] = useState(0)
+  const translateY = useRef(-138.3)
+  const [currentTranslateY, setCurrentTranslateY] = useState(-138.3)
 
   useEffect(() => {
     let animationFrameId
