@@ -23,7 +23,6 @@ const Carousel = ({ heroCarousel }) => {
 
   return (
     <Wrapper>
-      <div className={stls.carouselContainer}>
         <h2 className={stls.title}>Особенности обучения в МИП</h2>
         <Swiper
           ref={swiperRef}
@@ -63,7 +62,6 @@ const Carousel = ({ heroCarousel }) => {
             &rarr;
           </button>
         </div>
-      </div>
     </Wrapper>
   )
 }
