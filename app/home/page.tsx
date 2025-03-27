@@ -16,6 +16,7 @@ import MIPTeachersAsAuthors from '@/components/sections/Home/MIPTeachersAsAuthor
 import LeadingTeachersMIP from '@/components/sections/Home/LeadingTeachersMIP/LeadingTeachersMIP'
 import EducationLevels from '@/components/sections/Home/EducationLevels/EducationLevels'
 import OurPartners from '@/components/partners/OurPartners/OurPartners'
+import JournalMIP from '@/components/sections/Home/JournalMIP/JournalMIP'
 
 const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), { ssr: false })
 const ProgramForRequest = dynamic(
@@ -52,6 +53,7 @@ export default async function HomePage() {
       />
       <LeadingTeachersMIP />
       <MIPTeachersAsAuthors imgs={dataHome.publications.slide.files} />
+      <JournalMIP />
       <OurPartners onePartner={dataHome.partners} />
       <ProgramForRequest />
       <HomeFAQ />
