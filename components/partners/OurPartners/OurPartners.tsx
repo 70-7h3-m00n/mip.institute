@@ -9,9 +9,19 @@ const OurPartners: React.FC<PropsOurPartners> = ({ allTypes, currentType, onePar
   return (
     <section className={styles.container}>
       <Wrapper>
-        <h1 className={styles.title}>Наши партнеры</h1>
+        {allTypes ? (
+          <h1 className={styles.title}>Наши партнеры</h1>
+        ) : (
+          <h2 className={styles.title}>
+            С нами вы можете{' '}
+            <span className={styles.highlight}>стать членами крупных ассоциаций </span>
+            ОППЛ и АППП{' '}
+          </h2>
+        )}
         {/* Навигация по типам партнеров */}
-        <PartnersNavigation types={allTypes} currentType={currentType} />
+        {allTypes && currentType && (
+          <PartnersNavigation types={allTypes} currentType={currentType} />
+        )}
         {/* Отображение партнеров по типу */}
         <PartnersList partners={onePartner} />
       </Wrapper>

@@ -6,17 +6,21 @@ import Wrapper from '@/ui/Wrapper'
 import Image from 'next/image'
 import ArrowNavigation from '@/ui/ArrowsNavigation/ArrowsNavigation'
 import StudentStory from './StudentStory/StudentStory'
-import { studentStories } from './const'
+import { TReview } from '@/types/index'
+interface WhatSayStudentsProps {
+  data: TReview[]
+}
 
-const WhatSayStudents = () => {
+const WhatSayStudents = ({ data }: WhatSayStudentsProps) => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  console.log(data, 'data')
 
   const handleNext = () => {
-    setCurrentIndex(prev => (prev + 1) % studentStories.length)
+    setCurrentIndex(prev => (prev + 1) % data.length)
   }
 
   const handlePrev = () => {
-    setCurrentIndex(prev => (prev - 1 + studentStories.length) % studentStories.length)
+    setCurrentIndex(prev => (prev - 1 + data.length) % data.length)
   }
 
   const linkImage = [
@@ -47,7 +51,7 @@ const WhatSayStudents = () => {
             bgColor='#855EDF'
             arrowColor='#FFF'
             disabledPrev={currentIndex === 0}
-            disabledNext={currentIndex === studentStories.length - 1}
+            disabledNext={currentIndex === data.length - 1}
             size='medium'
           />
           <div className={stls.imageGallery}>
@@ -68,7 +72,7 @@ const WhatSayStudents = () => {
           </div>
         </div>
         <StudentStory
-          story={studentStories[currentIndex]}
+          story={data[currentIndex]}
           mobileNavigation={
             <div className={stls.mobileNav}>
               <ArrowNavigation
@@ -77,7 +81,7 @@ const WhatSayStudents = () => {
                 bgColor='#855EDF'
                 arrowColor='#FFF'
                 disabledPrev={currentIndex === 0}
-                disabledNext={currentIndex === studentStories.length - 1}
+                disabledNext={currentIndex === data.length - 1}
                 size='medium'
               />
             </div>

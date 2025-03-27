@@ -31,7 +31,6 @@ const Carousel = ({ heroCarousel }) => {
           initialSlide={2}
           centeredSlides={true}
           loop={true}
-          // navigation={true}
           modules={[Navigation, Pagination]}
           navigation={{
             prevEl: prevRef.current

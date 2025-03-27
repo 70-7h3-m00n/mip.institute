@@ -1,9 +1,9 @@
 import React from 'react'
 import stls from './StudentStory.module.sass'
-import { StoryData } from '../const'
+import { TReview } from '@/types/index'
 
 interface Props {
-  story: StoryData
+  story: TReview
   mobileNavigation?: React.ReactNode
 }
 
@@ -12,7 +12,7 @@ const StudentStory: React.FC<Props> = ({ story, mobileNavigation }) => {
     <div className={stls.container}>
       <div className={stls.videoWrapper}>
         <iframe
-          src={story.videoUrl}
+          src={story.videoId}
           allow='autoplay; fullscreen; picture-in-picture; encrypted-media'
           title='Видео отзыв'></iframe>
       </div>
@@ -20,15 +20,21 @@ const StudentStory: React.FC<Props> = ({ story, mobileNavigation }) => {
       <div className={stls.textBlock}>
         <div className={stls.personInfo}>
           <p className={stls.name}>{story.name}</p>
-          <p className={stls.course}>{story.course}</p>
+          <p className={stls.course}>{story.program}</p>
+        </div>
+        <div className={stls.section}>
+          <p className={stls.label}>Цели:</p>
+          <p className={stls.value}>{story.goal}</p>
+        </div>
+        <div className={stls.section}>
+          <p className={stls.label}>Точка А:</p>
+          <p className={stls.value}>{story.pointA}</p>
         </div>
 
-        {story.sections.map((section, index) => (
-          <div className={stls.section} key={index}>
-            <p className={stls.label}>{section.label}</p>
-            <p className={stls.value}>{section.value}</p>
-          </div>
-        ))}
+        <div className={stls.section}>
+          <p className={stls.label}>Точка Б:</p>
+          <p className={stls.value}>{story.pointB}</p>
+        </div>
       </div>
     </div>
   )

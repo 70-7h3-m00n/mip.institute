@@ -14,6 +14,7 @@ import MIPTeachersAsAuthors from '../sections/Home/MIPTeachersAsAuthors/MIPTeach
 import LeadingTeachersMIP from '../sections/Home/LeadingTeachersMIP/LeadingTeachersMIP'
 import EducationLevels from '@/components/sections/Home/EducationLevels/EducationLevels'
 import { THomev2PageData } from '@/types/index'
+import OurPartners from '../partners/OurPartners/OurPartners'
 
 const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), { ssr: false })
 
@@ -38,14 +39,15 @@ const HomeServer: React.FC<THomeServerProps> = async ({ data }) => {
       <AdventuresCards showButton />
       <StudyProcess studyProcess={homeStudyProcessData} showButton />
       <SupportHelpInResults />
-      <WhatSayStudents />
+      <WhatSayStudents data={data.reviews} />
       <EducationLevels
         bachelorsLength={all.bachelor?.length || 0}
         practicalTrainingsLength={all.practicalTrainings?.length || 0}
         programs={all.programs || []}
       />
       <LeadingTeachersMIP />
-      <MIPTeachersAsAuthors />
+      <MIPTeachersAsAuthors imgs={data.publications.slide.files}/>
+      <OurPartners onePartner={data.partners} />
       <HomeFAQ />
     </div>
   )

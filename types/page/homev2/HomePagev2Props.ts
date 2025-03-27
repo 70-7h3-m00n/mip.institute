@@ -20,11 +20,24 @@ interface TBlog {
   picture?: TImage;
 }
 
+interface ImageType {
+  id: number
+  documentId: string
+  url: string
+  width: number
+  height: number
+}
 // Интерфейс для партнёров
 interface TPartner {
-  title: string;
-  subtitle: string;
-  image?: TImage;
+  id: number
+  documentId: string
+  title: string
+  subtitle: string
+  type: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+  image: ImageType
 }
 
 // Интерфейс для отзывов (если populate = '*', то структура неизвестна)

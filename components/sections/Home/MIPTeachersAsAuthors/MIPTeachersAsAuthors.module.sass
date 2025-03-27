@@ -41,9 +41,10 @@
     @include m.gap($mt: f.px(15))
 
 .cards
-  @include m.flex()
+  position: relative
+  display: flex
   gap: 30px
-
+  transition: opacity 0.3s ease
 .card
   @include m.flex($fd: column)
   flex: 1
@@ -55,3 +56,5 @@
   height: 100%
   border-radius: 10px
  
+.fade
+  opacity: 0.5
