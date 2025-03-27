@@ -1,3 +1,4 @@
+// constants/educationLevels.ts
 import { routes } from '@/config/index'
 
 const educationLevelsList = [
@@ -7,7 +8,8 @@ const educationLevelsList = [
     description:
       'для тех, кто смело смотрит в ближайшее будущее, решил освоить новую профессию с нуля или сменить свой карьерный путь',
     href: routes.front.professions,
-    programType: 'profession'
+    programType: 'profession',
+    background: '/assets/imgs/home/EducationLevels/bg1.png'
   },
   {
     id: 2,
@@ -15,7 +17,8 @@ const educationLevelsList = [
     description:
       'для тех, кто хочет сделать следующий шаг в сфере психологии, углубить свою экспертизу и оказывать более качественные психологические услуги',
     href: routes.front.courses,
-    programType: 'course'
+    programType: 'course',
+    background: '/assets/imgs/home/EducationLevels/bg2.png'
   },
   {
     id: 3,
@@ -23,7 +26,8 @@ const educationLevelsList = [
     description:
       'для тех, кто готов сделать Первый шаг к высшему образованию по психологии, получить фундаментальные знания и построить успешную карьеру',
     href: routes.front.bachelors,
-    programType: 'bachelor'
+    programType: 'bachelor',
+    background: '/assets/imgs/home/EducationLevels/bg3.png'
   },
   {
     id: 4,
@@ -31,7 +35,8 @@ const educationLevelsList = [
     description:
       'для тех, кто готов пройти три этапа стажировки в МИП, чтобы лучше понять теоретические концепции, увидев их реальное применение в различных ситуациях',
     href: routes.front.practicalTrainings,
-    programType: 'practicalTrainings'
+    programType: 'practicalTrainings',
+    background: '/assets/imgs/home/EducationLevels/bg4.png'
   },
   {
     id: 5,
@@ -39,7 +44,8 @@ const educationLevelsList = [
     description:
       'для тех, кто хочет быстро получить востребованные знания и умения, продолжая развиваться без отрыва от своей деятельности',
     href: routes.front.shortTerm,
-    programType: 'shortTerm'
+    programType: 'shortTerm',
+    background: '/assets/imgs/home/EducationLevels/bg5.png'
   },
   {
     id: 6,
@@ -47,7 +53,8 @@ const educationLevelsList = [
     href: routes.front.programs,
     description:
       'Мы собрали для вас курсы по популярным направлениям психологии, чтобы вы смогли выбрать подходящую вашим целям и уровню подготовки программу',
-    programType: 'programs'
+    programType: 'programs',
+    background: '/assets/imgs/home/EducationLevels/bg1.png'
   }
 ]
 

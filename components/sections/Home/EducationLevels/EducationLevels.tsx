@@ -1,3 +1,6 @@
+// components/EducationLevels.tsx
+'use client'
+
 import Wrapper from '@/ui/Wrapper'
 import stls from './EducationLevels.module.sass'
 import Link from 'next/link'
@@ -18,6 +21,7 @@ const EducationLevels = ({ programs, bachelors, practicalTrainings }: Props) => 
   const amountOfShortTerm = safePrograms.filter(el => el && el.type === 'ShortTerm').length
 
   const allPrograms = safePrograms.concat(bachelors, practicalTrainings)
+
   const renderCounter = (type: string) => {
     switch (type) {
       case 'bachelor':
@@ -40,12 +44,16 @@ const EducationLevels = ({ programs, bachelors, practicalTrainings }: Props) => 
       <Wrapper>
         <h2 className={stls.title}>Уровни образования</h2>
         <div className={stls.navBlocksContainer}>
-          {educationLevelsList.map(({ id, label, description, href, programType }) => (
-            <div key={id} className={stls.item}>
+          {educationLevelsList.map(({ id, label, description, href, programType, background }) => (
+            <div
+              key={id}
+              className={stls.item}
+              style={{ backgroundImage: `url(${background})` }}
+            >
               <Link href={href} passHref rel='noreferrer'>
                 <div className={stls.content}>
                   <span className={stls.label}>{label}</span>
-                  <p>{description}</p>
+                  <p className={stls.description}>{description}</p>
                   <div className={stls.countPrograms}>
                     <span>{renderCounter(programType)}</span>
                   </div>
