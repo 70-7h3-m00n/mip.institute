@@ -17,26 +17,32 @@ import { THomev2PageData } from '@/types/index'
 
 const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), { ssr: false })
 
-interface THomeClientProps {
-  data: THomev2PageData;
+interface THomeServerProps {
+  data: THomev2PageData
 }
 
-const HomeClient: React.FC<THomeClientProps> = async ({ data }) => {
+const HomeServer: React.FC<THomeServerProps> = async ({ data }) => {
   const all = await fetchAllProgramsData()
-
+  console.log(all)
   return (
     <div className={stls.container}>
       <TitleWithCarousel heroCarousel={data.heroCarousel} />
-      <EducationalPrograms />
+      <EducationalPrograms
+        programs={all.programs}
+        bachelors={all.bachelor}
+        practicalTrainings={all.practicalTrainings}
+        courses={all.courses}
+        professions={all.professions}
+      />
       <PsyTest fallbackComponent={HelpWithChoice} isRounded />
       <AdventuresCards showButton />
       <StudyProcess studyProcess={homeStudyProcessData} showButton />
       <SupportHelpInResults />
       <WhatSayStudents />
       <EducationLevels
-        bachelors={all.bachelor}
-        practicalTrainings={all.practicalTrainings}
-        programs={all.programs}
+        bachelorsLength={all.bachelor?.length || 0}
+        practicalTrainingsLength={all.practicalTrainings?.length || 0}
+        programs={all.programs || []}
       />
       <LeadingTeachersMIP />
       <MIPTeachersAsAuthors />
@@ -45,4 +51,4 @@ const HomeClient: React.FC<THomeClientProps> = async ({ data }) => {
   )
 }
 
-export default HomeClient
+export default HomeServer

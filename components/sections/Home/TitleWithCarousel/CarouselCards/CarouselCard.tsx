@@ -28,7 +28,7 @@ const CarouselCardNext = ({ card, isNext, isMobile }) => {
 
         if (translateY.current !== newTranslateY) {
           translateY.current = newTranslateY
-          sessionStorage.setItem('translateY', String(newTranslateY)) 
+          sessionStorage.setItem('translateY', String(newTranslateY))
           animationFrameId = requestAnimationFrame(() => {
             setCurrentTranslateY(newTranslateY)
           })
@@ -41,18 +41,19 @@ const CarouselCardNext = ({ card, isNext, isMobile }) => {
         cancelAnimationFrame(animationFrameId)
       }
     }
-  }, [isNext]) 
+  }, [isNext])
 
   return (
     <picture>
       <div
         className={isNext ? stls.nextWrap : stls.wrap}
-        style={{ transform: isNext && !isMobile ? `translateY(${currentTranslateY}%)` : 'translateY(0)' }}
-      >
+        style={{
+          transform: isNext && !isMobile ? `translateY(${currentTranslateY}%)` : 'translateY(0)'
+        }}>
         <RichTextHome className={stls.textBlock} stls={stls} data={card.text} />
         <Image
-          src={card.img.url}
-          alt=""
+          src={card.img?.url}
+          alt=''
           className={isNext ? stls.nextImg : stls.img}
           height={500}
           width={500}

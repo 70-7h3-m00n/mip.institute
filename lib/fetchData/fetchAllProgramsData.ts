@@ -1,11 +1,12 @@
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
-import { unstable_cache } from 'next/cache' // Используем кеширование Next.js
+import { unstable_cache } from 'next/cache'
 import { filterProgramsByType, getStudyFields, sortBasedOnNumericOrder } from '@/helpers/index'
+import { ProgramsDataQueryResult } from '@/types/page/home/homeGeneralTypes'
 
 // Функция с кешированием
 export const fetchAllProgramsData = unstable_cache(
-  async () => {
+  async (): Promise<ProgramsDataQueryResult> => {
     try {
       const { data } = await apolloClient.query({
         query: gql`
@@ -96,9 +97,9 @@ export const fetchAllProgramsData = unstable_cache(
       const courses = filterProgramsByType({ programs, type: 'course' }) || []
       const professions = filterProgramsByType({ programs, type: 'profession' }) || []
       const blogs = data.seminars || []
-      const studyFields = getStudyFields(programs) || []
-      const studyFieldsProfessions = getStudyFields(professions) || []
-      const studyFieldsCourses = getStudyFields(courses) || []
+      const studyFields = getStudyFields(programs)?.map(f => f.label) || []
+      const studyFieldsProfessions = getStudyFields(professions)?.map(f => f.label) || []
+      const studyFieldsCourses = getStudyFields(courses)?.map(f => f.label) || []
 
       return {
         program: null,
@@ -120,6 +121,7 @@ export const fetchAllProgramsData = unstable_cache(
       }
     } catch (error) {
       console.error('Ошибка загрузки программ:', error)
+      // Возвращаем плоский объект в случае ошибки
       return {
         program: null,
         programs: [],
@@ -135,8 +137,8 @@ export const fetchAllProgramsData = unstable_cache(
         filteredPrograms: [],
         blogs: [],
         seminar: null,
-        bachelor: null,
-        practicalTrainings: null
+        bachelor: [],
+        practicalTrainings: []
       }
     }
   },

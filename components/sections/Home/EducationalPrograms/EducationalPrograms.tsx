@@ -1,13 +1,17 @@
 'use client'
 import Wrapper from '@/ui/Wrapper'
 import stls from './EducationalPrograms.module.sass'
-import { useProgramsSafe } from '@/hooks/general/useSafeContext'
 import EducationalProgramsCard from '@/components/sections/Home/EducationalPrograms/EducationalProgramsCard/EducationalProgramsCard'
 import { routes } from '@/config/index'
 import Link from 'next/link'
 import { useState } from 'react'
 import FilterTag from '@/components/filters/FilterTag'
-import { ProgramFilter } from '@/types/page/home/homeGeneralTypes'
+import {
+  BachelorType,
+  PracticalTrainingType,
+  ProgramFilter,
+  ProgramGeneralType
+} from '@/types/page/home/homeGeneralTypes'
 import { useMediaQuery } from '@/context/MediaQueryContext'
 
 const filters = [
@@ -19,16 +23,26 @@ const filters = [
   { label: 'Практика', key: ProgramFilter.PracticalTrainings }
 ]
 
-const EducationalPrograms = () => {
-  const {
-    state: { programs, bachelor, practicalTrainings, courses, professions }
-  } = useProgramsSafe()
-  const { isMobileAndTabletLayout } = useMediaQuery()
+interface Props {
+  programs: ProgramGeneralType[]
+  bachelors: BachelorType[]
+  practicalTrainings: PracticalTrainingType[]
+  courses: ProgramGeneralType[]
+  professions: ProgramGeneralType[]
+}
 
+const EducationalPrograms = ({
+  programs,
+  courses,
+  bachelors,
+  practicalTrainings,
+  professions
+}: Props) => {
+  const { isMobileAndTabletLayout } = useMediaQuery()
   const [activeFilter, setActiveFilter] = useState<ProgramFilter>(ProgramFilter.Professions)
 
   const getFilteredPrograms = () => {
-    const allPrograms = [...programs, ...bachelor, ...practicalTrainings]
+    const allPrograms = [...programs, ...bachelors, ...practicalTrainings]
 
     switch (activeFilter) {
       case ProgramFilter.Popular:
@@ -38,7 +52,7 @@ const EducationalPrograms = () => {
       case ProgramFilter.Courses:
         return courses
       case ProgramFilter.Bachelor:
-        return bachelor
+        return bachelors
       case ProgramFilter.Shorts:
         return programs.filter(p => p.type === 'ShortTerm')
       case ProgramFilter.PracticalTrainings:

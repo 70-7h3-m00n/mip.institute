@@ -1,4 +1,3 @@
-'use client'
 import stls from './HomeFAQ.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import questions from 'constants/GroupSupervision/faq'

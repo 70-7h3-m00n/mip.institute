@@ -1,10 +1,10 @@
 import React from 'react'
-import HomeClient from '@/components/clientComponents/HomeClient'
+import HomeServer from '@/components/serverComponents/HomeServer'
 import getStaticPropsHome from '@/lib/getStaticPropsv2/getStaticPropsHome'
 
 export const revalidate = 3600
 
 export default async function HomePage() {
   const homeProps = await getStaticPropsHome()
-  return <HomeClient data={homeProps} />
+  return <HomeServer data={homeProps} />
 }

@@ -1,14 +1,5 @@
-interface BachelorProgram {
-  title: string
-  slug: string
-  admissionDate: string
-  minTime: number
-  maxTime: number
-  __typename: 'Bachelor'
-}
-
 // Общий тип для Program (courses, professions, shorts)
-interface Program {
+export interface ProgramGeneralType {
   title: string
   slug: string
   studyField?: string
@@ -17,16 +8,8 @@ interface Program {
   typeLabel?: string
   studyMounthsDuration?: number
   studyHours?: number
-  isPopular?: boolean // Предполагаем, что это поле может быть добавлено
+  isPopular?: boolean // TODO: это поле может быть добавлено
   __typename: 'Program'
-}
-
-// Практическая тренировка
-interface PracticalTraining {
-  title: string
-  slug: string
-  duration: string
-  __typename: 'PracticalTraining'
 }
 
 export enum ProgramFilter {
@@ -38,4 +21,61 @@ export enum ProgramFilter {
   PracticalTrainings = 'practicalTrainings'
 }
 
-export type EducationalProgram = BachelorProgram | Program | PracticalTraining
+export type EducationalProgram = BachelorType | ProgramGeneralType | PracticalTrainingType
+
+type Image = {
+  url: string
+  width: number
+  height: number
+}
+
+export type BachelorType = {
+  slug: string
+  offlineFullPrice: number
+  heroPicture: Image
+  educationCode: string
+  title: string
+  admissionDate: string
+  minTime: string
+  maxTime: string
+  __typename: 'Bachelor'
+}
+
+export type PracticalTrainingType = {
+  title: string
+  duration: string
+  slug: string
+  price: number
+  heroPicture: Image
+  __typename: 'PracticalTraining'
+}
+
+type Review = {
+  id: string
+  name: string
+  profession: string
+  title: string
+  story: string
+  createdAt: string
+  picture: Image
+  index_number: { idx: number }
+}
+
+export type ProgramsDataQueryResult = {
+  program: null
+  programs: ProgramGeneralType[]
+  reviews: Review[]
+  courses: ProgramGeneralType[]
+  professions: ProgramGeneralType[]
+  studyFields: string[]
+  studyFieldsProfessions: string[]
+  studyFieldsCourses: string[]
+  curProgramsType: null
+  curProgramsStudyFieldSlug: null
+  searchTerm: null
+  filteredPrograms: ProgramGeneralType[]
+  blogs: any[]
+  seminar: null
+  bachelor: BachelorType[]
+  practicalTrainings: PracticalTrainingType[]
+}
