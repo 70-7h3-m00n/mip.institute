@@ -1,18 +1,23 @@
-'use client'
 import Wrapper from '@/ui/Wrapper'
 import stls from './EducationalPrograms.module.sass'
-import EducationalProgramsCard from '@/components/sections/Home/EducationalPrograms/EducationalProgramsCard/EducationalProgramsCard'
 import { routes } from '@/config/index'
 import Link from 'next/link'
-import { useState } from 'react'
-import FilterTag from '@/components/filters/FilterTag'
 import {
   BachelorType,
   PracticalTrainingType,
   ProgramFilter,
   ProgramGeneralType
 } from '@/types/page/home/homeGeneralTypes'
-import { useMediaQuery } from '@/context/MediaQueryContext'
+import EducationalProgramsClient from './EducationalProgramsClient'
+
+interface Props {
+  programs: ProgramGeneralType[]
+  bachelors: BachelorType[]
+  practicalTrainings: PracticalTrainingType[]
+  courses: ProgramGeneralType[]
+  professions: ProgramGeneralType[]
+  initialFilter?: ProgramFilter
+}
 
 const filters = [
   { label: 'Популярные программы', key: ProgramFilter.Popular },
@@ -23,71 +28,29 @@ const filters = [
   { label: 'Практика', key: ProgramFilter.PracticalTrainings }
 ]
 
-interface Props {
-  programs: ProgramGeneralType[]
-  bachelors: BachelorType[]
-  practicalTrainings: PracticalTrainingType[]
-  courses: ProgramGeneralType[]
-  professions: ProgramGeneralType[]
-}
-
-const EducationalPrograms = ({
+export default function EducationalPrograms({
   programs,
   courses,
   bachelors,
   practicalTrainings,
-  professions
-}: Props) => {
-  const { isMobileAndTabletLayout } = useMediaQuery()
-  const [activeFilter, setActiveFilter] = useState<ProgramFilter>(ProgramFilter.Professions)
-
-  const getFilteredPrograms = () => {
-    const allPrograms = [...programs, ...bachelors, ...practicalTrainings]
-
-    switch (activeFilter) {
-      case ProgramFilter.Popular:
-        return allPrograms.filter(p => 'isPopular' in p && p.isPopular === true)
-      case ProgramFilter.Professions:
-        return professions
-      case ProgramFilter.Courses:
-        return courses
-      case ProgramFilter.Bachelor:
-        return bachelors
-      case ProgramFilter.Shorts:
-        return programs.filter(p => p.type === 'ShortTerm')
-      case ProgramFilter.PracticalTrainings:
-        return practicalTrainings
-      default:
-        return allPrograms
-    }
-  }
-
-  const filteredPrograms = getFilteredPrograms()
-  const slicedNumber = isMobileAndTabletLayout ? 3 : 6
-  const displayedPrograms = filteredPrograms.slice(0, slicedNumber)
+  professions,
+  initialFilter = ProgramFilter.Professions
+}: Props) {
+  const allPrograms = [...programs, ...bachelors, ...practicalTrainings]
 
   return (
     <section className={stls.container}>
       <Wrapper>
         <h2>Программы обучения</h2>
-
-        <div className={stls.filterContainer}>
-          {filters.map(filter => (
-            <FilterTag
-              key={filter.key}
-              isActive={activeFilter === filter.key}
-              onClick={() => setActiveFilter(filter.key)}>
-              {filter.label}
-            </FilterTag>
-          ))}
-        </div>
-
-        <ul className={stls.blocks}>
-          {displayedPrograms.map(item => (
-            <EducationalProgramsCard key={item.slug} card={item} />
-          ))}
-        </ul>
-
+        <EducationalProgramsClient
+          filters={filters}
+          allPrograms={allPrograms}
+          courses={courses}
+          professions={professions}
+          bachelors={bachelors}
+          practicalTrainings={practicalTrainings}
+          initialFilter={initialFilter}
+        />
         <div className={stls.buttonContainer}>
           <Link href={routes.front.programs} className={stls.link} passHref>
             Посмотреть все программы
@@ -97,5 +60,3 @@ const EducationalPrograms = ({
     </section>
   )
 }
-
-export default EducationalPrograms

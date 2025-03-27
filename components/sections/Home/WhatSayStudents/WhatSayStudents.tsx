@@ -7,13 +7,13 @@ import Image from 'next/image'
 import ArrowNavigation from '@/ui/ArrowsNavigation/ArrowsNavigation'
 import StudentStory from './StudentStory/StudentStory'
 import { TReview } from '@/types/index'
+
 interface WhatSayStudentsProps {
   data: TReview[]
 }
 
 const WhatSayStudents = ({ data }: WhatSayStudentsProps) => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  console.log(data, 'data')
 
   const handleNext = () => {
     setCurrentIndex(prev => (prev + 1) % data.length)
