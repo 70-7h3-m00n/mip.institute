@@ -17,7 +17,7 @@ interface TPublication {
 interface TBlog {
   title: string;
   date: string;
-  picture?: TImage;
+  picture: TImage;
 }
 
 interface ImageType {

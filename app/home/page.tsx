@@ -53,7 +53,7 @@ export default async function HomePage() {
       />
       <LeadingTeachersMIP />
       <MIPTeachersAsAuthors imgs={dataHome.publications.slide.files} />
-      <JournalMIP />
+      <JournalMIP data={dataHome.blogs} />
       <OurPartners onePartner={dataHome.partners} />
       <ProgramForRequest />
       <HomeFAQ />
