@@ -6,6 +6,10 @@
   @include m.dye(bg, c.$orange-400)
   background: url('./bg.jpg') no-repeat center center
   background-size: cover
+  padding-bottom: 75px !important
+  @include m.media(phone, tablet)
+    padding-bottom: 50px !important
+
 
 .title
   color: c.$white-900
