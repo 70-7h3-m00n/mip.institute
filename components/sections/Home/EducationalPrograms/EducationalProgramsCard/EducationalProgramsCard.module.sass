@@ -2,25 +2,35 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.card > a
-  all: unset
-  @include m.flex($fd: column, $jc: space-between)
-  height: 100%
-  width: 100%
-
 .card
   border-radius: f.px(10)
-  @include m.gap($plr: f.px(25), $ptb: f.px(20))
-  min-height: f.px(230)
+  @include m.gap($plr: f.px(25), $ptb: f.px(17))
+  min-height: f.px(240)
   background-size: cover
   background-position: center
   list-style: none
   cursor: pointer
-  @include m.media(phone, tablet)
-    @include m.gap($p: f.px(15), $pb: f.px(20))
-
-.wrapper
   @include m.flex($fd: column, $jc: space-between)
+  transition: box-shadow 0.3s ease, background-color 0.5s ease, background-image 0.5s ease
+  @include m.media(phone, tablet)
+    @include m.gap($p: f.px(20))
+    min-height: f.px(250)
+
+  & > a
+    all: unset
+    @include m.flex($fd: column, $jc: space-between)
+    height: 100%
+    width: 100%
+    transition: justify-content 0.5s ease
+
+  &.flipped
+    box-shadow: 0 f.px(8) f.px(16) rgba(0, 0, 0, 0.2)
+    background-image: url('/assets/imgs/home/EducationalPrograms/hover.png')
+    background-color: #D1BBF8
+    color: black
+    @include m.gap($pb: f.px(10))
+    gap: f.px(15)
+
 
 .header
   @include m.flex($jc: space-between, $ai: center)
@@ -49,9 +59,7 @@
 
 .title
   @include m.gap($mb: 0)
-  font-size: f.px(25)
-  @include m.media(phone, tablet)
-    font-size: f.px(22)
+  font-size: f.px(22)
 
 .popular
   @include m.dye(c, c.$purple-350)
@@ -61,12 +69,45 @@
 .studyHours
   font-size: f.px(12)
   @include m.gap($mb: 0)
+  transition: opacity 0.5s ease
+  opacity: 1
+  .flipped &
+    opacity: 0
+
   & > span:first-child
     font-weight: 500
     @include m.media(phone, tablet)
-      font-weight: 600
+      font-weight: 400
 
   & > span:last-child
     font-weight: 300
     @include m.media(phone, tablet)
-      font-weight: 600
+      font-weight: 400
+
+.description
+  margin-bottom: 0
+  font-size: f.px(14)
+  font-weight: 350
+
+.flippedDescription
+  @extend .description
+  transition: opacity 0.5s ease
+  opacity: 0
+  .flipped &
+    opacity: 1
+  @include m.media(phone, tablet)
+    display: none
+
+.mobileDescription
+  @extend .description
+  @include m.media(laptop, desktop)
+    display: none
+  @include m.media(phone, tablet)
+    display: block
+
+.contentWrapper
+  transition: transform 0.6s ease
+  .flipped &
+    transform: translateY(-10px)
+  @include m.media(phone, tablet)
+    display: none

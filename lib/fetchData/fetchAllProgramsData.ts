@@ -12,6 +12,7 @@ export const fetchAllProgramsData = unstable_cache(
         query: gql`
           query GetProgramsData {
             programs {
+              shortDescription
               id
               title
               slug

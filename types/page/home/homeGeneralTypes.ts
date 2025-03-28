@@ -8,6 +8,7 @@ export interface ProgramGeneralType {
   typeLabel?: string
   studyMounthsDuration?: number
   studyHours?: number
+  shortDescription?: string
   isPopular?: boolean // TODO: это поле может быть добавлено
   __typename: 'Program'
 }
@@ -38,6 +39,7 @@ export type BachelorType = {
   admissionDate: string
   minTime: string
   maxTime: string
+  shortDescription?: string
   __typename: 'Bachelor'
 }
 
@@ -47,6 +49,7 @@ export type PracticalTrainingType = {
   slug: string
   price: number
   heroPicture: Image
+  shortDescription?: string
   __typename: 'PracticalTraining'
 }
 
