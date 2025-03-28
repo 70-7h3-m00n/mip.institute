@@ -190,31 +190,6 @@
         <param name="Помощь с трудоустройством"></param>
       </offer>
 
-      <offer id="11_psychologist-consultant" available="true">
-        <name>Психолог-консультант</name>
-        <description>
-            В результате обучения вы научитесь: 
-            — Анализировать психологическое состояние клиента;
-            — Оказывать психологическую помощь личности по разрешению внутриличностных проблем;
-            — Владеть принципами индивидуального и группового консультирования;
-            — Понимать особенности диагностики психического развития людей разного возраста.
-        </description>
-        <param name="Уровень курса">С Нуля</param>
-        <param name="Формат курса">ONLINE</param>
-        <param name="Регион проведения">Москва</param>
-        <param name="Длительность курса">12 месяцев</param>
-        <oldprice>222000</oldprice>
-        <price>155520</price>
-        <discount>30</discount>
-        <param name="Ежемесячный платеж">13000</param>
-        <currencyId>RUR</currencyId>
-        <param name="Промокод">MIPHH</param>
-        <param name="Скидка по промокоду в процентах">10</param>
-        <param name="Ссылка на курс">https://mip.institute/professions/konsultirovanie/psiholog-konsultant?utm_source=hh&amp;utm_medium=cpa</param>
-        <param name="Выдаётся сертификат">Да</param>
-        <param name="Помощь с трудоустройством"></param>
-      </offer>
-
       <offer id="12_family_psychologist" available="true">
         <name>Семейный психолог</name>
         <description>
@@ -791,6 +766,112 @@
         <param name="Регион проведения">_____</param>
         <param name="Длительность курса">2 часа</param>
         <param name="Ссылка на курс">https://mip-institute-formveb.ru/mk?utm_source=hh&amp;utm_medium=cpa</param>
+      </offer>
+
+      <offer id="Narcissism_Narcissistic_Disorders" available="true">
+        <name>Нарциссизм и нарциссические расстройства</name>
+        <description>
+           Из всех ориентаций характера нарциссизм наиболее трудно распознать в себе.
+           В той мере, в какой человек нарциссичен, он превозносит себя и не способен видеть свои недостатки и ограниченные возможности.
+           Он убежден, что его образ себя как замечательного человека правильный, а поскольку это его образ, он не видит причин в нём сомневаться.
+        </description>
+        <param name="Уровень курса">новичок</param>
+        <param name="Формат курса">ONLINE</param>
+        <oldprice>36000</oldprice>
+        <price>25446</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+        <param name="Регион проведения">_____</param>
+        <param name="Длительность курса">1 мес</param>
+        <param name="Ссылка на курс">https://mip.institute/shortTerm/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+      </offer>
+
+       <offer id="Practical_Art_therapy_Methods" available="true">
+        <name>Практическое использование методов арт-терапии</name>
+        <description>
+          Арт-терапия – это отрасль искусства в консультативной психологии, базирующаяся на анализе продуктов творческой деятельности человека. Видов арт-терапии существует столько же, сколько и видов творчества.
+        </description>
+        <param name="Уровень курса">новичок</param>
+        <param name="Формат курса">ONLINE</param>
+        <oldprice>36000</oldprice>
+        <price>25446</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+        <param name="Регион проведения">_____</param>
+        <param name="Длительность курса">1 мес</param>
+        <param name="Ссылка на курс">https://mip.institute/shortTerm/konsultirovanie/prakticheskoe-ispolzovanie-metodov-art-terapii/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+      </offer>
+
+       <offer id="Psychology_Communication" available="true">
+        <name>Психология общения</name>
+        <description>
+          Общение является важной частью в жизни для каждого человека, частью психического и социального становления человека.
+          Коммуникация важна не только для конкретного человека, но и для общества в целом.
+          О том, как правильно общаться, выстраивать крепкие социальные связи и поведает наш курс психологии общения.
+        </description>
+        <param name="Уровень курса">новичок</param>
+        <param name="Формат курса">ONLINE</param>
+        <oldprice>36000</oldprice>
+        <price>25446</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+        <param name="Регион проведения">_____</param>
+        <param name="Длительность курса">1 мес</param>
+        <param name="Ссылка на курс">https://mip.institute/shortTerm/obshaya-psihologiya/psihologiya-obsheniya/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+      </offer>
+
+        <offer id="Psychology_Effective_Negotiations" available="true">
+        <name>Психология эффективных переговоров</name>
+        <description>
+          Социальная психология переговоров – это направление, рассчитанное на установление партнёрских отношений между организациями и их представителями.
+          Для успешного завершения требуется обладать знаниями о специфических свойствах переговоров и обладать навыками данного процесса.
+        </description>
+        <param name="Уровень курса">новичок</param>
+        <param name="Формат курса">ONLINE</param>
+        <oldprice>36000</oldprice>
+        <price>25446</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+        <param name="Регион проведения">_____</param>
+        <param name="Длительность курса">2 мес</param>
+        <param name="Ссылка на курс">https://mip.institute/shortTerm/organizacionnaya-psihologiya/psihologiya-effektivnyh-peregovorov/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+      </offer>
+
+      <offer id="Conflict_Management" available="true">
+        <name>Управление конфликтами</name>
+        <description>
+          Управление конфликтами – это навык разрешать конфликтные ситуации между людьми и коллективами для достижения определённой цели.
+          Также задачей отрасли является изучение и воздействие на динамику конфликта для изменения социальной среды, в которой конфликт возник.
+        </description>
+        <param name="Уровень курса">новичок</param>
+        <param name="Формат курса">ONLINE</param>
+        <oldprice>36000</oldprice>
+        <price>25446</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+        <param name="Регион проведения">_____</param>
+        <param name="Длительность курса">1 мес</param>
+        <param name="Ссылка на курс">https://mip.institute/shortTerm/organizacionnaya-psihologiya/upravlenie-konfliktami/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
       </offer>
 
     </offers>
