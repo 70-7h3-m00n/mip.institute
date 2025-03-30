@@ -15,11 +15,13 @@ import { handleGetStaticProps } from '@/lib/index'
 import stls from '@/styles/pages/Legal.module.sass'
 import { TypePageDefaultProps } from '@/types/index'
 import { GetStaticProps, NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 
 const LegalEduPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   useHandleContextStaticProps({ programs })
   return (
     <>
+    <NextSeo nofollow={true} noindex={true} />
       <PageTitle>
         Сведения <br className={stls.linebrake} /> об организации
       </PageTitle>
