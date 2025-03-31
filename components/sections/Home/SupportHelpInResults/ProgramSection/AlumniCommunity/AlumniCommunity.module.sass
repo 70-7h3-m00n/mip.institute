@@ -17,7 +17,7 @@
   gap: 25px
 
 .title
-  color: #855EDF
+  color: c.$purple-350
   font-size: f.px(30)
   font-family: Mulish
   font-weight: 600
@@ -26,6 +26,16 @@
   @include m.media(phone, tablet)
     font-size: f.px(20)
 
+.imageWrapperDesc
+  display: block
+  @include m.media(phone, tablet)
+    display: none
+
+.imageWrapperMob
+  display: none
+  @include m.media(phone, tablet)
+    display: block
+    
 .img
   width: 100%
   height: auto
@@ -39,22 +49,19 @@
   @include m.media(phone, tablet)
     gap: 10px
 
-.cards
-  @include m.flex($fd: column)
-  justify-content: space-between
-  min-height: 100%
-
 .card
   flex: 1
-  @include m.gap($pt: f.px(15),$pl: f.px(20),$pr: f.px(79),$pb: f.px(59))
+  @include m.gap($ptb: f.px(15),$pl: f.px(20))
   border-radius: 10px
   background: #F9F6FF
   @include m.flex($fd: column)
   gap: 10px
-  &:last-child
-    @include m.gap($pb: f.px(15),$pr: f.px(0))
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(10),$pl: f.px(10),$pr: f.px(40))
+    @include m.gap($ptb: f.px(10),$pl: f.px(10),$pr: f.px(33))
+
+.right > .card:nth-child(3)
+  @include m.media(phone)
+    @include m.gap($pr: f.px(0))
 
 .cardTitle
   color: c.$black-700

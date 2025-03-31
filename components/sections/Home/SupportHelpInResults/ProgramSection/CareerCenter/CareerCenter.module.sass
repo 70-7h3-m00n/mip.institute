@@ -12,10 +12,10 @@
 
 .left
   @include m.flex($fd: column)
-  flex: 1
+  flex: 1.1
 
 .title
-  color: #855EDF
+  color: c.$purple-350
   font-size: f.px(30)
   font-family: Mulish
   font-style: normal
@@ -32,14 +32,18 @@
   font-size: 20px
   font-style: normal
   font-weight: 300
-  line-height: 110%
+  line-height: 120%
+  .lineBreak
+    display: inline
   @include m.gap($mb: f.px(25))
   @include m.media(phone, tablet)
     font-size: f.px(16)
     @include m.gap($mb: f.px(10))
+    .lineBreak
+      display: none
 
 .textCard
-  @include m.gap($pt: f.px(15),$pl: f.px(20),$pb: f.px(26),$pr: f.px(95))
+  @include m.gap($pt: f.px(15),$pl: f.px(20),$pb: f.px(26))
   border-radius: 10px
   background: #F9F6FF
   @include m.flex($fd: column)
@@ -49,8 +53,10 @@
   font-style: normal
   font-weight: 300
   line-height: 110%
+  @include m.media(desktop)
+    @include m.gap($pr: f.px(95))
   @include m.media(phone, tablet)
-      @include m.gap($pt: f.px(10),$pb: f.px(17),$plr: f.px(10))
+      @include m.gap($pt: f.px(10),$pb: f.px(17),$pl: f.px(10),$pr: f.px(16))
       font-size: f.px(14)
     
 .color
@@ -59,7 +65,7 @@
 .icon
   width: 12px
   height: 12px
-  @include m.gap($mb: f.px(10))
+  @include m.gap($mb: f.px(15))
   @include m.media(phone, tablet)
     width: 10px
     height: 10px
@@ -74,3 +80,5 @@
   border-radius: f.px(10)
   background-size: cover
   background-repeat: no-repeat
+  @include m.media(phone, tablet)
+    content: url('/assets/imgs/home/SupportHelpInResults/imageMob2.png')

@@ -17,12 +17,11 @@
     gap: 15px
 
 .title
-  color: #855EDF
+  color: c.$purple-350
   font-size: f.px(30)
-  font-family: Mulish
   font-weight: 600
   line-height: 110%
-  width: 50%
+  width: 53%
   @include m.gap($mb: f.px(0))
   @include m.media(phone, tablet)
     font-size: f.px(20)
@@ -31,21 +30,30 @@
 .description
   color: c.$black-700
   font-size: f.px(20)
-  font-family: Mulish
-  max-width: 527px
   font-weight: 350
   line-height: 110%
   width: 50%
+  .lineBreak
+    display: inline
   @include m.gap($mb: f.px(0))
   @include m.media(phone, tablet)
     font-size: f.px(16)
     width: 100%
+    .lineBreak
+      display: none
+  @include m.media(laptop)
+    .lineBreak
+      display: none
+
 .color
   font-weight: 500
+  
 .img
   width: 100%
   height: auto
   border-radius: f.px(10)
   background-size: cover
   background-repeat: no-repeat
+  @include m.media(phone, tablet)
+    content: url('/assets/imgs/home/SupportHelpInResults/imageMob1.png')
 

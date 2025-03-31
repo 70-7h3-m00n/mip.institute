@@ -19,7 +19,7 @@ interface ArrowNavigationProps {
 const ArrowNavigation: React.FC<ArrowNavigationProps> = ({
   onPrev,
   onNext,
-  bgColor = '#855EDF',
+  bgColor = '#8F60FF',
   arrowColor = '#FFFFFF',
   size = 'medium',
   iconSizeLeft = 18, // чтобы работало нужно убрать svg 100% из layout

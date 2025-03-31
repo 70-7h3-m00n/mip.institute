@@ -17,14 +17,28 @@
   gap: 22px
 
 .title
-  color: #855EDF
+  color: c.$purple-350
   font-size: f.px(30)
-  font-family: Mulish
   font-weight: 600
   line-height: 110%
+  .lineBreak
+    display: none
   @include m.gap($mb: f.px(0))
   @include m.media(phone, tablet)
     font-size: f.px(20)
+  @include m.media(phone)
+    .lineBreak
+      display: inline
+
+.imageWrapperDesc
+  display: block
+  @include m.media(phone, tablet)
+    display: none
+
+.imageWrapperMob
+  display: none
+  @include m.media(phone, tablet)
+    display: block
 
 .img
   width: 100%
@@ -39,12 +53,6 @@
   @include m.media(phone, tablet)
     gap: 10px
 
-.cards
-  @include m.flex($fd: column)
-  justify-content: space-between
-  min-height: 100%
-
-
 .card
   flex: 1
   @include m.gap($pt: f.px(15),$pl: f.px(20),$pb: f.px(25) ,$pr: f.px(61))
@@ -53,7 +61,15 @@
   @include m.flex($fd: column)
   gap: 10px
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(10),$plr: f.px(10))
+    @include m.gap($ptb: f.px(10),$pl: f.px(10),$pr: f.px(20))
+
+.right > .card:nth-child(1)
+  @include m.media(phone)
+    @include m.gap($pr: f.px(10))
+
+.right > .card:nth-child(3)
+  @include m.media(desktop)
+    @include m.gap($pr: f.px(80))
 
 .icon
   width: 12px
@@ -65,7 +81,6 @@
 
 .cardDescription
   color: c.$black-700
-  font-family: Mulish
   font-size: 20px
   font-style: normal
   font-weight: 300
@@ -75,10 +90,16 @@
   a 
     color: c.$black-700
     text-decoration: underline
+  .lineBreak
+    display: inline
   @include m.media(phone, tablet)
-    font-size: f.px(16)
+    font-size: f.px(14)
     width: 100%
-    
+    .lineBreak
+      display: none
+  @include m.media(laptop)
+    .lineBreak
+      display: none
 .color
   font-weight: 500
   

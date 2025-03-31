@@ -1,10 +1,8 @@
 import React from 'react'
 import stls from './Practice.module.sass'
 import Image from 'next/image'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const Practice = () => {
-  const isMobile = useBetterMediaQuery('(max-width: 768px)')
   const image = {
     imageUrl: '/assets/imgs/home/SupportHelpInResults/image4.png',
     imageMobUrl: '/assets/imgs/home/SupportHelpInResults/imageMob4.png',
@@ -21,7 +19,8 @@ const Practice = () => {
           <p>
             <a href=''>Программы практической подготовки</a>{' '}
             <span className={stls.color}>
-              идеально подходят для начинающих специалистов и студентов,
+              идеально <br className={stls.lineBreak} /> подходят для начинающих специалистов и
+              студентов,
             </span>{' '}
             которые стремятся развить реальные навыки и уверенно работать с клиентами
           </p>
@@ -36,7 +35,7 @@ const Practice = () => {
 
       <Image
         className={stls.img}
-        src={isMobile ? image.imageMobUrl : image.imageUrl}
+        src={image.imageUrl}
         width={1170}
         height={417}
         alt={image.imageAlt}

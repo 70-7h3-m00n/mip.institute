@@ -1,77 +1,68 @@
 import React from 'react'
 import stls from './AlumniCommunity.module.sass'
 import Image from 'next/image'
-import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import StarIcon from '../StarIcon/StarIcon'
 
 const AlumniCommunity = () => {
-  const isMobile = useBetterMediaQuery('(max-width: 768px)')
   const image = {
     imageUrl: '/assets/imgs/home/SupportHelpInResults/image3.jpg',
     imageMobUrl: '/assets/imgs/home/SupportHelpInResults/imageMob3.jpg',
     imageAlt: 'Сообщество выпускников'
   }
+
+  const cards = [
+    {
+      highlight: 'Здесь можно обмениваться опытом,',
+      text: ' инсайтами и находить партнеров для совместных проектов.'
+    },
+    {
+      highlight: 'Это безопасное пространство',
+      text: ' для обмена личным опытом и эмоциональной поддержкой'
+    },
+    {
+      highlight: 'Наши специалисты с радостью делятся актуальными событиями из жизни ',
+      text: 'института и новостями из мира психологии. Они всегда готовы к обсуждению и с удовольствием ответят на любые вопросы'
+    }
+  ]
+
   return (
     <div className={stls.container}>
       <div className={stls.left}>
         <p className={stls.title}>
           Сообщество выпускников МИП является местом, позволяющим оставаться на связи с коллегами
         </p>
-        {!isMobile && (
+        <div className={stls.imageWrapperDesc}>
           <Image
             className={stls.img}
-            src={isMobile ? image.imageMobUrl : image.imageUrl}
+            src={image.imageUrl}
             width={564}
             height={350}
             alt={image.imageAlt}
           />
-        )}
+        </div>
       </div>
       <div className={stls.right}>
-        {/* <div className={stls.cards}> */}
-          <div className={stls.card}>
+        {cards.map((card, i) => (
+          <div key={i} className={stls.card}>
             <div className={stls.icon}>
               <StarIcon />
             </div>
             <div className={stls.cardTitle}>
-              <span className={stls.color}>Здесь можно обмениваться опытом,</span>
-              <span> инсайтами и находить партнеров для совместных проектов.</span>
+              <span className={stls.color}>{card.highlight}</span>
+              <span>{card.text}</span>
             </div>
           </div>
-          <div className={stls.card}>
-            <div className={stls.icon}>
-              <StarIcon />
-            </div>
-            <div className={stls.cardTitle}>
-              <span className={stls.color}>Это безопасное пространство</span>
-              <span> для обмена личным опытом и эмоциональной поддержкой</span>
-            </div>
-          </div>
-          <div className={stls.card}>
-            <div className={stls.icon}>
-              <StarIcon />
-            </div>
-            <div className={stls.cardTitle}>
-              <span className={stls.color}>
-                Наши специалисты с радостью делятся актуальными событиями из жизни
-              </span>
-              <span>
-                института и новостями из мира психологии. Они всегда готовы к обсуждению и с
-                удовольствием ответят на любые вопросы
-              </span>
-            </div>
-          </div>
-          {isMobile && (
-            <Image
-              className={stls.img}
-              src={isMobile ? image.imageMobUrl : image.imageUrl}
-              width={564}
-              height={350}
-              alt={image.imageAlt}
-            />
-          )}
+        ))}
+        <div className={stls.imageWrapperMob}>
+          <Image
+            className={stls.img}
+            src={image.imageMobUrl}
+            width={347}
+            height={217}
+            alt={image.imageAlt}
+          />
         </div>
-      {/* </div> */}
+      </div>
     </div>
   )
 }

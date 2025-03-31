@@ -48,7 +48,7 @@ const WhatSayStudents = ({ data }: WhatSayStudentsProps) => {
           <ArrowNavigation
             onPrev={handlePrev}
             onNext={handleNext}
-            bgColor='#855EDF'
+            bgColor='#8F60FF'
             arrowColor='#FFF'
             disabledPrev={currentIndex === 0}
             disabledNext={currentIndex === data.length - 1}
@@ -78,7 +78,7 @@ const WhatSayStudents = ({ data }: WhatSayStudentsProps) => {
               <ArrowNavigation
                 onPrev={handlePrev}
                 onNext={handleNext}
-                bgColor='#855EDF'
+                bgColor='#8F60FF'
                 arrowColor='#FFF'
                 disabledPrev={currentIndex === 0}
                 disabledNext={currentIndex === data.length - 1}

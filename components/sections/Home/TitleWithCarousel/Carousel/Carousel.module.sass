@@ -13,7 +13,6 @@
   overflow-x: hidden
 
 .swiper-slide-active
-  // transform: translateY(-1000px)
   z-index: 10
 
 .container
@@ -29,8 +28,8 @@
     display: none
   button
     @include m.gap($p: f.px(15))
-    background: #855EDF
-    border: 1px solid #855EDF
+    background: c.$purple-350
+    border: 1px solid c.$purple-350
     border-radius: 5px
     color: white
     transition: background 0.1s ease-in
@@ -39,10 +38,10 @@
       background: rgba(133, 94, 223, 0.40)
       border: 1px solid rgba(133, 94, 223, 0.40)
     &:active
-      border: 1px solid #855EDF
+      border: 1px solid c.$purple-350
 
 .bulletViolet
-  background: #855EDF
+  background: c.$purple-350
   opacity: 1
   scale: 3
 

@@ -3,9 +3,9 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  border: 1px solid #855EDF
+  border: 1px solid c.$purple-350
   border-radius: 10px
-  background: #fff
+  background: c.$white-900
   flex: 0.65
   @include m.gap($plr: f.px(25),$pt: f.px(40),$pb: f.px(20))
   @include m.flex($fd: column, $jc: space-between)
@@ -21,7 +21,7 @@
     gap: 10px
 
 .title
-  color: #855EDF
+  color: c.$purple-350
   font-size: f.px(24)
   font-weight: 700
   line-height: 110%
@@ -45,9 +45,9 @@
 .button
   @include m.flex($jc: center, $ai: center)
   @include m.gap($ptb: f.px(19))
-  background: #855EDF
+  background: c.$purple-350
   border-radius: 10px
-  color: #fff
+  color: c.$white-900
   font-size: f.px(20)
   font-weight: 600
   text-decoration: none
@@ -57,5 +57,5 @@
     @include m.gap($ptb: f.px(16))
 
   &:hover
-    background: darken(#855EDF, 5%)
+    background: darken(c.$purple-350, 5%)
     transform: scale(1.02)

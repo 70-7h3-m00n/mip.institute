@@ -10,7 +10,7 @@ export const customStyles = {
   control: base => ({
     ...base,
     borderRadius: '100px',
-    border: '1px solid #855EDF',
+    border: '1px solid #8F60FF',
     padding: '7px 22px',
     fontFamily: 'Mulish',
     cursor: 'pointer',
@@ -26,11 +26,11 @@ export const customStyles = {
     overflow: 'hidden',
     color: '#FFF',
     background: '#F9F6FF',
-    border: '1px solid #855EDF'
+    border: '1px solid #8F60FF'
   }),
   option: (base, { isSelected }) => ({
     ...base,
-    background: isSelected ? '#855EDF' : '#F9F6FF',
+    background: isSelected ? '#8F60FF' : '#F9F6FF',
     color: isSelected ? 'white' : '#212121',
     cursor: 'pointer',
     '&:hover': { background: '#F9F6FF' }
@@ -45,7 +45,7 @@ export const customStyles = {
   dropdownIndicator: base => ({
     ...base,
     color: '#212121',
-    '&:hover': { color: '#855EDF' }
+    '&:hover': { color: '#8F60FF' }
   }),
   indicatorSeparator: () => ({
     display: 'none'

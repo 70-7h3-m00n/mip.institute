@@ -17,7 +17,7 @@
     gap: f.px(10)
 
 .title
-  color: #855EDF
+  color: c.$purple-350
   font-size: f.px(30)
   font-family: Mulish
   font-weight: 600
@@ -48,6 +48,11 @@
 
 .color
   font-weight: 500
+  .lineBreak
+    display: inline
+  @include m.media(phone, tablet,laptop)
+    .lineBreak
+      display: none
   
 .img
   width: 100%
@@ -55,9 +60,9 @@
   border-radius: f.px(10)
   background-size: cover
   background-repeat: no-repeat
-  margin-top: -30px
-  @include m.media(laptop)
-    margin-top: -40px
+  margin-top: -40px
   @include m.media(phone, tablet)
     margin-top: 0px
+    content: url('/assets/imgs/home/SupportHelpInResults/imageMob4.png')
+
 

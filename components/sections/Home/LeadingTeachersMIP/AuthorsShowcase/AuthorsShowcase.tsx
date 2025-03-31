@@ -29,7 +29,7 @@ const AuthorsShowcase = () => {
     <ArrowNavigation
       onPrev={handlePrev}
       onNext={handleNext}
-      bgColor='#855EDF'
+      bgColor='#8F60FF'
       arrowColor='#FFFFFF'
       disabledPrev={index === 0}
       disabledNext={index === authors.length - 1}
