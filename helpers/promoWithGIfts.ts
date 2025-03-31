@@ -35,6 +35,10 @@ const promocodesWithGift = {
   kydriwa2403: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
   neeshpapa: { gift: 'https://mip.institute/free-access' },
   vodnay: { gift: 'https://mip.institute/free-access' },
+
+  neprinyato: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
+  // millonshchiki: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
+  Drobyshevskaia:{ gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
 }
 
 export default promocodesWithGift
