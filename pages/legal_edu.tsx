@@ -44,7 +44,13 @@ const LegalEduPage: NextPage<TypePageDefaultProps> = ({ programs }) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () =>
-  await handleGetStaticProps({ page: routes.front.legal })
+// export const getStaticProps: GetStaticProps = async () =>
+//   await handleGetStaticProps({ page: routes.front.legal })
+
+export const getStaticProps: GetStaticProps = async () =>{
+  return {
+    notFound: true
+  }
+}
 
 export default LegalEduPage
