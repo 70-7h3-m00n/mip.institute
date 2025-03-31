@@ -22,26 +22,17 @@
   @include m.media(phone, tablet)
     @include m.gap($mr: f.px(15))
   & > img
+    border-radius: f.px(10)
     min-width: f.px(200)
     max-width: f.px(200)
     min-height: f.px(200)
     max-height: f.px(200)
     @include m.media(phone, tablet)
+      border-radius: f.px(5)
       min-width: f.px(130)
       max-width: f.px(130)
       min-height: f.px(130)
       max-height: f.px(130)
-
-.filter
-  border-radius: f.px(25)
-  position: absolute
-  @include m.dye(bg, c.$purple-800)
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  z-index: 4
-  opacity: 0.05
 
 .subtitle
   color: #505050
@@ -57,25 +48,25 @@
   @include m.flex($ai: flex-start, $jc:space-between, $fd: column)
   @include m.media(phone, tablet)
     padding-left: 0px
+  & > div:last-of-type > button
+    @include m.gap($plr: f.px(28), $ptb: f.px(18), $mt: f.px(10))
+    @include m.flex($ai:center, $jc:center)
+    @include m.dye(bg, c.$purple-350)
+    @include m.dye(c, c.$white-900)
+    text-align: center
+    font-size: f.px(18)
+    font-style: normal
+    font-weight: 500
+    border-radius: f.px(10)
+    @include m.media(laptop)
+      @include m.gap($plr: f.px(15))
+    @include m.media(phone, tablet)
+      border-radius: f.px(5)
+      @include m.gap($plr: f.px(10), $ptb: f.px(9))
+      font-size: f.px(12)
 
 .innerContainer
   height: 100%
   display: flex
   flex-direction: column
   justify-content: space-between
-
-.button
-  border-radius: 4px
-  @include m.gap($plr: f.px(28), $ptb: f.px(18), $mt: f.px(10))
-  @include m.flex($ai:center, $jc:center)
-  @include m.dye(bg, c.$purple-800)
-  @include m.dye(c, c.$white-900)
-  text-align: center
-  font-size: f.px(18)
-  font-style: normal
-  font-weight: 500
-  @include m.media(laptop)
-    @include m.gap($plr: f.px(15))
-  @include m.media(phone, tablet)
-    @include m.gap($plr: f.px(10), $ptb: f.px(9))
-    font-size: f.px(12)

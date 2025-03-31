@@ -27,7 +27,7 @@ const QuizResults = ({ result, isRounded }: Props) => {
   })
 
   const professionsInResult = marker.map(title =>
-    programs.find(profession => profession.title === title)
+    programs.find(profession => profession.slug === title)
   )
 
   const list =

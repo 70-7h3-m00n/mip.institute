@@ -1,29 +1,20 @@
 const testResultsMarker = (item: string): string[] => {
   switch (item) {
     case 'childrenPsy':
-      return [
-        'Детский психолог',
-        'Перинатальный психолог',
-        'Педагог – психолог',
-        'Логопед с доп. квалификацией Специальный психолог'
-      ]
+      return ['detskij-psiholog', 'perinatalnyj-psiholog', 'pedagog-psiholog', 'logoped']
     case 'psyCons':
       return [
-        'Психолог-консультант',
-        'Арт-терапевт',
-        'Гештальт-терапевт',
-        'Психоанализ и психоаналитическая психотерапия'
+        'psiholog-konsultant',
+        'art-terapevt',
+        'geshtalt-terapevt',
+        'psihoanaliz-i-psihologicheskaya-psihoterapiya'
       ]
     case 'organization':
-      return ['Психолог бизнес - консультант. Коуч', 'Корпоративный психолог', 'Медиатор']
+      return ['psiholog-biznes-konsultant.-kouch', 'korporativnyj-psiholog', 'mediator']
     case 'psySomatic':
-      return [
-        'Психосоматика и телесная психотерапия',
-        'Телесно-ориентированная терапия',
-        'Когнитивно-поведенческий психотерапевт'
-      ]
+      return ['psihosomatika-i-telesnaya-psihoterapiya', 'kognitivno-povedencheskij-psihoterapevt']
     default:
-      return ['Программа']
+      return ['psiholog-konsultant']
   }
 }
 

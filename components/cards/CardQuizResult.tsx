@@ -11,12 +11,7 @@ interface Props {
 const CardQuizResult = ({ portrait, title, studyHours }: Props) => {
   return (
     <div className={stls.container}>
-      {portrait && (
-        <div className={stls.portrait}>
-          <span className={stls.filter}></span>
-          {portrait}
-        </div>
-      )}
+      {portrait && <div className={stls.portrait}>{portrait}</div>}
       <div className={stls.description}>
         <div className={stls.innerContainer}>
           <p className={stls.title}>{title}</p>

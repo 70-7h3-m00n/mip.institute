@@ -4,9 +4,6 @@
 
 .container
   background: linear-gradient(180deg, #FDF8FF 0%, #D4C8FF 100%)
-  @include m.gap($mb: f.px(90))
-  @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(35))
 
 .rounded
   border-radius: f.px(20)
@@ -16,9 +13,7 @@
 .result
   display: block
   text-align: center
-  @include m.gap($pt: f.px(55), $mb: f.px(40))
   font-size: f.px(44)
-  font-style: normal
   font-weight: 500
   line-height: 130%
   transform-style: preserve-3d
@@ -38,7 +33,7 @@
         border: f.px(3) solid c.$purple-300
   @include m.media(phone, tablet)
     font-size: f.px(28)
-    @include m.gap($pt: f.px(50), $mb: f.px(20))
+    @include m.gap($mb: f.px(20))
 
 .content
   display: grid
