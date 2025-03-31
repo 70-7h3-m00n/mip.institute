@@ -215,7 +215,7 @@ const YourDiploma = ({
                 </p>
               )}
               <div className={stls.btn}>
-                <LicensePopUp  />
+                <LicensePopUp onBachelor={!onMain} />
               </div>
             </div>
           </div>
@@ -232,7 +232,7 @@ const YourDiploma = ({
           </div>
         </div>
         <div className={stls.mobileBtn}>
-          <LicensePopUp  showFullText={showFullText} />
+          <LicensePopUp onBachelor={!onMain} showFullText={showFullText} />
         </div>
         {programSlug && withAddInfo.includes(programSlug) && (
           <p className={stls.addInfo}>
