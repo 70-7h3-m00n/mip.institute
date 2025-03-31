@@ -21,7 +21,7 @@ const LicensePopUp = ({ showFullText = false, onBachelor = false }: Props) => {
             Образовательная
             <br />
           </span>
-          <span className={stls.edu}>{onBachelor ? ' №041221' : ' №041363'}</span>
+          <span className={stls.edu}>{onBachelor ? '' : ' №041363'}</span>
           <div className={stls.iconRus}>{loadIcon('IconRusLicense')}</div>
           <div className={stls.iconAtom}>{loadIcon('IconAtom')}</div>
         </div>
