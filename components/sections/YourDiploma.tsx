@@ -18,6 +18,8 @@ import ImgBachelorDiplomaAlt from '../imgs/diplomas/ImgBachelorDiplomaAlt'
 import ImgBachelorDiploma from '../imgs/diplomas/ImgBachelorDiplome'
 import LicensePopUp from './LicensePopUp'
 import Tag from '@/ui/Tag'
+import LicenseImg from '@/public/assets/imgs/legal/licence.jpg'
+import Image from 'next/image'
 
 type YourDiplomaType = {
   ofType?: string
@@ -213,7 +215,7 @@ const YourDiploma = ({
                 </p>
               )}
               <div className={stls.btn}>
-                <LicensePopUp onBachelor showFullText={showFullText} />
+                <LicensePopUp onBachelor />
               </div>
             </div>
           </div>
