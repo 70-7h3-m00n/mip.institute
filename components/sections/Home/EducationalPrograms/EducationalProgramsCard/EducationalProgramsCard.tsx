@@ -42,13 +42,15 @@ const EducationalProgramsCard = ({ card }: Props) => {
         </div>
 
         <p className={stls.title}>{card.title}</p>
-        <div className={stls.contentWrapper}>
-          <p className={stls.flippedDescription}>
-            {(isFlipped && card.shortDescription) ||
-              'Получите специальность на стыке психологии, педагогики и воспитания, чтобы проводить\n' +
-                'качественное обучение учащихся и оказывать им необходимую психологическую поддержку.'}
-          </p>
-        </div>
+        {isFlipped && (
+          <div className={stls.contentWrapper}>
+            <p className={stls.flippedDescription}>
+              {card.shortDescription ||
+                'Получите специальность на стыке психологии, педагогики и воспитания, чтобы проводить\n' +
+                  'качественное обучение учащихся и оказывать им необходимую психологическую поддержку.'}
+            </p>
+          </div>
+        )}
 
         <p className={stls.mobileDescription}>
           {card.shortDescription ??
