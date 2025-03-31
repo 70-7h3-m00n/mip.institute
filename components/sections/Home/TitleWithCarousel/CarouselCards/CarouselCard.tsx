@@ -54,7 +54,7 @@ const CarouselCardNext = ({ card, isNext, isMobile }) => {
         <Image
           src={card.img?.url}
           alt=''
-          className={isNext ? stls.nextImg : stls.img}
+          className={isNext && currentTranslateY != 0 ? stls.nextImg : stls.img}
           height={500}
           width={500}
         />

@@ -7,6 +7,9 @@ import ArrowNavigation from '@/ui/ArrowsNavigation/ArrowsNavigation'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import Image from 'next/image'
 import { TImage } from '@/types/index'
+// import { SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from 'swiper/modules'
 interface MIPTeachersAsAuthorsProps {
   imgs: TImage[]
 }
@@ -56,7 +59,7 @@ const MIPTeachersAsAuthors = ({ imgs }: MIPTeachersAsAuthorsProps) => {
             Подкасты и публикации от преподавателей института регулярно появляются в крупных
             изданиях
           </div>
-          <ArrowNavigation
+          {/* <ArrowNavigation
             onPrev={handlePrev}
             onNext={handleNext}
             bgColor='#FFF'
@@ -64,10 +67,10 @@ const MIPTeachersAsAuthors = ({ imgs }: MIPTeachersAsAuthorsProps) => {
             disabledPrev={startIndex === 0}
             disabledNext={endIndex >= imgs.length}
             size='medium'
-          />
+          /> */}
         </div>
 
-        <div className={`${stls.cards} ${isAnimating ? stls.fade : ''}`}>
+        {/* <div className={`${stls.cards} ${isAnimating ? stls.fade : ''}`}>
           {visibleCards.map(card => (
             <div key={card.id} className={stls.card}>
               <Image
@@ -79,7 +82,46 @@ const MIPTeachersAsAuthors = ({ imgs }: MIPTeachersAsAuthorsProps) => {
               />
             </div>
           ))}
-        </div>
+        </div> */}
+        <Swiper
+        // ref={swiperRef}
+        slidesPerView={ 3}
+        // spaceBetween={10} // Добавляем небольшой отступ между слайдами
+        initialSlide={2}
+        centeredSlides={true}
+        loop={true}
+        modules={[Navigation, Pagination]}
+        spaceBetween={30}
+        navigation={{
+        //   prevEl: prevRef.current,
+        //   nextEl: nextRef.current // Добавляем nextEl сюда
+        }}
+        // pagination={
+        //   isMobileAndTabletLayout
+        //     ? {
+        //         clickable: true,
+        //         dynamicBullets: true,
+        //         bulletActiveClass: stls.bulletViolet,
+        //         horizontalClass: stls.pagination
+        //       }
+        //     : false
+        // }
+        className={stls.container}
+      >
+        {imgs.map(card => (
+          <SwiperSlide key={card.id} className={`${stls.slide} swiper-slide`}>
+            <div key={card.id} className={stls.card}>
+              <Image
+                src={card.url}
+                alt='Публикации журналов'
+                className={stls.image}
+                width={isMobile ? 345 : 370}
+                height={isMobile ? 382 : 407}
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
         <div className={stls.navigationMob}>
           <ArrowNavigation
