@@ -23,6 +23,8 @@ export const fetchAllProgramsData = unstable_cache(
               studyMounthsDuration
               studyHours
               price
+              tag
+              isPopular
               heroPicture {
                 url
                 width
@@ -35,6 +37,7 @@ export const fetchAllProgramsData = unstable_cache(
             bachelors {
               slug
               offlineFullPrice
+              shortDescription
               heroPicture {
                 url
                 width
@@ -51,6 +54,7 @@ export const fetchAllProgramsData = unstable_cache(
               duration
               slug
               price
+              shortDescription
               heroPicture {
                 url
                 width
