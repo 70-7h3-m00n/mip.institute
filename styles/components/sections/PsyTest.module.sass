@@ -4,6 +4,8 @@
 
 .container
   @include m.dye(bg, c.$pink-100)
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(20)
 
 .rounded
   border-radius: f.px(20)
@@ -18,7 +20,6 @@
   @include m.gap($pl: f.px(20))
   color: black
   @include m.media(phone, tablet)
-    @include m.gap($mt: f.px(50))
     font-size: f.px(18)
 
 .card
@@ -69,7 +70,7 @@
   border: f.px(4) solid c.$purple-200
 
 .radioQuiz
-  width: f.px(20)
+  min-width: f.px(20)
   height: f.px(20)
   cursor: pointer
   @include m.gap($mr: f.px(20))
