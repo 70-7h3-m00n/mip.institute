@@ -105,6 +105,7 @@ export const fetchAllProgramsData = unstable_cache(
       const studyFields = getStudyFields(programs)?.map(f => f.label) || []
       const studyFieldsProfessions = getStudyFields(professions)?.map(f => f.label) || []
       const studyFieldsCourses = getStudyFields(courses)?.map(f => f.label) || []
+      const teachers = data.teachers || []
 
       return {
         program: null,
@@ -119,6 +120,7 @@ export const fetchAllProgramsData = unstable_cache(
         curProgramsStudyFieldSlug: null,
         searchTerm: null,
         filteredPrograms: [],
+        teachers,
         blogs,
         seminar: null,
         bachelor: data.bachelors || null,
@@ -141,6 +143,7 @@ export const fetchAllProgramsData = unstable_cache(
         searchTerm: null,
         filteredPrograms: [],
         blogs: [],
+        teachers: [],
         seminar: null,
         bachelor: [],
         practicalTrainings: []
