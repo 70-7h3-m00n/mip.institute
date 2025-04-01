@@ -2,6 +2,7 @@ import React from 'react'
 import stls from './Supervision.module.sass'
 import Image from 'next/image'
 import StarIcon from '../StarIcon/StarIcon'
+import {routes } from '@/config/index'
 
 const Supervision = () => {
   const image = {
@@ -32,7 +33,7 @@ const Supervision = () => {
             <StarIcon />
           </div>
           <span className={stls.cardDescription}>
-            Участники <a href=''>групповой супервизии</a> в теплой <br className={stls.lineBreak} />{' '}
+            Участники <a href={`${routes.front.supervision}`}>групповой супервизии</a> в теплой <br className={stls.lineBreak} />{' '}
             и безопасной атмосфере смогут{' '}
             <span className={stls.color}>
               проработать трудности, возникающие в работе с клиентами

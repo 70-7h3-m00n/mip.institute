@@ -1,6 +1,7 @@
 import React from 'react'
 import stls from './Practice.module.sass'
 import Image from 'next/image'
+import { routes } from '@/config/index'
 
 const Practice = () => {
   const image = {
@@ -17,7 +18,7 @@ const Practice = () => {
         </p>
         <div className={stls.description}>
           <p>
-            <a href=''>Программы практической подготовки</a>{' '}
+            <a href={`${routes.front.practicalTrainings}`}>Программы практической подготовки</a>{' '}
             <span className={stls.color}>
               идеально <br className={stls.lineBreak} /> подходят для начинающих специалистов и
               студентов,
