@@ -9,4 +9,4 @@ const ListStarIcon = () => (
   </svg>
 )
 
-export default ListStarIcon
+export default React.memo(ListStarIcon)

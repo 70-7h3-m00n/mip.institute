@@ -40,7 +40,6 @@ const HelpWithChoice = ({ startHandler }: Props) => {
     setIsSubmitting(true)
     setError(null)
     setSuccess(null)
-    console.log(data)
 
     // try {
     // const response = await axios.post(`${routes.front.root}/api/sendEmailToHR`, data)

@@ -36,6 +36,9 @@
   .lineBreak
     display: inline
   @include m.gap($mb: f.px(25))
+  @include m.media(laptop)
+    .lineBreak
+      display: none
   @include m.media(phone, tablet)
     font-size: f.px(16)
     @include m.gap($mb: f.px(10))

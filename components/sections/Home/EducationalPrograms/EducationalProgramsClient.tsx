@@ -52,7 +52,6 @@ export default function EducationalProgramsClient({
         return allPrograms
     }
   }
-  console.log(allPrograms);
   
   const filteredPrograms = getFilteredPrograms()
   const slicedNumber = isMobileAndTabletLayout ? 3 : 6
