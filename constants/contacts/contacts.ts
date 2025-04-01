@@ -54,9 +54,9 @@ const moscow = {
 }
 
 const almaty = {
-  address: 'Алматы, проспект Аль-Фараби, 17к4Б, офис 1603',
-  coords: [43.230023, 76.945627],
-  placemarkText: 'проспект Аль-Фараби, 17к4Б',
+  address:  'Алматы, PROMENADE, Проспект Абая, 44а',
+  coords: [43.240166247906856, 76.92527982858182],
+  placemarkText: 'Promenade, Проспект Абая, 44а',
   cards: [
     {
       mainTitle: 'Электронные почты:',
