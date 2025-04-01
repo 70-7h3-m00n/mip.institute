@@ -4,7 +4,7 @@ const promocodes = {
   porakpsihologu: 'Пора к Психологу',
   muradimovaalina: 'АЛИНА10',
   maniloun: 'MANILOUN',
-  neprinyato: 'НЕ ПРИНЯТО',
+  neprinyato: 'НЕ ПРИНЯТО ОБСУЖДАТЬ',
   retrograd29: 'МЕРКУРИЙ',
   globa: 'ГЛОБА',
   uzefovich: 'ЮЗЕФОВИЧ',
@@ -46,7 +46,13 @@ const promocodes = {
   prohorshalyzpin: 'СЧАСТЬЕ',
   sanya_florida: 'САНЯ',
   'liz.zolotareva': 'ЗОЛОТАРЕВА',
-  moscowmap: 'moscowmap'
+  moscowmap: 'moscowmap',
+  moguchaya: 'МОГУЧАЯ',
+  kydriwa2403: 'KYDRIWA',
+  neeshpapa: 'ДОКТОР25',
+  vodnay: 'ВОДНАЯ',
+  // millonshchiki: 'МИЛЛИОН',
+  Drobyshevskaia:'Maria D'
 }
 
 export default promocodes

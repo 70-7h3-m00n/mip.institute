@@ -58,6 +58,8 @@
 .discount
   font-style: normal
   font-weight: 400
+  @include m.media(laptop, desktop)
+    @include m.gap($ml: f.px(5))
   @include m.media(phone, tablet)
     font-size: f.px(10)
     display: block

@@ -149,6 +149,7 @@ const FormAlpha = ({
     sessionStorage.removeItem('referer')
     const ymUid = yandexMetricaId
     data.ymUid = ymUid
+    data.program = program?.title || null
     const clickId = getCookie('utm')
 
     const roistat_visit = getCookie('roistat_visit')
@@ -181,7 +182,7 @@ const FormAlpha = ({
       data.advcake_track_id = advcake_track_id
       data.advcake_track_url = advcake_track_url
       data.roistat_visit = roistat_visit
-      if (dev) {
+      if(dev) {
         const req = await genezis(data)
         setThanksIsOpen(true)
         setLoading(false)
@@ -246,7 +247,7 @@ const FormAlpha = ({
             <p className={stls.err}>{errors.name && errors.name.message}</p>
           </div>
           <div className={classNames(stls.inpt, stls.phone)}>
-            <Controller
+          <Controller
               name='phone'
               control={control}
               rules={{
@@ -256,15 +257,31 @@ const FormAlpha = ({
                 },
                 required: `*Номер телефона обязателен`
               }}
-              render={({ field: { onChange, value } }) => (
+              render={({ field: { onChange, value } }) => {
+
+                const handleInputChange = (inputValue: string) => {
+                  let formattedValue = inputValue
+                  
+                  if(formattedValue === '8') {
+                    formattedValue='7'
+                  }
+                  if (formattedValue.startsWith('8') ) {
+                    formattedValue = '7' + formattedValue.slice(1)
+                  }
+
+                  onChange(formattedValue)
+                }
+                
+                return (
                 <PhoneInput
                   disabled={isDisabled}
                   value={value}
-                  onChange={onChange}
-                  country='ru'
+                  onChange={handleInputChange}
+                  // country='ru'
                   // regions={['ex-ussr']}
                   localization={ru}
                   placeholder='Ваш телефон'
+                  jumpCursorToEnd={true}
                   containerClass={stls.containerInput}
                   inputClass={stls.phoneInput}
                   buttonClass={stls.flagButton}
@@ -273,7 +290,9 @@ const FormAlpha = ({
                     marginBottom: `${errors.phone ? '5px' : '20px'}`
                   }}
                 />
-              )}
+                )
+                
+              }}
             />
             {errors.phone && <p className={stls.err}>{errors.phone && errors.phone.message}</p>}
           </div>
