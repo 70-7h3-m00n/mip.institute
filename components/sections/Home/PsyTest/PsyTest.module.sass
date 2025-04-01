@@ -3,9 +3,18 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-  @include m.dye(bg, c.$pink-100)
+  background: url("/assets/imgs/home/HelpWithChoice/orangeBg.png") no-repeat center center
+  background-size: cover
+  @include m.gap($ptb: f.px(50))
   @include m.media(phone, tablet)
     margin-bottom: f.px(20)
+
+.swiper
+  @include m.dye(bg, c.$white-900)
+  @include m.gap($ptb: f.px(50), $pl: f.px(50), $mtb: f.px(50))
+  border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20), $pl: 0, $mtb: f.px(20))
 
 .rounded
   border-radius: f.px(20)
@@ -29,6 +38,8 @@
 .leftBlock
   @include m.flex($fd: column, $jc: space-between)
   gap: f.px(20)
+  @include m.media(phone, tablet)
+    gap: f.px(10)
 
 .rightBlock
   @include m.flex($fd: column, $jc: space-between)
@@ -36,11 +47,11 @@
 .radio
   width: f.px(30)
   height: f.px(30)
-  background: c.$purple-300 !important
+  background: c.$orange-400 !important
   cursor: pointer
   @include m.gap($mr: f.px(30))
   &:checked
-    accent-color: c.$purple-300
+    accent-color: c.$orange-400
   @include m.media(phone, tablet)
     height: f.px(20)
 
@@ -54,16 +65,27 @@
   @include m.media(phone, tablet)
     font-size: f.px(14)
 
-.btn
-  position: relative
-  display: flex
-  justify-content: flex-start
-  z-index: 1000
+.btn > button
+  @include m.gap($mt: f.px(20), $ptb: f.px(20), $plr: f.px(30), $ml: f.px(15),)
+  border-radius: f.px(10)
+  display: inline-block
+  @include m.dye(c, c.$white-900)
+  @include m.dye(bg, c.$orange-400)
+  font-size: f.px(18)
+  cursor: pointer
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+    @include m.gap($mt: f.px(30), $ptb: f.px(15), $plr: f.px(25))
+  &:hover
+    @include m.dye(bg, c.$orange-400)
+  &:disabled
+    background: #acacac
+    cursor: not-allowed
 
 .inputAndQuestion
   display: flex
   align-items: center
-  @include m.dye(bg, c.$purple-300)
+  @include m.dye(bg, c.$orange-400)
   @include m.dye(c, c.$white-900)
   @include m.gap($ptb: f.px(10), $plr: f.px(30))
   border-radius: f.px(10)
@@ -73,8 +95,16 @@
   min-width: f.px(20)
   height: f.px(20)
   cursor: pointer
+  appearance: none
+  border-radius: 50%
+  border: f.px(2) solid c.$orange-400
+  background-color: #fff
+  position: relative
+  transition: border-color 0.3s ease
   @include m.gap($mr: f.px(20))
-  &:checked
-    accent-color: c.$purple-300
   @include m.media(phone, tablet)
     height: f.px(20)
+
+  &:checked
+    border-color: c.$orange-400
+    background-color: c.$orange-400

@@ -1,10 +1,10 @@
 'use client'
-import stls from '@/styles/components/sections/PsyTest.module.sass'
+import stls from './PsyTest.module.sass'
 import { useState } from 'react'
 import SwiperCore from 'swiper'
 import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import quiz from '../../constants/quizQuestions'
+import quiz from 'constants/quizQuestions'
 import Wrapper from '@/ui/Wrapper'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
@@ -73,7 +73,7 @@ const PsyTest = ({ fallbackComponent, isRounded }: Props) => {
           })}>
           <Wrapper>
             <Swiper
-              className={stls.a}
+              className={stls.swiper}
               speed={1000}
               navigation={{
                 prevEl: '.back',

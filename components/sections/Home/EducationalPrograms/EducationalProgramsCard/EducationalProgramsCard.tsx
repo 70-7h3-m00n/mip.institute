@@ -36,7 +36,7 @@ const EducationalProgramsCard = ({ card }: Props) => {
                 [stls.tag]: true,
                 [stls.popular]: isPopular
               })}>
-              Популярно
+              {isPopular ? 'Популярно' : 'Обновлен в 2025'}
             </span>
           )}
         </div>

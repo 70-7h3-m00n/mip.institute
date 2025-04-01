@@ -52,7 +52,7 @@ export default function EducationalProgramsClient({
         return allPrograms
     }
   }
-  
+
   const filteredPrograms = getFilteredPrograms()
   const slicedNumber = isMobileAndTabletLayout ? 3 : 6
   const displayedPrograms = filteredPrograms.slice(0, slicedNumber)
