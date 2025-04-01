@@ -3,7 +3,7 @@ import stls from './EducationalProgramsCard.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { EducationalProgram } from '@/types/page/home/homeGeneralTypes'
+import { EducationalProgram, ProgramGeneralType, Tag } from '@/types/page/home/homeGeneralTypes'
 import {
   getDurationText,
   getProgramCategory,
@@ -15,10 +15,14 @@ interface Props {
   card: EducationalProgram
 }
 
+const isProgramGeneral = (program: EducationalProgram): program is ProgramGeneralType => {
+  return program.__typename === 'Program'
+}
+
 const EducationalProgramsCard = ({ card }: Props) => {
   const category = getProgramCategory(card)
   const link = getProgramLink(card)
-  const isPopular = 'isPopular' in card && card.isPopular
+
   const [isFlipped, setIsFlipped] = useState(false)
   const { isMobileAndTabletLayout } = useMediaQuery()
 
@@ -30,13 +34,13 @@ const EducationalProgramsCard = ({ card }: Props) => {
       <Link href={link} passHref>
         <div className={stls.header}>
           <span className={stls.category}>{category}</span>
-          {isPopular && (
+          {isProgramGeneral(card) && card.tag && (
             <span
               className={classNames({
                 [stls.tag]: true,
-                [stls.popular]: isPopular
+                [stls.popular]: card.tag === Tag.Popular
               })}>
-              {isPopular ? 'Популярно' : 'Обновлен в 2025'}
+              {card.tag === Tag.Popular ? 'Популярно' : 'Обновлен в 2025'}
             </span>
           )}
         </div>

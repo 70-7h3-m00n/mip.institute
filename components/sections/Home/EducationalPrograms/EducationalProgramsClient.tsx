@@ -8,7 +8,8 @@ import {
   EducationalProgram,
   PracticalTrainingType,
   ProgramFilter,
-  ProgramGeneralType
+  ProgramGeneralType,
+  Tag
 } from '@/types/page/home/homeGeneralTypes'
 import { useMediaQuery } from '@/context/MediaQueryContext'
 
@@ -20,6 +21,10 @@ interface Props {
   bachelors: BachelorType[]
   practicalTrainings: PracticalTrainingType[]
   initialFilter: ProgramFilter
+}
+
+const isProgramGeneral = (program: EducationalProgram): program is ProgramGeneralType => {
+  return program.__typename === 'Program'
 }
 
 export default function EducationalProgramsClient({
@@ -37,7 +42,7 @@ export default function EducationalProgramsClient({
   const getFilteredPrograms = () => {
     switch (activeFilter) {
       case ProgramFilter.Popular:
-        return allPrograms.filter(p => 'isPopular' in p && p.isPopular === true)
+        return allPrograms.filter(isProgramGeneral).filter(p => p.tag === Tag.Popular)
       case ProgramFilter.Professions:
         return professions
       case ProgramFilter.Courses:

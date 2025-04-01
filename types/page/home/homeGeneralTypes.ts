@@ -9,8 +9,13 @@ export interface ProgramGeneralType {
   studyMounthsDuration?: number
   studyHours?: number
   shortDescription?: string
-  isPopular?: boolean // TODO: это поле может быть добавлено
+  tag?: Tag
   __typename: 'Program'
+}
+
+export enum Tag {
+  Updated = 'updated',
+  Popular = 'popular'
 }
 
 export enum ProgramFilter {
