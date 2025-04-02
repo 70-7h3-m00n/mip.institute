@@ -102,7 +102,7 @@ function AdventuresCards({ showButton }: AdventuresCardsProps) {
           <Image
             src='/assets/imgs/incomers/mip-logo.png'
             width={900}
-            height={350}
+            height={300}
             alt='МИП'
             className={stls.imageMip}
           />

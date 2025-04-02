@@ -1,6 +1,6 @@
 import stls from './HomeFAQ.module.sass'
 import Wrapper from '@/ui/Wrapper'
-import questions from 'constants/GroupSupervision/faq'
+import listOnMain from 'constants/faq'
 import ExpandableFAQ from '@/ui/ExpandableFAQ'
 
 const HomeFAQ = () => {
@@ -9,7 +9,7 @@ const HomeFAQ = () => {
       <Wrapper>
         <h2 className={stls.title}>Часто задаваемые вопросы</h2>
         <ul className={stls.list}>
-          {questions.map((qna, idx) => (
+          {listOnMain.map((qna, idx) => (
             <ExpandableFAQ
               key={qna.question}
               number={idx + 1}

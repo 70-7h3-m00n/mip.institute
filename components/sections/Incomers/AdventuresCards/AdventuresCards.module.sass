@@ -18,20 +18,20 @@
 .imageMipContainer
     position: sticky
     top: 120px
-    @include m.gap($mb: f.px(136))
+    @include m.gap($mb: f.px(70))
     @include m.media(phone, tablet)
       display: none
 
 .imageMip
     width: 100%
     height: auto
-    
+
 .title
   color: c.$white-900
   font-size: f.px(44)
   font-weight: 500
   line-height: 120%
-  @include m.gap($mb: f.px(136))
+  @include m.gap($mb: f.px(70))
   position: sticky
   top: 20px
   @include m.media(phone, tablet)
@@ -51,8 +51,8 @@
   @include m.media(phone, tablet, laptop)
     display: inline
 
-.blockMain 
-  @include m.flex($fd: column) 
+.blockMain
+  @include m.flex($fd: column)
   gap: f.px(70)
   z-index: 2
 
@@ -108,7 +108,7 @@
   @include m.media(phone, tablet)
     width: 100%
     position: sticky
-    top: 150px
+    top: 170px
 
 .image
   border-radius: 30px

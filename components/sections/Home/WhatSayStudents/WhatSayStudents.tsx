@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import ArrowNavigation from '@/ui/ArrowsNavigation/ArrowsNavigation'
 import ImageGallery from './imageGallery/imageGallery'
+
 interface WhatSayStudentsProps {
   data: TReview[]
 }
@@ -23,7 +24,10 @@ const WhatSayStudents = ({ data }: WhatSayStudentsProps) => {
             <span className={stls.right}>успехами которых мы гордимся, как своими</span>
           </span>
           <span className={stls.mobile}>
-            Что говорят о нас студенты и выпускники, успехами которых мы гордимся, как своими
+            Что говорят о нас студенты
+            <br />и выпускники, успехами которых мы гордимся,
+            <br />
+            как своими
           </span>
         </h2>
 

@@ -41,16 +41,18 @@ const EducationLevels = ({ programs, bachelorsLength, practicalTrainingsLength }
         <h2 className={stls.title}>Уровни образования</h2>
         <div className={stls.navBlocksContainer}>
           {educationLevelsList.map(({ id, label, description, href, programType, background }) => (
-            <div key={id} className={stls.item} style={{ backgroundImage: `url(${background})` }}>
-              <Link href={href} passHref rel='noreferrer'>
-                <div className={stls.content}>
-                  <span className={stls.label}>{label}</span>
-                  <p className={stls.description}>{description}</p>
-                  <div className={stls.countPrograms}>
-                    <span>{renderCounter(programType)}</span>
+            <div key={id} className={stls.itemWrapper}>
+              <div className={stls.item} style={{ backgroundImage: `url(${background})` }}>
+                <Link href={href} passHref rel='noreferrer'>
+                  <div className={stls.content}>
+                    <span className={stls.label}>{label}</span>
+                    <p className={stls.description}>{description}</p>
+                    <div className={stls.countPrograms}>
+                      <span>{renderCounter(programType)}</span>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </div>
           ))}
         </div>

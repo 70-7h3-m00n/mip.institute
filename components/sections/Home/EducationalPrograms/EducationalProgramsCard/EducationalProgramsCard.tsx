@@ -35,11 +35,7 @@ const EducationalProgramsCard = ({ card }: Props) => {
         <div className={stls.header}>
           <span className={stls.category}>{category}</span>
           {isProgramGeneral(card) && card.tag && (
-            <span
-              className={classNames({
-                [stls.tag]: true,
-                [stls.popular]: card.tag === Tag.Popular
-              })}>
+            <span className={stls.tag}>
               {card.tag === Tag.Popular ? 'Популярно' : 'Обновлен в 2025'}
             </span>
           )}
