@@ -95,7 +95,7 @@ const HappyStudents = ({ isMainPage = true }: { isMainPage?: boolean }) => {
           <div className={stls.container_title}>
             <h2 className={stls.newTitle}>
               <span className={stls.coloured}>Студенты довольны {isMobileLayout && <br />}</span>
-              обучением в МИП
+              обучением в нашем институте
             </h2>
             {isMobileAndTabletLayout ? (
               <div className={stls.container_imageMob}>

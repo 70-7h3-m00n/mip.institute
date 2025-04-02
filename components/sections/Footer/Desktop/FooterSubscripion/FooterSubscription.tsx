@@ -90,7 +90,9 @@ const FooterSubscription = () => {
   return (
     <div className={stls.container}>
       <div>
-        <span className={stls.header}>Ценные знания от экспертов МИП</span>
+        <span className={stls.header}>
+          Ценные знания от экспертов Московского института психологии
+        </span>
         <span className={stls.description}>
           Подписка на рассылку — ваш источник знаний, психологических инсайтов и приглашений на
           образовательные мероприятия

@@ -81,17 +81,13 @@ const PageBachelor = ({ bachelor }) => {
                   fontSize: '15px',
                   lineHeight: '130%'
                 }}>
-                Параллельная программа профессиональной переподготовки с
-                присвоением квалификации
+                Параллельная программа профессиональной переподготовки с присвоением квалификации
               </p>
             </>
           ) : (
             <h2 style={{ fontSize: '35px', fontWeight: 500 }}>
-              <span style={{ color: '#6F01C6' }}>
-                Ваша дополнительная специализация
-              </span>{' '}
-              (параллельная программа профессиональной переподготовки с
-              присвоением квалификации)
+              <span style={{ color: '#6F01C6' }}>Ваша дополнительная специализация</span>{' '}
+              (параллельная программа профессиональной переподготовки с присвоением квалификации)
             </h2>
           )
         }
@@ -113,7 +109,7 @@ const PageBachelor = ({ bachelor }) => {
       <YourDiploma isBachelor diplomaRef={diplomaRef} />
       <SalaryCounter title={bachelor?.title} />
       <DistanceEducation
-        title='Конкурентное преимущество обучения в МИП:'
+        title='Наши преимущества'
         list={bachelor?.benefits}
         paddingBottom={90}
         paddingBottomMobile={60}
