@@ -8,7 +8,7 @@ import StudentStory from './StudentStory/StudentStory'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import ArrowNavigation from '@/ui/ArrowsNavigation/ArrowsNavigation'
-import ImageGallery from './imageGallery/imageGallery'
+import ImgGallery from './ImgGallery/ImgGallery'
 
 interface WhatSayStudentsProps {
   data: TReview[]
@@ -35,7 +35,7 @@ const WhatSayStudents = ({ data }: WhatSayStudentsProps) => {
           <div id='studentsNavDesktop'>
             <ArrowNavigation bgColor='#8F60FF' arrowColor='#FFF' size='medium' />
           </div>
-          <ImageGallery />
+          <ImgGallery />
         </div>
 
         <Swiper

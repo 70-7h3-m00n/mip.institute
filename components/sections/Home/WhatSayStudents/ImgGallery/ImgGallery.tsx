@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import stls from './imageGallery.module.sass'
+import stls from './ImgGallery.module.sass'
 
 const linkImage = [
   'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738579299/attractive_girl_portrait_white_shirt_1_c6c7efff26.jpg',
@@ -10,7 +10,7 @@ const linkImage = [
   'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738579299/attractive_girl_portrait_white_shirt_1_c6c7efff26.jpg'
 ]
 
-const ImageGallery = () => {
+const ImgGallery = () => {
   return (
     <div className={stls.imageGallery}>
       {linkImage.map((imageUrl, index) => (
@@ -28,4 +28,4 @@ const ImageGallery = () => {
   )
 }
 
-export default React.memo(ImageGallery)
+export default React.memo(ImgGallery)
