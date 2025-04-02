@@ -33,7 +33,6 @@ const OurGraduates = ({ props }: PropsType) => {
 
   return (
     <section className={stls.container}>
-      {/*<Wrapper>*/}
       <div className={stls.container}>
         <div className={stls.imageGallery}>
           {linkImage.map((imageUrl, index) => (
@@ -121,7 +120,6 @@ const OurGraduates = ({ props }: PropsType) => {
 
         <div className={stls.text}>{parseText(props.body)}</div>
       </div>
-      {/*</Wrapper>*/}
     </section>
   )
 }
