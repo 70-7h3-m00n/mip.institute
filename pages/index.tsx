@@ -97,9 +97,10 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   })
 
   const seoParams = {
-    title: `МИП - Московский Институт Психологии`,
+    title: `Московский Институт Психологии
+`,
     desc: truncate(
-      'MIP - Психологический институт. Получите дистанционное образование со скидкой 30% Дипломы ФРДО. Удобный формат обучения! Актуальный материал с упором на практику.',
+      'Обучение на психолога: дополнительное психологическое образование (профессиональная переподготовка и повышение квалификации) по популярным направлениям вместе с экспертами Московского Института Психологии | Дипломы ФРДО',
       120
     ),
     canonical: routes.front.root
@@ -147,7 +148,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         desc='Оставьте заявку на консультацию менеджера приёмной комиссии'
         cta='chooseProgram'
       />
-      <WhatYouWillLearn key='whatYouWillLearnOld' title='Чему вы научитесь в МИП' onMain />
+      <WhatYouWillLearn key='whatYouWillLearnOld' title='Чему вы научитесь в нашем институте' onMain />
       <SalaryCounter key='salaryCounterOld' title='Психология' />
       <Teachers
         key='teachersOld'
@@ -198,7 +199,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <TopCourses key='topCourses' />
       <ButtonToTop key='buttonToTop' />
       <div className={stls.youLearnPadding}>
-        <WhatYouWillLearn key='whatYouWillLearn' title='Чему вы научитесь в МИП' onMain />
+        <WhatYouWillLearn key='whatYouWillLearn' title='Чему вы научитесь в нашем институте' onMain />
       </div>
       <SalaryCounter key='salaryCounter' title='Психология' />
       <Teachers

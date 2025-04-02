@@ -90,7 +90,7 @@ const HappyStudents = ({ isMainPage = true }: { isMainPage?: boolean }) => {
     <section className={isMainPage ? stls.section : stls.newSection}>
       <Wrapper>
         {isMainPage ? (
-          <h2 className={stls.title}>Студенты довольны обучением в МИП</h2>
+          <h2 className={stls.title}>Студенты довольны обучением в нашем институте</h2>
         ) : (
           <div className={stls.container_title}>
             <h2 className={stls.newTitle}>

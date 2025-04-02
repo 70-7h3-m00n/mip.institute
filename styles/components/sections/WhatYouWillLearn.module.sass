@@ -19,7 +19,7 @@
   font-weight: 500
   @include m.dye(c, c.$black-800)
   @include m.media(tablet)
-    white-space: nowrap
+    // white-space: nowrap
     @include m.gap($mb: f.px(20))
     font-size: f.px(30)
   @include m.media(phone)
@@ -75,22 +75,22 @@
 .tag
   z-index: 2
   height: 100%
-  display: inline-block
+  // display: inline-block
   position: relative
-  @include m.gap($mb: f.px(20))
+  // @include m.gap($mb: f.px(20))
   align-self: center
   & > *
-    position: absolute
+    // position: absolute
     @include m.media(laptop, desktop)
       top: f.px(-15)
       left: f.px(20)
-      @include m.gap($plr: f.px(26), $ptb: f.px(8), $mb:f.px(10))
+      @include m.gap($plr: f.px(26), $ptb: f.px(8), $mb:f.px(15))
     @include m.media(tablet)
-      @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
+      @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(15))
       top: f.px(-30)
       left: f.px(-370)
     @include m.media(phone)
-      @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(10))
+      @include m.gap($plr: f.px(20), $ptb: f.px(5), $mb:f.px(15))
       top: f.px(-3)
       left: f.px(-220)
 
