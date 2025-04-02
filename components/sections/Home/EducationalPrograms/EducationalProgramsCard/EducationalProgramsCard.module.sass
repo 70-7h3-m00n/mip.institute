@@ -58,6 +58,11 @@
     mask-size: contain
     -webkit-mask-size: contain
 
+.whiteText
+  @include m.dye(c, c.$white-800)
+  &::before
+    @include m.dye(bg, c.$white-800)
+
 .title
   @include m.gap($mb: 0)
   font-size: f.px(22)

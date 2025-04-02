@@ -13,13 +13,14 @@ import { useMediaQuery } from '@/context/MediaQueryContext'
 
 interface Props {
   card: EducationalProgram
+  idx: number
 }
 
 const isProgramGeneral = (program: EducationalProgram): program is ProgramGeneralType => {
   return program.__typename === 'Program'
 }
 
-const EducationalProgramsCard = ({ card }: Props) => {
+const EducationalProgramsCard = ({ card, idx }: Props) => {
   const category = getProgramCategory(card)
   const link = getProgramLink(card)
 
@@ -34,9 +35,14 @@ const EducationalProgramsCard = ({ card }: Props) => {
       <Link href={link} passHref>
         <div className={stls.header}>
           <span className={stls.category}>{category}</span>
-          {isProgramGeneral(card) && card.tag && (
-            <span className={stls.tag}>
-              {card.tag === Tag.Popular ? 'Популярно' : 'Обновлен в 2025'}
+          { card.tag && (
+            <span 
+            className={classNames({
+              [stls.tag]: true,
+              [stls.whiteText]: idx === 0 || idx === 5
+            })}
+            >
+              {card.tag === Tag.Popular ? 'Популярно' :card.tag === Tag.Updated ? 'Обновлен в 2025' : ''}
             </span>
           )}
         </div>

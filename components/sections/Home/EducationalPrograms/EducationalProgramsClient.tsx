@@ -42,7 +42,7 @@ export default function EducationalProgramsClient({
   const getFilteredPrograms = () => {
     switch (activeFilter) {
       case ProgramFilter.Popular:
-        return allPrograms.filter(isProgramGeneral).filter(p => p.tag === Tag.Popular)
+        return allPrograms.filter(p => p.isPopular === true)
       case ProgramFilter.Professions:
         return professions
       case ProgramFilter.Courses:
@@ -75,8 +75,8 @@ export default function EducationalProgramsClient({
         ))}
       </div>
       <ul className={stls.blocks}>
-        {displayedPrograms.map(item => (
-          <EducationalProgramsCard key={item.slug} card={item} />
+        {displayedPrograms.map((item, idx) => (
+          <EducationalProgramsCard idx={idx} key={item.slug} card={item} />
         ))}
       </ul>
     </>

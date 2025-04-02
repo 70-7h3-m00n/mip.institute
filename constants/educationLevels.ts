@@ -6,7 +6,7 @@ const educationLevelsList = [
     id: 1,
     label: 'Профессиональная переподготовка',
     description:
-      'для тех, кто смело смотрит в ближайшее будущее, решил освоить новую профессию с нуля или сменить свой карьерный путь',
+      `для тех, кто смело смотрит \n в ближайшее будущее, решил освоить новую профессию с нуля или сменить свой карьерный путь`,
     href: routes.front.professions,
     programType: 'profession',
     background: '/assets/imgs/home/EducationLevels/bg1.png'
@@ -24,7 +24,7 @@ const educationLevelsList = [
     id: 3,
     label: 'Бакалавриат',
     description:
-      'для тех, кто готов сделать Первый шаг к высшему образованию по психологии, получить фундаментальные знания и построить успешную карьеру',
+      'для тех, кто готов сделать первый шаг к высшему образованию по психологии, получить фундаментальные знания и построить успешную карьеру',
     href: routes.front.bachelors,
     programType: 'bachelor',
     background: '/assets/imgs/home/EducationLevels/bg3.png'

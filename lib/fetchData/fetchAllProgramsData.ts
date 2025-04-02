@@ -38,6 +38,8 @@ export const fetchAllProgramsData = unstable_cache(
               slug
               offlineFullPrice
               shortDescription
+              isPopular
+              tag
               heroPicture {
                 url
                 width
@@ -55,6 +57,8 @@ export const fetchAllProgramsData = unstable_cache(
               slug
               price
               shortDescription
+              isPopular
+              tag
               heroPicture {
                 url
                 width

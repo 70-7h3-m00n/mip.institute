@@ -9,6 +9,7 @@ export interface ProgramGeneralType {
   studyMounthsDuration?: number
   studyHours?: number
   shortDescription?: string
+  isPopular?: boolean
   tag?: Tag
   __typename: 'Program'
 }
@@ -46,6 +47,8 @@ export type BachelorType = {
   maxTime: string
   shortDescription?: string
   __typename: 'Bachelor'
+  isPopular?: boolean
+  tag?: Tag
 }
 
 export type PracticalTrainingType = {
@@ -56,6 +59,8 @@ export type PracticalTrainingType = {
   heroPicture: Image
   shortDescription?: string
   __typename: 'PracticalTraining'
+  isPopular?: boolean
+  tag?: Tag
 }
 
 type Review = {
