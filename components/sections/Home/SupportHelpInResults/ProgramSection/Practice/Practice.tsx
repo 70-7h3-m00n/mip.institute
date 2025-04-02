@@ -2,8 +2,11 @@ import React from 'react'
 import stls from './Practice.module.sass'
 import Image from 'next/image'
 import { routes } from '@/config/index'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const Practice = () => {
+  const isMobile = useBetterMediaQuery('(max-width: 768px)')
+
   const image = {
     imageUrl: '/assets/imgs/home/SupportHelpInResults/image4.png',
     imageMobUrl: '/assets/imgs/home/SupportHelpInResults/imageMob4.png',
@@ -36,7 +39,7 @@ const Practice = () => {
 
       <Image
         className={stls.img}
-        src={image.imageUrl}
+        src={isMobile ? image.imageMobUrl : image.imageUrl}
         width={1170}
         height={417}
         alt={image.imageAlt}

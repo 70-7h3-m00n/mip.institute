@@ -2,8 +2,10 @@ import React from 'react'
 import stls from './CareerCenter.module.sass'
 import Image from 'next/image'
 import StarIcon from '../StarIcon/StarIcon'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const CareerCenter = () => {
+  const isMobile = useBetterMediaQuery('(max-width: 768px)')
   const image = {
     imageUrl: '/assets/imgs/home/SupportHelpInResults/image2.png',
     imageMobUrl: '/assets/imgs/home/SupportHelpInResults/imageMob2.png',
@@ -36,7 +38,7 @@ const CareerCenter = () => {
       <div className={stls.right}>
         <Image
           className={stls.img}
-          src={image.imageUrl}
+          src={isMobile ? image.imageMobUrl : image.imageUrl}
           width={570}
           height={427}
           alt={image.imageAlt}

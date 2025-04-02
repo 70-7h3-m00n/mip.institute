@@ -1,8 +1,10 @@
 import React from 'react'
 import stls from './Curators.module.sass'
 import Image from 'next/image'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const Curators = () => {
+  const isMobile = useBetterMediaQuery('(max-width: 768px)')
   const image = {
     imageUrl: '/assets/imgs/home/SupportHelpInResults/image1.jpg',
     imageMobUrl: '/assets/imgs/home/SupportHelpInResults/imageMob1.png',
@@ -23,7 +25,7 @@ const Curators = () => {
 
       <Image
         className={stls.img}
-        src={image.imageUrl}
+        src={isMobile ? image.imageMobUrl : image.imageUrl}
         width={1170}
         height={352}
         alt={image.imageAlt}
