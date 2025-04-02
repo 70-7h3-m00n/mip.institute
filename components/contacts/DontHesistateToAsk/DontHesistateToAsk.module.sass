@@ -1,0 +1,71 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+  
+
+.container
+  @include m.media(phone, tablet)
+    &>*
+      padding: 0
+.blocks
+  @include m.media(desktop, laptop)
+    max-height: f.px(260)
+  display: grid
+  grid-template-columns: 2fr 1fr
+  gap: f.px(30)
+  @include m.media(phone, tablet)
+    grid-template-columns: 1fr
+    gap: f.px(10)
+
+.card
+  border-radius: f.px(10)
+  background: #855EDF
+  border: f.px(1) solid c.$purple-350
+  @include m.gap( $pt: f.px(40),$pb: f.px(49), $plr: f.px(64))
+  display: flex
+  flex-direction: column
+  @include m.media(desktop, laptop)
+    max-height: f.px(260)
+    gap: f.px(40)
+  @include m.media(laptop)
+    @include m.gap( $ptb: f.px(20), $plr: f.px(64))
+    gap: f.px(20)
+  font-weight: 500
+  
+  @include m.media(phone, tablet)
+    @include m.gap( $ptb: f.px(38), $plr: f.px(14))
+    gap: f.px(30)
+
+
+  p
+    font-size: f.px(28)
+    line-height: 120%
+    text-align: center
+    color: c.$white-900
+    margin-bottom: f.px(0)
+    @include m.media(phone, tablet)
+      font-size: f.px(24)
+  
+  a
+    @include m.gap( $ptb: f.px(20))
+    color: c.$white-900
+    background: c.$orange-400
+    border-radius: f.px(10)
+    text-align: center
+    text-transform: uppercase
+    font-size: f.px(18)
+    @include m.media(phone, tablet)
+      font-size: f.px(14)
+
+.imgWrapper
+  max-height: f.px(260)
+  @include m.media(phone, tablet)
+    display: none
+
+.img
+  height: 100%
+  width: 100%
+  border-radius: f.px(10)
+  border: f.px(1) solid #8F60FF
+  object-fit: cover
+  

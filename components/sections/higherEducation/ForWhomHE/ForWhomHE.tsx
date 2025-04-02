@@ -18,6 +18,7 @@ export const ForWhomHE = () => {
               title={item.title}
               description={item.description}
               key={item.title}
+              text={item.text}
             />
           ))}
         </div>

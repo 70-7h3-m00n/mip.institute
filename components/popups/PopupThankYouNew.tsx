@@ -10,6 +10,7 @@ import Script from 'next/script'
 const PopupThankyouNew = ({ close }) => {
   const { program } = useContext(ContextStaticProps)
 
+
   useEffect(() => {
     const tagManagerArgs = {
       dataLayer: {
@@ -48,11 +49,16 @@ const PopupThankyouNew = ({ close }) => {
           `
         }}
       />
-      {/* <div
-        className='i-flocktory'
-        data-fl-action='exchange'
-        data-fl-user-name={name}
-        data-fl-user-email={email}></div> */}
+      {/* {isPsyCons && (
+        <Script
+        id='sendFormPsyCons'
+        dangerouslySetInnerHTML={{
+          __html: `
+            dataLayer.push({'event':'sendForm2401'});
+          `
+        }}
+      />
+      )} */}
     </div>
   )
 }

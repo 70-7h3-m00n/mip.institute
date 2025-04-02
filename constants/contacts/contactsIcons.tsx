@@ -118,7 +118,15 @@ export const images = [
     width: 652,
     height: 350,
     alt: 'План этажей'
+  },
+  {
+    id: 5,
+    url: 'https://res.cloudinary.com/mipinstitute/image/upload/v1742391860/miptower_e17e9b403b.jpg',
+    width: 652,
+    height: 350,
+    alt: 'Здание МИП'
   }
+
 ]
 
 export const IconBG = () => {

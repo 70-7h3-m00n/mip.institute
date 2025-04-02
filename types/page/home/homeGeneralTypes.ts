@@ -68,6 +68,15 @@ type Review = {
   picture: Image
   index_number: { idx: number }
 }
+type Teacher = {
+  id: string
+  name: string
+  achievements: string
+  specialization: string
+  experience: string
+  portrait: Image
+  index_number: { idx: number }
+}
 
 export type ProgramsDataQueryResult = {
   program: null
@@ -83,6 +92,7 @@ export type ProgramsDataQueryResult = {
   searchTerm: null
   filteredPrograms: ProgramGeneralType[]
   blogs: any[]
+  teachers: Teacher[]
   seminar: null
   bachelor: BachelorType[]
   practicalTrainings: PracticalTrainingType[]

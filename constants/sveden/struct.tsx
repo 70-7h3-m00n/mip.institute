@@ -24,7 +24,7 @@ const structOrgUpravRows = [
       { content: 'Багаев Евгений Александрович', itemProp: 'fio' },
       { content: 'Ректор', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -48,7 +48,7 @@ const structOrgUpravRows = [
       { content: 'Стибунов Алексей Васильевич', itemProp: 'fio' },
       { content: 'Первый проректор', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -72,7 +72,7 @@ const structOrgUpravRows = [
       { content: 'Токарева Мария Вадимовна', itemProp: 'fio' },
       { content: 'Проректор по учебной работе', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -98,7 +98,7 @@ const structOrgUpravRows = [
       { content: '', itemProp: 'fio' },
       { content: '', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -129,7 +129,7 @@ const structOrgUpravRows = [
       { content: 'Чеченов Тенгиз Ильясович', itemProp: 'fio' },
       { content: 'Руководитель отдела', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -155,7 +155,7 @@ const structOrgUpravRows = [
       { content: 'Кунаева Анна Евгеньевна', itemProp: 'fio' },
       { content: 'Руководитель', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -181,7 +181,7 @@ const structOrgUpravRows = [
       { content: 'Рубцова Надежда Леонидовна', itemProp: 'fio' },
       { content: 'Руководитель', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -207,7 +207,7 @@ const structOrgUpravRows = [
       { content: 'Курочкина Алёна Викторовна', itemProp: 'fio' },
       { content: 'Руководитель', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -233,7 +233,7 @@ const structOrgUpravRows = [
       { content: 'Ермолова Вера Михайловна', itemProp: 'fio' },
       { content: 'Заведующий кафедрой', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -259,7 +259,7 @@ const structOrgUpravRows = [
       { content: 'Малеева Лорета Александровна', itemProp: 'fio' },
       { content: 'Главный специалист', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -285,7 +285,7 @@ const structOrgUpravRows = [
       { content: 'Балкарова Марина Валерьевна', itemProp: 'fio' },
       { content: 'Старший специалист', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -311,7 +311,7 @@ const structOrgUpravRows = [
       { content: 'Мнацаканова Александра Ашотовна', itemProp: 'fio' },
       { content: 'Руководитель', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -337,7 +337,7 @@ const structOrgUpravRows = [
       { content: 'Губанова Ольга Викторовна', itemProp: 'fio' },
       { content: 'Руководитель', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -363,7 +363,7 @@ const structOrgUpravRows = [
       { content: 'Попова Маргарита Геннадьевна', itemProp: 'fio' },
       { content: 'Руководитель отдела', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -389,7 +389,7 @@ const structOrgUpravRows = [
       { content: 'Графская Анастасия Викторовна', itemProp: 'fio' },
       { content: 'Руководитель отдела', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -415,7 +415,7 @@ const structOrgUpravRows = [
       { content: '', itemProp: 'fio' },
       { content: '', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {
@@ -441,7 +441,7 @@ const structOrgUpravRows = [
       { content: '', itemProp: 'fio' },
       { content: '', itemProp: 'post' },
       {
-        content: '115114, Москва, Дербеневская набережная, дом 11',
+        content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
       },
       {

@@ -1,3 +1,4 @@
+'use client'
 import About from '@/components/sections/About'
 import Cta from '@/components/sections/Cta'
 import Faq from '@/components/sections/Faq'
@@ -11,29 +12,23 @@ import DirectionsNew from '@/components/sections/DirectionsNew'
 import EntryForm from '@/components/sections/EntryForm'
 import PayLater from '@/components/sections/PayLater'
 import TopCourses from '@/components/sections/TopCourses'
-import { SeoOrganizationJsonLd } from '@/components/seo'
 import { company, routes } from '@/config/index'
 import preview from '@/config/preview'
 import truncate from '@/helpers/general/truncate'
-import { useHandleContextStaticProps } from '@/hooks/index'
-import { handleGetStaticProps } from '@/lib/index'
-import { TypePageHomeProps } from '@/types/index'
 import allowedNames from 'constants/indexMain'
-import { GetStaticProps, NextPage } from 'next'
-import { NextSeo } from 'next-seo'
-import { useRouter } from 'next/router'
 import React, { ReactNode, useEffect, useState } from 'react'
 import Popup from 'reactjs-popup'
 import dynamic from 'next/dynamic'
 import stls from '@/styles/pages/Index.module.sass'
-import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '../helpers'
 import PsyTestMain from '@/components/sections/PsyTestMain'
+import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '@/helpers/index'
+import { useSearchParams } from 'next/navigation'
 
 const PopupCta = dynamic(() => import('@/components/popups/PopupCta'), {
   ssr: false
 })
 
-const PsyTest = dynamic(() => import('@/components/sections/Home/PsyTest/PsyTest'), {
+const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), {
   ssr: false
 })
 
@@ -69,22 +64,30 @@ const WhatYouWillLearn = dynamic(() => import('@/components/sections/WhatYouWill
   ssr: false
 })
 
-const HomePage: NextPage<TypePageHomeProps> = ({
-  programs,
-  reviews,
-  teachers,
-  bachelors,
-  practicalTrainings
+const PageOldMain = ({
+  all
 }) => {
-  useHandleContextStaticProps({ programs })
+  console.log(all);
+  
+  const {programs,
+    reviews,
+    teachers,
+    bachelor,
+    practicalTrainings} = all
+  // useHandleContextStaticProps({ programs })
   const [open, setOpen] = useState(false)
-  const router = useRouter()
+  const searchParams = useSearchParams() // Замена useRouter
 
   useEffect(() => {
-    if (router.query.utm_source === 'direct_link') {
+    // Проверяем utm_source через useSearchParams
+    if (searchParams?.get('utm_source') === 'direct_link') {
       setOpen(true)
     }
-  }, [router.query])
+  }, [searchParams]) // Зависимость от searchParams
+
+  // Проверяем наличие query-параметров
+  const hasQueryParams = searchParams && searchParams?.size > 0
+
 
   const teachersFromMain = teachers
     ? teachers.filter(teacher => teacher && allowedNames.includes(teacher.name || ''))
@@ -110,11 +113,10 @@ const HomePage: NextPage<TypePageHomeProps> = ({
     </>
   )
 
-  const hasQueryParams = Object.keys(router.query).length > 0
 
   return (
     <>
-      <NextSeo
+      {/* <NextSeo
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}
@@ -136,7 +138,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
           site_name: company.name
         }}
       />
-      <SeoOrganizationJsonLd />
+      <SeoOrganizationJsonLd /> */}
 
       <Popup open={open} modal nested>
         {
@@ -157,7 +159,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         <DirectionsNew
           key='directionsNewOld'
           programs={programs}
-          bachelors={bachelors}
+          bachelors={bachelor}
           practicalTrainings={practicalTrainings}
         />
         <PsyTest key='psyTestOld' fallbackComponent={PsyTestMain} />
@@ -206,7 +208,4 @@ const HomePage: NextPage<TypePageHomeProps> = ({
   )
 }
 
-export const getStaticProps: GetStaticProps = async () =>
-  await handleGetStaticProps({ page: routes.front.home })
-
-export default HomePage
+export default PageOldMain

@@ -28,7 +28,7 @@ const routes: TRoutes = {
     assetsImgsIconsManifestIcon512: '/assets/imgs/icons/manifest-icon-512.png',
     bachelor: '/bachelor/slug',
     bachelors: '/bachelor',
-    contact: '/contact',
+    contact: '/contacts',
     courses: '/courses',
     docs: '/docs',
     docsDetails: '/docs/details',

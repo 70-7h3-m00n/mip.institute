@@ -6,6 +6,7 @@ import JoinCommunity from '@/components/sections/lectorium/Stub/JoinCommunity/Jo
 import Office from '@/components/contacts/Office/Office'
 import Requisites from '@/components/contacts/Requisites/Requisites'
 import stls from './ContactsClient.module.sass'
+import DontHesistateToAsk from './DontHesistateToAsk/DontHesistateToAsk'
 
 export enum City {
   Moscow = 'moscow',
@@ -18,6 +19,7 @@ export default function ContactsClient() {
   return (
     <div className={stls.pageContainer}>
       <Locations selectedCity={selectedCity} setSelectedCity={setSelectedCity} />
+      <DontHesistateToAsk />
       {selectedCity === City.Moscow && <RouteMIP />}
       <div className={stls.wrapper}>
         <JoinCommunity />

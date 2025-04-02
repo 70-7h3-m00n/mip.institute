@@ -8,16 +8,18 @@ import {
 } from '@/components/imgs/diplomas'
 import Wrapper from '@/ui/Wrapper'
 import PopupImage from '@/components/popups/PopupImage'
-import { ContextStaticProps } from '@/context/index'
 import { getImageHeight } from '@/helpers/index'
 import stls from '@/styles/components/sections/YourDiploma.module.sass'
 import cn from 'classnames'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import Popup from 'reactjs-popup'
 import ImgBachelorDiplomaAlt from '../imgs/diplomas/ImgBachelorDiplomaAlt'
 import ImgBachelorDiploma from '../imgs/diplomas/ImgBachelorDiplome'
 import LicensePopUp from './LicensePopUp'
 import Tag from '@/ui/Tag'
+import LicenseImg from '@/public/assets/imgs/legal/licence.jpg'
+import Image from 'next/image'
+import { useProgramsSafe } from '@/hooks/general/useSafeContext'
 
 type YourDiplomaType = {
   ofType?: string
@@ -47,7 +49,9 @@ const YourDiploma = ({
 }: YourDiplomaType) => {
   const slides: JSX.Element[] = []
 
-  const { program } = useContext(ContextStaticProps)
+  const {
+    state: { program }
+  } = useProgramsSafe()
 
   ofType === 'Profession' &&
     slides.push(
@@ -213,7 +217,7 @@ const YourDiploma = ({
                 </p>
               )}
               <div className={stls.btn}>
-                <LicensePopUp onBachelor showFullText={showFullText} />
+                <LicensePopUp onBachelor={!onMain} />
               </div>
             </div>
           </div>
@@ -230,7 +234,7 @@ const YourDiploma = ({
           </div>
         </div>
         <div className={stls.mobileBtn}>
-          <LicensePopUp onBachelor showFullText={showFullText} />
+          <LicensePopUp onBachelor={!onMain} showFullText={showFullText} />
         </div>
         {programSlug && withAddInfo.includes(programSlug) && (
           <p className={stls.addInfo}>
