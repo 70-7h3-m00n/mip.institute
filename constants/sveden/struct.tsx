@@ -173,11 +173,11 @@ const structOrgUpravRows = [
       { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
     ]
   },
-  // Отдел продвижения личного бренда
+  // Отдел управления репутацией
   {
     itemProp: 'structAdmin',
     cells: [
-      { content: 'Отдел продвижения личного бренда', itemProp: 'name' },
+      { content: 'Отдел управления репутацией', itemProp: 'name' },
       { content: 'Рубцова Надежда Леонидовна', itemProp: 'fio' },
       { content: 'Руководитель', itemProp: 'post' },
       {
@@ -412,8 +412,8 @@ const structOrgUpravRows = [
     itemProp: 'structAdmin',
     cells: [
       { content: 'Отдел маркетинга', itemProp: 'name' },
-      { content: '', itemProp: 'fio' },
-      { content: '', itemProp: 'post' },
+      { content: 'Панов Игорь Вячеславович', itemProp: 'fio' },
+      { content: 'Руководитель отдела', itemProp: 'post' },
       {
         content: '107078, город Москва, Докучаев переулок, дом 8',
         itemProp: 'addressStr'
@@ -457,32 +457,6 @@ const structOrgUpravRows = [
         itemProp: 'email'
       },
       { content: 'Отсутствует', itemProp: 'divisionClauseDocLink' }
-    ]
-  },
-  // Кафедра
-  {
-    itemProp: 'structAdmin',
-    cells: [
-      { content: 'Кафедра', itemProp: 'name' },
-      { content: '', itemProp: 'fio' },
-      { content: '', itemProp: 'post' },
-      { content: '', itemProp: 'addressStr' },
-      { content: '', itemProp: 'site' },
-      { content: '', itemProp: 'email' },
-      { content: '', itemProp: 'divisionClauseDocLink' }
-    ]
-  },
-  // Приемная комиссия
-  {
-    itemProp: 'structAdmin',
-    cells: [
-      { content: 'Приемная комиссия', itemProp: 'name' },
-      { content: '', itemProp: 'fio' },
-      { content: '', itemProp: 'post' },
-      { content: '', itemProp: 'addressStr' },
-      { content: '', itemProp: 'site' },
-      { content: '', itemProp: 'email' },
-      { content: '', itemProp: 'divisionClauseDocLink' }
     ]
   }
 ]
