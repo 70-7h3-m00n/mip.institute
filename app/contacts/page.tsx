@@ -6,7 +6,7 @@ import truncate from '@/helpers/general/truncate'
 
 export const generateMetadata = (): Metadata => {
   // исправить каноникал перед продом и поменять noindex/nofollow на preview
-  const title = `Контакты МИП (Московский Институт Психологии)`
+  const title = `Контакты Московский Институт Психологии`
   const description =`Подробная информация о контактах и всех способах связи Московского Института Психологии: адреса в г. Москве (Докучаев переулок, 8) и г. Алматы, телефон +7 (499) 388-92-34 , электронная почта info@mip.institute`
   const canonical = `${routes.front.root}${routes.front.contact}`
   const logoUrl = `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`
