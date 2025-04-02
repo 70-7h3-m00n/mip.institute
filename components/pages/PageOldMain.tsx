@@ -28,7 +28,7 @@ const PopupCta = dynamic(() => import('@/components/popups/PopupCta'), {
   ssr: false
 })
 
-const PsyTest = dynamic(() => import('@/components/sections/PsyTest'), {
+const PsyTest = dynamic(() => import('@/components/sections/Home/PsyTest/PsyTest'), {
   ssr: false
 })
 
