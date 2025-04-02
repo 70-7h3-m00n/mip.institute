@@ -7,7 +7,7 @@ const Curators = () => {
   const isMobile = useBetterMediaQuery('(max-width: 768px)')
   const image = {
     imageUrl: '/assets/imgs/home/SupportHelpInResults/image1.jpg',
-    imageMobUrl: '/assets/imgs/home/SupportHelpInResults/imageMob1.png',
+    imageMobUrl: '/assets/imgs/home/SupportHelpInResults/Mob1.png',
     imageAlt: 'Опытные кураторы'
   }
   return (
