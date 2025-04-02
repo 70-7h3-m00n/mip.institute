@@ -52,7 +52,8 @@ const promocodes = {
   neeshpapa: 'ДОКТОР25',
   vodnay: 'ВОДНАЯ',
   // millonshchiki: 'МИЛЛИОН',
-  Drobyshevskaia:'Maria D'
+  Drobyshevskaia:'Maria D',
+  karpavichus: 'АРТЕМ10',
 }
 
 export default promocodes
