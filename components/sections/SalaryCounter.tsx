@@ -79,11 +79,7 @@ const SalaryCounter = ({ title = 'психолог' }: SalaryCounterType) => {
               </div>
 
               <p className={stls.subtitle}>Количество рабочих дней в месяц</p>
-              <input
-                value={days}
-                onChange={daysHandler}
-                className={stls.value}
-              />
+              <input value={days} onChange={daysHandler} className={stls.value} />
               <input
                 className={stls.range}
                 min={daysRange.min}
@@ -98,11 +94,7 @@ const SalaryCounter = ({ title = 'психолог' }: SalaryCounterType) => {
               </div>
 
               <p className={stls.subtitle}>Стоимость одной консультации</p>
-              <input
-                value={price}
-                onChange={priceHandler}
-                className={stls.value}
-              />
+              <input value={price} onChange={priceHandler} className={stls.value} />
               <input
                 className={stls.range}
                 step={100}
@@ -118,8 +110,7 @@ const SalaryCounter = ({ title = 'психолог' }: SalaryCounterType) => {
               </div>
               <div className={stls.calcFooter}>
                 <p className={stls.footerText}>
-                  Вы сможете зарабатывать в месяц на психологических
-                  консультациях
+                  Вы сможете зарабатывать в месяц на психологических консультациях
                 </p>
                 <p className={stls.fullSalary}>{overall}₽</p>
               </div>
@@ -128,8 +119,7 @@ const SalaryCounter = ({ title = 'психолог' }: SalaryCounterType) => {
           <div className={stls.cards}>
             <div className={stls.cardOne}>
               <p>
-                *Средняя стоимость консультации выпускников МИП — <br /> 3 000
-                р./час
+                *Средняя стоимость консультации наших выпускников — <br /> 3 000 р./час
               </p>
             </div>
             <div className={stls.cardTwo}>

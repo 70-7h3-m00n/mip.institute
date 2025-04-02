@@ -3,7 +3,7 @@ import Values from '@/components/sections/Vacancies/Values/Values'
 import HowBecomeaPart from '@/components/sections/Vacancies/HowBecomeaPart/HowBecomeaPart'
 
 export default function QuoteWithTitleSelector({ props }) {
-  switch (props.title) {
+  switch (props.block) {
     case 'Преимущества':
       return <Benefits props={props} />
     case 'Наши ценности':

@@ -13,7 +13,6 @@ import { getStaticPropsBlogs } from '@/lib/handlers/getStaticPropsBlogs'
 const JournalPage = ({ blogs }) => {
   const router = useRouter()
 
-  
   const [selectedField, setSelectedField] = useState({
     studyFieldSlug: router.query.studyFieldSlug || '',
     studyField: router.query.studyField || 'Все cтатьи'
@@ -29,12 +28,12 @@ const JournalPage = ({ blogs }) => {
   const blogsFilter =
     selectedField.studyField == 'Все cтатьи'
       ? blogs
-      : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)      
+      : blogs.filter(el => el.studyFieldSlug === selectedField.studyFieldSlug)
 
   return (
     <Wrapper>
       <SeoPagesJournals />
-      <h1 className={stls.title}>Блог МИП</h1>
+      <h1 className={stls.title}>Блог</h1>
       <StudyFieldSlugFilter
         selectedField={selectedField}
         setSelectedField={setSelectedField}
@@ -46,7 +45,6 @@ const JournalPage = ({ blogs }) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async context =>
-  await getStaticPropsBlogs()
+export const getStaticProps: GetStaticProps = async context => await getStaticPropsBlogs()
 
 export default JournalPage

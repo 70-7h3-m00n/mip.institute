@@ -40,7 +40,7 @@ const TopBlockParallax = ({ props }: PropsType) => {
       <div className={styles.content}>
         <div className={styles.textBlock}>
           <div className={styles.vacancyTag}>
-            <h1 className={styles.vacancyTitle}>Вакансии МИП</h1>
+            <h1 className={styles.vacancyTitle}>Вакансии</h1>
           </div>
           <h2 className={styles.title}>{parsedData.title}</h2>
           <p className={styles.description}>{parsedData.description}</p>
