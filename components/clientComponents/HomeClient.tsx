@@ -17,6 +17,7 @@ import EducationLevels from '@/components/sections/Home/EducationLevels/Educatio
 import OurPartners from '@/components/partners/OurPartners/OurPartners'
 import JournalMIP from '@/components/sections/Home/JournalMIP/JournalMIP'
 import { THomev2PageData } from '@/types/page/homev2/HomePagev2Props'
+import routes from '@/config/routes'
 
 const PsyTest = dynamic(() => import('@/components/sections/Home/PsyTest/PsyTest'), { ssr: false })
 const ProgramForRequest = dynamic(
@@ -33,6 +34,7 @@ export default async function HomePage({ data }: THomeServerProps) {
 
   return (
     <div className={stls.container}>
+      {routes.back.root} {'   '} {routes.back.rootv2}
       <TitleWithCarousel heroCarousel={data.heroCarousel} />
       <EducationalPrograms
         programs={all.programs}
