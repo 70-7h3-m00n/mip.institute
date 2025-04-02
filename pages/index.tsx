@@ -147,7 +147,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
         desc='Оставьте заявку на консультацию менеджера приёмной комиссии'
         cta='chooseProgram'
       />
-      <WhatYouWillLearn key='whatYouWillLearnOld' title='Чему вы научитесь в МИП' onMain />
+      <WhatYouWillLearn key='whatYouWillLearnOld' title='Чему вы научитесь в нашем институте' onMain />
       <SalaryCounter key='salaryCounterOld' title='Психология' />
       <Teachers
         key='teachersOld'
@@ -198,7 +198,7 @@ const HomePage: NextPage<TypePageHomeProps> = ({
       <TopCourses key='topCourses' />
       <ButtonToTop key='buttonToTop' />
       <div className={stls.youLearnPadding}>
-        <WhatYouWillLearn key='whatYouWillLearn' title='Чему вы научитесь в МИП' onMain />
+        <WhatYouWillLearn key='whatYouWillLearn' title='Чему вы научитесь в нашем институте' onMain />
       </div>
       <SalaryCounter key='salaryCounter' title='Психология' />
       <Teachers

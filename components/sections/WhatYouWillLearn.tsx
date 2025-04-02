@@ -62,14 +62,15 @@ const WhatYouWillLearn = ({ onMain = false, title }) => {
     <section className={stls.container}>
       <Wrapper>
         <div className={stls.block}>
-          <h2 className={stls.title}>{title}</h2>
-          {onMain && (
+        {onMain && (
             <div className={stls.tag}>
               <Tag type='orange' isWhiteText>
                 Знания
               </Tag>
             </div>
           )}
+          <h2 className={stls.title}>{title}</h2>
+          
           {onMain ? (
             <div className={stls.orangeBlock}>
               <ul className={stls.listMain}>
