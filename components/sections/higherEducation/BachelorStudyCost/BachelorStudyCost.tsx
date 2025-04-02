@@ -51,9 +51,7 @@ const BachelorStudyCost = ({ costRef }: Props) => {
             />
           </div>
           <div className={stls.right}>
-            <p className={stls.titleRight}>
-              МИП предоставляет скидки на обучение:
-            </p>
+            <p className={stls.titleRight}>Мы предоставляем скидки на обучение:</p>
             <ul className={stls.points}>
               {points.map((point, idx) => (
                 <li key={point + idx} className={stls.point}>
