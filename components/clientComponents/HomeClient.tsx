@@ -34,7 +34,6 @@ export default async function HomePage({ data }: THomeServerProps) {
 
   return (
     <div className={stls.container}>
-      {routes.back.root} {'   '} {routes.back.rootv2}
       <TitleWithCarousel heroCarousel={data.heroCarousel} />
       <EducationalPrograms
         programs={all.programs}

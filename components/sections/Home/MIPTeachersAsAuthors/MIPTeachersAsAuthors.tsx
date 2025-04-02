@@ -18,7 +18,10 @@ const MIPTeachersAsAuthors = ({ imgs }: MIPTeachersAsAuthorsProps) => {
     <section className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>
-          <span>Преподаватели МИП выступают в качестве авторов статей и экспертов в СМИ</span>
+          <span>
+            Преподаватели нашего Института выступают <br className={stls.lineBreak} />в качестве
+            авторов статей и экспертов в СМИ
+          </span>
         </h2>
 
         <div className={stls.navigation}>

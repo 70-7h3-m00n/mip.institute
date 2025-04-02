@@ -33,7 +33,7 @@ const educationLevelsList = [
     id: 4,
     label: 'Практическая подготовка',
     description:
-      'для тех, кто готов пройти три этапа стажировки в МИП, чтобы лучше понять теоретические концепции, увидев их реальное применение в различных ситуациях',
+      'Для тех, кто готов пройти три этапа стажировки в институте, чтобы лучше понять теоретические концепции, увидев их реальное применение в различных ситуациях',
     href: routes.front.practicalTrainings,
     programType: 'practicalTrainings',
     background: '/assets/imgs/home/EducationLevels/bg4.png'

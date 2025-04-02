@@ -12,7 +12,7 @@ const JournalMIP = ({ data }: JournalMIPProps) => {
   return (
     <section className={styles.container}>
       <Wrapper>
-        <h2 className={styles.title}>Журнал МИП</h2>
+        <h2 className={styles.title}>Наш журнал</h2>
         <p className={styles.description}>
           Приглашаем вас в блог о психологии, где разбираем интересные и важные темы простым языком
         </p>

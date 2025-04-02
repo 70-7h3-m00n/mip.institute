@@ -16,10 +16,14 @@
   font-size: f.px(44)
   font-weight: 700
   line-height: 120%
+  .lineBreak
+    display: inline
   @include m.gap($mb: f.px(18))
   @include m.media(phone, tablet)
     font-size: f.px(25)
     @include m.gap($mb: f.px(15))
+    .lineBreak
+      display: none
 
 .text
   color: c.$white-900

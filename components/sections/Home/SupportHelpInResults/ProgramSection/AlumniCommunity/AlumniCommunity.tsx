@@ -29,7 +29,8 @@ const AlumniCommunity = () => {
     <div className={stls.container}>
       <div className={stls.left}>
         <p className={stls.title}>
-          Сообщество выпускников МИП является местом, позволяющим оставаться на связи с коллегами
+          Сообщество выпускников Института является местом, позволяющим оставаться на связи с
+          коллегами
         </p>
         <div className={stls.imageWrapperDesc}>
           <Image

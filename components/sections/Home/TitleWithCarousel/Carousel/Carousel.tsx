@@ -25,7 +25,7 @@ const Carousel = ({ heroCarousel }) => {
 
   return (
     <Wrapper>
-      <h2 className={stls.title}>Особенности обучения в МИП</h2>
+      <h2 className={stls.title}>Особенности обучения в Институте</h2>
       <Swiper
         ref={swiperRef}
         slidesPerView={isMobileAndTabletLayout ? 1.1 : 3}
@@ -48,16 +48,11 @@ const Carousel = ({ heroCarousel }) => {
               }
             : false
         }
-        className={stls.container}
-      >
+        className={stls.container}>
         {heroCarousel.map(card => (
           <SwiperSlide key={card.id} className={`${stls.slide} swiper-slide`}>
             {({ isNext }) => (
-              <CarouselCardNext
-                isNext={isNext}
-                card={card}
-                isMobile={isMobileAndTabletLayout}
-              />
+              <CarouselCardNext isNext={isNext} card={card} isMobile={isMobileAndTabletLayout} />
             )}
           </SwiperSlide>
         ))}

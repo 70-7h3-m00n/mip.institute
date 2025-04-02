@@ -10,10 +10,10 @@ const LeadingTeachersMIP = () => {
       <Wrapper>
         <h2 className={stls.title}>
           <span className={stls.mobile}>
-            <p>Ведущие </p>
-            <p>преподаватели МИП</p>
+            <p>Ведущие преподаватели </p>
+            <p>Института</p>
           </span>
-          <span className={stls.desktop}>Ведущие преподаватели МИП</span>
+          <span className={stls.desktop}>Ведущие преподаватели Института</span>
         </h2>
         <div className={stls.blockMain}>
           <TeachersBlock />

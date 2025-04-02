@@ -114,7 +114,7 @@ function AdventuresCards({ showButton }: AdventuresCardsProps) {
         {showButton && (
           <div className={stls.buttonContainer}>
             <Link href='https://mip.institute/incomers' passHref>
-              <p className={stls.text}>Читать подробнее о МИП</p>
+              <p className={stls.text}>Читать подробнее об Институте</p>
             </Link>
           </div>
         )}
