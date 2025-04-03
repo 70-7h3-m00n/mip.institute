@@ -11,9 +11,8 @@ const LeadingTeachersMIP = () => {
         <h2 className={stls.title}>
           <span className={stls.mobile}>
             <p>Ведущие преподаватели </p>
-            <p>Института</p>
           </span>
-          <span className={stls.desktop}>Ведущие преподаватели Института</span>
+          <span className={stls.desktop}>Ведущие преподаватели</span>
         </h2>
         <div className={stls.blockMain}>
           <TeachersBlock />
