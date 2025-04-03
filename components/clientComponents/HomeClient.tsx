@@ -1,11 +1,9 @@
-import React from 'react'
 import stls from '@/styles/pages/PageHome.module.sass'
 import HelpWithChoice from '@/components/sections/Home/HelpWithChoice/HelpWithChoice'
 import AdventuresCards from '@/components/sections/Incomers/AdventuresCards/AdventuresCards'
 import SupportHelpInResults from '@/components/sections/Home/SupportHelpInResults/SupportHelpInResults'
 import dynamic from 'next/dynamic'
 import StudyProcess from '@/components/sections/Incomers/StudyProcess/StudyProcess'
-import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 import { homeStudyProcessData } from '@/components/sections/Incomers/StudyProcess/constants'
 import TitleWithCarousel from '@/components/sections/Home/TitleWithCarousel/TitleWithCarousel'
 import HomeFAQ from '@/components/sections/Home/HomeFAQ/HomeFAQ'
@@ -17,7 +15,7 @@ import EducationLevels from '@/components/sections/Home/EducationLevels/Educatio
 import OurPartners from '@/components/partners/OurPartners/OurPartners'
 import JournalMIP from '@/components/sections/Home/JournalMIP/JournalMIP'
 import { THomev2PageData } from '@/types/page/homev2/HomePagev2Props'
-import routes from '@/config/routes'
+import { ProgramsDataQueryResult } from '@/types/page/home/homeGeneralTypes'
 
 const PsyTest = dynamic(() => import('@/components/sections/Home/PsyTest/PsyTest'), { ssr: false })
 const ProgramForRequest = dynamic(
@@ -27,11 +25,10 @@ const ProgramForRequest = dynamic(
 
 interface THomeServerProps {
   data: THomev2PageData
+  all: ProgramsDataQueryResult
 }
 
-export default async function HomePage({ data }: THomeServerProps) {
-  const all = await fetchAllProgramsData()
-
+export default async function HomePage({ data, all }: THomeServerProps) {
   return (
     <div className={stls.container}>
       <TitleWithCarousel heroCarousel={data.heroCarousel} />
