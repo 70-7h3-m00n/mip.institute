@@ -1,23 +1,24 @@
-import TImage from "@/types/ui/TImage";
+import TImage from '@/types/ui/TImage'
 
 interface THeroCarousel {
-  img: TImage[];
+  img: TImage[]
 }
 
 // Интерфейс для публикаций
 interface TPublicationSlide {
-  files: TImage[];
+  files: TImage[]
 }
 
 interface TPublication {
-  slide: TPublicationSlide;
+  slide: TPublicationSlide
 }
 
 // Интерфейс для блога
 interface TBlog {
-  title: string;
-  date: string;
-  picture: TImage;
+  title: string
+  date: string
+  slug: string
+  picture: TImage
 }
 
 interface ImageType {
@@ -42,19 +43,27 @@ interface TPartner {
 
 // Интерфейс для отзывов (если populate = '*', то структура неизвестна)
 interface TReview {
-  name: string;
-  program: string;
-  goal: string;
-  pointA: string;
-  pointB: string;
-  videoId: string;
+  name: string
+  program: string
+  goal: string
+  pointA: string
+  pointB: string
+  videoId: string
 }
 interface THomev2PageData {
-  heroCarousel: THeroCarousel;
-  publications: TPublication;
-  blogs: TBlog[];
-  partners: TPartner[];
-  reviews: TReview[];
+  heroCarousel: THeroCarousel
+  publications: TPublication
+  blogs: TBlog[]
+  partners: TPartner[]
+  reviews: TReview[]
 }
 
-export type {THeroCarousel, TPublicationSlide, TPublication, TBlog,TPartner,TReview,THomev2PageData};
+export type {
+  THeroCarousel,
+  TPublicationSlide,
+  TPublication,
+  TBlog,
+  TPartner,
+  TReview,
+  THomev2PageData
+}

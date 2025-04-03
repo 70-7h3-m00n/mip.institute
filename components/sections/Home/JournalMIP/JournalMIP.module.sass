@@ -30,16 +30,13 @@
   border-radius: f.px(10)
   background: #FF8F52
   width: 100%
-  @include m.gap($mt: f.px(30))
-  @include m.media(phone,tablet)
-    @include m.gap($mt: f.px(20))
-    border-radius: f.px(5)
-
-.text
   color: c.$white-900
   font-size: f.px(22)
   font-weight: 500
   @include m.gap($mb: f.px(0),$ptb: f.px(21))
+  @include m.gap($mt: f.px(30))
   @include m.media(phone,tablet)
+    @include m.gap($mt: f.px(20))
+    border-radius: f.px(5)
     @include m.gap($ptb: f.px(18))
     font-size: f.px(16)

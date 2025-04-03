@@ -17,11 +17,9 @@ const JournalMIP = ({ data }: JournalMIPProps) => {
           Приглашаем вас в блог о психологии, где разбираем интересные и важные темы простым языком
         </p>
         <JournalMIPList data={data} />
-        <div className={styles.buttonContainer}>
-          <Link href={routes.front.journals} className={styles.text} passHref>
-            Читать все статьи
-          </Link>
-        </div>
+        <Link href={routes.front.journals} className={styles.buttonContainer} passHref>
+          Читать все статьи
+        </Link>
       </Wrapper>
     </section>
   )

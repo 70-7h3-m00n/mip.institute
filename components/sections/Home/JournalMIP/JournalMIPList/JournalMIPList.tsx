@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import styles from './JournalMIPList.module.sass'
 import { TBlog } from '@/types/index'
+import Link from 'next/link'
+import { routes } from '@/config/index'
 
 interface JournalMIPListProps {
   data: TBlog[]
@@ -17,19 +19,25 @@ const JournalMIPList = ({ data }: JournalMIPListProps) => {
   return (
     <div className={styles.containerList}>
       {data.map((el, index) => (
-        <div key={index} className={styles.card}>
-          <div className={styles.imageWrapper}>
-            <Image
-              src={el.picture.url}
-              alt='Журнал'
-              width={570}
-              height={343}
-              className={styles.image}
-            />
+        <Link
+          key={index}
+          href={`${routes.front.journals}/${el.slug}`}
+          className={styles.buttonContainer}
+          passHref>
+          <div className={styles.card}>
+            <div className={styles.imageWrapper}>
+              <Image
+                src={el.picture.url}
+                alt='Журнал'
+                width={570}
+                height={343}
+                className={styles.image}
+              />
+            </div>
+            <p className={styles.title}>{el.title}</p>
+            <p className={styles.date}>{formatDate(el.date)}</p>
           </div>
-          <p className={styles.title}>{el.title}</p>
-          <p className={styles.date}>{formatDate(el.date)}</p>
-        </div>
+        </Link>
       ))}
     </div>
   )

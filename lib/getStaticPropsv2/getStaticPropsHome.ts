@@ -1,5 +1,5 @@
 import routes from '@/config/routes'
-import { THomev2PageData } from '@/types/index';
+import { THomev2PageData } from '@/types/index'
 import axios from 'axios'
 import qs from 'qs'
 
@@ -25,20 +25,20 @@ const queryString = qs.stringify(
         }
       },
       blogs: {
-        fields: ['title', 'date'],
+        fields: ['title', 'date', 'slug'],
 
         populate: {
           picture: {
-            fields: ['url'],
-          },
+            fields: ['url']
+          }
         }
       },
       partners: {
         fields: ['title', 'subtitle'],
         populate: {
           image: {
-            fields: ['url'],
-          },
+            fields: ['url']
+          }
         }
       },
       reviews: {
