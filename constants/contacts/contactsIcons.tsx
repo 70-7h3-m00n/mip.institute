@@ -93,34 +93,27 @@ export const NextBtn = () => {
 export const images = [
   {
     id: 1,
-    url: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738653415/slide5_24ddb2aeae.jpg',
-    width: 652,
-    height: 350,
-    alt: 'Офис'
-  },
-  {
-    id: 2,
     url: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738653030/slide3_621371ad23.jpg',
     width: 652,
     height: 350,
     alt: 'Коридор офиса'
   },
   {
-    id: 3,
+    id: 2,
     url: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738653159/slide4_13216e437a.jpg',
     width: 652,
     height: 350,
     alt: 'Зал конференции'
   },
   {
-    id: 4,
+    id: 3,
     url: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1738926102/DSCF_5205_resized_krupnyj_razmer_30f670df75.jpg',
     width: 652,
     height: 350,
     alt: 'План этажей'
   },
   {
-    id: 5,
+    id: 4,
     url: 'https://res.cloudinary.com/mipinstitute/image/upload/v1742391860/miptower_e17e9b403b.jpg',
     width: 652,
     height: 350,
