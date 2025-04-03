@@ -14,7 +14,7 @@ import DocumentsSection from './DocumentsSection'
 import { getCookie } from 'cookies-next'
 import getUtmSourceFromCookie from '@/helpers/funcs/getUtmSourceFromCookie'
 
-function IconsDropDown() {
+function IconsDropDown({ newMainPage }: { newMainPage: boolean }) {
   const [selectedIcon, setSelectedIcon] = useState(null)
 
   const handleIconClick = icon => {
@@ -31,14 +31,14 @@ function IconsDropDown() {
     }, 300)
   }, [isEdpartners, partCookie])
   return (
-    <div
-      className={stls.popupWrapper}
-      onMouseLeave={() => handleIconClick(null)}>
+    <div className={stls.popupWrapper} onMouseLeave={() => handleIconClick(null)}>
       <div className={stls.dropdownIcon}>
         {!isEdpartners && (
           <IconContact
             onMouseEnter={() => handleIconClick('icon1')}
-            className={selectedIcon === 'icon1' ? stls.selected : ''}
+            className={
+              selectedIcon === 'icon1' ? stls.selected : newMainPage ? stls.newHomePage : ''
+            }
           />
         )}
         <IconDropDownClock
@@ -63,21 +63,11 @@ function IconsDropDown() {
         className={classNames(stls.popupContent, {
           [stls.open]: selectedIcon !== null
         })}>
-        <ConnectInfo
-          className={selectedIcon === 'icon1' ? stls.visible : stls.hidden}
-        />
-        <DocumentsSection
-          className={selectedIcon === 'icon2' ? stls.visible : stls.hidden}
-        />
-        <TimeOfWork
-          className={selectedIcon === 'icon3' ? stls.visible : stls.hidden}
-        />
-        <WeakVision
-          className={selectedIcon === 'icon4' ? stls.visible : stls.hidden}
-        />
-        <DistanceStudy
-          className={selectedIcon === 'icon5' ? stls.visible : stls.hidden}
-        />
+        <ConnectInfo className={selectedIcon === 'icon1' ? stls.visible : stls.hidden} />
+        <DocumentsSection className={selectedIcon === 'icon2' ? stls.visible : stls.hidden} />
+        <TimeOfWork className={selectedIcon === 'icon3' ? stls.visible : stls.hidden} />
+        <WeakVision className={selectedIcon === 'icon4' ? stls.visible : stls.hidden} />
+        <DistanceStudy className={selectedIcon === 'icon5' ? stls.visible : stls.hidden} />
       </div>
     </div>
   )

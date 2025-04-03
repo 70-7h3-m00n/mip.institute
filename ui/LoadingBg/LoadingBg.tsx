@@ -4,7 +4,6 @@ import styles from './LoadingBG.module.sass'
 const LoadingBg: React.FC = () => {
   return (
     <div className={styles.loaderContainer}>
-      {/* SVG-логотип щита */}
       <svg
         className={styles.shield}
         xmlns='http://www.w3.org/2000/svg'
@@ -21,9 +20,6 @@ const LoadingBg: React.FC = () => {
           fill='white'
         />
       </svg>
-
-      {/* Текст под логотипом */}
-      <span className={styles.loadingText}>Загрузка...</span>
     </div>
   )
 }

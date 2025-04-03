@@ -7,10 +7,10 @@ interface WrapperProps {
 }
 
 const ABtestWrapper: React.FC<WrapperProps> = ({ clientComponent, serverComponent }) => {
-  const [layout, setLayout] = useState<'old' | 'new'>('old')
+  const [layout, setLayout] = useState<'old' | 'new'>('new')
 
   useEffect(() => {
-    const abTestKey = localStorage.getItem('AB') || 'old'
+    const abTestKey = localStorage.getItem('AB') || 'new'
     setLayout(abTestKey as 'old' | 'new')
   }, [])
 
