@@ -66,6 +66,7 @@ const LinkedPrograms = ({ specializations, title, close }: Props) => {
       })}>
       <Wrapper>
         {title}
+        <p className={stls.additionalText}>Дополнительная специализация открывает новые возможности для профессионального роста. Выберите одну программу, которая соответствует вашим интересам и целям.</p>
         <div className={stls.teachers}>
           <Swiper
             navigation={{

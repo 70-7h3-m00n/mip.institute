@@ -136,7 +136,7 @@ const footerCards = [
 ]
 
 const bottomFooterLinks = [
-  [{ text: `© МИП, 2020 - ${new Date().getFullYear()}` }],
+  [{ text: `© НАНО "МИП", 2020 - ${new Date().getFullYear()}` }],
   [
     { title: 'Сведения об образовательной организации', href: routes.front.svedenCommon },
     { title: 'Договор оферты мероприятий', href: routes.front.policiesOfertaEvent },

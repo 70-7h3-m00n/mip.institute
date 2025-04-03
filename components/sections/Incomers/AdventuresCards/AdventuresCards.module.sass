@@ -14,8 +14,21 @@
 
 .imageMipContainer
     position: sticky
+    display: flex
+    align-items: flex-end
     top: 120px
-    @include m.gap($mb: f.px(136))
+    @include m.gap($mb: f.px(-336), $mt: f.px(-100))
+    text-align: center
+    color: #F1F1F1
+    opacity: 0.1
+    align-content: center
+    p
+      margin: 0
+      font-size: f.px(140)
+      font-size: clamp(f.px(80), 9.72vw, f.px(140))
+
+    .arrow
+      font-size: clamp(f.px(120), 33.33vw, f.px(480))
 
 .imageMip
     width: 100%
