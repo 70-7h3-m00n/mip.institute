@@ -7,5 +7,6 @@ export const revalidate = 3600
 export default async function HomePage() {
   const homeProps = await getStaticPropsHome()
   // обертка нужна для АБ-тестирования
+  // old/new
   return <HomeClient data={homeProps} />
 }

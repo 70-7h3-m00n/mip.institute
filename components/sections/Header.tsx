@@ -110,6 +110,12 @@ const Header = () => {
     };
   }, [searchParams]);
   
+  // А/Б тест
+  let roistatAB
+  useEffect(() => {
+    roistatAB = localStorage.getItem('AB')
+  },[])
+
   
   return (
     <>
@@ -122,7 +128,8 @@ const Header = () => {
       <header
         className={classNames({
           [stls.container]: true,
-          [stls.promo]: isPromo
+          [stls.promo]: isPromo,
+          [stls.newHomePage]: pathname === '/home' && roistatAB === 'new'
         })}>
         <MenuMobile />
         <Wrapper>

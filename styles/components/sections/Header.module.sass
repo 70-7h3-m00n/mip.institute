@@ -7,11 +7,16 @@
   margin: 10px
 
 .container
+  transition: background 0.5s
   @include m.dye(bg, c.$purple-800)
   position: relative
   z-index:  9
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(4, em), $pb: f.px(1, em))
+
+.newHomePage
+  @include m.dye(bg, c.$purple-350)
+  transition: background 0.5s
 
   &.promo
     @include m.gap($mt: f.px(112))
