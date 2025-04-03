@@ -69,13 +69,16 @@ const AdventuresCards = ({ data }: any) => {
 
         {!isMobile && (
           <div className={stls.imageMipContainer}>
-            <Image
+            {/* <Image
               src='https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739393511/MIP_648849f5c7.png'
               width={900}
               height={350}
               alt='Мип'
               className={stls.imageMip}
-            />
+            /> */}
+            <p className={stls.arrow}>{'{'}</p>
+            <p>московский инстиут психологии</p>
+            <p className={stls.arrow}>{'}'}</p>
           </div>
         )}
 
