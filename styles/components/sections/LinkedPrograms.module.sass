@@ -38,3 +38,10 @@
       transform: translate(f.px(0), f.px(-30))
       // top: f.px(-37)
       // left: f.px(-300)
+
+.additionalText
+  font-size: f.px(20)
+  @include m.gap( $mb: f.px(20))
+  @include m.media(tablet, phone) 
+    font-size: f.px(15)
+    @include m.gap( $mtb: f.px(10))

@@ -6,7 +6,7 @@ const ThirdSlide = () => {
   return (
     <div className={stls.container}>
       <p className={stls.first}>
-        <span className={stls.bold}>МИП</span> — это команда практикующих
+        <span className={stls.bold}>Московский Институт Психологии</span> — это команда практикующих
         экспертов, отзывчивых кураторов и наставников, которые будут
         сопровождать вас от начала до конца и обеспечат старт вашей успешной
         карьеры.

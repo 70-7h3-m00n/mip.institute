@@ -4,11 +4,11 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .container
-  max-height: f.px(595)
+  // max-height: f.px(620)
   @include m.dye(bg, c.$purple-800)
   border-radius: f.px(36)
   @include m.dye(c, c.$white-900)
-  @include m.gap($pb: f.px(113), $pl: f.px(71), $pr: f.px(103))
+  @include m.gap($pb: f.px(133), $pl: f.px(71), $pr: f.px(103))
   @include m.media(laptop)
     height: f.px(564)
     @include m.gap( $pr: f.px(53))
