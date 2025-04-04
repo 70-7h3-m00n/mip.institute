@@ -54,6 +54,7 @@ const promocodes = {
   // millonshchiki: 'МИЛЛИОН',
   Drobyshevskaia:'Maria D',
   karpavichus: 'АРТЕМ10',
+  defiendidiana2: 'DEF'
 }
 
 export default promocodes
