@@ -16,7 +16,6 @@ const DistanceStudy: React.FC<Icon1Props> = ({ className, selected = false }) =>
         {/* <PopupLogin /> */}
         <p>Вход в систему</p>
         <p>дистанционного обучения</p>
-        <p>МИП</p>
         <a className={stls.btn} href='https://lms.mip.institute/'>Войти</a>
       </div>
     </div>
