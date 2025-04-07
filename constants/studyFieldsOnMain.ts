@@ -39,10 +39,7 @@ const studyFieldsShortTerm = [
 
 const studyFieldsCourses = [
   { label: 'Консультирование', value: 'konsultirovanie' },
-  { label: 'Детская психология', value: 'detskaya-psihologiya' },
-  { label: 'Психотерапия', value: 'psihoterapiya' },
-  { label: 'Общая психология', value: 'obshaya-psihologiya' },
-  { label: 'Организационная психология', value: 'organizacionnaya-psihologiya' }
+  { label: 'Психотерапия', value: 'psihoterapiya' }
 ]
 
 const studyFieldsBachelor = [
