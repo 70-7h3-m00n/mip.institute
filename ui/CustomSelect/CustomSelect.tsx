@@ -13,7 +13,7 @@ type Props = {
   marginTop?: string
   placeholder?: string
   noOptionsMessage?: (obj: { inputValue: string }) => ReactNode
-  value?: SelectOption
+  value?: SelectOption | null
   isDisabled?: boolean
   radius?: string
   height?: string

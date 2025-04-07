@@ -96,10 +96,11 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
           value={currentType ?? undefined}
         />
         <CustomSelect
+          key={currentType?.value}
           onChange={handleSelectedLabel}
           options={programsMap[currentType?.value.toLowerCase()] || []}
           placeholder='Направления'
-          value={selectedLabel ?? undefined}
+          value={selectedLabel ?? null}
           isDisabled={!currentType || currentType.value === 'PracticalTraining'}
         />
         <CustomSelect
