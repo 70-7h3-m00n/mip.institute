@@ -93,7 +93,7 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
           onChange={handleSetCurrentType}
           options={levelOptions}
           placeholder='Уровень образования'
-          value={selectedLabel ?? undefined}
+          value={currentType ?? undefined}
         />
         <CustomSelect
           onChange={handleSelectedLabel}
