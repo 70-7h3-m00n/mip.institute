@@ -25,7 +25,7 @@ const Office = () => {
             <span className={stls.iconWrapper}>
               <IconBG />
             </span>
-            <h2 className={stls.title}>Наш уютный офис</h2>
+            <h2 className={stls.title}>Наш уютный кампус</h2>
             <p className={stls.text}>
               Это прекрасный отреставрированный{' '}
               <span className={stls.highlight}>особняк в самом сердце Москвы</span>, до которого
