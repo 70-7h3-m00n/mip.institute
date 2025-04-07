@@ -16,7 +16,8 @@ const SeoPagesPrograms: FC<TSeoPagesProgram> = ({ programs }) => {
   const { asPath, query } = useRouter()
 
   const { ofType, studyFieldSlug, filter, opened } = query
-
+  console.log(ofType);
+  
   const seoParams = {
     title: getSeoTitle(ofType, studyFieldSlug),
     desc: getSeoDescription(ofType, studyFieldSlug),
