@@ -19,6 +19,7 @@ type Props = {
 const ProgramsOnMain = ({ allPrograms }: Props) => {
   const [currentType, setCurrentType] = useState<SelectOption | null>(null)
   const [selectedLabel, setSelectedLabel] = useState<SelectOption | null>(null)
+  const [selectedFormat, setSelectedFormat] = useState<SelectOption | null>(null)
   const [activeFilters, setActiveFilters] = useState<string[]>([])
   const [number, setNumber] = useState(3)
   const [programs, setPrograms] = useState(allPrograms)
@@ -60,12 +61,17 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
   const handleSetCurrentType = (selectedOption: SelectOption) => {
     setCurrentType(selectedOption)
     setSelectedLabel(null)
+    setSelectedFormat(null)
     setActiveFilters([])
     setNumber(3)
   }
 
   const handleSelectedLabel = (selectedOption: SelectOption) => {
     setSelectedLabel(selectedOption)
+  }
+
+  const handleSelectedFormat = (selectedOption: SelectOption) => {
+    setSelectedFormat(selectedOption)
   }
 
   const handleFilterToggle = (label: string) => {
@@ -96,16 +102,19 @@ const ProgramsOnMain = ({ allPrograms }: Props) => {
           value={currentType ?? undefined}
         />
         <CustomSelect
+          key={currentType?.value}
           onChange={handleSelectedLabel}
           options={programsMap[currentType?.value.toLowerCase()] || []}
           placeholder='Направления'
-          value={selectedLabel ?? undefined}
+          value={selectedLabel ?? null}
           isDisabled={!currentType || currentType.value === 'PracticalTraining'}
         />
         <CustomSelect
-          onChange={() => {}}
+          key={selectedLabel?.value}
+          onChange={handleSelectedFormat}
           options={formOptions}
           placeholder='Форма обучения'
+          value={selectedFormat ?? null}
           isDisabled={!selectedLabel || currentType?.value === 'Bachelor'}
         />
       </div>
