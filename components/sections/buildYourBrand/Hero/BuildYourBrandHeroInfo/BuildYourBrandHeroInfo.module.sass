@@ -1,0 +1,62 @@
+@use '@/styles/utils/mixin/index' as m
+@use '@/styles/utils/funcs/index' as f
+@use '@/styles/themes/default/colors' as c
+
+.info
+  @include m.gap($plr: f.px(10))
+  @include m.dye(bg, c.$white-900)
+  display: grid
+  grid-template-columns: repeat(5, 1fr)
+  border-radius: f.px(15)
+  border: f.px(1) solid c.$black-900
+  min-height: f.px(130)
+  @include m.media(phone, tablet)
+    border-radius: f.px(5)
+    @include m.gap($plr: 0)
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: auto auto auto
+    & > :nth-child(5)
+      grid-column: span 2
+
+.item
+  list-style: none
+  @include m.flex($fd: column, $ai: center, $jc: space-between)
+  position: relative
+  &:not(:last-child)::after
+    content: ''
+    position: absolute
+    top: f.px(10)
+    bottom: f.px(10)
+    right: 0
+    width: f.px(1)
+    background-color: c.$black-900
+    height: calc(100% - 20px)
+  @include m.media(phone, tablet)
+    min-height: f.px(100)
+    @include m.flex($jc: center)
+    &:nth-child(2)::after,
+    &:nth-child(4)::after
+      content: none
+    &:not(:last-child)
+      border-bottom: 1px solid black
+
+.title
+  @include m.dye(c, c.$gray-550)
+  font-size: f.px(15)
+  font-weight: 500
+  @include m.gap($mt: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.gap($mt: 0)
+    font-size: f.px(12)
+
+.description
+  @include m.dye(c, c.$black-900)
+  font-size: f.px(22)
+  font-weight: 500
+  text-transform: uppercase
+  text-align: center
+  @include m.flex($jc: center)
+  @include m.gap($mb: f.px(25))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0)
+    font-size: f.px(16)
