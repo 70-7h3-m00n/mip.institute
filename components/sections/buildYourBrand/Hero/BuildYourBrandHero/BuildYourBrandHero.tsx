@@ -1,6 +1,6 @@
-import stls from '@/components/sections/groupSupervision/Hero/GroupSupervisionHero/GroupSupervisionHero.module.sass'
+import stls from './BuildYourBrandHero.module.sass'
 import PopupTrigger from '@/ui/PopupTrigger'
-import GroupSupervisionHeroInfo from '@/components/sections/groupSupervision/Hero/GroupSupervisionHeroInfo/GroupSupervisionHeroInfo'
+import GroupSupervisionHeroInfo from '../BuildYourBrandHeroInfo/BuildYourBrandHeroInfo'
 import { CldImage } from 'next-cloudinary'
 
 const BuildYourBrandHero = () => {

@@ -1,6 +1,6 @@
-import PageGroupSupervision from '@/components/pages/PageGroupSupervision'
+import PageBuildYourBrand from '@/components/pages/PageBuildYourBrand'
 
 const GroupSupervisionIndexPage = () => {
-  return <PageGroupSupervision />
+  return <PageBuildYourBrand />
 }
 export default GroupSupervisionIndexPage
