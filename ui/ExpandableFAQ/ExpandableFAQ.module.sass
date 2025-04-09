@@ -72,3 +72,27 @@
     text-align: left
     gap: f.px(5)
 
+.itemBrand
+  border-radius: f.px(14)
+  border: f.px(1) solid #F87E1B
+  @include m.gap($pt: f.px(30), $pr: f.px(20), $pb: f.px(20), $pl: f.px(45))
+  @include m.media(phone, tablet)
+    text-align: left
+    border-radius: f.px(4)
+    @include m.gap($pt: f.px(15), $pl: f.px(10), $pb: f.px(10), $pr: f.px(5))
+    & > div
+      margin-left: 0
+
+.iconBrand
+  background-color: #F87E1B
+  border-radius: 50%
+  padding: f.px(10) 
+  margin-right: 0
+  & > span
+    width: f.px(15)
+    & > svg > *
+      stroke: white
+      stroke-width: 3
+  @include m.media(phone, tablet)
+    transform: scale(.5)
+    margin-right: 0 !important

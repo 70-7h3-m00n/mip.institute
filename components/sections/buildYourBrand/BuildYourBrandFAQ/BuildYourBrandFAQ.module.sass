@@ -1,0 +1,24 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.title
+  display: inline-block
+  font-size: f.px(48)
+  font-style: normal
+  text-transform: uppercase
+  font-weight: 350
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(32)
+    @include m.gap($mb: f.px(0))
+
+.coloredTitle
+  @include m.dye(c, c.$orange-700)
+
+.list
+  @include m.gap($pl: 0,$m:0)
+
+.list > li
+  @include m.gap($mb: f.px(15))
+
