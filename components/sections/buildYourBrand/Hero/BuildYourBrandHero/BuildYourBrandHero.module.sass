@@ -7,7 +7,7 @@
     @include m.gap($pt: f.px(30))
 
 .title
-  font-size: f.px(86)
+  font-size: f.px(56)
   font-weight: 500
   text-transform: uppercase
   @include m.gap($mb: f.px(10))
@@ -15,16 +15,27 @@
     font-size: f.px(38)
     font-weight: 500
 
+.colored
+  @include m.dye(c, c.$orange-400)
+  @include m.media(phone, tablet)
+    display: block
+
+.subtitle
+  font-size: f.px(34)
+  font-weight: 500
+  text-transform: uppercase
+  @include m.media(phone, tablet)
+    font-size: f.px(24)
+
 .imageBlock
   position: relative
   & > img
     max-height: f.px(500)
     object-fit: cover
     border-radius: f.px(15)
-    object-position: 0 30%
     @include m.media(phone, tablet)
       border-radius: f.px(10)
-      max-height: f.px(400)
+      min-height: f.px(240)
       object-fit: cover
   & > ul
     margin-top: f.px(-40)
@@ -39,6 +50,8 @@
   font-size: f.px(22)
   border-radius: f.px(7)
   text-transform: uppercase
+  @include m.dye(bg, c.$green-700)
+  border: none
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(15))
     border-radius: f.px(4)
