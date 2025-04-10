@@ -9,6 +9,7 @@ interface Props {
   isLiveCourse?: boolean
   onClick?: () => void
   isViolet?: boolean
+  additionalInfo?: string
 }
 
 const BtnAlpha = ({
@@ -18,7 +19,8 @@ const BtnAlpha = ({
   target,
   isLiveCourse,
   onClick,
-  isViolet
+  isViolet,
+  additionalInfo
 }: Props) => {
   return (
     <>
@@ -43,6 +45,7 @@ const BtnAlpha = ({
           disabled={isDisabled}
           onClick={isDisabled ? undefined : onClick}>
           {text}
+          {additionalInfo && <p className={stls.addInfo}>{additionalInfo}</p>}
         </button>
       )}
     </>

@@ -4,6 +4,7 @@ import BuildYourBrandHero from '@/components/sections/buildYourBrand/Hero/BuildY
 import BuildYourBrandLearn from '../sections/buildYourBrand/BuildYourBrandLearn/BuildYourBrandLearn'
 import BuildYourBrandFAQ from '../sections/buildYourBrand/BuildYourBrandFAQ/BuildYourBrandFAQ'
 import BuildYourBrandForm from '../sections/buildYourBrand/BuildYourBrandForm/BuildYourBrandForm'
+import BuildYourBrandWhatIsIncluded from '@/components/sections/buildYourBrand/BuildYourBrandWhatIsIncluded/BuildYourBrandWhatIsIncluded'
 import BuildYourBrandReviews from '../sections/buildYourBrand/BuildYourBrandReviews/BuildYourBrandReviews'
 
 const PageBuildYourBrand = ({}) => {
@@ -12,6 +13,7 @@ const PageBuildYourBrand = ({}) => {
       <Wrapper>
         <BuildYourBrandHero />
         <BuildYourBrandLearn />
+        <BuildYourBrandWhatIsIncluded />
         <BuildYourBrandReviews />
         <BuildYourBrandForm />
         <BuildYourBrandFAQ />

@@ -1,0 +1,110 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.titleBlock
+  width: 100%
+  text-align: center
+  @include m.dye(bg, c.$orange-700)
+  @include m.dye(c, c.$white-900)
+  @include m.gap($ptb: f.px(30), $mb: f.px(35))
+  border-radius: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(10), $mb: f.px(15))
+    border-radius: f.px(26)
+
+.titleBlock > h2
+  margin-bottom: 0
+
+.cards
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  gap: f.px(30)
+  padding-left: 0
+  @include m.gap($mb: f.px(20), $mt: 0)
+
+.card
+  border-radius: f.px(30)
+  border-top: f.px(1) solid c.$orange-700
+  @include m.gap($pt: f.px(18), $plr: f.px(10))
+  list-style: none
+
+.img
+  border-top-left-radius: f.px(30)
+  border-top-right-radius: f.px(30)
+  object-fit: cover
+  @include m.media(phone, tablet)
+    height: f.px(200)
+
+.list
+  @include m.gap($pl: 0, $mt: f.px(15))
+
+.item
+  position: relative
+  @include m.flex($ai: center, $jc: space-between)
+  padding-bottom: f.px(20)
+  &::after
+    content: ''
+    position: absolute
+    left: 0
+    right: 0
+    bottom: f.px(10)
+    display: block
+    height: f.px(1)
+    background-color: c.$orange-700
+
+.bold
+  font-weight: 500 !important
+
+.category
+  font-size: f.px(15)
+  font-weight: 350
+
+.prices
+  @include m.flex($ai: center)
+  gap: f.px(10)
+
+.oldPrice
+  @include m.dye(c, c.$gray-500)
+  font-size: f.px(16)
+  font-style: normal
+  font-weight: 500
+  text-decoration-line: line-through
+  @include m.media(laptop)
+    font-size: f.px(18)
+  @include m.media(phone, tablet)
+    @include m.gap($mb: 0)
+    font-size: f.px(14)
+
+.value
+  font-size: f.px(22)
+  font-weight: 350
+  text-transform: uppercase
+  @include m.media(laptop)
+    font-size: f.px(17)
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+
+.price
+  @extend .value, .bold
+  @include m.dye(c, c.$orange-700)
+
+.bolt
+  padding-bottom: f.px(12)
+  list-style: none
+  @include m.flex($jc: flex-start, $ai: center)
+  gap: f.px(10)
+  white-space: pre-wrap
+  &::before
+    content: ''
+    min-width: 15px
+    height: 20px
+    display: inline-block
+    @include m.dye(bg, c.$orange-700)
+    mask: url('/assets/imgs/icons/bolt.svg') no-repeat center
+    -webkit-mask: url('/assets/imgs/icons/bolt.svg') no-repeat center
+    mask-size: contain
+    -webkit-mask-size: contain
+
+.button > div > button
+  @include m.gap($ptb: f.px(10))

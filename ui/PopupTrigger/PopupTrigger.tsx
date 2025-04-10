@@ -44,11 +44,13 @@ type PopupTriggerType = {
     | 'takePart'
     | 'takeAction'
     | 'takeGift'
+    | 'beginStudy'
   testProgram?: string
   isActivePromocode?: string
   isLightYellowBetaBtn?: boolean
   isModalOpen?: boolean
   withGift?: boolean
+  additionalInfo?: string
 }
 
 const PopupTrigger = ({
@@ -58,7 +60,8 @@ const PopupTrigger = ({
   isActivePromocode,
   isLightYellowBetaBtn,
   isModalOpen = false,
-  withGift
+  withGift,
+  additionalInfo
 }: PopupTriggerType) => {
   const promoCtaList = [
     'signUpForCourse',
@@ -106,7 +109,8 @@ const PopupTrigger = ({
       knowRequirement: 'Узнать',
       sortOutGrievances: 'Разобраться с обидами',
       takePart: 'Принять участие',
-      takeGift: 'Забрать подарок'
+      takeGift: 'Забрать подарок',
+      beginStudy: 'Начинаю учиться'
     },
     title: {
       askQuestion: 'Задать вопрос',
@@ -135,7 +139,8 @@ const PopupTrigger = ({
       knowRequirement: 'Узнать проходной балл',
       takePart: 'Принять участие',
       takeAction: 'Участвовать в акции',
-      takeGift: 'Оставьте заявку и заберите подарок'
+      takeGift: 'Оставьте заявку и заберите подарок',
+      beginStudy: 'Оставить заявку'
     },
     desc: {
       askQuestion: (
@@ -256,24 +261,27 @@ const PopupTrigger = ({
             ctheta={btn === 'text'}
             test={btn === 'test'}
             isLiveCourse={isLightYellowBetaBtn}
+            additionalInfo={additionalInfo}
           />
         </div>
       }
       modal
       nested>
-      {((close:()=> void) => (
-        <PopupCta
-          promo={promo}
-          title={strings.title[cta]}
-          desc={strings.desc[cta]}
-          cta={strings.trigger[cta]}
-          question={question}
-          close={close}
-          blockForAmo={strings.blockForAmo[cta]}
-          isActivePromocode={isActivePromocode}
-          withGift={withGift}
-        />
-      )) as unknown as ReactNode}
+      {
+        ((close: () => void) => (
+          <PopupCta
+            promo={promo}
+            title={strings.title[cta]}
+            desc={strings.desc[cta]}
+            cta={strings.trigger[cta]}
+            question={question}
+            close={close}
+            blockForAmo={strings.blockForAmo[cta]}
+            isActivePromocode={isActivePromocode}
+            withGift={withGift}
+          />
+        )) as unknown as ReactNode
+      }
     </Popup>
   )
 }
