@@ -9,12 +9,14 @@ import BuildYourBrandReviews from '../sections/buildYourBrand/BuildYourBrandRevi
 import BuildYourBrandTeachers from '../sections/buildYourBrand/BuildYourBrandTeachers/BuildYourBrandTeachers'
 import BuildYourBrandWho from '../sections/buildYourBrand/BuildYourBrandWho/BuildYourBrandWho'
 import BuildYourBrandProgram from '../sections/buildYourBrand/BuildYourBrandProgram/BuildYourBrandProgram'
+import BuildYourBrandBasics from '../sections/buildYourBrand/BuildYourBrandBasics/BuildYourBrandBasics'
 
 const PageBuildYourBrand = ({}) => {
   return (
     <div className={stls.container}>
       <Wrapper>
         <BuildYourBrandHero />
+        <BuildYourBrandBasics/>
         <BuildYourBrandLearn />
         <BuildYourBrandProgram/>
         <BuildYourBrandWhatIsIncluded />
