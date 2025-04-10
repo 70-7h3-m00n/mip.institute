@@ -8,6 +8,7 @@ import BuildYourBrandWhatIsIncluded from '@/components/sections/buildYourBrand/B
 import BuildYourBrandReviews from '../sections/buildYourBrand/BuildYourBrandReviews/BuildYourBrandReviews'
 import BuildYourBrandTeachers from '../sections/buildYourBrand/BuildYourBrandTeachers/BuildYourBrandTeachers'
 import BuildYourBrandWho from '../sections/buildYourBrand/BuildYourBrandWho/BuildYourBrandWho'
+import BuildYourBrandProgram from '../sections/buildYourBrand/BuildYourBrandProgram/BuildYourBrandProgram'
 
 const PageBuildYourBrand = ({}) => {
   return (
@@ -15,6 +16,7 @@ const PageBuildYourBrand = ({}) => {
       <Wrapper>
         <BuildYourBrandHero />
         <BuildYourBrandLearn />
+        <BuildYourBrandProgram/>
         <BuildYourBrandWhatIsIncluded />
         <BuildYourBrandWho/>
         <BuildYourBrandTeachers />
