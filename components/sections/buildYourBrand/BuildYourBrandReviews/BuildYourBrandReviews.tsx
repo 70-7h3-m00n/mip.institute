@@ -21,8 +21,7 @@ const BuildYourBrandReviews = () => {
           scrollbar
           slidesPerView={isMobileAndTabletLayout ? 1.5 : 4}
           spaceBetween={isMobileAndTabletLayout ? 10 : 30}
-          modules={[Scrollbar]}
-          className={stls.swiperCustom}>
+          modules={[Scrollbar]}>
           {reviewsDefault.map((review, idx) => (
             <SwiperSlide key={idx}>
               <div className={stls.cards}>

@@ -1,0 +1,89 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.title
+  display: inline-block
+  font-size: f.px(46)
+  text-transform: uppercase
+  font-weight: 350
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(32)
+    @include m.gap($mb: f.px(20))
+
+.list
+  @include m.gap($m: f.px(0),$p: f.px(0))
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: f.px(30)
+
+  @include m.media(phone, tablet)
+    grid-template-columns: 1fr
+
+.supervisor
+  list-style: none
+  flex-basis: 33.33%
+  width: 100%
+  @include m.media(phone, tablet)
+    flex-basis: 100%
+    width: 100%
+
+.image
+  display: block
+  object-fit: cover
+  width: 100%
+  height: auto
+  // border: f.px(1) solid c.$orange-700
+  // border-radius: f.px(15)
+
+.name
+  font-size: f.px(17)
+  font-weight: 350
+  text-transform: uppercase
+  text-align: left
+  @include m.gap($mtb: f.px(18))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($mtb: f.px(15))
+
+.position
+  font-size: f.px(16)
+  font-weight: 350
+  border-right: f.px(1) solid c.$orange-700
+  border-left: f.px(1) solid c.$orange-700
+  border-radius: f.px(5)
+  min-height: f.px(50)
+  @include m.gap($plr: f.px(20),$pt: f.px(12))
+  @include m.flex($jc: flex-start)
+  flex-direction: column
+
+.link
+  color: c.$orange-700
+  @include m.gap($mt: f.px(10),$mb: f.px(13))
+  font-family: Stem
+  font-size: 16px
+  font-style: normal
+  font-weight: 500
+  line-height: 100%
+  letter-spacing: -0.16px
+  text-decoration: underline
+  text-decoration-style: solid
+  text-decoration-skip-ink: auto
+  text-decoration-thickness: from-font
+  text-underline-offset: from-font
+  text-underline-position: from-font
+  text-transform: lowercase
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(6))
+
+.empty
+  display: flex
+  height: 100%
+  width: 100%
+
+.emptyli
+  display: block
+  width: 100%
+  @include m.media(phone, tablet)
+    display: none
