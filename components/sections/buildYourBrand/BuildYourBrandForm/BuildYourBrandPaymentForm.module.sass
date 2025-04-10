@@ -39,15 +39,15 @@
     @include m.gap($mb: f.px(15))
   
 .inpt
-  @include m.dye(bg, #FFDABC)
+  @include m.dye(bg, c.$orange-100)
   border-radius: f.px(14)
   @include m.gap($pt: f.px(15), $pl: f.px(20))
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(10), $pl: f.px(15))
   & input,
   & textarea
-    box-shadow: 0 0 0px 1000px #FFDABC inset !important
-    border: #FFDABC
+    box-shadow: 0 0 0px 1000px c.$orange-100 inset !important
+    border: c.$orange-100
     width: 100%
     @include m.gap($ptb: f.px(17),$plr: f.px(0))
     font-size: f.px(15)
@@ -106,7 +106,7 @@
   text-transform: uppercase
   padding: f.px(5)
   border-radius: f.px(14)
-  @include m.dye(bg, #00A627)
+  @include m.dye(bg, c.$green-700)
   width: 100%
   font-size: f.px(18)
   font-weight: 500
@@ -139,6 +139,6 @@
   @include m.gap($mb: f.px(0))
   font-size: f.px(14)
   font-weight: 500
-  @include m.dye(c, #F87E1B)
+  @include m.dye(c, c.$orange-700)
   @include m.media(phone, tablet)
     font-size: f.px(12)

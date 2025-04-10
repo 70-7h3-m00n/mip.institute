@@ -1,6 +1,6 @@
 import PageBuildYourBrand from '@/components/pages/PageBuildYourBrand'
 
-const GroupSupervisionIndexPage = () => {
+const GroupBuildYourBrandPage = () => {
   return <PageBuildYourBrand />
 }
-export default GroupSupervisionIndexPage
+export default GroupBuildYourBrandPage

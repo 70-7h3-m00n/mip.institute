@@ -1,6 +1,6 @@
-import stls from '@/styles/components/cards/CardReviewWithStars.module.sass'
+import IconStarRatingCard from '@/components/icons/IconStarRatingCard'
+import stls from './BuildYourBrandCard.module.sass'
 import classNames from 'classnames'
-import IconStarRatingCard from '../icons/IconStarRatingCard'
 import Image from 'next/image'
 
 type Props = {
@@ -11,14 +11,14 @@ type Props = {
     text: string
     picture: {
       url: string
-      width: number
-      height: number
+      width?: number
+      height?: number
       src?: string
     }
   }
 }
 
-const CardReviewWithStars = ({ number, review }: Props) => {
+const BuildYourBrandCard = ({ number, review }: Props) => {
   const date = new Date(review.date)
   const formattedDate = new Intl.DateTimeFormat('ru-RU', {
     day: 'numeric',
@@ -54,4 +54,4 @@ const CardReviewWithStars = ({ number, review }: Props) => {
   )
 }
 
-export default CardReviewWithStars
+export default BuildYourBrandCard
