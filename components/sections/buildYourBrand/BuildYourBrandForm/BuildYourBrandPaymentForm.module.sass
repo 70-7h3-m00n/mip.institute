@@ -23,31 +23,34 @@
         background-color: transparent
         border-bottom: none
         &::placeholder
-          @include m.dye(c, c.$gray-500)
+          @include m.dye(c, c.$gray-800)
       &:focus-visible
         border-top: none
         border-right: none
         border-left: none
 
-
 .group
   @include m.flex($fd: column)
-  @include m.gap($mb: f.px(15))
+  @include m.gap($mb: f.px(30))
   @include m.media(laptop, desktop)
     gap: f.px(15)
   @include m.media(phone, tablet)
     gap: f.px(10)
+    @include m.gap($mb: f.px(15))
   
-
 .inpt
   @include m.dye(bg, #FFDABC)
   border-radius: f.px(14)
   @include m.gap($pt: f.px(15), $pl: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(10), $pl: f.px(15))
   & input,
   & textarea
+    box-shadow: 0 0 0px 1000px #FFDABC inset !important
+    border: #FFDABC
     width: 100%
-    @include m.gap($ptb: f.px(17))
-    font-size: f.px(18)
+    @include m.gap($ptb: f.px(17),$plr: f.px(0))
+    font-size: f.px(15)
     font-weight: 350
     border-radius: f.px(4)
     @include m.media(phone, tablet)
@@ -55,12 +58,10 @@
     &::placeholder
       @include m.dye(c, c.$gray-800)
       @include m.media(phone, tablet)
-        font-size: f.px(16)
+        font-size: f.px(15)
   & textarea
     outline: none
     background-color: c.$purple-100 !important
-
-
 
 .containerInput
   & input
@@ -81,6 +82,7 @@
 .phoneInput
   font-family: Stem !important
   background-color: transparent !important
+  color: c.$gray-800
 
 .flagButton
   border-color: transparent !important
@@ -137,4 +139,6 @@
   @include m.gap($mb: f.px(0))
   font-size: f.px(14)
   font-weight: 500
-  @include m.dye(c, c.$purple-800)
+  @include m.dye(c, #F87E1B)
+  @include m.media(phone, tablet)
+    font-size: f.px(12)

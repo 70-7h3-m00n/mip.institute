@@ -3,6 +3,7 @@ import Wrapper from '@/ui/Wrapper'
 import BuildYourBrandHero from '@/components/sections/buildYourBrand/Hero/BuildYourBrandHero/BuildYourBrandHero'
 import BuildYourBrandLearn from '../sections/buildYourBrand/BuildYourBrandLearn/BuildYourBrandLearn'
 import BuildYourBrandFAQ from '../sections/buildYourBrand/BuildYourBrandFAQ/BuildYourBrandFAQ'
+import BuildYourBrandForm from '../sections/buildYourBrand/BuildYourBrandForm/BuildYourBrandForm'
 
 const PageBuildYourBrand = ({}) => {
   return (
@@ -10,6 +11,7 @@ const PageBuildYourBrand = ({}) => {
       <Wrapper>
         <BuildYourBrandHero />
         <BuildYourBrandLearn />
+        <BuildYourBrandForm />
         <BuildYourBrandFAQ />
       </Wrapper>
     </div>
