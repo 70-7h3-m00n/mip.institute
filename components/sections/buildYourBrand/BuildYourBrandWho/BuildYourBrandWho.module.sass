@@ -18,6 +18,7 @@
   @include m.flex($jc: space-between)
   @include m.media(phone, tablet)
     @include m.flex($fd: column)
+    @include m.gap($mb: f.px(10))
 
 .list
   @include m.flex($jc: space-between, $fw: wrap)
@@ -31,33 +32,3 @@
 
 .item
   @include m.flex($jc: center, $ai: center)
-
-// .imageWrapper
-//   position: relative
-//   width: 100%
-//   height: auto
-//   display: flex
-//   justify-content: center
-//   align-items: center
-
-// .img
-//   border-radius: 1000px
-
-// .titleText
-//   position: absolute
-//   top: 50%
-//   left: 50%
-//   transform: translate(-50%, -50%)
-//   color: c.$white-900
-//   text-align: center
-//   font-family: Stem
-//   font-size: f.px(20)
-//   font-style: normal
-//   font-weight: 500
-//   line-height: 110%
-//   @include m.gap($m: f.px(0))
-//   @include m.media(phone, tablet)
-//     font-size: f.px(18)
-
-// .black
-//   color: c.$black-800

@@ -10,17 +10,19 @@ import BuildYourBrandTeachers from '../sections/buildYourBrand/BuildYourBrandTea
 import BuildYourBrandWho from '../sections/buildYourBrand/BuildYourBrandWho/BuildYourBrandWho'
 import BuildYourBrandProgram from '../sections/buildYourBrand/BuildYourBrandProgram/BuildYourBrandProgram'
 import BuildYourBrandBasics from '../sections/buildYourBrand/BuildYourBrandBasics/BuildYourBrandBasics'
+import BuildYourBrandCertificate from '@/components/sections/buildYourBrand/CourseCertificate/BuildYourBrandCertificate'
 
 const PageBuildYourBrand = ({}) => {
   return (
     <div className={stls.container}>
       <Wrapper>
         <BuildYourBrandHero />
-        <BuildYourBrandBasics/>
+        <BuildYourBrandBasics />
         <BuildYourBrandLearn />
-        <BuildYourBrandProgram/>
+        <BuildYourBrandProgram />
         <BuildYourBrandWhatIsIncluded />
-        <BuildYourBrandWho/>
+        <BuildYourBrandWho />
+        <BuildYourBrandCertificate />
         <BuildYourBrandTeachers />
         <BuildYourBrandReviews />
         <BuildYourBrandForm />

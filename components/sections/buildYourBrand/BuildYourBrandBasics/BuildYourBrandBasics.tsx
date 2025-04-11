@@ -11,7 +11,6 @@ SwiperCore.use([Scrollbar])
 const BuildYourBrandBasics = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const isMobileLayout = useBetterMediaQuery('(max-width: 480px)')
-
   const images = [
     '/assets/imgs/practicalTraining/buildYourBrand/basics/1.jpg',
     '/assets/imgs/practicalTraining/buildYourBrand/basics/2.jpg',
@@ -36,8 +35,11 @@ const BuildYourBrandBasics = () => {
         <p className={stls.desc}>Основы продвижения</p>
         <p className={stls.text}>
           Расскажем, как{' '}
-          <span className={stls.bold}>создать личный бренд психолога и помогающего практика</span> и
-          сделать шаг навстречу успешной карьере!
+          <span className={stls.bold}>
+            создать личный бренд {isMobileAndTabletLayout && <br />} психолога и помогающего
+            практика
+          </span>{' '}
+          {isMobileAndTabletLayout && <br />}и сделать шаг навстречу успешной карьере!
         </p>
       </div>
 
@@ -71,7 +73,10 @@ const BuildYourBrandBasics = () => {
       </div>
 
       {isMobileAndTabletLayout && (
-        <Swiper slidesPerView={isMobileLayout ? 1.3 : 2.5} spaceBetween={0}className={stls.swiperWrapper} >
+        <Swiper
+          slidesPerView={isMobileLayout ? 1.5 : 2}
+          spaceBetween={0}
+          className={stls.swiperWrapper}>
           {images
             .slice()
             .reverse()
