@@ -34,6 +34,10 @@
   object-fit: cover
   width: 100%
   height: auto
+  border: f.px(1) solid c.$orange-700
+  border-radius: f.px(14)
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
 
 .name
   font-size: f.px(17)
@@ -56,7 +60,7 @@
   @include m.flex($jc: flex-start)
   flex-direction: column
 
-.link
+.readMoreBtn
   color: c.$orange-700
   @include m.gap($mt: f.px(10),$mb: f.px(13))
   font-size: 16px
@@ -70,6 +74,7 @@
   text-decoration-thickness: from-font
   text-underline-position: from-font
   text-transform: lowercase
+  width: fit-content
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(6))
 

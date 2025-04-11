@@ -1,10 +1,9 @@
-import teacherImage from '@/public/assets/imgs/practicalTraining/buildYourBrand/teachers/Учитель.png'
-
 const supervisors = [
   {
     name: 'РУБЦОВА НАДЯ',
-    position: 'Руководитель отдела продвижения и личного бренда МИП...',
-    image: teacherImage,
+    hiddenText: 'Руководитель отдела продвижения и личного бренда МИП...',
+    fullText: 'Руководитель отдела продвижения и личного бренда МИП!!',
+    image: 'rubtsova_eda79cae74',
     link: '#',
     linkText: 'читать дальше'
   }
