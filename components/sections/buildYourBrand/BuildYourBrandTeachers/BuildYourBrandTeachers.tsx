@@ -31,7 +31,7 @@ const BuildYourBrandTeachers = () => {
               <button
                 className={stls.readMoreBtn}
                 onClick={() => setIsFullTextVisible(!isFullTextVisible)}>
-                {isFullTextVisible ? 'Скрыть описание' : 'Читать далее'}
+                {isFullTextVisible ? 'Скрыть' : 'Читать дальше'}
               </button>
             </div>
           </li>
