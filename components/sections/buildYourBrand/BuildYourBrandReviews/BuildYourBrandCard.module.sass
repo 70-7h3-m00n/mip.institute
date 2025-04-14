@@ -7,13 +7,11 @@
   border: f.px(1) solid c.$orange-700
   @include m.dye(bg, c.$white-900)
   @include m.flex($fd: column, $jc: space-between)
-  min-height: f.px(600)
-  @include m.media(laptop)
-    min-height: f.px(700)
+  min-height: f.px(500)
   @include m.gap($ptb: f.px(25), $plr: f.px(20))
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(20), $plr: f.px(15))
-    min-height: f.px(450)
+    min-height: f.px(350)
 
 .violetBg
   @include m.dye(bg, c.$orange-100)
@@ -48,8 +46,9 @@
 .image
   border-radius: 50%
   overflow: hidden
-  height: f.px(30)
-  width: f.px(30)
+  height: f.px(40)
+  width: f.px(40)
+  object-fit: cover
   border: f.px(1) solid c.$orange-700
 
 .stars

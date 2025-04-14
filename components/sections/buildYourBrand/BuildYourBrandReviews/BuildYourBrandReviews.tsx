@@ -11,13 +11,14 @@ SwiperCore.use([Scrollbar])
 
 const BuildYourBrandReviews = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+  const isLaptopLayout = useBetterMediaQuery('(min-width: 769px) and (max-width: 1200px)')
   return (
     <section className={stls.container}>
       <h2 className={stls.titleSuper}>Отзывы</h2>
 
       <Swiper
         scrollbar
-        slidesPerView={isMobileAndTabletLayout ? 1.5 : 4}
+        slidesPerView={isMobileAndTabletLayout ? 1.5 : isLaptopLayout ? 3 : 4}
         spaceBetween={isMobileAndTabletLayout ? 10 : 30}
         modules={[Scrollbar]}>
         {reviewsDefault.map((review, idx) => (

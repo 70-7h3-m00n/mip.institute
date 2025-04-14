@@ -1,7 +1,7 @@
 import IconStarRatingCard from '@/components/icons/IconStarRatingCard'
 import stls from './BuildYourBrandCard.module.sass'
 import classNames from 'classnames'
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary'
 
 type Props = {
   number: number
@@ -40,11 +40,12 @@ const BuildYourBrandCard = ({ number, review }: Props) => {
       <div className={stls.author}>
         <div className={stls.image}>
           {(review.picture.src || review.picture.url) && (
-            <Image
+            <CldImage
               src={review.picture.src ? review.picture.src : review.picture.url}
-              width={32}
-              height={32}
+              width={100}
+              height={100}
               alt='Автор отзыва'
+              style={{ width: '100%', height: '100%' }}
             />
           )}
         </div>
