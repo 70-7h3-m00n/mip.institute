@@ -38,7 +38,7 @@ const Header = () => {
   const [isWithGift, setIsWithGift] = useState(false)
   const [roistatAB, setRoistatAB] = useState<string | null>(null)
   const utmCookie = getCookie('utm')?.toString() || ''
-  console.log({ roistatAB })
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))

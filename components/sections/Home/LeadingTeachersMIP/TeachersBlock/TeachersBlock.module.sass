@@ -17,8 +17,6 @@
 .containerText
   @include m.flex($fd: column)
   gap: 20px
-  @include m.media(phone, tablet)
-    gap: 10px
 
 .title
   color: c.$purple-350
@@ -38,11 +36,13 @@
   font-size: f.px(18)
   font-weight: 400
   line-height: normal
+  letter-spacing: 0.3px
   @include m.media(phone, tablet)
     font-size: f.px(14)
 
 .bold
   font-weight: 600
+  display: block
 
 .button
   @include m.flex($jc: center, $ai: center)
@@ -54,7 +54,7 @@
   font-weight: 600
   text-decoration: none
   transition: background 0.3s ease
-  @include m.gap($mt: f.px(25))
+  @include m.gap($mt: f.px(30))
   @include m.media(phone, tablet)
     @include m.gap($ptb: f.px(16))
 

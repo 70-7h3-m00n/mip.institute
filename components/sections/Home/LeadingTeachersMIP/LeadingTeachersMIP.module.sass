@@ -8,26 +8,11 @@
   background-size: cover
 
 .title
-  color: c.$black-800
-  font-size: f.px(44)
-  font-weight: 700
-  line-height: 120%
+  display: inline-block
   @include m.gap($mb: f.px(35))
   @include m.media(phone, tablet)
-    font-size: f.px(26)
+    max-width: f.px(300)
     @include m.gap($mb: f.px(15))
-  p
-    @include m.gap($mb: f.px(0))
-
-.desktop
-  display: block
-  @include m.media(phone)
-    display: none
-
-.mobile
-  display: none
-  @include m.media(phone)
-    display: block
 
 .blockMain
   @include m.flex($jc: space-between, $ai: stretch)

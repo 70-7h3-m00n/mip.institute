@@ -43,7 +43,7 @@ export const authors = [
     ],
     image: img2,
     imageMob: imageMob2,
-    experience: ''
+    experience: '29 лет стажа'
   },
   {
     name: 'Лодзь Анна Николаевна',
@@ -54,7 +54,7 @@ export const authors = [
     ],
     image: img3,
     imageMob: imageMob3,
-    experience: ''
+    experience: '8 лет стажа'
   },
   {
     name: 'Гаврилова Вера Вячеславовна',
@@ -66,7 +66,7 @@ export const authors = [
     ],
     image: img4,
     imageMob: imageMob4,
-    experience: ''
+    experience: '25 лет стажа'
   },
   {
     name: 'Сергачева Ксения Викторовна',
@@ -79,7 +79,7 @@ export const authors = [
     ],
     image: img5,
     imageMob: imageMob5,
-    experience: ''
+    experience: '24 года стажа'
   },
   {
     name: 'Валуев Олег Сергеевич',
@@ -92,7 +92,7 @@ export const authors = [
     ],
     image: img6,
     imageMob: imageMob6,
-    experience: ''
+    experience: '10 лет стажа'
   },
   {
     name: 'Гиль Людмила Владимировна',
@@ -103,7 +103,7 @@ export const authors = [
     ],
     image: img7,
     imageMob: imageMob7,
-    experience: ''
+    experience: '7 лет стажа'
   },
   {
     name: 'Овчинникова Татьяна Владимировна',
@@ -115,6 +115,6 @@ export const authors = [
     ],
     image: img8,
     imageMob: imageMob8,
-    experience: ''
+    experience: '4 года стажа'
   }
 ]

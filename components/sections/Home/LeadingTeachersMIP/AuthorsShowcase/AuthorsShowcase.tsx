@@ -20,7 +20,7 @@ const AuthorsShowcase = () => {
     setIndex(prev => (prev - 1 + authors.length) % authors.length)
   }
 
-  const { name, list, image, imageMob } = authors[index]
+  const { name, list, image, imageMob, experience } = authors[index]
   const imageSrc = isMobileAndTablet ? imageMob : image
   const imageWidth = isMobileAndTablet ? 317 : 279
   const imageHeight = isMobileAndTablet ? 322 : 450
@@ -40,7 +40,10 @@ const AuthorsShowcase = () => {
     <div className={stls.container}>
       <div className={stls.left}>
         <div className={stls.containerText}>
-          <p className={stls.name}>{name}</p>
+          <div className={stls.header}>
+            <p className={stls.name}>{name}</p>
+            <p className={stls.experienceMob}>{experience}</p>
+          </div>
           <ul className={stls.list}>
             {list.map((item, i) => (
               <li key={i}>
@@ -51,7 +54,10 @@ const AuthorsShowcase = () => {
           </ul>
         </div>
 
-        <div className={stls.navigation}>{arrowControls}</div>
+        <div>
+          <p className={stls.experience}>{experience}</p>
+          <div className={stls.navigation}>{arrowControls}</div>
+        </div>
       </div>
 
       <div className={stls.right}>
