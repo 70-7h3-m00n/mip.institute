@@ -19,48 +19,50 @@
         border-bottom: none
       @include m.media(phone, tablet)
         font-size: f.px(16)
-        border-radius: f.px(4)
+        border-radius: f.px(7)
         background-color: transparent
         border-bottom: none
         &::placeholder
-          @include m.dye(c, c.$gray-500)
+          @include m.dye(c, c.$gray-800)
       &:focus-visible
         border-top: none
         border-right: none
         border-left: none
 
-
 .group
   @include m.flex($fd: column)
-  @include m.gap($mb: f.px(15))
+  @include m.gap($mb: f.px(30))
   @include m.media(laptop, desktop)
     gap: f.px(15)
   @include m.media(phone, tablet)
     gap: f.px(10)
+    @include m.gap($mb: f.px(15))
   
-
 .inpt
-  @include m.dye(bg, #FFDABC)
+  @include m.dye(bg, c.$orange-100)
   border-radius: f.px(14)
   @include m.gap($pt: f.px(15), $pl: f.px(20))
+  @include m.media(phone, tablet)
+    border-radius: f.px(7)
+    @include m.gap($pt: f.px(10), $pl: f.px(15))
   & input,
   & textarea
+    box-shadow: 0 0 0px 1000px c.$orange-100 inset !important
+    border: c.$orange-100
     width: 100%
-    @include m.gap($ptb: f.px(17))
-    font-size: f.px(18)
+    @include m.gap($ptb: f.px(17),$plr: f.px(0))
+    font-size: f.px(15)
     font-weight: 350
-    border-radius: f.px(4)
+    border-radius: f.px(7)
     @include m.media(phone, tablet)
       @include m.gap($ptb: f.px(10))
     &::placeholder
       @include m.dye(c, c.$gray-800)
       @include m.media(phone, tablet)
-        font-size: f.px(16)
+        font-size: f.px(15)
   & textarea
     outline: none
     background-color: c.$purple-100 !important
-
-
 
 .containerInput
   & input
@@ -76,11 +78,12 @@
       height: 68px !important
     @include m.media(laptop, desktop)
       font-size: f.px(16)
-      border-radius: f.px(4)
+      border-radius: f.px(7)
 
 .phoneInput
   font-family: Stem !important
   background-color: transparent !important
+  color: c.$gray-800
 
 .flagButton
   border-color: transparent !important
@@ -104,7 +107,7 @@
   text-transform: uppercase
   padding: f.px(5)
   border-radius: f.px(14)
-  @include m.dye(bg, #00A627)
+  @include m.dye(bg, c.$green-700)
   width: 100%
   font-size: f.px(18)
   font-weight: 500
@@ -121,7 +124,7 @@
       transform: scale(1)
   @include m.media(phone, tablet)
     font-size: f.px(18)
-    border-radius: f.px(5)
+    border-radius: f.px(7)
     @include m.gap($ptb: f.px(17), $plr: f.px(57))
 
 .text
@@ -137,4 +140,6 @@
   @include m.gap($mb: f.px(0))
   font-size: f.px(14)
   font-weight: 500
-  @include m.dye(c, c.$purple-800)
+  @include m.dye(c, c.$orange-700)
+  @include m.media(phone, tablet)
+    font-size: f.px(12)

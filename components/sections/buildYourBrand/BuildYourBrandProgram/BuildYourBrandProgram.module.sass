@@ -1,0 +1,84 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.title
+  display: inline-block
+  font-size: f.px(48)
+  font-style: normal
+  text-transform: uppercase
+  font-weight: 350
+  @include m.gap($mb: f.px(35))
+  @include m.media(phone, tablet)
+    font-size: f.px(32)
+    @include m.gap($mb: f.px(20))
+
+.coloredTitle
+  @include m.dye(c, c.$orange-700)
+
+.block
+  border-top: f.px(1) solid c.$black-900
+  border-radius: 30px
+  @include m.flex()
+  gap: f.px(55)
+  @include m.gap($p: f.px(30))
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+    @include m.gap($ptb: f.px(20), $pl: f.px(10), $pr: f.px(0))
+    border-top: f.px(0.5) solid c.$black-900
+    border-radius: f.px(8)
+    gap: f.px(15)
+
+.top
+  width: 43%
+  display: flex
+  gap: f.px(55)
+  @include m.gap($mr: f.px(0))
+  @include m.media(phone, tablet)
+    width: 100%
+    gap: f.px(17)
+
+.number
+  font-size: f.px(22)
+  font-weight: 350
+  text-transform: uppercase
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.gap($mt: f.px(3))
+
+.subTitle
+  @include m.gap($m: f.px(0), $p: f.px(0))
+  font-size: f.px(30)
+  font-weight: 350
+  text-transform: uppercase
+  line-height: 130%
+  @include m.media(phone, tablet)
+    font-size: f.px(24)
+
+.block:first-child
+  .lectures
+    @include m.media(phone, tablet)
+      @include m.gap($pl: f.px(38))
+
+.lectures
+  @include m.gap($m: f.px(0), $p: f.px(0))
+  width: 50%
+  list-style: none
+  font-size: f.px(20)
+  font-weight: 350
+  line-height: 130%
+  @include m.media(phone, tablet)
+    width: 100%
+    font-size: f.px(15)
+    @include m.gap($pl: f.px(33),$pr: f.px(16))
+
+.lecture
+  @include m.gap($mb: f.px(10))
+  line-height: 130%
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(6))
+
+.coloredLecture
+  @include m.dye(c, c.$orange-700)
+  font-weight: 500

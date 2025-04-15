@@ -1,0 +1,82 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  :global(.swiper-scrollbar-drag)
+    background: c.$orange-700 !important
+    top: -8px !important
+
+.title
+  display: inline-block
+  font-weight: 500
+  text-transform: uppercase
+  @include m.dye(c, c.$black-800)
+  @include m.gap($mb: f.px(35), $mr: f.px(120))
+  font-size: f.px(44)
+  max-width: f.px(550)
+  @include m.media(phone, tablet)
+    text-align: left
+    @include m.gap($mb: f.px(20), $mr: 0)
+    font-size: f.px(26)
+
+.titleSuper
+  display: inline-block
+  font-weight: 350
+  text-align: left
+  text-transform: uppercase
+  @include m.dye(c, c.$black-800)
+  @include m.gap($mb: f.px(30))
+  font-size: f.px(48)
+  @include m.media(phone, tablet)
+    text-align: left
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(32)
+
+.colouredTitle
+  @include m.dye(c, c.$orange-700)
+
+.tag > div
+  @include m.gap($ptb: f.px(10), $plr: f.px(30))
+  font-size: f.px(12)
+  font-weight: 500
+  width: fit-content
+  @include m.media(phone, tablet)
+    font-size: f.px(10)
+    @include m.gap($ptb: f.px(5), $plr: f.px(10))
+
+.cards
+  position: relative
+  margin-bottom: f.px(40)
+
+.finger
+  z-index: 2
+  position: absolute
+  @include m.flex($ai: center, $jc: center)
+  @include m.dye(stroke, c.$orange-700)
+  @include m.dye(bg, c.$white-900)
+  border: f.px(1) solid c.$orange-700
+  width: f.px(80)
+  height: f.px(80)
+  border-radius: 50%
+  animation: 3s infinite normal slideDesktop
+  @include m.media(laptop)
+    animation: 3s infinite normal slideLaptop
+  @include m.media(phone, tablet)
+    display: none
+
+@keyframes slideLaptop
+  0%
+    transform: translate(f.px(540), f.px(-90))
+  50%
+    transform: translate(f.px(500), f.px(-90))
+  100%
+    transform: translate(f.px(540), f.px(-90))
+
+@keyframes slideDesktop
+  0%
+    transform: translate(f.px(675), f.px(-100))
+  50%
+    transform: translate(f.px(640), f.px(-100))
+  100%
+    transform: translate(f.px(675), f.px(-100))
