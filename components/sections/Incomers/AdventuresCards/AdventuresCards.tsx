@@ -94,8 +94,8 @@ function AdventuresCards({ showButton }: AdventuresCardsProps) {
     <section className={classNames({ [stls.container]: true, [stls.lightColorBg]: showButton })}>
       <Wrapper>
         <h2 className={stls.title}>
-          <span className={stls.left}>Представь, что обучение — это путешествие, </span>
-          <span className={stls.right}>где каждый шаг приближает тебя к мечте</span>
+          <span className={stls.left}>Учёба, которая приводит к делу:  </span>
+          <span className={stls.right}>структура и этапы наших программ</span>
         </h2>
 
         <div className={stls.imageMipContainer}>

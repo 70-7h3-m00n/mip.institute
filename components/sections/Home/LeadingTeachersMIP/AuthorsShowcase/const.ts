@@ -27,7 +27,8 @@ export const authors = [
       'Писатель'
     ],
     image: img1,
-    imageMob: imageMob1
+    imageMob: imageMob1,
+    experience: '5 лет стажа'
   },
   {
     name: 'Смыслов Дмитрий Анатольевич',
@@ -41,7 +42,8 @@ export const authors = [
       'Автор «Психологического канала» в YT и ВК'
     ],
     image: img2,
-    imageMob: imageMob2
+    imageMob: imageMob2,
+    experience: ''
   },
   {
     name: 'Лодзь Анна Николаевна',
@@ -51,7 +53,8 @@ export const authors = [
       'Ведущая Балинтовских групп'
     ],
     image: img3,
-    imageMob: imageMob3
+    imageMob: imageMob3,
+    experience: ''
   },
   {
     name: 'Гаврилова Вера Вячеславовна',
@@ -62,7 +65,8 @@ export const authors = [
       'Член АКПП, член РОСДНП'
     ],
     image: img4,
-    imageMob: imageMob4
+    imageMob: imageMob4,
+    experience: ''
   },
   {
     name: 'Сергачева Ксения Викторовна',
@@ -74,7 +78,8 @@ export const authors = [
       'Автор статей на портале «Педсовет»'
     ],
     image: img5,
-    imageMob: imageMob5
+    imageMob: imageMob5,
+    experience: ''
   },
   {
     name: 'Валуев Олег Сергеевич',
@@ -86,7 +91,8 @@ export const authors = [
       'Медиа-аналитик в области информационной безопасности'
     ],
     image: img6,
-    imageMob: imageMob6
+    imageMob: imageMob6,
+    experience: ''
   },
   {
     name: 'Гиль Людмила Владимировна',
@@ -96,7 +102,8 @@ export const authors = [
       'Действующий член МПАП'
     ],
     image: img7,
-    imageMob: imageMob7
+    imageMob: imageMob7,
+    experience: ''
   },
   {
     name: 'Овчинникова Татьяна Владимировна',
@@ -107,6 +114,7 @@ export const authors = [
       'Амбассадор Российского общества «Знание»'
     ],
     image: img8,
-    imageMob: imageMob8
+    imageMob: imageMob8,
+    experience: ''
   }
 ]
