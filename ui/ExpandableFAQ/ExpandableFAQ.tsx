@@ -6,8 +6,12 @@ type Props = {
   question: string
   answer: string
   number: number
+  variant?: 'default' | 'brand'
 }
-const ExpandableFAQ = ({ number, question, answer }: Props) => {
+const ExpandableFAQ = ({ number, question, answer, variant = 'default' }: Props) => {
+  const itemClass = variant === 'brand' ? stls.itemBrand : stls.itemProps
+  const iconClass = variant === 'brand' ? stls.iconBrand : stls.iconProps
+
   return (
     <ExpandableItemCross
       title={
@@ -24,8 +28,8 @@ const ExpandableFAQ = ({ number, question, answer }: Props) => {
           <p className={stls.textContent}>{answer}</p>
         </div>
       }
-      classNameIcon={stls.iconProps}
-      classNameContainer={stls.itemProps}
+      classNameIcon={iconClass}
+      classNameContainer={itemClass}
       classNameHeader={stls.reversedHeaderProps}
     />
   )

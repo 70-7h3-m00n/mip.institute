@@ -14,6 +14,15 @@ const supervision: any = {
     url: 'https://res.cloudinary.com/mipinstitute/image/upload/v1733736404/group_supervision_hero_3849e0ac52.jpg'
   }
 }
+
+const buildTourBrand: any = {
+  title: 'Построй личный бренд психолога',
+  duration: '36 часов',
+  slug: 'build-your-brand',
+  heroPicture: {
+    url: 'https://res.cloudinary.com/mipinstitute/image/upload/c_fit,w_3840,h_2560/f_auto/q_auto/v1/build_your_brand_hero_mobile_457051b962?_a=BAVAZGDW0'
+  }
+}
 interface Props {
   programs: Program[]
   practicalTrainings: PracticalTraining[] 
@@ -37,6 +46,8 @@ const PageTrainings: React.FC<Props> = ({
           studyFields={[]}
         />
         <div className={stls.cards}>
+        <PracticalSlugCard card={buildTourBrand} />
+
           {practicalTrainings.map(practicalTraining => (
             <PracticalSlugCard key={practicalTraining?.slug} card={practicalTraining} />
           ))}

@@ -1,7 +1,7 @@
-import stls from '@/styles/components/cards/CardReviewWithStars.module.sass'
+import IconStarRatingCard from '@/components/icons/IconStarRatingCard'
+import stls from './BuildYourBrandCard.module.sass'
 import classNames from 'classnames'
-import IconStarRatingCard from '../icons/IconStarRatingCard'
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary'
 
 type Props = {
   number: number
@@ -11,14 +11,14 @@ type Props = {
     text: string
     picture: {
       url: string
-      width: number
-      height: number
+      width?: number
+      height?: number
       src?: string
     }
   }
 }
 
-const CardReviewWithStars = ({ number, review }: Props) => {
+const BuildYourBrandCard = ({ number, review }: Props) => {
   const date = new Date(review.date)
   const formattedDate = new Intl.DateTimeFormat('ru-RU', {
     day: 'numeric',
@@ -40,11 +40,12 @@ const CardReviewWithStars = ({ number, review }: Props) => {
       <div className={stls.author}>
         <div className={stls.image}>
           {(review.picture.src || review.picture.url) && (
-            <Image
+            <CldImage
               src={review.picture.src ? review.picture.src : review.picture.url}
-              width={32}
-              height={32}
+              width={100}
+              height={100}
               alt='Автор отзыва'
+              style={{ width: '100%', height: '100%' }}
             />
           )}
         </div>
@@ -54,4 +55,4 @@ const CardReviewWithStars = ({ number, review }: Props) => {
   )
 }
 
-export default CardReviewWithStars
+export default BuildYourBrandCard

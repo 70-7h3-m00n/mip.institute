@@ -1,0 +1,34 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.title
+  display: inline-block
+  font-size: f.px(48)
+  text-transform: uppercase
+  font-weight: 350
+  line-height: 100%
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(32)
+    line-height: 98%
+    @include m.gap($mb: f.px(10))
+
+.header
+  @include m.flex($jc: space-between)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+    @include m.gap($mb: f.px(10))
+
+.list
+  @include m.flex($jc: space-between, $fw: wrap)
+  gap: f.px(30)
+  @include m.gap($m: f.px(0),$p: f.px(0))
+  @include m.media(laptop)
+    @include m.flex($jc: center)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+    gap: f.px(10)
+
+.item
+  @include m.flex($jc: center, $ai: center)

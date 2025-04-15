@@ -1,0 +1,24 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container > div
+  @include m.flex($fd: column)
+  gap: f.px(80)
+  @include m.gap($ptb: f.px(70))
+  @include m.media(tablet, phone)
+    @include m.gap($ptb: f.px(30))
+    gap: f.px(35)
+
+.container :global(h2)
+  font-weight: 350
+  text-transform: uppercase
+  font-size: f.px(48)
+  @include m.media(tablet, phone)
+    font-size: f.px(32)
+
+.container :global(section)
+  @include m.gap($ptb: 0)
+
+.container
+  background: c.$gray-100
