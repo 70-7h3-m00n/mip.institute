@@ -198,7 +198,7 @@
   transform: translateY(-115%) translateX(600%)
   @media screen and ( max-width: 1200px )
     transform: translateY(-120%) translateX(350%)
-  @include m.dye(bg, c.$orange-900)
+  @include m.dye(bg, c.$orange-400)
   padding: 10px
   border-radius: 2px
   @include m.flex($jc: center, $ai: center)
@@ -314,7 +314,7 @@
 
 .arrowIcon
   & svg
-    stroke: #F87E1B
+    stroke: #FF8F52
 
 .inputContainer
   position: relative
@@ -329,14 +329,15 @@
   visibility: hidden
   transition: all 1s ease
   border: 1px solid c.$white-900
-  @include m.dye(bg, c.$purple-800)
+  @include m.dye(bg, c.$purple-350)
 
 .input
   opacity: 1
   @include m.dye(c, c.$white-900)
   height: 45px
   border: 1px solid c.$white-900
-  @include m.dye(bg, c.$purple-800)
+  border-radius: 4px
+  @include m.dye(bg, c.$purple-350)
   visibility: visible
   width: 250px
   @media screen and ( max-width: 1200px )
@@ -350,7 +351,7 @@
   cursor: pointer
   position: absolute
   transform: translateY(-115%)
-  @include m.dye(bg, c.$orange-900)
+  @include m.dye(bg, c.$orange-400)
   padding: 10px
   border-radius: 2px
   @include m.flex($jc: center, $ai: center)
