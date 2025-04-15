@@ -23,23 +23,22 @@
     @include m.media(phone, tablet)
       @include m.gap($mt: f.px(257))
 
-.top
+.bottom
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(16))
+    @include m.gap($pb: f.px(20, em))
 
-.topleft
+.bottomleft
   @include m.media(laptop, desktop)
-    @include m.flex($ai: center)
-    @include m.gap($mr: f.px(20, em))
+    @include m.flex($ai: center, $jc: flex-end)
 
 .linkInfo
-  @include m.media(laptop, desktop)
+  font-size: f.px(10)
+  font-weight: 350
+  @include m.dye(c, c.$white-900)
+  @include m.media(desktop)
     @include m.gap($mr: f.px(10, em))
-    font-size: f.px(10)
-    font-weight: 400
-    @include m.dye(c, rgba(c.$white-900, .5))
 
 .location
   @include m.media(laptop, desktop)
@@ -78,7 +77,10 @@
 
 .row
   @include m.flex($jc: space-between, $ai: center)
-  @include m.gap($ptb: f.px(6))
+  @include m.gap($pt: f.px(28))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(6))
+
 
 .btns
   @include m.media(phone, tablet)
