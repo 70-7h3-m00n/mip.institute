@@ -34,6 +34,10 @@ const Practice = () => {
               получают обратную связь от наших экспертных педагогов для личностного роста
             </span>
           </p>
+          <p>
+            Количество часов практики в программах доходит
+            <br className={stls.lineBreak} /> <span className={stls.color}>до 500 часов</span>
+          </p>
         </div>
       </div>
 

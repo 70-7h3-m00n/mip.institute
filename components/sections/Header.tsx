@@ -38,7 +38,7 @@ const Header = () => {
   const [isWithGift, setIsWithGift] = useState(false)
   const [roistatAB, setRoistatAB] = useState<string | null>(null)
   const utmCookie = getCookie('utm')?.toString() || ''
-  console.log({ roistatAB })
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
@@ -134,15 +134,6 @@ const Header = () => {
         })}>
         <MenuMobile />
         <Wrapper>
-          {pathname === '/' && (
-            <div className={stls.top}>
-              <div className={stls.topleft}>
-                <Link href={routes.front.svedenCommon} className={stls.linkInfo}>
-                  Сведения об образовательной организации
-                </Link>
-              </div>
-            </div>
-          )}
           <div className={stls.row}>
             <Logo atHeader />
             <div className={stls.btns}>
@@ -155,6 +146,15 @@ const Header = () => {
             <SearchProgramsDropDown />
             <IconsDropDown newMainPage={pathname === '/' && roistatAB === 'new'} />
           </div>
+          {pathname === '/' && (
+            <div className={stls.bottom}>
+              <div className={stls.bottomleft}>
+                <Link href={routes.front.svedenCommon} className={stls.linkInfo}>
+                  Сведения об образовательной организации
+                </Link>
+              </div>
+            </div>
+          )}
         </Wrapper>
       </header>
     </>

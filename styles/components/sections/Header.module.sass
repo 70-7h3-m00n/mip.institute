@@ -23,23 +23,22 @@
     @include m.media(phone, tablet)
       @include m.gap($mt: f.px(257))
 
-.top
+.bottom
   @include m.media(phone, tablet)
     display: none
   @include m.media(laptop, desktop)
-    @include m.gap($pt: f.px(16))
+    @include m.gap($pb: f.px(20, em))
 
-.topleft
+.bottomleft
   @include m.media(laptop, desktop)
-    @include m.flex($ai: center)
-    @include m.gap($mr: f.px(20, em))
+    @include m.flex($ai: center, $jc: flex-end)
 
 .linkInfo
-  @include m.media(laptop, desktop)
+  font-size: f.px(10)
+  font-weight: 350
+  @include m.dye(c, c.$white-900)
+  @include m.media(desktop)
     @include m.gap($mr: f.px(10, em))
-    font-size: f.px(10)
-    font-weight: 400
-    @include m.dye(c, rgba(c.$white-900, .5))
 
 .location
   @include m.media(laptop, desktop)
@@ -78,7 +77,10 @@
 
 .row
   @include m.flex($jc: space-between, $ai: center)
-  @include m.gap($ptb: f.px(6))
+  @include m.gap($pt: f.px(28))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(6))
+
 
 .btns
   @include m.media(phone, tablet)
@@ -196,7 +198,7 @@
   transform: translateY(-115%) translateX(600%)
   @media screen and ( max-width: 1200px )
     transform: translateY(-120%) translateX(350%)
-  @include m.dye(bg, c.$orange-900)
+  @include m.dye(bg, c.$orange-400)
   padding: 10px
   border-radius: 2px
   @include m.flex($jc: center, $ai: center)
@@ -312,7 +314,7 @@
 
 .arrowIcon
   & svg
-    stroke: #F87E1B
+    stroke: #FF8F52
 
 .inputContainer
   position: relative
@@ -327,14 +329,15 @@
   visibility: hidden
   transition: all 1s ease
   border: 1px solid c.$white-900
-  @include m.dye(bg, c.$purple-800)
+  @include m.dye(bg, c.$purple-350)
 
 .input
   opacity: 1
   @include m.dye(c, c.$white-900)
   height: 45px
   border: 1px solid c.$white-900
-  @include m.dye(bg, c.$purple-800)
+  border-radius: 4px
+  @include m.dye(bg, c.$purple-350)
   visibility: visible
   width: 250px
   @media screen and ( max-width: 1200px )
@@ -348,7 +351,7 @@
   cursor: pointer
   position: absolute
   transform: translateY(-115%)
-  @include m.dye(bg, c.$orange-900)
+  @include m.dye(bg, c.$orange-400)
   padding: 10px
   border-radius: 2px
   @include m.flex($jc: center, $ai: center)

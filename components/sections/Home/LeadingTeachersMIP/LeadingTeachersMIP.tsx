@@ -8,12 +8,7 @@ const LeadingTeachersMIP = () => {
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h2 className={stls.title}>
-          <span className={stls.mobile}>
-            <p>Ведущие преподаватели </p>
-          </span>
-          <span className={stls.desktop}>Ведущие преподаватели</span>
-        </h2>
+        <h2 className={stls.title}>Ведущие преподаватели</h2>
         <div className={stls.blockMain}>
           <TeachersBlock />
           <AuthorsShowcase />

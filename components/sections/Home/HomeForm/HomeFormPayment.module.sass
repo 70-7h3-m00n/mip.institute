@@ -1,0 +1,141 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.flex($jc: center, $fd: column)
+  & .name,
+  & .email,
+  & .phone
+    @include m.media(laptop, desktop)
+      @include m.flex($display: false, $fb: 46%)
+  & .name,
+  & .email
+    & input
+      @include m.media(laptop, desktop)
+        font-size: f.px(16)
+        border-radius: f.px(10)
+        background-color: transparent
+        border-bottom: none
+      @include m.media(phone, tablet)
+        font-size: f.px(16)
+        border-radius: f.px(10)
+        background-color: transparent
+        border-bottom: none
+        &::placeholder
+          @include m.dye(c, c.$gray-800)
+      &:focus-visible
+        border-top: none
+        border-right: none
+        border-left: none
+
+.group
+  @include m.flex($fd: column)
+  @include m.gap($mb: f.px(30))
+  @include m.media(laptop, desktop)
+    gap: f.px(15)
+  @include m.media(phone, tablet)
+    gap: f.px(10)
+    @include m.gap($mb: f.px(15))
+
+.inpt
+  @include m.dye(bg, c.$purple-100)
+  border-radius: f.px(10)
+  @include m.gap($pt: f.px(15), $pl: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(10), $pl: f.px(15))
+  & input,
+  & textarea
+    box-shadow: 0 0 0px 1000px c.$purple-100 inset !important
+    width: 100%
+    @include m.gap($ptb: f.px(17),$plr: f.px(0))
+    font-size: f.px(15)
+    font-weight: 350
+    border-radius: f.px(10)
+    @include m.media(phone, tablet)
+      @include m.gap($ptb: f.px(10))
+    &::placeholder
+      @include m.dye(c, c.$gray-800)
+      @include m.media(phone, tablet)
+        font-size: f.px(15)
+  & textarea
+    outline: none
+    background-color: c.$purple-100 !important
+
+.containerInput
+  & input
+    border-radius: f.px(10)
+    font-weight: 300
+    width: 100% !important
+    height: 54px !important
+    background-color: transparent !important
+    border: none !important
+    @include m.media(laptop)
+      height: 47px !important
+    @include m.media(tablet)
+      height: 68px !important
+    @include m.media(laptop, desktop)
+      font-size: f.px(16)
+      border-radius: f.px(10)
+
+.phoneInput
+  font-family: Mulish !important
+  background-color: transparent !important
+  color: c.$gray-800
+
+.flagButton
+  border-color: transparent !important
+  background-color: transparent !important
+  & > div
+    background-color: transparent !important
+
+.dropdown
+  font-family: Mulish !important
+  background-color: c.$purple-100 !important
+  width: 530px !important
+  @include m.media(laptop)
+    width: 250px !important
+  @include m.media(tablet)
+    width: 400px !important
+  @include m.media(phone)
+    width: 350px !important
+
+.err
+  @include m.gap($mt: f.px(5))
+  @include m.dye(c, red)
+
+.btn
+  text-transform: uppercase
+  padding: f.px(5)
+  border-radius: f.px(10)
+  @include m.dye(bg, c.$purple-350)
+  width: 100%
+  font-size: f.px(18)
+  font-weight: 500
+  @include m.dye(c, white)
+  @include m.gap($ptb: f.px(27), $plr: f.px(57))
+  &:disabled
+    cursor: not-allowed
+    opacity: .5
+    &:hover
+      transform: scale(1)
+      &::after
+        opacity: 0
+    &:focus
+      transform: scale(1)
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+    border-radius: f.px(10)
+    @include m.gap($ptb: f.px(17), $plr: f.px(57))
+
+.text
+  font-weight: 450
+  @include m.dye(c, black)
+
+.placeholder
+  @include m.gap($mb: f.px(0))
+  font-size: f.px(14)
+  font-weight: 500
+  @include m.dye(c, c.$purple-350)
+  @include m.media(phone, tablet)
+    font-size: f.px(12)

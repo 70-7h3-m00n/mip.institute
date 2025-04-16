@@ -37,22 +37,24 @@
   @include m.flex($fd: column)
   gap: 10px
   flex: 1
+  .lineBreak
+    display: inline
   p
     @include m.gap($mb: f.px(0))
   a 
     color: c.$black-700
     text-decoration: underline
+  @include m.media(laptop)
+    .lineBreak
+      display: none
   @include m.media(phone, tablet)
     font-size: f.px(16)
     width: 100%
+    .lineBreak
+      display: none
 
 .color
   font-weight: 500
-  .lineBreak
-    display: inline
-  @include m.media(phone, tablet,laptop)
-    .lineBreak
-      display: none
   
 .img
   width: 100%
@@ -60,6 +62,8 @@
   border-radius: f.px(10)
   background-size: cover
   background-repeat: no-repeat
-  margin-top: -40px
+  margin-top: -120px
+  @include m.media(laptop)
+    margin-top: -95px
   @include m.media(phone, tablet)
     margin-top: 0px
