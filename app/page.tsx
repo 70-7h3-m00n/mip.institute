@@ -10,6 +10,8 @@ export default async function HomePage() {
   const homeProps = await getStaticPropsHome()
   const allProgramsData = await fetchAllProgramsData()
 
+  
+
   return (
     <ABtestWrapper
       clientComponent={<PageOldMain all={allProgramsData} />}
