@@ -34,12 +34,15 @@
   background-position: center
   background-repeat: no-repeat
   background-size: cover
-  padding: f.px(20) f.px(30)
   display: flex
   flex-direction: column
   justify-content: space-between
   color: c.$white-900
   transition: filter 0.3s ease
+  @include m.gap($plr: f.px(30), $pt: f.px(30), $pb: f.px(21))
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(25), $pt: f.px(25), $pb: f.px(23))
+
   &:hover
     filter: brightness(110%)
     cursor: pointer
@@ -51,7 +54,12 @@
   justify-content: space-between
   height: 100%
   width: 100%
-
+.titleWithContent
+  display: flex
+  flex-direction: column
+  gap: f.px(20)
+  @include m.media(phone, tablet)
+    gap: f.px(15)
 .label
   @include m.gap($mb: f.px(0))
   font-weight: 600
@@ -74,6 +82,10 @@
     @include m.gap($pr: f.px(100))
   @include m.media(phone)
     @include m.gap($pr: f.px(45))
+.description
+  max-width: f.px(270)
+  @include m.media(phone, tablet) 
+    max-width: f.px(250)
 
 .countPrograms
   font-size: f.px(12)

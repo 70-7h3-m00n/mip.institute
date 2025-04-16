@@ -61,7 +61,6 @@ export default function EducationalProgramsClient({
   const filteredPrograms = getFilteredPrograms()
   const slicedNumber = isMobileAndTabletLayout ? 3 : 6
   const displayedPrograms = filteredPrograms.slice(0, slicedNumber)
-
   return (
     <>
       <div className={stls.filterContainer}>

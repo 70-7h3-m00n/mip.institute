@@ -45,8 +45,11 @@ const EducationLevels = ({ programs, bachelorsLength, practicalTrainingsLength }
               <div className={stls.item} style={{ backgroundImage: `url(${background})` }}>
                 <Link href={href} passHref rel='noreferrer'>
                   <div className={stls.content}>
-                    <span className={stls.label}>{label}</span>
-                    <p className={stls.description}>{description}</p>
+                    <div className={stls.titleWithContent}>
+                      <span className={stls.label}>{label}</span>
+                      <p className={stls.description}>{description}</p>
+                    </div>
+                    
                     <div className={stls.countPrograms}>
                       <span>{renderCounter(programType)}</span>
                     </div>
