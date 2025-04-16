@@ -11,10 +11,22 @@ import BuildYourBrandWho from '../sections/buildYourBrand/BuildYourBrandWho/Buil
 import BuildYourBrandProgram from '../sections/buildYourBrand/BuildYourBrandProgram/BuildYourBrandProgram'
 import BuildYourBrandBasics from '../sections/buildYourBrand/BuildYourBrandBasics/BuildYourBrandBasics'
 import BuildYourBrandCertificate from '@/components/sections/buildYourBrand/CourseCertificate/BuildYourBrandCertificate'
+import SeoCommon from '../seo/SeoCommon'
 
+const seo = {
+  metaTitle: 'Личный бренд психолога: курс онлайн',
+  metaDescription:
+    'Обучение на интенсиве "Построй личный бренд психолога: основы продвижения" с выдачей сертификата и подтверждением часов дистанционно | Узнаете о создании позиционирования и привлечении клиентов',
+  canonicalURL: 'https://mip.institute/practical-training/build-your-brand',
+  isSEOFriendly: true
+}
 const PageBuildYourBrand = ({}) => {
   return (
     <div className={stls.container}>
+      <SeoCommon
+          seo={seo}
+          programTitle='Личный бренд психолога: курс онлайн'
+        />
       <Wrapper>
         <BuildYourBrandHero />
         <BuildYourBrandBasics />
