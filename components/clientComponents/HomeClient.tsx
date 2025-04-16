@@ -17,7 +17,6 @@ import JournalMIP from '@/components/sections/Home/JournalMIP/JournalMIP'
 import { THomev2PageData } from '@/types/page/homev2/HomePagev2Props'
 import { ProgramsDataQueryResult } from '@/types/page/home/homeGeneralTypes'
 import HomeForm from '@/components/sections/Home/HomeForm/HomeForm'
-import routes from '@/config/routes'
 
 const PsyTest = dynamic(() => import('@/components/sections/Home/PsyTest/PsyTest'), { ssr: false })
 const ProgramForRequest = dynamic(
@@ -33,7 +32,6 @@ interface THomeServerProps {
 export default async function HomePage({ data, all }: THomeServerProps) {
   return (
     <div className={stls.container}>
-      {routes.back.root}
       <TitleWithCarousel heroCarousel={data.heroCarousel} />
       <EducationalPrograms
         programs={all.programs}
