@@ -155,5 +155,5 @@ export const fetchAllProgramsData = unstable_cache(
     }
   },
   ['programs-data'], // Ключ кеша
-  { revalidate: 3600 } // Данные обновляются раз в 1 час
+  { revalidate: 10 } // Данные обновляются раз в 1 час
 )
