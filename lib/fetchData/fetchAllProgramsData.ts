@@ -5,7 +5,7 @@ import { filterProgramsByType, getStudyFields, sortBasedOnNumericOrder } from '@
 import { ProgramsDataQueryResult } from '@/types/page/home/homeGeneralTypes'
 
 // Функция с кешированием
-export const fetchAllProgramsData =
+export const fetchAllProgramsData = unstable_cache(
   async (): Promise<ProgramsDataQueryResult> => {
     try {
       const { data } = await apolloClient.query({
@@ -153,4 +153,7 @@ export const fetchAllProgramsData =
         practicalTrainings: []
       }
     }
-  }
+  },
+  ['programs-data'], // Ключ кеша
+  { revalidate: 3600 } // Данные обновляются раз в 1 час
+)
