@@ -36,7 +36,7 @@ const Header = () => {
   const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
   const [isWithGift, setIsWithGift] = useState(false)
-  const [roistatAB, setRoistatAB] = useState<string | null>(null)
+  const [roistatAB, setRoistatAB] = useState<string | null>('old')
   const utmCookie = getCookie('utm')?.toString() || ''
   
   useEffect(() => {
@@ -111,12 +111,11 @@ const Header = () => {
       Router.events.off('routeChangeError', end)
     }
   }, [searchParams])
-
   // А/Б тест
   useEffect(() => {
-    const abValue = localStorage.getItem('AB')
+    let abValue = localStorage.getItem('AB')
     setRoistatAB(abValue)
-  }, [])
+  }, [setRoistatAB, roistatAB])
 
   return (
     <>
