@@ -37,26 +37,26 @@ function IconsDropDown({ newMainPage }: { newMainPage: boolean }) {
           <IconContact
             onMouseEnter={() => handleIconClick('icon1')}
             className={
-              selectedIcon === 'icon1' ? stls.selected : newMainPage ? stls.newHomePage : ''
+              selectedIcon === 'icon1' ? stls.selected : newMainPage ? stls.newHomePage : stls.icon
             }
           />
         )}
         <IconDropDownClock
           onMouseEnter={() => handleIconClick('icon3')}
-          className={selectedIcon === 'icon3' ? stls.selected : ''}
+          className={selectedIcon === 'icon3' ? stls.selected : stls.icon}
         />
         <IconDropDownDocuments
           onMouseEnter={() => handleIconClick('icon2')}
-          className={selectedIcon === 'icon2' ? stls.selected : ''}
+          className={selectedIcon === 'icon2' ? stls.selected : stls.icon}
         />
 
         <IconWeakVision
           onMouseEnter={() => handleIconClick('icon4')}
-          className={selectedIcon === 'icon4' ? stls.selected : ''}
+          className={selectedIcon === 'icon4' ? stls.selected : stls.icon}
         />
         <IconEnterToPortal
           onMouseEnter={() => handleIconClick('icon5')}
-          className={selectedIcon === 'icon5' ? stls.selected : ''}
+          className={selectedIcon === 'icon5' ? stls.selected : stls.icon}
         />
       </div>
       <div
