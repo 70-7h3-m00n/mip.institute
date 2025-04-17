@@ -1,11 +1,11 @@
 window.onRoistatModuleLoaded = function () {
-  window.roistat.registerAbTestCallback(5, function (variant) {
+  window.roistat.registerAbTestCallback(6, function (variant) {
     switch (variant) {
-      case 'old004':
-        localStorage.setItem('AB', 'old')
+      case 'main_old':
+        localStorage.setItem('ABS', 'old')
         break
-      case 'new004':
-        localStorage.setItem('AB', 'new')
+      case 'main_new':
+        localStorage.setItem('ABS', 'new')
         break
     }
   })
