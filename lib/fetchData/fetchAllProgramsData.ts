@@ -106,7 +106,7 @@ export const fetchAllProgramsData = cache(async (): Promise<ProgramsDataQueryRes
     });
 
     // Применяем обработку данных
-    const programs = sortBasedOnNumericOrder({ programs: data.programs }) || [];
+    const programs = sortBasedOnNumericOrder({ programs: data.programs, sortField:'idx' }) || [];
     const courses = filterProgramsByType({ programs, type: 'course' }) || [];
     const professions = filterProgramsByType({ programs, type: 'profession' }) || [];
     const blogs = data.seminars || [];
