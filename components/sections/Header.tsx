@@ -36,8 +36,9 @@ const Header = () => {
   const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
   const [isWithGift, setIsWithGift] = useState(false)
-  const [roistatAB, setRoistatAB] = useState<string | null>('old')
+  
   const utmCookie = getCookie('utm')?.toString() || ''
+
   
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -112,10 +113,11 @@ const Header = () => {
     }
   }, [searchParams])
   // А/Б тест
+  const homePageAB = getCookie('homePageAB')?.toString() || ''
+  const [roistatAB, setRoistatAB] = useState<string | null>('old')
   useEffect(() => {
-    let abValue = localStorage.getItem('AB')
-    setRoistatAB(abValue)
-  }, [setRoistatAB, roistatAB])
+    setRoistatAB(homePageAB as 'old' | 'new')
+  }, [homePageAB])
 
   return (
     <>

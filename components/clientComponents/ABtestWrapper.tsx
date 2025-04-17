@@ -1,4 +1,5 @@
 'use client'
+import { getCookie } from 'cookies-next'
 import { useEffect, useState } from 'react'
 
 interface WrapperProps {
@@ -8,11 +9,11 @@ interface WrapperProps {
 
 const ABtestWrapper: React.FC<WrapperProps> = ({ clientComponent, serverComponent }) => {
   const [layout, setLayout] = useState<'old' | 'new'>('new')
+  const homePageAB = getCookie('homePageAB')?.toString() || ''
 
   useEffect(() => {
-    const abTestKey = localStorage.getItem('AB') || 'new'
-    setLayout(abTestKey as 'old' | 'new')
-  }, [])
+    setLayout(homePageAB as 'old' | 'new')
+  }, [homePageAB])
 
   // Рендерим серверный компонент, если AB === "new", иначе клиентский
   return layout === 'new' ? serverComponent : clientComponent
