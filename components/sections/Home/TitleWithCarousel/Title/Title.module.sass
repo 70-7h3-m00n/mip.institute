@@ -29,7 +29,12 @@
     margin-bottom: f.px(30)
     @include m.media(phone, tablet) 
       font-size: f.px(15)
+    @include m.media(phone) 
+      max-width: f.px(340)
 
+.br
+  @include m.media(tablet) 
+    display: none
 .btns
   display: grid
   max-width: f.px(650)
