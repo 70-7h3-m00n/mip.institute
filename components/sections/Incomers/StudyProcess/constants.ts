@@ -7,7 +7,7 @@ import slide2 from '@/public/assets/imgs/home/studyProcess/slide2.png'
 import slide3 from '@/public/assets/imgs/home/studyProcess/slide3.png'
 import slide4 from '@/public/assets/imgs/home/studyProcess/slide4.png'
 import { StaticImageData } from 'next/image'
-import IPhone from '@/public/assets/imgs/home/studyProcess/IPhone.png'
+import IPhone from '@/public/assets/imgs/home/studyProcess/IPhone.jpeg'
 
 interface Position {
   top: string
