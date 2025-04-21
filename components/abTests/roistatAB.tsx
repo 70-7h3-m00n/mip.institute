@@ -26,7 +26,7 @@ const ABTestScript = () => {
       {
         id: "homePageAB",
         variants: ["new", "old"],
-        weights: [0.9, 0.1], // 90% для "a", 10% для "b"
+        weights: [0.1, 0.9], // 90% для "a", 10% для "b"
       },
     ];
 
