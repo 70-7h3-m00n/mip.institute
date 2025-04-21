@@ -51,6 +51,17 @@ const sortBasedOnNumericOrder = ({
     })
   }
 
+  if(sortField === 'idx') {
+    return [...arr].sort((a, b) => {
+      if (!a || !b) return 0 // Проверяем на null
+
+      const aIdx = a?.index_number?.idx ?? Infinity
+      const bIdx = b?.index_number?.idx ?? Infinity
+
+      return Number(aIdx) - Number(bIdx)
+    })
+  }
+
   return arr
 }
 export default sortBasedOnNumericOrder

@@ -2,15 +2,16 @@ import CardTopProgram from '@/components/cards/CardTopProgram'
 import ImgTopCourse from '@/components/imgs/programs/ImgTopCourse'
 import Wrapper from '@/ui/Wrapper'
 import routes from '@/config/routes'
-import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/TopCourses.module.sass'
 import SwiperContainer from '@/ui/SwiperContainer'
 import Tag from '@/ui/Tag'
 import targetSlugs from 'constants/topCourses'
-import { useContext } from 'react'
+import { useProgramsSafe } from '@/hooks/general/useSafeContext'
 
 const TopCourses = () => {
-  const { programs } = useContext(ContextStaticProps)
+  const {
+      state: { programs }
+    } = useProgramsSafe()
 
   if (!programs || !programs.length) {
     return null // Если нет данных, не рендерим ничего

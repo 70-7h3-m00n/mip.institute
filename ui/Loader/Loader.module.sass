@@ -1,0 +1,65 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.loadingContainer
+  @include m.flex($jc: center, $ai: center)
+  height: 100vh
+  width: 100%
+
+#loader
+  display: block
+  position: relative
+  width: f.px(120)
+  height: f.px(120)
+  border-radius: 50%
+  border: 3px solid transparent
+  border-top-color: c.$purple-800
+  -webkit-animation: spin 2s linear infinite
+  animation: spin 2s linear infinite
+
+#loader:before
+  content: ""
+  position: absolute
+  top: 5px
+  left: 5px
+  right: 5px
+  bottom: 5px
+  border-radius: 50%
+  border: 3px solid transparent
+  border-top-color: white
+  -webkit-animation: spin 3s linear infinite
+  animation: spin 3s linear infinite
+
+#loader:after
+  content: ""
+  position: absolute
+  top: 15px
+  left: 15px
+  right: 15px
+  bottom: 15px
+  border-radius: 50%
+  border: 3px solid transparent
+  border-top-color: c.$pink-400
+  -webkit-animation: spin 1.5s linear infinite
+  animation: spin 1.5s linear infinite
+
+@-webkit-keyframes spin
+  0%
+    -webkit-transform: rotate(0deg)
+    -ms-transform: rotate(0deg)
+    transform: rotate(0deg)
+  100%
+    -webkit-transform: rotate(360deg)
+    -ms-transform: rotate(360deg)
+    transform: rotate(360deg)
+
+@keyframes spin
+  0%
+    -webkit-transform: rotate(0deg)
+    -ms-transform: rotate(0deg)
+    transform: rotate(0deg)
+  100%
+    -webkit-transform: rotate(360deg)
+    -ms-transform: rotate(360deg)
+    transform: rotate(360deg)

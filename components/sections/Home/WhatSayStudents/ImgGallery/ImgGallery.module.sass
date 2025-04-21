@@ -1,0 +1,36 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.imageGallery
+  @include m.flex()
+  z-index: 1
+  @include m.gap($ml: (f.px(10)))
+
+.imageWrapper
+  max-width: 69px
+  min-width: 69px
+  max-height: 69px
+  min-height: 69px
+  position: relative
+  overflow: hidden
+  border-radius: 27px
+  border: 4px solid c.$orange-700
+  background: c.$white-900 
+  margin-left: -10px
+  @include m.media(phone,tablet)
+    max-width: 38px
+    min-width: 38px
+    max-height: 38px
+    min-height: 38px
+    border-radius: 15px
+    border: 2px solid c.$orange-700
+    margin-left: -5px
+  &:first-child
+    @include m.media(phone,tablet)
+      margin-left: -10px
+
+.image
+  width: 100%
+  height: 100%
+  object-fit: cover

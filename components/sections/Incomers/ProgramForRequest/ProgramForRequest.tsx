@@ -1,7 +1,6 @@
 'use client'
 import stls from './ProgramForRequest.module.sass'
 import Wrapper from '@/ui/Wrapper'
-// import Player from '@/ui/Player/Player'
 import PopupTrigger from '@/ui/PopupTrigger'
 
 import dynamic from 'next/dynamic'
@@ -19,12 +18,17 @@ type ItemType = {
 }
 
 type Props = {
-  data: ItemType
+  data?: ItemType
+}
+
+const defaultData = {
+  title: 'Подберем программу\nпод ваш запрос',
+  videoId: '5e2d461e-bb8d-4db8-8b5c-4a939d00f84c',
+  description:
+    'Остались вопросы или не можете определиться с курсом? Оставьте свои контакты, сотрудник приёмной комиссии с вами свяжется и проконсультирует'
 }
 
 const ProgramForRequest = ({ data }: Props) => {
-  const VIDEO_ID = '7b39ee7e-288d-431d-b1b7-f83336ce9ce6'
-
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -37,15 +41,17 @@ const ProgramForRequest = ({ data }: Props) => {
                 ) : (
                   !el.code && <span key={index}>{el.text}</span>
                 )
-              )}
+              ) ?? defaultData.title}
             </h2>
-            <p className={stls.description}>{data?.[1]?.children?.[0]?.text}</p>
+            <p className={stls.description}>
+              {data?.[1]?.children?.[0]?.text ?? defaultData.description}
+            </p>
             <PopupTrigger btn='gamma' cta='submitApplication' />
           </div>
           <div className={stls.videoBlock}>
             <Player
               title='Подберем программу под ваш запрос'
-              videoId={VIDEO_ID}
+              videoId={defaultData.videoId}
               autoPlay={true}
               loop={true}
               muted={true}

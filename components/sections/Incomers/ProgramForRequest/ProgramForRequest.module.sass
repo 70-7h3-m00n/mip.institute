@@ -38,8 +38,10 @@
 .title
   position: relative
   z-index: 2
-  font-weight: 500
+  font-weight: 700
   font-size: f.px(44)
+  font-family: Mulish, sans-serif
+  white-space: pre-wrap
   @include m.gap($mb: f.px(35))
   @include m.media(phone, tablet)
     font-size: f.px(26)
@@ -56,8 +58,9 @@
     font-size: f.px(16)
 
 .button-base
-  border-radius: f.px(50)
-  @include m.dye(bg, c.$purple-800)
+  border-radius: f.px(10)
+  @include m.dye(bg, c.$purple-350)
+  border: none
   @include m.dye(c, c.$white-900)
   @include m.gap($ptb: f.px(16), $plr: f.px(53))
   font-size: f.px(18)
@@ -65,7 +68,7 @@
   &::after
     display: none
   @include m.media(phone, tablet)
-    border-radius: f.px(30)
+    border-radius: f.px(5)
     @include m.gap($ptb: f.px(16), $plr: f.px(0))
     font-size: f.px(16)
     width: 100%
@@ -82,7 +85,7 @@
   height: 100%
   @include m.media(phone, tablet)
     @include m.gap($mt: f.px(15))
-    border-radius: 10px
+    border-radius: 5px
 
 .iframe
   position: absolute

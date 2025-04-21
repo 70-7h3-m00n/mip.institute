@@ -5,12 +5,15 @@
 .container
   background: c.$purple-800
   border-radius: 30px
-  margin-top: -40px
   @include m.gap($ptb: f.px(45))
   position: relative 
   overflow: visible
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(24),$pb: f.px(34))
+    @include m.gap($ptb: f.px(24))
+    margin-top: -20px
+
+.lightColorBg
+  background: c.$purple-350
 
 .imageMipContainer
     position: sticky
@@ -33,37 +36,48 @@
 .imageMip
     width: 100%
     height: auto
-    
+
 .title
   color: c.$white-900
   font-size: f.px(44)
   font-weight: 500
   line-height: 120%
-  @include m.gap($mb: f.px(136))
+  @include m.gap($mb: f.px(70))
   position: sticky
   top: 20px
   @include m.media(phone, tablet)
     font-size: f.px(26)
-    @include m.gap($mb: f.px(19))
+    @include m.gap($mb: f.px(70))
 
 .left
+  display: block
   text-align: left
   @include m.gap($mb: f.px(0))
-  @include m.media(phone, tablet)
-    text-align: left
+  @include m.media(phone, tablet, laptop)
+    display: inline
 
 .right
+  display: block
   text-align: right
-  @include m.media(phone, tablet)
-    text-align: left
+  @include m.media(phone, tablet, laptop)
+    display: inline
 
-.blockMain 
-  @include m.flex($fd: column) 
+.blockMain
+  @include m.flex($fd: column)
   gap: f.px(70)
   z-index: 2
-  @include m.media(phone, tablet)
-    gap: f.px(10)
 
+.desktop
+  @include m.media(phone, tablet)
+    display: none
+
+.mobile
+  display: none
+  @include m.media(phone, tablet)
+
+    display: flex
+    gap: f.px(10)
+    
 .block 
   @include m.flex() 
   width: 100%
@@ -86,7 +100,7 @@
     gap: f.px(10)
 
 .blockSpaceBetween 
-  @include m.flex($jc: space-between, $ai: flex-end) 
+  @include m.flex($jc: space-between) 
   @include m.media(phone, tablet)
     @include m.flex($jc: center, $ai: center) 
     gap: f.px(10)
@@ -105,7 +119,7 @@
   @include m.media(phone, tablet)
     width: 100%
     position: sticky
-    top: 150px
+    top: 170px
 
 .image
   border-radius: 30px
@@ -122,3 +136,23 @@
     width: 100%
     height: auto
     border-radius: 15px
+
+.buttonContainer
+  @include m.flex($jc: center, $ai: center) 
+  z-index: 2
+  border-radius: f.px(10)
+  background: #FF8F52
+  width: 100%
+  @include m.gap($mt: f.px(30))
+  @include m.media(phone,tablet)
+    @include m.gap($mt: f.px(10))
+    border-radius: f.px(5)
+
+.text
+  color: c.$white-900
+  font-size: f.px(22)
+  font-weight: 500
+  @include m.gap($mb: f.px(0),$ptb: f.px(21))
+  @include m.media(phone,tablet)
+    @include m.gap($ptb: f.px(18))
+    font-size: f.px(16)

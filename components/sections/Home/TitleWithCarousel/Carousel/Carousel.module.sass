@@ -1,0 +1,49 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.title
+  font-size: f.px(44)
+  margin-top: f.px(60)
+  @include m.media(phone, tablet) 
+    display: none
+
+
+.section
+  overflow-x: hidden
+
+.swiper-slide-active
+  z-index: 10
+
+.container
+  overflow: visible !important
+  margin-bottom: f.px(15)
+  @include m.media(phone, tablet) 
+    margin-top: f.px(30)
+
+.btns
+  display: flex
+  gap: f.px(10)
+  @include m.media(phone, tablet) 
+    display: none
+  button
+    @include m.gap($p: f.px(15))
+    background: c.$purple-350
+    border: 1px solid c.$purple-350
+    border-radius: 5px
+    color: white
+    transition: background 0.1s ease-in
+    
+    &:hover
+      background: rgba(133, 94, 223, 0.40)
+      border: 1px solid rgba(133, 94, 223, 0.40)
+    &:active
+      border: 1px solid c.$purple-350
+
+.bulletViolet
+  background: c.$purple-350
+  opacity: 1
+  scale: 3
+
+.pagination
+  bottom: f.px(-15) !important

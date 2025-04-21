@@ -1,0 +1,94 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.flex($fd: row)
+  gap: 30px
+  overflow: hidden
+  p 
+    @include m.gap($mb: f.px(0))
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+    gap: 15px
+
+.videoWrapper
+  position: relative
+  flex: 1
+  border-radius: f.px(10)
+  border: 1px solid c.$purple-350
+  @include m.media(phone, tablet)
+    width: 99%
+    height: 100%
+    min-height: 322px
+
+  iframe
+    position: absolute
+    width: 100%
+    height: 100%
+    border: none
+    border-radius: f.px(14)
+
+.mobileOnly
+  display: none
+  @include m.media(phone, tablet)
+    @include m.flex($jc: center, $ai: center)
+
+
+.textBlock
+  flex: 2
+  @include m.flex($fd: column)
+  border: 1px solid c.$purple-350
+  font-weight: 700
+  line-height: 120%
+  border-radius: 14px
+  padding: 40px 20px 72px 40px
+  gap: 35px
+  @include m.media(phone, tablet)
+    padding: 22px 15px 40px 20px
+    gap: 25px
+
+.personInfo
+  @include m.flex($fw: wrap, $jc: space-between)
+  gap: 10px
+  font-size: 18px
+  @include m.gap($mb: f.px(10))
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $jc: center, $ai: center)
+    gap: 5px
+    font-size: 16px
+    @include m.gap($mb: f.px(0))
+
+.name
+  color: c.$purple-350
+  flex: 1
+  @include m.media(phone, tablet)
+    text-align: center
+
+.course
+  color: c.$purple-350
+  flex: 2
+  @include m.media(phone, tablet)
+    text-align: center
+
+.section
+  @include m.flex($fw: wrap, $jc: space-between)
+  gap: 10px
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+    gap: 5px
+
+.label
+  color: c.$black-800
+  font-size: 20px
+  flex: 1
+  @include m.media(phone, tablet)
+    font-size: 18px
+
+.value
+  color: c.$black-800
+  font-size: 16px
+  font-weight: 400
+  flex: 2
+  @include m.media(phone, tablet)
+    font-size: 14px
