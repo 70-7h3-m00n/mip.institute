@@ -5,7 +5,7 @@ import styles from '@/styles/components/sections/WhoIsOurSpeakers/WhoIsOurSpeake
 export default function HowWeChooseSpeakers() {
   return (
     <div className={styles.chooseContainer}>
-      <h1>Мы тщательно подходим к выбору спикеров</h1>
+      <h2>Мы тщательно подходим к выбору спикеров</h2>
       <p className={styles.first}>
         <span>
           <IconCheck />

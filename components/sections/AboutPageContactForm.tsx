@@ -10,7 +10,7 @@ export default function AboutPageContactForm() {
   return (
     <div className={styles.container}>
       <Wrapper>
-        <h1 className={styles.title}>Подберите программу</h1>
+        <h2 className={styles.title}>Подберите программу</h2>
         <p className={styles.text}>
           Ответьте на несколько вопросов, и мы подберем Вам программу обучения
         </p>
