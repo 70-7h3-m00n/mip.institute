@@ -5,12 +5,16 @@ import PageOldMain from '@/components/pages/PageOldMain'
 import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 import { Metadata } from 'next'
 import { company, prod, routes } from '../config'
+import truncate from '@/helpers/general/truncate'
 
 export const revalidate = 3600
 export const generateMetadata = (): Metadata => {
   // исправить каноникал перед продом и поменять noindex/nofollow на preview
   const title = `Московский Институт Психологии`
-  const description =`Подробная информация о контактах и всех способах связи Московского Института Психологии: адреса в г. Москве (Докучаев переулок, 8) и г. Алматы, телефон +7 (499) 388-92-34 , электронная почта info@mip.institute`
+  const description =truncate(
+    'Обучение на психолога: дополнительное психологическое образование (профессиональная переподготовка и повышение квалификации) по популярным направлениям вместе с экспертами Московского Института Психологии | Дипломы ФРДО',
+    120
+  )
   const canonical = `${routes.front.root}`
   const logoUrl = `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`
 
