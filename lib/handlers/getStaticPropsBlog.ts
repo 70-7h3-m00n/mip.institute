@@ -11,14 +11,7 @@ export const getStaticPropsBlog = async ({ context }) => {
       },
       populate: {
         blogs: {
-          fields: [
-            'title',
-            'date',
-            'slug',
-            'studyField',
-            'studyFieldSlug',
-            'subtitle'
-          ],
+          fields: ['title', 'date', 'slug', 'studyField', 'studyFieldSlug', 'subtitle'],
           populate: {
             picture: {
               fields: ['url', 'width', 'height']
@@ -27,12 +20,9 @@ export const getStaticPropsBlog = async ({ context }) => {
         },
         seo: {
           populate: '*'
-          
         },
         blog_author: {
-          fields: [
-            'name',
-          ],
+          fields: ['name']
         },
         picture: {
           fields: ['url', 'width', 'height']
@@ -95,16 +85,19 @@ export const getStaticPropsBlog = async ({ context }) => {
   )
 
   try {
-    const response = await axios.get(
-      `${routes.back.rootv2}/api/blogs?${queryString}`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.STRAPI_BEARER}` // Замените на ваш токен
-        }
+    const response = await axios.get(`${routes.back.rootv2}/api/blogs?${queryString}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.STRAPI_BEARER}`
       }
-    )
+    })
 
     const blog = response?.data?.data[0] || null
+
+    if (!blog) {
+      return {
+        notFound: true
+      }
+    }
 
     return {
       props: {
@@ -113,6 +106,8 @@ export const getStaticPropsBlog = async ({ context }) => {
       revalidate: revalidate.default
     }
   } catch (e) {
-    console.log(e)
+    return {
+      notFound: true
+    }
   }
 }
