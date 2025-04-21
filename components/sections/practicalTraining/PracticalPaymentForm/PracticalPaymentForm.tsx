@@ -55,7 +55,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
     setIsDisabled(true)
     setIsLoading(true)
 
-    const roistatAB = localStorage.getItem('AB')
+    const roistatAB = getCookie('homePageAB')?.toString() || ''
     const leadPage = router.asPath
     const utms = JSON.parse(sessionStorage.getItem('utms') ?? '{}')
     const referer = JSON.parse(sessionStorage.getItem('referer') ?? '')

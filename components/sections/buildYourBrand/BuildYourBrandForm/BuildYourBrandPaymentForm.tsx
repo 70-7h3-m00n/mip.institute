@@ -1,3 +1,4 @@
+'use client'
 import genezis from '@/helpers/funcs/genezis'
 import stls from './BuildYourBrandPaymentForm.module.sass'
 import classNames from 'classnames'
@@ -8,7 +9,7 @@ import PhoneInput from 'react-phone-input-2'
 import ru from 'react-phone-input-2/lang/ru.json'
 import 'react-phone-input-2/lib/style.css'
 import Popup from 'reactjs-popup'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PopupThankyouNew from '@/components/popups/PopupThankYouNew'
 
 type FormValues = {
@@ -34,10 +35,25 @@ const BuildYourBrandPaymentForm = () => {
     }
   })
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
+  const [clientReferer, setClientReferer] = useState<string | null>(null)
+
+  useEffect(() => {
+      if (typeof window !== 'undefined') { // Проверяем, что код выполняется в браузере
+        try {
+          const storedReferer = sessionStorage.getItem('referrer')
+  
+          setClientReferer(storedReferer ? storedReferer : '')
+        } catch (error) {
+          console.error('Ошибка парсинга referer:', error)
+          setClientReferer(null)
+        }
+  
+      }
+    }, [])
 
   const onSubmit = async data => {
     data.leadPage = router.asPath
-    const referer = JSON.parse(sessionStorage.getItem('referer') ?? '')
+    const referer = clientReferer
     data.referer = referer
     const utm = getCookie('utm')
     if (typeof utm === 'string') {

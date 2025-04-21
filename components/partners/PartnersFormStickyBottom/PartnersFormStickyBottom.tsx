@@ -113,7 +113,7 @@ const PartnersFormStickyBottom = ({
     setIsDisabled(true)
     setLoading(true)
 
-    const roistatAB = localStorage.getItem('AB')
+    const roistatAB = getCookie('homePageAB')?.toString() || ''
 
     // handle loader
     data.roistatAB = roistatAB
