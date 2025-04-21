@@ -12,21 +12,13 @@ import DirectionsNew from '@/components/sections/DirectionsNew'
 import EntryForm from '@/components/sections/EntryForm'
 import PayLater from '@/components/sections/PayLater'
 import TopCourses from '@/components/sections/TopCourses'
-import { company, routes } from '@/config/index'
-import preview from '@/config/preview'
-import truncate from '@/helpers/general/truncate'
 import allowedNames from 'constants/indexMain'
 import React, { ReactNode, useEffect, useState } from 'react'
-import Popup from 'reactjs-popup'
 import dynamic from 'next/dynamic'
 import stls from '@/styles/pages/Index.module.sass'
 import PsyTestMain from '@/components/sections/PsyTestMain'
 import { sortBasedOnNumericOrder, sortReviewsCreatedAtASC } from '@/helpers/index'
 import { useSearchParams } from 'next/navigation'
-
-const PopupCta = dynamic(() => import('@/components/popups/PopupCta'), {
-  ssr: false
-})
 
 const PsyTest = dynamic(() => import('@/components/sections/Home/PsyTest/PsyTest'), {
   ssr: false
@@ -67,7 +59,6 @@ const WhatYouWillLearn = dynamic(() => import('@/components/sections/WhatYouWill
 const PageOldMain = ({
   all
 }) => {
-  console.log(all);
   
   const {programs,
     reviews,
@@ -75,15 +66,7 @@ const PageOldMain = ({
     bachelor,
     practicalTrainings} = all
   // useHandleContextStaticProps({ programs })
-  const [open, setOpen] = useState(false)
   const searchParams = useSearchParams() // Замена useRouter
-
-  useEffect(() => {
-    // Проверяем utm_source через useSearchParams
-    if (searchParams?.get('utm_source') === 'direct_link') {
-      setOpen(true)
-    }
-  }, [searchParams]) // Зависимость от searchParams
 
   // Проверяем наличие query-параметров
   const hasQueryParams = searchParams && searchParams?.size > 0
@@ -97,63 +80,8 @@ const PageOldMain = ({
     reviews: reviews ? sortReviewsCreatedAtASC({ reviews }) : []
   })
 
-  const seoParams = {
-    title: `МИП - Московский Институт Психологии`,
-    desc: truncate(
-      'MIP - Психологический институт. Получите дистанционное образование со скидкой 30% Дипломы ФРДО. Удобный формат обучения! Актуальный материал с упором на практику.',
-      120
-    ),
-    canonical: routes.front.root
-  }
-
-  const desc = (
-    <>
-      У Вас есть вопросы? Оставьте заявку! <br /> И сотрудник приемной комиссии свяжется с вами,
-      чтобы рассказать все подробности
-    </>
-  )
-
-
   return (
     <>
-      {/* <NextSeo
-        title={seoParams.title}
-        description={seoParams.desc}
-        canonical={seoParams.canonical}
-        nofollow={hasQueryParams || preview}
-        noindex={hasQueryParams || preview}
-        openGraph={{
-          url: seoParams.canonical,
-          title: seoParams.title,
-          description: seoParams.desc,
-          images: [
-            {
-              url: `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`,
-              width: 512,
-              height: 512,
-              alt: company.name,
-              type: 'image/png'
-            }
-          ],
-          site_name: company.name
-        }}
-      />
-      <SeoOrganizationJsonLd /> */}
-
-      <Popup open={open} modal nested>
-        {
-          ((close: () => void) => (
-            <PopupCta
-              title='Задать вопрос'
-              desc={desc}
-              cta='Задать вопрос'
-              question
-              close={close}
-              blockForAmo='Переход по ссылке'
-            />
-          )) as unknown as ReactNode
-        }
-      </Popup>
       <div className={stls.container}>
         <Hero key='heroOld' />
         <DirectionsNew

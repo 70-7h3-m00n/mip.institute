@@ -54,9 +54,6 @@ const Teachers = ({
 
   let teachers = teachersList || teachersFromMain || program?.teachers
 
-  console.log(teachers);
-  
-
   const teachersSorted: TypeLibTeachers = sortBasedOnNumericOrder({ teachers })
   const list =
     teachersSorted &&
