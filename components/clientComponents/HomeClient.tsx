@@ -17,6 +17,7 @@ import JournalMIP from '@/components/sections/Home/JournalMIP/JournalMIP'
 import { THomev2PageData } from '@/types/page/homev2/HomePagev2Props'
 import { ProgramsDataQueryResult } from '@/types/page/home/homeGeneralTypes'
 import HomeForm from '@/components/sections/Home/HomeForm/HomeForm'
+import AdventuresCardsHome from '../sections/Home/AdventureCardsHome/AdventureCardsHome'
 
 const PsyTest = dynamic(() => import('@/components/sections/Home/PsyTest/PsyTest'), { ssr: false })
 const ProgramForRequest = dynamic(
@@ -41,7 +42,7 @@ export default async function HomePage({ data, all }: THomeServerProps) {
         professions={all.professions}
       />
       <PsyTest fallbackComponent={HelpWithChoice} isRounded />
-      <AdventuresCards showButton />
+      <AdventuresCardsHome showButton />
       <StudyProcess studyProcess={homeStudyProcessData} showButton />
       <ProgramForRequest />
       <SupportHelpInResults />
