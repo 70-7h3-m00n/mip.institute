@@ -98,18 +98,24 @@ function AdventuresCards({ showButton }: AdventuresCardsProps) {
           <span className={stls.right}>структура и этапы наших программ</span>
         </h2>
 
-        {!isMobile && (
-          <div className={stls.imageMipContainer}>
-            {/* <Image
-              src='https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739393511/MIP_648849f5c7.png'
-              width={900}
-              height={350}
-              alt='Мип'
-              className={stls.imageMip}
-            /> */}
-            <p className={stls.arrow}>{'{'}</p>
-            <p>московский инстиут психологии</p>
-            <p className={stls.arrow}>{'}'}</p>
+        <div className={stls.imageMipContainer}>
+          <Image
+            src='/assets/imgs/incomers/mip-logo.png'
+            width={900}
+            height={300}
+            alt='МИП'
+            className={stls.imageMip}
+          />
+        </div>
+
+        <div className={`${stls.blockMain} ${stls.desktop}`}>{renderDesktopBlocks()}</div>
+        <div className={`${stls.blockMain} ${stls.mobile}`}>{renderImages(mobileImages)}</div>
+
+        {showButton && (
+          <div className={stls.buttonContainer}>
+            <Link href='https://mip.institute/incomers' passHref>
+              <p className={stls.text}>Читать подробнее об Институте</p>
+            </Link>
           </div>
         )}
       </Wrapper>
