@@ -1,3 +1,4 @@
+import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import { getUniqueCategories } from '@/helpers/funcs/getUniqueCategories'
 import { createContext, Dispatch, useContext, useReducer } from 'react'
 
@@ -231,7 +232,9 @@ function getFilteredItems(items, filters) {
       }
     }
     if (filters.input.text) {
-      if (!item.title.toLowerCase().includes(filters.input.text.toLowerCase())) {
+      const searchValue = convertEnglishToRussian(filters.input.text.toLowerCase())
+      const title = convertEnglishToRussian(item.title.toLowerCase())
+      if (!title.includes(searchValue)) {
         return false
       }
     }

@@ -20,16 +20,19 @@ type Props = {
 }
 
 const HeroPrograms = ({ minmaxDuration, minmaxPrice }: Props) => {
-  const { asPath, query } = useRouter()
+  const { asPath } = useRouter()
   const dispatch = useFilterDispatch()
   const { filters } = useFilter()
 
-  const changeHandler = e => {
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+
     dispatch({
       type: 'setInputValue',
-      payload: e.target.value
+      payload: value
     })
   }
+
   return (
     <section className={stls.container}>
       <Wrapper>
