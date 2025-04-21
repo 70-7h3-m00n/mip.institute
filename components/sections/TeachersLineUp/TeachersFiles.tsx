@@ -13,15 +13,13 @@ const TeachersFiles = ({ teachers }) => {
   }
 
   const customRenderers = {
-    p: ({ children }: { children: React.ReactNode }) => (
-      <div className={stls.bio}>{children}</div>
-    )
+    p: ({ children }: { children: React.ReactNode }) => <div className={stls.bio}>{children}</div>
   }
 
   return (
     <section className={stls.container}>
       <Wrapper>
-        <h1 className={stls.title}>Познакомьтесь с вашими наставниками</h1>
+        <h2 className={stls.title}>Познакомьтесь с вашими наставниками</h2>
         <ul className={stls.teachers}>
           {teachers &&
             teachers.slice(0, value).map(teacher => (
@@ -40,9 +38,7 @@ const TeachersFiles = ({ teachers }) => {
                 </div>
                 <div>
                   <div className={stls.name}>{teacher.name}</div>
-                  <ReactMarkdown components={customRenderers}>
-                    {teacher.achievements}
-                  </ReactMarkdown>
+                  <ReactMarkdown components={customRenderers}>{teacher.achievements}</ReactMarkdown>
                 </div>
               </li>
             ))}
