@@ -1,29 +1,12 @@
-'use client'
 import Wrapper from '@/ui/Wrapper'
+import React from 'react'
 import stls from './AdventuresCards.module.sass'
 import Image from 'next/image'
-import Link from 'next/link'
-import classNames from 'classnames'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
-interface ImageData {
-  src: string
-  width: number
-  height: number
-}
-
-interface AdventuresCardsProps {
-  showButton?: boolean
-}
-
-function AdventuresCards({ showButton }: AdventuresCardsProps) {
-  const desktopImages = Array.from(
-    { length: 9 },
-    (_, i) => `/assets/imgs/incomers/image${i + 1}.jpg`
-  )
-  const mobileImages = Array.from(
-    { length: 9 },
-    (_, i) => `/assets/imgs/incomers/imageMob${i + 1}.jpg`
-  )
+const AdventuresCards = ({ data }: any) => {
+  const isMobile = useBetterMediaQuery('(max-width: 768px)')
+  const isMobileOrTablet = useBetterMediaQuery('(max-width: 1024px)')
 
   const presetSizes = [
     { width: 370, height: 560 },
@@ -37,87 +20,90 @@ function AdventuresCards({ showButton }: AdventuresCardsProps) {
     { width: 470, height: 420 }
   ]
 
-  const desktopData: ImageData[] = desktopImages.map((src, index) => {
-    const size = presetSizes[index] || { width: 353, height: 322 }
-    return { src, width: size.width, height: size.height }
+  const images = data.map((item, index) => {
+    const presetSize = presetSizes[index]
+    return {
+      url: item.carousel.slide.files[isMobile ? 1 : 0].url,
+      width: isMobile ? 353 : presetSize?.width,
+      height: isMobile ? 322 : presetSize?.height
+    }
   })
 
-  const renderImages = (images: string[]) =>
-    images.map((src, index) => {
-      const size = presetSizes[index] || { width: 353, height: 322 }
-      return (
+  const firstBlock = images.slice(0, 2)
+  const secondBlock = images.slice(2, 4)
+  const thirdBlock = images.slice(4, 6)
+  const fourthBlock = images.slice(6)
+
+  const renderImageBlock = (blockImages, className) => (
+    <div className={`${stls.block} ${className}`}>
+      {blockImages.map((item, index) => (
         <div key={index} className={stls.imageContainer}>
           <Image
-            src={src}
-            width={size.width}
-            height={size.height}
+            src={item.url}
+            width={item.width}
+            height={item.height}
             alt='Образовательный процесс'
             className={stls.image}
           />
         </div>
-      )
-    })
-
-  const renderDesktopBlocks = () => {
-    const first = desktopData.slice(0, 2)
-    const second = desktopData.slice(2, 4)
-    const third = desktopData.slice(4, 6)
-    const fourth = desktopData.slice(6)
-
-    const renderBlock = (images: ImageData[], className: string) => (
-      <div className={`${stls.block} ${className}`}>
-        {images.map((item, index) => (
-          <div key={index} className={stls.imageContainer}>
-            <Image
-              src={item.src}
-              width={item.width}
-              height={item.height}
-              alt='Образовательный процесс'
-              className={stls.image}
-            />
-          </div>
-        ))}
-      </div>
-    )
-
-    return (
-      <>
-        {renderBlock(first, stls.blockTopLeft)}
-        {renderBlock(second, stls.blockBottomRight)}
-        {renderBlock(third, stls.blockSpaceBetween)}
-        {renderBlock(fourth, stls.blockFlex)}
-      </>
-    )
-  }
+      ))}
+    </div>
+  )
 
   return (
-    <section className={classNames({ [stls.container]: true, [stls.lightColorBg]: showButton })}>
+    <section className={stls.container}>
       <Wrapper>
         <h2 className={stls.title}>
-          <span className={stls.left}>Учёба, которая приводит к делу:  </span>
-          <span className={stls.right}>структура и этапы наших программ</span>
+          {isMobileOrTablet ? (
+            <>
+              <span className={stls.left}>Представь, что обучение — это путешествие,</span>
+              <span className={stls.right}>где каждый шаг приближает тебя к мечте</span>
+            </>
+          ) : (
+            <>
+              <p className={stls.left}>Представь, что обучение — это путешествие,</p>
+              <p className={stls.right}>где каждый шаг приближает тебя к мечте</p>
+            </>
+          )}
         </h2>
 
-        <div className={stls.imageMipContainer}>
-          <Image
-            src='/assets/imgs/incomers/mip-logo.png'
-            width={900}
-            height={300}
-            alt='МИП'
-            className={stls.imageMip}
-          />
-        </div>
-
-        <div className={`${stls.blockMain} ${stls.desktop}`}>{renderDesktopBlocks()}</div>
-        <div className={`${stls.blockMain} ${stls.mobile}`}>{renderImages(mobileImages)}</div>
-
-        {showButton && (
-          <div className={stls.buttonContainer}>
-            <Link href='https://mip.institute/incomers' passHref>
-              <p className={stls.text}>Читать подробнее об Институте</p>
-            </Link>
+        {!isMobile && (
+          <div className={stls.imageMipContainer}>
+            {/* <Image
+              src='https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739393511/MIP_648849f5c7.png'
+              width={900}
+              height={350}
+              alt='Мип'
+              className={stls.imageMip}
+            /> */}
+            <p className={stls.arrow}>{'{'}</p>
+            <p>московский инстиут психологии</p>
+            <p className={stls.arrow}>{'}'}</p>
           </div>
         )}
+
+        <div className={stls.blockMain}>
+          {!isMobile ? (
+            <>
+              {renderImageBlock(firstBlock, stls.blockTopLeft)}
+              {renderImageBlock(secondBlock, stls.blockBottomRight)}
+              {renderImageBlock(thirdBlock, stls.blockSpaceBetween)}
+              {renderImageBlock(fourthBlock, stls.blockFlex)}
+            </>
+          ) : (
+            images.map((item, index) => (
+              <div key={index} className={stls.imageContainer}>
+                <Image
+                  src={item.url}
+                  width={item.width}
+                  height={item.height}
+                  alt='Образовательный процесс'
+                  className={stls.image}
+                />
+              </div>
+            ))
+          )}
+        </div>
       </Wrapper>
     </section>
   )
