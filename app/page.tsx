@@ -9,7 +9,6 @@ import truncate from '@/helpers/general/truncate'
 
 export const revalidate = 3600
 export const generateMetadata = (): Metadata => {
-  // исправить каноникал перед продом и поменять noindex/nofollow на preview
   const title = `Московский Институт Психологии`
   const description =truncate(
     'Обучение на психолога: дополнительное психологическое образование (профессиональная переподготовка и повышение квалификации) по популярным направлениям вместе с экспертами Московского Института Психологии | Дипломы ФРДО',
