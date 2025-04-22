@@ -2,22 +2,31 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
-.container
-  max-width: max-content
-  @include m.gap($ptb: f.px(9), $plr: f.px(17))
-  border: 1px solid
-  @include m.dye(border, rgba(c.$white-900, .3))
-  border-radius: f.px(23)
+.labels
+  @include m.flex($fw: wrap)
+  gap: f.px(5)
+  @include m.gap($pt: f.px(20))
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(20))
+    @include m.flex($fd: column)
 
-.p
-  @include m.gap($mb: 0)
+.labelBase
+  @include m.flex($jc: center, $ai: center)
+  border-radius: f.px(23)
+  @include m.gap($ptb: f.px(9), $plr: f.px(17), $mb: 0)
+  font-size: f.px(13)
+  letter-spacing: f.px(1.3)
+  font-weight: 500
+  text-transform: uppercase
+  max-width: max-content
   @include m.media(phone, tablet)
     font-size: f.px(11)
-  @include m.media(laptop, desktop)
-    font-size: f.px(13)
-  font-weight: 500
-  letter-spacing: f.px(1.3)
-  text-transform: uppercase
+
+.labelType
+  @extend .labelBase
+  border: 1px solid rgba(c.$gray-100, 0.3)
+  @include m.dye(c, c.$white-900)
+
+.labelAdmission
+  @extend .labelBase
+  @include m.dye(bg, c.$orange-400)
   @include m.dye(c, c.$white-900)

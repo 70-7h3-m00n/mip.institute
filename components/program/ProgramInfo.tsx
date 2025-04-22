@@ -13,7 +13,6 @@ import ProgramAdmissionUntil from './ProgramAdmissionUntil'
 
 const ProgramInfo = () => {
   const { program } = useContext(ContextStaticProps)
-
   const studyHours = program?.studyHours || 0
   const studyForm = program?.studyForm || ''
   const studyFormLabel = program?.studyFormLabel || ''
@@ -31,7 +30,7 @@ const ProgramInfo = () => {
       icon: <IconUsers />
     },
     {
-      key: 'Ближайшее зачисление:',
+      key: type === 'Profession' ? 'Начало обучения:' : 'Ближайшее зачисление:',
       val: program?.admissionDate || ProgramAdmissionUntil(),
       icon: <IconMap />
     },
