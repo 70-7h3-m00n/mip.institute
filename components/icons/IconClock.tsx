@@ -1,6 +1,6 @@
 import stls from '@/styles/components/icons/IconClock.module.sass'
 
-const IconClock = ({colorCode='#F87E1B', size='18'}) => {
+const IconClock = ({colorCode='#FF8F52', size='18'}) => {
   return (
     <span className={stls.container}>
       <svg viewBox={`0 0 ${size} ${size}`} fill='none' xmlns='http://www.w3.org/2000/svg'>
