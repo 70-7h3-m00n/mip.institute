@@ -4,7 +4,8 @@
 
 .labels
   @include m.flex($fw: wrap)
-  gap: 5px
+  gap: f.px(5)
+  @include m.gap($pt: f.px(20))
   @include m.media(phone, tablet)
     @include m.flex($fd: column)
 
@@ -27,5 +28,5 @@
 
 .labelAdmission
   @extend .labelBase
-  @include m.dye(bg, c.$orange-700)
+  @include m.dye(bg, c.$orange-400)
   @include m.dye(c, c.$white-900)
