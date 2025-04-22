@@ -27,7 +27,7 @@ const CheckLicense = ({ isOchuVoMip }: Props) => {
 
           <div>
             <div className={stls.text}>
-              <h3 className={stls.title}>Проверьте лицензии</h3>
+              <p className={stls.title}>Проверьте лицензии</p>
               <p className={stls.p}>
                 Вы можете проверить действующие лицензии на сайте РОСОБРНАДЗОРА
               </p>
