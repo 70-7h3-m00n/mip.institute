@@ -7,7 +7,7 @@ import stls from '@/styles/components/sections/Reviews.module.sass'
 import SwiperContainer from '@/ui/SwiperContainer'
 import Tag from '@/ui/Tag'
 import classNames from 'classnames'
-import { useContext } from 'react'
+import { useProgramsSafe } from '@/hooks/general/useSafeContext'
 
 type ReviewsType = {
   standalone?: boolean
@@ -26,7 +26,11 @@ const Reviews = ({
   isLiveCourse,
   subtitle
 }: ReviewsType) => {
-  const { program } = useContext(ContextStaticProps)
+  // const { program } = useContext(ContextStaticProps)
+  const {
+        state: { program }
+      } = useProgramsSafe()
+  
   const uniqueReviewsCount = program?.unique_reviews?.length
   if (uniqueReviewsCount > 0) {
     reviews = program?.unique_reviews

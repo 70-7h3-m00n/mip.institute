@@ -1,0 +1,10 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.section
+  overflow-x: hidden
+  padding-top: 0 !important
+  @include m.dye(bg, c.$white-900)
+  @include m.media(phone, tablet)
+    margin-top: f.px(10)

@@ -16,7 +16,6 @@ const BuildYourBrandFAQ = () => {
             number={idx + 1}
             question={qna.question}
             answer={qna.answer}
-            variant='brand'
           />
         ))}
       </ul>

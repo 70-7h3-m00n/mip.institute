@@ -1,19 +1,14 @@
 import { getStudyFieldsLabels, getStudyFieldsSlugs } from '@/helpers/index'
 
-type getStudyFieldsType = {
-  [key: string]: any
-  studyField: string
-  studyFieldSlug: string
-}[]
+type StudyFieldItem = { label: string; slug: string }
 
-const getStudyFields = (programs: any[]) => {
+const getStudyFields = (programs: any[]): StudyFieldItem[] => {
   const labels = getStudyFieldsLabels(programs)
   const slugs = getStudyFieldsSlugs(programs)
 
-  const output = labels
+  return labels
     .map((item, idx) => slugs[idx] && { label: item, slug: slugs[idx] })
-    .filter(item => item)
-  return output
+    .filter((item): item is StudyFieldItem => Boolean(item))
 }
 
 export default getStudyFields

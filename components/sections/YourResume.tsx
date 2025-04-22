@@ -2,16 +2,18 @@ import stls from '@/styles/components/sections/YourResume.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import cn from 'classnames'
 import ImgResume1 from '@/components/imgs/resume/ImgResume1'
-import { ContextStaticProps } from '@/context/index'
-import { useContext } from 'react'
 import { toNumberWithSpaces } from '@/helpers/index'
 import ResumeDiplomas from '@/components/imgs/general/ResumeDiplomas'
 import Clip from '@/components/imgs/general/Clip'
 import IconGratefullPortal from '@/components/icons/IconGratefullPortal'
 import ReactMarkdown from 'react-markdown'
+import { useProgramsSafe } from '@/hooks/general/useSafeContext'
 
 const YourResume = ({ resumeRef = null }) => {
-  const { program } = useContext(ContextStaticProps)
+
+  const {
+        state: { program }
+      } = useProgramsSafe()
   const resumeSkills = program?.resumeSkills || ''
   const customRenderers = {
     ul: ({ children }) => <ul className={stls.list}>{children}</ul>,

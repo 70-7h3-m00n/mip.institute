@@ -10,7 +10,14 @@
   background-size: cover
   @include m.gap($ptb: f.px(40))
   @include m.media(phone, tablet)
-    @include m.gap($pt: f.px(23), $pb: f.px(15))
+    @include m.gap($ptb: f.px(25))
+
+.isHomePage
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
+
+.isHomePage > div > h2
+  font-weight: 700
 
 .title
   font-size: f.px(44)
@@ -24,12 +31,16 @@
   display: grid
   grid-template-columns: repeat(2, 1fr)
   gap: f.px(30)
-  font-size: f.px(20)
+  font-size: f.px(19)
   font-weight: 350
   @include m.media(phone, tablet)
     grid-template-columns: 1fr
-    gap: f.px(10)
+    gap: f.px(15)
     font-size: f.px(16)
+
+.textBlock > p
+  font-weight: 400
+  @include m.gap($mb: 0)
 
 .bold
   @include m.dye(c, c.$purple-800)
@@ -41,7 +52,7 @@
   position: relative
   min-height: f.px(900)
   @include m.media(laptop)
-    min-height: f.px(700)
+    min-height: f.px(800)
   @include m.media(tablet)
     min-height: f.px(400)
   @include m.media(phone)
@@ -57,6 +68,34 @@
   position: absolute
   transition: all 1s ease-out
   box-shadow: 0 f.px(10) f.px(20) rgba(0, 0, 0, 0.2)
-  border-radius: 10px
   border: f.px(.5) solid c.$purple-800
   z-index: 2
+
+.buttonContainer
+  position: absolute
+  @include m.flex($jc: center, $ai: center)
+  z-index: 2
+  border-radius: f.px(10)
+  background: #FF8F52
+  width: 80%
+  bottom: f.px(150)
+  @include m.gap($mt: f.px(30))
+  @include m.media(laptop)
+    bottom: f.px(100)
+  @include m.media(phone,tablet)
+    position: relative
+    width: 100%
+    bottom: 0
+    @include m.gap($mt: 0)
+    border-radius: f.px(5)
+  &:hover
+    transform: scale(1.02)
+
+.text
+  color: c.$white-900
+  font-size: f.px(22)
+  font-weight: 500
+  @include m.gap($mb: f.px(0),$ptb: f.px(21))
+  @include m.media(phone,tablet)
+    @include m.gap($ptb: f.px(18))
+    font-size: f.px(16)

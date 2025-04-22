@@ -4,78 +4,76 @@
 
 .container
   text-decoration: none
-  display: flex
+  @include m.flex($fd: column, $jc: space-between)
+  gap: f.px(30)
   cursor: pointer
-  height: fit-content
+  height: 100%
   width: 100%
+  border: 1px solid c.$orange-400
+  @include m.gap($p: f.px(15))
+  border-radius: f.px(10)
 
 .title
+  color: black
   font-weight: 500
   font-size: f.px(22)
+  max-width: f.px(300)
+  @include m.gap($mb: f.px(0))
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    @include m.gap($mb: f.px(5))
+
+.portrait > img
+  max-height: f.px(216)
+  border-radius: f.px(10)
+
+.subtitle
+  @include m.dye(c, c.$gray-700)
+  max-width: f.px(300)
+  font-size: f.px(16)
+  font-weight: 350
   @include m.gap($mb: f.px(0))
   @include m.media(phone, tablet)
     font-size: f.px(14)
-    @include m.gap($mb: f.px(5))
+    @include m.gap( $mb: f.px(5))
 
-.portrait
-  position: relative
-  @include m.media(phone, tablet)
-    @include m.gap($mr: f.px(15))
-  & > img
-    min-width: f.px(200)
-    max-width: f.px(200)
-    min-height: f.px(200)
-    max-height: f.px(200)
-    @include m.media(phone, tablet)
-      min-width: f.px(130)
-      max-width: f.px(130)
-      min-height: f.px(130)
-      max-height: f.px(130)
-
-.filter
-  border-radius: f.px(25)
-  position: absolute
-  @include m.dye(bg, c.$purple-800)
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  z-index: 4
-  opacity: 0.05
-
-.subtitle
-  color: #505050
+.duration
   font-size: f.px(16)
   font-weight: 350
+  color: black
   @include m.gap($mb: f.px(0))
   @include m.media(phone, tablet)
     font-size: f.px(12)
     @include m.gap( $mb: f.px(5))
 
-.description
-  padding-left: f.px(20)
-  @include m.flex($ai: flex-start, $jc:space-between, $fd: column)
-  @include m.media(phone, tablet)
-    padding-left: 0px
-
 .innerContainer
   height: 100%
+  width: 100%
   display: flex
   flex-direction: column
   justify-content: space-between
+  gap: f.px(20)
 
-.button
-  border-radius: 4px
-  @include m.gap($plr: f.px(28), $ptb: f.px(18), $mt: f.px(10))
-  @include m.flex($ai:center, $jc:center)
-  @include m.dye(bg, c.$purple-800)
-  @include m.dye(c, c.$white-900)
-  text-align: center
-  font-size: f.px(18)
-  font-style: normal
-  font-weight: 500
-  @include m.media(laptop)
-    @include m.gap($plr: f.px(15))
-  @include m.media(phone, tablet)
-    @include m.gap($plr: f.px(10), $ptb: f.px(9))
-    font-size: f.px(12)
+.logo :global(svg)
+  path
+    fill: c.$orange-400 !important
+
+.logo > span::after
+    @include m.dye(bg, c.$orange-400)
+
+.logoText
+  font-family: Geometria, sans-serif
+  font-size: f.px(11, em)
+  line-height: 120%
+  margin-right: -20px
+  text-transform: uppercase
+  margin-bottom: 0
+  @include m.dye(c, c.$orange-400)
+
+.logoWrapper
+  @include m.flex()
+  transform: scale(0.7)
+
+.cardFooter
+  width: 100%
+  @include m.flex($ai: flex-end, $jc: space-between)
