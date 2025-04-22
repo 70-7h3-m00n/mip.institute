@@ -1,17 +1,20 @@
 import FaqAnswer from '@/ui/FaqAnswer'
 import PopupTrigger from '@/ui/PopupTrigger'
 import Wrapper from '@/ui/Wrapper'
-import { ContextStaticProps } from '@/context/index'
 import stls from '@/styles/components/sections/Faq.module.sass'
 import listOnMain from 'constants/faq'
-import { useContext } from 'react'
 import { RefObject } from 'react'
+import { useProgramsSafe } from '@/hooks/general/useSafeContext'
 
 interface FaqProps {
   faqRef?: RefObject<HTMLDivElement>
 }
 const Faq = ({ faqRef }: FaqProps) => {
-  const { program, bachelor } = useContext(ContextStaticProps)
+  // const { program, bachelor } = useContext(ContextStaticProps)
+
+  const {
+      state: { program, bachelor }
+    } = useProgramsSafe()
 
   let list
 

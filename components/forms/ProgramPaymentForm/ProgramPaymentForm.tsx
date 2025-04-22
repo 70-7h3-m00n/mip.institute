@@ -51,7 +51,7 @@ const ProgramPaymentForm = ({ onClose, program, showMore }: Props) => {
   const onSubmit = async data => {
     setIsDisabled(true)
     setIsLoading(true)
-    const roistatAB = localStorage.getItem('AB')
+    const roistatAB = getCookie('homePageAB')?.toString() || ''
     // handle loader
     data.roistatAB = roistatAB
     data.leadPage = router.asPath

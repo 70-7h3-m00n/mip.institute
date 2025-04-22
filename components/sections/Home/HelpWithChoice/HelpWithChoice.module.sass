@@ -1,0 +1,176 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  width: 100%
+  background: url("/assets/imgs/home/HelpWithChoice/orangeBg.png") no-repeat center center
+  background-size: cover
+
+.title
+  @include m.dye(c, c.$white-900)
+
+.blocks
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  gap: f.px(30)
+  @include m.media(phone, tablet)
+    grid-template-columns: 1fr
+    gap: f.px(10)
+
+.block
+  @include m.gap($ptb: f.px(35), $plr: f.px(30))
+  min-height: f.px(405)
+  border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    @include m.gap($p: f.px(15))
+    min-height: f.px(250)
+
+.header
+  font-size: f.px(24)
+  font-weight: 600
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+
+.testBlock
+  @extend .block
+  background: url("/assets/imgs/home/HelpWithChoice/helpWithChoiceTestBg.png") no-repeat center center
+  background-size: cover
+  @include m.flex($fd: column, $jc: space-between)
+  @include m.media(phone, tablet)
+    background-color: #F4F4F4
+    background-position: 0 -20px
+
+.formBlock
+  @extend .block
+  @include m.dye(bg, c.$white-900)
+  & .name,
+  & .email,
+  & .phone
+    @include m.media(laptop, desktop)
+      @include m.flex($fb: 47%, $fd: column)
+  & .name,
+  & .email
+    & input
+      min-height: f.px(70)
+      max-height: f.px(70)
+      @include m.dye(bg, c.$gray-100)
+      border: f.px(1) solid c.$orange-400
+      @include m.media(laptop, desktop)
+        font-size: f.px(16)
+        border-radius: f.px(10)
+      @include m.media(phone, tablet)
+        min-height: f.px(55)
+        max-height: f.px(55)
+        @include m.gap($plr: f.px(10))
+        font-size: f.px(14)
+        border-radius: f.px(5)
+        &::placeholder
+          @include m.dye(c, c.$gray-500)
+
+.form
+  @include m.flex($fd: column, $jc: space-between)
+  gap: f.px(15)
+
+.icon
+  position: relative
+  left: f.px(-50)
+  bottom: f.px(0)
+  & > span > svg
+    border-bottom-left-radius: f.px(10)
+  @include m.media(phone, tablet)
+    left: f.px(-15)
+    bottom: f.px(-55)
+
+.group
+  @include m.media(laptop, desktop)
+    @include m.flex($fw: wrap, $jc: space-between)
+
+.inpt
+  & input,
+  & textarea
+    width: 100%
+    resize: none
+    @include m.gap($p: f.px(15))
+    border-radius: f.px(10)
+    font-weight: 300
+    @include m.media(tablet, phone)
+      @include m.gap($pl: f.px(10))
+      border-radius: f.px(5)
+    &::placeholder
+      font-size: f.px(14)
+      @include m.dye(c, c.$gray-500)
+
+.containerInput
+  & input
+    @include m.gap($ptb: f.px(15), $plr: f.px(20))
+    border-radius: f.px(10) !important
+    border-color: c.$orange-400 !important
+    background-color: c.$gray-100 !important
+    font-weight: 300
+    width: 100% !important
+    height: 70px !important
+    @include m.media(laptop)
+      font-size: f.px(16)
+      border-radius: f.px(10)
+      height: 63px !important
+    @include m.media(tablet, phone)
+      border-radius: f.px(5) !important
+      height: 55px !important
+
+.phoneInput,.dropdown
+  font-family: Stem !important
+
+.flagButton
+  border: 1px solid c.$orange-400 !important
+  background-color: c.$gray-100 !important
+  border-radius: f.px(10) !important
+  @include m.media(tablet, phone)
+    border-radius: f.px(5) !important
+  & > div
+    border-radius: f.px(10) !important
+    @include m.media(tablet, phone)
+      border-radius: f.px(5) !important
+    &:hover
+      background-color: whitesmoke !important
+
+.dropdown
+  @include m.dye(c, c.$gray-700)
+  border-radius: f.px(10) !important
+  width: 235px !important
+  @include m.media(laptop)
+    width: 240px !important
+  @include m.media(tablet)
+    border-radius: f.px(5) !important
+    width: 300px !important
+  @include m.media(phone)
+    border-radius: f.px(5) !important
+    width: 305px !important
+
+.err
+  @include m.gap($mtb: f.px(5))
+  @include m.dye(c, red)
+  font-size: f.px(12)
+
+.button
+  border-radius: f.px(10)
+  @include m.dye(c, c.$white-900)
+  @include m.gap($ptb: f.px(20))
+  font-size: f.px(22)
+  font-weight: 500
+  @include m.media(phone, tablet)
+    border-radius: f.px(5)
+    @include m.gap($ptb: f.px(15))
+    font-size: f.px(16)
+
+.form > button
+  @extend .button
+  @include m.dye(border, c.$orange-400)
+  @include m.dye(bg, c.$orange-400)
+
+.testBlock > button
+  @extend .button
+  @include m.dye(border, c.$purple-350)
+  @include m.dye(bg, c.$purple-350)
+

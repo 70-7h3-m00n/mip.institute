@@ -32,8 +32,8 @@ export interface PropsList {
 
 // Интерфейс для блока наши партнеры
 export interface PropsOurPartners {
-  allTypes: string[];
-  currentType: string;
+  allTypes?: string[];
+  currentType?: string;
   onePartner: Partner[];
 }
 

@@ -1,3 +1,4 @@
+'use client'
 import stls from './ExpandableItemCross.module.sass'
 import { ReactNode, useEffect, useState } from 'react'
 import IconCrossBlue from '@/components/icons/IconCrossBlue'
@@ -41,11 +42,7 @@ const ExpandableItemCross = ({
           </span>
         )}
 
-        {typeof title === 'string' ? (
-          <span className={stls.pTitle}>{title}</span>
-        ) : (
-          title
-        )}
+        {typeof title === 'string' ? <span className={stls.pTitle}>{title}</span> : title}
       </button>
 
       <div className={`${stls.content} ${isOpen ? stls.visible : ''}`}>

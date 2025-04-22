@@ -12,7 +12,7 @@ import ru from 'react-phone-input-2/lang/ru.json'
 import 'react-phone-input-2/lib/style.css'
 import PopupThankyouNew from '../popups/PopupThankYouNew'
 import Popup from 'reactjs-popup'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type FormValues = {
   name: string
@@ -36,10 +36,28 @@ const SupervisionPaymentForm = () => {
     }
   })
   const [thanksIsOpen, setThanksIsOpen] = useState(false)
+  const [clientReferer, setClientReferer] = useState<string | null>(null)
+
+
+  useEffect(() => {
+      if (typeof window !== 'undefined') { // Проверяем, что код выполняется в браузере
+        try {
+          const storedReferer = sessionStorage.getItem('referrer')
+          const storedUTMS = sessionStorage.getItem('utms')
+          const ym_uid = localStorage.getItem('ym_uid')
+  
+          setClientReferer(storedReferer ? storedReferer : '')
+        } catch (error) {
+          console.error('Ошибка парсинга referer:', error)
+          setClientReferer(null)
+        }
+  
+      }
+    }, [])
 
   const onSubmit = async data => {
     data.leadPage = router.asPath
-    const referer = JSON.parse(sessionStorage.getItem('referer') ?? '')
+    const referer = clientReferer
     data.referer = referer
     const utm = getCookie('utm')
     if (typeof utm === 'string') {

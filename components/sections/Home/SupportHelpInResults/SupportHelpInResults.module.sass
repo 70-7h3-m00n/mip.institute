@@ -1,0 +1,59 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$white-900)
+  background-size: cover
+
+.title
+  line-height: 120%
+  @include m.gap($mb: f.px(25))
+  @include m.media(phone, tablet)
+    font-size: f.px(25)
+    @include m.gap($mb: f.px(15))
+
+.tabs
+  @include m.flex($jc: space-between)
+  gap: 10px
+  border: 1px solid c.$purple-350
+  background: #F9F6FF
+  border-radius: f.px(100)
+  height: 77px
+  @include m.gap($mb: f.px(35), $ptb: f.px(6), $plr: f.px(11))
+  @include m.media(phone, tablet)
+    display: none
+
+.tab
+  @include m.flex($ai: center,$jc: center)
+  @include m.gap( $plr: f.px(20))
+  border-radius: 100px
+  font-size: f.px(20)
+  cursor: pointer
+  transition: 0.3s
+  color: c.$black-700
+  font-weight: 400
+  line-height: 110%
+
+  &:hover, &.activeTab
+    background: c.$purple-350
+    color: white
+
+.select
+  width: 100%
+  height: 50px
+  border: none
+  background: transparent
+  font-size: f.px(20)
+  color: c.$purple-800
+  text-align: center
+  font-weight: 700
+  cursor: pointer
+  outline: none
+  @include m.gap($mb: f.px(15))
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+
+  &:focus
+    border: none
+    outline: none

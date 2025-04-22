@@ -17,7 +17,6 @@ const Scripts = () => {
   return (
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
-      <Script strategy='afterInteractive' src='/assets/js/vendors/roistatAB.js' />
       <Script
         id='roistatMain'
         strategy='afterInteractive'

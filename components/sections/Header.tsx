@@ -12,7 +12,7 @@ import stls from '@/styles/components/sections/Header.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useContext, useEffect, useMemo, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
@@ -36,9 +36,10 @@ const Header = () => {
   const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
   const [isWithGift, setIsWithGift] = useState(false)
+  
+  const utmCookie = getCookie('utm')?.toString() || ''
 
-  const utmCookie =  getCookie('utm')?.toString() || '';
-
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
@@ -56,61 +57,68 @@ const Header = () => {
   // /SticyTop
 
   useEffect(() => {
-    const urlUtmsArr = String(searchParams);
-  
-    if (!urlUtmsArr.length) return; // Если в URL нет UTM-меток, выходим
-  
-    const utms = urlUtmsArr.split('&').reduce((acc, utm) => {
-      const [key, value] = utm.split('=');
-      acc[key] = decodeURIComponent(value); // Декодируем значение UTM
-      return acc;
-    }, {} as Record<string, string>);
-  
-    setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 });
-  }, [searchParams]);
+    const urlUtmsArr = String(searchParams)
 
+    if (!urlUtmsArr.length) return // Если в URL нет UTM-меток, выходим
+
+    const utms = urlUtmsArr.split('&').reduce(
+      (acc, utm) => {
+        const [key, value] = utm.split('=')
+        acc[key] = decodeURIComponent(value) // Декодируем значение UTM
+        return acc
+      },
+      {} as Record<string, string>
+    )
+
+    setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
+  }, [searchParams])
 
   useEffect(() => {
-    TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' });
-  
+    TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
+
     // Загружаем utm из sessionStorage
-    const storedUtms = sessionStorage.getItem('utms');
-    const utms = storedUtms ? JSON.parse(storedUtms) : {};
-  
+    const storedUtms = sessionStorage.getItem('utms')
+    const utms = storedUtms ? JSON.parse(storedUtms) : {}
+
     if (Object.keys(utms).length === 0) {
-      const utmParams = String(searchParams);
+      const utmParams = String(searchParams)
       if (utmParams) {
         const parsedUtms = Object.fromEntries(
           utmParams.split('&').map(utm => utm.split('=').map(decodeURIComponent))
-        );
-  
-        sessionStorage.setItem('utms', JSON.stringify(parsedUtms));
+        )
+
+        sessionStorage.setItem('utms', JSON.stringify(parsedUtms))
       }
     }
-  
+
     // Сохраняем реферер, если его нет в sessionStorage
     if (!sessionStorage.getItem('referrer')) {
-      sessionStorage.setItem('referrer', JSON.stringify(document.referrer));
+      sessionStorage.setItem('referrer', JSON.stringify(document.referrer))
     }
-  
+
     // Настраиваем NProgress
-    NProgress.configure({ showSpinner: false });
-  
-    const start = () => NProgress.start();
-    const end = () => NProgress.done();
-  
-    Router.events.on('routeChangeStart', start);
-    Router.events.on('routeChangeComplete', end);
-    Router.events.on('routeChangeError', end);
-  
+    NProgress.configure({ showSpinner: false })
+
+    const start = () => NProgress.start()
+    const end = () => NProgress.done()
+
+    Router.events.on('routeChangeStart', start)
+    Router.events.on('routeChangeComplete', end)
+    Router.events.on('routeChangeError', end)
+
     return () => {
-      Router.events.off('routeChangeStart', start);
-      Router.events.off('routeChangeComplete', end);
-      Router.events.off('routeChangeError', end);
-    };
-  }, [searchParams]);
-  
-  
+      Router.events.off('routeChangeStart', start)
+      Router.events.off('routeChangeComplete', end)
+      Router.events.off('routeChangeError', end)
+    }
+  }, [searchParams])
+  // А/Б тест
+  const homePageAB = getCookie('homePageAB')?.toString() || ''
+  const [roistatAB, setRoistatAB] = useState<string | null>('old')
+  useEffect(() => {
+    setRoistatAB(homePageAB as 'old' | 'new')
+  }, [homePageAB])
+
   return (
     <>
       <StickyTop
@@ -122,19 +130,11 @@ const Header = () => {
       <header
         className={classNames({
           [stls.container]: true,
-          [stls.promo]: isPromo
+          [stls.promo]: isPromo,
+          [stls.newHomePage]: pathname === '/' && roistatAB === 'new'
         })}>
         <MenuMobile />
         <Wrapper>
-          {pathname === '/' && (
-            <div className={stls.top}>
-              <div className={stls.topleft}>
-                <Link href={routes.front.svedenCommon} className={stls.linkInfo}>
-                  Сведения об образовательной организации
-                </Link>
-              </div>
-            </div>
-          )}
           <div className={stls.row}>
             <Logo atHeader />
             <div className={stls.btns}>
@@ -145,8 +145,17 @@ const Header = () => {
               <BtnFields />
             </div>
             <SearchProgramsDropDown />
-            <IconsDropDown />
+            <IconsDropDown newMainPage={pathname === '/' && roistatAB === 'new'} />
           </div>
+          {pathname === '/' && (
+            <div className={stls.bottom}>
+              <div className={stls.bottomleft}>
+                <Link href={routes.front.svedenCommon} className={stls.linkInfo}>
+                  Сведения об образовательной организации
+                </Link>
+              </div>
+            </div>
+          )}
         </Wrapper>
       </header>
     </>

@@ -1,14 +1,14 @@
-import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import stls from '@/styles/components/sections/Header.module.sass'
 import CardTooltip from '../cards/CardTooltip'
 import IconArrowRight from '@/components/icons/IconArrowRight'
 import IconSearchAlt from '@/components/icons/IconSearchAlt'
-import getProgramsData from '@/lib/data/getProgramsData'
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
 import routes from '@/config/routes'
 import BtnField from '../btns/BtnField'
 import { usePathname } from 'next/navigation'
+import { useProgramsSafe } from '@/hooks/general/useSafeContext'
 
 type Program = {
   id: string
@@ -35,7 +35,9 @@ export default function SearchProgramsDropDown() {
   const [isInputVisible, setInputVisible] = useState<boolean>(false)
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [filteredPrograms, setFilteredPrograms] = useState<Program[]>([])
-  const [programs, setPrograms] = useState<Program[]>([])
+  const {
+    state: { programs }
+  } = useProgramsSafe()
 
   const inputRef = useRef<HTMLInputElement | null>(null)
   const iconRef = useRef<HTMLDivElement | null>(null)
@@ -64,19 +66,6 @@ export default function SearchProgramsDropDown() {
     setDescriptionText(currentItem ? currentItem.val : 'Об институте')
   }, [pathname, list])
 
-  // Загружаем программы
-  useEffect(() => {
-    const fetchPrograms = async () => {
-      try {
-        const allPrograms: Program[] | undefined = await getProgramsData()
-        if (allPrograms) setPrograms(allPrograms)
-      } catch (error) {
-        console.error('Ошибка загрузки программ:', error)
-      }
-    }
-    fetchPrograms()
-  }, [])
-
   // Обновляем `filteredPrograms` при изменении `searchQuery`
   useEffect(() => {
     if (!searchQuery) {
@@ -91,7 +80,7 @@ export default function SearchProgramsDropDown() {
     setFilteredPrograms(filtered)
   }, [programs, searchQuery])
 
-  const firstShownPrograms = [programs[11], programs[19], programs[8], programs[0]]
+  const firstShownPrograms = [programs?.[11], programs?.[19], programs?.[8], programs?.[0]]
 
   // Обработчик клика вне инпута
   const handleDocumentClick = useCallback((event: MouseEvent) => {

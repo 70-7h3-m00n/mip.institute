@@ -1,7 +1,6 @@
 import CardTeacher from '@/components/cards/CardTeacher'
 import ImgTeacher from '@/components/imgs/teachers/ImgTeacher'
 import Wrapper from '@/ui/Wrapper'
-import { ContextStaticProps } from '@/context/index'
 import { getImageHeight, sortBasedOnNumericOrder } from '@/helpers/index'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import stls from '@/styles/components/sections/Teachers.module.sass'
@@ -10,10 +9,10 @@ import CustomNextButton from '@/ui/CustomNextButton'
 import CustomPrevButton from '@/ui/CustomPrevButton'
 import Tag from '@/ui/Tag'
 import classNames from 'classnames'
-import { useContext } from 'react'
 import SwiperCore from 'swiper'
 import { Autoplay, Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { useProgramsSafe } from '@/hooks/general/useSafeContext'
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, Autoplay])
 
@@ -45,7 +44,12 @@ const Teachers = ({
   isTeacherRoundBtn = true,
   showOnMobile = true
 }: TeacherProps) => {
-  const { program, curProgramsType } = useContext(ContextStaticProps)
+  // const { program, curProgramsType } = useContext(ContextStaticProps)
+
+  const {
+        state: { program, curProgramsType }
+      } = useProgramsSafe()
+
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   let teachers = teachersList || teachersFromMain || program?.teachers

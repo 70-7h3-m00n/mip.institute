@@ -1,0 +1,147 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  background: c.$purple-800
+  border-radius: 30px
+  @include m.gap($ptb: f.px(45))
+  position: relative 
+  overflow: visible
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(24))
+    margin-top: -20px
+
+.lightColorBg
+  background: c.$purple-350
+
+.imageMipContainer
+    position: sticky
+    top: 120px
+    @include m.gap($mb: f.px(70))
+    @include m.media(phone, tablet)
+      display: none
+
+.imageMip
+    width: 100%
+    height: auto
+
+.title
+  color: c.$white-900
+  font-size: f.px(44)
+  font-weight: 500
+  line-height: 120%
+  @include m.gap($mb: f.px(70))
+  position: sticky
+  top: 20px
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+    @include m.gap($mb: f.px(70))
+
+.left
+  display: block
+  text-align: left
+  @include m.gap($mb: f.px(0))
+  @include m.media(phone, tablet, laptop)
+    display: inline
+
+.right
+  display: block
+  text-align: right
+  @include m.media(phone, tablet, laptop)
+    display: inline
+
+.blockMain
+  @include m.flex($fd: column)
+  gap: f.px(70)
+  z-index: 2
+
+.desktop
+  @include m.media(phone, tablet)
+    display: none
+
+.mobile
+  display: none
+  @include m.media(phone, tablet)
+
+    display: flex
+    gap: f.px(10)
+    
+.block 
+  @include m.flex() 
+  width: 100%
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column) 
+    gap: f.px(10)
+
+.blockTopLeft 
+  @include m.flex($jc: flex-start, $ai: flex-start) 
+  gap: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.flex($jc: center, $ai: center) 
+    gap: f.px(10)
+
+.blockBottomRight 
+  @include m.flex($jc: flex-end, $ai: flex-end) 
+  gap: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.flex($jc: center, $ai: center) 
+    gap: f.px(10)
+
+.blockSpaceBetween 
+  @include m.flex($jc: space-between) 
+  @include m.media(phone, tablet)
+    @include m.flex($jc: center, $ai: center) 
+    gap: f.px(10)
+
+.blockFlex 
+  @include m.flex($jc: space-between) 
+  gap: f.px(30)
+  flex-wrap: wrap
+  @include m.media(phone, tablet)
+    @include m.flex($jc: center, $ai: center) 
+    gap: f.px(10)
+
+.imageContainer 
+  @include m.flex()
+  z-index: 2
+  @include m.media(phone, tablet)
+    width: 100%
+    position: sticky
+    top: 170px
+
+.image
+  border-radius: 30px
+  border: 1px solid c.$purple-350
+  @include m.media(laptop)
+    width: 100%
+    height: auto
+    border-radius: 35px
+  @include m.media(tablet)
+    width: 100%
+    height: auto
+    border-radius: 30px
+  @include m.media(phone)
+    width: 100%
+    height: auto
+    border-radius: 15px
+
+.buttonContainer
+  @include m.flex($jc: center, $ai: center) 
+  z-index: 2
+  border-radius: f.px(10)
+  background: #FF8F52
+  width: 100%
+  @include m.gap($mt: f.px(30))
+  @include m.media(phone,tablet)
+    @include m.gap($mt: f.px(10))
+    border-radius: f.px(5)
+
+.text
+  color: c.$white-900
+  font-size: f.px(22)
+  font-weight: 500
+  @include m.gap($mb: f.px(0),$ptb: f.px(21))
+  @include m.media(phone,tablet)
+    @include m.gap($ptb: f.px(18))
+    font-size: f.px(16)

@@ -1,0 +1,114 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  background: url("/assets/imgs/home/HelpWithChoice/orangeBg.png") no-repeat center center
+  background-size: cover
+  @include m.gap($ptb: f.px(50))
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(20)
+
+.swiper
+  @include m.dye(bg, c.$white-900)
+  padding: 50px 0 50px 50px !important
+  margin-top: 50px !important
+  margin-bottom: 50px !important
+  border-radius: f.px(10)
+  @include m.media(phone, tablet)
+    padding: 20px 0 !important
+    margin-top: 20px !important
+    margin-bottom: 20px !important
+
+.rounded
+  border-radius: f.px(20)
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
+
+.questionTitle
+  font-size: f.px(30)
+  font-style: normal
+  font-weight: 500
+  line-height: 130%
+  @include m.gap($pl: f.px(20))
+  color: black
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+
+.card
+  display: flex
+  gap: f.px(10)
+
+.leftBlock
+  @include m.flex($fd: column, $jc: space-between)
+  gap: f.px(20)
+  @include m.media(phone, tablet)
+    gap: f.px(10)
+
+.rightBlock
+  @include m.flex($fd: column, $jc: space-between)
+
+.radio
+  width: f.px(30)
+  height: f.px(30)
+  background: c.$orange-400 !important
+  cursor: pointer
+  @include m.gap($mr: f.px(30))
+  &:checked
+    accent-color: c.$orange-400
+  @include m.media(phone, tablet)
+    height: f.px(20)
+
+.label
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 500
+  line-height: 130%
+  cursor: pointer
+
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+
+.btn > button
+  @include m.gap($mt: f.px(20), $ptb: f.px(14), $plr: f.px(30), $ml: f.px(15))
+  border-radius: f.px(10)
+  display: inline-block
+  @include m.dye(c, c.$white-900)
+  @include m.dye(bg, c.$orange-400)
+  font-size: f.px(18)
+  cursor: pointer
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+    @include m.gap($mt: f.px(30), $ptb: f.px(15), $plr: f.px(25))
+  &:hover
+    @include m.dye(bg, c.$orange-400)
+  &:disabled
+    background: #acacac
+    cursor: not-allowed
+
+.inputAndQuestion
+  display: flex
+  align-items: center
+  @include m.dye(bg, c.$orange-400)
+  @include m.dye(c, c.$white-900)
+  @include m.gap($ptb: f.px(10), $plr: f.px(30))
+  border-radius: f.px(10)
+  border: f.px(4) solid c.$purple-200
+
+.radioQuiz
+  min-width: f.px(20)
+  height: f.px(20)
+  cursor: pointer
+  appearance: none
+  border-radius: 50%
+  border: f.px(2) solid c.$orange-400
+  background-color: #fff
+  position: relative
+  transition: border-color 0.3s ease
+  @include m.gap($mr: f.px(20))
+  @include m.media(phone, tablet)
+    height: f.px(20)
+
+  &:checked
+    border-color: c.$orange-400
+    background-color: c.$orange-400

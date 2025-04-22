@@ -1,0 +1,84 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.heading
+  color: c.$purple-350
+  font-weight: 700
+  font-size: f.px(22)
+  letter-spacing: -0.44px
+  margin-bottom: f.px(10)
+  @include m.media(laptop)
+    font-size: f.px(18)
+
+.textBlock
+  top: f.px(35)
+  left: 0
+  right: 0
+  position: absolute
+  z-index: 2
+  text-align: center
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: f.px(370)
+  @include m.media(laptop)
+    width: f.px(320)
+  @include m.media(phone, tablet)
+    top: f.px(25)
+    width: 100%
+
+
+.text
+  max-width: f.px(320)
+  margin-bottom: 0px
+  font-size: f.px(15)
+  font-weight: 600
+  @include m.media(laptop)
+    max-width: f.px(300)
+  @include m.media(phone, tablet)
+    max-width: f.px(290)
+
+.img
+  object-fit: cover
+  border-radius: f.px(10)
+  border: 1px solid #A78CFF
+  
+
+
+.nextImg
+  border-radius: f.px(10) f.px(10) f.px(0) f.px(0)
+  
+
+.img, .nextImg
+  width: f.px(370)
+  height: f.px(370)
+  @include m.media(laptop)
+    width: f.px(320)
+    height: f.px(320)
+  @include m.media(phone, tablet)
+    width: f.px(320)
+    height: f.px(320)
+    border: 1px solid #A78CFF
+    border-radius: f.px(10)
+    object-fit: cover
+
+
+.container
+  overflow: visible
+
+.nextWrap, .wrap 
+  @include m.media(phone, tablet)
+    display: flex
+    justify-content: center
+
+.wrap 
+  position: relative
+  transition: transform 0.5s ease-out
+  transform: translateY(0%)
+
+.nextWrap
+  transition: transform 0.5s ease-out
+  transform: translateY(0%)
+  @include m.media(phone, tablet) 
+    transform: translateY(0%)
