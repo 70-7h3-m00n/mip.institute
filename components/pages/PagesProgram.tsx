@@ -92,9 +92,9 @@ const PagesProgram = ({
       <HeroProgram />
       <PageNavigation sections={sections} />
       <WhyBother />
-      {programOverview && (
+      {/* {programOverview && (
         <ProgramOverview showDescription={showDescription} toggleOverview={toggleOverview} />
-      )}
+      )} */}
 
       {checkSlug.includes(slug) ? (
         <>
