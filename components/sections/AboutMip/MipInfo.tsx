@@ -3,7 +3,7 @@ import stls from '@/styles/pages/about/MipInfo.module.sass'
 export default function MipInfo() {
   return (
     <div className={stls.container}>
-      <h1>Московский институт психологии</h1>
+      <h1>О Московском Институте Психологии</h1>
       <ul className={stls.redDot}>
         <li>Наш Институт за современный подход в образовании</li>
         <li>  
