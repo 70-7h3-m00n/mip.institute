@@ -6,8 +6,11 @@ const ProgramLabel = () => {
   const { program } = useContext(ContextStaticProps)
 
   return (
-    <div className={stls.container}>
-      <p className={stls.p}>{program?.typeLabel}</p>
+    <div className={stls.labels}>
+      <p className={stls.labelType}>{program?.typeLabel}</p>
+      {program?.type === 'Profession' && (
+        <p className={stls.labelAdmission}>Идёт приём документов</p>
+      )}
     </div>
   )
 }
