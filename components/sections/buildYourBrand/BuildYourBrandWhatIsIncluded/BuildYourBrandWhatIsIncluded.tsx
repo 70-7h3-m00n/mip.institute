@@ -27,16 +27,21 @@ const BuildYourBrandWhatIsIncluded = () => {
           <span className={styles.value}>{tariff.title}</span>
         </li>
         <li className={styles.item}>
-          <span className={styles.category}>кол-во участников</span>
+          <span className={`${styles.category} ${styles.multilineMobile}`}>кол-во участников</span>
           <span className={styles.value}>{tariff.people}</span>
         </li>
         <li className={styles.item}>
           <span className={styles.category}>стоимость</span>
-
-          <div className={styles.prices}>
-            <span className={classNames(styles.oldPrice)}>{tariff.oldPrice} ₽</span>
-            <span className={classNames(styles.price)}>{tariff.price} ₽</span>
-          </div>
+          {tariff.title === '«ХОЧУ ЛИЧНЫЙ БРЕНД»' ? (
+            <div className={styles.prices}>
+              <span className={classNames(styles.price)}>набор закрыт</span>
+            </div>
+          ) : (
+            <div className={styles.prices}>
+              <span className={classNames(styles.oldPrice)}>{tariff.oldPrice} ₽</span>
+              <span className={classNames(styles.price)}>{tariff.price}</span>
+            </div>
+          )}
         </li>
       </ul>
 
@@ -72,7 +77,7 @@ const BuildYourBrandWhatIsIncluded = () => {
         <PopupTrigger
           btn='alpha'
           cta='beginStudy'
-          additionalInfo='*скидка действует только до 21 апреля'
+          // additionalInfo='*скидка действует только до 21 апреля'
         />
       </div>
     </section>
