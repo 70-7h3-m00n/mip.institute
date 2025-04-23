@@ -56,9 +56,16 @@
 .bold
   font-weight: 500 !important
 
+
 .category
+  white-space: nowrap
   font-size: f.px(15)
   font-weight: 350
+  &.multilineMobile
+    @include m.media(phone, tablet)
+      white-space: normal
+      display: inline-block
+      max-width: f.px(70)
 
 .prices
   @include m.flex($ai: center)
