@@ -1,0 +1,35 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$gray-100)
+  @include m.flex($fd: column)
+  gap: f.px(30)
+  @include m.gap($plr: f.px(15), $ptb: f.px(30))
+  font-family: Mulish, sans-serif
+  @include m.media(tablet, phone)
+    @include m.gap($plr: 0, $ptb: f.px(10))
+
+.container :global(h2)
+  font-weight: 700
+  font-size: f.px(44)
+  @include m.media(tablet, phone)
+    font-size: f.px(26)
+
+.container :global(section)
+  border-radius: f.px(20)
+  @include m.gap($ptb: f.px(40))
+  @include m.media(tablet, phone)
+    @include m.gap($ptb: f.px(25))
+    border-radius: f.px(10)
+
+.wrapper
+  margin: 0 auto
+  width: 100%
+  @include m.media(desktop, laptop)
+    @include m.gap($plr: f.px(15, em))
+    max-width: f.px(1200, em)
+  @include m.media(phone, tablet)
+    max-width: none
+    @include m.gap($plr: 0)
