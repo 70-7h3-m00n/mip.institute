@@ -1,7 +1,6 @@
 'use client'
 import stls from './NewAboutClient.module.sass'
 import ProgramForRequest from '@/components/sections/Incomers/ProgramForRequest/ProgramForRequest'
-import JoinCommunity from '@/components/sections/lectorium/Stub/JoinCommunity/JoinCommunity'
 import LeadingTeachersMIP from '@/components/sections/Home/LeadingTeachersMIP/LeadingTeachersMIP'
 import EducationLevels from '@/components/sections/Home/EducationLevels/EducationLevels'
 import StudyProcess from '@/components/sections/Incomers/StudyProcess/StudyProcess'
@@ -12,6 +11,8 @@ import { THomev2PageData } from '@/types/index'
 import { ProgramsDataQueryResult } from '@/types/page/home/homeGeneralTypes'
 import MissionBlock from './MissionBlock/MissionBlock'
 import LicenseBlock from './LicenseBlock/LicenseBlock'
+import MissionBlockCards from '@/components/newAbout/MissionBlock/MissionBlockCards/MissionBlockCards'
+import AboutJoinCommunity from '@/components/newAbout/AboutJoinCommunity/AboutJoinCommunity'
 
 export const meetInstituteData = [
   {
@@ -95,6 +96,7 @@ export default function NewAboutClient({ data, all }: NewAboutClientServerProps)
   return (
     <div className={stls.container}>
       <MissionBlock />
+      <MissionBlockCards />
       <MeetInstitute data={meetInstituteData} />
       <Office />
       <VacanciesVideo props={{ text: 'Познакомим с институтом за 2 минуты', icon: '' }} />
@@ -107,9 +109,7 @@ export default function NewAboutClient({ data, all }: NewAboutClientServerProps)
       <LeadingTeachersMIP />
       <LicenseBlock />
       <ProgramForRequest />
-      <div className={stls.wrapper}>
-        <JoinCommunity />
-      </div>
+      <AboutJoinCommunity />
     </div>
   )
 }
