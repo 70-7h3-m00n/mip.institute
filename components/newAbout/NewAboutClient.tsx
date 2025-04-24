@@ -13,7 +13,8 @@ import LicenseBlock from './LicenseBlock/LicenseBlock'
 import MissionBlockCards from '@/components/newAbout/MissionBlock/MissionBlockCards/MissionBlockCards'
 import AboutJoinCommunity from '@/components/newAbout/AboutJoinCommunity/AboutJoinCommunity'
 import LifeAtInstitute from './LifeAtInstitute/LifeAtInstitute'
-import { meetInstituteData } from './consts'
+import { meetInstituteData, vacanciesVideoProps } from './consts'
+import AboutInstituteBlock from './AboutInstituteBlock/AboutInstituteBlock'
 
 interface NewAboutClientServerProps {
   all: ProgramsDataQueryResult
@@ -21,23 +22,26 @@ interface NewAboutClientServerProps {
 
 export default function NewAboutClient({ all }: NewAboutClientServerProps) {
   return (
-    <div className={stls.container}>
-      <MissionBlock />
-      <MissionBlockCards />
-      <MeetInstitute data={meetInstituteData} />
-      <Office />
-      <VacanciesVideo props={{ text: 'Познакомим с институтом за 2 минуты', icon: '' }} />
-      <StudyProcess />
-      <EducationLevels
-        bachelorsLength={all.bachelor?.length || 0}
-        practicalTrainingsLength={all.practicalTrainings?.length || 0}
-        programs={all.programs || []}
-      />
-      <LeadingTeachersMIP />
-      <LicenseBlock />
-      <LifeAtInstitute />
-      <ProgramForRequest />
-      <AboutJoinCommunity />
-    </div>
+    <>
+      <AboutInstituteBlock />
+      <div className={stls.container}>
+        <MissionBlock />
+        <MissionBlockCards />
+        <MeetInstitute data={meetInstituteData} />
+        <Office />
+        <VacanciesVideo props={vacanciesVideoProps} />
+        <StudyProcess />
+        <EducationLevels
+          bachelorsLength={all.bachelor?.length || 0}
+          practicalTrainingsLength={all.practicalTrainings?.length || 0}
+          programs={all.programs || []}
+        />
+        <LeadingTeachersMIP />
+        <LicenseBlock />
+        <LifeAtInstitute />
+        <ProgramForRequest />
+        <AboutJoinCommunity />
+      </div>
+    </>
   )
 }

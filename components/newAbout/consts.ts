@@ -70,3 +70,8 @@ export const meetInstituteData = [
     ]
   }
 ]
+
+export const vacanciesVideoProps = {
+  text: 'Познакомим с институтом за 2 минуты',
+  icon: ''
+}
