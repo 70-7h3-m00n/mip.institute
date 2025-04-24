@@ -1,0 +1,67 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  background-color: c.$white-900
+  border-radius: f.px(30)
+
+.title
+  font-size: f.px(42)
+  font-weight: 700
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone ,tablet)
+    @include m.gap($mb: f.px(15))
+
+.cards
+  @include m.flex()
+  gap: f.px(30)
+  @include m.media(phone ,tablet)
+    @include m.flex($fd: column)
+    gap: f.px(20)
+
+.card
+  background-color: c.$pink-100
+  border-radius: f.px(10)
+  @include m.gap($pl: f.px(15),$ptb: f.px(15),$pr: f.px(22))
+  @include m.flex($fd: column)
+  flex: 1
+  text-decoration: none
+  gap: f.px(6)
+
+.top
+  @include m.flex($ai: center)
+  gap: f.px(8)
+
+  svg
+    width: 29px
+    height: 29px
+    flex-shrink: 0
+    @include m.media(phone)
+      width: 27px
+      height: 27px
+
+.highlight
+  font-weight: 600
+  font-size: f.px(20)
+  color: c.$purple-350
+
+.bottom
+  display: inline
+  color: c.$black-900
+  font-size: f.px(16)
+  font-weight: 350
+  line-height: 132%
+  @include m.media(phone)
+    @include m.flex($ai: flex-end)
+
+  svg
+    display: inline
+    width: f.px(12)
+    height: f.px(12)
+    @include m.gap($ml: f.px(20))
+    @include m.media(phone)
+      width: f.px(26)
+      height: f.px(10)
+      @include m.gap($mb: f.px(5),$ml: f.px(0))
+      

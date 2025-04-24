@@ -11,6 +11,7 @@ import VacanciesVideo from '@/components/sections/Vacancies/VacanciesVideo/Vacan
 import { THomev2PageData } from '@/types/index'
 import { ProgramsDataQueryResult } from '@/types/page/home/homeGeneralTypes'
 import MissionBlock from './MissionBlock/MissionBlock'
+import LicenseBlock from './LicenseBlock/LicenseBlock'
 
 export const meetInstituteData = [
   {
@@ -104,6 +105,7 @@ export default function NewAboutClient({ data, all }: NewAboutClientServerProps)
         programs={all.programs || []}
       />
       <LeadingTeachersMIP />
+      <LicenseBlock />
       <ProgramForRequest />
       <div className={stls.wrapper}>
         <JoinCommunity />
