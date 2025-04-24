@@ -10,6 +10,7 @@ import MeetInstitute from '@/components/sections/Incomers/MeetInstitute/MeetInst
 import VacanciesVideo from '@/components/sections/Vacancies/VacanciesVideo/VacanciesVideo'
 import { THomev2PageData } from '@/types/index'
 import { ProgramsDataQueryResult } from '@/types/page/home/homeGeneralTypes'
+import MissionBlock from './MissionBlock/MissionBlock'
 
 export const meetInstituteData = [
   {
@@ -92,6 +93,7 @@ interface NewAboutClientServerProps {
 export default function NewAboutClient({ data, all }: NewAboutClientServerProps) {
   return (
     <div className={stls.container}>
+      <MissionBlock />
       <MeetInstitute data={meetInstituteData} />
       <Office />
       <VacanciesVideo props={{ text: 'Познакомим с институтом за 2 минуты', icon: '' }} />
