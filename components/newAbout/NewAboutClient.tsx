@@ -7,93 +7,19 @@ import StudyProcess from '@/components/sections/Incomers/StudyProcess/StudyProce
 import Office from '@/components/contacts/Office/Office'
 import MeetInstitute from '@/components/sections/Incomers/MeetInstitute/MeetInstitute'
 import VacanciesVideo from '@/components/sections/Vacancies/VacanciesVideo/VacanciesVideo'
-import { THomev2PageData } from '@/types/index'
 import { ProgramsDataQueryResult } from '@/types/page/home/homeGeneralTypes'
 import MissionBlock from './MissionBlock/MissionBlock'
 import LicenseBlock from './LicenseBlock/LicenseBlock'
 import MissionBlockCards from '@/components/newAbout/MissionBlock/MissionBlockCards/MissionBlockCards'
 import AboutJoinCommunity from '@/components/newAbout/AboutJoinCommunity/AboutJoinCommunity'
 import LifeAtInstitute from './LifeAtInstitute/LifeAtInstitute'
-
-export const meetInstituteData = [
-  {
-    id: 1,
-    text: [
-      {
-        type: 'paragraph',
-        children: [{ text: '8 000+', type: 'text' }]
-      },
-      {
-        type: 'paragraph',
-        children: [{ text: 'студентов уже обучили', type: 'text' }]
-      }
-    ]
-  },
-  {
-    id: 2,
-    text: [
-      {
-        type: 'paragraph',
-        children: [{ text: '70+', type: 'text' }]
-      },
-      {
-        type: 'paragraph',
-        children: [
-          {
-            text: 'преподавателей-практиков с учёными степенями кандидатов и докторов наук, прошедших строгий отбор',
-            type: 'text'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 3,
-    text: [
-      {
-        type: 'paragraph',
-        children: [
-          { text: '230 000 ', type: 'text' },
-          { text: '/n', code: true },
-          { text: 'мин.', type: 'text' }
-        ]
-      },
-      {
-        type: 'paragraph',
-        children: [
-          { text: 'лекций студийного ', type: 'text' },
-          { text: '/n', code: true },
-          { text: 'качества', type: 'text' }
-        ]
-      }
-    ]
-  },
-  {
-    id: 4,
-    text: [
-      {
-        type: 'paragraph',
-        children: [{ text: '3000 студентов', type: 'text' }]
-      },
-      {
-        type: 'paragraph',
-        children: [
-          {
-            text: 'одно из наиболее востребованных направлений – «Психолог-консультант»',
-            type: 'text'
-          }
-        ]
-      }
-    ]
-  }
-]
+import { meetInstituteData } from './consts'
 
 interface NewAboutClientServerProps {
-  data: THomev2PageData
   all: ProgramsDataQueryResult
 }
 
-export default function NewAboutClient({ data, all }: NewAboutClientServerProps) {
+export default function NewAboutClient({ all }: NewAboutClientServerProps) {
   return (
     <div className={stls.container}>
       <MissionBlock />

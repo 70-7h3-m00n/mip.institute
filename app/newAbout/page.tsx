@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import { company, routes, prod } from '@/config/index'
 import truncate from '@/helpers/general/truncate'
 import NewAboutClient from '@/components/newAbout/NewAboutClient'
-import getStaticPropsHome from '@/lib/getStaticPropsv2/getStaticPropsHome'
 import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 
 export const revalidate = 3600
@@ -39,11 +38,10 @@ export const generateMetadata = async (): Promise<Metadata> => {
 }
 
 export default async function AboutPage() {
-  const homeProps = await getStaticPropsHome()
   const allProgramsData = await fetchAllProgramsData()
   return (
     <div style={{ overflow: 'hidden' }}>
-      <NewAboutClient data={homeProps} all={allProgramsData} />
+      <NewAboutClient all={allProgramsData} />
     </div>
   )
 }
