@@ -13,6 +13,7 @@ import MissionBlock from './MissionBlock/MissionBlock'
 import LicenseBlock from './LicenseBlock/LicenseBlock'
 import MissionBlockCards from '@/components/newAbout/MissionBlock/MissionBlockCards/MissionBlockCards'
 import AboutJoinCommunity from '@/components/newAbout/AboutJoinCommunity/AboutJoinCommunity'
+import LifeAtInstitute from './LifeAtInstitute/LifeAtInstitute'
 
 export const meetInstituteData = [
   {
@@ -108,6 +109,7 @@ export default function NewAboutClient({ data, all }: NewAboutClientServerProps)
       />
       <LeadingTeachersMIP />
       <LicenseBlock />
+      <LifeAtInstitute />
       <ProgramForRequest />
       <AboutJoinCommunity />
     </div>
