@@ -27,7 +27,7 @@ export default function NewAboutClient({ all }: NewAboutClientServerProps) {
       <div className={stls.container}>
         <MissionBlock />
         <MissionBlockCards />
-        <MeetInstitute data={meetInstituteData} />
+        <MeetInstitute data={meetInstituteData} withAdvantages />
         <Office />
         <VacanciesVideo props={vacanciesVideoProps} />
         <StudyProcess />

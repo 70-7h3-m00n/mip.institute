@@ -37,20 +37,21 @@
       width: f.px(450)
       max-height: 342px
   .title
-    color: c.$purple-350
+    color: c.$purple-450
     font-size: f.px(42)
     font-weight: 500
     line-height: 100%
     @include m.gap($mb: f.px(30))
     @include m.media(tablet, phone)
       font-size: f.px(28)
-      @include m.gap($mb: f.px(10))
+      @include m.gap($mb: f.px(15))
 
   .text
     color: c.$black-800
     font-size: f.px(20)
     font-weight: 350
     line-height: 120%
+    margin-bottom: f.px(30)
     @include m.media(tablet, phone)
       font-size: f.px(15)
   .highlight
@@ -62,6 +63,16 @@
   max-height: 342px
   @include m.media(tablet, phone)
     width: 100%
+
+.location
+  @include m.flex($jc: flex-start)
+  gap: f.px(10)
+  font-size: f.px(20)
+  font-weight: 600
+  @include m.media(tablet, phone)
+    font-size: f.px(16)
+  & > span > svg > path
+    fill: c.$purple-450
 
 .slider
   @include m.flex()

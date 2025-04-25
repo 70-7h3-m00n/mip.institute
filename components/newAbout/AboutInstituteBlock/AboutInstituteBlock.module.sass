@@ -5,8 +5,9 @@
 .fon
   @include m.dye(bg, c.$purple-800)
   width: 100%
-  @include m.gap( $pt: f.px(50),$pb: f.px(90))
+  @include m.gap($pt: f.px(50),$pb: f.px(90))
   border-radius: 0px
+  border: none
 
 .bg
   @include m.flex($jc: space-between)
@@ -22,12 +23,14 @@
 .textBlock
   color: c.$white-900
   font-family: Stem, sans-serif
-  @include m.media(phone, tablet)
 
   h1
     font-size: f.px(56)
     font-weight: 500
     margin-bottom: f.px(30)
+    @include m.media(phone, tablet)
+      font-size: f.px(44)
+      margin-left: f.px(25)
 
   .redDot
     list-style: none

@@ -9,6 +9,7 @@
   @include m.gap($plr: f.px(15), $ptb: f.px(30))
   font-family: Mulish, sans-serif
   @include m.media(tablet, phone)
+    gap: f.px(20)
     @include m.gap($plr: 0, $ptb: f.px(10))
 
 .container :global(h2)
@@ -21,7 +22,7 @@
   border-radius: f.px(20)
   @include m.gap($ptb: f.px(40))
   @include m.media(tablet, phone)
-    @include m.gap($ptb: f.px(30))
+    @include m.gap($ptb: f.px(20))
     border-radius: f.px(10)
 
 .wrapper
