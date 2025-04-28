@@ -20,17 +20,17 @@ const RatingCard = ({ rating, quantity, img, link }: Props) => {
         </div>
         <div className={stls.rating}>
           <span className={stls.stars}>{rating.toFixed(1)}</span>
-          {quantity > 0 ? (
+          {/* {quantity > 0 ? (
             <div className={stls.count}>
               оценок: <span>{quantity}+</span>
             </div>
           ) : (
             <div className={stls.count}>пока нет оценок</div>
-          )}
+          )} */}
         </div>
       </div>
       <a href={link} className={stls.link} target='_blank' rel='noreferrer'>
-        <Image className={stls.image} src={img} alt='Лого' />
+        <Image className={stls.image} src={img} alt='Лого' width={140} height={100} />
       </a>
     </div>
   )

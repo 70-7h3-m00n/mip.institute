@@ -4,7 +4,7 @@ export const meetInstituteData = [
     text: [
       {
         type: 'paragraph',
-        children: [{ text: '8 000+', type: 'text' }]
+        children: [{ text: '4 724+', type: 'text' }]
       },
       {
         type: 'paragraph',
