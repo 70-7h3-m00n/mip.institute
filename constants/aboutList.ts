@@ -1,5 +1,5 @@
 const aboutList = [
-  { title: '4 000', desc: 'Студентов уже обучили' },
+  { title: '4 724+', desc: 'Студентов уже обучили' },
   { title: '', desc: '' },
   {
     title: 'ТОП 5',

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import pic from '@/public/assets/imgs/diplomas/diploma-altNew.jpg'
+import pic from '@/public/assets/imgs/diplomas/certificate-ktp.jpeg'
 
 const ImgDiplomaAlt = ({ width = null, height = null }) => {
   return (
