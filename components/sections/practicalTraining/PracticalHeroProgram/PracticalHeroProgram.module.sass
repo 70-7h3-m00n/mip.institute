@@ -175,6 +175,11 @@
   display: inline-block
   @include m.gap($mb: f.px(0))
 
+.btnsDesktop > div:first-child > button,
+.btnsMobile > div:first-child > button
+  @include m.dye(bg, c.$orange-700)
+  border-color: c.$orange-700
+
 .content
   min-height: f.px(473)
   @include m.flex($fd: column, $jc: space-between)
