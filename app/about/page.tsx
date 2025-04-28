@@ -7,7 +7,7 @@ import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 export const revalidate = 3600
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const title = `Об институте | ${company.desc} | ${company.name}`
+  const title = `Об институте  | ${company.name}`
   const description = truncate(company.about, 120)
   const canonical = `${routes.front.root}${routes.front.about}`
 
