@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import pic from '@/public/assets/imgs/diplomas/diplomaNew.jpg'
+import pic from '@/public/assets/imgs/diplomas/dyploma-ktp2.jpeg'
 
 const ImgDiploma = ({ width = null, height = null }) => {
   return (
