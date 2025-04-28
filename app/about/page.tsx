@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
-import { company, routes, prod } from '@/config/index'
+import { company, routes } from '@/config/index'
 import truncate from '@/helpers/general/truncate'
 import NewAboutClient from '@/components/newAbout/NewAboutClient'
 import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
+import production from '@/config/production'
 
 export const revalidate = 3600
 
@@ -16,8 +17,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
     description,
     alternates: { canonical },
     robots: {
-      index: prod,
-      follow: prod
+      index: production,
+      follow: production
     },
     openGraph: {
       title,
