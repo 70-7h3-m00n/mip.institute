@@ -6,11 +6,7 @@ const TeachersBlock = () => {
   return (
     <div className={stls.container}>
       <div className={stls.containerText}>
-        <p className={stls.title}>
-          Преподаватели-
-          <br className={stls.lineBreak} />
-          практики
-        </p>
+        <p className={stls.title}>Преподаватели-практики</p>
         <p className={stls.description}>
           <span className={stls.bold}>Преподаватели нашего института —</span> вовлечённые
           профессионалы, для которых обучение — не просто работа, а призвание. Для каждой программы

@@ -1,0 +1,121 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.fon
+  @include m.dye(bg, c.$purple-800)
+  width: 100%
+  @include m.gap($pt: f.px(50),$pb: f.px(90))
+  border-radius: 0px
+  border: none
+
+.bg
+  @include m.flex($jc: space-between)
+  @include m.media(phone, tablet)
+    flex-direction: column
+  width: 100%
+
+.infoContainer
+  flex: 60%
+  display: flex
+  align-items: center
+
+.textBlock
+  color: c.$white-900
+  font-family: Stem, sans-serif
+
+  h1
+    font-size: f.px(56)
+    font-weight: 500
+    margin-bottom: f.px(30)
+    @include m.media(phone, tablet)
+      font-size: f.px(44)
+      margin-left: f.px(25)
+
+  .redDot
+    list-style: none
+    padding: 0
+    margin: 0
+
+    li
+      font-size: f.px(20)
+      font-weight: 350
+      line-height: 130%
+      color: c.$white-900
+      margin-bottom: f.px(20)
+      display: flex
+      align-items: flex-start
+      word-break: break-word
+      overflow-wrap: break-word
+      .lineBreak
+        display: inline
+      @include m.media(phone, tablet,laptop)
+        &:nth-child(1)
+          padding-right: f.px(35)
+        &:nth-child(2)
+          padding-right: f.px(14)
+        .lineBreak
+          display: none
+      &::before
+        content: '●'
+        color: #F87E1B
+        font-size: f.px(20)
+        margin-right: f.px(12)
+        line-height: 1.2
+
+.photoContainer
+  flex: 40%
+  position: relative
+  @include m.flex($jc: flex-end, $ai: center)
+  @include m.media(phone, tablet)
+    margin-top: f.px(30)
+    @include m.flex($jc: center, $ai: center)
+
+.imageWrapper
+  position: relative
+  width: f.px(360)
+  max-width: 100%
+  padding: f.px(20)
+
+.image
+  border-radius: f.px(6)
+  z-index: 2
+  position: relative
+  width: 100%
+  height: 100%
+
+.figure
+  position: absolute
+  top: f.px(0)
+  right: f.px(20)
+  width: f.px(40)
+  height: f.px(40)
+  background-color: c.$orange-700
+  border-radius: 30px 0 30px 30px
+  z-index: 1
+
+.round
+  position: absolute
+  bottom: -50px
+  left: f.px(46)
+  width: f.px(40)
+  height: f.px(40)
+  background-color: c.$orange-700
+  border-radius: 50%
+  z-index: 1
+  @include m.media(phone, tablet)
+    bottom: -24px
+
+.spiralContainer
+  position: absolute
+  top: -2em
+  left: -3em
+  z-index: 2
+  @include m.media(phone, tablet)
+    left: 0px
+
+.smallSpiral
+  position: absolute
+  bottom: -30px
+  right: f.px(15)
+  z-index: 2

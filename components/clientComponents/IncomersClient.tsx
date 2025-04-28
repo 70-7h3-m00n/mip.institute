@@ -16,8 +16,8 @@ const IncomersClient = ({ incomers }: { incomers: Type }) => {
   return (
     <div className={stls.container}>
       <Incomers title={incomers.title} data={incomers.incomersInfo} />
-      <AdventuresCards data={incomers.AdventureCards}/>
-      <MeetInstitute data={incomers.MeetInstitute} />
+      <AdventuresCards data={incomers.AdventureCards} />
+      <MeetInstitute data={incomers.MeetInstitute} withAdvantages={false} />
       <HappyStudents isMainPage={false} />
       <StudyProcess />
       <ProgramSelectionTop
