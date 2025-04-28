@@ -1,0 +1,54 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  overflow: hidden
+  position: relative
+  @include m.dye(bg, c.$white-900)
+  @include m.dye(c, c.$black-900)
+  border-radius: f.px(30)
+  @include m.gap($ptb: f.px(40))
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(30))
+    border-radius: f.px(10)
+
+.content
+  @include m.flex($ai:center,$jc:center)
+  width: 100%
+  gap: 65px
+  @include m.media(phone, tablet)
+    @include m.flex($fd:column)
+    gap: 0px
+
+.textBlock
+  flex: 1
+  max-width: 50%
+  @include m.media(phone, tablet)
+    flex: none
+    max-width: 100%
+
+.title
+  font-weight: 700
+  font-size: f.px(44)
+  font-family: Mulish, sans-serif
+  line-height: 120%
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(26)
+    @include m.gap($mb: f.px(15))
+
+.description
+  font-size: f.px(20)
+  font-weight: 350
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(20))
+    font-size: f.px(16)
+
+.imageBlock
+  flex: 1
+
+.image
+  width: 100%
+  height: auto
+  object-fit: cover

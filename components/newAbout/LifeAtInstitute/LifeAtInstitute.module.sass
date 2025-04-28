@@ -4,29 +4,30 @@
 
 .container
   @include m.dye(bg, c.$white-900)
-  @include m.gap($ptb: f.px(40), $mt: f.px(20))
+  @include m.gap($ptb: f.px(40))
   border-radius: f.px(30)
   @include m.media(phone, tablet)
-    @include m.gap($ptb: f.px(25), $mt: 0)
-    border-radius: f.px(20)
+    @include m.gap($ptb: f.px(30))
+    border-radius: f.px(10)
 
 .blockWrapper
   @include m.flex($jc:center,$ai: stretch)
-  gap: f.px(40)
+  gap: f.px(30)
   width: 100%
   @include m.media(tablet, phone)
     @include m.flex($fd:column,$ai: center)
-    gap: f.px(15)
+    gap: f.px(20)
 
-.officeText
+.containerText
   position: relative
-  @include m.gap($pl: f.px(20), $pr: f.px(35), $pt: f.px(30))
+  @include m.flex($fd: column, $jc: space-between)
+  @include m.gap($plr: f.px(20), $ptb: f.px(30))
   border-radius: f.px(10)
-  @include m.dye(bg, #F6F4FF)
-  width: 50%
-  max-height: 342px
+  @include m.dye(bg, c.$purple-100)
+  width: 42%
+  max-height: 411px
   @include m.media(tablet, phone)
-    @include m.gap($pl: f.px(20), $pr: f.px(17), $ptb: f.px(20))
+    @include m.gap($plr: f.px(15), $ptb: f.px(20))
     width: 100%
   .iconWrapper
     position: absolute
@@ -35,44 +36,37 @@
     height: 100%
     .svg
       width: f.px(450)
-      max-height: 342px
+      max-height: 411px
+  p,h2
+    @include m.gap($p: f.px(0), $m: f.px(0))
+      
+      
   .title
     color: c.$purple-450
-    font-size: f.px(42)
+    font-size: f.px(44)
     font-weight: 500
     line-height: 100%
-    @include m.gap($mb: f.px(30))
     @include m.media(tablet, phone)
-      font-size: f.px(28)
-      @include m.gap($mb: f.px(15))
+      font-size: f.px(26)
+      @include m.gap($mb: f.px(10))
 
   .text
-    color: c.$black-800
-    font-size: f.px(20)
+    color: c.$black-900
+    font-size: f.px(18)
     font-weight: 350
     line-height: 120%
-    margin-bottom: f.px(30)
     @include m.media(tablet, phone)
       font-size: f.px(15)
+      @include m.gap($mb: f.px(20))
   .highlight
     font-weight: 500
 
 .sliderContainer
   @include m.flex($jc: center,$ai: center)
-  width: 50%
-  max-height: 342px
+  width: 60%
+  max-height: 411px
   @include m.media(tablet, phone)
     width: 100%
-
-.location
-  @include m.flex($jc: flex-start)
-  gap: f.px(10)
-  font-size: f.px(20)
-  font-weight: 600
-  @include m.media(tablet, phone)
-    font-size: f.px(16)
-  & > span > svg > path
-    fill: c.$purple-450
 
 .slider
   @include m.flex()
@@ -104,3 +98,34 @@
 
 .nextBtn
   right: f.px(30)
+
+.btn
+  @include m.flex($jc:center,$ai: center)
+  cursor: pointer
+  @include m.gap($ptb: f.px(16))
+  border-radius: f.px(5)
+  background-color: c.$purple-450
+  color: c.$white-900
+  font-size: f.px(18)
+  font-weight: 500
+  transition: transform 0.2s ease
+  width: 100%
+  transform: scale(1)
+
+  &:hover
+    transform: scale(1.02)
+
+  &:focus
+    outline: none
+    transform: scale(1.02)
+
+  &:disabled
+    cursor: not-allowed
+    opacity: 0.5
+    transform: none
+
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.gap($ptb: f.px(14))
+
+

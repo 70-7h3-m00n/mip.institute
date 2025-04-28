@@ -16,7 +16,7 @@ type Props = {
   data: PossibilityItemType[]
 }
 
-const MeetInstitute = ({ data }: any) => {
+const MeetInstitute = ({ data, withAdvantages }: { data: any; withAdvantages: boolean }) => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (
@@ -25,7 +25,9 @@ const MeetInstitute = ({ data }: any) => {
         <div className={stls.containerBlock}>
           <div className={stls.containerBlock_title}>
             <div className={stls.containerBlock_title_left}>{'{наши показатели в цифрах}'}</div>
-            <h2 className={stls.containerBlock_title_right}>Знакомство с институтом</h2>
+            <h2 className={stls.containerBlock_title_right}>
+              {withAdvantages ? 'Преимущества института' : 'Знакомство с институтом'}
+            </h2>
           </div>
           <div className={stls.containerBlock_info}>
             {data.map(item => (

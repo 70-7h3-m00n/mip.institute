@@ -5,6 +5,7 @@ import Wrapper from '@/ui/Wrapper'
 import { useState } from 'react'
 import classNames from 'classnames'
 import { BtnPrev, IconBG, images, NextBtn } from 'constants/contacts/contactsIcons'
+import IconLocation from '@/components/icons/IconLocation'
 
 const Office = () => {
   const [imageList, setImageList] = useState(images)
@@ -31,6 +32,10 @@ const Office = () => {
               <span className={stls.highlight}>особняк в самом сердце Москвы</span>, до которого
               легко добраться даже без личного транспорта. У нас светлые и просторные помещения,
               уютная атмосфера, а также все необходимое для комфортной и продуктивной работы.
+            </p>
+            <p className={stls.location}>
+              <IconLocation />
+              <span>Москва, Докучаев переулок, 8</span>
             </p>
           </div>
           <div className={stls.sliderContainer}>
