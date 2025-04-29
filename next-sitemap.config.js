@@ -5,7 +5,7 @@ module.exports = {
   sitemapSize: 5000,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  exclude: ['/payment','/gratefull', '/promo*', '*?', '/seminars', '/seminars/*', '/amoCheck', '/live-courses', '/live-courses/*'],
+  exclude: ['/payment','/gratefull', '/promo*', '*?', '/seminars', '/seminars/*', '/amoCheck', '/live-courses', '/live-courses/*','/sveden/*', '/free-access', '/rating','/payment_edu_mip'],
   transform: async (config, path) => {
     return {
       loc: path, // => this will be exported as http(s)://<config.siteUrl>/<path>
@@ -20,7 +20,7 @@ module.exports = {
       {
         userAgent: '*',
         allow: ['/*.css', '/*.js', '/*.jpg', '/*.png', '/*.gif'],
-        disallow: ['/promo*', '*?', '*test', '/kz', '/ru', '/uz', '*?calltouch_', '*%', '/docs/', '/policies/','/sveden/', '*undefined']
+        disallow: ['/promo*', '*?', '*test', '/kz', '/ru', '/uz', '*?calltouch_', '/docs/', '/policies/','/sveden/', '*undefined']
       }
     ]
   }
