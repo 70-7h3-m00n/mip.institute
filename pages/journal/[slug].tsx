@@ -10,12 +10,10 @@ import Wrapper from '@/ui/Wrapper'
 import ButtonToTop from '@/components/sections/ButtonToTop'
 import SeoPagesJournal from '@/components/seo/SeoPageJournal'
 import stls from '@/styles/pages/JournalSlug.module.sass'
-import { GetStaticProps } from 'next'
 import { getStaticPropsBlog } from '@/lib/handlers/getStaticPropsBlog'
 import { getStaticPathsBlogs } from '@/lib/getStaticPaths/getStaticPathsBlog'
 
 const JournalSlugPage = ({ blog }) => {
-  
   const articleHeading = {
     studyField: blog?.studyField,
     picture: blog?.picture,
@@ -28,28 +26,22 @@ const JournalSlugPage = ({ blog }) => {
 
   const articleAuthors = [blog?.teacher, blog?.blog_author]
 
-  const headingLinks = blog?.article?.filter(
-    el => el.__component === "blog.subtitle"
-  )
+  const headingLinks = blog?.article?.filter(el => el.__component === 'blog.subtitle')
 
   return (
     <Wrapper>
       <SeoPagesJournal blog={blog} />
       <div className={stls.in}>
         <ReadingProgressbar />
-        <Breadcrumbs isJournal journalSlug={blog?.studyFieldSlug} lastLabel={blog?.studyField}/>
+        <Breadcrumbs isJournal journalSlug={blog?.studyFieldSlug} lastLabel={blog?.studyField} />
         {articleHeading && <ArticleTitle props={articleHeading} />}
         <Accordion>
           <ArticleContentLinks props={headingLinks} />
         </Accordion>
         <article className={stls.article}>
-          {blog?.article?.map((module, idx) => (
-            <ArticlesDynamicZones key={idx} props={module} />
-          ))}
+          {blog?.article?.map((module, idx) => <ArticlesDynamicZones key={idx} props={module} />)}
           {blog?.teacher && <ArticleAuthors authors={articleAuthors} />}
-          {blog?.blogs?.length > 0 && (
-            <ArticleRelatedBlogs blogs={blog?.blogs} />
-          )}
+          {blog?.blogs?.length > 0 && <ArticleRelatedBlogs blogs={blog?.blogs} />}
           <ButtonToTop />
         </article>
       </div>
@@ -57,13 +49,18 @@ const JournalSlugPage = ({ blog }) => {
   )
 }
 
-export const getStaticPaths = async () =>
-  await getStaticPathsBlogs()
+export const getStaticPaths = async () => await getStaticPathsBlogs()
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const result = await getStaticPropsBlog({ context });
+export const getStaticProps: (context) => Promise<
+  | {
+      props: { blog: any }
+      revalidate: number
+    }
+  | { notFound: boolean }
+> = async context => {
+  const result = await getStaticPropsBlog({ context })
 
-  return result ?? { notFound: true };
-};
+  return result ?? { notFound: true }
+}
 
 export default JournalSlugPage
