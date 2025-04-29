@@ -12,7 +12,6 @@ Disallow: /kz
 Disallow: /ru
 Disallow: /uz
 Disallow: *?calltouch_
-Disallow: *%
 Disallow: /docs/
 Disallow: /policies/
 Disallow: /sveden/
