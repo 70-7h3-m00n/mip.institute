@@ -1,9 +1,15 @@
 import stls from './StepBlocks.module.sass'
 import classNames from 'classnames'
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
-const StepBlocks = ({ currentIndex, setCurrentIndex, animateSteps }) => {
-  const [filledBlocks, setFilledBlocks] = useState([true, false, false])
+interface Props {
+  currentIndex: number
+  setCurrentIndex: Dispatch<SetStateAction<number>>
+  animateSteps: boolean
+}
+
+const StepBlocks = ({ currentIndex, setCurrentIndex, animateSteps }: Props) => {
+  const [filledBlocks, setFilledBlocks] = useState([false, false, false])
 
   useEffect(() => {
     let intervalId
@@ -36,8 +42,12 @@ const StepBlocks = ({ currentIndex, setCurrentIndex, animateSteps }) => {
     return () => clearInterval(intervalId)
   }, [animateSteps, setCurrentIndex])
 
-  const handleStepClick = index => {
+  const handleStepClick = (index: number) => {
     setCurrentIndex(index)
+    setFilledBlocks(prev => {
+      const newFilledBlocks = prev.map((_, i) => i <= index)
+      return newFilledBlocks
+    })
   }
 
   const blocks = [{ id: 0 }, { id: 1 }, { id: 2 }]
