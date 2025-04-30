@@ -3,52 +3,65 @@
 @use '@/styles/themes/default/colors' as c
 
 .container
-    @include m.media(laptop, desktop)
-        @include m.gap($pb: f.px(30))
-    @include m.media(phone, tablet)
-        @include m.gap($pb: f.px(10))
+  @include m.media(laptop, desktop)
+    @include m.gap($pb: f.px(30))
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(10))
 
 .innerContainer
-    @include m.media(phone, tablet)
-        @include m.flex($fd: column, $ai: center)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $ai: center)
 
 .mySwiper
-    border-radius: f.px(10)
-    @include m.dye(bg, c.$purple-200)
-    border: f.px(1) solid c.$purple-350
-    @include m.gap($ptb: f.px(40), $plr: f.px(60))
-    @include m.flex($fd: row-reverse, $ai: flex-end)
-    overflow: hidden
-    gap: f.px(30)
-    @include m.media(phone, tablet)
-        display: none
-        @include m.gap($ptb: f.px(40), $plr: f.px(20))
+  border-radius: f.px(10)
+  @include m.dye(bg, c.$purple-200)
+  border: f.px(1) solid c.$purple-350
+  @include m.gap($ptb: f.px(40), $plr: f.px(60))
+  @include m.flex($fd: row-reverse, $ai: flex-end)
+  overflow: hidden
+  gap: f.px(30)
+  @include m.media(phone, tablet)
+    display: none
+    @include m.gap($ptb: f.px(40), $plr: f.px(20))
 
 .myMobSwiper
-    border-radius: f.px(10)
-    @include m.dye(bg, c.$purple-200)
-    border: f.px(1) solid c.$purple-350
-    @include m.gap($ptb: f.px(40), $plr: f.px(20))
-    @include m.flex($fd: row-reverse, $ai: flex-end)
-    overflow: hidden
-    gap: f.px(30)
+  border-radius: f.px(10)
+  @include m.dye(bg, c.$purple-200)
+  border: f.px(1) solid c.$purple-350
+  @include m.gap($ptb: f.px(40), $plr: f.px(20))
+  @include m.flex($fd: row-reverse, $ai: flex-end)
+  overflow: hidden
+  gap: f.px(30)
+  display: none
+  @include m.media(phone, tablet)
+    display: block
 
 .swiperWrapper
-    @include m.flex()
+  @include m.flex()
+
+.slide
+  opacity: 0
+  transform: translateY(f.px(20))
+  transition: opacity 0.5s ease, transform 0.5s ease
+  &.visible
+    opacity: 1
+    transform: translateY(0)
+  @include m.media(phone, tablet)
+    opacity: 1
 
 .title
-    position: relative
-    text-align: center
-    font-size: f.px(44)
-    font-weight: 500
-    line-height: 120%
-    @include m.gap($mb: f.px(0))
-    transform: translateY(f.px(100))
-    z-index: 2
-    @include m.media(phone, tablet)
-        font-size: f.px(30)
+  position: relative
+  text-align: center
+  font-size: f.px(44)
+  font-weight: 500
+  line-height: 120%
+  @include m.gap($mb: f.px(0))
+  transform: translateY(f.px(100))
+  z-index: 2
+  @include m.media(phone, tablet)
+    font-size: f.px(30)
 
 .iconMob
-    transform: translateY(f.px(130))
-    position: relative
-    z-index: 2
+  transform: translateY(f.px(130))
+  position: relative
+  z-index: 2
