@@ -59,7 +59,8 @@ const promocodes = {
   nataliaremish: 'РЕМИШ',
   'doctor.artempark': 'ПАК',
   davay: 'ДАВАЙ',
-  retrogradnymercury: 'РЕТРОГРАДНЫЙ'
+  retrogradnymercury: 'РЕТРОГРАДНЫЙ',
+  merkury_may: 'МЕРКУРИЙ',
 }
 
 export default promocodes
