@@ -44,6 +44,7 @@ const promocodesWithGift = {
   nataliaremish: { gift: 'https://mip.institute/free-access' },
   'doctor.artempark': { gift: 'https://mip.institute/free-access' },
   davay: { gift: 'https://mip.institute/free-access' },
+  retrogradnymercury: { gift: 'https://mip.institute/free-access' },
 }
 
 export default promocodesWithGift
