@@ -58,7 +58,8 @@ const promocodes = {
   agibalova: 'агибалова',
   nataliaremish: 'РЕМИШ',
   'doctor.artempark': 'ПАК',
-  davay: 'ДАВАЙ'
+  davay: 'ДАВАЙ',
+  retrogradnymercury: 'РЕТРОГРАДНЫЙ'
 }
 
 export default promocodes
