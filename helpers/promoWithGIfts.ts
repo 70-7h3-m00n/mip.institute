@@ -45,6 +45,7 @@ const promocodesWithGift = {
   'doctor.artempark': { gift: 'https://mip.institute/free-access' },
   davay: { gift: 'https://mip.institute/free-access' },
   retrogradnymercury: { gift: 'https://mip.institute/free-access' },
+  merkury_may: { gift: 'https://mip.institute/free-access' },
 }
 
 export default promocodesWithGift
