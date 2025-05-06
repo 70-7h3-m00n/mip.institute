@@ -2,6 +2,30 @@ import routes from "@/config/routes";
 import axios from "axios";
 
 export default async function handler(req, res) {
+  const allowedOrigins = [
+    'https://dev.api.fastapi.mip.institute/api', // Для разработки
+    'https://api.fastapi.mip.institute/api', // Для продакшена
+  ];
+
+  const origin = req.headers.origin;
+
+  // Устанавливаем CORS-заголовки
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+
+  // Обработка предварительного запроса OPTIONS
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  // Проверка метода
+  if (req.method !== "POST") {
+    return res.status(405).json({ success: false, message: "Method Not Allowed" });
+  }
 
   const { data } = req.body
   
