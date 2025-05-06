@@ -8,7 +8,6 @@ import 'react-phone-input-2/lib/style.css'
 import Button from '@/components/btns/Button'
 import { useState } from 'react'
 import axios from 'axios'
-import routes from '@/config/routes'
 import BtnClose from '../../btns/BtnClose'
 
 type FormValues = {
@@ -45,7 +44,7 @@ const PartnersForm = ({ onClose, title }: Props) => {
     setIsSubmitting(true)
 
     try {
-      const response = await axios.post(`${routes.front.root}/api/mail`, {data})
+      const response = await axios.post(`/api/mail`, {data})
       if (response.status === 200) {
         reset()
         alert('Форма успешно отправлена!')

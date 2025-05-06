@@ -9,7 +9,6 @@ import Button from '@/components/btns/Button'
 import { useState } from 'react'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import axios from 'axios'
-import routes from '@/config/routes'
 
 type FormValues = {
   name: string
