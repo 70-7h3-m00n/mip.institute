@@ -44,7 +44,7 @@ const VacanciesForm = () => {
     setIsSubmitting(true)
     setSuccess(null)
     try {
-      const response = await axios.post(`${routes.front.root}/api/mail`, {data})
+      const response = await axios.post(`/api/mail`, {data})
       if (response.status === 200) {
         reset()
         setSuccess('Форма успешно отправлено!')
