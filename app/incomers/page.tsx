@@ -62,7 +62,7 @@ const queryString = qs.stringify(
 )
 
 export const generateMetadata = (): Metadata => {
-  const title = 'Поступление в МИП (Московский Институт Психологии)'
+  const title = 'Поступление в Московский Институт Психологии'
   const description =
     'Подробная информация для поступающих и абитуриентов Московского Института Психологии: условия поступления, широкий выбор программ, учебный процесс, условия оплаты, а так же помощь в подборе программы от наших специалистов.'
   const canonical = `${routes.front.root}${routes.front.incomers}`
