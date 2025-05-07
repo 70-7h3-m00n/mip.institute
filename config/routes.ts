@@ -92,7 +92,8 @@ const routes: TRoutes = {
     getStaticProps: '/get-static-props',
     getStaticPathsStudyFields: '/get-static-paths/study-fields',
     getStaticPathsPrograms: '/get-static-paths/programs',
-    users: '/users'
+    users: '/users',
+    api: dev ? 'https://dev.api.fastapi.mip.institute/api' : preview ? 'https://dev.api.fastapi.mip.institute/api' : 'https://api.fastapi.mip.institute/api'
   },
   external: {
     ochuVoMipLicense:
