@@ -7,7 +7,7 @@ function getSeoTitle(ofType, curProgramsStudyFieldSlug) {
     case 'professions/detskaya-psihologiya':
       return 'Детская психология: профессиональная переподготовка онлайн'
     case 'programs/detskaya-psihologiya':
-      return 'Курсы по детской психологии онлайн | МИП'
+      return 'Курсы по детской психологии дистанционно'
     
     //konsultirovanie
 
@@ -16,7 +16,7 @@ function getSeoTitle(ofType, curProgramsStudyFieldSlug) {
     case 'professions/konsultirovanie':
       return 'Психологическое консультирование: профессиональная переподготовка онлайн'
     case 'programs/konsultirovanie':
-      return 'Курсы психологического консультирования онлайн | МИП'
+      return 'Курсы по психологическому консультированию дистанционно'
 
       //obshaya-psihologiya
 
@@ -25,7 +25,7 @@ function getSeoTitle(ofType, curProgramsStudyFieldSlug) {
     case 'professions/obshaya-psihologiya':
       return 'Общая психология: профессиональная переподготовка онлайн'
     case 'programs/obshaya-psihologiya':
-      return 'Курсы по общей психологии онлайн | МИП'
+      return 'Курсы по общей психологии онлайн'
 
     //organizacionnaya-psihologiya
 
@@ -34,14 +34,14 @@ function getSeoTitle(ofType, curProgramsStudyFieldSlug) {
     case 'professions/organizacionnaya-psihologiya':
       return 'Организационная психология: профессиональная переподготовка онлайн'
     case 'programs/organizacionnaya-psihologiya':
-      return 'Курсы по организационной психологии онлайн | МИП'
+      return 'Курсы по организационной психологии онлайн'
 
     case 'courses/psihoterapiya':
       return `Психотерапия: онлайн-курсы повышения квалификации`;
     case 'professions/psihoterapiya':
       return 'Психотерапия: профессиональная переподготовка онлайн'
     case 'programs/psihoterapiya':
-      return 'Курсы обучения психотерапии онлайн | МИП'
+      return 'Курсы обучения психотерапии онлайн'
 
     case 'professions/dietologiya-i-nutriciologiya':
       return 'Диетология и нутрициология: профпереподготовка онлайн'
@@ -56,11 +56,11 @@ function getSeoTitle(ofType, curProgramsStudyFieldSlug) {
     default:
       return (
         ofType === 'courses'
-          ? 'Курсы повышения квалификации для психологов онлайн | МИП'
+          ? 'Курсы повышения квалификации для психологов дистанционно'
           : ofType === 'professions'
-          ? 'Профессиональная переподготовка для психологов онлайн | МИП'
+          ? 'Профессиональная переподготовка: психология'
           : ofType === 'shortTerm' 
-          ? 'Мини-курсы по психологии онлайн | Московский Институт Психологии (МИП)'
+          ? 'Мини-курсы по психологии онлайн | Московский Институт Психологии'
           : 'Курсы по психологии онлайн | Московский Институт Психологии'
       );
   }

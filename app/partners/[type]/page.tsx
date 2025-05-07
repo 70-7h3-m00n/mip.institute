@@ -6,15 +6,44 @@ import OurPartners from '@/components/partners/OurPartners/OurPartners'
 import { Params, Partner } from '@/components/partners/type'
 import CommunitySection from '@/components/partners/CommunitySection/CommunitySection'
 import BecomePartner from '@/components/partners/BecomePartner/BecomePartner'
-import Office from '@/components/contacts/Office/Office'
-import Requisites from '@/components/contacts/Requisites/Requisites'
-import JoinCommunity from '@/components/sections/lectorium/Stub/JoinCommunity/JoinCommunity'
-import Wrapper from '@/ui/Wrapper'
-import RouteMIP from '@/components/contacts/RouteMIP/RouteMIP'
+import company from '@/config/company'
+import prod from '@/config/prod'
+import { Metadata } from 'next'
 
-export const metadata = {
-  title: 'Партнеры Московского Института Психологии (МИП)',
-  description: 'Подробная информация о действующих партнерах Московского Института Психологии (МИП)'
+export const generateMetadata = ({params}): Metadata => {
+  const {type} = params
+  
+  const title = 'Партнеры Московского Института Психологии '
+  const description ='Подробная информация о действующих партнерах Московского Института Психологии '
+  const canonical = `${routes.front.root}/partners/${type}`
+  const logoUrl = `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical
+    },
+    robots: {
+      index: prod,
+      follow: prod
+    },
+    openGraph: {
+      url: canonical,
+      title,
+      description,
+      images: [
+        {
+          url: logoUrl,
+          width: 512,
+          height: 512,
+          alt: title,
+          type: 'image/png'
+        }
+      ],
+      siteName: company.name
+    }
+  }
 }
 
 const queryString = qs.stringify(
@@ -70,7 +99,6 @@ export default async function Partners({ params }: { params: Params }) {
 
   return (
     <>
-      <meta name='robots' content='index, follow' />
       <CommunitySection />
       <OurPartners allTypes={allTypes} currentType={type} onePartner={onePartner} />
       <BecomePartner />
