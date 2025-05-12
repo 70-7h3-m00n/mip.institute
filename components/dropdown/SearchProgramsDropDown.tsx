@@ -50,7 +50,7 @@ export default function SearchProgramsDropDown() {
   useEffect(() => {
     const currentItem = navigationItems.find(item => item.href === pathname)
     setDescriptionText(currentItem ? currentItem.val : 'Об институте')
-  }, [pathname, navigationItems])
+  }, [pathname])
 
   // Обновляем `filteredPrograms` при изменении `searchQuery`
   useEffect(() => {

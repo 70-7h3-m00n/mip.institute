@@ -19,7 +19,7 @@ const Breadcrumbs = ({ lastLabel, isJournal = false, journalSlug }: Props) => {
     const segments = asPath.split('?')[0].split('/').filter(Boolean)
     const paths = segments.map((_, index) => `/${segments.slice(0, index + 1).join('/')}`)
 
-    const result = paths
+    return paths
       .map(path => {
         const segment = path.split('/').pop()
         const label = breadcrumbsConfig[path] || programsConfig[`/${segment}`] || lastLabel
@@ -29,8 +29,6 @@ const Breadcrumbs = ({ lastLabel, isJournal = false, journalSlug }: Props) => {
         }
       })
       .filter(breadcrumb => breadcrumb.label)
-
-    return result
   }, [lastLabel, asPath])
 
   const handleClick = useCallback(() => {
