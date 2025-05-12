@@ -46,6 +46,7 @@ const promocodesWithGift = {
   davay: { gift: 'https://mip.institute/free-access' },
   retrogradnymercury: { gift: 'https://mip.institute/free-access' },
   merkury_may: { gift: 'https://mip.institute/free-access' },
+  natasakado: { gift: 'https://mip.institute/free-access' },
 }
 
 export default promocodesWithGift
