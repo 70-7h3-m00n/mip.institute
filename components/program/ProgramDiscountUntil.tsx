@@ -1,14 +1,7 @@
-import getNextFriday from '@/helpers/getNextFriday'
+import getNextDiscountDate from '@/helpers/getNextDiscountDate'
 
 const ProgramDiscountUntil = () => {
-  return (
-    <>
-      до{' '}
-      {new Date() < new Date(2025, 4, 14)
-            ? '13 мая'
-            : getNextFriday(new Date())}
-    </>
-  )
+  return <>до {getNextDiscountDate(new Date())}</>
 }
 
 export default ProgramDiscountUntil
