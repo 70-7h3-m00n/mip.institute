@@ -15,7 +15,7 @@ import genezis from '@/helpers/funcs/genezis'
 import TwoColumnsPractical from '@/components/sections/practicalTraining/TwoColumnsPractical/TwoColumnsPractical'
 import Wrapper from '@/ui/Wrapper'
 import PopupLoading from '@/components/popups/PopupLoading'
-import getNextFriday from '@/helpers/getNextFriday'
+import getNextDiscountDate from '@/helpers/getNextDiscountDate'
 import { CldImage } from 'next-cloudinary'
 import 'react-phone-input-2/lib/style.css'
 
@@ -188,7 +188,7 @@ const PracticalPaymentForm = ({ price }: Props) => {
                   />
                 </div>
                 <p className={stls.giftText}>
-                  При оплате до {getNextFriday(new Date())} курс
+                  При оплате до {getNextDiscountDate(new Date())} курс
                   <br />
                   “Жизнь, свободная от обид”
                   <br />
