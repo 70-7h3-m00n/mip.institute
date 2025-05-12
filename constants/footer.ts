@@ -162,26 +162,42 @@ const bottomFooterLinks = [
     }
   ]
 ]
-
-const footerMobileLinks = [
-  { text: `© МИП, 2020 - ${new Date().getFullYear()}` },
-  { title: 'Договор оферты', href: routes.front.policiesTerms },
-  { title: 'Политика конфиденциальности', href: routes.front.policiesPrivacy },
-  {
-    title: 'Лицензия на образовательную деятельность\n№041363 от 14.04.2021 г.',
-    href: routes.front.policiesPrivacy
-  }
-]
-
-const contactBlocks = [
-  {
-    title: 'Приемная комиссия:',
-    contacts: ['+7 (499) 110-88-19', '+7 (800) 600-29-03']
+// микроразметка для футера
+const WPFooterJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WPFooter',
+  name: 'Footer',
+  description: 'Контактная информация и навигация Московского Института Психологии',
+  publisher: {
+    '@type': 'EducationalOrganization',
+    name: 'Московский Институт Психологии',
+    legalName:
+      'Научная автономная некоммерческая организация «Московский институт психологии» (НАНО «МИП») ИНН 9725041321 ОГРН 1207700479260',
+    sameAs: 'https://mip.institute'
   },
-  {
-    title: 'Кураторский отдел:',
-    contacts: ['+7 (499) 110-82-11']
-  }
-]
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+7 (499) 110-88-19',
+      contactType: 'Приёмная комиссия'
+    },
+    {
+      '@type': 'ContactPoint',
+      telephone: '+7 (800) 600-29-03',
+      contactType: 'Приёмная комиссия'
+    },
+    {
+      '@type': 'ContactPoint',
+      telephone: '+7 (499) 110-82-11',
+      contactType: 'Кураторский отдел'
+    }
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Москва',
+    streetAddress: 'Докучаев переулок, 8'
+  },
+  email: 'info@mip.institute'
+}
 
-export { topFooterLinks, footerCards, bottomFooterLinks, footerMobileLinks, contactBlocks }
+export { topFooterLinks, footerCards, bottomFooterLinks, WPFooterJsonLd }
