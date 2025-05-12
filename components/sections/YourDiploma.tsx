@@ -94,46 +94,47 @@ const YourDiploma = ({
       </div>
     )
 
-  isBachelor &&
-    slides.push(
-      <div className={stls.diploma}>
-        {program?.diploma2 ? (
-          <ImgDiplomaDynamic
-            key='diploma-alt'
-            src={program?.diploma2?.url}
-            width={program?.diploma2?.width && 700}
-            height={getImageHeight({
-              width: 700,
-              widthInitial: program?.diploma2?.width,
-              heightInitial: program?.diploma2?.height
-            })}
-            diplomaAlt
-          />
-        ) : (
-          <ImgBachelorDiplomaAlt key='diploma-alt' />
-        )}
-      </div>,
-      <div className={stls.diploma}>
-        {program?.diploma1 ? (
-          <ImgDiplomaDynamic
-            key='diploma'
-            src={program?.diploma1?.url}
-            width={program?.diploma1?.width && 700}
-            height={getImageHeight({
-              width: 700,
-              widthInitial: program?.diploma1?.width,
-              heightInitial: program?.diploma1?.height
-            })}
-          />
-        ) : (
-          <ImgBachelorDiploma key='diploma' />
-        )}
-      </div>,
+  isBachelor ||
+    (ofType === 'ShortTerm' &&
+      slides.push(
+        <div className={stls.diploma}>
+          {program?.diploma2 ? (
+            <ImgDiplomaDynamic
+              key='diploma-alt'
+              src={program?.diploma2?.url}
+              width={program?.diploma2?.width && 700}
+              height={getImageHeight({
+                width: 700,
+                widthInitial: program?.diploma2?.width,
+                heightInitial: program?.diploma2?.height
+              })}
+              diplomaAlt
+            />
+          ) : (
+            <ImgBachelorDiplomaAlt key='diploma-alt' />
+          )}
+        </div>,
+        <div className={stls.diploma}>
+          {program?.diploma1 ? (
+            <ImgDiplomaDynamic
+              key='diploma'
+              src={program?.diploma1?.url}
+              width={program?.diploma1?.width && 700}
+              height={getImageHeight({
+                width: 700,
+                widthInitial: program?.diploma1?.width,
+                heightInitial: program?.diploma1?.height
+              })}
+            />
+          ) : (
+            <ImgBachelorDiploma key='diploma' />
+          )}
+        </div>,
 
-      <div className={cn(stls.diploma, stls.supplement)}>
-        <ImgSupplement key='supplement' />
-      </div>
-    )
+        <div className={cn(stls.diploma, stls.supplement)}>
+          <ImgSupplement key='supplement' />
+        </div>
+      ))
 
   ofType === 'Course' &&
     slides.push(
@@ -227,8 +228,13 @@ const YourDiploma = ({
                 key={`popup-${index}`}
                 trigger={<div className={stls.trigger}>{slide}</div>}
                 modal
-                nested>
-                <PopupImage image={slide.props.children} close={close} />
+                nested
+                closeOnDocumentClick>
+                {
+                  ((close: () => void) => (
+                    <PopupImage image={slide.props.children} close={close} />
+                  )) as unknown as React.ReactNode
+                }
               </Popup>
             ))}
           </div>
