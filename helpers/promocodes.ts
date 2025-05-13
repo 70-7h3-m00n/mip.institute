@@ -62,7 +62,8 @@ const promocodes = {
   retrogradnymercury: 'РЕТРОГРАДНЫЙ',
   merkury_may: 'МЕРКУРИЙ',
   natasakado: 'САКАДО',
-  winivino: 'ВИНИВИНО'
+  winivino: 'ВИНИВИНО',
+  lyalyausa: 'ЛЯЛЯ',
 }
 
 export default promocodes

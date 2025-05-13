@@ -48,6 +48,7 @@ const promocodesWithGift = {
   merkury_may: { gift: 'https://mip.institute/free-access' },
   natasakado: { gift: 'https://mip.institute/free-access' },
   winivino: { gift: 'https://mip.institute/free-access' },
+  lyalyausa: { gift: 'https://mip.institute/free-access' },
 }
 
 export default promocodesWithGift
