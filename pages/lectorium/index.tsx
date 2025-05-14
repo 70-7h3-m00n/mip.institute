@@ -224,11 +224,11 @@ const LectoriumPage = ({ lectoriums }: Props) => {
                 />
               </div>
             )}
-            {filteredLectoriums.length !== 0 && filteredLectoriums.map((lectorium: Lectorium, index) => (
+            {filteredLectoriums?.length !== 0 && filteredLectoriums?.map((lectorium: Lectorium, index) => (
               <LectoriumIndexCard key={lectorium?.slug || index} card={lectorium} />
             ))}
           </div>
-          {filteredLectoriums.length === 0 && <Stub onClick={onClickReset} />}
+          {filteredLectoriums?.length === 0 && <Stub onClick={onClickReset} />}
         </Wrapper>
       </section>
     </>
