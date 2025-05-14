@@ -1,3 +1,4 @@
+// удалить старую главную страницу
 'use client'
 import About from '@/components/sections/About'
 import Cta from '@/components/sections/Cta'
