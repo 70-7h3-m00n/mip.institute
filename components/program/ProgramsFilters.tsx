@@ -81,6 +81,8 @@ const ProgramsFilters: React.FC<ProgramsFiltersProps> = ({
   }))
   const favprograms = allPrograms.filter(el => el.isPopular === true)
 
+  const totalPrograms = allPrograms.length + bachelors.length + practicalTrainings.length 
+
   return (
     <div className={stls.container}>
       <div className={stls.sorting}>
@@ -88,15 +90,7 @@ const ProgramsFilters: React.FC<ProgramsFiltersProps> = ({
           onClick={() => handleNavigation('/programs')}
           isActive={ofType === 'programs'}
           quantity={
-            ofType === 'programs' && !studyFieldSlug
-              ? findProgramsLength(filteredItems, 'programs')
-              : filter === 'popular'
-                ? favprograms?.length
-                : ofType === 'programs' && studyFieldSlug
-                  ? findProgramsLength(allPrograms, 'programs') -
-                    findFilteredProgramsLength(allPrograms, studyFieldSlug, ofType as string) +
-                    findFilteredProgramsLength(filteredItems, studyFieldSlug, ofType as string)
-                  : findProgramsLength(allPrograms, 'programs')
+            String(totalPrograms + 2)
           }
           isProgram>
           Все курсы
@@ -160,7 +154,7 @@ const ProgramsFilters: React.FC<ProgramsFiltersProps> = ({
           <FilterTag
             onClick={() => handleNavigation('/practical-training')}
             isActive={router.asPath === '/practical-training'}
-            quantity={(practicalTrainings.length + 1).toString()}
+            quantity={(practicalTrainings.length + 2).toString()}
             isProgram>
             Практические навыки
           </FilterTag>

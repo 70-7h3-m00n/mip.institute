@@ -112,12 +112,6 @@ const Header = () => {
       Router.events.off('routeChangeError', end)
     }
   }, [searchParams])
-  // А/Б тест
-  const homePageAB = getCookie('homePageAB')?.toString() || ''
-  const [roistatAB, setRoistatAB] = useState<string | null>('old')
-  useEffect(() => {
-    setRoistatAB(homePageAB as 'old' | 'new')
-  }, [homePageAB])
 
   return (
     <>
@@ -131,7 +125,7 @@ const Header = () => {
         className={classNames({
           [stls.container]: true,
           [stls.promo]: isPromo,
-          [stls.newHomePage]: pathname === '/' && roistatAB === 'new'
+          [stls.newHomePage]: pathname === '/' 
         })}>
         <MenuMobile />
         <Wrapper>
@@ -145,7 +139,7 @@ const Header = () => {
               <BtnFields />
             </div>
             <SearchProgramsDropDown />
-            <IconsDropDown newMainPage={pathname === '/' && roistatAB === 'new'} />
+            <IconsDropDown newMainPage={pathname === '/'} />
           </div>
           {pathname === '/' && (
             <div className={stls.bottom}>
