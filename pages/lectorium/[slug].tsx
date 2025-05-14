@@ -4,7 +4,6 @@ import routes from '@/config/routes'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { getServerSideProps } from 'next/dist/build/templates/pages'
 import { useRouter } from 'next/router'
 
 type Props = {

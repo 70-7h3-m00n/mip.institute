@@ -11,44 +11,49 @@ const getStaticPropsPageLectoriums = async ({
   props: TypePagePracticalTrainingsProps
   revalidate?: number | boolean
 }> => {
-  const res = await apolloClient.query<TypePagePracticalTrainingsPropsQuery>({
-    query: gql`
-      query getStaticPropsPagePracticalTrainings {
-        lectoriums {
-          id
-          title
-          subtitle
-          type
-          slug
-          date
-          price
-          targetDate
-          endTime
-          isInternal
-          eventAddress
-          timepadHref
-          speaker {
-            picture {
-              url
-              width
-              height
-            }
-            text {
-              text
-            }
+  try {
+    const res = await apolloClient.query<TypePagePracticalTrainingsPropsQuery>({
+      query: gql`
+        query getStaticPropsPagePracticalTrainings {
+          lectoriums {
+            id
             title
+            subtitle
+            type
+            slug
+            date
+            price
+            targetDate
+            endTime
+            isInternal
+            eventAddress
+            timepadHref
+            speaker {
+              picture {
+                url
+                width
+                height
+              }
+              text {
+                text
+              }
+              title
+            }
           }
         }
-      }
-    `
-  })
-
-  return {
-    props: {
-      ...res.data
-    },
-    revalidate: revalidate.default
+      `
+    })
+  
+    return {
+      props: {
+        ...res.data
+      },
+      revalidate: revalidate.default
+    }
+  } catch (error) {
+    return error
   }
+  
 }
 
 export default getStaticPropsPageLectoriums

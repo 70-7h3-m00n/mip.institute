@@ -13,50 +13,55 @@ const getStaticPropsPageTeachers = async ({
   props: TypePageTeachersProps
   revalidate: number | boolean
 }> => {
-  const res = await apolloClient.query<TypePageTeachersPropsQuery>({
-    query: gql`
-      query GetStaticPropsPageTeachers {
-        programs {
-          id
-          studyField
-          studyFieldSlug
-          title
-          slug
-          typeLabel
-          type
-          studyMounthsDuration
-          studyHours
-          heroPicture {
-            url
-            width
-            height
+  try {
+    const res = await apolloClient.query<TypePageTeachersPropsQuery>({
+      query: gql`
+        query GetStaticPropsPageTeachers {
+          programs {
+            id
+            studyField
+            studyFieldSlug
+            title
+            slug
+            typeLabel
+            type
+            studyMounthsDuration
+            studyHours
+            heroPicture {
+              url
+              width
+              height
+            }
+            index_number {
+              idx
+            }
           }
-          index_number {
-            idx
+          teachers {
+            id
+            name
+            achievements
+            specialization
+            portrait {
+              url
+              width
+              height
+            }
+            index_number {
+              idx
+            }
           }
         }
-        teachers {
-          id
-          name
-          achievements
-          specialization
-          portrait {
-            url
-            width
-            height
-          }
-          index_number {
-            idx
-          }
-        }
-      }
-    `
-  })
-
-  return {
-    props: res.data,
-    revalidate: revalidate.default
+      `
+    })
+  
+    return {
+      props: res.data,
+      revalidate: revalidate.default
+    }
+  } catch (error) {
+    return error
   }
+  
 }
 
 export default getStaticPropsPageTeachers
