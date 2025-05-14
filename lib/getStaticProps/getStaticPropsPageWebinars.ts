@@ -13,39 +13,44 @@ const getStaticPropsPageWebinars = async ({
   props: TypePageWebinarsProps
   revalidate: number | boolean
 }> => {
-  const res = await apolloClient.query<TypePageWebinarsPropsQuery>({
-    query: gql`
-      query GetStaticPropsPageWebinars {
-        programs {
-          id
-          studyField
-          studyFieldSlug
-          index_number {
-            idx
+  try {
+    const res = await apolloClient.query<TypePageWebinarsPropsQuery>({
+      query: gql`
+        query GetStaticPropsPageWebinars {
+          programs {
+            id
+            studyField
+            studyFieldSlug
+            index_number {
+              idx
+            }
+          }
+          webinars {
+            id
+            name
+            date
+            picture {
+              url
+              width
+              height
+            }
+            title
+            index_number {
+              idx
+            }
           }
         }
-        webinars {
-          id
-          name
-          date
-          picture {
-            url
-            width
-            height
-          }
-          title
-          index_number {
-            idx
-          }
-        }
-      }
-    `
-  })
-
-  return {
-    props: res.data,
-    revalidate: revalidate.default
+      `
+    })
+  
+    return {
+      props: res.data,
+      revalidate: revalidate.default
+    }
+  } catch (error) {
+    return error
   }
+
 }
 
 export default getStaticPropsPageWebinars

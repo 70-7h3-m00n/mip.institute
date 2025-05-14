@@ -46,11 +46,6 @@ export const getStaticPropsBlogs = async () => {
   } catch (e) {
     console.error('Ошибка при получении блогов:', e)
 
-    return {
-      props: {
-        blogs: [] // Гарантируем, что будет корректный объект
-      },
-      revalidate: 10 // Подстраховка, если упал запрос
-    }
+    return e
   }
 }
