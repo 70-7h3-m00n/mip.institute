@@ -7,6 +7,7 @@ import OurPartners from '@/components/partners/OurPartners/OurPartners'
 import ProgramDescription from '@/components/sections/RedesignedProgram/ProgramDescription/ProgramDescription'
 import Bonuses from '@/components/sections/RedesignedProgram/Bonuses/Bonuses'
 import TeachersSlider from '../sections/RedesignedProgram/Teachers/TeachersSlider'
+import InsideProgram from '../sections/RedesignedProgram/InsideProgram/InsideProgram'
 
 interface Props {}
 
@@ -56,6 +57,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
     <div className={stls.container}>
       <ProgramDescription />
       <ProgramForRequest />
+      <InsideProgram />
       <HomeForm />
       <StudyProcess />
       <Bonuses />
