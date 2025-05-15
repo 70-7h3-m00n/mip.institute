@@ -4,10 +4,11 @@ import HomeForm from '../sections/Home/HomeForm/HomeForm'
 import ProgramForRequest from '../sections/Incomers/ProgramForRequest/ProgramForRequest'
 import HomeFAQ from '../sections/Home/HomeFAQ/HomeFAQ'
 import OurPartners from '@/components/partners/OurPartners/OurPartners'
-import ProgramDescriptionTabs from '@/components/sections/RedesignedProgram/ProgramDescriptionTabs/ProgramDescriptionTabs'
+import ProgramDescription from '@/components/sections/RedesignedProgram/ProgramDescription/ProgramDescription'
 import Bonuses from '@/components/sections/RedesignedProgram/Bonuses/Bonuses'
 
 interface Props {}
+
 const partners = [
   {
     id: 2,
@@ -52,7 +53,7 @@ const partners = [
 const PagePsyCons: React.FC<Props> = ({}) => {
   return (
     <div className={stls.container}>
-      <ProgramDescriptionTabs />
+      <ProgramDescription />
       <ProgramForRequest />
       <HomeForm />
       <StudyProcess />

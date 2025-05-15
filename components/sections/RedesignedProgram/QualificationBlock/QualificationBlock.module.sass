@@ -1,0 +1,64 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  border-radius: f.px(30)
+  @include m.flex($fd: column, $ai: center, $jc: center)
+  @include m.gap($ptb: f.px(30), $plr: f.px(80))
+  width: 100%
+  position: relative
+  overflow: hidden
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $jc: space-around)
+    @include m.gap($ptb: f.px(25), $plr: f.px(15))
+    border-radius: f.px(10)
+
+.title
+  @include m.dye(c, c.$purple-450)
+  text-align: center
+  font-size: f.px(26)
+  font-style: normal
+  font-weight: 700
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+    text-align: center
+    & > span
+      display: block
+
+.buttonBlock
+  width: 100%
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: center)
+  & > div > button
+    border: none
+    font-size: f.px(20)
+    @include m.dye(bg, c.$orange-400)
+    border-radius: f.px(10)
+    @include m.media(phone, tablet)
+      font-size: f.px(16)
+      @include m.gap($ptb: f.px(15))
+      width: 100%
+      z-index: 2
+
+.imgLeft
+  position: absolute
+  left: f.px(20)
+  top: f.px(-20)
+  transform: scale(1.3)
+  @include m.media(phone, tablet)
+    transform: scale(0.5)
+    left: f.px(0)
+    top: f.px(-30)
+
+.imgRight
+  position: absolute
+  right: f.px(50)
+  bottom: f.px(-30)
+  transform: scale(1.3) rotate(-50deg)
+  @include m.media(phone, tablet)
+    transform: scale(0.7) rotate(-50deg)
+    bottom: f.px(30)
+    right: f.px(10)
+    z-index: 0

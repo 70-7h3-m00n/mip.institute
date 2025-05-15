@@ -110,7 +110,7 @@ const PopupTrigger = ({
       sortOutGrievances: 'Разобраться с обидами',
       takePart: 'Принять участие',
       takeGift: 'Забрать подарок',
-      beginStudy: 'Начинаю учиться'
+      beginStudy: 'Начать учиться'
     },
     title: {
       askQuestion: 'Задать вопрос',
