@@ -6,6 +6,7 @@ import HomeFAQ from '../sections/Home/HomeFAQ/HomeFAQ'
 import OurPartners from '@/components/partners/OurPartners/OurPartners'
 import ProgramDescription from '@/components/sections/RedesignedProgram/ProgramDescription/ProgramDescription'
 import Bonuses from '@/components/sections/RedesignedProgram/Bonuses/Bonuses'
+import TeachersSlider from '../sections/RedesignedProgram/Teachers/TeachersSlider'
 
 interface Props {}
 
@@ -58,6 +59,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <HomeForm />
       <StudyProcess />
       <Bonuses />
+      <TeachersSlider />
       <OurPartners onePartner={partners} />
       <HomeFAQ /> {/* Поправить тест и цвета  */}
     </div>

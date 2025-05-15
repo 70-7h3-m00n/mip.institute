@@ -1,0 +1,55 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.card
+  background-color: c.$purple-100
+  padding: 20px
+  border-radius: 10px
+  height: 100%
+  @include m.flex($fd: column,$jc: space-between)
+
+.name
+  color: c.$purple-450
+  font-size: 20px
+  font-weight: 600
+  line-height: 100%
+  margin-bottom: 10px
+
+.role
+  color: c.$black-900
+  font-size: 14px
+  font-weight: 300
+  line-height: 100%
+  margin-bottom: 20px
+
+.list
+  @include m.flex($fd: column)
+  gap: 10px
+  margin: 0
+  padding: 0
+  list-style: none
+  li
+    @include m.flex($ai: flex-start)
+    gap: 10px
+    
+.text
+  color: c.$black-900
+  font-size: 12px
+  font-style: normal
+  font-weight: 400
+  line-height: normal
+
+.icon
+  width: 17px
+  height: 17px
+  flex-shrink: 0
+
+.experience
+  color: c.$purple-450
+  text-align: right
+  font-size: 14px
+  font-weight: 500
+  line-height: 100%
+  text-transform: lowercase
+  margin-top: 16px

@@ -11,12 +11,12 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const desktopImages = Array.from(
   { length: 8 },
-  (_, i) => `/assets/imgs/redesignedProgram/${i + 1}.png`
+  (_, i) => `/assets/imgs/redesignedProgram/Bonuses/${i + 1}.png`
 )
 
 const mobileImages = Array.from(
   { length: 8 },
-  (_, i) => `/assets/imgs/redesignedProgram/Mob${i + 1}.png`
+  (_, i) => `/assets/imgs/redesignedProgram/Bonuses/Mob${i + 1}.png`
 )
 const Bonuses = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
