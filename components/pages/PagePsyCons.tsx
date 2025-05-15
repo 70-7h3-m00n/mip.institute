@@ -5,6 +5,7 @@ import ProgramForRequest from '../sections/Incomers/ProgramForRequest/ProgramFor
 import HomeFAQ from '../sections/Home/HomeFAQ/HomeFAQ'
 import OurPartners from '@/components/partners/OurPartners/OurPartners'
 import ProgramDescriptionTabs from '@/components/sections/RedesignedProgram/ProgramDescriptionTabs/ProgramDescriptionTabs'
+import Bonuses from '@/components/sections/RedesignedProgram/Bonuses/Bonuses'
 
 interface Props {}
 const partners = [
@@ -18,8 +19,14 @@ const partners = [
     image: {
       id: 296,
       documentId: 'u1n6r647yoh6kj81k5h527u5',
-      url: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739876438/6330601_f7f2940a13.jpg'
-    }
+      url: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739876438/6330601_f7f2940a13.jpg',
+      width: 210,
+      height: 250
+    },
+    type: 'partner',
+    createdAt: '2024-01-01T00:00:00.000Z',
+    updatedAt: '2024-01-01T00:00:00.000Z',
+    publishedAt: '2024-01-02T00:00:00.000Z'
   },
   {
     id: 4,
@@ -31,10 +38,17 @@ const partners = [
     image: {
       id: 292,
       documentId: 'muk0fmi8n1rm6w6e8h39fsmn',
-      url: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739863433/20943593_63cc80d56a.jpg'
-    }
+      url: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739863433/20943593_63cc80d56a.jpg',
+      width: 210,
+      height: 250
+    },
+    type: 'partner',
+    createdAt: '2024-01-01T00:00:00.000Z',
+    updatedAt: '2024-01-01T00:00:00.000Z',
+    publishedAt: '2024-01-02T00:00:00.000Z'
   }
 ]
+
 const PagePsyCons: React.FC<Props> = ({}) => {
   return (
     <div className={stls.container}>
@@ -42,6 +56,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <ProgramForRequest />
       <HomeForm />
       <StudyProcess />
+      <Bonuses />
       <OurPartners onePartner={partners} />
       <HomeFAQ /> {/* Поправить тест и цвета  */}
     </div>
