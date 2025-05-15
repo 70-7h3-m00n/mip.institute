@@ -1,16 +1,12 @@
-import Wrapper from '@/ui/Wrapper'
+import stls from '@/styles/pages/PagePsyCons.module.sass'
 
-interface Props {
+interface Props {}
 
-}
-
-const PagePsyCons: React.FC<Props> = ({
-
-}) => {
+const PagePsyCons: React.FC<Props> = ({}) => {
   return (
-    <Wrapper>
+    <div className={stls.container}>
       <p>psy cons</p>
-    </Wrapper>
+    </div>
   )
 }
 
