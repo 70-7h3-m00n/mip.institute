@@ -1,0 +1,50 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.tabs
+  @include m.flex($ai: center, $jc: space-between)
+  width: 100%
+
+.tab
+  @include m.flex($ai: center, $jc: center)
+  @include m.gap($ptb: f.px(22), $plr: f.px(70))
+  border-radius: 100px
+  font-size: f.px(18)
+  cursor: pointer
+  background: c.$purple-150
+  color: c.$black-700
+  font-weight: 500
+
+  &:hover, &.activeTab
+    background: c.$purple-450
+    font-weight: 700
+    color: white
+
+.content
+  display: grid
+  grid-template-columns: f.px(480) 1fr
+  gap: f.px(30)
+  height: 500px
+  @include m.gap($mtb: f.px(30))
+  @include m.media(phone, tablet)
+    gap: 20px
+
+.video
+  width: 100%
+  border-radius: 10px
+  background-color: #8F60FF
+
+.description
+  width: 100%
+  background-color: white
+  border-radius: f.px(30)
+  @include m.gap($ptb: f.px(40), $pl: f.px(30), $pr: f.px(60))
+
+.text
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 400
+
+.bold
+  font-weight: 700
