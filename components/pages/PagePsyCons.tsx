@@ -1,11 +1,47 @@
 import stls from '@/styles/pages/PagePsyCons.module.sass'
+import StudyProcess from '../sections/Incomers/StudyProcess/StudyProcess'
+import HomeForm from '../sections/Home/HomeForm/HomeForm'
+import ProgramForRequest from '../sections/Incomers/ProgramForRequest/ProgramForRequest'
+import HomeFAQ from '../sections/Home/HomeFAQ/HomeFAQ'
+import OurPartners from '@/components/partners/OurPartners/OurPartners'
 
 interface Props {}
-
+const partners = [
+  {
+    id: 2,
+    documentId: 'yskep3l1zlwp7634epzr6axa',
+    title: 'Общероссийской профессиональной психотерапевтической лиги (ОППЛ)',
+    subtitle:
+      'Общероссийская профессиональная психотерапевтическая лига объединяет специалистов в области психотерапии, психологии и консультирования. Лига создает условия для творческого сотрудничества и взаимообогащающего развития представителей различных школ и направлений.\n' +
+      'Наши выпускники могут получить членство в Лиге на льготных условиях.',
+    image: {
+      id: 296,
+      documentId: 'u1n6r647yoh6kj81k5h527u5',
+      url: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739876438/6330601_f7f2940a13.jpg'
+    }
+  },
+  {
+    id: 4,
+    documentId: 'hw6v4xav8m8l4v99uooakdvm',
+    title: 'Ассоциация профессиональных психологов и психотерапевтов',
+    subtitle:
+      'Ассоциация  занимается психологическим просвещением общества, развитием прикладной психологии и повышением качества психологической помощи. Членство в Ассоциации открывает возможности для обмена опытом, расширения профессиональных контактов и признания в сообществе.\n' +
+      'Сотрудничество позволяет нашим выпускникам членство на льготных условиях.',
+    image: {
+      id: 292,
+      documentId: 'muk0fmi8n1rm6w6e8h39fsmn',
+      url: 'https://res.cloudinary.com/dp3iuhwtp/image/upload/v1739863433/20943593_63cc80d56a.jpg'
+    }
+  }
+]
 const PagePsyCons: React.FC<Props> = ({}) => {
   return (
     <div className={stls.container}>
-      <p>psy cons</p>
+      <ProgramForRequest />
+      <HomeForm />
+      <StudyProcess />
+      <OurPartners onePartner={partners} />
+      <HomeFAQ /> {/* Поправить тест и цвета  */}
     </div>
   )
 }

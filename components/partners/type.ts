@@ -3,8 +3,8 @@ export interface ImageType {
   id: number
   documentId: string
   url: string
-  width: number
-  height: number
+  width?: number
+  height?: number
 }
 
 // Интерфейс для партнера
@@ -13,10 +13,10 @@ export interface Partner {
   documentId: string
   title: string
   subtitle: string
-  type: string
-  createdAt: string
-  updatedAt: string
-  publishedAt: string
+  type?: string
+  createdAt?: string
+  updatedAt?: string
+  publishedAt?: string
   image: ImageType
 }
 
@@ -32,9 +32,9 @@ export interface PropsList {
 
 // Интерфейс для блока наши партнеры
 export interface PropsOurPartners {
-  allTypes?: string[];
-  currentType?: string;
-  onePartner: Partner[];
+  allTypes?: string[]
+  currentType?: string
+  onePartner: Partner[]
 }
 
 // Интерфейс для параметров страницы
