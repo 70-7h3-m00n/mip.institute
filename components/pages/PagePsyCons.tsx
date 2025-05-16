@@ -8,6 +8,7 @@ import ProgramDescription from '@/components/sections/RedesignedProgram/ProgramD
 import Bonuses from '@/components/sections/RedesignedProgram/Bonuses/Bonuses'
 import TeachersSlider from '../sections/RedesignedProgram/Teachers/TeachersSlider'
 import InsideProgram from '../sections/RedesignedProgram/InsideProgram/InsideProgram'
+import CourseWorkTopics from '../sections/RedesignedProgram/CourseWorkTopics/CourseWorkTopics'
 
 interface Props {}
 
@@ -61,6 +62,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <HomeForm />
       <StudyProcess />
       <Bonuses />
+      <CourseWorkTopics />
       <TeachersSlider />
       <OurPartners onePartner={partners} />
       <HomeFAQ /> {/* Поправить тест и цвета  */}

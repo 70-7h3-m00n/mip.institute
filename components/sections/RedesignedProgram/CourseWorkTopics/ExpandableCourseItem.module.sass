@@ -1,0 +1,72 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.item
+  background: c.$white-900
+  border-radius: 10px
+  @include m.gap($mb: f.px(12))
+  padding: 20px 55px 0px 55px
+  @include m.flex($fd: column)
+  transition: all 0.3s ease
+  @include m.media(phone, tablet)
+    padding: 20px 15px 5px 15px
+
+.header
+  @include m.flex($ai: center,$jc: space-between)
+  gap: 105px
+  cursor: pointer
+  position: relative
+  @include m.gap($pb: f.px(20))
+  @include m.media(phone, tablet)
+    gap: 5px
+    @include m.gap($pb: f.px(15))
+
+  &.opened::after
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 1px
+    background-color: c.$gray-500
+
+.number
+  color: c.$orange-400
+  font-weight: 500
+  font-size: f.px(18)
+  line-height: f.px(18)
+  letter-spacing: -0.36px
+  @include m.media(phone, tablet)
+    display: none
+
+.title
+  color: c.$black-900
+  font-weight: 400
+  font-size: f.px(22)
+  flex-grow: 1
+  text-align: left
+  letter-spacing: -0.44px
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+
+.icon
+  flex-shrink: 0
+  @include m.flex($ai: center,$jc: center)
+  width: 34px
+  height: 34px
+  border-radius: 50%
+  background-color: c.$orange-400
+  @include m.media(phone, tablet)
+    transform: scale(0.7)
+
+.description
+  @include m.gap($mt: f.px(23),$ml: f.px(115),$mb: f.px(26))
+  max-width: 650px
+  color: c.$black-900
+  font-size: f.px(18)
+  font-weight: 500
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: f.px(13)
+    @include m.gap($mt: f.px(15),$ml: f.px(0),$mb: f.px(15))
