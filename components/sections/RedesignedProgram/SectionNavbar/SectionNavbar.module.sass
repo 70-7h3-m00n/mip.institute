@@ -6,6 +6,8 @@
   background-color: c.$purple-450
   padding: 15px 40px !important
   border-radius: 0px !important
+  @include m.media(phone, tablet, laptop)
+    display: none
 
 .navbar
   width: 100%
@@ -18,6 +20,7 @@
 .links
   display: flex
   gap: 45px
+  padding: 0
 
   li
     list-style: none
