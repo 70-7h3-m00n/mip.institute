@@ -13,6 +13,7 @@ import SectionNavbar from '../sections/RedesignedProgram/SectionNavbar/SectionNa
 import Reviews from '../sections/RedesignedProgram/Reviews/Reviews'
 import ProgramResult from '@/components/sections/RedesignedProgram/ProgramResult/ProgramResult'
 import QualificationBlock from '@/components/sections/RedesignedProgram/QualificationBlock/QualificationBlock'
+import PracticalOrientatedProgram from '../sections/RedesignedProgram/PracticalOrientatedProgram/PracticalOrientatedProgram'
 
 interface Props {}
 
@@ -65,6 +66,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <ProgramForRequest />
       <SectionNavbar />
       <InsideProgram />
+      <PracticalOrientatedProgram />
       <HomeForm />
       <StudyProcess />
       <Bonuses />
