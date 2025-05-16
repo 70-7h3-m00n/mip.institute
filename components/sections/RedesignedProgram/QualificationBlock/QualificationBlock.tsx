@@ -1,40 +1,81 @@
 import PopupTrigger from '@/ui/PopupTrigger'
 import stls from './QualificationBlock.module.sass'
 import Image from 'next/image'
-import diploma from 'public/assets/imgs/diplomas/diplomHolo.svg'
+import classNames from 'classnames'
+import diploma from '@/public/assets/imgs/diplomas/diplomHolo.svg'
+import { programForWhom, vciom } from 'constants/redesignedProgram/qualificationBlock'
 
 type Props = {
-  title: string
-  specialization: string
-  buttonText?: string
+  programDetails?: {
+    specialization: string
+    name: string
+  } | null
   bgcolor?: string
+  isVciom?: boolean
+  isStatic?: boolean
 }
 
-const QualificationBlock = ({ title, buttonText, bgcolor = 'white', specialization }: Props) => {
+const QualificationBlock = ({
+  programDetails = null,
+  bgcolor = 'white',
+  isVciom = false,
+  isStatic = false
+}: Props) => {
+  const mainText = isVciom ? vciom : programForWhom
+  const imageSrc = isVciom ? vciom.img : diploma
+
   return (
-    <div style={{ backgroundColor: bgcolor }} className={stls.container}>
-      <p className={stls.title}>
-        Квалификация <span>«{title}»</span> с дополнительной специализацией
-        <span>«{specialization}»</span>
-      </p>
-      <div className={stls.buttonBlock}>
-        <PopupTrigger btn='gamma' cta='beginStudy' />
-      </div>
+    <div
+      style={{ backgroundColor: bgcolor }}
+      className={classNames(stls.container, {
+        [stls.staticContainer]: isStatic
+      })}>
+      {isStatic ? (
+        <>
+          <p
+            className={classNames(stls.title, {
+              [stls.largeText]: isStatic
+            })}>
+            {mainText.title}
+          </p>
+          <p
+            className={classNames(stls.extra, {
+              [stls.underlined]: mainText.underlined
+            })}>
+            {mainText.extraInfo}
+          </p>
+        </>
+      ) : (
+        <p className={stls.title}>
+          Квалификация <span>«{programDetails?.name || 'Название программы'}»</span>с дополнительной
+          специализацией
+          <span>«{programDetails?.specialization || 'Специализация'}»</span>
+        </p>
+      )}
+
+      {!isStatic && (
+        <div className={stls.buttonBlock}>
+          <PopupTrigger btn='gamma' cta='beginStudy' />
+        </div>
+      )}
+
       <Image
-        src={diploma}
+        src={imageSrc}
         alt='diploma'
-        width={70}
+        width={60}
         height={140}
-        layout='fixed'
-        className={stls.imgLeft}
+        className={classNames(stls.imgLeft, {
+          [stls.imgLeftStatic]: isStatic
+        })}
       />
       <Image
-        src={diploma}
+        src={imageSrc}
         alt='diploma'
-        width={70}
+        width={60}
         height={100}
-        layout='fixed'
-        className={stls.imgRight}
+        className={classNames(stls.imgRight, {
+          [stls.imgRightStatic]: isStatic
+        })}
       />
     </div>
   )

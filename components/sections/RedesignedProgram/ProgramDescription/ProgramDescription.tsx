@@ -87,8 +87,10 @@ const ProgramDescription = () => {
           ) : null}
 
           <QualificationBlock
-            title='Психолог-консультант'
-            specialization='Психотерапия в психологическом консультировании'
+            programDetails={{
+              name: 'Психолог-консультант',
+              specialization: 'Психотерапия в психологическом консультировании'
+            }}
           />
         </div>
       </Wrapper>

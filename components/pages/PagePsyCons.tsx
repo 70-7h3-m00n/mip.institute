@@ -11,6 +11,8 @@ import InsideProgram from '../sections/RedesignedProgram/InsideProgram/InsidePro
 import CourseWorkTopics from '../sections/RedesignedProgram/CourseWorkTopics/CourseWorkTopics'
 import SectionNavbar from '../sections/RedesignedProgram/SectionNavbar/SectionNavbar'
 import Reviews from '../sections/RedesignedProgram/Reviews/Reviews'
+import ProgramResult from '@/components/sections/RedesignedProgram/ProgramResult/ProgramResult'
+import QualificationBlock from '@/components/sections/RedesignedProgram/QualificationBlock/QualificationBlock'
 
 interface Props {}
 
@@ -58,6 +60,7 @@ const partners = [
 const PagePsyCons: React.FC<Props> = ({}) => {
   return (
     <div className={stls.container}>
+      <ProgramResult />
       <ProgramDescription />
       <ProgramForRequest />
       <SectionNavbar />
@@ -67,8 +70,10 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <Bonuses />
       <CourseWorkTopics />
       <TeachersSlider />
+      <QualificationBlock isStatic bgcolor='#855EDF' />
       <OurPartners onePartner={partners} />
       <Reviews />
+      <QualificationBlock isStatic isVciom bgcolor='#FF8F52' />
       <HomeFAQ /> {/* Поправить тест и цвета  */}
     </div>
   )
