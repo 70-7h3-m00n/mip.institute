@@ -10,6 +10,7 @@ import TeachersSlider from '../sections/RedesignedProgram/Teachers/TeachersSlide
 import InsideProgram from '../sections/RedesignedProgram/InsideProgram/InsideProgram'
 import CourseWorkTopics from '../sections/RedesignedProgram/CourseWorkTopics/CourseWorkTopics'
 import SectionNavbar from '../sections/RedesignedProgram/SectionNavbar/SectionNavbar'
+import Reviews from '../sections/RedesignedProgram/Reviews/Reviews'
 
 interface Props {}
 
@@ -67,6 +68,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <CourseWorkTopics />
       <TeachersSlider />
       <OurPartners onePartner={partners} />
+      <Reviews />
       <HomeFAQ /> {/* Поправить тест и цвета  */}
     </div>
   )
