@@ -9,6 +9,7 @@ import Bonuses from '@/components/sections/RedesignedProgram/Bonuses/Bonuses'
 import TeachersSlider from '../sections/RedesignedProgram/Teachers/TeachersSlider'
 import InsideProgram from '../sections/RedesignedProgram/InsideProgram/InsideProgram'
 import CourseWorkTopics from '../sections/RedesignedProgram/CourseWorkTopics/CourseWorkTopics'
+import SectionNavbar from '../sections/RedesignedProgram/SectionNavbar/SectionNavbar'
 
 interface Props {}
 
@@ -58,6 +59,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
     <div className={stls.container}>
       <ProgramDescription />
       <ProgramForRequest />
+      <SectionNavbar />
       <InsideProgram />
       <HomeForm />
       <StudyProcess />
