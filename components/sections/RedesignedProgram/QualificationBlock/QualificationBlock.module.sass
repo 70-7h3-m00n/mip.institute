@@ -99,3 +99,20 @@
     transform: rotate(-40deg)
     bottom: f.px(-40)
     right: f.px(10)
+
+.vciomIconLeft
+  transform: scale(2)
+  left: f.px(50)
+  top: f.px(-40)
+  @include m.media(phone, tablet)
+    transform: scale(1.5)
+    left: f.px(20)
+
+.vciomIconRight
+  right: f.px(50)
+  bottom: f.px(-30)
+  transform: scale(2) rotate(20deg)
+  @include m.media(phone, tablet)
+    transform: scale(3) rotate(20deg)
+    right: f.px(50)
+    bottom: f.px(-30)

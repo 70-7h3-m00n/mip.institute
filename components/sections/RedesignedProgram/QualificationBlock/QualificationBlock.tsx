@@ -65,7 +65,8 @@ const QualificationBlock = ({
         width={60}
         height={140}
         className={classNames(stls.imgLeft, {
-          [stls.imgLeftStatic]: isStatic
+          [stls.imgLeftStatic]: isStatic,
+          [stls.vciomIconLeft]: isVciom
         })}
       />
       <Image
@@ -74,7 +75,8 @@ const QualificationBlock = ({
         width={60}
         height={100}
         className={classNames(stls.imgRight, {
-          [stls.imgRightStatic]: isStatic
+          [stls.imgRightStatic]: isStatic,
+          [stls.vciomIconRight]: isVciom
         })}
       />
     </div>

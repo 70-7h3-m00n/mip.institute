@@ -1,4 +1,4 @@
-import diploma from '@/public/assets/imgs/diplomas/diplomHolo.svg'
+import money from '@/public/assets/imgs/redesignedProgram/flying-money.svg'
 
 const programForWhom = {
   title:
@@ -13,7 +13,7 @@ const vciom = {
     'Мы стали больше ходить к психологам!\nСогласно исследованиям*, осознанная забота о ментальном здоровье — новый стандарт повседневной жизни!',
   extraInfo: '*По данным ВЦИОМ',
   underlined: true,
-  img: diploma
+  img: money
 }
 
 export { programForWhom, vciom }

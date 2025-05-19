@@ -49,7 +49,7 @@ const ProgramDescription = () => {
       <Wrapper>
         <h2>Описание программы</h2>
         <div className={stls.mainBlock}>
-          <div className={stls.tabs}>
+          <div className={stls.desktopTabs}>
             {programDescription.map(tab => (
               <button
                 key={tab.id}
@@ -69,6 +69,19 @@ const ProgramDescription = () => {
                 className={stls.video}
                 src={`https://kinescope.io/embed/2WALhR1ZcszBWNRXQ2kNSB`}
                 allow='autoplay; fullscreen; picture-in-picture; encrypted-media;'></iframe>
+              <div className={stls.mobileTabs}>
+                {programDescription.map(tab => (
+                  <button
+                    key={tab.id}
+                    className={classNames({
+                      [stls.tab]: true,
+                      [stls.activeTab]: tab.id === activeTab
+                    })}
+                    onClick={() => setActiveTab(tab.id)}>
+                    {tab.text}
+                  </button>
+                ))}
+              </div>
               <div className={stls.description}>
                 <p className={classNames(stls.text, stls.bold)}>
                   {activeContent.descriptionHeader}

@@ -9,13 +9,23 @@
     @include m.flex($ai: center, $fd: column)
     gap: f.px(15)
 
-.tabs
-  @include m.flex($ai: center, $jc: flex-start)
-  width: 100%
-  gap: f.px(20)
-  flex-wrap: wrap
+.mobileTabs
+  @include m.media(desktop, laptop)
+    display: none
   @include m.media(phone, tablet)
+    width: 100%
+    @include m.flex($ai: center, $jc: flex-start)
     gap: f.px(15)
+    flex-wrap: wrap
+
+.desktopTabs
+  @include m.media(desktop, laptop)
+    width: 100%
+    gap: f.px(20)
+    flex-wrap: wrap
+    @include m.flex($ai: center, $jc: flex-start)
+  @include m.media(phone, tablet)
+    display: none
 
 .tab
   @include m.flex($ai: center, $jc: center)
