@@ -1,0 +1,38 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  padding: 0px !important
+
+.title
+  font-size: f.px(44)
+  font-weight: 700
+  margin-bottom: f.px(35)
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(15)
+
+.accent
+  color: c.$purple-450
+
+.grid
+  display: grid
+  grid-template-columns: 1.2fr 1fr
+  gap: f.px(20)
+  align-items: stretch
+  @include m.media(phone, tablet)
+    grid-template-columns: 1fr
+    gap: f.px(15)
+
+.left
+  @include m.flex($fd: column)
+  gap: f.px(15)
+
+.right
+  @include m.flex($fd: column, $jc: space-between)
+
+.mobileBreak
+  display: none
+
+  @include m.media(phone)
+    display: block

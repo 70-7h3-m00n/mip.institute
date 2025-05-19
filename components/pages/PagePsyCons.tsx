@@ -14,6 +14,7 @@ import Reviews from '../sections/RedesignedProgram/Reviews/Reviews'
 import ProgramResult from '@/components/sections/RedesignedProgram/ProgramResult/ProgramResult'
 import QualificationBlock from '@/components/sections/RedesignedProgram/QualificationBlock/QualificationBlock'
 import PracticalOrientatedProgram from '../sections/RedesignedProgram/PracticalOrientatedProgram/PracticalOrientatedProgram'
+import Portfolio from '../sections/RedesignedProgram/Portfolio.tsx/Portfolio'
 import ShortCourseDescription from '@/components/sections/RedesignedProgram/ShortCourseDescription/ShortCourseDescription'
 
 interface Props {}
@@ -74,10 +75,11 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <Bonuses />
       <CourseWorkTopics />
       <TeachersSlider />
+      <Portfolio />
       <QualificationBlock isStatic bgcolor='#855EDF' />
+      <QualificationBlock isStatic isVciom bgcolor='#FF8F52' />
       <OurPartners onePartner={partners} />
       <Reviews />
-      <QualificationBlock isStatic isVciom bgcolor='#FF8F52' />
       <HomeFAQ /> {/* Поправить тест и цвета  */}
     </div>
   )

@@ -1,0 +1,67 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.qualification
+  border-radius: 30px
+  background: c.$purple-450
+  @include m.gap($pt: f.px(35), $pb: f.px(50), $plr: f.px(20))
+  @include m.flex($fd: column)
+  gap: f.px(25)
+  color: c.$white-900
+  height: 100%
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(20),$pl: f.px(15),$pb: f.px(30),$pr: f.px(8))
+
+.stage
+  @include m.flex($fd: column)
+
+.title
+  @include m.flex($ai: center)
+  gap: 20px
+  @include m.gap($mb: f.px(10))
+  @include m.media(phone, tablet)
+    gap: 15px
+    @include m.gap($mb: f.px(20))
+
+.circle
+  background: c.$white-900
+  color: c.$purple-450
+  font-weight: 700
+  font-size: 18px
+  width: 40px
+  height: 40px
+  border-radius: 50%
+  @include m.flex($jc: center, $ai: center)
+  flex-shrink: 0
+  @include m.media(phone, tablet)
+    width: 29px
+    height: 29px
+    font-size: 14px
+
+.label
+  font-size: 27px
+  font-weight: 700
+  line-height: 110%
+  color: c.$white-900
+  @include m.media(phone, tablet)
+    font-size: 19px
+
+.text
+  font-size: 18px
+  font-weight: 400
+  line-height: 120%
+  color: c.$white-900
+  @include m.gap($pl: f.px(60))
+  @include m.media(phone, tablet)
+    font-size: 15px
+    @include m.gap($pl: f.px(15))
+
+.imageWrapper
+  @include m.flex($jc: flex-start)
+  @include m.gap($pl: f.px(60))
+  img
+    width: 260px
+    height: 184px
+  @include m.media(phone, tablet)
+    @include m.gap($pl: f.px(15))

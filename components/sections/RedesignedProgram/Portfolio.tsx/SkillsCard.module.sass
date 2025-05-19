@@ -1,0 +1,87 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.skills
+  border-radius: 30px
+  background: c.$white-900
+  @include m.gap($pt: f.px(35),$plr: f.px(20),$pb: f.px(60))
+  height: 100%
+  @include m.flex($fd: column)
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(20),$pl: f.px(15),$pb: f.px(30),$pr: f.px(8))
+
+.skillsHeader
+  @include m.flex($ai: center)
+  gap: 20px
+  @include m.media(phone, tablet)
+    gap: 15px
+
+.title
+  color: c.$black-900
+  font-size: 27px
+  font-weight: 700
+  line-height: 110%
+  @include m.media(phone, tablet)
+    font-size: 19px
+
+.circle
+  background: c.$purple-450
+  color: c.$gray-100
+  font-weight: 700
+  line-height: 120%
+  min-width: 40px
+  min-height: 40px
+  font-size: 18px
+  @include m.flex($ai: center,$jc: center)
+  border-radius: 50%
+  @include m.media(phone, tablet)
+    min-width: 29px
+    min-height: 29px
+    font-size: 14px
+
+.list
+  @include m.flex($fd: column)
+  gap: 20px
+  @include m.gap($pl: f.px(55),$mt: f.px(15),$mb: f.px(30))
+  list-style: none
+  @include m.media(phone, tablet)
+    @include m.gap($pl: f.px(0),$mt: f.px(15),$mb: f.px(20))
+    gap: 15px
+
+  li
+    position: relative
+    padding-left: 25px
+    color: c.$black-900
+    font-size: 18px
+    font-weight: 400
+    line-height: 120%
+    @include m.media(phone, tablet)
+      font-size: 15px
+      padding-left: 15px
+
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 0.4em
+      width: 7px
+      height: 7px
+      background-color: c.$purple-450
+      border-radius: 50%
+      flex-shrink: 0
+      @include m.media(phone, tablet)
+        width: 5px
+        height: 5px
+
+.readMore
+  color: c.$gray-200
+  font-size: 15px
+  font-weight: 700
+  line-height: 130%
+  text-decoration: underline
+  cursor: pointer
+  padding-left: 80px
+  align-self: flex-start
+  @include m.media(phone, tablet) 
+    padding-left: 15px
