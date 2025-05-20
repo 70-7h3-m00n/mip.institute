@@ -50,6 +50,7 @@ const promocodesWithGift = {
   winivino: { gift: 'https://mip.institute/free-access' },
   lyalyausa: { gift: 'https://mip.institute/free-access' },
   kontext_may: { gift: 'https://mip.institute/free-access' },
+  katerinalo2305: { gift: 'https://mipinstitute.getcourse.ru/3shaga_dostup' },
 }
 
 export default promocodesWithGift
