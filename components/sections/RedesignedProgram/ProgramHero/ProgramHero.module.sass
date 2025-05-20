@@ -1,0 +1,134 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  padding-top: f.px(50) !important
+  padding-bottom: f.px(50) !important
+  background: linear-gradient(120deg, #9f80e5, c.$purple-450)
+  position: relative
+  @include m.media(phone, tablet)
+    padding-top: f.px(20) !important
+    padding-bottom: f.px(20) !important
+    background: linear-gradient(120deg, c.$purple-450, c.$purple-450)
+  & > div
+    @include m.flex($fd: column)
+    & > h1
+      color: #FFF
+      font-size: f.px(54)
+      font-weight: 700
+      line-height: 100%
+      @include m.gap($mb: f.px(25), $mt: f.px(35))
+      max-width: 70%
+      @include m.media(phone, tablet)
+        @include m.gap($mb: f.px(15), $mt: f.px(20))
+        font-size: f.px(34)
+        line-height: 110%
+        max-width: 100%
+
+.tags
+  @include m.flex()
+  gap: f.px(5)
+  margin-bottom: f.px(5)
+  z-index: 3
+  @include m.media(phone, tablet)
+    gap: f.px(10)
+    flex-wrap: wrap
+
+.tag
+  @include m.gap($ptb: f.px(12), $plr: f.px(25))
+  text-align: center
+  background-color: #E4D9FF
+  border-radius: f.px(50)
+  font-size: f.px(18)
+  font-style: normal
+  font-weight: 400
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(22))
+    font-size: f.px(11)
+
+.updated
+  font-weight: 700
+  @include m.dye(bg, c.$orange-400)
+  @include m.dye(c, c.$white-900)
+  @include m.flex($ai: center)
+  &::before
+    content: ''
+    display: inline-block
+    width: 13px
+    height: 23px
+    @include m.dye(bg, c.$white-900)
+    mask: url('/assets/imgs/home/EducationalPrograms/Bolt.svg') no-repeat center
+    -webkit-mask: url('/assets/imgs/home/EducationalPrograms/Bolt.svg') no-repeat center
+    mask-size: contain
+    -webkit-mask-size: contain
+    margin-right: f.px(5)
+    @include m.media(phone, tablet)
+      width: 8px
+      height: 15px
+
+.hoursText
+  position: absolute
+  z-index: 3
+  right: 27%
+  bottom: 41%
+  font-size: f.px(18)
+  font-weight: 600
+  text-align: left
+  transform: rotate(-15deg) translateX(-15px)
+  @include m.media(phone, tablet, laptop)
+    display: none
+
+.imgHours, .imgForm
+  border-radius: f.px(20)
+  position: absolute
+  @include m.media(phone, tablet, laptop)
+    display: none
+
+.imgHours
+  right: 25%
+  bottom: -5%
+  transform: rotate(-15deg)
+  z-index: 1
+
+.imgForm
+  right: 12%
+  bottom: 25%
+  transform: rotate(10deg)
+
+.subtitle
+  color: #FFF
+  font-size: f.px(18)
+  font-weight: 400
+  font-style: normal
+  line-height: normal
+  max-width: 50%
+  @include m.media(phone, tablet)
+    max-width: 100%
+    font-weight: 300
+    margin-bottom: 0
+
+.btns
+  @include m.gap($mt: f.px(30))
+  @include m.flex()
+  gap: f.px(30)
+  z-index: 3
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+    gap: f.px(10)
+  & > div > button
+    border-radius: f.px(10)
+    @include m.gap($ptb: f.px(20), $plr: f.px(80))
+    font-size: f.px(20)
+    font-style: normal
+    font-weight: 700
+    @include m.media(phone, tablet)
+      font-size: f.px(16)
+
+.btns > div > button:last-of-type
+  font-weight: 500
+  border-width: f.px(1)
+
+
+
+

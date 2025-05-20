@@ -16,6 +16,7 @@ import QualificationBlock from '@/components/sections/RedesignedProgram/Qualific
 import PracticalOrientatedProgram from '../sections/RedesignedProgram/PracticalOrientatedProgram/PracticalOrientatedProgram'
 import Portfolio from '../sections/RedesignedProgram/Portfolio.tsx/Portfolio'
 import ShortCourseDescription from '@/components/sections/RedesignedProgram/ShortCourseDescription/ShortCourseDescription'
+import ProgramHero from '@/components/sections/RedesignedProgram/ProgramHero/ProgramHero'
 
 interface Props {}
 
@@ -63,6 +64,7 @@ const partners = [
 const PagePsyCons: React.FC<Props> = ({}) => {
   return (
     <div className={stls.container}>
+      <ProgramHero />
       <ShortCourseDescription />
       <ProgramResult />
       <ProgramDescription />
