@@ -4,8 +4,7 @@
 
 .card
   border-radius: 10px
-  @include m.flex($fd: column)
-  justify-content: space-between
+  @include m.flex($fd: column, $jc: space-between)
   background: #FFF4ED
   border: 1px solid c.$orange-400
 
@@ -90,7 +89,7 @@
 
 .button
   margin: f.px(10) f.px(24) f.px(25)
-  padding: f.px(24)
+  @include m.flex($fd: column, $jc: center, $ai:center)
   font-size: f.px(16)
   background: c.$orange-400
   color: c.$white-900
@@ -98,8 +97,11 @@
   border-radius: 12px
   font-weight: 600
   cursor: pointer
+  & > *
+      width: 100%
+      & > *
+        width: 100%
   @include m.media(phone, tablet)
-    padding: f.px(18)
     border-radius: 5px
 
 //Бонусы 

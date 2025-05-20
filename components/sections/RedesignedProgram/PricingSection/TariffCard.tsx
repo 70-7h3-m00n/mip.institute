@@ -5,6 +5,7 @@ import stls from './TariffCard.module.sass'
 import { tariffs } from './tariffData'
 import { bonusesData } from './bonusesData'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
+import PopupTrigger from '@/ui/PopupTrigger'
 
 type Props = {
   type: 'lite' | 'standard'
@@ -64,7 +65,9 @@ const TariffCard = ({ type }: Props) => {
         onClick={() => setShowBonuses(prev => !prev)}>
         Бонусы
       </button>
-      <button className={stls.button}>Записаться</button>
+      <div className={stls.button}>
+        <PopupTrigger btn='alpha' cta='signUp' />
+      </div>
     </div>
   )
 }
