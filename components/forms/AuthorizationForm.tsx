@@ -1,8 +1,12 @@
+'use client'
 import { useForm } from 'react-hook-form'
 import classNames from 'classnames'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import stls from '@/styles/components/forms/AuthorizationForm.module.sass'
+import axios from 'axios'
+import { getCookie, setCookie } from 'cookies-next'
+
 
 interface FormData {
   login: string
@@ -28,29 +32,40 @@ const AuthorizationForm = ({ className }: AuthorizationFormProps) => {
       password: ''
     }
   })
+  const marketing_in = getCookie('marketing_in')
+  useEffect(() => {
+    if (marketing_in) {
+      router.push('/promocodes')
+    }
+  }, [marketing_in, router])
 
-  // const onSubmit = async (data: FormData) => {
-  //   setIsSubmitting(true)
-  //   setError(null)
-  //
-  //   try {
-  //     const result = await signIn('credentials', {
-  //       redirect: false,
-  //       email: data.login,
-  //       password: data.password
-  //     })
-  //
-  //     if (result?.error) {
-  //       setError('Неверный логин или пароль')
-  //     } else if (result?.ok) {
-  //       router.push('/promocodes')
-  //     }
-  //   } catch (err) {
-  //     setError('Произошла ошибка при авторизации. Попробуйте снова.')
-  //   } finally {
-  //     setIsSubmitting(false)
-  //   }
-  // }
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true)
+    setError(null)
+  
+    try {
+      const result = await axios.post(
+        `api/auth`,
+        {
+          username: data.login,
+          password: data.password,
+        },
+        
+      );
+      if (result.status === 200) {
+        setCookie('marketing_in', result.data.token, { expires: new Date(Date.now() + 60 * 60 * 1000 ) })
+        router.push('/promocodes')
+      } else if (result) {
+        setError('Неверный логин или пароль')
+        
+      }
+    } catch (err) {
+      console.log(err);
+      setError('Произошла ошибка при авторизации. Попробуйте снова.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <div className={classNames(stls.container, className)}>
@@ -59,7 +74,7 @@ const AuthorizationForm = ({ className }: AuthorizationFormProps) => {
 
         {error && <div className={stls.errorMessage}>{error}</div>}
 
-        <form onSubmit={handleSubmit(() => {})} className={stls.form}>
+        <form onSubmit={handleSubmit(data => onSubmit(data))} className={stls.form}>
           <div className={stls.formGroup}>
             <label htmlFor='login' className={stls.label}>
               Email
