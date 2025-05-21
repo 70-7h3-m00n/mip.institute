@@ -23,7 +23,8 @@ const ProgramDescription = () => {
         'гибкий график обучения, подходящий для занятых людей'
       ],
       listEnd:
-        'Вы получите все необходимые знания и инструменты, чтобы начать успешную карьеру в IT-сфере.'
+        'Вы получите все необходимые знания и инструменты, чтобы начать успешную карьеру в IT-сфере.',
+      video: ''
     },
     {
       id: 1,
@@ -36,7 +37,8 @@ const ProgramDescription = () => {
         'Специалист по UI/UX'
       ],
       listEnd:
-        'Мы поможем вам выбрать направление и подготовим к реальным задачам в выбранной профессии.'
+        'Мы поможем вам выбрать направление и подготовим к реальным задачам в выбранной профессии.',
+      video: ''
     },
     contentCareService,
     contentCareerCenter
@@ -65,10 +67,12 @@ const ProgramDescription = () => {
 
           {activeContent ? (
             <div className={stls.content}>
-              <iframe
-                className={stls.video}
-                src={`https://kinescope.io/embed/2WALhR1ZcszBWNRXQ2kNSB`}
-                allow='autoplay; fullscreen; picture-in-picture; encrypted-media;'></iframe>
+              <div className={stls.videoWrapper}>
+                <iframe
+                  className={stls.video}
+                  src={activeContent.video || 'https://kinescope.io/xkcit754QUMGeZDKWJFiXz'}
+                  allow='autoplay; fullscreen; picture-in-picture; encrypted-media;'></iframe>
+              </div>
               <div className={stls.mobileTabs}>
                 {programDescription.map(tab => (
                   <button

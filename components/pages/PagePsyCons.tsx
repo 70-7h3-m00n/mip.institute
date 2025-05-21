@@ -18,6 +18,7 @@ import Portfolio from '../sections/RedesignedProgram/Portfolio.tsx/Portfolio'
 import ShortCourseDescription from '@/components/sections/RedesignedProgram/ShortCourseDescription/ShortCourseDescription'
 import PricingSection from '../sections/RedesignedProgram/PricingSection/PricingSection'
 import ProgramHero from '@/components/sections/RedesignedProgram/ProgramHero/ProgramHero'
+import FutureDiploms from '@/components/sections/RedesignedProgram/FutureDiploms/FutureDiploms'
 
 interface Props {}
 
@@ -66,6 +67,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
   return (
     <div className={stls.container}>
       <ProgramHero />
+      <FutureDiploms />
       <ShortCourseDescription />
       <ProgramResult />
       <ProgramDescription />

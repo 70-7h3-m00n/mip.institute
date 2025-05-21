@@ -1,0 +1,138 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$purple-450)
+  position: relative
+  @include m.media(phone, tablet)
+    min-height: f.px(830)
+
+.content
+  @include m.flex()
+  @include m.dye(c, c.$white-900)
+
+.holoImg
+  @include m.media(phone, tablet)
+    position: absolute
+
+.holoWithText
+  @include m.flex($fd: column)
+  gap: f.px(10)
+
+.licenceDesk
+  font-size: f.px(16)
+  font-weight: 300
+  line-height: normal
+  @include m.media(phone, tablet)
+    display: none
+
+.licenceMob
+  font-size: f.px(16)
+  font-weight: 300
+  line-height: normal
+  @include m.media(laptop, desktop)
+    display: none
+
+.holoImg
+  object-fit: cover
+  @include m.media(phone, tablet)
+    width: f.px(30)
+    height: f.px(40)
+
+.centerText
+  @include m.flex($fd: column)
+  & > h2
+    margin-bottom: f.px(30) !important
+    @include m.media(phone, tablet)
+      @include m.gap($ml: f.px(50), $mt: f.px(5))
+//      font-size: 26px;
+//font-style: normal;
+//font-weight: 700;
+//line-height: 110%
+
+.subtitle
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 300
+  line-height: 130%
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    margin-bottom: f.px(10)
+  & > span
+    font-weight: 500
+    @include m.media(phone, tablet)
+      font-size: f.px(16)
+
+.licenceImg
+  position: absolute
+  bottom: f.px(-110)
+  left: 35%
+  transform: rotate(5deg)
+  @include m.media(phone, tablet)
+    transform: rotate(0)
+    top: f.px(250)
+    left: f.px(15)
+  & > img
+    border-radius: f.px(10)
+
+.certificateImg
+  position: absolute
+  bottom: f.px(-45)
+  transform: rotate(-10deg)
+  left: 45%
+  @include m.media(phone, tablet)
+    transform: rotate(0)
+    bottom: f.px(130)
+    left: f.px(15)
+    z-index: 2
+  & > img
+    border-radius: f.px(10)
+
+.diplomaImg
+  position: absolute
+  bottom: f.px(-40)
+  left: 57%
+  transform: rotate(5deg)
+  z-index: 1
+  @include m.media(phone, tablet)
+    transform: rotate(0) scale(1.1)
+    top: f.px(250)
+    right: f.px(30)
+    left: auto
+  & > img
+    border-radius: f.px(10)
+
+.supplementImg
+  position: absolute
+  bottom: f.px(-70)
+  left: 71%
+  transform: rotate(15deg)
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column-reverse)
+    transform: rotate(0) scale(1.05)
+    bottom: f.px(130)
+    left: auto
+    right: f.px(25)
+    z-index: 1
+  & > img
+    border-radius: f.px(10)
+
+.arrowText
+  @include m.flex($ai: flex-start, $jc: center)
+  @include m.media(phone, tablet)
+    position: absolute
+    bottom: f.px(-100)
+    transform: rotate(15deg)
+    @include m.flex($ai: center)
+    left: f.px(-40)
+  & > span:first-child
+    text-align: center
+    font-size: f.px(12)
+    font-style: normal
+    font-weight: 300
+    line-height: normal
+
+.arrowIcon
+  display: inline-block
+  @include m.sizeIcon($w: 25, $h: 27)
