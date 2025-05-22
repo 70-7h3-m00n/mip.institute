@@ -7,6 +7,7 @@ import BonusesCard from './BonusesCard'
 import Wrapper from '@/ui/Wrapper'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import IconBolt from './icons/IconBolt'
+import classNames from 'classnames'
 
 const PricingSection = () => {
   const [selected, setSelected] = useState<'lite' | 'standard'>('lite')
@@ -17,11 +18,15 @@ const PricingSection = () => {
       <Wrapper>
         <h2 className={stls.title}>Форматы и стоимость обучения</h2>
         <div className={stls.mobileTabs}>
-          <button className={stls.tab} onClick={() => setSelected('lite')}>
+          <button
+            className={classNames({ [stls.tab]: true, [stls.inactive]: selected !== 'lite' })}
+            onClick={() => setSelected('lite')}>
             Лайт
             {selected === 'lite' && <span className={stls.pointer} />}
           </button>
-          <button className={stls.tab} onClick={() => setSelected('standard')}>
+          <button
+            className={classNames({ [stls.tab]: true, [stls.inactive]: selected !== 'standard' })}
+            onClick={() => setSelected('standard')}>
             Стандарт <IconBolt />
             {selected === 'standard' && <span className={stls.pointer} />}
           </button>

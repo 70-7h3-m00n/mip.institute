@@ -31,14 +31,16 @@ const ReviewCard = ({ name, text, positionTags, avatar }: Props) => {
         </div>
       </div>
 
-      <p className={stls.name}>{name}</p>
-      <p className={stls.text}>{displayText}</p>
+      <div className={stls.content}>
+        <p className={stls.name}>{name}</p>
+        <p className={stls.text}>{displayText}</p>
 
-      {text.length > previewLength && (
-        <button className={stls.link} onClick={() => setIsExpanded(!isExpanded)}>
-          {isExpanded ? 'Скрыть' : 'Читать полностью'}
-        </button>
-      )}
+        {text.length > previewLength && (
+          <button className={stls.link} onClick={() => setIsExpanded(!isExpanded)}>
+            {isExpanded ? 'Скрыть' : 'Читать полностью'}
+          </button>
+        )}
+      </div>
     </div>
   )
 }

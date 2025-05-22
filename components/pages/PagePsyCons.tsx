@@ -83,7 +83,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <Portfolio />
       <QualificationBlock isStatic bgcolor='#855EDF' />
       <QualificationBlock isStatic isVciom bgcolor='#FF8F52' />
-      <OurPartners onePartner={partners} />
+      <OurPartners onePartner={partners} noPaddings />
       <PricingSection />
       <Reviews />
       <HomeFAQ /> {/* Поправить тест и цвета  */}

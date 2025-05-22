@@ -23,6 +23,10 @@
   & > h2
     margin-bottom: 0
 
+.header > span
+  @include m.media(phone, tablet)
+    @include m.sizeIcon($w: 30, $h: 30)
+
 .blocks > :nth-child(1), .blocks > :nth-child(7)
   @include m.dye(c, c.$white-900)
   background-image: url('/assets/imgs/home/EducationalPrograms/programBg-1.png')

@@ -34,6 +34,7 @@ export interface PropsList {
 export interface PropsOurPartners {
   allTypes?: string[]
   currentType?: string
+  noPaddings?: boolean
   onePartner: Partner[]
 }
 

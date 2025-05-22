@@ -4,7 +4,7 @@
 
 .card
   background: #F6F4FF
-  padding: 20px
+  //padding: 20px
   border-radius: 12px
   @include m.flex($fd: column)
   gap: 8px
@@ -12,7 +12,13 @@
 .header
   @include m.flex($ai: flex-start)
   gap: 15px
-  @include m.gap($mb: f.px(12))
+
+.content
+  @include m.gap($p: f.px(20))
+  @include m.flex($fd: column)
+  gap: f.px(10)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20), $plr: f.px(15))
 
 .avatar
   width: 133px
@@ -21,13 +27,17 @@
   object-fit: cover
   flex-shrink: 0
   @include m.media(phone, tablet)
-    width: 110px
-    height: 110px
+    width: 130px
+    height: 130px
 
 .tags
   @include m.flex($fd: column)
   gap: 5px
+  @include m.gap($p: f.px(20))
   flex-grow: 1
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20), $plr: f.px(15))
+    @include m.flex($ai: flex-end)
 
 .tag
   @include m.flex($jc: center,$ai: center)
@@ -38,8 +48,9 @@
   font-size: f.px(14)
   font-weight: 600
   @include m.media(phone, tablet)
+    width: fit-content
+    min-width: f.px(135)
     font-size: f.px(12)
-
 
 .name
   font-size: f.px(19)

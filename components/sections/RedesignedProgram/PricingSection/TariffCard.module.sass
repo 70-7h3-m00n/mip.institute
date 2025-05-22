@@ -51,6 +51,8 @@
   font-weight: 700
   line-height: 100%
   @include m.gap($mt: f.px(10))
+  @include m.media(phone, tablet)
+    font-weight: 400
 
 .list
   @include m.gap($plr: f.px(24),$ptb: f.px(0))
@@ -61,7 +63,7 @@
   letter-spacing: -0.32px
   color: c.$black-900
   list-style: none
-  gap: f.px(10)
+  gap: f.px(15)
   @include m.gap($mtb: f.px(17),$mlr: f.px(0))
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(30))
@@ -103,6 +105,9 @@
         width: 100%
   @include m.media(phone, tablet)
     border-radius: 5px
+
+.button > div > button
+  border-radius: f.px(10)
 
 //Бонусы 
 .bonusesToggle

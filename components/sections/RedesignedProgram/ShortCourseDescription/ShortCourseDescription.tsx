@@ -61,7 +61,7 @@ const ShortCourseDescription = () => {
       <Wrapper>
         <h2>Краткая программа курса</h2>
 
-        <div className={stls.dropdowns}>
+        <div>
           {modules.map((item, index) => (
             <>
               <button

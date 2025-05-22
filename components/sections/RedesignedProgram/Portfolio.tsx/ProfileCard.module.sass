@@ -10,6 +10,7 @@
   gap: 40px
   @include m.media(phone, tablet)
     @include m.gap($pt: f.px(20),$pl: f.px(15),$pb: f.px(30),$pr: f.px(8))
+    border-radius: f.px(10)
     gap: 30px
 
 .avatarSection
@@ -52,6 +53,7 @@
   line-height: 120%
   @include m.media(phone, tablet)
     font-size: 12px
+    gap: f.px(5)
 
 .value
   color: c.$black-900

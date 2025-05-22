@@ -29,7 +29,8 @@ const FutureDiploms = () => {
           <div className={stls.centerText}>
             <h2>Ваш будущий диплом</h2>
             <p className={stls.subtitle}>
-              Диплом о профессиональной переподготовке с присвоением <br /> квалификации
+              Диплом о профессиональной {isMobileAndTabletLayout && <br />} переподготовке с
+              присвоением <br /> квалификации
               <span> «Психолог-консультант» </span> установленного образца
             </p>
             <span className={stls.licenceMob}>Образовательная лицензия №041221</span>

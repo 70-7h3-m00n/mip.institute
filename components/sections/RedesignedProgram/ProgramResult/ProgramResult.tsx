@@ -21,7 +21,7 @@ export default function ProgramResult() {
           <span>
             <IconStars />
           </span>
-          <h2>В результате обучения вы сможете:</h2>
+          <h2>В результате {isMobileAndTabletLayout && <br />} обучения вы сможете:</h2>
         </div>
         <div className={stls.blocks}>
           {programResultCards.slice(0, allVisible ? 9 : sliceEnd).map(item => (

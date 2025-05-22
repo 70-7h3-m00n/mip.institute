@@ -2,6 +2,10 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.container
+  padding-top: 0 !important
+  padding-bottom: 0 !important
+
 .mainBlock
   @include m.flex($fd: column)
   gap: f.px(30)
@@ -50,7 +54,7 @@
 .content
   display: grid
   grid-template-columns: f.px(350) 1fr
-  gap: f.px(30)
+  gap: f.px(40)
   @include m.media(phone, tablet)
     height: auto
     grid-template-columns: 1fr
@@ -83,7 +87,8 @@
   width: 100%
   background-color: white
   border-radius: f.px(30)
-  @include m.gap($ptb: f.px(30), $pl: f.px(30), $pr: f.px(60))
+  line-height: 120%
+  @include m.gap($ptb: f.px(40), $pl: f.px(30), $pr: f.px(60))
   @include m.media(phone, tablet)
     border-radius: f.px(10)
     @include m.gap($ptb: f.px(20), $plr: f.px(15))

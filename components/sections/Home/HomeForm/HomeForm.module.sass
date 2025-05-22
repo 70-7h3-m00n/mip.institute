@@ -30,13 +30,12 @@
 
 .textBlock
   border-radius: f.px(10)
-  @include m.dye(bg, #855EDF)
+  @include m.dye(bg, c.$purple-450)
   @include m.gap($p: f.px(40))
   @include m.flex($fd: column, $jc: space-between)
   @include m.media(phone, tablet)
     @include m.gap($p: f.px(23))
     gap: f.px(15)
-    border-radius: f.px(18)
 
 .header
   @include m.flex($fd: column)

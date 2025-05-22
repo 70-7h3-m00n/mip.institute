@@ -14,6 +14,7 @@
 
 .holoImg
   @include m.media(phone, tablet)
+    border-radius: f.px(4)
     position: absolute
 
 .holoWithText
@@ -33,6 +34,7 @@
   line-height: normal
   @include m.media(laptop, desktop)
     display: none
+    font-size: f.px(12)
 
 .holoImg
   object-fit: cover
@@ -46,10 +48,6 @@
     margin-bottom: f.px(30) !important
     @include m.media(phone, tablet)
       @include m.gap($ml: f.px(50), $mt: f.px(5))
-//      font-size: 26px;
-//font-style: normal;
-//font-weight: 700;
-//line-height: 110%
 
 .subtitle
   font-size: f.px(20)
@@ -82,9 +80,9 @@
   transform: rotate(-10deg)
   left: 45%
   @include m.media(phone, tablet)
-    transform: rotate(0)
-    bottom: f.px(130)
-    left: f.px(15)
+    transform: rotate(0) scale(1.2)
+    bottom: f.px(120)
+    left: f.px(35)
     z-index: 2
   & > img
     border-radius: f.px(10)
@@ -105,8 +103,8 @@
 
 .supplementImg
   position: absolute
-  bottom: f.px(-70)
-  left: 71%
+  bottom: f.px(-80)
+  left: 74%
   transform: rotate(15deg)
   @include m.media(phone, tablet)
     @include m.flex($fd: column-reverse)
@@ -128,7 +126,7 @@
     left: f.px(-40)
   & > span:first-child
     text-align: center
-    font-size: f.px(12)
+    font-size: f.px(10)
     font-style: normal
     font-weight: 300
     line-height: normal

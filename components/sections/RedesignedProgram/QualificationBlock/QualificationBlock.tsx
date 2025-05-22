@@ -47,9 +47,9 @@ const QualificationBlock = ({
         </>
       ) : (
         <p className={stls.title}>
-          Квалификация <span>«{programDetails?.name || 'Название программы'}»</span>с дополнительной
-          специализацией
-          <span>«{programDetails?.specialization || 'Специализация'}»</span>
+          Квалификация <span>«{programDetails?.name || 'Название программы'}»</span> с
+          дополнительной специализацией
+          <span> «{programDetails?.specialization || 'Специализация'}»</span>
         </p>
       )}
 

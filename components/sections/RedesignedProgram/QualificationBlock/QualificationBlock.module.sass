@@ -38,8 +38,8 @@
   max-width: f.px(1100)
   margin-bottom: f.px(20)
   @include m.media(phone, tablet)
-    font-size: f.px(21)
-    @include m.gap($mt: f.px(40), $mb: f.px(10), $mlr: f.px(20))
+    font-size: f.px(20)
+    @include m.gap($mt: f.px(40), $mb: f.px(10), $mlr: f.px(22))
 
 .extra
   @include m.dye(c, c.$white-900)
@@ -59,7 +59,7 @@
     @include m.flex($jc: center)
   & > div > button
     border: none
-    @include m.gap($ptb: f.px(15))
+    @include m.gap($ptb: f.px(17), $plr: f.px(70))
     font-size: f.px(20)
     @include m.dye(bg, c.$orange-400)
     border-radius: f.px(10)

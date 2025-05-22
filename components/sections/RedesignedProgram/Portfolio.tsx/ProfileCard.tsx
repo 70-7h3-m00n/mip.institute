@@ -34,7 +34,7 @@ const ProfileCard = () => (
       </p>
 
       <p className={stls.label}>
-        Зарплата: <span className={stls.value}>от 90.000 руб.</span>
+        Заработок: <span className={stls.value}>от 90.000 руб.</span>
       </p>
     </div>
   </div>

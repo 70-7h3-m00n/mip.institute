@@ -56,7 +56,7 @@
 .contentWrapper
   @include m.dye(bg, c.$white-900)
   border-radius: f.px(30)
-  @include m.gap($mtb: f.px(10), $pl: f.px(30), $pr: f.px(100))
+  @include m.gap($mtb: f.px(5), $pl: f.px(30), $pr: f.px(100))
   max-height: 0
   overflow: hidden
   transition: all 0.3s ease-in-out
@@ -65,7 +65,7 @@
     border-radius: f.px(10)
   &.open
     max-height: f.px(3000)
-    @include m.gap($p: f.px(30), $pr: f.px(100))
+    @include m.gap($p: f.px(30), $pr: f.px(100), $mtb: f.px(10))
     @include m.media(phone, tablet)
       @include m.gap($plr: f.px(15), $ptb: f.px(20), $mtb: f.px(10))
 
@@ -99,5 +99,6 @@
   font-weight: 300
   @include m.gap($mr: f.px(200))
   @include m.media(phone, tablet)
+    text-align: justify
     font-size: f.px(11)
     @include m.gap($mr: 0)
