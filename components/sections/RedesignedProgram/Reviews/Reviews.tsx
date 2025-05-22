@@ -11,7 +11,7 @@ import { reviews } from './const'
 
 const Reviews = () => {
   return (
-    <section className={stls.container}>
+    <section className={stls.container} id='reviews'>
       <Wrapper>
         <h2 className={stls.title}>Отзывы наших студентов и выпускников</h2>
 

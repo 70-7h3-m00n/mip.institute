@@ -15,7 +15,7 @@ const TeachersSlider = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section className={stls.container}>
+    <section className={stls.container} id='teachers'>
       <Wrapper>
         <h2 className={stls.title}>Преподаватели — практикующие психологи</h2>
 

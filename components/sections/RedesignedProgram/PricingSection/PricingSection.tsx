@@ -13,7 +13,7 @@ const PricingSection = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (
-    <section className={stls.container}>
+    <section className={stls.container} id='pricing'>
       <Wrapper>
         <h2 className={stls.title}>Форматы и стоимость обучения</h2>
         <div className={stls.mobileTabs}>

@@ -57,7 +57,7 @@ const ShortCourseDescription = () => {
   }
 
   return (
-    <section className={stls.container}>
+    <section className={stls.container} id='curriculum'>
       <Wrapper>
         <h2>Краткая программа курса</h2>
 

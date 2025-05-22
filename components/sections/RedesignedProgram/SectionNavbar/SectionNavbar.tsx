@@ -14,10 +14,12 @@ const sections = [
 ]
 
 const SectionNavbar = () => {
-  const handleScroll = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+  const scrollToSection = (sectionId: string) => {
+    const target = document.getElementById(sectionId)
+    const offset = 120
+    if (target) {
+      const topPosition = target.getBoundingClientRect().top + window.scrollY - offset
+      window.scrollTo({ top: topPosition, behavior: 'smooth' })
     }
   }
 
@@ -27,7 +29,7 @@ const SectionNavbar = () => {
         <Logo atHeader />
         <ul className={stls.links}>
           {sections.map(section => (
-            <li key={section.id} onClick={() => handleScroll(section.id)}>
+            <li key={section.id} onClick={() => scrollToSection(section.id)}>
               {section.label}
             </li>
           ))}

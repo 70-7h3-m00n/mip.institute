@@ -67,13 +67,13 @@ const PagePsyCons: React.FC<Props> = ({}) => {
   return (
     <div className={stls.container}>
       <ProgramHero />
-      <FutureDiploms />
-      <ShortCourseDescription />
-      <ProgramResult />
       <ProgramDescription />
-      <ProgramForRequest />
       <SectionNavbar />
+      <ProgramResult />
+      <FutureDiploms />
+      <ProgramForRequest />
       <InsideProgram />
+      <ShortCourseDescription />
       <PracticalOrientatedProgram />
       <HomeForm />
       <StudyProcess />

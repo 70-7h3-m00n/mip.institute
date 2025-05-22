@@ -6,7 +6,7 @@ import Wrapper from '@/ui/Wrapper'
 
 const Portfolio = () => {
   return (
-    <section className={stls.container}>
+    <section className={stls.container} id='skills'>
       <Wrapper>
         <h2 className={stls.title}>
           <span className={stls.accent}>Ваше портфолио</span> <br className={stls.mobileBreak} />{' '}

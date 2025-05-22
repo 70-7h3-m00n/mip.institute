@@ -12,7 +12,7 @@ const FutureDiploms = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (
-    <section className={stls.container}>
+    <section className={stls.container} id='diploma'>
       <Wrapper>
         <div className={stls.content}>
           <div className={stls.holoWithText}>

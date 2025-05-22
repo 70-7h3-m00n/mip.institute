@@ -5,7 +5,7 @@ import ExpandableFAQ from '@/ui/ExpandableFAQ'
 
 const HomeFAQ = () => {
   return (
-    <section className={stls.container}>
+    <section className={stls.container} id='faq'>
       <Wrapper>
         <h2 className={stls.title}>Часто задаваемые вопросы</h2>
         <ul className={stls.list}>
