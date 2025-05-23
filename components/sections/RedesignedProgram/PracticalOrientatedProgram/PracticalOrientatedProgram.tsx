@@ -72,11 +72,8 @@ const PracticalOrientatedProgram = () => {
                 prevEl: '#navBtnsDesktop button:first-child',
                 nextEl: '#navBtnsDesktop button:last-child'
               }}
-              breakpoints={{
-                0: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                1025: { slidesPerView: 3 }
-              }}>
+              slidesPerView={isMobileAndTabletLayout ? 1 : 3}
+              className={stls.containerSwiper}>
               {images.map((src, index) => (
                 <SwiperSlide key={index}>
                   <div className={stls.card}>

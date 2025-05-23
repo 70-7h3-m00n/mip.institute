@@ -10,9 +10,11 @@ import ArrowNavigation from '@/ui/ArrowsNavigation/ArrowsNavigation'
 import HoverTeacherCard from './HoverTeacherCard'
 import MobileHintIcon from './MobileHintIcon'
 import { teachers } from './const'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const TeachersSlider = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
 
   return (
     <section className={stls.container} id='teachers'>
@@ -24,15 +26,13 @@ const TeachersSlider = () => {
           spaceBetween={30}
           slidesPerGroup={1}
           loop={true}
+          slidesPerView={isMobileAndTabletLayout ? 1 : 3}
+          centeredSlides={isMobileAndTabletLayout ? false : true}
           navigation={{
             prevEl: '#navBtnsDesktop button:first-child',
             nextEl: '#navBtnsDesktop button:last-child'
           }}
-          breakpoints={{
-            0: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1025: { slidesPerView: 3 }
-          }}>
+          className={stls.containerSwiper}>
           {teachers.map((teacher, index) => (
             <SwiperSlide key={teacher.id} className={stls.swiperWrapper}>
               <div

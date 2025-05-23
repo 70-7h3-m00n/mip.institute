@@ -7,6 +7,8 @@
   background-image: url("/assets/imgs/redesignedProgram/Reviews/bg.png")
   background-size: cover
   background-repeat: no-repeat
+  overflow-x: hidden
+  width: 100%
 
 .title
   color: c.$black-900
@@ -24,3 +26,6 @@
   @include m.media(phone, tablet)
     @include m.flex($jc: center)
     @include m.gap($mt: f.px(15))
+
+.containerSwiper
+  overflow: visible !important

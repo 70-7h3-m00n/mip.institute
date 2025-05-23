@@ -8,8 +8,10 @@ import { Navigation } from 'swiper/modules'
 import ArrowNavigation from '@/ui/ArrowsNavigation/ArrowsNavigation'
 import ReviewCard from './ReviewCard'
 import { reviews } from './const'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const Reviews = () => {
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   return (
     <section className={stls.container} id='reviews'>
       <Wrapper>
@@ -20,15 +22,13 @@ const Reviews = () => {
           spaceBetween={30}
           slidesPerGroup={1}
           loop={true}
+          slidesPerView={isMobileAndTabletLayout ? 1 : 3}
+          centeredSlides={isMobileAndTabletLayout ? false : true}
           navigation={{
             prevEl: '#reviewNavBtns button:first-child',
             nextEl: '#reviewNavBtns button:last-child'
           }}
-          breakpoints={{
-            0: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1025: { slidesPerView: 3 }
-          }}>
+          className={stls.containerSwiper}>
           {reviews.map((review, i) => (
             <SwiperSlide key={i}>
               <ReviewCard {...review} />
