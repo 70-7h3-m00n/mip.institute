@@ -69,8 +69,8 @@ const PracticalOrientatedProgram = () => {
               slidesPerGroup={1}
               loop={true}
               navigation={{
-                prevEl: '#navBtnsDesktop button:first-child',
-                nextEl: '#navBtnsDesktop button:last-child'
+                prevEl: '#practicalNavBtns button:first-child',
+                nextEl: '#practicalNavBtns button:last-child'
               }}
               slidesPerView={isMobileAndTabletLayout ? 1 : 3}
               className={stls.containerSwiper}>
@@ -89,7 +89,7 @@ const PracticalOrientatedProgram = () => {
               ))}
             </Swiper>
             <div className={stls.navigation}>
-              <div id='navBtnsDesktop'>
+              <div id='practicalNavBtns'>
                 <ArrowNavigation bgColor='#FF8F52' arrowColor='#FFF' size='medium' />
               </div>
             </div>

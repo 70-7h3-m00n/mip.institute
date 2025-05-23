@@ -29,8 +29,8 @@ const TeachersSlider = () => {
           slidesPerView={isMobileAndTabletLayout ? 1 : 3}
           centeredSlides={isMobileAndTabletLayout ? false : true}
           navigation={{
-            prevEl: '#navBtnsDesktop button:first-child',
-            nextEl: '#navBtnsDesktop button:last-child'
+            prevEl: '#teachersNavBtns button:first-child',
+            nextEl: '#teachersNavBtns button:last-child'
           }}
           className={stls.containerSwiper}>
           {teachers.map((teacher, index) => (
@@ -77,7 +77,7 @@ const TeachersSlider = () => {
         </Swiper>
 
         <div className={stls.navigation}>
-          <div id='navBtnsDesktop'>
+          <div id='teachersNavBtns'>
             <ArrowNavigation bgColor='#855EDF' arrowColor='#FFF' size='medium' />
           </div>
         </div>

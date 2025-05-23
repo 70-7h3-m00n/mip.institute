@@ -21,13 +21,18 @@ const ExpandableCourseItem = ({ number, title, description }: Props) => {
         className={classNames(stls.header, {
           [stls.opened]: isOpen
         })}
-        onClick={() => setIsOpen(!isOpen)}>
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <span className={stls.number}>{number}</span>
         <span className={stls.title}>{title}</span>
         <span className={stls.icon}>{isOpen ? <IconMinusCircle /> : <IconPlusCircle />}</span>
       </button>
 
-      {isOpen && description && <div className={stls.description}>{description}</div>}
+      {description && (
+        <div className={classNames(stls.wrapper, { [stls.open]: isOpen })}>
+          <div className={stls.description}>{description}</div>
+        </div>
+      )}
     </li>
   )
 }

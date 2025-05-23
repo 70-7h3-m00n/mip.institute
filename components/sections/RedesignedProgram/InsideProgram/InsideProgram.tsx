@@ -33,8 +33,8 @@ const InsideProgram = () => {
           slidesPerGroup={1}
           loop={true}
           navigation={{
-            prevEl: '#navBtnsDesktop button:first-child',
-            nextEl: '#navBtnsDesktop button:last-child'
+            prevEl: '#insideProgramNavBtns button:first-child',
+            nextEl: '#insideProgramNavBtns button:last-child'
           }}
           slidesPerView={isMobileAndTabletLayout ? 1 : 3}
           centeredSlides={isMobileAndTabletLayout ? false : true}
@@ -55,7 +55,7 @@ const InsideProgram = () => {
         </Swiper>
 
         <div className={stls.navigation}>
-          <div id='navBtnsDesktop'>
+          <div id='insideProgramNavBtns'>
             <ArrowNavigation bgColor='#FFF' arrowColor='#212121' size='medium' />
           </div>
         </div>

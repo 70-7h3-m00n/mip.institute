@@ -35,8 +35,8 @@ const Bonuses = () => {
           slidesPerGroup={1}
           loop={true}
           navigation={{
-            prevEl: '#navBtnsDesktop button:first-child',
-            nextEl: '#navBtnsDesktop button:last-child'
+            prevEl: '#bonusesNavBtns button:first-child',
+            nextEl: '#bonusesNavBtns button:last-child'
           }}
           centeredSlides={isMobileAndTabletLayout ? false : true}
           className={stls.containerSwiper}>
@@ -56,7 +56,7 @@ const Bonuses = () => {
         </Swiper>
 
         <div className={stls.navigation}>
-          <div id='navBtnsDesktop'>
+          <div id='bonusesNavBtns'>
             <ArrowNavigation bgColor='#855EDF' arrowColor='#FFF' size='medium' />
           </div>
         </div>
