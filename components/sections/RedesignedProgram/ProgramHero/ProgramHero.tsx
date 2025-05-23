@@ -20,19 +20,31 @@ const ProgramHero = () => {
             <span className={stls.tag}>Старт обучения: 1 сентября</span>
           </div>
 
-          <h1>Психологическое консультирование</h1>
-          <p className={stls.subtitle}>
-            Курс обучения «Психологическое консультирование» позволит получить востребованную
-            профессию с нуля за 12 месяцев и начать консультировать сразу после обучения
-          </p>
+          <div className={stls.content}>
+            <div className={stls.text}>
+              <h1>Психологическое консультирование</h1>
+              <p className={stls.subtitle}>
+                Курс обучения «Психологическое консультирование» позволит получить востребованную
+                профессию с нуля за 12 месяцев и начать консультировать сразу после обучения
+              </p>
 
-          <span className={stls.hoursText}>1500 академических часов</span>
-          <Image src={card1} alt='Часы учебы' width={270} height={285} className={stls.imgHours} />
-          <Image src={card2} alt='afaf' width={270} height={285} className={stls.imgForm} />
+              <div className={stls.btns}>
+                <PopupTrigger btn='alpha' cta='signUp' />
+                <PopupTrigger btn='beta' cta='askQuestion' />
+              </div>
+            </div>
 
-          <div className={stls.btns}>
-            <PopupTrigger btn='alpha' cta='signUp' />
-            <PopupTrigger btn='beta' cta='askQuestion' />
+            <div className={stls.images}>
+              <span className={stls.hoursText}>1500 академических часов</span>
+              <Image
+                src={card1}
+                alt='Часы учебы'
+                width={270}
+                height={285}
+                className={stls.imgHours}
+              />
+              <Image src={card2} alt='afaf' width={270} height={285} className={stls.imgForm} />
+            </div>
           </div>
         </Wrapper>
       </section>

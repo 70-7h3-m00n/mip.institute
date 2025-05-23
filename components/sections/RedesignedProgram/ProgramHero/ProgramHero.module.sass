@@ -11,29 +11,27 @@
     padding-top: f.px(20) !important
     padding-bottom: f.px(20) !important
     background: linear-gradient(120deg, c.$purple-450, c.$purple-450)
-  & > div
-    @include m.flex($fd: column)
-    & > h1
-      color: #FFF
-      font-size: f.px(54)
-      font-weight: 700
-      line-height: 100%
-      @include m.gap($mb: f.px(25), $mt: f.px(35))
-      max-width: 70%
-      @include m.media(phone, tablet)
-        @include m.gap($mb: f.px(15), $mt: f.px(20))
-        font-size: f.px(34)
-        line-height: 110%
-        max-width: 100%
+
+.text > h1
+  color: #FFF
+  font-size: f.px(54)
+  font-weight: 700
+  line-height: 100%
+  @include m.gap($mb: f.px(25), $mt: f.px(35))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(15), $mt: f.px(20))
+    font-size: f.px(34)
+    line-height: 110%
 
 .tags
   @include m.flex()
   gap: f.px(5)
-  margin-bottom: f.px(5)
+  margin-bottom: f.px(35)
   z-index: 3
   @include m.media(phone, tablet)
     gap: f.px(10)
     flex-wrap: wrap
+    margin-bottom: 0
 
 .tag
   @include m.gap($ptb: f.px(12), $plr: f.px(25))
@@ -70,8 +68,8 @@
 .hoursText
   position: absolute
   z-index: 3
-  right: 27%
-  bottom: 41%
+  right: 46%
+  bottom: 45%
   font-size: f.px(18)
   font-weight: 600
   text-align: left
@@ -81,19 +79,20 @@
 
 .imgHours, .imgForm
   border-radius: f.px(20)
-  position: absolute
   @include m.media(phone, tablet, laptop)
     display: none
 
 .imgHours
-  right: 25%
-  bottom: -5%
+  bottom: -40%
+  right: -10%
   transform: rotate(-15deg)
   z-index: 1
+  position: relative
 
 .imgForm
-  right: 12%
-  bottom: 25%
+  right: 0
+  bottom: 0
+  position: relative
   transform: rotate(10deg)
 
 .subtitle
@@ -102,7 +101,7 @@
   font-weight: 400
   font-style: normal
   line-height: normal
-  max-width: 50%
+  max-width: 90%
   @include m.media(phone, tablet)
     max-width: 100%
     font-weight: 300
@@ -129,6 +128,15 @@
   font-weight: 500
   border-width: f.px(1)
 
+.content
+  display: grid
+  grid-template-columns: 2fr 1fr
+  @include m.media(phone, tablet)
+    grid-template-columns: 1fr
 
-
+.images
+  @include m.flex()
+  position: relative
+  & > img:first-child
+    align-self: flex-end
 
