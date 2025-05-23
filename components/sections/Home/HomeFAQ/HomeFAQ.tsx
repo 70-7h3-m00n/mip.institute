@@ -2,10 +2,15 @@ import stls from './HomeFAQ.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import listOnMain from 'constants/faq'
 import ExpandableFAQ from '@/ui/ExpandableFAQ'
+import classNames from 'classnames'
 
-const HomeFAQ = () => {
+interface Props {
+  purple: boolean
+}
+
+const HomeFAQ = ({ purple }: Props) => {
   return (
-    <section className={stls.container} id='faq'>
+    <section className={classNames({ [stls.container]: true, [stls.purple]: purple })} id='faq'>
       <Wrapper>
         <h2 className={stls.title}>Часто задаваемые вопросы</h2>
         <ul className={stls.list}>
@@ -15,7 +20,7 @@ const HomeFAQ = () => {
               number={idx + 1}
               question={qna.question}
               answer={qna.answer}
-              classNameIcon={stls.icon}
+              classNameIcon={purple ? stls.purpleIcon : stls.icon}
             />
           ))}
         </ul>

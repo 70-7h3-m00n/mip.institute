@@ -86,7 +86,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <OurPartners onePartner={partners} noPaddings />
       <PricingSection />
       <Reviews />
-      <HomeFAQ /> {/* Поправить тест и цвета  */}
+      <HomeFAQ purple />
     </div>
   )
 }
