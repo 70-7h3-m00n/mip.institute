@@ -5,10 +5,10 @@ import ExpandableFAQ from '@/ui/ExpandableFAQ'
 import classNames from 'classnames'
 
 interface Props {
-  purple: boolean
+  purple?: boolean
 }
 
-const HomeFAQ = ({ purple }: Props) => {
+const HomeFAQ = ({ purple = false }: Props) => {
   return (
     <section className={classNames({ [stls.container]: true, [stls.purple]: purple })} id='faq'>
       <Wrapper>
