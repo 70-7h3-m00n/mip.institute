@@ -104,6 +104,7 @@ const ProgramDescription = () => {
           ) : null}
 
           <QualificationBlock
+            variant={'default'}
             programDetails={{
               name: 'Психолог-консультант',
               specialization: 'Психотерапия в психологическом консультировании'

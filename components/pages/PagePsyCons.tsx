@@ -81,8 +81,8 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <CourseWorkTopics />
       <TeachersSlider />
       <Portfolio />
-      <QualificationBlock isStatic bgcolor='#855EDF' />
-      <QualificationBlock isStatic isVciom bgcolor='#FF8F52' />
+      <QualificationBlock variant={'static'} bgcolor='#855EDF' />
+      <QualificationBlock variant={'vciom'}  bgcolor='#FF8F52' />
       <OurPartners onePartner={partners} noPaddings />
       <PricingSection />
       <Reviews />

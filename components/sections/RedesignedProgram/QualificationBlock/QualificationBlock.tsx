@@ -4,6 +4,9 @@ import Image from 'next/image'
 import classNames from 'classnames'
 import diploma from '@/public/assets/imgs/diplomas/diplomHolo.svg'
 import { programForWhom, vciom } from 'constants/redesignedProgram/qualificationBlock'
+import Wrapper from '@/ui/Wrapper'
+
+type Variant = 'default' | 'vciom' | 'static'
 
 type Props = {
   programDetails?: {
@@ -11,16 +14,16 @@ type Props = {
     name: string
   } | null
   bgcolor?: string
-  isVciom?: boolean
-  isStatic?: boolean
+  variant?: Variant
 }
 
 const QualificationBlock = ({
   programDetails = null,
   bgcolor = 'white',
-  isVciom = false,
-  isStatic = false
+  variant = 'default'
 }: Props) => {
+  const isStatic = variant === 'static'
+  const isVciom = variant === 'vciom'
   const mainText = isVciom ? vciom : programForWhom
   const imageSrc = isVciom ? vciom.img : diploma
 
@@ -30,55 +33,53 @@ const QualificationBlock = ({
       className={classNames(stls.container, {
         [stls.staticContainer]: isStatic
       })}>
-      {isStatic ? (
-        <>
-          <p
-            className={classNames(stls.title, {
-              [stls.largeText]: isStatic
-            })}>
-            {mainText.title}
+      <Wrapper>
+        {isStatic || isVciom ? (
+          <>
+            <p className={classNames(stls.title, stls.largeText)}>{mainText.title}</p>
+            <p className={classNames(stls.extra, { [stls.underlined]: mainText.underlined })}>
+              {mainText.extraInfo}
+            </p>
+          </>
+        ) : (
+          <p className={stls.title}>
+            Квалификация <span>«{programDetails?.name || 'Название программы'}»</span> с
+            дополнительной специализацией
+            <span> «{programDetails?.specialization || 'Специализация'}»</span>
           </p>
-          <p
-            className={classNames(stls.extra, {
-              [stls.underlined]: mainText.underlined
-            })}>
-            {mainText.extraInfo}
-          </p>
-        </>
-      ) : (
-        <p className={stls.title}>
-          Квалификация <span>«{programDetails?.name || 'Название программы'}»</span> с
-          дополнительной специализацией
-          <span> «{programDetails?.specialization || 'Специализация'}»</span>
-        </p>
-      )}
+        )}
 
-      {!isStatic && (
-        <div className={stls.buttonBlock}>
-          <PopupTrigger btn='gamma' cta='beginStudy' />
+        {variant === 'default' && (
+          <div className={stls.buttonBlock}>
+            <PopupTrigger btn='gamma' cta='beginStudy' />
+          </div>
+        )}
+
+        <div className={stls.imagesWrapper}>
+          <Image
+            src={imageSrc}
+            alt='diploma'
+            width={isVciom ? 115 : 60}
+            height={isVciom ? 95 : 100}
+            className={classNames(
+              stls.imgLeft,
+              { [stls.imgLeftStatic]: isStatic },
+              { [stls.vciomIconLeft]: isVciom }
+            )}
+          />
+          <Image
+            src={imageSrc}
+            alt='diploma'
+            width={isVciom ? 115 : 60}
+            height={isVciom ? 95 : 100}
+            className={classNames(
+              stls.imgRight,
+              { [stls.imgRightStatic]: isStatic },
+              { [stls.vciomIconRight]: isVciom }
+            )}
+          />
         </div>
-      )}
-
-      <Image
-        src={imageSrc}
-        alt='diploma'
-        width={isVciom ? 100 : 60}
-        height={isVciom ? 160 : 100}
-        className={classNames(stls.imgLeft, {
-          [stls.imgLeftStatic]: isStatic,
-          [stls.vciomIconLeft]: isVciom
-        })}
-      />
-      <Image
-        src={imageSrc}
-        alt='diploma'
-        width={isVciom ? 200 : 60}
-        height={isVciom ? 200 : 100}
-        className={classNames(stls.imgRight, {
-          [stls.imgRightStatic]: isStatic,
-          [stls.vciomIconRight]: isVciom
-        })}
-      />
+      </Wrapper>
     </div>
   )
 }
