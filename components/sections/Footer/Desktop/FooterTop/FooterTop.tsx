@@ -1,4 +1,3 @@
-'use client'
 import stls from './FooterTop.module.sass'
 import Logo from '@/ui/Logo'
 import BtnVk from '@/components/btns/BtnVk'
@@ -11,27 +10,27 @@ import EagleIcon from '@/components/icons/EagleIcon'
 import { topFooterLinks } from 'constants/footer'
 
 const FooterTop = () => {
-  const handleClick = () => {
-    window.open(
-      'https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/',
-      '_blank'
-    )
-  }
+  // const handleClick = () => {
+  //   window.open(
+  //     'https://islod.obrnadzor.gov.ru/rlic/details/67f7635c-5dbb-e9d7-c30c-950b7e64c838/',
+  //     '_blank'
+  //   )
+  // }
   return (
     <div className={stls.topFooter}>
       <div className={stls.leftBlockWithLogo}>
         <div className={stls.logoMIP}>
           <Logo atFooter />
         </div>
-        <div className={stls.sm}>
+        {/* <div className={stls.sm}>
           <BtnVk dark mlzero />
           <BtnWhatsapp dark />
           <BtnTelegram dark />
           <BtnYt dark />
           <BtnOk dark />
           <BtnDzen />
-        </div>
-        <button className={stls.licenseButton} onClick={handleClick}>
+        </div> */}
+        {/* <button className={stls.licenseButton} onClick={handleClick}>
           <span>
             <EagleIcon />
           </span>
@@ -58,7 +57,7 @@ const FooterTop = () => {
               </span>
             </span>
           </span>
-        </button>
+        </button> */}
       </div>
 
       <div className={stls.rightBlockWithPrograms}>
