@@ -53,7 +53,7 @@ export default async function HomePage() {
     <>
     <p>adfsafs</p>
     {/* <HomeWithPopup /> */}
-    <Home data={homeProps} all={allProgramsData} />
+    {/* <Home data={homeProps} all={allProgramsData} /> */}
     </>
   )
 }

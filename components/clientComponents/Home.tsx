@@ -32,32 +32,32 @@ interface THomeServerProps {
 export default async function HomePage({ data, all }) {
   return (
     <div className={stls.container}>
-      <TitleWithCarousel heroCarousel={data.heroCarousel} />
-      <EducationalPrograms
+      {/* <TitleWithCarousel heroCarousel={data.heroCarousel} /> */}
+      {/* <EducationalPrograms
         programs={all.programs}
         bachelors={all.bachelor}
         practicalTrainings={all.practicalTrainings}
         courses={all.courses}
         professions={all.professions}
-      />
-      <PsyTest fallbackComponent={HelpWithChoice} isRounded />
-      <AdventuresCardsHome showButton />
-      <StudyProcess studyProcess={homeStudyProcessData} showButton />
-      <ProgramForRequest />
-      <SupportHelpInResults />
-      <WhatSayStudents data={data.reviews} />
-      <EducationLevels
+      /> */}
+      {/* <PsyTest fallbackComponent={HelpWithChoice} isRounded /> */}
+      {/* <AdventuresCardsHome showButton /> */}
+      {/* <StudyProcess studyProcess={homeStudyProcessData} showButton /> */}
+      {/* <ProgramForRequest /> */}
+      {/* <SupportHelpInResults /> */}
+      {/* <WhatSayStudents data={data.reviews} /> */}
+      {/* <EducationLevels
         bachelorsLength={all.bachelor?.length || 0}
         practicalTrainingsLength={all.practicalTrainings?.length || 0}
         programs={all.programs || []}
-      />
-      <LeadingTeachersMIP />
-      <HomeForm />
-      <MIPTeachersAsAuthors imgs={data.publications.slide.files} />
-      <JournalMIP data={data.blogs} />
-      <OurPartners onePartner={data.partners} />
-      <ProgramForRequest />
-      <HomeFAQ />
+      /> */}
+      {/* <LeadingTeachersMIP /> */}
+      {/* <HomeForm /> */}
+      {/* <MIPTeachersAsAuthors imgs={data.publications.slide.files} /> */}
+      {/* <JournalMIP data={data.blogs} /> */}
+      {/* <OurPartners onePartner={data.partners} /> */}
+      {/* <ProgramForRequest /> */}
+      {/* <HomeFAQ /> */}
     </div>
   )
 }
