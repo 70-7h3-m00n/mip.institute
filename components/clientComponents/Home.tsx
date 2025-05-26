@@ -32,7 +32,6 @@ interface THomeServerProps {
 
 
 export default function HomePage({ data, all }) {
-console.log("DATA",data, all);
 
   return (
     <div 
