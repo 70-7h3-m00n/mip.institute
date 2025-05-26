@@ -31,25 +31,25 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang='ru'>
       <body style={{ backgroundColor: '#F4F4F4' }}>
-        {/* <AppContextProvider initialData={initialData}> */}
-          {/* <MediaQueryProvider> */}
-            {/* <Suspense> */}
-              {/* <MenuState> */}
-                {/* <FieldsTooltipState> */}
-                  {/* <Header /> */}
-                  {/* <Scripts /> */}
+        <AppContextProvider initialData={initialData}>
+          <MediaQueryProvider>
+            <Suspense>
+              <MenuState>
+                <FieldsTooltipState>
+                  <Header />
+                  <Scripts />
                   {children}
                   <Footer />
 
                   <div>
                     {/* <StickyBottom pageAppRouter={true} /> */}
                   </div>
-                {/* </FieldsTooltipState> */}
-              {/* </MenuState> */}
+                </FieldsTooltipState>
+              </MenuState>
               {/* <Analytics /> */}
-            {/* </Suspense> */}
-          {/* </MediaQueryProvider> */}
-        {/* </AppContextProvider> */}
+            </Suspense>
+          </MediaQueryProvider>
+        </AppContextProvider>
       </body>
     </html>
   )
