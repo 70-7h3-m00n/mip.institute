@@ -20,7 +20,7 @@ export default function NotFound() {
         <div className={stls.errorText}>
           <div className={stls.message}>
             <p className={stls.notFound}>К сожалению, страница не найдена</p>
-            <BtnAlpha href={'/'} text='Вернуться на главную' />
+            <a href={'/'} >Вернуться на главную</a>
           </div>
         </div>
       </Wrapper>

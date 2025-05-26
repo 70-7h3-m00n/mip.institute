@@ -31,7 +31,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang='ru'>
       <body style={{ backgroundColor: '#F4F4F4' }}>
-        <AppContextProvider initialData={initialData}>
+        {/* <AppContextProvider initialData={initialData}> */}
           <MediaQueryProvider>
             <Suspense>
               <MenuState>
@@ -49,7 +49,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               {/* <Analytics /> */}
             </Suspense>
           </MediaQueryProvider>
-        </AppContextProvider>
+        {/* </AppContextProvider> */}
       </body>
     </html>
   )
