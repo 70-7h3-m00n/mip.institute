@@ -3,8 +3,9 @@ import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 import { Metadata } from 'next'
 import { company, prod, routes } from '../config'
 import truncate from '@/helpers/general/truncate'
-import HomeWithPopup from '@/components/clientComponents/HomeWithPopup'
-import Home from '@/components/clientComponents/Home'
+// import HomeWithPopup from '@/components/clientComponents/HomeWithPopup'
+// import Home from '@/components/clientComponents/Home'
+// import HomeTest from '@/components/clientComponents/HomeTest'
 
 export const revalidate = 3600
 export const generateMetadata = (): Metadata => {
@@ -49,11 +50,13 @@ export default async function HomePage() {
   const allProgramsData = await fetchAllProgramsData()
 
 
+
   return (
     <>
     <p>adfsafs</p>
+    <p>Данные: {JSON.stringify(homeProps?.blogs[0].title || 'Нет данных')}</p>
     {/* <HomeWithPopup /> */}
-    {/* <Home data={homeProps} all={allProgramsData} /> */}
+    {/* <HomeTest data={homeProps} all={allProgramsData} /> */}
     </>
   )
 }
