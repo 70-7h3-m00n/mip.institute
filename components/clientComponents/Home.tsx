@@ -25,11 +25,11 @@ const ProgramForRequest = dynamic(
 )
 
 interface THomeServerProps {
-  data: THomev2PageData
-  all: ProgramsDataQueryResult
+  // data: THomev2PageData | undefined
+  // all: ProgramsDataQueryResult
 }
 
-export default async function HomePage({ data, all }: THomeServerProps) {
+export default async function HomePage({ data, all }) {
   return (
     <div className={stls.container}>
       <TitleWithCarousel heroCarousel={data.heroCarousel} />

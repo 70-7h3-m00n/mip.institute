@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import { company, prod, routes } from '../config'
 import truncate from '@/helpers/general/truncate'
 import HomeWithPopup from '@/components/clientComponents/HomeWithPopup'
-import HomeClient from '@/components/clientComponents/HomeClient'
+import Home from '@/components/clientComponents/Home'
 
 export const revalidate = 3600
 export const generateMetadata = (): Metadata => {
@@ -48,12 +48,12 @@ export default async function HomePage() {
   const homeProps = await getStaticPropsHome()
   const allProgramsData = await fetchAllProgramsData()
 
-  
 
   return (
     <>
-    <HomeWithPopup />
-    <HomeClient data={homeProps} all={allProgramsData} />
+    <p>adfsafs</p>
+    {/* <HomeWithPopup /> */}
+    <Home data={homeProps} all={allProgramsData} />
     </>
   )
 }
