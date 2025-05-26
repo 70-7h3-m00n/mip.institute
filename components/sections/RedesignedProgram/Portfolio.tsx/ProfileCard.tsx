@@ -10,7 +10,7 @@ const ProfileCard = () => (
     <div className={stls.avatarSection}>
       <Image
         src='/assets/imgs/redesignedProgram/Portfolio/Avatar.png'
-        alt='Дарья'
+        alt='Анна'
         width={166}
         height={166}
         className={stls.avatar}
@@ -23,7 +23,7 @@ const ProfileCard = () => (
       </div>
     </div>
     <div className={stls.description}>
-      <p className={stls.name}>Дарья, 30 лет</p>
+      <p className={stls.name}>Анна, 30 лет</p>
 
       <p className={stls.label}>
         Профессия: <span className={classNames(stls.value, stls.valueAccent)}>Психолог</span>

@@ -6,15 +6,19 @@ import classNames from 'classnames'
 
 interface Props {
   purple?: boolean
+  listQuestions?: {
+    question: string
+    answer: string
+  }[]
 }
 
-const HomeFAQ = ({ purple = false }: Props) => {
+const HomeFAQ = ({ purple = false, listQuestions = listOnMain }: Props) => {
   return (
     <section className={classNames({ [stls.container]: true, [stls.purple]: purple })} id='faq'>
       <Wrapper>
         <h2 className={stls.title}>Часто задаваемые вопросы</h2>
         <ul className={stls.list}>
-          {listOnMain.map((qna, idx) => (
+          {listQuestions.map((qna, idx) => (
             <ExpandableFAQ
               key={qna.question}
               number={idx + 1}
