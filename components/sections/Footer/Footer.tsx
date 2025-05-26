@@ -1,6 +1,7 @@
 import Wrapper from '@/ui/Wrapper'
 import stls from '@/components/sections/Footer/Footer.module.sass'
 import FooterDesktop from '@/components/sections/Footer/Desktop/FooterDesktop'
+import Link from 'next/link'
 
 const Footer = () => {
   // const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -21,9 +22,10 @@ const Footer = () => {
       {/* {isMobileAndTabletLayout ? (
         <FooterMobile />
       ) : ( */}
-        <Wrapper>
+      <Link href="/about">О нас</Link>
+        {/* <Wrapper>
           <FooterDesktop />
-        </Wrapper>
+        </Wrapper> */}
       {/* )} */}
     </footer>
   )
