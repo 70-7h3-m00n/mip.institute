@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {/* <AppContextProvider initialData={initialData}> */}
 
           {/* <MediaQueryProvider> */}
-            <Suspense>
+            {/* <Suspense> */}
               {/* <MenuState> */}
                 {/* <FieldsTooltipState> */}
                   <Header />
@@ -48,7 +48,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 {/* </FieldsTooltipState> */}
               {/* </MenuState> */}
               {/* <Analytics /> */}
-            </Suspense>
+            {/* </Suspense> */}
           {/* </MediaQueryProvider> */}
         {/* </AppContextProvider> */}
       </body>
