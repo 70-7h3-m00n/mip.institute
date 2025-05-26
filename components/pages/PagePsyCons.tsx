@@ -19,6 +19,7 @@ import ShortCourseDescription from '@/components/sections/RedesignedProgram/Shor
 import PricingSection from '../sections/RedesignedProgram/PricingSection/PricingSection'
 import ProgramHero from '@/components/sections/RedesignedProgram/ProgramHero/ProgramHero'
 import FutureDiploms from '@/components/sections/RedesignedProgram/FutureDiploms/FutureDiploms'
+import SalaryCalculatorNew from '../sections/RedesignedProgram/SalaryCalculator/SalaryCalculator'
 
 interface Props {}
 
@@ -82,6 +83,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <TeachersSlider />
       <Portfolio />
       <QualificationBlock variant={'static'} bgcolor='#855EDF' />
+      <SalaryCalculatorNew />
       <QualificationBlock variant={'vciom'}  bgcolor='#FF8F52' />
       <OurPartners onePartner={partners} noPaddings />
       <PricingSection />
