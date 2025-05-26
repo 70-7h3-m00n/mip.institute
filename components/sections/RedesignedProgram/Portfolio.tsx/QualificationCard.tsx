@@ -23,8 +23,8 @@ const QualificationCard = () => (
         <Image
           src='/assets/imgs/redesignedProgram/Portfolio/diplom.png'
           alt='Диплом'
-          width={260}
-          height={184}
+          width={270}
+          height={200}
         />
       </div>
     </div>

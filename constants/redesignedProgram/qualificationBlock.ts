@@ -1,4 +1,4 @@
-import money from '@/public/assets/imgs/redesignedProgram/flying-money.svg'
+import money from '@/public/assets/imgs/redesignedProgram/flying-money.png'
 
 const programForWhom = {
   title:

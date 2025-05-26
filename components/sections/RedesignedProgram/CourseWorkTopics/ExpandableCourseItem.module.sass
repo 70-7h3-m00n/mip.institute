@@ -46,14 +46,18 @@
     font-size: f.px(15)
 
 .icon
-  flex-shrink: 0
-  @include m.flex($ai: center,$jc: center)
-  width: 34px
-  height: 34px
+  @include m.dye(bg, c.$orange-400)
   border-radius: 50%
-  background-color: c.$orange-400
+  padding: f.px(10)
+  margin-right: 0
+  & > span
+    width: f.px(15)
+    & > svg > *
+      stroke: white
+      stroke-width: 3
   @include m.media(phone, tablet)
-    transform: scale(0.7)
+    transform: scale(.5)
+    margin-right: 0 !important
 
 .wrapper
   display: grid

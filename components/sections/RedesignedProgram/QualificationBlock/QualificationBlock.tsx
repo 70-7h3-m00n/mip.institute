@@ -70,8 +70,8 @@ const QualificationBlock = ({
           <Image
             src={imageSrc}
             alt='diploma'
-            width={isVciom ? 115 : 60}
-            height={isVciom ? 95 : 100}
+            width={isVciom ? 100 : 60}
+            height={isVciom ? 100 : 100}
             className={classNames(
               stls.imgRight,
               { [stls.imgRightStatic]: isStatic },

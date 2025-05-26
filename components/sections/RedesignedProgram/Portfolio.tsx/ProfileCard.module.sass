@@ -32,7 +32,6 @@
 
 .description 
   @include m.flex($fd: column)
-  @include m.gap($pt: f.px(20))
 
 .name 
   color: c.$black-900
@@ -46,7 +45,7 @@
 
 .label
   @include m.flex($fd: column)
-  gap: 10px
+  gap: f.px(10)
   color: c.$gray-700
   font-size: 16px
   font-weight: 700
@@ -54,6 +53,7 @@
   @include m.media(phone, tablet)
     font-size: 12px
     gap: f.px(5)
+    margin-bottom: f.px(20)
 
 .value
   color: c.$black-900

@@ -2,9 +2,8 @@
 
 import { useState } from 'react'
 import stls from './ExpandableCourseItem.module.sass'
-import { IconMinusCircle } from './IconMinusCircle'
-import { IconPlusCircle } from './IconPlusCircle'
 import classNames from 'classnames'
+import IconCrossBlue from '@/components/icons/IconCrossBlue'
 
 type Props = {
   number: number
@@ -21,11 +20,10 @@ const ExpandableCourseItem = ({ number, title, description }: Props) => {
         className={classNames(stls.header, {
           [stls.opened]: isOpen
         })}
-        onClick={() => setIsOpen(!isOpen)}
-      >
+        onClick={() => setIsOpen(!isOpen)}>
         <span className={stls.number}>{number}</span>
         <span className={stls.title}>{title}</span>
-        <span className={stls.icon}>{isOpen ? <IconMinusCircle /> : <IconPlusCircle />}</span>
+        <span className={stls.icon}>{<IconCrossBlue isRotated={isOpen} />}</span>
       </button>
 
       {description && (
