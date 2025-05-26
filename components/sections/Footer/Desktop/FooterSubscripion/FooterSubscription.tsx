@@ -1,3 +1,4 @@
+'use client'
 import { useState, useCallback } from 'react'
 import axios from 'axios'
 import Button from '@/components/btns/Button'

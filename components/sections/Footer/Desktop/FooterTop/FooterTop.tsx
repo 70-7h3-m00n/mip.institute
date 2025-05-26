@@ -1,3 +1,4 @@
+'use client'
 import stls from './FooterTop.module.sass'
 import Logo from '@/ui/Logo'
 import BtnVk from '@/components/btns/BtnVk'
