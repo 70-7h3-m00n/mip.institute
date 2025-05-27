@@ -19,9 +19,9 @@ import promocodesWithGift from '@/helpers/promoWithGIfts'
 import promocodes from '@/helpers/promocodes'
 import { getCookie, setCookie } from 'cookies-next'
 import StickyTop from './StickyTop'
-import NProgress from 'nprogress'
+// import NProgress from 'nprogress'
 import TagManager from 'react-gtm-module'
-import Router from 'next/router'
+// import Router from 'next/router'
 
 const Header = () => {
   const { menuIsOpen, closeMenu } = useContext(MenuContext)
@@ -97,20 +97,20 @@ const Header = () => {
     }
 
     // Настраиваем NProgress
-    NProgress.configure({ showSpinner: false })
+    // NProgress.configure({ showSpinner: false })
 
-    const start = () => NProgress.start()
-    const end = () => NProgress.done()
+    // const start = () => NProgress.start()
+    // const end = () => NProgress.done()
 
-    Router.events.on('routeChangeStart', start)
-    Router.events.on('routeChangeComplete', end)
-    Router.events.on('routeChangeError', end)
+    // Router.events.on('routeChangeStart', start)
+    // Router.events.on('routeChangeComplete', end)
+    // Router.events.on('routeChangeError', end)
 
-    return () => {
-      Router.events.off('routeChangeStart', start)
-      Router.events.off('routeChangeComplete', end)
-      Router.events.off('routeChangeError', end)
-    }
+    // return () => {
+    //   Router.events.off('routeChangeStart', start)
+    //   Router.events.off('routeChangeComplete', end)
+    //   Router.events.off('routeChangeError', end)
+    // }
   }, [searchParams])
 
   return (
