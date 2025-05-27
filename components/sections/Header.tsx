@@ -1,43 +1,43 @@
-'use client'
-// import BtnFields from '@/components/btns/BtnFields'
-// import BtnHumburger from '@/components/btns/BtnHumburger'
-// import BtnPhone from '@/components/btns/BtnPhone'
-// import Logo from '@/ui/Logo'
-// import MenuMobile from '@/components/sections/MenuMobile'
-// import Wrapper from '@/ui/Wrapper'
+// 'use client'
+import BtnFields from '@/components/btns/BtnFields'
+import BtnHumburger from '@/components/btns/BtnHumburger'
+import BtnPhone from '@/components/btns/BtnPhone'
+import Logo from '@/ui/Logo'
+import MenuMobile from '@/components/sections/MenuMobile'
+import Wrapper from '@/ui/Wrapper'
 // import { gtmId, routes } from '@/config/index'
-import MenuContext from '@/context/menu/menuContext'
+// import MenuContext from '@/context/menu/menuContext'
 // import { handleSwipedEvt } from '@/helpers/index'
-// import stls from '@/styles/components/sections/Header.module.sass'
-// import classNames from 'classnames'
+import stls from '@/styles/components/sections/Header.module.sass'
+import classNames from 'classnames'
 // import Link from 'next/link'
-import { usePathname, useSearchParams } from 'next/navigation'
-import { useContext, useEffect, useState } from 'react'
-// import IconsDropDown from '../dropdown/IconsDropDown'
-// import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
+// import { usePathname, useSearchParams } from 'next/navigation'
+// import { useContext, useEffect, useState } from 'react'
+import IconsDropDown from '../dropdown/IconsDropDown'
+import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
 // import promocodesWithGift from '@/helpers/promoWithGIfts'
 // import promocodes from '@/helpers/promocodes'
-import { getCookie, setCookie } from 'cookies-next'
+// import { getCookie, setCookie } from 'cookies-next'
 // import StickyTop from './StickyTop'
 // import NProgress from 'nprogress'
 // import TagManager from 'react-gtm-module'
 // import Router from 'next/router'
 
 const Header = () => {
-  const { menuIsOpen, closeMenu } = useContext(MenuContext)
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
+  // const { menuIsOpen, closeMenu } = useContext(MenuContext)
+  // const pathname = usePathname()
+  // const searchParams = useSearchParams()
 
   // useEffect(() => {
   //   handleSwipedEvt({ menuIsOpen, closeMenu })
   // }, [menuIsOpen, closeMenu])
 
   // Sticky top
-  const [isPromo, setIsPromo] = useState(false)
-  const [promoText, setPromoText] = useState('')
-  const [isWithGift, setIsWithGift] = useState(false)
+  // const [isPromo, setIsPromo] = useState(false)
+  // const [promoText, setPromoText] = useState('')
+  // const [isWithGift, setIsWithGift] = useState(false)
   
-  const utmCookie = getCookie('utm')?.toString() || ''
+  // const utmCookie = getCookie('utm')?.toString() || ''
 
   
   // useEffect(() => {
@@ -53,7 +53,7 @@ const Header = () => {
   //   return () => clearTimeout(timer) // Очищаем таймер при размонтировании
   // }, [utmCookie])
 
-  const closePromo = () => setIsPromo(false)
+  // const closePromo = () => setIsPromo(false)
   // /SticyTop
 
   // useEffect(() => {
@@ -121,11 +121,11 @@ const Header = () => {
         isPromo={isPromo}
         promoText={promoText}
       /> */}
-      {/* <header
+      <header
         className={classNames({
           [stls.container]: true,
-          [stls.promo]: isPromo,
-          [stls.newHomePage]: pathname === '/' 
+          // [stls.promo]: isPromo,
+          // [stls.newHomePage]: pathname === '/' 
         })}>
         <MenuMobile />
         <Wrapper>
@@ -139,9 +139,11 @@ const Header = () => {
               <BtnFields />
             </div>
             <SearchProgramsDropDown />
-            <IconsDropDown newMainPage={pathname === '/'} />
+            <IconsDropDown 
+            // newMainPage={pathname === '/'}
+             />
           </div>
-          {pathname === '/' && (
+          {/* {pathname === '/' && (
             <div className={stls.bottom}>
               <div className={stls.bottomleft}>
                 <Link href={routes.front.svedenCommon} className={stls.linkInfo}>
@@ -149,9 +151,9 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-          )}
+          )} */}
         </Wrapper>
-      </header> */}
+      </header>
     </>
   )
 }

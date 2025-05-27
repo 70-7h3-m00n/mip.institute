@@ -1,3 +1,4 @@
+'use client'
 import stls from '@/styles/components/icons/IconNavigation.module.sass'
 import classNames from 'classnames'
 import { useEffect, useState } from 'react'

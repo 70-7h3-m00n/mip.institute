@@ -1,3 +1,4 @@
+'use client'
 import React, {  useState } from 'react'
 import stls from '@/styles/components/sections/Header.module.sass'
 import IconContact from '../icons/IconContact'
@@ -12,7 +13,7 @@ import DistanceStudy from './DistanceStudy'
 import IconDropDownDocuments from '../icons/IconDropDownDocuments'
 import DocumentsSection from './DocumentsSection'
 
-function IconsDropDown({ newMainPage }: { newMainPage: boolean }) {
+function IconsDropDown({ newMainPage=false }: { newMainPage?: boolean }) {
   const [selectedIcon, setSelectedIcon] = useState(null)
 
   const handleIconClick = icon => {
