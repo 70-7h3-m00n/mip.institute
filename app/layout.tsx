@@ -38,16 +38,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <MenuState>
                 <FieldsTooltipState>
                   {/* //! здесь ошибка рендера <Header />  */}
-                  {/* <Scripts /> */}
+                  <Scripts />
                   {children}
                   <Footer />
 
                   <div>
-                    {/* <StickyBottom pageAppRouter={true} /> */}
+                    <StickyBottom pageAppRouter={true} />
                   </div>
                 </FieldsTooltipState>
               </MenuState>
-              {/* <Analytics /> */}
+              <Analytics />
             </Suspense>
           </MediaQueryProvider>
         </AppContextProvider>
