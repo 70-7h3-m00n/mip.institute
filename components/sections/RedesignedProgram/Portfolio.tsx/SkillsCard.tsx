@@ -16,7 +16,7 @@ const skills = [
 
 const SkillsCard = () => {
   const [showAll, setShowAll] = useState(false)
-  const visibleSkills = showAll ? skills : skills.slice(0, 4)
+  const visibleSkills = showAll ? skills : skills.slice(0, 8)
 
   return (
     <div className={stls.skills}>
@@ -31,7 +31,7 @@ const SkillsCard = () => {
         ))}
       </ul>
 
-      {skills.length > 6 && (
+      {skills.length > 8 && (
         <button className={stls.readMore} onClick={() => setShowAll(!showAll)}>
           {showAll ? 'Скрыть' : 'Читать полный список'}
         </button>

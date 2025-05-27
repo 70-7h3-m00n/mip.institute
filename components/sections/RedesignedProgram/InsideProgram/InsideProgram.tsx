@@ -32,15 +32,15 @@ const InsideProgram = () => {
           spaceBetween={30}
           slidesPerGroup={1}
           loop={true}
+          slidesPerView={'auto'}
+          centeredSlides={true}
           navigation={{
             prevEl: '#insideProgramNavBtns button:first-child',
             nextEl: '#insideProgramNavBtns button:last-child'
           }}
-          slidesPerView={isMobileAndTabletLayout ? 1 : 3}
-          centeredSlides={isMobileAndTabletLayout ? false : true}
           className={stls.containerSwiper}>
           {images.map((src, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className={stls.slide}>
               <div className={stls.card}>
                 <Image
                   src={src}

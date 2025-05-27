@@ -63,14 +63,26 @@
   letter-spacing: -0.32px
   color: c.$black-900
   list-style: none
-  gap: f.px(15)
   @include m.gap($mtb: f.px(17),$mlr: f.px(0))
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(30))
 
+  li.subHeading
+    border-bottom: none
+    @include m.gap($pb: f.px(0))
+
+  li.subItem
+    border-bottom: none
+    @include m.gap($ptb: f.px(0),$mb: f.px(10))
+
+  li.lastSubItem
+    @include m.media(phone, tablet)
+      border-bottom: 1px solid c.$orange-400
+      @include m.gap($pb: f.px(15))
+  
   li
     position: relative
-    @include m.gap($pl: f.px(20),$pb: f.px(15))
+    @include m.gap($pl: f.px(20),$ptb: f.px(15))
     border-bottom: 1px solid c.$orange-400
     &:last-child
       border-bottom: none
@@ -78,7 +90,7 @@
     &::before
       content: ''
       position: absolute
-      top: 6px
+      top: 21px
       left: 0
       width: 5px
       height: 5px
@@ -88,6 +100,26 @@
       &:last-child
         border-bottom: 1px solid c.$orange-400
 
+.firstSubItem
+  @include m.gap($mt: f.px(10))  
+     
+.weight
+  font-weight: 600
+
+.subHeading
+  font-weight: 600
+  color: c.$black-900
+
+.subItem
+  font-size: f.px(11)
+  color: c.$black-900
+  font-weight: 300
+  color: c.$gray-800
+  line-height: 120%
+  padding-left: f.px(20)
+
+  &::before
+    display: none !important
 
 .button
   margin: f.px(10) f.px(24) f.px(25)

@@ -183,6 +183,8 @@
   font-weight: 600
 
 .result
+  position: relative
+  overflow: hidden
   border-radius: f.px(20)
   @include m.dye(bg, c.$purple-450)
   @include m.gap($pl: f.px(20), $ptb: f.px(57))
@@ -207,6 +209,18 @@
       font-size: f.px(26)
       font-weight: 700
       @include m.gap($pb: f.px(75))
+  .pattern
+    position: absolute
+    right: -10px
+    bottom: -110px
+    width: 290px
+    height: 392px
+    z-index: 0
+    @include m.media(phone, tablet)
+      width: 248px
+      height: 335px
+      right: -20px
+      bottom: -70px
 
 .buttonPopup
   @include m.gap($pt: f.px(20))

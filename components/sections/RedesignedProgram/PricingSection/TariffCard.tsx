@@ -29,20 +29,31 @@ const TariffCard = ({ type }: Props) => {
         </div>
 
         <ul className={stls.list}>
-          {features.map((item, i) => (
-            <li key={i}>
-              {item.split('\n').map((line, j) => (
-                <span key={j}>
-                  {line}
-                  <br />
-                </span>
-              ))}
-            </li>
-          ))}
+          {features.map(({ text, type, last }, i) => {
+            const classNames = [
+              type === 'sub' && stls.subItem,
+              type === 'subheading' && stls.subHeading,
+              type === 'weight' && stls.weight,
+              type === 'sub' && last && stls.lastSubItem,
+              type === 'sub' && i > 0 && features[i - 1]?.type !== 'sub' && stls.firstSubItem
+            ]
+              .filter(Boolean)
+              .join(' ')
+
+            return (
+              <li key={i} className={classNames}>
+                {text.split('\n').map((line, j) => (
+                  <span key={j}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
+              </li>
+            )
+          })}
           {isMobileAndTabletLayout && <li className={stls.bonusesToggle}>Бонусы</li>}
         </ul>
 
-        {/* Только на мобилке – раскрытые бонусы */}
         {showBonuses && isMobileAndTabletLayout && (
           <ul className={stls.listBonus}>
             <span className={stls.bonusesTitle}>Бонусы</span>

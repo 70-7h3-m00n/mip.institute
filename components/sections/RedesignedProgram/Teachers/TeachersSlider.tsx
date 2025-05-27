@@ -31,8 +31,7 @@ const TeachersSlider = () => {
           navigation={{
             prevEl: '#teachersNavBtns button:first-child',
             nextEl: '#teachersNavBtns button:last-child'
-          }}
-          className={stls.containerSwiper}>
+          }}>
           {teachers.map((teacher, index) => (
             <SwiperSlide key={teacher.id} className={stls.swiperWrapper}>
               <div

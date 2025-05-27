@@ -30,7 +30,8 @@ const Bonuses = () => {
 
         <Swiper
           modules={[Navigation]}
-          slidesPerView={isMobileAndTabletLayout ? 1 : 3}
+          slidesPerView={'auto'}
+          centeredSlides={true}
           spaceBetween={30}
           slidesPerGroup={1}
           loop={true}
@@ -38,10 +39,9 @@ const Bonuses = () => {
             prevEl: '#bonusesNavBtns button:first-child',
             nextEl: '#bonusesNavBtns button:last-child'
           }}
-          centeredSlides={isMobileAndTabletLayout ? false : true}
           className={stls.containerSwiper}>
           {images.map((src, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className={stls.slide}>
               <div className={stls.card}>
                 <Image
                   src={src}

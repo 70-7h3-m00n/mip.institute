@@ -3,6 +3,8 @@ import stls from './SalaryCalculator.module.sass'
 import { useState, useEffect, useRef } from 'react'
 import Wrapper from '@/ui/Wrapper'
 import PopupTrigger from '@/ui/PopupTrigger'
+import Image from 'next/image'
+import pattern from '@/public/assets/imgs/redesignedProgram/SalaryCalculator/patern.png'
 
 type SalaryCalculatorNewType = {}
 
@@ -14,7 +16,7 @@ const calculateInitialPositions = (
   const thumbWidth = typeof window !== 'undefined' && window.innerWidth <= 768 ? 11 : 25 // px
   const position = range.max === range.min ? 0 : (value - range.min) / (range.max - range.min)
   const thumbPosition = `${position * 100}%`
-  const labelPosition = `${(position * (trackWidth - thumbWidth) + thumbWidth / 2 - 2) / trackWidth * 100}%` // Смещение -2px
+  const labelPosition = `${((position * (trackWidth - thumbWidth) + thumbWidth / 2 - 2) / trackWidth) * 100}%` // Смещение -2px
   return { thumbPosition, labelPosition }
 }
 
@@ -38,7 +40,11 @@ const SalaryCalculatorNew = ({}: SalaryCalculatorNewType) => {
   useEffect(() => {
     if (priceInputRef.current) {
       const trackWidth = priceInputRef.current.offsetWidth || 100
-      const { thumbPosition, labelPosition } = calculateInitialPositions(price, priceRange, trackWidth)
+      const { thumbPosition, labelPosition } = calculateInitialPositions(
+        price,
+        priceRange,
+        trackWidth
+      )
       priceInputRef.current.style.setProperty('--thumb-position', thumbPosition)
       setPriceLabelPosition(labelPosition)
     }
@@ -56,10 +62,10 @@ const SalaryCalculatorNew = ({}: SalaryCalculatorNewType) => {
     const thumbWidth = typeof window !== 'undefined' && window.innerWidth <= 768 ? 11 : 25
     const position = range.max === range.min ? 0 : (value - range.min) / (range.max - range.min)
     const thumbPosition = position * 100
-    const labelPosition = (position * (trackWidth - thumbWidth) + thumbWidth / 2 - 10) / trackWidth * 100 // Смещение -2px
+    const labelPosition =
+      ((position * (trackWidth - thumbWidth) + thumbWidth / 2 - 10) / trackWidth) * 100 // Смещение -2px
     e.target.style.setProperty('--thumb-position', `${thumbPosition}%`)
     setLabelPosition(`${labelPosition}%`)
-    // console.log({ value, trackWidth, thumbWidth, thumbPosition, labelPosition })
   }
 
   const priceHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -107,11 +113,11 @@ const SalaryCalculatorNew = ({}: SalaryCalculatorNewType) => {
                   step={100}
                   min={priceRange.min}
                   max={priceRange.max}
-                  type="range"
+                  type='range'
                   value={price}
                   onChange={priceHandler}
                   onInput={priceHandler}
-                  aria-label="Стоимость консультации"
+                  aria-label='Стоимость консультации'
                   aria-valuemin={priceRange.min}
                   aria-valuemax={priceRange.max}
                   aria-valuenow={price}
@@ -133,16 +139,14 @@ const SalaryCalculatorNew = ({}: SalaryCalculatorNewType) => {
                 <button
                   className={stls.counterButton}
                   onClick={decrementConsultation}
-                  aria-label="Уменьшить количество консультаций"
-                >
+                  aria-label='Уменьшить количество консультаций'>
                   −
                 </button>
                 <span className={stls.counterValue}>{consultation}</span>
                 <button
                   className={stls.counterButton}
                   onClick={incrementConsultation}
-                  aria-label="Увеличить количество консультаций"
-                >
+                  aria-label='Увеличить количество консультаций'>
                   +
                 </button>
               </div>
@@ -153,16 +157,14 @@ const SalaryCalculatorNew = ({}: SalaryCalculatorNewType) => {
                 <button
                   className={stls.counterButton}
                   onClick={decrementDays}
-                  aria-label="Уменьшить количество дней"
-                >
+                  aria-label='Уменьшить количество дней'>
                   −
                 </button>
                 <span className={stls.counterValue}>{days}</span>
                 <button
                   className={stls.counterButton}
                   onClick={incrementDays}
-                  aria-label="Увеличить количество дней"
-                >
+                  aria-label='Увеличить количество дней'>
                   +
                 </button>
               </div>
@@ -170,12 +172,13 @@ const SalaryCalculatorNew = ({}: SalaryCalculatorNewType) => {
           </div>
         </div>
         <div className={stls.result}>
+          <Image src={pattern} alt='' className={stls.pattern} aria-hidden='true' />
           <p>Вы сможете зарабатывать в месяц на психологических консультациях</p>
           <p className={stls.overall}>{overall} ₽</p>
         </div>
         <div className={stls.buttonPopup}>
-        <PopupTrigger btn='alpha' cta='signUp' />
-      </div>
+          <PopupTrigger btn='alpha' cta='signUp' />
+        </div>
       </Wrapper>
     </section>
   )
