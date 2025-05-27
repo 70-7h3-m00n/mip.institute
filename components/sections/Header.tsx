@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 import BtnFields from '@/components/btns/BtnFields'
 import BtnHumburger from '@/components/btns/BtnHumburger'
 import BtnPhone from '@/components/btns/BtnPhone'
