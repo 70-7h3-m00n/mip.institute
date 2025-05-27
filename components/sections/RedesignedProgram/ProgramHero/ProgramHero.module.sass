@@ -5,19 +5,21 @@
 .container
   padding-top: f.px(50) !important
   padding-bottom: f.px(50) !important
-  background: linear-gradient(120deg, #9f80e5, c.$purple-450)
+  background: url("/assets/imgs/redesignedProgram/ProgramHero/bg_program.png") no-repeat center
+  background-size: cover
   position: relative
   @include m.media(phone, tablet)
     padding-top: f.px(20) !important
     padding-bottom: f.px(20) !important
-    background: linear-gradient(120deg, c.$purple-450, c.$purple-450)
+    background: url("/assets/imgs/redesignedProgram/ProgramHero/bg_program_mobile.png") no-repeat center
+    background-size: cover
 
 .text > h1
   color: #FFF
   font-size: f.px(54)
   font-weight: 700
   line-height: 100%
-  @include m.gap($mb: f.px(25), $mt: f.px(35))
+  @include m.gap($mb: f.px(25))
   @include m.media(phone, tablet)
     @include m.gap($mb: f.px(15), $mt: f.px(20))
     font-size: f.px(34)
@@ -69,7 +71,7 @@
   position: absolute
   z-index: 3
   right: 46%
-  bottom: 45%
+  bottom: 43%
   font-size: f.px(18)
   font-weight: 600
   text-align: left
@@ -117,16 +119,20 @@
     gap: f.px(10)
   & > div > button
     border-radius: f.px(10)
-    @include m.gap($ptb: f.px(20), $plr: f.px(80))
+    @include m.gap($ptb: f.px(20), $plr: f.px(85))
     font-size: f.px(20)
     font-style: normal
     font-weight: 700
     @include m.media(phone, tablet)
       font-size: f.px(16)
+    & > ::after
+      display: none
 
-.btns > div > button:last-of-type
+.btns > div:last-of-type > button
   font-weight: 500
   border-width: f.px(1)
+  padding: f.px(20) f.px(70)
+  height: 100%
 
 .content
   display: grid

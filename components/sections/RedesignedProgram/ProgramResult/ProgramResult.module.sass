@@ -51,6 +51,12 @@
   @include m.dye(c, c.$white-900)
   background-image: url('/assets/imgs/home/EducationalPrograms/programBg-6.png')
 
+.buttonContainer
+  @include m.media(laptop, desktop)
+  display: none
+  @include m.media(phone, tablet)
+    display: block
+
 .btn
   border-radius: f.px(10)
   @include m.dye(c, c.$white-900)

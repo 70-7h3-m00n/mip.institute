@@ -26,9 +26,11 @@
   @include m.gap($pl: 0, $mb: 0)
 
 .list > li
-  @include m.gap($mb: f.px(15))
+  @include m.gap($mb: f.px(10))
   @include m.dye(bg, c.$white-900)
   @include m.dye(border, c.$white-900)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(12), $pb: f.px(8))
   & > button > p > span:first-child
     @include m.dye(c, c.$orange-400)
 

@@ -37,9 +37,18 @@ const QualificationBlock = ({
         {isStatic || isVciom ? (
           <>
             <p className={classNames(stls.title, stls.largeText)}>{mainText.title}</p>
-            <p className={classNames(stls.extra, { [stls.underlined]: mainText.underlined })}>
-              {mainText.extraInfo}
-            </p>
+            {mainText.href ? (
+              <div className={stls.link}>
+                <a
+                  className={classNames(stls.extra, stls.underlined)}
+                  href={mainText.href}
+                  target={'_blank'}>
+                  {mainText.extraInfo}
+                </a>
+              </div>
+            ) : (
+              <p className={stls.extra}>{mainText.extraInfo}</p>
+            )}
           </>
         ) : (
           <p className={stls.title}>

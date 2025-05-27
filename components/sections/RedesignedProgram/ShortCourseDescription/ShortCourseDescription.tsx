@@ -2,6 +2,7 @@ import Wrapper from '@/ui/Wrapper'
 import stls from './ShortCourseDescription.module.sass'
 import { useState } from 'react'
 import classNames from 'classnames'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const modules = [
   {
@@ -277,6 +278,19 @@ const modules = [
 
 const ShortCourseDescription = () => {
   const [openModule, setOpenModule] = useState<number | null>(0)
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+
+  const handleMouseEnter = (index: number) => {
+    if (!isMobileAndTabletLayout) {
+      setOpenModule(index)
+    }
+  }
+
+  const handleMouseLeave = () => {
+    if (!isMobileAndTabletLayout) {
+      setOpenModule(null)
+    }
+  }
 
   const toggleModule = (index: number) => {
     setOpenModule(openModule === index ? null : index)
@@ -289,11 +303,11 @@ const ShortCourseDescription = () => {
 
         <div>
           {modules.map((item, index) => (
-            <>
-              <button
-                key={item.name}
-                onClick={() => toggleModule(index)}
-                className={stls.accordionItem}>
+            <div
+              key={item.name}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}>
+              <button onClick={() => toggleModule(index)} className={stls.accordionItem}>
                 <span className={stls.accordionTitle}>{item.name}</span>
 
                 {item.modules?.length && (
@@ -303,10 +317,7 @@ const ShortCourseDescription = () => {
                         [stls.hours]: true,
                         [stls.extraMargin]: !item.modules?.length
                       })}>
-                      {item?.modules?.reduce((acc, el) => {
-                        return acc + el.studyHours
-                      }, 0)}{' '}
-                      часов
+                      {item?.modules?.reduce((acc, el) => acc + el.studyHours, 0)} часов
                     </span>
                     <span className={stls.icon}>
                       {openModule === index ? <IconMinus /> : <IconPlus />}
@@ -325,7 +336,7 @@ const ShortCourseDescription = () => {
                     <li key={el.moduleName} className={stls.listItem}>
                       <div className={stls.text}>
                         <div className={stls.header}>
-                          <p>
+                          <p className={stls.moduleName}>
                             <span>Модуль {idx + 1}. </span>
                             <span>{el.moduleName}</span>
                           </p>
@@ -337,7 +348,7 @@ const ShortCourseDescription = () => {
                   ))}
                 </ul>
               )}
-            </>
+            </div>
           ))}
         </div>
       </Wrapper>

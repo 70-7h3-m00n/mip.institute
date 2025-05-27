@@ -1,6 +1,6 @@
 'use client'
 import stls from './SalaryCalculator.module.sass'
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Wrapper from '@/ui/Wrapper'
 import PopupTrigger from '@/ui/PopupTrigger'
 import Image from 'next/image'
@@ -177,7 +177,7 @@ const SalaryCalculatorNew = ({}: SalaryCalculatorNewType) => {
           <p className={stls.overall}>{overall} ₽</p>
         </div>
         <div className={stls.buttonPopup}>
-          <PopupTrigger btn='alpha' cta='signUp' />
+          <PopupTrigger btn='alpha' cta='beginEarn' />
         </div>
       </Wrapper>
     </section>

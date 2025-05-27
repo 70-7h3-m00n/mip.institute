@@ -14,11 +14,18 @@
   @include m.gap($pl: 0, $mb: 0)
 
 .list > li
-  @include m.gap($mb: f.px(11))
+  @include m.gap($mb: f.px(10))
   @include m.dye(bg, c.$white-900)
   @include m.dye(border, c.$white-900)
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(13), $pb: 0)
+    border-radius: f.px(5)
   & > button > p > span:first-child
     @include m.dye(c, c.$orange-400)
+
+.list > li > button
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(13))
 
 .icon
   @include m.dye(bg, c.$orange-400)

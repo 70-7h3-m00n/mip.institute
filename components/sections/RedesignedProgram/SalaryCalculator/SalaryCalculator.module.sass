@@ -42,6 +42,7 @@
   @include m.gap($pt: f.px(30),$pb: f.px(35),$plr: f.px(25))
   gap: f.px(35)
   @include m.media(phone, tablet)
+    border-radius: f.px(10)
     @include m.gap($ptb: f.px(16))
 
 .inputWithLabel
@@ -193,6 +194,7 @@
   grid-template-columns: 1fr 1fr 
   gap: f.px(45)
   @include m.media(phone, tablet)
+    border-radius: f.px(10)
     grid-template-columns: 1fr
     @include m.gap($pl: f.px(16), $ptb: f.px(16))
     gap: f.px(15)
@@ -226,6 +228,10 @@
   @include m.gap($pt: f.px(20))
   width: 100%
   & > *
+    border-radius: f.px(10)
     width: 100%
-    & > *
+    & > button
       width: 100%
+      border-radius: f.px(10)
+      @include m.media(phone, tablet)
+        border-radius: f.px(5)

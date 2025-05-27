@@ -37,8 +37,10 @@
   font-size: f.px(18)
   font-weight: 600
   border-radius: f.px(100)
+  min-width: f.px(150)
   @include m.media(phone, tablet)
     font-size: f.px(12)
+    min-width: f.px(100)
     @include m.gap($plr: f.px(15), $ptb: f.px(5))
 
 .hoursAndIcon
@@ -60,20 +62,24 @@
   max-height: 0
   overflow: hidden
   transition: all 0.3s ease-in-out
+  @include m.flex($fd: column)
+  gap: f.px(30)
   @include m.media(phone, tablet)
     @include m.gap($plr: f.px(15), $ptb: 0, $mtb: f.px(5))
     border-radius: f.px(10)
   &.open
-    max-height: f.px(3000)
+    max-height: f.px(7000)
     @include m.gap($p: f.px(30), $pr: f.px(100), $mtb: f.px(10))
     @include m.media(phone, tablet)
       @include m.gap($plr: f.px(15), $ptb: f.px(20), $mtb: f.px(10))
+
+.icon > span
+  @include m.flex($fd: column, $ai: center, $jc: center)
 
 .listItem
   list-style: none
   @include m.flex($ai: flex-start)
   gap: f.px(70)
-  @include m.gap($mb: f.px(20))
 
 .header > .hours
   @extend .tag
@@ -82,7 +88,12 @@
   margin-bottom: 0
   @include m.media(phone, tablet)
     font-size: f.px(8)
+    min-width: f.px(70)
     @include m.gap($plr: f.px(10), $ptb: f.px(5))
+
+.moduleName
+  max-width: f.px(850)
+  display: inline-block
 
 .header
   font-size: f.px(20)
@@ -97,7 +108,7 @@
 
 .description
   font-weight: 300
-  @include m.gap($mr: f.px(200))
+  @include m.gap($mr: f.px(200), $mb: 0)
   @include m.media(phone, tablet)
     text-align: justify
     font-size: f.px(11)

@@ -2,15 +2,15 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import stls from './ProgramHeroSwiper.module.sass'
 import Image from 'next/image'
-import card1 from '../card-hours.png'
-import card2 from '../card-forma-obuchenia.png'
+import card1 from '@/public/assets/imgs/redesignedProgram/ProgramHero/card-hours.png'
+import card2 from '@/public/assets/imgs/redesignedProgram/ProgramHero/card-forma-obuchenia.png'
 
 interface Props {
   hours: number
 }
 
 const ProgramHeroSwiper = ({ hours }: Props) => {
-  const slides = [card1, card2, card1, card2]
+  const slides = [card1, card2]
 
   return (
     <div className={stls.container}>

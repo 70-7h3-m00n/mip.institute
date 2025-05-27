@@ -3,48 +3,18 @@ import stls from './ProgramDescription.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import classNames from 'classnames'
 import {
+  about,
   contentCareerCenter,
   contentCareService,
+  graduates,
   programDescription
 } from 'constants/redesignedProgram/programDescription'
 import QualificationBlock from '@/components/sections/RedesignedProgram/QualificationBlock/QualificationBlock'
 
 const ProgramDescription = () => {
-  const [activeTab, setActiveTab] = useState(2)
+  const [activeTab, setActiveTab] = useState(0)
 
-  const content = [
-    {
-      id: 0,
-      descriptionHeader: '',
-      listBegin: `Обучение на психолога-консультанта с получением диплома – это возможность в онлайн-формате освоить актуальные методы психологического консультирования для эффективной работы с разными запросами клиентов.
-
-Лекции проходят дистанционно на удобной платформе. Программа включает теоретические знания по основам психологии, анатомии и физиологии. Практическая часть позволяет закрепить знания, выполняя задания.
-
-Выпускники, прошедшие обучение на психолога-консультанта, получают право на оказание профессиональной помощи людям и ведение частной практики. 
-`,
-      list: [],
-      listEnd: '',
-      video: ''
-    },
-    {
-      id: 1,
-      descriptionHeader: '',
-      listBegin:
-        'Программа профессиональной переподготовки «Психологическое консультирование» дает возможность:',
-      list: [
-        'Вести частную практику, проводить очное и дистанционное консультирование',
-        'Работать в службах доверия и психолого-педагогической помощи',
-        'Устроиться на работу в реабилитационные, спортивные, социальные или медицинские центры',
-        'Консультирования в образовательных и профориентационных учреждениях',
-        'Работы в судебных и правоохранительных органах, в военных организациях',
-        'Проводить тренинги и консультировать в корпоративном секторе'
-      ],
-      listEnd: '',
-      video: ''
-    },
-    contentCareService,
-    contentCareerCenter
-  ]
+  const content = [about, graduates, contentCareService, contentCareerCenter]
 
   const activeContent = content.find(item => item.id === activeTab)
 
@@ -92,11 +62,19 @@ const ProgramDescription = () => {
                 <p className={classNames(stls.text, stls.bold)}>
                   {activeContent.descriptionHeader}
                 </p>
-                <p className={stls.text}>{activeContent.listBegin}</p>
+                {typeof activeContent.listBegin === 'string' ? (
+                  <p className={stls.text}>{activeContent.listBegin}</p>
+                ) : (
+                  <p className={stls.text}>
+                    <span className={stls.boldSmall}>{activeContent.listBegin.bold}</span>{' '}
+                    {activeContent.listBegin.normal}
+                  </p>
+                )}
                 <ul className={stls.list}>
                   {activeContent.list.map((item, index) => (
                     <li key={index} className={stls.listItem}>
-                      {item}
+                      {item.bold && <span className={stls.boldSmall}>{item.bold}</span>}{' '}
+                      {item.normal}
                     </li>
                   ))}
                 </ul>
