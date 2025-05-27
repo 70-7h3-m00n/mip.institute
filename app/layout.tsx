@@ -37,7 +37,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <Suspense>
               <MenuState>
                 <FieldsTooltipState>
-                  {/* //! здесь ошибка рендера <Header />  */}
+                  <Header /> 
                   <Scripts />
                   {children}
                   <Footer />

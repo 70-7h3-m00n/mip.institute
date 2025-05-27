@@ -121,7 +121,7 @@ const Header = () => {
         isPromo={isPromo}
         promoText={promoText}
       />
-      <header
+      {/* <header
         className={classNames({
           [stls.container]: true,
           [stls.promo]: isPromo,
@@ -151,7 +151,7 @@ const Header = () => {
             </div>
           )}
         </Wrapper>
-      </header>
+      </header> */}
     </>
   )
 }
