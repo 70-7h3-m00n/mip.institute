@@ -15,7 +15,13 @@ import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 const TeachersSlider = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-
+  const handleInteraction = (index: number) => {
+    if (isMobileAndTabletLayout) {
+      setHoveredIndex(prev => (prev === index ? null : index))
+    } else {
+      setHoveredIndex(index)
+    }
+  }
   return (
     <section className={stls.container} id='teachers'>
       <Wrapper>
@@ -37,7 +43,8 @@ const TeachersSlider = () => {
               <div
                 className={stls.cardWrapper}
                 onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}>
+                onMouseLeave={() => setHoveredIndex(null)}
+                onClick={() => handleInteraction(index)}>
                 <span className={stls.mobileIcon}>
                   <MobileHintIcon />
                 </span>

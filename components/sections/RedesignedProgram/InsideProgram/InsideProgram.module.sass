@@ -26,7 +26,7 @@
   @include m.gap($mt: f.px(20))
   @include m.media(phone, tablet)
     @include m.flex($jc: center)
-    @include m.gap($mt: 0)
+    @include m.gap($mt: f.px(15))
 
 .card
   @include m.flex($fd: column)
@@ -35,7 +35,10 @@
 
 .slide
   width: 370px 
-  flex-shrink: 0
+  flex-shrink: 0  
+  @include m.media(phone, tablet)
+    width: 347px
+    height: 333px
 
 .image
   width: 100%
