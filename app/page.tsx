@@ -52,7 +52,7 @@ export default async function HomePage() {
 
   return (
     <>
-    <HomeWithPopup />
+    {/* <HomeWithPopup /> */}
     <HomeClient data={homeProps} all={allProgramsData} />
     </>
   )
