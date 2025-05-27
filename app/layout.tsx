@@ -45,7 +45,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 promoText={promoText}
               /> */}
 
-                  <Header />
+                  {/* <Header /> */}
                   {/* <ABTestScript /> */}
                   <Scripts />
                   {children}

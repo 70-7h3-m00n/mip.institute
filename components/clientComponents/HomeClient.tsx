@@ -29,7 +29,7 @@ interface THomeServerProps {
   all: ProgramsDataQueryResult
 }
 
-export default async function HomePage({ data, all }) {
+export default function HomePage({ data, all }) {
   return (
     <div className={stls.container}>
       <TitleWithCarousel heroCarousel={data.heroCarousel} />
