@@ -73,45 +73,45 @@ const Header = () => {
     setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
   }, [searchParams])
 
-  useEffect(() => {
-    TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
+  // useEffect(() => {
+  //   TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
-    // Загружаем utm из sessionStorage
-    const storedUtms = sessionStorage.getItem('utms')
-    const utms = storedUtms ? JSON.parse(storedUtms) : {}
+  //   // Загружаем utm из sessionStorage
+  //   const storedUtms = sessionStorage.getItem('utms')
+  //   const utms = storedUtms ? JSON.parse(storedUtms) : {}
 
-    if (Object.keys(utms).length === 0) {
-      const utmParams = String(searchParams)
-      if (utmParams) {
-        const parsedUtms = Object.fromEntries(
-          utmParams.split('&').map(utm => utm.split('=').map(decodeURIComponent))
-        )
+  //   if (Object.keys(utms).length === 0) {
+  //     const utmParams = String(searchParams)
+  //     if (utmParams) {
+  //       const parsedUtms = Object.fromEntries(
+  //         utmParams.split('&').map(utm => utm.split('=').map(decodeURIComponent))
+  //       )
 
-        sessionStorage.setItem('utms', JSON.stringify(parsedUtms))
-      }
-    }
+  //       sessionStorage.setItem('utms', JSON.stringify(parsedUtms))
+  //     }
+  //   }
 
-    // Сохраняем реферер, если его нет в sessionStorage
-    if (!sessionStorage.getItem('referrer')) {
-      sessionStorage.setItem('referrer', JSON.stringify(document.referrer))
-    }
+  //   // Сохраняем реферер, если его нет в sessionStorage
+  //   if (!sessionStorage.getItem('referrer')) {
+  //     sessionStorage.setItem('referrer', JSON.stringify(document.referrer))
+  //   }
 
-    // Настраиваем NProgress
-    // NProgress.configure({ showSpinner: false })
+  //   // Настраиваем NProgress
+  //   // NProgress.configure({ showSpinner: false })
 
-    // const start = () => NProgress.start()
-    // const end = () => NProgress.done()
+  //   // const start = () => NProgress.start()
+  //   // const end = () => NProgress.done()
 
-    // Router.events.on('routeChangeStart', start)
-    // Router.events.on('routeChangeComplete', end)
-    // Router.events.on('routeChangeError', end)
+  //   // Router.events.on('routeChangeStart', start)
+  //   // Router.events.on('routeChangeComplete', end)
+  //   // Router.events.on('routeChangeError', end)
 
-    // return () => {
-    //   Router.events.off('routeChangeStart', start)
-    //   Router.events.off('routeChangeComplete', end)
-    //   Router.events.off('routeChangeError', end)
-    // }
-  }, [searchParams])
+  //   // return () => {
+  //   //   Router.events.off('routeChangeStart', start)
+  //   //   Router.events.off('routeChangeComplete', end)
+  //   //   Router.events.off('routeChangeError', end)
+  //   // }
+  // }, [searchParams])
 
   return (
     <>
