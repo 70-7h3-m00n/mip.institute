@@ -24,94 +24,94 @@ import TagManager from 'react-gtm-module'
 // import Router from 'next/router'
 
 const Header = () => {
-  // const { menuIsOpen, closeMenu } = useContext(MenuContext)
-  // const pathname = usePathname()
-  // const searchParams = useSearchParams()
+  const { menuIsOpen, closeMenu } = useContext(MenuContext)
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
-  // useEffect(() => {
-  //   handleSwipedEvt({ menuIsOpen, closeMenu })
-  // }, [menuIsOpen, closeMenu])
+  useEffect(() => {
+    handleSwipedEvt({ menuIsOpen, closeMenu })
+  }, [menuIsOpen, closeMenu])
 
-  // // Sticky top
-  // const [isPromo, setIsPromo] = useState(false)
-  // const [promoText, setPromoText] = useState('')
-  // const [isWithGift, setIsWithGift] = useState(false)
+  // Sticky top
+  const [isPromo, setIsPromo] = useState(false)
+  const [promoText, setPromoText] = useState('')
+  const [isWithGift, setIsWithGift] = useState(false)
   
-  // const utmCookie = getCookie('utm')?.toString() || ''
+  const utmCookie = getCookie('utm')?.toString() || ''
 
   
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
-  //     const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
+      const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
 
-  //     setIsPromo(!!promoCode)
-  //     setPromoText(promoCode ? promocodes[promoCode] : '')
-  //     setIsWithGift(!!giftCode)
-  //   }, 2000)
+      setIsPromo(!!promoCode)
+      setPromoText(promoCode ? promocodes[promoCode] : '')
+      setIsWithGift(!!giftCode)
+    }, 2000)
 
-  //   return () => clearTimeout(timer) // Очищаем таймер при размонтировании
-  // }, [utmCookie])
+    return () => clearTimeout(timer) // Очищаем таймер при размонтировании
+  }, [utmCookie])
 
-  // const closePromo = () => setIsPromo(false)
-  // // /SticyTop
+  const closePromo = () => setIsPromo(false)
+  // /SticyTop
 
-  // useEffect(() => {
-  //   const urlUtmsArr = String(searchParams)
+  useEffect(() => {
+    const urlUtmsArr = String(searchParams)
 
-  //   if (!urlUtmsArr.length) return // Если в URL нет UTM-меток, выходим
+    if (!urlUtmsArr.length) return // Если в URL нет UTM-меток, выходим
 
-  //   const utms = urlUtmsArr.split('&').reduce(
-  //     (acc, utm) => {
-  //       const [key, value] = utm.split('=')
-  //       acc[key] = decodeURIComponent(value) // Декодируем значение UTM
-  //       return acc
-  //     },
-  //     {} as Record<string, string>
-  //   )
+    const utms = urlUtmsArr.split('&').reduce(
+      (acc, utm) => {
+        const [key, value] = utm.split('=')
+        acc[key] = decodeURIComponent(value) // Декодируем значение UTM
+        return acc
+      },
+      {} as Record<string, string>
+    )
 
-  //   setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
-  // }, [searchParams])
+    setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
+  }, [searchParams])
 
-  // useEffect(() => {
-  //   TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
+  useEffect(() => {
+    TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
-  //   // Загружаем utm из sessionStorage
-  //   const storedUtms = sessionStorage.getItem('utms')
-  //   const utms = storedUtms ? JSON.parse(storedUtms) : {}
+    // Загружаем utm из sessionStorage
+    const storedUtms = sessionStorage.getItem('utms')
+    const utms = storedUtms ? JSON.parse(storedUtms) : {}
 
-  //   if (Object.keys(utms).length === 0) {
-  //     const utmParams = String(searchParams)
-  //     if (utmParams) {
-  //       const parsedUtms = Object.fromEntries(
-  //         utmParams.split('&').map(utm => utm.split('=').map(decodeURIComponent))
-  //       )
+    if (Object.keys(utms).length === 0) {
+      const utmParams = String(searchParams)
+      if (utmParams) {
+        const parsedUtms = Object.fromEntries(
+          utmParams.split('&').map(utm => utm.split('=').map(decodeURIComponent))
+        )
 
-  //       sessionStorage.setItem('utms', JSON.stringify(parsedUtms))
-  //     }
-  //   }
+        sessionStorage.setItem('utms', JSON.stringify(parsedUtms))
+      }
+    }
 
-  //   // Сохраняем реферер, если его нет в sessionStorage
-  //   if (!sessionStorage.getItem('referrer')) {
-  //     sessionStorage.setItem('referrer', JSON.stringify(document.referrer))
-  //   }
+    // Сохраняем реферер, если его нет в sessionStorage
+    if (!sessionStorage.getItem('referrer')) {
+      sessionStorage.setItem('referrer', JSON.stringify(document.referrer))
+    }
 
-  //   // Настраиваем NProgress
-  //   // NProgress.configure({ showSpinner: false })
+    // Настраиваем NProgress
+    // NProgress.configure({ showSpinner: false })
 
-  //   // const start = () => NProgress.start()
-  //   // const end = () => NProgress.done()
+    // const start = () => NProgress.start()
+    // const end = () => NProgress.done()
 
-  //   // Router.events.on('routeChangeStart', start)
-  //   // Router.events.on('routeChangeComplete', end)
-  //   // Router.events.on('routeChangeError', end)
+    // Router.events.on('routeChangeStart', start)
+    // Router.events.on('routeChangeComplete', end)
+    // Router.events.on('routeChangeError', end)
 
-  //   // return () => {
-  //   //   Router.events.off('routeChangeStart', start)
-  //   //   Router.events.off('routeChangeComplete', end)
-  //   //   Router.events.off('routeChangeError', end)
-  //   // }
-  // }, [searchParams])
+    // return () => {
+    //   Router.events.off('routeChangeStart', start)
+    //   Router.events.off('routeChangeComplete', end)
+    //   Router.events.off('routeChangeError', end)
+    // }
+  }, [searchParams])
 
   return (
     <>
