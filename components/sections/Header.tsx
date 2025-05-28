@@ -25,53 +25,53 @@ import StickyTop from './StickyTop'
 
 const Header = () => {
   // const { menuIsOpen, closeMenu } = useContext(MenuContext)
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
+  // const pathname = usePathname()
+  // const searchParams = useSearchParams()
 
   // useEffect(() => {
   //   handleSwipedEvt({ menuIsOpen, closeMenu })
   // }, [menuIsOpen, closeMenu])
 
   // Sticky top
-  const [isPromo, setIsPromo] = useState(false)
+  const [isPromo, setIsPromo] = useState(true)
   const [promoText, setPromoText] = useState('')
   const [isWithGift, setIsWithGift] = useState(false)
   
   const utmCookie = getCookie('utm')?.toString() || ''
 
   
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
-      const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
+  //     const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
 
-      setIsPromo(!!promoCode)
-      setPromoText(promoCode ? promocodes[promoCode] : '')
-      setIsWithGift(!!giftCode)
-    }, 2000)
+  //     setIsPromo(!!promoCode)
+  //     setPromoText(promoCode ? promocodes[promoCode] : '')
+  //     setIsWithGift(!!giftCode)
+  //   }, 2000)
 
-    return () => clearTimeout(timer) // Очищаем таймер при размонтировании
-  }, [utmCookie])
+  //   return () => clearTimeout(timer) // Очищаем таймер при размонтировании
+  // }, [utmCookie])
 
   const closePromo = () => setIsPromo(false)
   // /SticyTop
 
-  useEffect(() => {
-    const urlUtmsArr = String(searchParams)
+  // useEffect(() => {
+  //   const urlUtmsArr = String(searchParams)
 
-    if (!urlUtmsArr.length) return // Если в URL нет UTM-меток, выходим
+  //   if (!urlUtmsArr.length) return // Если в URL нет UTM-меток, выходим
 
-    const utms = urlUtmsArr.split('&').reduce(
-      (acc, utm) => {
-        const [key, value] = utm.split('=')
-        acc[key] = decodeURIComponent(value) // Декодируем значение UTM
-        return acc
-      },
-      {} as Record<string, string>
-    )
+  //   const utms = urlUtmsArr.split('&').reduce(
+  //     (acc, utm) => {
+  //       const [key, value] = utm.split('=')
+  //       acc[key] = decodeURIComponent(value) // Декодируем значение UTM
+  //       return acc
+  //     },
+  //     {} as Record<string, string>
+  //   )
 
-    setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
-  }, [searchParams])
+  //   setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
+  // }, [searchParams])
 
   // useEffect(() => {
   //   TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
@@ -115,16 +115,16 @@ const Header = () => {
 
   return (
     <>
-      <StickyTop
+      {/* <StickyTop
         isWithGift={isWithGift}
         onClick={closePromo}
         isPromo={isPromo}
         promoText={promoText}
-      />
+      /> */}
       <header
         className={classNames({
           [stls.container]: true,
-          // [stls.promo]: isPromo,
+          [stls.promo]: isPromo,
           // [stls.newHomePage]: pathname === '/' 
         })}>
         <MenuMobile />
