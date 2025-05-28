@@ -7,20 +7,26 @@ import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import ArrowNavigation from '@/ui/ArrowsNavigation/ArrowsNavigation'
+import { bonusesSlides, bonusesSlidesMob } from './const'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
-const desktopImages = Array.from(
-  { length: 8 },
-  (_, i) => `/assets/imgs/redesignedProgram/Bonuses/${i + 1}.png`
+const BonusCard = ({ item }: { item: (typeof bonusesSlides)[number] }) => (
+  <div className={stls.card}>
+    <div className={stls.text}>
+      <p className={stls.titleCard} style={{ whiteSpace: 'pre-line' }}>
+        {item.title}
+      </p>
+      <p className={stls.subtitle} style={{ whiteSpace: 'pre-line' }}>
+        {item.subtitle}
+      </p>
+    </div>
+    <Image src={item.img} alt={item.title} className={stls.image} width={370} height={250} />
+  </div>
 )
 
-const mobileImages = Array.from(
-  { length: 8 },
-  (_, i) => `/assets/imgs/redesignedProgram/Bonuses/Mob${i + 1}.png`
-)
 const Bonuses = () => {
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-  const images = isMobileAndTabletLayout ? mobileImages : desktopImages
+  const isMobile = useBetterMediaQuery('(max-width: 800px)')
+  const currentSlides = isMobile ? bonusesSlidesMob : bonusesSlides
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -40,17 +46,9 @@ const Bonuses = () => {
             nextEl: '#bonusesNavBtns button:last-child'
           }}
           className={stls.containerSwiper}>
-          {images.map((src, index) => (
+          {currentSlides.map((item, index) => (
             <SwiperSlide key={index} className={stls.slide}>
-              <div className={stls.card}>
-                <Image
-                  src={src}
-                  alt={`Бонус программы ${index + 1}`}
-                  className={stls.image}
-                  width={370}
-                  height={370}
-                />
-              </div>
+              <BonusCard item={item} />
             </SwiperSlide>
           ))}
         </Swiper>
