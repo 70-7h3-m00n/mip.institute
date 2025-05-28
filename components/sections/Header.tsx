@@ -115,12 +115,12 @@ const Header = () => {
 
   return (
     <>
-      {/* <StickyTop
+      <StickyTop
         isWithGift={isWithGift}
         onClick={closePromo}
         isPromo={isPromo}
         promoText={promoText}
-      /> */}
+      />
       <header
         className={classNames({
           [stls.container]: true,
