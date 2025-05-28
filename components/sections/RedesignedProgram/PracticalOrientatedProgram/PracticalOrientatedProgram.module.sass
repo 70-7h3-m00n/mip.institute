@@ -47,7 +47,7 @@
 
 .blockMain
   position: relative
-  @include m.flex($fd: column)
+  @include m.flex($fd: column, $ai:center)
 
 .imageContainer
   @include m.media(phone, tablet)
@@ -55,6 +55,7 @@
     top: 170px
     width: 100%
     height: auto
+    text-align: center
 
 .tagWrapper
   position: relative
@@ -97,11 +98,63 @@
     @include m.flex($jc: center)
     @include m.gap($mt: f.px(15))
 
+.swiperSlide
+  display: flex
+  height: auto
+
 .card
-  @include m.flex($fd: column)
-  flex: 1
+  background: c.$white-900
   border-radius: 10px
+  border: 1px solid #F87E1B
+  @include m.flex($fd: column, $ai:center)
+  flex: 1
+  @include m.gap($pt: f.px(14),$plr: f.px(14),$pb: f.px(30))
+  @include m.media(phone,tablet)
+    position: sticky
+    top: 170px
+    width: 100%
+    height: auto
+    @include m.gap($pb: f.px(15))
 
 .image
   width: 100%
-  height: 100%
+  height: auto
+  object-fit: cover
+  @include m.media(phone, tablet)
+    width: 295px
+
+.text
+  @include m.gap($pt: f.px(17))
+  @include m.flex($fd: column)
+  gap: f.px(10)
+  p
+    margin: 0px
+
+.titleCard
+  @include m.flex($fd: column)
+  font-weight: 600
+  font-size: f.px(20)
+  color: c.$black-900
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+
+.hours
+  color: c.$orange-400
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+
+.note
+  font-weight: 600
+  font-size: f.px(20)
+  color: c.$black-900
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+
+.desc
+  font-size: f.px(12)
+  font-weight: 300
+  color: c.$black-900
+  line-height: 120%
+  strong
+    font-weight: 700
+    color: c.$black-900

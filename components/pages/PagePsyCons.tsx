@@ -13,14 +13,20 @@ import SectionNavbar from '../sections/RedesignedProgram/SectionNavbar/SectionNa
 import Reviews from '../sections/RedesignedProgram/Reviews/Reviews'
 import ProgramResult from '@/components/sections/RedesignedProgram/ProgramResult/ProgramResult'
 import QualificationBlock from '@/components/sections/RedesignedProgram/QualificationBlock/QualificationBlock'
-import PracticalOrientatedProgram from '../sections/RedesignedProgram/PracticalOrientatedProgram/PracticalOrientatedProgram'
 import Portfolio from '../sections/RedesignedProgram/Portfolio.tsx/Portfolio'
 import ShortCourseDescription from '@/components/sections/RedesignedProgram/ShortCourseDescription/ShortCourseDescription'
 import PricingSection from '../sections/RedesignedProgram/PricingSection/PricingSection'
 import ProgramHero from '@/components/sections/RedesignedProgram/ProgramHero/ProgramHero'
 import FutureDiploms from '@/components/sections/RedesignedProgram/FutureDiploms/FutureDiploms'
 import SalaryCalculatorNew from '../sections/RedesignedProgram/SalaryCalculator/SalaryCalculator'
-
+import dynamic from 'next/dynamic'
+const PracticalOrientatedProgram = dynamic(
+  () =>
+    import(
+      '@/components/sections/RedesignedProgram/PracticalOrientatedProgram/PracticalOrientatedProgram'
+    ),
+  { ssr: false }
+)
 interface Props {}
 
 const partners = [
