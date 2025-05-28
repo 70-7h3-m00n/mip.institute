@@ -5,12 +5,12 @@ import BtnPhone from '@/components/btns/BtnPhone'
 import Logo from '@/ui/Logo'
 import MenuMobile from '@/components/sections/MenuMobile'
 import Wrapper from '@/ui/Wrapper'
-// import { gtmId, routes } from '@/config/index'
-// import MenuContext from '@/context/menu/menuContext'
-// import { handleSwipedEvt } from '@/helpers/index'
+import { gtmId, routes } from '@/config/index'
+import MenuContext from '@/context/menu/menuContext'
+import { handleSwipedEvt } from '@/helpers/index'
 import stls from '@/styles/components/sections/Header.module.sass'
 import classNames from 'classnames'
-// import Link from 'next/link'
+import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { Suspense, useContext, useEffect, useState } from 'react'
 import IconsDropDown from '../dropdown/IconsDropDown'
@@ -19,18 +19,18 @@ import promocodesWithGift from '@/helpers/promoWithGIfts'
 import promocodes from '@/helpers/promocodes'
 import { getCookie, setCookie } from 'cookies-next'
 import StickyTop from './StickyTop'
-// import NProgress from 'nprogress'
-// import TagManager from 'react-gtm-module'
-// import Router from 'next/router'
+import NProgress from 'nprogress'
+import TagManager from 'react-gtm-module'
+import Router from 'next/router'
 
 const Header = () => {
-  // const { menuIsOpen, closeMenu } = useContext(MenuContext)
-  // const pathname = usePathname()
+  const { menuIsOpen, closeMenu } = useContext(MenuContext)
+  const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  // useEffect(() => {
-  //   handleSwipedEvt({ menuIsOpen, closeMenu })
-  // }, [menuIsOpen, closeMenu])
+  useEffect(() => {
+    handleSwipedEvt({ menuIsOpen, closeMenu })
+  }, [menuIsOpen, closeMenu])
 
   // Sticky top
   const [isPromo, setIsPromo] = useState(false)
@@ -58,62 +58,62 @@ const Header = () => {
   const closePromo = () => setIsPromo(false)
   // /SticyTop
 
-  // useEffect(() => {
-  //   const urlUtmsArr = String(searchParams)
+  useEffect(() => {
+    const urlUtmsArr = String(searchParams)
 
-  //   if (!urlUtmsArr.length) return // Если в URL нет UTM-меток, выходим
+    if (!urlUtmsArr.length) return // Если в URL нет UTM-меток, выходим
 
-  //   const utms = urlUtmsArr.split('&').reduce(
-  //     (acc, utm) => {
-  //       const [key, value] = utm.split('=')
-  //       acc[key] = decodeURIComponent(value) // Декодируем значение UTM
-  //       return acc
-  //     },
-  //     {} as Record<string, string>
-  //   )
+    const utms = urlUtmsArr.split('&').reduce(
+      (acc, utm) => {
+        const [key, value] = utm.split('=')
+        acc[key] = decodeURIComponent(value) // Декодируем значение UTM
+        return acc
+      },
+      {} as Record<string, string>
+    )
 
-  //   setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
-  // }, [searchParams])
+    setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
+  }, [searchParams])
 
-  // useEffect(() => {
-  //   TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
+  useEffect(() => {
+    TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
-  //   // Загружаем utm из sessionStorage
-  //   const storedUtms = sessionStorage.getItem('utms')
-  //   const utms = storedUtms ? JSON.parse(storedUtms) : {}
+    // Загружаем utm из sessionStorage
+    const storedUtms = sessionStorage.getItem('utms')
+    const utms = storedUtms ? JSON.parse(storedUtms) : {}
 
-  //   if (Object.keys(utms).length === 0) {
-  //     const utmParams = String(searchParams)
-  //     if (utmParams) {
-  //       const parsedUtms = Object.fromEntries(
-  //         utmParams.split('&').map(utm => utm.split('=').map(decodeURIComponent))
-  //       )
+    if (Object.keys(utms).length === 0) {
+      const utmParams = String(searchParams)
+      if (utmParams) {
+        const parsedUtms = Object.fromEntries(
+          utmParams.split('&').map(utm => utm.split('=').map(decodeURIComponent))
+        )
 
-  //       sessionStorage.setItem('utms', JSON.stringify(parsedUtms))
-  //     }
-  //   }
+        sessionStorage.setItem('utms', JSON.stringify(parsedUtms))
+      }
+    }
 
-  //   // Сохраняем реферер, если его нет в sessionStorage
-  //   if (!sessionStorage.getItem('referrer')) {
-  //     sessionStorage.setItem('referrer', JSON.stringify(document.referrer))
-  //   }
+    // Сохраняем реферер, если его нет в sessionStorage
+    if (!sessionStorage.getItem('referrer')) {
+      sessionStorage.setItem('referrer', JSON.stringify(document.referrer))
+    }
 
-  //   // Настраиваем NProgress
-  //   // NProgress.configure({ showSpinner: false })
+    // Настраиваем NProgress
+    NProgress.configure({ showSpinner: false })
 
-  //   // const start = () => NProgress.start()
-  //   // const end = () => NProgress.done()
+    const start = () => NProgress.start()
+    const end = () => NProgress.done()
 
-  //   // Router.events.on('routeChangeStart', start)
-  //   // Router.events.on('routeChangeComplete', end)
-  //   // Router.events.on('routeChangeError', end)
+    Router.events.on('routeChangeStart', start)
+    Router.events.on('routeChangeComplete', end)
+    Router.events.on('routeChangeError', end)
 
-  //   // return () => {
-  //   //   Router.events.off('routeChangeStart', start)
-  //   //   Router.events.off('routeChangeComplete', end)
-  //   //   Router.events.off('routeChangeError', end)
-  //   // }
-  // }, [searchParams])
+    return () => {
+      Router.events.off('routeChangeStart', start)
+      Router.events.off('routeChangeComplete', end)
+      Router.events.off('routeChangeError', end)
+    }
+  }, [searchParams])
 
   return (
     <>
@@ -129,7 +129,7 @@ const Header = () => {
         className={classNames({
           [stls.container]: true,
           [stls.promo]: isPromo,
-          // [stls.newHomePage]: pathname === '/' 
+          [stls.newHomePage]: pathname === '/' 
         })}>
         <MenuMobile />
         <Wrapper>
@@ -144,10 +144,10 @@ const Header = () => {
             </div>
             <SearchProgramsDropDown />
             <IconsDropDown 
-            // newMainPage={pathname === '/'}
-             />
+              newMainPage={pathname === '/'}
+            />
           </div>
-          {/* {pathname === '/' && (
+          {pathname === '/' && (
             <div className={stls.bottom}>
               <div className={stls.bottomleft}>
                 <Link href={routes.front.svedenCommon} className={stls.linkInfo}>
@@ -155,7 +155,7 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-          )} */}
+          )}
         </Wrapper>
       </header>
     </>
