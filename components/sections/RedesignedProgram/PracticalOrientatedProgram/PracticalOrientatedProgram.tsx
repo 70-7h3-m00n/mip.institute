@@ -10,20 +10,36 @@ import ArrowNavigation from '@/ui/ArrowsNavigation/ArrowsNavigation'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import IconPracticeTagPointerMob from './IconPracticeTagPointerMob'
 import IconPracticeTagPointer from './IconPracticeTagPointer'
+import { slides } from './const'
 
-const desktopImages = Array.from(
-  { length: 4 },
-  (_, i) => `/assets/imgs/redesignedProgram/PracticalOrientatedProgram/${i + 1}.png`
-)
+const SlideCard = ({ slide }: { slide: (typeof slides)[number] }) => (
+  <div className={stls.card}>
+    <Image src={slide.img} alt={slide.title} className={stls.image} width={295} height={176} />
+    <div className={stls.text}>
+      <div className={stls.titleCard}>
+        <span>
+          {slide.title} – <span className={stls.hours}>{slide.hours}</span>
+        </span>
+        <span className={stls.note}>{slide.note}</span>
+      </div>
 
-const mobileImages = Array.from(
-  { length: 4 },
-  (_, i) => `/assets/imgs/redesignedProgram/PracticalOrientatedProgram/Mob${i + 1}.png`
+      <p className={stls.desc}>
+        {slide.description.map((part, i) => (
+          <React.Fragment key={i}>
+            {part.type === 'bold' ? (
+              <strong style={{ whiteSpace: 'pre-line' }}>{part.value}</strong>
+            ) : (
+              <span style={{ whiteSpace: 'pre-line' }}>{part.value}</span>
+            )}
+          </React.Fragment>
+        ))}
+      </p>
+    </div>
+  </div>
 )
 
 const PracticalOrientatedProgram = () => {
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
-  const images = isMobileAndTabletLayout ? mobileImages : desktopImages
+  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 770px)')
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -49,16 +65,8 @@ const PracticalOrientatedProgram = () => {
         </div>
         {isMobileAndTabletLayout ? (
           <div className={stls.blockMain}>
-            {images.map((src, i) => (
-              <div className={stls.imageContainer} key={i}>
-                <Image
-                  src={src}
-                  alt={`Изображение практики ${i + 1}`}
-                  width={370}
-                  height={370}
-                  className={stls.image}
-                />
-              </div>
+            {slides.map((slide, i) => (
+              <SlideCard key={i} slide={slide} />
             ))}
           </div>
         ) : (
@@ -74,17 +82,9 @@ const PracticalOrientatedProgram = () => {
               }}
               slidesPerView={isMobileAndTabletLayout ? 1 : 3}
               className={stls.containerSwiper}>
-              {images.map((src, index) => (
-                <SwiperSlide key={index}>
-                  <div className={stls.card}>
-                    <Image
-                      src={src}
-                      alt={`Бонус программы ${index + 1}`}
-                      className={stls.image}
-                      width={370}
-                      height={370}
-                    />
-                  </div>
+              {slides.map((slide, i) => (
+                <SwiperSlide key={i} className={stls.swiperSlide}>
+                  <SlideCard slide={slide} />
                 </SwiperSlide>
               ))}
             </Swiper>

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import stls from './SkillsCard.module.sass'
+import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const skills = [
   'Знание общей, возрастной, семейной, детской, социальной, организационной, клинической психологии',
@@ -15,8 +16,12 @@ const skills = [
 ]
 
 const SkillsCard = () => {
+  const isMobile = useBetterMediaQuery('(max-width: 768px)')
   const [showAll, setShowAll] = useState(false)
-  const visibleSkills = showAll ? skills : skills.slice(0, 8)
+
+  const limit = isMobile ? 6 : 8
+  const shouldShowButton = skills.length > limit
+  const visibleSkills = showAll ? skills : skills.slice(0, limit)
 
   return (
     <div className={stls.skills}>
@@ -31,8 +36,8 @@ const SkillsCard = () => {
         ))}
       </ul>
 
-      {skills.length > 8 && (
-        <button className={stls.readMore} onClick={() => setShowAll(!showAll)}>
+      {shouldShowButton && (
+        <button className={stls.readMore} onClick={() => setShowAll(prev => !prev)}>
           {showAll ? 'Скрыть' : 'Читать полный список'}
         </button>
       )}
