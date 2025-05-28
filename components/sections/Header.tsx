@@ -11,67 +11,67 @@ import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/Header.module.sass'
 import classNames from 'classnames'
 // import Link from 'next/link'
-// import { usePathname, useSearchParams } from 'next/navigation'
-// import { useContext, useEffect, useState } from 'react'
+import { usePathname, useSearchParams } from 'next/navigation'
+import { useContext, useEffect, useState } from 'react'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
-// import promocodesWithGift from '@/helpers/promoWithGIfts'
-// import promocodes from '@/helpers/promocodes'
-// import { getCookie, setCookie } from 'cookies-next'
-// import StickyTop from './StickyTop'
+import promocodesWithGift from '@/helpers/promoWithGIfts'
+import promocodes from '@/helpers/promocodes'
+import { getCookie, setCookie } from 'cookies-next'
+import StickyTop from './StickyTop'
 // import NProgress from 'nprogress'
 // import TagManager from 'react-gtm-module'
 // import Router from 'next/router'
 
 const Header = () => {
   // const { menuIsOpen, closeMenu } = useContext(MenuContext)
-  // const pathname = usePathname()
-  // const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   // useEffect(() => {
   //   handleSwipedEvt({ menuIsOpen, closeMenu })
   // }, [menuIsOpen, closeMenu])
 
   // Sticky top
-  // const [isPromo, setIsPromo] = useState(false)
-  // const [promoText, setPromoText] = useState('')
-  // const [isWithGift, setIsWithGift] = useState(false)
+  const [isPromo, setIsPromo] = useState(false)
+  const [promoText, setPromoText] = useState('')
+  const [isWithGift, setIsWithGift] = useState(false)
   
-  // const utmCookie = getCookie('utm')?.toString() || ''
+  const utmCookie = getCookie('utm')?.toString() || ''
 
   
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
-  //     const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
+      const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
 
-  //     setIsPromo(!!promoCode)
-  //     setPromoText(promoCode ? promocodes[promoCode] : '')
-  //     setIsWithGift(!!giftCode)
-  //   }, 2000)
+      setIsPromo(!!promoCode)
+      setPromoText(promoCode ? promocodes[promoCode] : '')
+      setIsWithGift(!!giftCode)
+    }, 2000)
 
-  //   return () => clearTimeout(timer) // Очищаем таймер при размонтировании
-  // }, [utmCookie])
+    return () => clearTimeout(timer) // Очищаем таймер при размонтировании
+  }, [utmCookie])
 
-  // const closePromo = () => setIsPromo(false)
+  const closePromo = () => setIsPromo(false)
   // /SticyTop
 
-  // useEffect(() => {
-  //   const urlUtmsArr = String(searchParams)
+  useEffect(() => {
+    const urlUtmsArr = String(searchParams)
 
-  //   if (!urlUtmsArr.length) return // Если в URL нет UTM-меток, выходим
+    if (!urlUtmsArr.length) return // Если в URL нет UTM-меток, выходим
 
-  //   const utms = urlUtmsArr.split('&').reduce(
-  //     (acc, utm) => {
-  //       const [key, value] = utm.split('=')
-  //       acc[key] = decodeURIComponent(value) // Декодируем значение UTM
-  //       return acc
-  //     },
-  //     {} as Record<string, string>
-  //   )
+    const utms = urlUtmsArr.split('&').reduce(
+      (acc, utm) => {
+        const [key, value] = utm.split('=')
+        acc[key] = decodeURIComponent(value) // Декодируем значение UTM
+        return acc
+      },
+      {} as Record<string, string>
+    )
 
-  //   setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
-  // }, [searchParams])
+    setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
+  }, [searchParams])
 
   // useEffect(() => {
   //   TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
@@ -115,12 +115,12 @@ const Header = () => {
 
   return (
     <>
-      {/* <StickyTop
+      <StickyTop
         isWithGift={isWithGift}
         onClick={closePromo}
         isPromo={isPromo}
         promoText={promoText}
-      /> */}
+      />
       <header
         className={classNames({
           [stls.container]: true,
