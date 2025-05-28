@@ -12,7 +12,7 @@ import stls from '@/styles/components/sections/Header.module.sass'
 import classNames from 'classnames'
 // import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useContext, useEffect, useState } from 'react'
+import { Suspense, useContext, useEffect, useState } from 'react'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
@@ -117,12 +117,14 @@ const Header = () => {
 
   return (
     <>
+    <Suspense>
       <StickyTop
         isWithGift={isWithGift}
         onClick={closePromo}
         isPromo={isPromo}
         promoText={promoText}
       />
+      </Suspense>
       <header
         className={classNames({
           [stls.container]: true,
