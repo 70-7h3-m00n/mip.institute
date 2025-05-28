@@ -40,18 +40,18 @@ const Header = () => {
   const utmCookie = getCookie('utm')?.toString() || ''
 
   
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
-  //     const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
+      const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
 
-  //     setIsPromo(!!promoCode)
-  //     setPromoText(promoCode ? promocodes[promoCode] : '')
-  //     setIsWithGift(!!giftCode)
-  //   }, 2000)
+      setIsPromo(!!promoCode)
+      setPromoText(promoCode ? promocodes[promoCode] : '')
+      setIsWithGift(!!giftCode)
+    }, 2000)
 
-  //   return () => clearTimeout(timer) // Очищаем таймер при размонтировании
-  // }, [utmCookie])
+    return () => clearTimeout(timer) // Очищаем таймер при размонтировании
+  }, [utmCookie])
 
   const closePromo = () => setIsPromo(false)
   // /SticyTop
