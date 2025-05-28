@@ -97,10 +97,11 @@
   max-height: 0
   overflow: hidden
   transition: max-height 0.05s ease-in-out
+  @include m.media(phone, tablet)
+    transition: none
   &.open
     max-height: f.px(1000)
     @include m.gap($pt: f.px(10))
-    transition: none
 
 
 .icon > span
