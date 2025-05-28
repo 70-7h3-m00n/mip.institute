@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react'
 import Wrapper from '@/ui/Wrapper'
 import stls from './ShortCourseDescription.module.sass'
-import { useState } from 'react'
 import classNames from 'classnames'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
-const modules = [
+const modulesInfo = [
   {
     name: 'Базовая часть',
     modules: [
@@ -12,7 +12,7 @@ const modules = [
         moduleName: 'Введение в профессию',
         studyHours: 100,
         description:
-          'Знакомство с психолога-профессией консультанта. Раздел раскрывает основные требования к личности и знаниям специалиста, освещает профессиональные задачи и принципы работы с ними.'
+          'Знакомство с профессией психолога-консультанта. Раздел раскрывает основные требования к личности и знаниям специалиста, освещает профессиональные задачи и принципы работы с ними.'
       },
       {
         moduleName: 'Общая психология',
@@ -30,13 +30,13 @@ const modules = [
         moduleName: 'Психология развития и возрастная психология',
         studyHours: 350,
         description:
-          'Будущие психологи-консультанты узнают, как развивается психика человека в течение всей жизни – с рождения до старости, рассмотрят принципы возрастной психологии, освоят теорию онтогненеза (с точки зрения зарубежных и российских психологов).'
+          'Будущие психологи-консультанты узнают, как развивается психика человека в течение всей жизни – с рождения до старости, рассмотрят принципы возрастной психологии, освоят теорию онтогенеза (с точки зрения зарубежных и российских психологов).'
       },
       {
         moduleName: 'Анатомия и физиология ЦНС',
         studyHours: 350,
         description:
-          'Рассмотрите форму, структуру, функции центральной нервной системы, влияние ее отделов на деятельность организма. Узнаете, что такое периферическая нервная система и как он связана с другими органами.'
+          'Рассмотрите форму, структуру, функции центральной нервной системы, влияние ее отделов на деятельность организма. Узнаете, что такое периферическая нервная система и как она связана с другими органами.'
       },
       {
         moduleName: 'Введение в клиническую психологию',
@@ -127,7 +127,7 @@ const modules = [
           'Основные направления психотерапии. Телесно-ориентированная психотерапия (с практикумом)',
         studyHours: 100,
         description:
-          'В рамках модуля познакомитесь с историей и возможностями телесно-ориентированной терапии, посмотрите видеозаписи терапевтических сессий с клиентами и их аналитический обзор'
+          'В рамках модуля познакомитесь с историей и возможностями телесно-ориентированной терапии, посмотрите видеозаписи терапевтических сессий с клиентами и их аналитический обзор.'
       },
       {
         moduleName: 'Основные направления психотерапии. Транзактный анализ (с практикумом)',
@@ -276,73 +276,110 @@ const modules = [
   }
 ]
 
-const ShortCourseDescription = () => {
-  const [openModule, setOpenModule] = useState<number | null>(0)
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+const ShortCourseDescription = ({ modules = modulesInfo }) => {
+  const [openSection, setOpenSection] = useState<number | null>(null) // Только один раздел открыт
+  const [openModule, setOpenModule] = useState<number | null>(null) // Только один модуль
+  const isMobile = useBetterMediaQuery('(max-width: 768px)')
 
-  const handleMouseEnter = (index: number) => {
-    if (!isMobileAndTabletLayout) {
-      setOpenModule(index)
+  // Изначально все открыты для SEO, через 1.5 секунды — первый раздел и модуль
+  useEffect(() => {
+    setOpenSection(null) // Все разделы открыты
+    setOpenModule(null) // Все модули открыты
+    const timer = setTimeout(() => {
+      setOpenSection(0) // Первый раздел
+      setOpenModule(0) // Первый модуль
+    }, 1500)
+
+    return () => clearTimeout(timer)
+  }, [modules])
+
+  const toggleSection = (index: number) => {
+    if (openSection === index) {
+      setOpenSection(null) // Закрыть текущий раздел
+      setOpenModule(null) // Закрыть модуль
+    } else {
+      setOpenSection(index) // Открыть новый раздел
+      setOpenModule(0) // Открыть первый модуль
     }
   }
 
-  const handleMouseLeave = () => {
-    if (!isMobileAndTabletLayout) {
-      setOpenModule(null)
+  const handleModuleHover = (sectionIndex: number, moduleIndex: number) => {
+    if (!isMobile) {
+      setOpenSection(sectionIndex)
+      setOpenModule(moduleIndex)
     }
   }
 
-  const toggleModule = (index: number) => {
-    setOpenModule(openModule === index ? null : index)
+  const toggleModule = (sectionIndex: number, moduleIndex: number) => {
+    if (isMobile) {
+      if (openSection === sectionIndex && openModule === moduleIndex) {
+        setOpenModule(null)
+      } else {
+        setOpenSection(sectionIndex)
+        setOpenModule(moduleIndex)
+      }
+    }
   }
 
   return (
     <section className={stls.container} id='curriculum'>
       <Wrapper>
         <h2>Краткая программа курса</h2>
-
         <div>
-          {modules.map((item, index) => (
-            <div
-              key={item.name}
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={handleMouseLeave}>
-              <button onClick={() => toggleModule(index)} className={stls.accordionItem}>
-                <span className={stls.accordionTitle}>{item.name}</span>
-
-                {item.modules?.length && (
+          {modules.map((section, sectionIndex) => (
+            <div key={section.name} className={stls.section}>
+              <button
+                onClick={() => toggleSection(sectionIndex)}
+                className={classNames(stls.accordionItem, stls.sectionAccordion)}>
+                <span className={stls.accordionTitle}>{section.name}</span>
+                {section.modules?.length ? (
                   <div className={stls.hoursAndIcon}>
-                    <span
-                      className={classNames({
-                        [stls.hours]: true,
-                        [stls.extraMargin]: !item.modules?.length
-                      })}>
-                      {item?.modules?.reduce((acc, el) => acc + el.studyHours, 0)} часов
+                    <span className={stls.hours}>
+                      {section.modules.reduce((acc, el) => acc + el.studyHours, 0)} часов
                     </span>
                     <span className={stls.icon}>
-                      {openModule === index ? <IconMinus /> : <IconPlus />}
+                      {openSection === sectionIndex && openModule !== null ? (
+                        <IconMinus />
+                      ) : (
+                        <IconPlus />
+                      )}
                     </span>
                   </div>
+                ) : (
+                  <span className={classNames(stls.hours, stls.extraMargin)}>0 часов</span>
                 )}
               </button>
 
-              {item.modules?.length && (
+              {section.modules?.length > 0 && (
                 <ul
-                  id={`accordion-content-${index}`}
                   className={classNames(stls.contentWrapper, {
-                    [stls.open]: openModule === index
+                    [stls.open]: openSection === sectionIndex
                   })}>
-                  {item.modules.map((el, idx) => (
-                    <li key={el.moduleName} className={stls.listItem}>
-                      <div className={stls.text}>
+                  {section.modules.map((oneModule, moduleIndex) => (
+                    <li
+                      key={oneModule.moduleName}
+                      className={stls.moduleItem}
+                      onMouseEnter={() => handleModuleHover(sectionIndex, moduleIndex)}
+                      onClick={() => toggleModule(sectionIndex, moduleIndex)}>
+                      <div
+                        className={classNames(stls.moduleAccordion, {
+                          [stls.open]: openSection === sectionIndex && openModule === moduleIndex
+                        })}>
                         <div className={stls.header}>
                           <p className={stls.moduleName}>
-                            <span>Модуль {idx + 1}. </span>
-                            <span>{el.moduleName}</span>
+                            <span>Модуль {moduleIndex + 1}. </span>
+                            <span>{oneModule.moduleName}</span>
                           </p>
-                          {el.studyHours && <p className={stls.hours}>{el.studyHours} часов</p>}
+                          {oneModule.studyHours && (
+                            <p className={stls.hours}>{oneModule.studyHours} часов</p>
+                          )}
                         </div>
-                        <p className={stls.description}>{el.description}</p>
+                      </div>
+                      <div
+                        className={classNames(stls.moduleContent, {
+                          [stls.open]: openSection === sectionIndex && openModule === moduleIndex
+                        })}>
+                        <p className={stls.description}>{oneModule.description}</p>
                       </div>
                     </li>
                   ))}

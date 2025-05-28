@@ -12,6 +12,12 @@
 .accordion
   margin-bottom: f.px(10)
 
+.section
+  margin-bottom: f.px(10)
+
+.sectionAccordion
+  @extend .accordionItem
+
 .accordionItem
   width: 100%
   @include m.dye(bg, c.$purple-450)
@@ -58,10 +64,10 @@
 .contentWrapper
   @include m.dye(bg, c.$white-900)
   border-radius: f.px(30)
-  @include m.gap($mtb: f.px(5), $pl: f.px(30), $pr: f.px(100))
+  @include m.gap($mtb: f.px(5), $pl: f.px(30), $pr: f.px(64))
   max-height: 0
   overflow: hidden
-  transition: all 0.3s ease-in-out
+  transition: all 0.2s ease-in-out
   @include m.flex($fd: column)
   gap: f.px(30)
   @include m.media(phone, tablet)
@@ -69,41 +75,62 @@
     border-radius: f.px(10)
   &.open
     max-height: f.px(7000)
-    @include m.gap($p: f.px(30), $pr: f.px(100), $mtb: f.px(10))
+    @include m.gap($p: f.px(30), $pr: f.px(64), $mtb: f.px(10))
     @include m.media(phone, tablet)
       @include m.gap($plr: f.px(15), $ptb: f.px(20), $mtb: f.px(10))
 
+.moduleItem
+  list-style: none
+  @include m.gap($p: f.px(10), $pr: f.px(30))
+  &:last-child
+    border-bottom: none
+  @include m.media(phone, tablet)
+    @include m.gap($p: 0)
+
+.moduleAccordion
+  @include m.flex($jc: space-between, $ai: center)
+  cursor: pointer
+  &.open
+    @include m.dye(bg, c.$white-900)
+
+.moduleContent
+  max-height: 0
+  overflow: hidden
+  transition: max-height 0.05s ease-in-out
+  &.open
+    max-height: f.px(1000)
+    @include m.gap($pt: f.px(10))
+    transition: none
+
+
 .icon > span
   @include m.flex($fd: column, $ai: center, $jc: center)
-
-.listItem
-  list-style: none
-  @include m.flex($ai: flex-start)
-  gap: f.px(70)
-
-.header > .hours
-  @extend .tag
-  @include m.dye(bg, c.$purple-450)
-  white-space: nowrap
-  margin-bottom: 0
-  @include m.media(phone, tablet)
-    font-size: f.px(8)
-    min-width: f.px(70)
-    @include m.gap($plr: f.px(10), $ptb: f.px(5))
-
-.moduleName
-  max-width: f.px(850)
-  display: inline-block
 
 .header
   font-size: f.px(20)
   font-weight: 500
   @include m.flex($ai: flex-start, $jc: space-between)
   @include m.gap($mb: 0)
+  width: 100%
+  gap: f.px(20)
   @include m.media(phone, tablet)
     font-size: f.px(12)
+    gap: f.px(10)
+  & > .hours
+    @extend .tag
+    @include m.dye(bg, c.$purple-450)
+    white-space: nowrap
     margin-bottom: 0
-  & > p > span:last-child
+    @include m.media(phone, tablet)
+      font-size: f.px(8)
+      min-width: f.px(70)
+      @include m.gap($plr: f.px(10), $ptb: f.px(5))
+
+.moduleName
+  max-width: f.px(850)
+  display: inline-block
+  margin-bottom: 0
+  & > span:last-child
     font-weight: 300
 
 .description

@@ -11,10 +11,19 @@ import {
 } from 'constants/redesignedProgram/programDescription'
 import QualificationBlock from '@/components/sections/RedesignedProgram/QualificationBlock/QualificationBlock'
 
+interface ContentItem {
+  id: number
+  descriptionHeader: string
+  listBegin: string | { bold: string; normal: string }
+  list: (string | JSX.Element)[]
+  listEnd: string
+  video: string
+}
+
 const ProgramDescription = () => {
   const [activeTab, setActiveTab] = useState(0)
 
-  const content = [about, graduates, contentCareService, contentCareerCenter]
+  const content: ContentItem[] = [about, graduates, contentCareService, contentCareerCenter]
 
   const activeContent = content.find(item => item.id === activeTab)
 
@@ -37,7 +46,7 @@ const ProgramDescription = () => {
             ))}
           </div>
 
-          {activeContent ? (
+          {activeContent && (
             <div className={stls.content}>
               <div className={stls.videoWrapper}>
                 <iframe
@@ -60,31 +69,39 @@ const ProgramDescription = () => {
               </div>
               <div className={stls.description}>
                 <p className={classNames(stls.text, stls.bold)}>
-                  {activeContent.descriptionHeader}
+                  {activeContent.descriptionHeader.split('\n').map((line, index) => (
+                    <span key={index}>
+                      {line}
+                      {index < activeContent.descriptionHeader.split('\n').length - 1 && <br />}
+                    </span>
+                  ))}
                 </p>
-                {typeof activeContent.listBegin === 'string' ? (
-                  <p className={stls.text}>{activeContent.listBegin}</p>
-                ) : (
+                {activeContent.listBegin && (
                   <p className={stls.text}>
-                    <span className={stls.boldSmall}>{activeContent.listBegin.bold}</span>{' '}
-                    {activeContent.listBegin.normal}
+                    {typeof activeContent.listBegin === 'string' ? (
+                      activeContent.listBegin
+                    ) : (
+                      <>
+                        <span className={stls.boldSmall}>{activeContent.listBegin.bold}</span>{' '}
+                        {activeContent.listBegin.normal}
+                      </>
+                    )}
                   </p>
                 )}
                 <ul className={stls.list}>
                   {activeContent.list.map((item, index) => (
                     <li key={index} className={stls.listItem}>
-                      {item.bold && <span className={stls.boldSmall}>{item.bold}</span>}{' '}
-                      {item.normal}
+                      {typeof item === 'string' ? item : item}
                     </li>
                   ))}
                 </ul>
-                <span className={stls.text}>{activeContent.listEnd}</span>
+                {activeContent.listEnd && <p className={stls.text}>{activeContent.listEnd}</p>}
               </div>
             </div>
-          ) : null}
+          )}
 
           <QualificationBlock
-            variant={'default'}
+            variant='default'
             programDetails={{
               name: 'Психолог-консультант',
               specialization: 'Психотерапия в психологическом консультировании'
