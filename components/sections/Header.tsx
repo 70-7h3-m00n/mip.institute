@@ -26,31 +26,33 @@ import StickyTop from './StickyTop'
 const Header = () => {
   // const { menuIsOpen, closeMenu } = useContext(MenuContext)
   // const pathname = usePathname()
-  // const searchParams = useSearchParams()
+  const searchParams = useSearchParams()
 
   // useEffect(() => {
   //   handleSwipedEvt({ menuIsOpen, closeMenu })
   // }, [menuIsOpen, closeMenu])
 
   // Sticky top
-  const [isPromo, setIsPromo] = useState(true)
+  const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
   const [isWithGift, setIsWithGift] = useState(false)
   
   const utmCookie = getCookie('utm')?.toString() || ''
+  console.log(utmCookie);
+  
 
   
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // const timer = setTimeout(() => {
       const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
       const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
 
       setIsPromo(!!promoCode)
       setPromoText(promoCode ? promocodes[promoCode] : '')
       setIsWithGift(!!giftCode)
-    }, 2000)
+    // }, 2000)
 
-    return () => clearTimeout(timer) // Очищаем таймер при размонтировании
+    // return () => clearTimeout(timer) // Очищаем таймер при размонтировании
   }, [utmCookie])
 
   const closePromo = () => setIsPromo(false)
