@@ -20,13 +20,14 @@ const BonusCard = ({ item }: { item: (typeof bonusesSlides)[number] }) => (
         {item.subtitle}
       </p>
     </div>
-    <Image src={item.img} alt={item.title} className={stls.image} width={370} height={250} />
+    <Image src={item.img} alt={item.title} className={stls.image} width={340} height={215} />
   </div>
 )
 
 const Bonuses = () => {
-  const isMobile = useBetterMediaQuery('(max-width: 800px)')
-  const currentSlides = isMobile ? bonusesSlidesMob : bonusesSlides
+  const isMobileAndTablet = useBetterMediaQuery('(max-width: 800px)')
+  const isMobile = useBetterMediaQuery('(max-width: 430px)')
+  const currentSlides = isMobileAndTablet ? bonusesSlidesMob : bonusesSlides
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -36,8 +37,11 @@ const Bonuses = () => {
 
         <Swiper
           modules={[Navigation]}
-          slidesPerView={'auto'}
+          slidesPerView={isMobile ? 1 : 'auto'}
           centeredSlides={true}
+          watchSlidesProgress={true}
+          observer={true}
+          observeParents={true}
           spaceBetween={30}
           slidesPerGroup={1}
           loop={true}

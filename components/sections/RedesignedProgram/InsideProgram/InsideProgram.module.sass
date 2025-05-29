@@ -37,6 +37,7 @@
 
 .image
   width: 100%
+  height: auto
   object-fit: cover
 
 .text
@@ -64,7 +65,7 @@
   font-size: 20px
   color: c.$black-900
   @include m.media(phone, tablet)
-    font-size: f16px
+    font-size: 16px
 
 .desc
   font-size: 12px
@@ -84,6 +85,7 @@
   @include m.flex($fd: column, $ai: stretch)
   @include m.media(phone, tablet)
     width: 347px
+    height: auto
 
     
 .containerSwiper

@@ -11,7 +11,7 @@
   color: c.$black-900
   @include m.gap($mb: f.px(30))
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(0))
+    @include m.gap($mb: f.px(15))
 
 .cardWrapper
   aspect-ratio: 370 / 407
@@ -54,7 +54,7 @@
 .mobileIcon
   display: none
   position: absolute
-  top: -12px
+  top: 0px
   right: 0px
   z-index: 3
   width: 36px
@@ -76,6 +76,16 @@
     @include m.flex($jc: center)
     @include m.gap($mt: f.px(15))
 
-.swiperWrapper
+.swiperSlide
+  width: 370px
+  height: auto
+  flex-shrink: 0  
+  @include m.flex($fd: column, $ai: stretch)
   @include m.media(phone, tablet)
-    padding-top: 15px
+    width: 347px
+    height: auto
+    
+.containerSwiper
+  overflow: visible !important
+  @include m.media(phone, tablet)
+    overflow: hidden !important

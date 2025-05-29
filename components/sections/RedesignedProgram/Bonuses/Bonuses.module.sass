@@ -32,6 +32,7 @@
   @include m.gap($pt: f.px(30),$plr: f.px(14))
   flex: 1
   height: 100%
+  min-height: 340px
   gap: 20px
   @include m.media(phone, tablet)
     gap: 15px
@@ -69,6 +70,7 @@
   @include m.flex($fd: column, $ai: stretch)
   @include m.media(phone, tablet)
     width: 347px
+    height: auto
 
 .containerSwiper
   overflow: visible !important

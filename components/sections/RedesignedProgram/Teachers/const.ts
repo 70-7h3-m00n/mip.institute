@@ -44,6 +44,20 @@ export const teachers = [
     ]
   },
   {
+    id: 1,
+    name: 'Додонова Ирина Викторовна',
+    role: 'Руководитель программы',
+    experience: '5 лет стажа',
+    photo: '/assets/imgs/redesignedProgram/Teachers/1.png',
+    description: [
+      'Транзактный анализ',
+      'IFS (internal family systems)',
+      'EMDR',
+      'Коучинг (два международных сертификата ICU и ICA)',
+      'Писатель'
+    ]
+  },
+  {
     id: 4,
     name: 'Лодзь Анна Николаевна',
     role: 'Преподаватель',

@@ -11,7 +11,7 @@ import { reviews } from './const'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const Reviews = () => {
-  const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
+  const isMobile = useBetterMediaQuery('(max-width: 430px)')
   return (
     <section className={stls.container} id='reviews'>
       <Wrapper>
@@ -22,15 +22,15 @@ const Reviews = () => {
           spaceBetween={30}
           slidesPerGroup={1}
           loop={true}
-          slidesPerView={isMobileAndTabletLayout ? 1 : 3}
-          centeredSlides={isMobileAndTabletLayout ? false : true}
+          slidesPerView={isMobile ? 1 : 'auto'}
+          centeredSlides={true}
+          className={stls.containerSwiper}
           navigation={{
             prevEl: '#reviewNavBtns button:first-child',
             nextEl: '#reviewNavBtns button:last-child'
-          }}
-          className={stls.containerSwiper}>
+          }}>
           {reviews.map((review, i) => (
-            <SwiperSlide key={i}>
+            <SwiperSlide key={i} className={stls.swiperSlide}>
               <ReviewCard {...review} />
             </SwiperSlide>
           ))}

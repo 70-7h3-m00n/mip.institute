@@ -40,6 +40,7 @@ const SlideCard = ({ slide }: { slide: (typeof slides)[number] }) => (
 
 const PracticalOrientatedProgram = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 770px)')
+  const isMobile = useBetterMediaQuery('(max-width: 430px)')
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -76,11 +77,12 @@ const PracticalOrientatedProgram = () => {
               spaceBetween={30}
               slidesPerGroup={1}
               loop={true}
+              slidesPerView={isMobile ? 1 : 'auto'}
+              centeredSlides={true}
               navigation={{
                 prevEl: '#practicalNavBtns button:first-child',
                 nextEl: '#practicalNavBtns button:last-child'
               }}
-              slidesPerView={isMobileAndTabletLayout ? 1 : 3}
               className={stls.containerSwiper}>
               {slides.map((slide, i) => (
                 <SwiperSlide key={i} className={stls.swiperSlide}>

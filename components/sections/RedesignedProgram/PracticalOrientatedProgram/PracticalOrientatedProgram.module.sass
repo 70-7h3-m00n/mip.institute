@@ -48,6 +48,7 @@
 .blockMain
   position: relative
   @include m.flex($fd: column, $ai:center)
+  gap: 10px
 
 .imageContainer
   @include m.media(phone, tablet)
@@ -81,10 +82,10 @@
   width: 36px
   height: 36px
   @include m.media(phone, tablet)
-    right: 10px
-    bottom: -20px
-    width: 28px
-    height: 28px
+    right: 5px
+    bottom: -24px
+    width: 33px
+    height: 33px
 
   svg
     display: block
@@ -98,15 +99,13 @@
     @include m.flex($jc: center)
     @include m.gap($mt: f.px(15))
 
-.swiperSlide
-  display: flex
-  height: auto
+
 
 .card
   background: c.$white-900
   border-radius: 10px
   border: 1px solid #F87E1B
-  @include m.flex($fd: column, $ai:center)
+  @include m.flex($fd: column)
   flex: 1
   @include m.gap($pt: f.px(14),$plr: f.px(14),$pb: f.px(30))
   @include m.media(phone,tablet)
@@ -121,7 +120,7 @@
   height: auto
   object-fit: cover
   @include m.media(phone, tablet)
-    width: 295px
+
 
 .text
   @include m.gap($pt: f.px(17))
@@ -158,3 +157,20 @@
   strong
     font-weight: 700
     color: c.$black-900
+
+// .swiperSlide
+//   display: flex
+//   height: auto
+
+.swiperSlide
+  width: 370px
+  height: auto
+  flex-shrink: 0  
+  @include m.flex($fd: column, $ai: stretch)
+  @include m.media(phone, tablet)
+    width: 347px
+    height: auto
+
+    
+.containerSwiper
+  overflow: visible !important

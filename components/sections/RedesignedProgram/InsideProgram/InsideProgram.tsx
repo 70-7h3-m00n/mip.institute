@@ -40,8 +40,10 @@ const SlideCard = ({ slide }: { slide: (typeof slides)[number] }) => (
 )
 
 const InsideProgram = () => {
-  const isMobile = useBetterMediaQuery('(max-width: 800px)')
-  const currentSlides = isMobile ? slidesMob : slides
+  const isMobileAndTablet = useBetterMediaQuery('(max-width: 800px)')
+  const isMobile = useBetterMediaQuery('(max-width: 430px)')
+
+  const currentSlides = isMobileAndTablet ? slidesMob : slides
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -53,7 +55,7 @@ const InsideProgram = () => {
           spaceBetween={30}
           slidesPerGroup={1}
           loop={true}
-          slidesPerView={'auto'}
+          slidesPerView={isMobile ? 1 : 'auto'}
           centeredSlides={true}
           navigation={{
             prevEl: '#insideProgramNavBtns button:first-child',

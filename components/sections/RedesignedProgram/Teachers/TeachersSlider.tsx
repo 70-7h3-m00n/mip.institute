@@ -13,6 +13,7 @@ import { teachers } from './const'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 
 const TeachersSlider = () => {
+  const isMobile = useBetterMediaQuery('(max-width: 430px)')
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
   const handleInteraction = (index: number) => {
@@ -32,14 +33,15 @@ const TeachersSlider = () => {
           spaceBetween={30}
           slidesPerGroup={1}
           loop={true}
-          slidesPerView={isMobileAndTabletLayout ? 1 : 3}
-          centeredSlides={isMobileAndTabletLayout ? false : true}
+          slidesPerView={isMobile ? 1 : 'auto'}
+          centeredSlides={true}
+          className={stls.containerSwiper}
           navigation={{
             prevEl: '#teachersNavBtns button:first-child',
             nextEl: '#teachersNavBtns button:last-child'
           }}>
           {teachers.map((teacher, index) => (
-            <SwiperSlide key={teacher.id} className={stls.swiperWrapper}>
+            <SwiperSlide key={teacher.id} className={stls.swiperSlide}>
               <div
                 className={stls.cardWrapper}
                 onMouseEnter={() => setHoveredIndex(index)}

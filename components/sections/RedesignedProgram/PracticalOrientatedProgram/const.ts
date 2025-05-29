@@ -18,6 +18,27 @@ export const slides = [
     ]
   },
   {
+    img: '/assets/imgs/redesignedProgram/PracticalOrientatedProgram/4.png',
+    title: 'Практические навыки',
+    hours: '150 часов',
+    note: ' (в пакете «Стандарт»)',
+    description: [
+      {
+        type: 'text',
+        value: 'Программа состоит из трёх ступеней, на которых\n '
+      },
+      {
+        type: 'bold',
+        value: 'участники осваивают навыки психологического\n консультирования, '
+      },
+      {
+        type: 'text',
+        value:
+          'отрабатывают их в безопасной\n обстановке и учатся интегрировать полученные\n знания в консультативный процесс'
+      }
+    ]
+  },
+  {
     img: '/assets/imgs/redesignedProgram/PracticalOrientatedProgram/2.png',
     title: 'Интервизии',
     hours: '36 часов',
@@ -34,6 +55,27 @@ export const slides = [
       {
         type: 'text',
         value: 'Без наставников — все на равных,\n в атмосфере поддержки и доверия'
+      }
+    ]
+  },
+  {
+    img: '/assets/imgs/redesignedProgram/PracticalOrientatedProgram/4.png',
+    title: 'Практические навыки',
+    hours: '150 часов',
+    note: ' (в пакете «Стандарт»)',
+    description: [
+      {
+        type: 'text',
+        value: 'Программа состоит из трёх ступеней, на которых\n '
+      },
+      {
+        type: 'bold',
+        value: 'участники осваивают навыки психологического\n консультирования, '
+      },
+      {
+        type: 'text',
+        value:
+          'отрабатывают их в безопасной\n обстановке и учатся интегрировать полученные\n знания в консультативный процесс'
       }
     ]
   },
