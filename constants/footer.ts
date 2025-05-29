@@ -173,31 +173,72 @@ const WPFooterJsonLd = {
     name: 'Московский Институт Психологии',
     legalName:
       'Научная автономная некоммерческая организация «Московский институт психологии» (НАНО «МИП») ИНН 9725041321 ОГРН 1207700479260',
-    sameAs: 'https://mip.institute'
-  },
-  contactPoint: [
-    {
-      '@type': 'ContactPoint',
-      telephone: '+7 (499) 110-88-19',
-      contactType: 'Приёмная комиссия'
-    },
-    {
-      '@type': 'ContactPoint',
-      telephone: '+7 (800) 600-29-03',
-      contactType: 'Приёмная комиссия'
-    },
-    {
-      '@type': 'ContactPoint',
-      telephone: '+7 (499) 110-82-11',
-      contactType: 'Кураторский отдел'
-    }
-  ],
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Москва',
-    streetAddress: 'Докучаев переулок, 8'
-  },
-  email: 'info@mip.institute'
+    url: 'https://mip.institute',
+    logo: 'https://mip.institute/assets/imgs/general/icon.png',
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: '+7 (499) 110-88-19',
+        contactType: 'Приёмная комиссия (Москва)',
+        areaServed: 'RU',
+        availableLanguage: 'Russian',
+        contactOption: 'Пн–Пт: 9:00-19:00 (GMT+3)'
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+7 (800) 600-29-03',
+        contactType: 'Приёмная комиссия (Москва)',
+        areaServed: 'RU',
+        availableLanguage: 'Russian',
+        contactOption: 'Пн–Пт: 9:00-19:00 (GMT+3)'
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+7 (499) 110-82-11',
+        contactType: 'Кураторский отдел (Москва)',
+        areaServed: 'RU',
+        availableLanguage: 'Russian',
+        contactOption: 'Пн–Пт: 9:00-19:00 (GMT+3)'
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+7 (727) 311-09-11',
+        contactType: 'Приёмная комиссия (Алматы)',
+        areaServed: 'KZ',
+        availableLanguage: 'Russian',
+        contactOption: 'Пн–Пт: 9:00-19:00 (UTC+5)'
+      }
+    ],
+    address: [
+      {
+        '@type': 'PostalAddress',
+        addressLocality: 'Москва',
+        streetAddress: 'Докучаев переулок, 8',
+        postalCode: '107078',
+        addressCountry: 'RU'
+      },
+      {
+        '@type': 'PostalAddress',
+        addressLocality: 'Алматы',
+        streetAddress: 'PROMENADE, Проспект Абая, 44а',
+        addressCountry: 'KZ'
+      }
+    ],
+    email: [
+      'info@mip.institute',
+      'postupi@mip.institute',
+      'curators@mip.institute',
+      'hr@mip.institute',
+      'almaty@mip.institute'
+    ],
+    sameAs: [
+      'https://m.vk.com/mip_institute',
+      'https://t.me/mip_institute',
+      'https://www.youtube.com/channel/UCGW-oYT-mquOPy6OY7R6iRA',
+      'https://ok.ru/group/70000001109496',
+      'https://dzen.ru/institute_mip'
+    ]
+  }
 }
 
 export { topFooterLinks, footerCards, bottomFooterLinks, WPFooterJsonLd }
