@@ -75,10 +75,10 @@ const PracticalOrientatedProgram = () => {
             <Swiper
               modules={[Navigation]}
               spaceBetween={30}
+              initialSlide={2}
               slidesPerGroup={1}
               loop={true}
               slidesPerView={isMobile ? 1 : 'auto'}
-              centeredSlides={true}
               navigation={{
                 prevEl: '#practicalNavBtns button:first-child',
                 nextEl: '#practicalNavBtns button:last-child'
