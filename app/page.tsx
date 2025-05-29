@@ -5,6 +5,7 @@ import { company, prod, routes } from '../config'
 import truncate from '@/helpers/general/truncate'
 import HomeWithPopup from '@/components/clientComponents/HomeWithPopup'
 import HomeClient from '@/components/clientComponents/HomeClient'
+import { Suspense } from 'react'
 
 export const revalidate = 3600
 export const generateMetadata = (): Metadata => {
@@ -52,7 +53,9 @@ export default async function HomePage() {
 
   return (
     <>
-    {/* <HomeWithPopup /> */}
+    <Suspense>
+      <HomeWithPopup />
+    </Suspense>
     <HomeClient data={homeProps} all={allProgramsData} />
     </>
   )
