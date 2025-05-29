@@ -10,7 +10,7 @@ import ArrowNavigation from '@/ui/ArrowsNavigation/ArrowsNavigation'
 import useBetterMediaQuery from '@/hooks/general/UseBetterMediaQuery'
 import IconPracticeTagPointerMob from './IconPracticeTagPointerMob'
 import IconPracticeTagPointer from './IconPracticeTagPointer'
-import { slides } from './const'
+import { slides, slidesMob } from './const'
 
 const SlideCard = ({ slide }: { slide: (typeof slides)[number] }) => (
   <div className={stls.card}>
@@ -41,6 +41,8 @@ const SlideCard = ({ slide }: { slide: (typeof slides)[number] }) => (
 const PracticalOrientatedProgram = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 770px)')
   const isMobile = useBetterMediaQuery('(max-width: 430px)')
+
+  const currentSlides = isMobileAndTabletLayout ? slidesMob : slides
   return (
     <section className={stls.container}>
       <Wrapper>
@@ -66,7 +68,7 @@ const PracticalOrientatedProgram = () => {
         </div>
         {isMobileAndTabletLayout ? (
           <div className={stls.blockMain}>
-            {slides.map((slide, i) => (
+            {currentSlides.map((slide, i) => (
               <SlideCard key={i} slide={slide} />
             ))}
           </div>
