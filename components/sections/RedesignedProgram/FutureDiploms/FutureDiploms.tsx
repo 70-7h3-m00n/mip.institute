@@ -168,7 +168,13 @@ const FutureDiploms = () => {
                         )}
                       </span>
                     </p>
-                    <Image src={supplement} alt='Приложение' width={200} height={270} />
+                    <Image
+                      src={supplement}
+                      alt='Приложение'
+                      width={200}
+                      height={270}
+                      className={stls.supplement}
+                    />
                   </div>
                 }
                 modal

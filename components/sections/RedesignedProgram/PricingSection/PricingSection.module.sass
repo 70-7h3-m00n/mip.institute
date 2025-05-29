@@ -28,14 +28,14 @@
 .mobileTabs
   display: none
   @include m.media(phone, tablet)
-    @include m.flex($jc: center)
-    gap: f.px(10)
+    @include m.flex($jc: space-between)
+    gap: f.px(9)
     @include m.gap($mb: f.px(20))
 
 .tab
   @include m.flex($jc: center,$ai: center)
-  width: 168px
-  padding: 14px 0 13px
+  width: 100%
+  padding: 12px 0 11px
   border-radius: 10px
   background: c.$white-900
   color: c.$black-900
