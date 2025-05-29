@@ -5,9 +5,7 @@
 .container
   // position: fixed
   transition: transform 0.6s ease-in
-  left: 0
-  z-index: 100
-  width: 100%
+  // width: 100%
   @include m.dye(bg, c.$pink-50)
   @include m.flex($ai: center)
   @include m.media(phone, tablet)
@@ -16,13 +14,6 @@
     height: f.px(112)
   &.nopromo
     display: none
-    // transform: translateY(f.px(-224))
-    @include m.media(phone, tablet)
-      transform: translateY(f.px(-514))
-  &.promo
-    // transform: translateY(f.px(-112))
-    @include m.media(phone, tablet)
-      transform: translateY(f.px(-257))
 
 .content
   @include m.flex($jc: space-between, $ai: center)

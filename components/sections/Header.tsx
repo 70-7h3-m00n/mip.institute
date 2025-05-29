@@ -38,9 +38,6 @@ const Header = () => {
   const [isWithGift, setIsWithGift] = useState(false)
   
   const utmCookie = getCookie('utm')?.toString() || ''
-  console.log(utmCookie);
-  
-
   
   useEffect(() => {
     // const timer = setTimeout(() => {
