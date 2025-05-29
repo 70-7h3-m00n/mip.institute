@@ -1,3 +1,4 @@
+'use client'
 import stls from '@/styles/components/icons/IconStarRatingCard.module.sass'
 import { useRouter } from 'next/router'
 

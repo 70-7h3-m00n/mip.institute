@@ -1,7 +1,6 @@
-import routes from '@/config/routes'
-import { THomev2PageData } from '@/types/index'
-import axios from 'axios'
-import qs from 'qs'
+import routes from '@/config/routes';
+import { THomev2PageData } from '@/types/index';
+import qs from 'qs';
 
 const queryString = qs.stringify(
   {
@@ -9,57 +8,67 @@ const queryString = qs.stringify(
       heroCarousel: {
         populate: {
           img: {
-            fields: ['url', 'width', 'height']
-          }
-        }
+            fields: ['url', 'width', 'height'],
+          },
+        },
       },
       publications: {
         populate: {
           slide: {
             populate: {
               files: {
-                fields: ['url', 'width', 'height']
-              }
-            }
-          }
-        }
+                fields: ['url', 'width', 'height'],
+              },
+            },
+          },
+        },
       },
       blogs: {
         fields: ['title', 'date', 'slug'],
-
         populate: {
           picture: {
-            fields: ['url']
-          }
-        }
+            fields: ['url'],
+          },
+        },
       },
       partners: {
         fields: ['title', 'subtitle'],
         populate: {
           image: {
-            fields: ['url']
-          }
-        }
+            fields: ['url'],
+          },
+        },
       },
       reviews: {
-        populate: '*'
-      }
-    }
+        populate: '*',
+      },
+    },
   },
   {
     encodeValuesOnly: true,
-    skipNulls: true
+    skipNulls: true,
   }
-)
+);
 
-async function getStaticPropsHome(): Promise<THomev2PageData> {
-  const response = await axios.get(`${routes.back.rootv2}/api/home?${queryString}`, {
-    headers: {
-      Authorization: `Bearer ${process.env.STRAPI_BEARER}`
-    }
-  })
+async function getStaticPropsHome() {
+  try {
+    const response = await fetch(`${routes.back.rootv2}/api/home?${queryString}`, {
+      cache: 'force-cache', // Кэшировать данные для SSG
+      headers: {
+        Authorization: `Bearer ${process.env.STRAPI_BEARER}`,
+      },
+    });
 
-  return response.data.data
+    // if (!response.ok) {
+    //   throw new Error(`API error: ${response.status}`);
+    // }
+
+    const data = await response.json();
+    return data.data as THomev2PageData;
+  } catch (error) {
+    console.error('Ошибка в getStaticPropsHome:', error);
+    return { data: null } ; // Фоллбэк
+  }
 }
 
-export default getStaticPropsHome
+export default getStaticPropsHome;

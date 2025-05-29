@@ -36,16 +36,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <Suspense>
               <MenuState>
                 <FieldsTooltipState>
-                  {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
-
-                  {/* <StickyTop
-                isWithGift={isWithGift}
-                onClick={closePromo}
-                isPromo={isPromo}
-                promoText={promoText}
-              /> */}
-
-                  <Header />
+                  <Suspense>
+                    <Header />
+                  </Suspense>
                   {/* <ABTestScript /> */}
                   <Scripts />
                   {children}
@@ -54,7 +47,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   <div>
                     <StickyBottom pageAppRouter={true} />
                   </div>
-                  {/* </div> */}
                 </FieldsTooltipState>
               </MenuState>
               <Analytics />
