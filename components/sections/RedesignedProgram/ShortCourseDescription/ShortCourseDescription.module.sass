@@ -67,7 +67,7 @@
   @include m.gap($mtb: f.px(5), $pl: f.px(30), $pr: f.px(64))
   max-height: 0
   overflow: hidden
-  transition: all 0.2s ease-in-out
+  transition: all 0.5s ease-in-out
   @include m.flex($fd: column)
   gap: f.px(30)
   @include m.media(phone, tablet)
@@ -96,12 +96,12 @@
 .moduleContent
   max-height: 0
   overflow: hidden
-  transition: max-height 0.05s ease-in-out
-  @include m.media(phone, tablet)
-    transition: none
+  transition: max-height 2s ease-in-out
   &.open
     max-height: f.px(1000)
-    @include m.gap($pt: f.px(10))
+    @include m.gap($pt: f.px(5))
+  &:not(.open)
+    transition: none
 
 
 .icon > span
