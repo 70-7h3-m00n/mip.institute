@@ -20,6 +20,7 @@ import ProgramHero from '@/components/sections/RedesignedProgram/ProgramHero/Pro
 import FutureDiploms from '@/components/sections/RedesignedProgram/FutureDiploms/FutureDiploms'
 import SalaryCalculatorNew from '../sections/RedesignedProgram/SalaryCalculator/SalaryCalculator'
 import dynamic from 'next/dynamic'
+import CoursePreviewVideo from '../sections/RedesignedProgram/CoursePreviewVideo/CoursePreviewVideo'
 const PracticalOrientatedProgram = dynamic(
   () =>
     import(
@@ -101,6 +102,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <FutureDiploms />
       <ProgramForRequest />
       <InsideProgram />
+      <CoursePreviewVideo />
       <ShortCourseDescription />
       <PracticalOrientatedProgram />
       <HomeForm />
