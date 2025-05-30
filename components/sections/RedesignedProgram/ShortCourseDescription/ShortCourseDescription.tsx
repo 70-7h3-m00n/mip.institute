@@ -367,11 +367,17 @@ const ShortCourseDescription = ({ modules = modulesInfo }) => {
                         })}>
                         <div className={stls.header}>
                           <p className={stls.moduleName}>
-                            <span>Модуль {moduleIndex + 1}. </span>
+                            <noindex>
+                              <span data-nosnippet>Модуль {moduleIndex + 1}. </span>
+                            </noindex>
                             <span>{oneModule.moduleName}</span>
                           </p>
                           {oneModule.studyHours && (
-                            <p className={stls.hours}>{oneModule.studyHours} часов</p>
+                            <noindex>
+                              <p data-nosnippet className={stls.hours}>
+                                {oneModule.studyHours} часов
+                              </p>
+                            </noindex>
                           )}
                         </div>
                       </div>
