@@ -1,3 +1,4 @@
+'use client'
 import { useContext, useRef, useEffect, useState } from 'react'
 import classNames from 'classnames'
 import FieldsTooltipContext from '@/context/fieldsTooltip/fieldsTooltipContext'

@@ -15,6 +15,7 @@ import 'swiper/css/scrollbar'
 import { AppContextProvider } from '@/context/AppContextProvider'
 import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 import { MediaQueryProvider } from '@/context/MediaQueryContext'
+import HeaderServer from '@/components/sections/HeaderServer/HeaderServer'
 // import ABTestScript from '@/components/abTests/roistatAB'
 
 export const metadata = {
@@ -36,16 +37,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <Suspense>
               <MenuState>
                 <FieldsTooltipState>
-                  {/* <div className={promo ? 'fullContainerWithPromo fullContainer' : 'fullContainer'}> */}
-
-                  {/* <StickyTop
-                isWithGift={isWithGift}
-                onClick={closePromo}
-                isPromo={isPromo}
-                promoText={promoText}
-              /> */}
-
-                  <Header />
+                  <Suspense fallback={<HeaderServer />}>
+                    <Header />
+                  </Suspense>
                   {/* <ABTestScript /> */}
                   <Scripts />
                   {children}
@@ -54,7 +48,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   <div>
                     <StickyBottom pageAppRouter={true} />
                   </div>
-                  {/* </div> */}
                 </FieldsTooltipState>
               </MenuState>
               <Analytics />

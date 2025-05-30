@@ -12,7 +12,7 @@ import stls from '@/styles/components/sections/Header.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useContext, useEffect, useState } from 'react'
+import { Suspense, useContext, useEffect, useState } from 'react'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
@@ -38,19 +38,18 @@ const Header = () => {
   const [isWithGift, setIsWithGift] = useState(false)
   
   const utmCookie = getCookie('utm')?.toString() || ''
-
   
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // const timer = setTimeout(() => {
       const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
       const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
 
       setIsPromo(!!promoCode)
       setPromoText(promoCode ? promocodes[promoCode] : '')
       setIsWithGift(!!giftCode)
-    }, 2000)
+    // }, 2000)
 
-    return () => clearTimeout(timer) // Очищаем таймер при размонтировании
+    // return () => clearTimeout(timer) // Очищаем таймер при размонтировании
   }, [utmCookie])
 
   const closePromo = () => setIsPromo(false)
@@ -115,12 +114,14 @@ const Header = () => {
 
   return (
     <>
+    <Suspense>
       <StickyTop
         isWithGift={isWithGift}
         onClick={closePromo}
         isPromo={isPromo}
         promoText={promoText}
       />
+      </Suspense>
       <header
         className={classNames({
           [stls.container]: true,
@@ -139,7 +140,9 @@ const Header = () => {
               <BtnFields />
             </div>
             <SearchProgramsDropDown />
-            <IconsDropDown newMainPage={pathname === '/'} />
+            <IconsDropDown 
+              newMainPage={pathname === '/'}
+            />
           </div>
           {pathname === '/' && (
             <div className={stls.bottom}>

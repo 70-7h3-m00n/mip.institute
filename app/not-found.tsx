@@ -12,7 +12,7 @@ export default function NotFound() {
 
   return (
     <div className={stls.bg}>
-      <NextSeo nofollow={true} noindex={true} />
+      {/* <NextSeo nofollow={true} noindex={true} /> */}
       <Wrapper>
         <div className={stls.image}>
           <Image src={pic} alt='Страница не найдена' height={isMobileAndTabletLayout ? 300 : 500} />

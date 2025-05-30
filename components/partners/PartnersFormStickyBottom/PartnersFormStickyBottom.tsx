@@ -109,6 +109,30 @@ const PartnersFormStickyBottom = ({
   }, [setFocus, popup])
 
   const asPath = usePathname()
+
+  const [clientReferer, setClientReferer] = useState<string | null>(null)
+
+  const [clientUtms, setClientUtms] = useState<string | null>(null)
+
+  const [yandexMetricaId, setYandexMetricaId] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') { // Проверяем, что код выполняется в браузере
+      try {
+        const storedReferer = sessionStorage.getItem('referrer')
+        const storedUTMS = sessionStorage.getItem('utms')
+        const ym_uid = localStorage.getItem('ym_uid')
+
+        setClientReferer(storedReferer ? storedReferer : '')
+        setClientUtms(storedUTMS ? storedUTMS : '{}')
+        setYandexMetricaId(ym_uid ? ym_uid : '')
+      } catch (error) {
+        console.error('Ошибка парсинга referer:', error)
+        setClientReferer(null)
+      }
+
+    }
+  }, [])
   const onSubmit = async data => {
     setIsDisabled(true)
     setLoading(true)
@@ -118,13 +142,13 @@ const PartnersFormStickyBottom = ({
     // handle loader
     data.roistatAB = roistatAB
     data.leadPage = asPath
-    const utms = JSON.parse(sessionStorage.getItem('utms') ?? '{}')
+    const utms = clientUtms
     data.utms = utms
     sessionStorage.removeItem('utms')
-    const referer = JSON.parse(sessionStorage.getItem('referer') ?? '')
+    const referer = clientReferer
     data.referer = referer
     sessionStorage.removeItem('referer')
-    const ymUid = JSON.parse(localStorage.getItem('_ym_uid') ?? '')
+    const ymUid = yandexMetricaId
     data.ymUid = ymUid
     const clickId = getCookie('utm')
 

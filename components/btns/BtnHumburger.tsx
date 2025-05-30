@@ -1,3 +1,4 @@
+'use client'
 import stls from '@/styles/components/btns/BtnHumburger.module.sass'
 import { useContext } from 'react'
 
