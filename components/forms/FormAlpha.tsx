@@ -18,6 +18,13 @@ import { segmentsObject } from '@/ui/FortuneWheel/constants'
 import dev from '@/config/dev'
 import PopupThankyouNew from '../popups/PopupThankYouNew'
 import { usePathname } from 'next/navigation'
+import { tgPixelRoutes } from 'constants/scripts/tgPixel'
+
+declare global {
+  interface Window {
+    tgp?: (...args: any[]) => void
+  }
+}
 
 type FormValues = {
   name: string
@@ -93,7 +100,6 @@ const FormAlpha = ({
     if (typeof window !== 'undefined' && withGift) {
       const storedText = localStorage.getItem('fortuneWheelResult') || null
       const code = getGiftCodeByText(storedText)
-
       if (code) {
         setValue('gift', code)
       }
@@ -112,7 +118,8 @@ const FormAlpha = ({
   const [yandexMetricaId, setYandexMetricaId] = useState<string | null>(null)
 
   useEffect(() => {
-    if (typeof window !== 'undefined') { // Проверяем, что код выполняется в браузере
+    if (typeof window !== 'undefined') {
+      // Проверяем, что код выполняется в браузере
       try {
         const storedReferer = sessionStorage.getItem('referrer')
         const storedUTMS = sessionStorage.getItem('utms')
@@ -125,13 +132,10 @@ const FormAlpha = ({
         console.error('Ошибка парсинга referer:', error)
         setClientReferer(null)
       }
-
     }
   }, [])
 
   const pathname = usePathname()
-  console.log(pathname, clientReferer);
-  
   const onSubmit = async data => {
     setIsDisabled(true)
     setLoading(true)
@@ -181,19 +185,21 @@ const FormAlpha = ({
       data.advcake_track_id = advcake_track_id
       data.advcake_track_url = advcake_track_url
       data.roistat_visit = roistat_visit
-      if(dev) {
+      if (dev) {
         const req = await genezis(data)
         setThanksIsOpen(true)
         setLoading(false)
       } else {
         const req = await genezis(data)
-
         if (req === 200) {
           setLoading(false)
           // window.open(
           //   `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
           //   '_blank'
           // )
+          if (pathname && tgPixelRoutes.includes(pathname) && typeof window.tgp === 'function') {
+            window.tgp('event', 'ZGar7r3D-6jrcxRT8')
+          }
           setIsIpCheckFailed(false)
           setIsDisabled(true)
           setThanksIsOpen(true)
@@ -246,7 +252,7 @@ const FormAlpha = ({
             <p className={stls.err}>{errors.name && errors.name.message}</p>
           </div>
           <div className={classNames(stls.inpt, stls.phone)}>
-          <Controller
+            <Controller
               name='phone'
               control={control}
               rules={{
@@ -257,40 +263,36 @@ const FormAlpha = ({
                 required: `*Номер телефона обязателен`
               }}
               render={({ field: { onChange, value } }) => {
-
                 const handleInputChange = (inputValue: string) => {
                   let formattedValue = inputValue
-                  
-                  if(formattedValue === '8') {
-                    formattedValue='7'
+
+                  if (formattedValue === '8') {
+                    formattedValue = '7'
                   }
-                  if (formattedValue.startsWith('8') ) {
+                  if (formattedValue.startsWith('8')) {
                     formattedValue = '7' + formattedValue.slice(1)
                   }
 
                   onChange(formattedValue)
                 }
-                
+
                 return (
-                <PhoneInput
-                  disabled={isDisabled}
-                  value={value}
-                  onChange={handleInputChange}
-                  // country='ru'
-                  // regions={['ex-ussr']}
-                  localization={ru}
-                  placeholder='Ваш телефон'
-                  jumpCursorToEnd={true}
-                  containerClass={stls.containerInput}
-                  inputClass={stls.phoneInput}
-                  buttonClass={stls.flagButton}
-                  dropdownClass={stls.dropdown}
-                  containerStyle={{
-                    marginBottom: `${errors.phone ? '5px' : '20px'}`
-                  }}
-                />
+                  <PhoneInput
+                    disabled={isDisabled}
+                    value={value}
+                    onChange={handleInputChange}
+                    localization={ru}
+                    placeholder='Ваш телефон'
+                    jumpCursorToEnd={true}
+                    containerClass={stls.containerInput}
+                    inputClass={stls.phoneInput}
+                    buttonClass={stls.flagButton}
+                    dropdownClass={stls.dropdown}
+                    containerStyle={{
+                      marginBottom: `${errors.phone ? '5px' : '20px'}`
+                    }}
+                  />
                 )
-                
               }}
             />
             {errors.phone && <p className={stls.err}>{errors.phone && errors.phone.message}</p>}
@@ -378,7 +380,6 @@ const FormAlpha = ({
               <p className={stls.err}>{errors.question && errors.question.message}</p>
             </div>
           )}
-
           <div className={stls.btn}>
             {atFooter ? (
               <BtnBeta text={cta} isDisabled={isDisabled} />
@@ -391,7 +392,6 @@ const FormAlpha = ({
               />
             )}
           </div>
-
           {agreement && (
             <p className={stls.agreement}>
               Нажимая кнопки на сайте Вы даете свое согласие на обработку Ваших персональных данных
