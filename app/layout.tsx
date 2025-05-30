@@ -15,6 +15,7 @@ import 'swiper/css/scrollbar'
 import { AppContextProvider } from '@/context/AppContextProvider'
 import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 import { MediaQueryProvider } from '@/context/MediaQueryContext'
+import HeaderServer from '@/components/sections/HeaderServer/HeaderServer'
 // import ABTestScript from '@/components/abTests/roistatAB'
 
 export const metadata = {
@@ -36,7 +37,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <Suspense>
               <MenuState>
                 <FieldsTooltipState>
-                  <Suspense>
+                  <Suspense fallback={<HeaderServer />}>
                     <Header />
                   </Suspense>
                   {/* <ABTestScript /> */}
