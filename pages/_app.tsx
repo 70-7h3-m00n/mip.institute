@@ -23,6 +23,7 @@ import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
 import dynamic from 'next/dynamic'
 import getDefaultStateProps from '@/helpers/funcs/getDefaultStateProps'
+import { tgPixelRoutes } from '../constants/scripts/tgPixel'
 
 const Footer = dynamic(() => import('@/components/sections/Footer/Footer'), {
   ssr: false
@@ -352,6 +353,15 @@ const MyApp = ({ Component, pageProps, router }) => {
           window.advcake_data.push({
               pageType: 2
           });`
+          }}
+        />
+      )}
+
+      {tgPixelRoutes.includes(router.pathname) && (
+        <Script
+          id='tg_pixel'
+          dangerouslySetInnerHTML={{
+            __html: `(function(t,l,g,r,m){t[g]||(g=t[g]=function(){g.run?g.run.apply(g,arguments):g.queue.push(arguments)},g.queue=[],t=l.createElement(r),t.async=!0,t.src=m,l=l.getElementsByTagName(r)[0],l.parentNode.insertBefore(t,l))})(window,document,'tgp','script','https://telegram.org/js/pixel.js');tgp('init','ZGar7r3D');`
           }}
         />
       )}
