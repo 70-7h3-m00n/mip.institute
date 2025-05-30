@@ -79,6 +79,18 @@
   @include m.media(phone, tablet, laptop)
     display: none
 
+.formText
+  position: absolute
+  z-index: 3
+  right: -1%
+  top: 12%
+  font-size: f.px(18)
+  font-weight: 600
+  text-align: left
+  transform: rotate(10deg) translateX(-15px)
+  @include m.media(phone, tablet, laptop)
+    display: none
+
 .imgHours, .imgForm
   border-radius: f.px(20)
   @include m.media(phone, tablet, laptop)

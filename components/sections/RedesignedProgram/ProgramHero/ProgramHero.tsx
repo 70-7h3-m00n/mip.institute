@@ -3,7 +3,7 @@ import PopupTrigger from '@/ui/PopupTrigger'
 import classNames from 'classnames'
 import Image from 'next/image'
 import card1 from '@/public/assets/imgs/redesignedProgram/ProgramHero/card-hours.png'
-import card2 from '@/public/assets/imgs/redesignedProgram/ProgramHero/card-forma-obuchenia.png'
+import card2 from '@/public/assets/imgs/redesignedProgram/ProgramHero/card-forma.png'
 import stls from './ProgramHero.module.sass'
 import ProgramHeroSwiper from '@/components/sections/RedesignedProgram/ProgramHero/ProgramHeroSwiper/ProgramHeroSwiper'
 
@@ -43,6 +43,7 @@ const ProgramHero = () => {
                 height={285}
                 className={stls.imgHours}
               />
+              <span className={stls.formText}>Заочная форма обучения</span>
               <Image src={card2} alt='afaf' width={270} height={285} className={stls.imgForm} />
             </div>
           </div>
