@@ -1,0 +1,92 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$orange-400)
+  background-image: url("/assets/imgs/redesignedProgram/InsideProgram/bg.png")
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+  overflow-x: hidden
+  width: 100%
+
+.title
+  color: c.$white-900
+  font-size: f.px(44)
+  font-weight: 700
+  line-height: 120%
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(25)
+    @include m.gap($mb: f.px(15))
+
+.navigation
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.gap($mt: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.flex($jc: center)
+    @include m.gap($mt: f.px(15))
+
+.card
+  background: c.$white-900
+  border-radius: 10px
+  border: 1px solid #F87E1B
+  flex: 1
+  @include m.gap($pt: f.px(14),$plr: f.px(14),$pb: f.px(30))
+
+.image
+  width: 100%
+  height: auto
+  object-fit: cover
+
+.text
+  @include m.gap($pt: f.px(17))
+  @include m.flex($fd: column)
+  gap: f.px(10)
+  p
+    margin: 0px
+
+.titleCard
+  @include m.flex($fd: column)
+  font-weight: 600
+  font-size: 20px
+  color: c.$black-900
+  @include m.media(phone, tablet)
+    font-size: 16px
+
+.hours
+  color: c.$orange-400
+  @include m.media(phone, tablet)
+    font-size: 16px
+
+.note
+  font-weight: 600
+  font-size: 20px
+  color: c.$black-900
+  @include m.media(phone, tablet)
+    font-size: 16px
+
+.desc
+  font-size: 12px
+  font-weight: 300
+  color: c.$black-900
+  line-height: 120%
+  @include m.media(phone, tablet)
+    display: none 
+  strong
+    font-weight: 700
+    color: c.$black-900
+
+.slide
+  width: 370px
+  height: auto
+  flex-shrink: 0  
+  @include m.flex($fd: column, $ai: stretch)
+  @include m.media(phone, tablet)
+    width: 347px
+    height: auto
+
+    
+.containerSwiper
+  overflow: visible !important

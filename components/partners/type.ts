@@ -32,9 +32,10 @@ export interface PropsList {
 
 // Интерфейс для блока наши партнеры
 export interface PropsOurPartners {
-  allTypes?: string[];
-  currentType?: string;
-  onePartner: Partner[];
+  allTypes?: string[]
+  currentType?: string
+  noPaddings?: boolean
+  onePartner: Partner[]
 }
 
 // Интерфейс для параметров страницы

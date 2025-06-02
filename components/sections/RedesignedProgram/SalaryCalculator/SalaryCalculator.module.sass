@@ -1,0 +1,238 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  background: url("/assets/imgs/home/faq_bg.png") center center
+  background-color: #E7DFFA
+
+.title
+  max-width: f.px(500)
+  font-size: f.px(28)
+  margin-bottom: f.px(20)
+  @include m.media(phone, tablet)
+    margin-bottom: 0
+    max-width: f.px(310)
+
+.violet
+  @include m.dye(c, c.$purple-450)
+
+.columns
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: f.px(30)
+  margin-bottom: f.px(20)
+  @include m.media(phone, tablet)
+    grid-template-columns: 1fr
+    gap: f.px(10)
+    margin-bottom: f.px(10)
+
+.column
+  display: flex
+  flex-direction: column
+  gap: f.px(20)
+  &:last-child
+    justify-content: flex-end
+  @include m.media(phone, tablet)
+    gap: f.px(10)
+
+.inp
+  @include m.dye(bg, c.$white-900)
+  border-radius: f.px(20)
+  @include m.gap($pt: f.px(30),$pb: f.px(35),$plr: f.px(25))
+  gap: f.px(35)
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
+    @include m.gap($ptb: f.px(16))
+
+.inputWithLabel
+  @include m.gap($mt: f.px(40))
+  position: relative
+  width: 100%
+  @include m.media(phone, tablet)
+    @include m.gap($mt: f.px(33))
+
+.range
+  width: 100%
+  height: f.px(3)
+  border-radius: f.px(5)
+  -webkit-appearance: none
+  appearance: none
+  outline: none
+  background: transparent
+  cursor: pointer
+  &::-webkit-slider-runnable-track
+    height: f.px(5)
+    border-radius: f.px(5)
+    background: linear-gradient(to right, c.$purple-450 var(--thumb-position, 0%), #E3E3E3 var(--thumb-position, 0%))
+
+  &::-moz-range-track
+    height: f.px(5)
+    border-radius: f.px(5)
+    background: #E3E3E3
+
+  &::-moz-range-progress
+    height: f.px(5)
+    border-radius: f.px(5)
+    background: c.$purple-450
+
+  &::-webkit-slider-thumb
+    -webkit-appearance: none
+    appearance: none
+    width: f.px(25)
+    height: f.px(25)
+    background: c.$white-900
+    border: f.px(3) solid c.$purple-450
+    border-radius: 50%
+    cursor: pointer
+    margin-top: f.px(-11)
+    @include m.media(phone, tablet)
+      width: f.px(21)
+      height: f.px(19)
+      margin-top: f.px(-7)
+      
+
+  &::-moz-range-thumb
+    width: f.px(25)
+    height: f.px(25)
+    background: c.$white-900
+    border: f.px(3) solid c.$purple-450
+    border-radius: 50%
+    cursor: pointer
+    border: none
+    @include m.media(phone, tablet)
+      width: f.px(11)
+      height: f.px(11)
+
+  &:focus
+    outline: none
+    &::-webkit-slider-thumb
+      box-shadow: 0 0 0 f.px(3) rgba(128, 0, 128, 0.3)
+    &::-moz-range-thumb
+      box-shadow: 0 0 0 f.px(3) rgba(128, 0, 128, 0.3)
+
+  &:hover
+    &::-webkit-slider-thumb
+      transform: scale(1.1)
+    &::-moz-range-thumb
+      transform: scale(1.1)
+
+.inputLabel, .inputCounter
+  font-size: f.px(20)
+  font-weight: 600
+  @include m.dye(c, #333)
+  margin-bottom: f.px(10)
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+    font-weight: 700
+
+.inputCounter
+  @include m.gap($mb: f.px(25))
+
+.label
+  position: absolute
+  top: f.px(-30)
+  font-weight: 600
+  transform: translateX(-20px)
+  @include m.dye(bg, #FFF)
+  border: f.px(1) solid c.$purple-450
+  padding: f.px(4) f.px(8)
+  border-radius: f.px(4)
+  font-size: f.px(12)
+  white-space: nowrap
+  pointer-events: none
+  z-index: 1
+  transition: transform 0.1s ease
+  @include m.media(phone, tablet)
+    transform: translateX(-30px)
+    top: f.px(-26)
+    font-size: f.px(14)
+    padding: f.px(3) f.px(6)
+
+.minmax
+  display: flex
+  justify-content: space-between
+  font-weight: 600
+  @include m.dye(c, #666)
+  margin-top: f.px(10)
+  p
+    font-size: f.px(18)
+    @include m.gap($m: f.px(0))
+    @include m.media(phone, tablet)
+      font-size: f.px(14)
+
+.counter
+  display: flex
+  align-items: center
+  justify-content: space-between
+  width: f.px(110)
+  @include m.gap($pt: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(18))
+    width: f.px(120)
+
+.counterButton
+  width: f.px(40)
+  height: f.px(40)
+  @include m.dye(bg, c.$purple-450)
+  border-radius: 50%
+  color: #FFF
+  font-size: f.px(25)
+
+.counterValue
+  font-size: f.px(18)
+  font-weight: 600
+
+.result
+  position: relative
+  overflow: hidden
+  border-radius: f.px(20)
+  @include m.dye(bg, c.$purple-450)
+  @include m.gap($pl: f.px(20), $ptb: f.px(57))
+  color: white
+  display: grid
+  grid-template-columns: 1fr 1fr 
+  gap: f.px(45)
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
+    grid-template-columns: 1fr
+    @include m.gap($pl: f.px(16), $ptb: f.px(16))
+    gap: f.px(15)
+  p
+    @include m.gap($mb: f.px(0))
+    max-width: f.px(420)
+    font-size: f.px(24)
+    @include m.media(phone, tablet)
+      max-width: f.px(270)
+      font-size: f.px(15)
+  .overall
+    font-size: f.px(44)
+    @include m.media(phone, tablet)
+      font-size: f.px(26)
+      font-weight: 700
+      @include m.gap($pb: f.px(75))
+  .pattern
+    position: absolute
+    right: -10px
+    bottom: -110px
+    width: 290px
+    height: 392px
+    z-index: 0
+    @include m.media(phone, tablet)
+      width: 248px
+      height: 335px
+      right: -20px
+      bottom: -70px
+
+.buttonPopup
+  @include m.gap($pt: f.px(20))
+  width: 100%
+  & > *
+    border-radius: f.px(10)
+    width: 100%
+    & > button
+      width: 100%
+      border-radius: f.px(10)
+      @include m.media(phone, tablet)
+        border-radius: f.px(5)
+        font-size: f.px(16)

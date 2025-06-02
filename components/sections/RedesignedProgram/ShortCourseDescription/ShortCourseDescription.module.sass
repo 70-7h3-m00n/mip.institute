@@ -1,0 +1,140 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  padding: 0 !important
+  & > div > h2
+    margin-bottom: f.px(30)
+    @include m.media(phone, tablet)
+      margin-bottom: f.px(15)
+
+.accordion
+  margin-bottom: f.px(10)
+
+.sectionAccordion
+  @extend .accordionItem
+
+.accordionItem
+  width: 100%
+  @include m.dye(bg, c.$purple-450)
+  border-radius: f.px(100)
+  border: none
+  @include m.dye(c, c.$white-900)
+  @include m.gap($plr: f.px(30), $ptb: f.px(20))
+  @include m.flex($jc: space-between, $ai: center)
+  font-size: f.px(22)
+  font-weight: 600
+  min-height: f.px(75)
+  cursor: pointer
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
+    @include m.gap($p: f.px(15))
+    font-size: f.px(15)
+    min-height: f.px(55)
+
+.tag
+  @include m.gap($plr: f.px(25), $ptb: f.px(8))
+  color: #FFF
+  text-align: center
+  font-size: f.px(18)
+  font-weight: 600
+  border-radius: f.px(100)
+  min-width: f.px(150)
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
+    min-width: f.px(100)
+    @include m.gap($plr: f.px(15), $ptb: f.px(5))
+
+.hoursAndIcon
+  @include m.flex($ai: center)
+  gap: f.px(45)
+  @include m.media(phone, tablet)
+    gap: f.px(20)
+  & > .hours
+    @extend .tag
+    @include m.dye(bg, c.$orange-400)
+
+.extraMargin
+  margin-right: f.px(70)
+
+.contentWrapper
+  @include m.dye(bg, c.$white-900)
+  border-radius: f.px(30)
+  @include m.gap($mtb: f.px(5), $pl: f.px(30), $pr: f.px(64))
+  max-height: 0
+  overflow: hidden
+  transition: all 0.5s ease-in-out
+  @include m.flex($fd: column)
+  gap: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(15), $ptb: 0, $mtb: f.px(5))
+    border-radius: f.px(10)
+  &.open
+    max-height: f.px(7000)
+    @include m.gap($p: f.px(30), $pr: f.px(64), $mtb: f.px(10))
+    @include m.media(phone, tablet)
+      @include m.gap($plr: f.px(15), $ptb: f.px(20), $mtb: f.px(10))
+
+.moduleItem
+  list-style: none
+  @include m.gap($p: f.px(10), $pr: f.px(30))
+  &:last-child
+    border-bottom: none
+  @include m.media(phone, tablet)
+    @include m.gap($p: 0)
+
+.moduleAccordion
+  @include m.flex($jc: space-between, $ai: center)
+  cursor: pointer
+  &.open
+    @include m.dye(bg, c.$white-900)
+
+.moduleContent
+  max-height: 0
+  overflow: hidden
+  transition: max-height 2s ease-in-out
+  &.open
+    max-height: f.px(1000)
+    @include m.gap($pt: f.px(5))
+  &:not(.open)
+    transition: none
+
+
+.icon > span
+  @include m.flex($fd: column, $ai: center, $jc: center)
+
+.header
+  font-size: f.px(20)
+  font-weight: 500
+  @include m.flex($ai: flex-start, $jc: space-between)
+  @include m.gap($mb: 0)
+  width: 100%
+  gap: f.px(20)
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
+    gap: f.px(10)
+  & > .hours
+    @extend .tag
+    @include m.dye(bg, c.$purple-450)
+    white-space: nowrap
+    margin-bottom: 0
+    @include m.media(phone, tablet)
+      font-size: f.px(8)
+      min-width: f.px(70)
+      @include m.gap($plr: f.px(10), $ptb: f.px(5))
+
+.moduleName
+  max-width: f.px(850)
+  display: inline-block
+  margin-bottom: 0
+  & > span:last-child
+    font-weight: 300
+
+.description
+  font-weight: 300
+  @include m.gap($mr: f.px(200), $mb: 0)
+  @include m.media(phone, tablet)
+    text-align: justify
+    font-size: f.px(11)
+    @include m.gap($mr: 0)

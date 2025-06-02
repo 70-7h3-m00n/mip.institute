@@ -112,6 +112,12 @@ const Header = () => {
     }
   }, [searchParams])
 
+  const PsyConsAB = getCookie('PsyConsAB')?.toString() || ''
+  const [roistatAB, setRoistatAB] = useState<string | null>('old')
+  useEffect(() => {
+    setRoistatAB(PsyConsAB as 'old' | 'new')
+  }, [PsyConsAB])
+
   return (
     <>
     <Suspense>
@@ -126,7 +132,7 @@ const Header = () => {
         className={classNames({
           [stls.container]: true,
           [stls.promo]: isPromo,
-          [stls.newHomePage]: pathname === '/' 
+          [stls.newHomePage]: pathname === '/' || roistatAB === 'new'
         })}>
         <MenuMobile />
         <Wrapper>

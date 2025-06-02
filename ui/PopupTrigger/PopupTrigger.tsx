@@ -45,6 +45,7 @@ type PopupTriggerType = {
     | 'takeAction'
     | 'takeGift'
     | 'beginStudy'
+    | 'beginEarn'
   testProgram?: string
   isActivePromocode?: string
   isLightYellowBetaBtn?: boolean
@@ -72,7 +73,8 @@ const PopupTrigger = ({
     'reserve',
     'buyTicket',
     'familiarize',
-    'use'
+    'use',
+    'beginEarn'
   ]
 
   const questionCtaList = ['askQuestion', 'programQuestion']
@@ -110,7 +112,8 @@ const PopupTrigger = ({
       sortOutGrievances: 'Разобраться с обидами',
       takePart: 'Принять участие',
       takeGift: 'Забрать подарок',
-      beginStudy: 'Начинаю учиться'
+      beginStudy: 'Начать учиться',
+      beginEarn: 'Начать зарабатывать'
     },
     title: {
       askQuestion: 'Задать вопрос',
@@ -140,7 +143,8 @@ const PopupTrigger = ({
       takePart: 'Принять участие',
       takeAction: 'Участвовать в акции',
       takeGift: 'Оставьте заявку и заберите подарок',
-      beginStudy: 'Оставить заявку'
+      beginStudy: 'Оставить заявку',
+      beginEarn: 'Записаться на программу'
     },
     desc: {
       askQuestion: (

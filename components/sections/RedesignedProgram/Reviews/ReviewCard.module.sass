@@ -1,0 +1,85 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.card
+  background: #F6F4FF
+  width: 100%
+  height: 100%
+  border-radius: 12px
+  @include m.flex($fd: column)
+  gap: 8px
+
+.header
+  @include m.flex($ai: flex-start)
+  gap: 15px
+
+.content
+  @include m.gap($p: f.px(20))
+  @include m.flex($fd: column)
+  gap: f.px(10)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20), $plr: f.px(15))
+
+.avatar
+  width: 133px
+  height: 133px
+  border-radius: 7px
+  object-fit: cover
+  flex-shrink: 0
+  @include m.media(phone, tablet)
+    width: 130px
+    height: 130px
+
+.tags
+  @include m.flex($fd: column)
+  gap: 5px
+  @include m.gap($p: f.px(20))
+  flex-grow: 1
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(20), $plr: f.px(15))
+    @include m.flex($ai: flex-end)
+
+.tag
+  @include m.flex($jc: center,$ai: center)
+  padding: 10px
+  border-radius: 8px
+  background: c.$purple-450
+  color: c.$white-900
+  font-size: f.px(14)
+  font-weight: 600
+  @include m.media(phone, tablet)
+    width: fit-content
+    min-width: f.px(135)
+    font-size: f.px(12)
+
+.name
+  font-size: f.px(19)
+  font-weight: 700
+  line-height: 100%
+  color: c.$black-900
+  padding: 0px
+  margin: 0px
+  @include m.media(phone, tablet)
+    font-size: f.px(17)
+
+.text
+  font-size: f.px(16)
+  font-weight: 400
+  line-height: normal
+  color: c.$gray-800
+  padding: 0px
+  margin: 0px
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+
+.link
+  font-size: f.px(16)
+  font-weight: 600
+  text-decoration: underline
+  color: c.$purple-450
+  background: none
+  border: none
+  padding: 0
+  cursor: pointer
+  align-self: flex-start
