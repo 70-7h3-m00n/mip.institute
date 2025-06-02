@@ -15,7 +15,7 @@ import 'swiper/css/scrollbar'
 import { AppContextProvider } from '@/context/AppContextProvider'
 import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 import { MediaQueryProvider } from '@/context/MediaQueryContext'
-// import ABTestScript from '@/components/abTests/roistatAB'
+import ABTestScript from '@/components/abTests/roistatAB'
 
 export const metadata = {
   title: 'Московский Институт Психологии',
@@ -46,7 +46,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               /> */}
 
                   <Header />
-                  {/* <ABTestScript /> */}
+                  <ABTestScript />
                   <Scripts />
                   {children}
                   <Footer />

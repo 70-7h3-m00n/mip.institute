@@ -7,8 +7,10 @@ import apolloClient from '@/lib/apolloClient'
 import { TypePageProgramProps, TypePageProgramsPropsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import { validOfTypeValues } from 'constants/staticPropsValidation'
+import { getCookie } from 'cookies-next'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { ParsedUrlQuery } from 'querystring'
+import { useEffect, useState } from 'react'
 
 const ProfessionPage: NextPage<TypePageProgramProps> = ({
   programs,
@@ -29,10 +31,16 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
 
   const psyCons = slug === 'psiholog-konsultant'
 
+  const PsyConsAB = getCookie('PsyConsAB')?.toString() || ''
+  const [roistatAB, setRoistatAB] = useState<string | null>('old')
+  useEffect(() => {
+    setRoistatAB(PsyConsAB as 'old' | 'new')
+  }, [PsyConsAB])
+
   return (
     <>
       <SeoPagesProgram program={program} ofType={program?.type ?? 'unknown'} />
-      {psyCons ? (
+      {psyCons && roistatAB === 'new' ? (
         <PagePsyCons />
       ) : (
         <PagesProgram
