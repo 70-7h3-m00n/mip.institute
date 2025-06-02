@@ -1,0 +1,38 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  position: relative
+  @include m.dye(bg, c.$white-900)
+
+.title
+  font-size: f.px(40) !important
+  font-weight: 700
+  line-height: 100%
+  color: c.$black-900
+  @include m.gap($mb: f.px(35))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(18))
+    font-size: f.px(25) !important
+    text-align: left
+
+.highlight
+  color: c.$purple-450
+  font-weight: 700
+
+.playerWrapper
+  position: relative
+  border-radius: f.px(10)
+  width: 100% 
+  height: f.px(666)
+  @include m.media(phone)
+    height: f.px(480)
+
+  iframe
+    position: absolute
+    width: 100%
+    height: 100%
+    border-radius: f.px(10)
+    border: none
+

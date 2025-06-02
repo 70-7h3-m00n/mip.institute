@@ -44,22 +44,20 @@ const CarouselCardNext = ({ card, isNext, isMobile }) => {
   }, [isNext])
 
   return (
-    <picture>
-      <div
-        className={isNext ? stls.nextWrap : stls.wrap}
-        style={{
-          transform: isNext && !isMobile ? `translateY(${currentTranslateY}%)` : 'translateY(0)'
-        }}>
-        <RichTextHome className={stls.textBlock} stls={stls} data={card.text} />
-        <Image
-          src={card.img?.url}
-          alt=''
-          className={isNext && currentTranslateY != 0 ? stls.nextImg : stls.img}
-          height={500}
-          width={500}
-        />
-      </div>
-    </picture>
+    <div
+      className={isNext ? stls.nextWrap : stls.wrap}
+      style={{
+        transform: isNext && !isMobile ? `translateY(${currentTranslateY}%)` : 'translateY(0)'
+      }}>
+      <RichTextHome className={stls.textBlock} stls={stls} data={card.text} />
+      <Image
+        src={card.img?.url}
+        alt=''
+        className={isNext && currentTranslateY != 0 ? stls.nextImg : stls.img}
+        height={500}
+        width={500}
+      />
+    </div>
   )
 }
 

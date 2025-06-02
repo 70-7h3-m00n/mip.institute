@@ -4,10 +4,16 @@ import PartnersList from '@/components/partners/OurPartners/PartnersList/Partner
 import styles from './OurPartners.module.sass'
 import { PropsOurPartners } from '../type'
 import Wrapper from '@/ui/Wrapper'
+import classNames from 'classnames'
 
-const OurPartners: React.FC<PropsOurPartners> = ({ allTypes, currentType, onePartner }) => {
+const OurPartners: React.FC<PropsOurPartners> = ({
+  allTypes,
+  currentType,
+  onePartner,
+  noPaddings = false
+}) => {
   return (
-    <section className={styles.container}>
+    <section className={classNames({ [styles.container]: true, [styles.noPaddings]: noPaddings })}>
       <Wrapper>
         {allTypes ? (
           <h1 className={styles.title}>Наши партнеры</h1>

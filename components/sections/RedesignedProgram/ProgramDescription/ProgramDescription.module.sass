@@ -1,0 +1,139 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  padding-top: 0 !important
+  padding-bottom: 0 !important
+
+.mainBlock
+  @include m.flex($fd: column)
+  gap: f.px(30)
+  @include m.media(phone, tablet)
+    @include m.flex($ai: center, $fd: column)
+    gap: f.px(15)
+
+.mobileTabs
+  @include m.media(desktop, laptop)
+    display: none
+  @include m.media(phone, tablet)
+    width: 100%
+    @include m.flex($ai: center, $jc: flex-start)
+    gap: f.px(15)
+    flex-wrap: wrap
+
+.desktopTabs
+  @include m.media(desktop, laptop)
+    width: 100%
+    gap: f.px(20)
+    flex-wrap: wrap
+    @include m.flex($ai: center, $jc: flex-start)
+  @include m.media(phone, tablet)
+    display: none
+
+.tab
+  @include m.flex($ai: center, $jc: center)
+  @include m.gap($ptb: f.px(22), $plr: f.px(70))
+  border-radius: 100px
+  font-size: f.px(18)
+  cursor: pointer
+  transition: 0.2s
+  background: c.$purple-150
+  color: c.$black-700
+  font-weight: 500
+  @include m.media(tablet)
+    @include m.gap($ptb: f.px(15), $plr: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+    @include m.gap($ptb: f.px(12), $plr: f.px(20))
+  &:hover, &.activeTab
+    background: c.$purple-450
+    font-weight: 700
+    color: white
+
+.content
+  display: grid
+  grid-template-columns: f.px(350) 1fr
+  gap: f.px(40)
+  @include m.media(phone, tablet)
+    height: auto
+    grid-template-columns: 1fr
+    gap: f.px(20)
+
+.videoWrapper
+  min-height: f.px(550)
+  overflow: hidden
+  border-radius: f.px(30)
+  position: relative
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
+
+.video
+  width: 100%
+  border-radius: f.px(30)
+  min-height: f.px(620)
+  border: none
+  object-position: top center
+  position: absolute
+  bottom: 0
+  left: 0
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
+    object-position: top center
+    object-fit: cover
+    width: 100%
+
+.description
+  width: 100%
+  background-color: white
+  border-radius: f.px(30)
+  line-height: 120%
+  @include m.gap($ptb: f.px(40), $pl: f.px(30), $pr: f.px(60))
+  @include m.media(phone, tablet)
+    border-radius: f.px(10)
+    @include m.gap($ptb: f.px(20), $plr: f.px(16))
+
+.text
+  font-size: f.px(18)
+  font-weight: 300
+  font-style: normal
+  line-height: 120%
+  white-space: pre-wrap
+  margin-bottom: f.px(20)
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+
+.bold
+  font-weight: 700
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+
+.boldSmall
+  font-weight: 700
+
+.list
+  padding-left: 0
+  list-style: none
+
+.listItem
+  position: relative
+  padding-left: f.px(25)
+  font-size: f.px(18)
+  line-height: 120%
+  margin-bottom: f.px(15)
+  font-weight: 300
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: f.px(6)
+    width: f.px(14)
+    height: f.px(14)
+    background-image: url('/assets/imgs/redesignedProgram/listStar.svg')
+    background-size: contain
+    background-repeat: no-repeat
+    @include m.media(phone, tablet)
+      top: f.px(3)

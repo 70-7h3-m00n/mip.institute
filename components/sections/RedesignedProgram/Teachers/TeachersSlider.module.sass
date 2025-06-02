@@ -1,0 +1,91 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$white-900)
+
+.title
+  font-size: f.px(44)
+  font-weight: 700
+  color: c.$black-900
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(15))
+
+.cardWrapper
+  aspect-ratio: 370 / 407
+  width: 100%
+  position: relative
+
+.card
+  width: 100%
+  height: 100%
+  position: relative
+  cursor: pointer
+
+.preview,
+.hoverCard
+  position: absolute
+  inset: 0
+  width: 100%
+  height: 100%
+  transition: opacity 0.2s ease
+  @include m.flex($jc: space-between, $fd: column)
+
+.visible
+  opacity: 1
+  pointer-events: auto
+  z-index: 1
+
+.hidden
+  opacity: 0
+  pointer-events: none
+  z-index: 0
+
+.image
+  width: 100%
+  height: auto
+  border-radius: 12px
+
+.meta
+  @include m.gap($mt: f.px(10))
+
+.mobileIcon
+  display: none
+  position: absolute
+  top: 0px
+  right: 0px
+  z-index: 3
+  width: 36px
+  height: 36px
+
+  @include m.media(phone, tablet)
+    display: block
+
+.name
+  font-size: f.px(19)
+  font-weight: 700
+  line-height: 100%
+  @include m.gap($mb: f.px(0))
+
+.navigation
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.gap($mt: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.flex($jc: center)
+    @include m.gap($mt: f.px(15))
+
+.swiperSlide
+  width: 370px
+  height: auto
+  flex-shrink: 0  
+  @include m.flex($fd: column, $ai: stretch)
+  @include m.media(phone, tablet)
+    width: 347px
+    height: auto
+    
+.containerSwiper
+  overflow: visible !important
+  @include m.media(phone, tablet)
+    overflow: hidden !important

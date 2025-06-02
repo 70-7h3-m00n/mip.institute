@@ -1,0 +1,160 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$purple-450)
+  @include m.media(phone, tablet)
+    position: relative
+    min-height: f.px(830)
+
+.content
+  @include m.flex()
+  @include m.dye(c, c.$white-900)
+
+.holoImg
+  margin-right: f.px(20)
+  @include m.media(phone, tablet)
+    border-radius: f.px(4)
+    position: absolute
+
+.holoWithText
+  @include m.flex($fd: column)
+  gap: f.px(10)
+
+.licenceDesk
+  font-size: f.px(16)
+  font-weight: 300
+  line-height: normal
+  @include m.media(phone, tablet)
+    display: none
+
+.licenceMob
+  font-size: f.px(16)
+  font-weight: 300
+  line-height: normal
+  @include m.media(laptop, desktop)
+    display: none
+    font-size: f.px(12)
+
+.holoImg
+  object-fit: cover
+  @include m.media(phone, tablet)
+    width: f.px(30)
+    height: f.px(40)
+
+.centerText
+  @include m.flex($fd: column)
+  & > h2
+    margin-bottom: f.px(30) !important
+    @include m.media(phone, tablet)
+      @include m.gap($ml: f.px(50), $mt: f.px(5))
+
+.subtitle
+  font-size: f.px(20)
+  font-style: normal
+  font-weight: 300
+  line-height: 130%
+  margin-bottom: 0
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+  & > span
+    font-weight: 500
+    @include m.media(phone, tablet)
+      font-size: f.px(16)
+
+.diplomasPopups
+  position: relative
+  height: f.px(150)
+  @include m.flex()
+
+.rightBlock
+  @include m.flex($fd: column)
+
+.licenceImg
+  bottom: -20%
+  left: 10%
+  position: relative
+  transform: rotate(5deg)
+  cursor: pointer
+  &:hover
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4)
+  @include m.media(phone, tablet)
+    position: absolute
+    transform: rotate(0)
+    top: f.px(40)
+    left: 0
+  & > img
+    border-radius: f.px(10)
+
+.certificateImg
+  position: relative
+  bottom: -55%
+  transform: rotate(-8deg)
+  left: 5%
+  cursor: pointer
+  &:hover
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4)
+  @include m.media(phone, tablet)
+    position: absolute
+    transform: rotate(0) scale(1.1)
+    bottom: -240%
+    left: f.px(10)
+    z-index: 2
+  & > img
+    border-radius: f.px(10)
+
+.diplomaImg
+  position: relative
+  bottom: -50%
+  transform: rotate(5deg)
+  z-index: 1
+  cursor: pointer
+  &:hover
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4)
+  @include m.media(phone, tablet)
+    position: absolute
+    transform: rotate(0)
+    top: 15%
+    right: f.px(10)
+    left: auto
+  & > img
+    border-radius: f.px(10)
+
+.supplement
+  cursor: pointer
+  &:hover
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4)
+
+.supplementImg
+  position: relative
+  bottom: 40%
+  transform: rotate(15deg)
+  @include m.media(phone, tablet)
+    position: absolute
+    transform: rotate(0)
+    bottom: -230%
+    right: f.px(10)
+    z-index: 1
+  & > img
+    border-radius: f.px(10)
+
+.arrowText
+  @include m.flex($ai: flex-start, $jc: center)
+  @include m.media(phone, tablet)
+    position: absolute
+    bottom: -40%
+    transform: rotate(15deg)
+    @include m.flex($ai: center)
+    left: -20%
+    margin-bottom: 0
+  & > span:first-child
+    text-align: center
+    font-size: f.px(10)
+    font-style: normal
+    font-weight: 300
+    line-height: normal
+
+.arrowIcon
+  display: inline-block
+  @include m.sizeIcon($w: 25, $h: 27)

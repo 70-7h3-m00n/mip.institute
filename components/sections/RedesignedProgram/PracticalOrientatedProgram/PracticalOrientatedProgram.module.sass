@@ -1,0 +1,176 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$white-900)
+  background-image: url("/assets/imgs/redesignedProgram/PracticalOrientatedProgram/bg.png")
+  background-size: cover
+  background-repeat: no-repeat
+
+.title
+  color: c.$black-900
+  font-size: f.px(44)
+  font-weight: 700
+  line-height: 100%
+  @include m.gap($mb: f.px(20))
+  @include m.media(phone, tablet)
+    font-size: f.px(25)
+    @include m.gap($mb: f.px(0))
+
+.header
+  @include m.flex($jc: space-between, $ai: flex-start)
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    flex-direction: column
+    gap: f.px(10)
+    position: sticky
+    top: 10px
+
+.heading
+  max-width: 70%
+  @include m.media(phone, tablet)
+    max-width: 100%
+
+.accent
+  color: c.$orange-400
+
+.description
+  font-size: f.px(20)
+  font-weight: 300
+  color: c.$black-900
+  line-height: 100%
+  margin: 0px
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    display: none
+
+.blockMain
+  position: relative
+  @include m.flex($fd: column, $ai:center)
+  gap: 10px
+
+.imageContainer
+  @include m.media(phone, tablet)
+    position: sticky
+    top: 170px
+    width: 100%
+    height: auto
+    text-align: center
+
+.tagWrapper
+  position: relative
+  @include m.flex($ai: center)
+
+.tag
+  background: c.$orange-400
+  color: c.$white-900
+  font-size: f.px(22)
+  font-weight: 700
+  padding: 14px 20px
+  border-radius: 40px
+  white-space: nowrap
+  border: 2.677px solid c.$orange-100
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+    padding: 13px
+
+.icon
+  position: absolute
+  right: 40px
+  bottom: -25px
+  width: 36px
+  height: 36px
+  @include m.media(phone, tablet)
+    right: 5px
+    bottom: -24px
+    width: 33px
+    height: 33px
+
+  svg
+    display: block
+    width: 100%
+    height: 100%
+
+.navigation
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.gap($mt: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.flex($jc: center)
+    @include m.gap($mt: f.px(15))
+
+
+
+.card
+  background: c.$white-900
+  border-radius: 10px
+  border: 1px solid #F87E1B
+  @include m.flex($fd: column)
+  flex: 1
+  @include m.gap($pt: f.px(14),$plr: f.px(14),$pb: f.px(30))
+  @include m.media(phone,tablet)
+    position: sticky
+    top: 170px
+    width: 100%
+    height: auto
+    @include m.gap($pb: f.px(15))
+
+.image
+  width: 100%
+  height: auto
+  object-fit: cover
+  @include m.media(phone, tablet)
+
+
+.text
+  @include m.gap($pt: f.px(17))
+  @include m.flex($fd: column)
+  gap: f.px(10)
+  p
+    margin: 0px
+
+.titleCard
+  @include m.flex($fd: column)
+  font-weight: 600
+  font-size: f.px(20)
+  color: c.$black-900
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+
+.hours
+  color: c.$orange-400
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+
+.note
+  font-weight: 600
+  font-size: f.px(20)
+  color: c.$black-900
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+
+.desc
+  font-size: f.px(12)
+  font-weight: 300
+  color: c.$black-900
+  line-height: 120%
+  strong
+    font-weight: 700
+    color: c.$black-900
+
+// .swiperSlide
+//   display: flex
+//   height: auto
+
+.swiperSlide
+  width: 370px
+  height: auto
+  flex-shrink: 0  
+  @include m.flex($fd: column, $ai: stretch)
+  @include m.media(phone, tablet)
+    width: 347px
+    height: auto
+
+    
+.containerSwiper
+  overflow: visible !important

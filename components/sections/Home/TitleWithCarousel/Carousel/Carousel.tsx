@@ -29,14 +29,13 @@ const Carousel = ({ heroCarousel }) => {
       <Swiper
         ref={swiperRef}
         slidesPerView={isMobileAndTabletLayout ? 1.1 : 3}
-        // spaceBetween={10} // Добавляем небольшой отступ между слайдами
         initialSlide={2}
         centeredSlides={true}
         loop={true}
         modules={[Navigation, Pagination]}
         navigation={{
           prevEl: prevRef.current,
-          nextEl: nextRef.current // Добавляем nextEl сюда
+          nextEl: nextRef.current
         }}
         pagination={
           isMobileAndTabletLayout
