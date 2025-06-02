@@ -44,7 +44,7 @@ export const teachers = [
     ]
   },
   {
-    id: 1,
+    id: 4,
     name: 'Додонова Ирина Викторовна',
     role: 'Руководитель программы',
     experience: '5 лет стажа',
@@ -58,7 +58,7 @@ export const teachers = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     name: 'Лодзь Анна Николаевна',
     role: 'Преподаватель',
     experience: '8 лет стажа',
@@ -70,7 +70,7 @@ export const teachers = [
     ]
   },
   {
-    id: 5,
+    id: 6,
     name: 'Валуев Олег Сергеевич',
     role: 'Преподаватель',
     experience: '10 лет стажа',
