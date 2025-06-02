@@ -197,9 +197,9 @@ const FormAlpha = ({
           //   `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
           //   '_blank'
           // )
-          if (pathname && tgPixelRoutes.includes(pathname) && typeof window.tgp === 'function') {
-            window.tgp('event', 'ZGar7r3D-6jrcxRT8')
-          }
+          // if (pathname && tgPixelRoutes.includes(pathname) && typeof window.tgp === 'function') {
+          //   window.tgp('event', 'ZGar7r3D-6jrcxRT8')
+          // }
           setIsIpCheckFailed(false)
           setIsDisabled(true)
           setThanksIsOpen(true)
