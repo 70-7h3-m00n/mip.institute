@@ -118,8 +118,6 @@ const SalaryCalculatorNew = ({}: SalaryCalculatorNewType) => {
                   onChange={priceHandler}
                   onInput={priceHandler}
                   aria-label='Стоимость консультации'
-                  aria-valuemin={priceRange.min}
-                  aria-valuemax={priceRange.max}
                   aria-valuenow={price}
                 />
                 <span style={{ left: priceLabelPosition }} className={stls.label}>

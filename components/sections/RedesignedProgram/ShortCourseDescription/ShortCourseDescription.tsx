@@ -333,7 +333,7 @@ const ShortCourseDescription = ({ modules = modulesInfo }) => {
                 className={classNames(stls.accordionItem, stls.sectionAccordion)}>
                 <span className={stls.accordionTitle}>{section.name}</span>
                 {section.modules?.length ? (
-                  <div className={stls.hoursAndIcon}>
+                  <span className={stls.hoursAndIcon}>
                     <span className={stls.hours}>
                       {section.modules.reduce((acc, el) => acc + el.studyHours, 0)} часов
                     </span>
@@ -344,7 +344,7 @@ const ShortCourseDescription = ({ modules = modulesInfo }) => {
                         <IconPlus />
                       )}
                     </span>
-                  </div>
+                  </span>
                 ) : (
                   <span className={classNames(stls.hours, stls.extraMargin)}>0 часов</span>
                 )}

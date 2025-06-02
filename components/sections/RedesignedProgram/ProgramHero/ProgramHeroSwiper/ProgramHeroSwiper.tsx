@@ -26,31 +26,29 @@ const ProgramHeroSwiper = ({ hours }: Props) => {
         }}>
         {slides.map((card, index) => (
           <SwiperSlide key={card.src} className={stls.slide}>
-            <picture>
-              {index === 0 ? (
-                <div className={stls.hoursSlide}>
-                  <span className={stls.hoursText}>{hours || '1500'} академических часов</span>
-                  <Image
-                    src={card}
-                    alt='Количество часов'
-                    className={stls.img}
-                    height={500}
-                    width={500}
-                  />
-                </div>
-              ) : (
-                <div className={stls.hoursSlide}>
-                  <span className={stls.hoursText}>Заочная форма обучения</span>
-                  <Image
-                    src={card}
-                    alt='Форма обучения'
-                    className={stls.img}
-                    height={500}
-                    width={500}
-                  />
-                </div>
-              )}
-            </picture>
+            {index === 0 ? (
+              <div className={stls.hoursSlide}>
+                <span className={stls.hoursText}>{hours || '1500'} академических часов</span>
+                <Image
+                  src={card}
+                  alt='Количество часов'
+                  className={stls.img}
+                  height={500}
+                  width={500}
+                />
+              </div>
+            ) : (
+              <div className={stls.hoursSlide}>
+                <span className={stls.hoursText}>Заочная форма обучения</span>
+                <Image
+                  src={card}
+                  alt='Форма обучения'
+                  className={stls.img}
+                  height={500}
+                  width={500}
+                />
+              </div>
+            )}
           </SwiperSlide>
         ))}
       </Swiper>

@@ -25,7 +25,7 @@ export default function ProgramResult() {
         </div>
         <div className={stls.blocks}>
           {programResultCards.slice(0, allVisible ? 9 : sliceEnd).map(item => (
-            <li className={stls.card} key={item.id}>
+            <div className={stls.card} key={item.id}>
               <span className={stls.icon}>
                 <svg
                   width='13'
@@ -40,7 +40,7 @@ export default function ProgramResult() {
                 </svg>
               </span>
               <p className={stls.text}>{item.text}</p>
-            </li>
+            </div>
           ))}
         </div>
         <div className={stls.buttonContainer}>
