@@ -1,4 +1,5 @@
 import { PagesProgram } from '@/components/pages'
+import PagePsyCons from '@/components/pages/PagePsyCons'
 import { SeoPagesProgram } from '@/components/seo'
 import { revalidate } from '@/config/index'
 import { useHandleContextStaticProps } from '@/hooks/index'
@@ -6,8 +7,10 @@ import apolloClient from '@/lib/apolloClient'
 import { TypePageProgramProps, TypePageProgramsPropsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import { validOfTypeValues } from 'constants/staticPropsValidation'
+import { getCookie } from 'cookies-next'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { ParsedUrlQuery } from 'querystring'
+import { useEffect, useState } from 'react'
 
 const ProfessionPage: NextPage<TypePageProgramProps> = ({
   programs,
@@ -26,20 +29,28 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
 
   const slug = program?.slug
 
+  const psyCons = slug === 'psiholog-konsultant'
+
+  const PsyConsAB = getCookie('PsyConsAB')?.toString() || ''
+  const [roistatAB, setRoistatAB] = useState<string | null>('old')
+  useEffect(() => {
+    setRoistatAB(PsyConsAB as 'old' | 'new')
+  }, [PsyConsAB])
+
   return (
     <>
-      <SeoPagesProgram
-        program={program}
-        ofType={program?.type ?? 'unknown'}
-      />
-
-      <PagesProgram
-        slug={slug ?? 'default-slug'}
-        programOverview={programOverview ?? ''}
-        reviews={reviews ?? []}
-        ofType={program?.type ?? 'unknown'}
-        program={program}
-      />
+      <SeoPagesProgram program={program} ofType={program?.type ?? 'unknown'} />
+      {psyCons && roistatAB === 'new' ? (
+        <PagePsyCons />
+      ) : (
+        <PagesProgram
+          slug={slug ?? 'default-slug'}
+          programOverview={programOverview ?? ''}
+          reviews={reviews ?? []}
+          ofType={program?.type ?? 'unknown'}
+          program={program}
+        />
+      )}
     </>
   )
 }

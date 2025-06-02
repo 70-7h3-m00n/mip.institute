@@ -1,0 +1,66 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.profile
+  @include m.flex()
+  border-radius: 30px
+  background: c.$white-900
+  @include m.gap($pt: f.px(35),$plr: f.px(20),$pb: f.px(60))
+  gap: 40px
+  @include m.media(phone, tablet)
+    @include m.gap($pt: f.px(20),$pl: f.px(15),$pb: f.px(30),$pr: f.px(8))
+    border-radius: f.px(10)
+    gap: 30px
+
+.avatarSection
+  @include m.flex($fd: column, $ai: center,$jc: flex-start)
+
+.avatar 
+  width: 166px
+  height: 166px
+  border-radius: 400px
+  @include m.media(phone, tablet)
+    width: 108px
+    height: 108px
+    border-radius: 269px
+
+.socials
+  display: flex
+  gap: 10px
+  margin-top: 10px
+
+.description 
+  @include m.flex($fd: column)
+
+.name 
+  color: c.$black-900
+  font-size: 27px
+  font-weight: 700
+  line-height: 110%
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: 19px
+    @include m.gap($mb: f.px(15))
+
+.label
+  @include m.flex($fd: column)
+  gap: f.px(10)
+  color: c.$gray-700
+  font-size: 16px
+  font-weight: 700
+  line-height: 120%
+  @include m.media(phone, tablet)
+    font-size: 12px
+    gap: f.px(5)
+    margin-bottom: f.px(20)
+
+.value
+  color: c.$black-900
+  font-size: 27px
+  font-weight: 700
+  @include m.media(phone, tablet)
+    font-size: 19px
+
+.valueAccent
+  color: c.$purple-450

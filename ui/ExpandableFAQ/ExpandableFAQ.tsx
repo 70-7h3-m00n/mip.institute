@@ -12,10 +12,10 @@ const ExpandableFAQ = ({ number, question, answer, classNameIcon }: Props) => {
   return (
     <ExpandableItemCross
       title={
-        <p className={stls.question}>
+        <span className={stls.question}>
           <span className={stls.questionNumber}>{number}</span>
           <span className={stls.questionText}>{question}</span>
-        </p>
+        </span>
       }
       content={
         <div className={stls.content}>

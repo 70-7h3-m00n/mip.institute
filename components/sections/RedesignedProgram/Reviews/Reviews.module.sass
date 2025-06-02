@@ -1,0 +1,40 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.dye(bg, c.$white-900)
+  background-image: url("/assets/imgs/redesignedProgram/Reviews/bg.png")
+  background-size: cover
+  background-repeat: no-repeat
+  overflow-x: hidden
+  width: 100%
+
+.title
+  color: c.$black-900
+  font-size: f.px(44)
+  font-weight: 700
+  line-height: 120%
+  @include m.gap($mb: f.px(30))
+  @include m.media(phone, tablet)
+    font-size: f.px(25)
+    @include m.gap($mb: f.px(15))
+
+.navigation
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.gap($mt: f.px(20))
+  @include m.media(phone, tablet)
+    @include m.flex($jc: center)
+    @include m.gap($mt: f.px(15))
+
+.swiperSlide
+  width: 370px
+  height: auto
+  flex-shrink: 0  
+  @include m.flex($fd: column, $ai: stretch)
+  @include m.media(phone, tablet)
+    width: 347px
+    height: auto
+    
+.containerSwiper
+  overflow: visible !important

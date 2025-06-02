@@ -6,6 +6,18 @@
   width: 100%
   background: url("/assets/imgs/home/HelpWithChoice/orangeBg.png") no-repeat center center
   background-size: cover
+  @include m.dye(bg, c.$orange-400)
+
+.purple
+  background: url("/assets/imgs/home/faq_bg.png") no-repeat center center
+  background-size: cover
+  @include m.dye(bg, c.$purple-100)
+
+.purple .title
+  color: #1A1A1A
+
+.purple .list > li > button > p > span:first-child
+  @include m.dye(c, c.$purple-450)
 
 .title
   @include m.dye(c, c.$white-900)
@@ -14,14 +26,15 @@
   @include m.gap($pl: 0, $mb: 0)
 
 .list > li
-  @include m.gap($mb: f.px(15))
+  @include m.gap($mb: f.px(10))
   @include m.dye(bg, c.$white-900)
   @include m.dye(border, c.$white-900)
+  @include m.media(phone, tablet)
+    @include m.gap($ptb: f.px(12), $pb: f.px(8))
   & > button > p > span:first-child
     @include m.dye(c, c.$orange-400)
 
-.icon
-  @include m.dye(bg, c.$orange-400)
+.baseIcon
   border-radius: 50%
   padding: f.px(10)
   margin-right: 0
@@ -33,3 +46,11 @@
   @include m.media(phone, tablet)
     transform: scale(.5)
     margin-right: 0 !important
+
+.icon
+  @extend .baseIcon
+  @include m.dye(bg, c.$orange-400)
+
+.purpleIcon
+  @extend .baseIcon
+  @include m.dye(bg, c.$purple-450)
