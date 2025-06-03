@@ -11,6 +11,7 @@ type FormValues = {
   name: string
   phone: string
   email: string
+  lastName: string
 }
 
 type DataStorage = {
@@ -42,7 +43,8 @@ const FormFreeAccess: React.FC<FormFreeAccessProps> = ({
     defaultValues: {
       name: '',
       phone: '',
-      email: ''
+      email: '',
+      lastName: 'Демо3дня'
     }
   })
 
