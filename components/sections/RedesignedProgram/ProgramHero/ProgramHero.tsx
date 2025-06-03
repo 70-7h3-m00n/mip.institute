@@ -17,7 +17,7 @@ const ProgramHero = () => {
               Обновлено в 2025 году
             </span>
             <span className={stls.tag}>Срок обучения: 12 месяцев</span>
-            <span className={stls.tag}>Старт обучения: 1 сентября</span>
+            <span className={stls.tag}>Старт обучения: 1 июля</span>
           </div>
 
           <div className={stls.content}>
