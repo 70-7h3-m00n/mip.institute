@@ -25,8 +25,8 @@ const getStaticPropsBachelor = async ({
             offlinePriceWithDiscount
             offlineFullPrice
             onlineFullPrice
-            offlinePriceYear
-            onlinePriceYear
+            OfflinePriceYear
+            OnlinePriceYear
             benefits {
               text
             }

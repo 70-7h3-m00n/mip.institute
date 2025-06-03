@@ -22,7 +22,7 @@ const BachelorStudyCost = ({ costRef }: Props) => {
         <div className={stls.content}>
           <div className={stls.left}>
             <BachelorProgramCost
-              fullPriceYear={bachelor?.onlinePriceYear}
+              fullPriceYear={bachelor?.OnlinePriceYear}
               fullPrice={bachelor?.onlineFullPrice}
               priceWithDiscount={bachelor?.onlinePriceWithDiscount}
               violetBtn
@@ -38,7 +38,7 @@ const BachelorStudyCost = ({ costRef }: Props) => {
           </div>
           <div className={stls.center}>
             <BachelorProgramCost
-              fullPriceYear={bachelor?.offlinePriceYear}
+              fullPriceYear={bachelor?.OfflinePriceYear}
               fullPrice={bachelor?.offlineFullPrice}
               priceWithDiscount={bachelor?.offlinePriceWithDiscount}
               orangeBtn
