@@ -42,9 +42,9 @@ const FormFreeAccess: React.FC<FormFreeAccessProps> = ({
   } = useForm<FormValues>({
     defaultValues: {
       name: '',
-      lastName: '',
       phone: '',
-      email: ''
+      email: '',
+      lastName: 'Демо3дня'
     }
   })
 
@@ -130,29 +130,6 @@ const FormFreeAccess: React.FC<FormFreeAccessProps> = ({
             )}
           />
           {errors.name && <span className={styles.error}>{errors.name.message}</span>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <Controller
-            name='lastName'
-            control={control}
-            rules={{
-              required: '*Фамилия обязательно',
-              minLength: {
-                value: 3,
-                message: '*Фамилия должна содержать минимум 3 символа'
-              }
-            }}
-            render={({ field }) => (
-              <input
-                disabled={disabled}
-                {...field}
-                placeholder='Введите фамилию'
-                className={styles.input}
-              />
-            )}
-          />
-          {errors.lastName && <span className={styles.error}>{errors.lastName.message}</span>}
         </div>
 
         <div className={styles.formGroup}>
