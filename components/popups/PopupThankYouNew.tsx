@@ -6,10 +6,12 @@ import BtnClose from '@/components/btns/BtnClose'
 import { v4 as uuidv4 } from 'uuid'
 import GratefullNew from '../sections/GratefullNew'
 import Script from 'next/script'
+import { tgPixelRoutes } from 'constants/scripts/tgPixel'
+import { usePathname } from 'next/navigation'
 
 const PopupThankyouNew = ({ close }) => {
   const { program } = useContext(ContextStaticProps)
-
+  const pathname = usePathname()
 
   useEffect(() => {
     const tagManagerArgs = {
@@ -34,6 +36,10 @@ const PopupThankyouNew = ({ close }) => {
       dataLayerName: 'dataLayer'
     }
     TagManager.dataLayer(tagManagerArgs)
+
+    // if (pathname && tgPixelRoutes.includes(pathname) && typeof window.tgp === 'function') {
+    //   window.tgp('event', 'ZGar7r3D-6jrcxRT8')
+    // }
   }, [program])
   return (
     <div className={stls.container}>
@@ -49,6 +55,14 @@ const PopupThankyouNew = ({ close }) => {
           `
         }}
       />
+      {pathname && tgPixelRoutes.includes(pathname) && (
+        <Script
+          id='tg_pixel_send'
+          dangerouslySetInnerHTML={{
+            __html: `tgp('event','ZGar7r3D-6jrcxRT8');`
+          }}
+        />
+      )}
       {/* {isPsyCons && (
         <Script
         id='sendFormPsyCons'

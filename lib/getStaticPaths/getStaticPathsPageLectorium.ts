@@ -27,7 +27,7 @@ const getStaticPathsPageLectorium = async (): Promise<{
           }))
         )
       ) ,
-      fallback: false
+      fallback: 'blocking'
     }
   } catch (error) {
     console.error('Ошибка запроса:', error)

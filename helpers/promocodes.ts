@@ -61,7 +61,12 @@ const promocodes = {
   davay: 'ДАВАЙ',
   retrogradnymercury: 'РЕТРОГРАДНЫЙ',
   merkury_may: 'МЕРКУРИЙ',
-  natasakado: 'САКАДО'
+  natasakado: 'САКАДО',
+  winivino: 'ВИНИВИНО',
+  lyalyausa: 'ЛЯЛЯ',
+  kontext_may: 'Контекст',
+  katerinalo2305: 'KATERINALO',
+  vselennaya10206: 'ВСЕЛЕННАЯ'
 }
 
 export default promocodes

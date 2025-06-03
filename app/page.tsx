@@ -1,11 +1,11 @@
-import HomeClient from '@/components/clientComponents/HomeClient'
 import getStaticPropsHome from '@/lib/getStaticPropsv2/getStaticPropsHome'
-import ABtestWrapper from '@/components/clientComponents/ABtestWrapper'
-import PageOldMain from '@/components/pages/PageOldMain'
 import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 import { Metadata } from 'next'
 import { company, prod, routes } from '../config'
 import truncate from '@/helpers/general/truncate'
+import HomeWithPopup from '@/components/clientComponents/HomeWithPopup'
+import HomeClient from '@/components/clientComponents/HomeClient'
+import { Suspense } from 'react'
 
 export const revalidate = 3600
 export const generateMetadata = (): Metadata => {
@@ -52,9 +52,11 @@ export default async function HomePage() {
   
 
   return (
-    <ABtestWrapper
-      clientComponent={<PageOldMain all={allProgramsData} />}
-      serverComponent={<HomeClient data={homeProps} all={allProgramsData} />}
-    />
+    <>
+    <Suspense>
+      <HomeWithPopup />
+    </Suspense>
+    <HomeClient data={homeProps} all={allProgramsData} />
+    </>
   )
 }

@@ -24,7 +24,7 @@ const ABTestScript = () => {
 
     const testsConfig: TestConfig[] = [
       {
-        id: "homePageAB",
+        id: "PsyConsAB",
         variants: ["new", "old"],
         weights: [0.1, 0.9], // 90% для "a", 10% для "b"
       },

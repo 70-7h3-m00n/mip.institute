@@ -1,3 +1,4 @@
+'use client'
 import Wrapper from '@/ui/Wrapper'
 import stls from '@/styles/components/sections/StickyTop.module.sass'
 import classNames from 'classnames'
@@ -18,6 +19,7 @@ const StickyTop = ({
   promoText = '',
   isWithGift
 }: Props) => {
+
   return (
     <div
       className={classNames({

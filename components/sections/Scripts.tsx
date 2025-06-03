@@ -4,6 +4,7 @@ import { getCookie } from 'cookies-next'
 import { usePathname } from 'next/navigation'
 import Script from 'next/script'
 import { useEffect, useState } from 'react'
+import { tgPixelRoutes } from 'constants/scripts/tgPixel'
 
 const Scripts = () => {
   const pathname = usePathname()
@@ -53,6 +54,14 @@ const Scripts = () => {
           `
         }}
       />
+      {pathname && tgPixelRoutes.includes(pathname) && (
+        <Script
+          id='tg_pixel'
+          dangerouslySetInnerHTML={{
+            __html: `(function(t,l,g,r,m){t[g]||(g=t[g]=function(){g.run?g.run.apply(g,arguments):g.queue.push(arguments)},g.queue=[],t=l.createElement(r),t.async=!0,t.src=m,l=l.getElementsByTagName(r)[0],l.parentNode.insertBefore(t,l))})(window,document,'tgp','script','https://telegram.org/js/pixel.js');tgp('init','ZGar7r3D');`
+          }}
+        />
+      )}
 
       <link
         rel='stylesheet'
@@ -158,6 +167,20 @@ const Scripts = () => {
           }}
         />
       )}
+      <Script
+        id='victorycorp'
+        async
+        dangerouslySetInnerHTML={{
+          __html: `(function (d, w) {
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script");
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://victorycorp.ru/index.php?ref="+d.referrer+"&page=" + encodeURIComponent(w.location.href);
+            n.parentNode.insertBefore(s, n);
+    })(document, window);`
+        }}
+      />
 
       <noscript>
         <div>

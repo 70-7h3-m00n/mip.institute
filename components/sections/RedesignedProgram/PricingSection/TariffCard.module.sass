@@ -1,0 +1,210 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.card
+  border-radius: 10px
+  @include m.flex($fd: column, $jc: space-between)
+  background: #FFF4ED
+  border: 1px solid c.$orange-400
+
+.containerTitle
+  background: c.$white-900
+  border-radius: 10px 10px 0 0
+  padding: f.px(25) f.px(25) 
+  text-align: center
+  min-height: 189px
+  @include m.media(phone, tablet)
+    padding: f.px(20)
+    min-height: 0px
+
+.name
+  font-size: f.px(26)
+  font-weight: 700
+  line-height: 140%
+  color: c.$orange-400
+  @include m.gap($mb: f.px(0))
+  @include m.media(phone, tablet)
+    font-size: f.px(22)
+
+.hours
+  font-size: f.px(16)
+  font-weight: 700
+  line-height: 140%
+  color: c.$orange-400
+  @include m.gap($mb: f.px(13),$pb: f.px(10))
+  border-bottom: 1px solid c.$gray-200
+
+.price
+  font-size: f.px(30)
+  font-weight: 700
+  line-height: 100%
+  color: c.$orange-400
+  margin: 0px
+  @include m.media(phone, tablet)
+    font-size: f.px(22)
+
+.sub
+  display: block
+  font-size: f.px(16)
+  color: c.$orange-400
+  font-weight: 700
+  line-height: 100%
+  @include m.gap($mt: f.px(10))
+  @include m.media(phone, tablet)
+    font-weight: 400
+
+.list
+  @include m.gap($plr: f.px(24),$ptb: f.px(0))
+  @include m.flex($fd: column)
+  font-size: f.px(16)
+  font-weight: 400
+  line-height: 110%
+  letter-spacing: -0.32px
+  color: c.$black-900
+  list-style: none
+  @include m.gap($mtb: f.px(17),$mlr: f.px(0))
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(30))
+
+  li.subHeading
+    border-bottom: none
+    @include m.gap($pb: f.px(0))
+
+  li.subItem
+    border-bottom: none
+    @include m.gap($ptb: f.px(0),$mb: f.px(10))
+
+  li.lastSubItem
+    @include m.media(phone, tablet)
+      border-bottom: 1px solid c.$orange-400
+      @include m.gap($pb: f.px(15))
+  
+  li
+    position: relative
+    @include m.gap($pl: f.px(20),$ptb: f.px(15))
+    border-bottom: 1px solid c.$orange-400
+    &:last-child
+      border-bottom: none
+
+    &::before
+      content: ''
+      position: absolute
+      top: 21px
+      left: 0
+      width: 5px
+      height: 5px
+      background-color: c.$orange-400
+      border-radius: 50%
+    @include m.media(phone, tablet)
+      &:last-child
+        border-bottom: 1px solid c.$orange-400
+
+.firstSubItem
+  @include m.gap($mt: f.px(10))  
+     
+.weight
+  font-weight: 600
+
+.subHeading
+  font-weight: 600
+  color: c.$black-900
+
+.subItem
+  font-size: f.px(11)
+  color: c.$black-900
+  font-weight: 300
+  color: c.$gray-800
+  line-height: 120%
+  padding-left: f.px(20)
+
+  &::before
+    display: none !important
+
+.button
+  margin: f.px(10) f.px(24) f.px(25)
+  @include m.flex($fd: column, $jc: center, $ai:center)
+  font-size: f.px(16)
+  background: c.$orange-400
+  color: c.$white-900
+  border: none
+  border-radius: 12px
+  font-weight: 600
+  cursor: pointer
+  & > *
+      width: 100%
+      & > *
+        width: 100%
+  @include m.media(phone, tablet)
+    border-radius: 5px
+
+.button > div > button
+  border-radius: f.px(10)
+  &::after
+    border-radius: f.px(10)
+
+//Бонусы 
+.bonusesToggle
+  display: none
+  @include m.media(phone, tablet)
+    display: block
+    text-transform: uppercase
+    font-size: f.px(16)
+    font-weight: 700
+    line-height: 110%
+    color: c.$black-900
+
+.bonusesButton
+  display: none
+  @include m.media(phone, tablet)
+    display: block
+    @include m.gap($mtb: f.px(0),$mlr: f.px(24))
+    padding: f.px(18)
+    font-size: f.px(16)
+    color: c.$orange-400
+    border-radius: 5px
+    font-weight: 700
+    cursor: pointer
+    transition: background 0.3s ease
+    border: 1px solid c.$orange-400
+
+.bonusesTitle
+  font-weight: 700
+  font-size: f.px(22)
+  color: c.$purple-450
+  @include m.gap($mtb: f.px(15),$mlr: f.px(0))
+  text-align: center
+
+.bonusItem
+  color: c.$black-900
+  font-size: f.px(16)
+  @include m.gap($pl: f.px(20))
+  position: relative
+  line-height: 120%
+  font-weight: 400
+
+.listBonus
+  @include m.gap($plr: f.px(24),$ptb: f.px(0))
+  @include m.flex($fd: column)
+  font-size: f.px(16)
+  font-weight: 400
+  line-height: 110%
+  letter-spacing: -0.32px
+  color: c.$black-900
+  list-style: none
+  gap: f.px(15)
+  @include m.gap($mb: f.px(50),$mlr: f.px(0),$mt: f.px(0))
+
+  li
+    position: relative
+    @include m.gap($pl: f.px(20),$pb: f.px(0))
+
+    &::before
+      content: ''
+      position: absolute
+      top: 7px
+      left: 0
+      width: 5px
+      height: 5px
+      background-color: c.$purple-450
+      border-radius: 50%

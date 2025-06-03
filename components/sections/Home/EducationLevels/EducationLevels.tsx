@@ -29,9 +29,9 @@ const EducationLevels = ({ programs, bachelorsLength, practicalTrainingsLength }
       case 'shortTerm':
         return `${amountOfShortTerm} курсов`
       case 'programs':
-        return `${amountAll + 1} программа`
+        return `${amountAll + 2} программа`
       default:
-        return `${practicalTrainingsLength + 1} ступени`
+        return `${practicalTrainingsLength + 2} ступеней`
     }
   }
 

@@ -1,3 +1,4 @@
+'use client'
 import BtnOk from '@/components/btns/BtnOk'
 import BtnClose from '@/components/btns/BtnClose'
 import BtnPhone from '@/components/btns/BtnPhone'

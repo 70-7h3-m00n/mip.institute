@@ -1,6 +1,5 @@
 import stls from '@/styles/pages/PageHome.module.sass'
 import HelpWithChoice from '@/components/sections/Home/HelpWithChoice/HelpWithChoice'
-import AdventuresCards from '@/components/sections/Incomers/AdventuresCards/AdventuresCards'
 import SupportHelpInResults from '@/components/sections/Home/SupportHelpInResults/SupportHelpInResults'
 import dynamic from 'next/dynamic'
 import StudyProcess from '@/components/sections/Incomers/StudyProcess/StudyProcess'
@@ -30,7 +29,7 @@ interface THomeServerProps {
   all: ProgramsDataQueryResult
 }
 
-export default async function HomePage({ data, all }: THomeServerProps) {
+export default function HomePage({ data, all }) {
   return (
     <div className={stls.container}>
       <TitleWithCarousel heroCarousel={data.heroCarousel} />

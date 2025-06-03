@@ -1,3 +1,4 @@
+'use client'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import stls from '@/styles/components/sections/Header.module.sass'
@@ -42,7 +43,6 @@ export default function SearchProgramsDropDown() {
   const inputRef = useRef<HTMLInputElement | null>(null)
   const iconRef = useRef<HTMLDivElement | null>(null)
 
-  //Список ссылок
 
   const pathname = usePathname()
 
