@@ -7,6 +7,9 @@
   gap: 10px
   width: 100%
   margin: 0 auto
+  padding-bottom: 58px
+  @include m.media(phone, tablet)
+    padding-bottom: 0px
 
 .formGroup
   @include m.flex($fd: column)

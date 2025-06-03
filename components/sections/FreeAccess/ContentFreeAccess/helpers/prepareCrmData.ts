@@ -4,7 +4,7 @@ export type CrmData = {
   name: string
   phone: string
   email: string
-  lastName: string
+  lastName?: string
   leadPage?: string
   utms?: unknown
   referer?: unknown
