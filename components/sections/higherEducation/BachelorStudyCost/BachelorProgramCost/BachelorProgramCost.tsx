@@ -12,10 +12,12 @@ type Props = {
   violetBtn?: boolean
   orangeBtn?: boolean
   fullPrice: number
+  fullPriceYear: number
   priceWithDiscount: number
 }
 
 const BachelorProgramCost = ({
+  fullPriceYear,
   title,
   tagColor,
   bg,
@@ -32,13 +34,15 @@ const BachelorProgramCost = ({
         <p style={{ color: tagColor, border: `1px solid ${tagColor}` }} className={stls.tag}>
           Можно в рассрочку (при оплате стоимости обучения от 1 года)
         </p>
-        <p className={stls.fullSemesterText}>Стоимость программы при оплате за семестр:</p>
+        <p className={stls.fullSemesterText}>Стоимость программы при оплате за год:</p>
         <span className={stls.fullPriceSemester}>
-          {fullPrice && <span>{toNumberWithSpaces(fullPrice / 2)}</span>}
+          {fullPriceYear && <span>{toNumberWithSpaces(fullPriceYear)}</span>}
           {''}
-          <span>&#8381;/семестр</span>
+          <span>&#8381;/год</span>
         </span>{' '}
-        <p className={stls.yearDiscountText}>Стоимость со скидкой при оплате за год:</p>
+        <p className={stls.yearDiscountText}>
+          Стоимость со скидкой при оплате за весь срок обучения:
+        </p>
         <div className={stls.flexMonth}>
           <span className={stls.regular}>
             <span className={stls.bold}>{toNumberWithSpaces(priceWithDiscount)}</span>{' '}
