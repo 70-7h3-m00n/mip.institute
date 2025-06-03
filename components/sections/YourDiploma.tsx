@@ -17,8 +17,6 @@ import ImgBachelorDiplomaAlt from '../imgs/diplomas/ImgBachelorDiplomaAlt'
 import ImgBachelorDiploma from '../imgs/diplomas/ImgBachelorDiplome'
 import LicensePopUp from './LicensePopUp'
 import Tag from '@/ui/Tag'
-import LicenseImg from '@/public/assets/imgs/legal/licence.jpg'
-import Image from 'next/image'
 import { useProgramsSafe } from '@/hooks/general/useSafeContext'
 
 type YourDiplomaType = {
@@ -44,7 +42,6 @@ const YourDiploma = ({
   diplomaRef,
   onMain = false,
   isBachelor = false,
-  close,
   programSlug
 }: YourDiplomaType) => {
   const slides: JSX.Element[] = []
