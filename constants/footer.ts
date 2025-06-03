@@ -162,26 +162,83 @@ const bottomFooterLinks = [
     }
   ]
 ]
-
-const footerMobileLinks = [
-  { text: `© МИП, 2020 - ${new Date().getFullYear()}` },
-  { title: 'Договор оферты', href: routes.front.policiesTerms },
-  { title: 'Политика конфиденциальности', href: routes.front.policiesPrivacy },
-  {
-    title: 'Лицензия на образовательную деятельность\n№041363 от 14.04.2021 г.',
-    href: routes.front.policiesPrivacy
+// микроразметка для футера
+const WPFooterJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WPFooter',
+  name: 'Footer',
+  description: 'Контактная информация и навигация Московского Института Психологии',
+  publisher: {
+    '@type': 'EducationalOrganization',
+    name: 'Московский Институт Психологии',
+    legalName:
+      'Научная автономная некоммерческая организация «Московский институт психологии» (НАНО «МИП») ИНН 9725041321 ОГРН 1207700479260',
+    url: 'https://mip.institute',
+    logo: 'https://mip.institute/assets/imgs/general/icon.png',
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: '+7 (499) 110-88-19',
+        contactType: 'Приёмная комиссия (Москва)',
+        areaServed: 'RU',
+        availableLanguage: 'Russian',
+        contactOption: 'Пн–Пт: 9:00-19:00 (GMT+3)'
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+7 (800) 600-29-03',
+        contactType: 'Приёмная комиссия (Москва)',
+        areaServed: 'RU',
+        availableLanguage: 'Russian',
+        contactOption: 'Пн–Пт: 9:00-19:00 (GMT+3)'
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+7 (499) 110-82-11',
+        contactType: 'Кураторский отдел (Москва)',
+        areaServed: 'RU',
+        availableLanguage: 'Russian',
+        contactOption: 'Пн–Пт: 9:00-19:00 (GMT+3)'
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+7 (727) 311-09-11',
+        contactType: 'Приёмная комиссия (Алматы)',
+        areaServed: 'KZ',
+        availableLanguage: 'Russian',
+        contactOption: 'Пн–Пт: 9:00-19:00 (UTC+5)'
+      }
+    ],
+    address: [
+      {
+        '@type': 'PostalAddress',
+        addressLocality: 'Москва',
+        streetAddress: 'Докучаев переулок, 8',
+        postalCode: '107078',
+        addressCountry: 'RU'
+      },
+      {
+        '@type': 'PostalAddress',
+        addressLocality: 'Алматы',
+        streetAddress: 'PROMENADE, Проспект Абая, 44а',
+        addressCountry: 'KZ'
+      }
+    ],
+    email: [
+      'info@mip.institute',
+      'postupi@mip.institute',
+      'curators@mip.institute',
+      'hr@mip.institute',
+      'almaty@mip.institute'
+    ],
+    sameAs: [
+      'https://m.vk.com/mip_institute',
+      'https://t.me/mip_institute',
+      'https://www.youtube.com/channel/UCGW-oYT-mquOPy6OY7R6iRA',
+      'https://ok.ru/group/70000001109496',
+      'https://dzen.ru/institute_mip'
+    ]
   }
-]
+}
 
-const contactBlocks = [
-  {
-    title: 'Приемная комиссия:',
-    contacts: ['+7 (499) 110-88-19', '+7 (800) 600-29-03']
-  },
-  {
-    title: 'Кураторский отдел:',
-    contacts: ['+7 (499) 110-82-11']
-  }
-]
-
-export { topFooterLinks, footerCards, bottomFooterLinks, footerMobileLinks, contactBlocks }
+export { topFooterLinks, footerCards, bottomFooterLinks, WPFooterJsonLd }

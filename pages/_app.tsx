@@ -25,10 +25,18 @@ import dynamic from 'next/dynamic'
 import getDefaultStateProps from '@/helpers/funcs/getDefaultStateProps'
 import { tgPixelRoutes } from '../constants/scripts/tgPixel'
 import ABTestScript from '@/components/abTests/roistatAB'
+import { navigationItems } from 'constants/header'
+import Footer from '@/components/sections/Footer/Footer'
 
-const Footer = dynamic(() => import('@/components/sections/Footer/Footer'), {
-  ssr: false
-})
+const navigationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SiteNavigationElement',
+  name: navigationItems.map(item => item.val),
+  url: navigationItems.map(item =>
+    item.href.startsWith('http') ? item.href : `https://mip.institute${item.href}`
+  )
+}
+
 // Динамический импорт StickyBottom без SSR чтобы не перерендеривался на изменения на странице
 const StickyBottom = dynamic(() => import('@/components/sections/StickyBottom'), { ssr: false })
 
@@ -179,7 +187,14 @@ const MyApp = ({ Component, pageProps, router }) => {
           {roistatVisit}
         </div>
       )}
-
+      <Script
+        id='navigation-jsonld'
+        type='application/ld+json'
+        strategy='afterInteractive'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(navigationJsonLd, null, 2)
+        }}
+      />
       <Script async src='https://www.googletagmanager.com/gtag/js?id=AW-822792302' />
       <Script
         id='google-tag'

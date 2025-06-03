@@ -22,6 +22,8 @@ import StickyTop from './StickyTop'
 import NProgress from 'nprogress'
 import TagManager from 'react-gtm-module'
 import Router from 'next/router'
+import Script from 'next/script'
+import { WPheaderJsonLd } from 'constants/header'
 
 const Header = () => {
   const { menuIsOpen, closeMenu } = useContext(MenuContext)
@@ -36,9 +38,9 @@ const Header = () => {
   const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
   const [isWithGift, setIsWithGift] = useState(false)
-  
+
   const utmCookie = getCookie('utm')?.toString() || ''
-  
+
   useEffect(() => {
     // const timer = setTimeout(() => {
       const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
@@ -120,6 +122,14 @@ const Header = () => {
 
   return (
     <>
+      <Script
+        id='header-jsonld'
+        type='application/ld+json'
+        strategy='afterInteractive'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(WPheaderJsonLd, null, 2)
+        }}
+      />
     <Suspense>
       <StickyTop
         isWithGift={isWithGift}
@@ -146,7 +156,7 @@ const Header = () => {
               <BtnFields />
             </div>
             <SearchProgramsDropDown />
-            <IconsDropDown 
+            <IconsDropDown
               newMainPage={pathname === '/'}
             />
           </div>

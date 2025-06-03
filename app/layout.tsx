@@ -17,6 +17,8 @@ import { fetchAllProgramsData } from '@/lib/fetchData/fetchAllProgramsData'
 import { MediaQueryProvider } from '@/context/MediaQueryContext'
 import HeaderServer from '@/components/sections/HeaderServer/HeaderServer'
 import ABTestScript from '@/components/abTests/roistatAB'
+import Script from 'next/script'
+import { navigationItems } from 'constants/header'
 
 export const metadata = {
   title: 'Московский Институт Психологии',
@@ -26,12 +28,29 @@ export const metadata = {
   )
 }
 
+const navigationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SiteNavigationElement',
+  name: navigationItems.map(item => item.val),
+  url: navigationItems.map(item =>
+    item.href.startsWith('http') ? item.href : `https://mip.institute${item.href}`
+  )
+}
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const initialData = await fetchAllProgramsData()
 
   return (
     <html lang='ru'>
       <body style={{ backgroundColor: '#F4F4F4' }}>
+        <Script
+          id='navigation-jsonld'
+          type='application/ld+json'
+          strategy='afterInteractive'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(navigationJsonLd, null, 2)
+          }}
+        />
         <AppContextProvider initialData={initialData}>
           <MediaQueryProvider>
             <Suspense>
