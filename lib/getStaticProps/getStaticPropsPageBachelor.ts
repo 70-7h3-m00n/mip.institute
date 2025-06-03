@@ -25,6 +25,8 @@ const getStaticPropsBachelor = async ({
             offlinePriceWithDiscount
             offlineFullPrice
             onlineFullPrice
+            OfflinePriceYear
+            OnlinePriceYear
             benefits {
               text
             }
@@ -86,8 +88,8 @@ const getStaticPropsBachelor = async ({
               studyHours
               admissionDate
               record {
-              text
-            }
+                text
+              }
               heroPicture {
                 url
                 width
@@ -95,32 +97,32 @@ const getStaticPropsBachelor = async ({
               }
             }
             seo {
-            metaTitle
-            metaDescription
-            metaImage {
-              url
-              width
-              height
-              alternativeText
-            }
-            keywords
-            metaRobots
-            structuredData
-            metaViewport
-            canonicalURL
-            isSEOFriendly
-            metaSocial {
-              title
-              description
-              image {
+              metaTitle
+              metaDescription
+              metaImage {
                 url
                 width
                 height
                 alternativeText
               }
-              socialNetwork
+              keywords
+              metaRobots
+              structuredData
+              metaViewport
+              canonicalURL
+              isSEOFriendly
+              metaSocial {
+                title
+                description
+                image {
+                  url
+                  width
+                  height
+                  alternativeText
+                }
+                socialNetwork
+              }
             }
-          }
           }
         }
       `,
@@ -134,7 +136,7 @@ const getStaticPropsBachelor = async ({
         bachelor: res?.data?.bachelor?.[0] || null
         // lifeCourse: res?.data?.lifeCourse?.[0] || null,
         // reviews: reviewsData
-      },
+      }
       // revalidate: revalidate.default
     }
   } catch (error) {
