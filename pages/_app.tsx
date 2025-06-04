@@ -160,6 +160,10 @@ const MyApp = ({ Component, pageProps, router }) => {
     setRoistatVisit(roistat_visit as string)
   }, [roistat_visit])
 
+  // Нормализация пути (удаляем query-параметры и trailing slash)
+  const normalizePath = (path: string) => path.split('?')[0].replace(/\/$/, '')
+  const currentPath = normalizePath(router.asPath)
+
   return (
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
@@ -350,7 +354,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         }}
       />
 
-      <Script async src='/assets/js/vendors/pixel.js' />
+      {/*<Script async src='/assets/js/vendors/pixel.js' />*/}
 
       {router.asPath === '/' ? (
         <Script
@@ -374,9 +378,10 @@ const MyApp = ({ Component, pageProps, router }) => {
         />
       )}
 
-      {tgPixelRoutes.includes(router.pathname) && (
+      {tgPixelRoutes.includes(currentPath) && (
         <Script
           id='tg_pixel'
+          strategy='afterInteractive'
           dangerouslySetInnerHTML={{
             __html: `(function(t,l,g,r,m){t[g]||(g=t[g]=function(){g.run?g.run.apply(g,arguments):g.queue.push(arguments)},g.queue=[],t=l.createElement(r),t.async=!0,t.src=m,l=l.getElementsByTagName(r)[0],l.parentNode.insertBefore(t,l))})(window,document,'tgp','script','https://telegram.org/js/pixel.js');tgp('init','ZGar7r3D');`
           }}
