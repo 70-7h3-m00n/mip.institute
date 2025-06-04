@@ -21,6 +21,8 @@ const PromocodesPage = async () => {
 
   const promocodes = await fetchPromocodes(marketing_in)
 
+  // осталось подключить промокоды с сервера
+
   return (
     <Suspense fallback={<Loading />}>
       <PromoList initPromocodes={promocodes} />

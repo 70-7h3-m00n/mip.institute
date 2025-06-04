@@ -1,0 +1,100 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.cardWithMenu
+  position: relative
+  display: flex
+  width: 100%
+  overflow: hidden
+
+.data
+  display: flex
+  flex-direction: column
+
+
+
+.line
+  display: flex
+  gap: f.px(12)
+  align-items: center
+
+.lineUrl
+  display: flex
+  @include m.media(laptop, desktop)
+    gap: f.px(12)
+    align-items: center
+  @include m.media(phone, tablet)
+    flex-direction: column
+
+.promoItem
+  overflow: hidden
+  display: flex
+  width: 100%
+  gap: f.px(24)
+  margin: f.px(20) 0
+  padding: f.px(20)
+  border-radius: f.px(5)
+  &.active
+    background-color: rgba(0, 143, 76, 0.15)
+    border: 1px solid #008F4C
+  &.inactive
+    border: 1px solid #489DEB
+    background-color: rgba(72, 157, 235, 0.15)
+
+
+.title
+  display: flex
+  background-color: c.$white-900
+  padding: f.px(8) f.px(16)
+  border-radius: f.px(5)
+  font-size: f.px(16)
+  font-weight: 500
+  width: f.px(112)
+  justify-content: center
+  
+
+.promoLink
+  word-break: break-all
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+    background-color: c.$white-900
+    padding: f.px(2) f.px(4)
+    border-radius: f.px(2)
+
+.icon
+  position: absolute
+  right: f.px(12)
+  top: f.px(12)
+  font-size: f.px(36)
+  padding: f.px(12)
+  opacity: 1
+  transition: opacity 0.3s ease
+  &.menuOpen
+    opacity: 0
+
+.menu
+  display: flex
+  flex-direction: column
+  justify-content: center
+  border-radius: f.px(4)
+  padding: f.px(8)
+  width: 0px
+  opacity: 0
+  transition: width 0.3s ease, opacity 0.3s ease
+  &.open
+    width: f.px(200)
+    opacity: 1
+  p
+    margin: f.px(4) f.px(4)
+    padding: f.px(8) 0
+    text-align: center
+    cursor: pointer
+    color: c.$white-900
+    border-radius: f.px(4)
+  .edit
+    background-color: #489DEB
+  .delete
+    background-color: #FF0000
+  .toggle
+    background-color: #008F4C

@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     
   } catch (err) {
     // console.log(err.response.data);
-    res.status(400).json({ success: false, message: err.response.data.detail })
+    res.status(400).json({ success: false, message: err})
   }
 }
 
