@@ -187,6 +187,10 @@ const FormAlpha = ({
       data.roistat_visit = roistat_visit
       if (dev) {
         const req = await genezis(data)
+        // if (pathname && tgPixelRoutes.includes(pathname) && typeof window.tgp === 'function') {
+        //   console.log('Event fired!')
+        //   window.tgp('event', 'ZGar7r3D-6jrcxRT8')
+        // }
         setThanksIsOpen(true)
         setLoading(false)
       } else {
@@ -197,15 +201,16 @@ const FormAlpha = ({
           //   `${routes.front.gratefull}?email=${data.email}&name=${data.name}`,
           //   '_blank'
           // )
-          // if (pathname && tgPixelRoutes.includes(pathname) && typeof window.tgp === 'function') {
-          //   window.tgp('event', 'ZGar7r3D-6jrcxRT8')
-          // }
+          if (pathname && tgPixelRoutes.includes(pathname) && typeof window.tgp === 'function') {
+            console.log('Event fired!')
+            window.tgp('event', 'ZGar7r3D-6jrcxRT8')
+          }
           setIsIpCheckFailed(false)
           setIsDisabled(true)
           setThanksIsOpen(true)
         } else {
           setLoading(false)
-          setThanksIsOpen(true)
+          setThanksIsOpen(false)
           setIsIpCheckFailed(true)
         }
       }
