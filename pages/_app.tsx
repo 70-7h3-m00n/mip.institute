@@ -80,18 +80,21 @@ const MyApp = ({ Component, pageProps, router }) => {
       arr = JSON.parse(utmCookie)
     }
     const urlUtmsArr = router.asPath.split('?')[1]
-
+    
     // переписываем куку если отличается сурс от того, что был до этого
     if (urlUtmsArr) {
       const urlUtmsArr = router.asPath.split('?')[1]
-      let utms = {}
-      urlUtmsArr &&
-        urlUtmsArr.split('&').forEach(utm => {
-          const [key, value] = utm.split('=')
-          utms[key] = decodeURIComponent(value) // Декодирование URL-кодированной строки
-        })
+      let utms: { [key: string]: string } = {}
 
-      setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
+      urlUtmsArr.split('&').forEach(utm => {
+        const [key, value] = utm.split('=')
+        utms[key] = decodeURIComponent(value) // Декодирование URL-кодированной строки
+      })
+
+      const isLeadmagnet = utms.utm_source === 'leadmagnet'
+      const maxAge = isLeadmagnet ? 86400 * 120 : 7776000 // 120 дней или 90 дней
+
+      setCookie('utm', JSON.stringify(utms), { maxAge })
     }
   }, [router.query, router.asPath])
 
