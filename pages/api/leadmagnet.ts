@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   const { id, utm, email, price } = req.body
   const click_id = utm?.utm_term
-  const token = 'aaaabbbb' // <-- Заменить на нужный токен
+  const token = '159d095a'
 
   if (!click_id || utm?.utm_source !== 'leadmagnet') {
     return res.status(400).json({ success: false, message: 'Invalid or missing click_id' })
