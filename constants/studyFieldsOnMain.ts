@@ -42,19 +42,4 @@ const studyFieldsCourses = [
   { label: 'Психотерапия', value: 'psihoterapiya' }
 ]
 
-const studyFieldsBachelor = [
-  {
-    label: 'Психолого-педагогическое образование',
-    value: 'psihologo-pedagogicheskoye-obrazovanie'
-  },
-  { label: 'Психология', value: 'psikhologiya' },
-  { label: 'Педагогическое образование', value: 'pedagogicheskoe-obrazovanie' }
-]
-
-export {
-  studyFields,
-  studyFieldsProfessions,
-  studyFieldsCourses,
-  studyFieldsBachelor,
-  studyFieldsShortTerm
-}
+export { studyFields, studyFieldsProfessions, studyFieldsCourses, studyFieldsShortTerm }

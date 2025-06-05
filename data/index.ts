@@ -10,9 +10,6 @@ export { default as dataDocsGeneralRight } from '@/data/docs/nano-mip/general/da
 export { default as dataDocsRegulationsLeft } from '@/data/docs/regulations/dataDocsRegulationsLeft'
 export { default as dataDocsRegulationsRight } from '@/data/docs/regulations/dataDocsRegulationsRight'
 
-// ./general
-export { default as pros } from 'constants/pros'
-
 // ./docs/ochu-vo-mip/constituent
 export { default as dataOchuVoMipDocsConstituentLeft } from '@/data/docs/ochu-vo-mip/constituent/dataOchuVoMipDocsConstituentLeft'
 export { default as dataOchuVoMipDocsConstituentRight } from '@/data/docs/ochu-vo-mip/constituent/dataOchuVoMipDocsConstituentRight'
@@ -47,4 +44,3 @@ export { default as dataOchuVoMipAddEduRight } from '@/data/docs/ochu-vo-mip/gen
 
 // ./docs/ochu-vo-mip/constituent/orderOfEnrollment
 export { default as dataOchuVoMipOrderLeft } from '@/data/docs/ochu-vo-mip/constituent/orderOfEnrollment/dataOchuVoMipOrderLeft'
-
