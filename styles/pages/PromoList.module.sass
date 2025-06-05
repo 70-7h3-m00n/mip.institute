@@ -2,6 +2,14 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.promoWrapper
+  display: grid
+  gap: f.px(24)
+  grid-template-columns: repeat(2, 1fr) //
+  @include m.media(phone, tablet)
+    display: flex
+    flex-direction: column
+
 .maintitle
   @include m.gap( $ptb: f.px(20))
 
@@ -12,3 +20,4 @@
   align-self: center  
   margin-bottom: 20px
   color: white
+

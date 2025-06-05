@@ -1,13 +1,7 @@
 import classNames from 'classnames'
 import stls from './PromoCard.module.sass'
 import { useEffect, useRef, useState } from 'react'
-export interface PromoCode {
-  is_active: boolean
-  id: number
-  name: string
-  promo_code: string
-  redirect_url: string
-}
+
 
 const PromoCard = ({ promo, onEdit, onDelete, onToggle }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -39,7 +33,9 @@ const PromoCard = ({ promo, onEdit, onDelete, onToggle }) => {
         key={promo.id}
         className={classNames(stls.promoItem, {
           [stls.active]: promo.is_active,
-          [stls.inactive]: !promo.is_active
+          [stls.inactive]: !promo.is_active,
+          [stls.noGift] : promo.redirect_url === '' && promo.is_active,
+          
         })}>
         <div className={stls.data}>
           <div className={stls.line}>

@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getCookie } from 'cookies-next';
-import { createPromocode, getPromocodes } from '@/lib/promo';
+import { getPromocodes } from '@/lib/promo';
 
 export async function GET(request: Request) {
   const username = process.env.API_USERNAME || ''

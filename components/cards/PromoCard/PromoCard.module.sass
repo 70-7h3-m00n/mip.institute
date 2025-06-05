@@ -41,6 +41,9 @@
   &.inactive
     border: 1px solid #489DEB
     background-color: rgba(72, 157, 235, 0.15)
+  &.noGift
+    background-color: rgba(255, 193, 7, 0.15)
+    border: 1px solid #FFC107
 
 
 .title
@@ -64,7 +67,8 @@
 
 .icon
   position: absolute
-  right: f.px(12)
+  cursor: pointer
+  right: f.px(0)
   top: f.px(12)
   font-size: f.px(36)
   padding: f.px(12)
@@ -78,11 +82,12 @@
   flex-direction: column
   justify-content: center
   border-radius: f.px(4)
-  padding: f.px(8)
+  
   width: 0px
   opacity: 0
   transition: width 0.3s ease, opacity 0.3s ease
   &.open
+    padding: f.px(8)
     width: f.px(200)
     opacity: 1
   p

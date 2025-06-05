@@ -10,10 +10,11 @@ export async function POST(request: Request) {
 
   try {
     const data = await request.json();
+    
     const promocode = await createPromocode(data, marketing_in as string);
     return NextResponse.json(promocode, { status: 201 });
   } catch (error) {
-    console.error('Error creating promocode:', error);
-    return NextResponse.json({ error: 'Failed to create promocode' }, { status: 500 });
+    console.error('Error creating promocode:', error.response.data);
+    return NextResponse.json({ error: 'Failed to create promocode' }, { status: 401 });
   }
 }

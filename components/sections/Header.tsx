@@ -15,8 +15,6 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import { Suspense, useContext, useEffect, useState } from 'react'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
-import promocodesWithGift from '@/helpers/promoWithGIfts'
-import promocodes from '@/helpers/promocodes'
 import { getCookie, setCookie } from 'cookies-next'
 import StickyTop from './StickyTop'
 import NProgress from 'nprogress'
@@ -25,7 +23,7 @@ import Router from 'next/router'
 import Script from 'next/script'
 import { WPheaderJsonLd } from 'constants/header'
 import axios from 'axios'
-import { PromoCode } from '@/lib/promo'
+import { PromoCodeItems } from '@/lib/promo'
 
 const Header = () => {
   const { menuIsOpen, closeMenu } = useContext(MenuContext)
@@ -41,47 +39,37 @@ const Header = () => {
   const [promoText, setPromoText] = useState('')
   const [isWithGift, setIsWithGift] = useState(false)
 
+  const [promocodes, setPromocodes] = useState<PromoCodeItems[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
   const utmCookie = getCookie('utm')?.toString() || ''
 
   useEffect(() => {
     const fetchPromocodes = async () => {
       try {
         const response = await axios.get('/api/promo/getPromos');
-        console.log(response);
-        
-        const fetchedPromocodes: PromoCode[] = response.data;
-        // setPromocodes(fetchedPromocodes);
+        const fetchedPromocodes: PromoCodeItems[] = response.data;
+        setPromocodes(fetchedPromocodes);
 
         // Проверка UTM и установка промо
-        // const promo = fetchedPromocodes.find(p => utmCookie?.includes(p.promo_code));
-        // setIsPromo(!!promo);
-        // setPromoText(promo ? promo.name : '');
+        const promo = fetchedPromocodes.find(p => utmCookie?.includes(p.name));
+        setIsPromo(!!promo);
+        setPromoText(promo ? promo.promo_code : '');
 
-        // Проверка промокодов с подарком
-        // const giftPromo = fetchedPromocodes.find(p => p.is_gift && utmCookie?.includes(p.promo_code));
-        // setIsWithGift(!!giftPromo);
+        // Проверка промокодов с подарком (по redirect_url)
+        const giftPromo = fetchedPromocodes.find(
+          p => p.redirect_url !== '' && utmCookie?.includes(p.name)
+        );
+        setIsWithGift(!!giftPromo);
       } catch (err) {
         console.error('Ошибка при загрузке промокодов:', err);
-        // setError('Не удалось загрузить промокоды');
+        setError('Не удалось загрузить промокоды');
       }
     };
 
     fetchPromocodes();
   }, [utmCookie]);
     
-
-  useEffect(() => {
-    // const timer = setTimeout(() => {
-      const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
-      const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
-
-      setIsPromo(!!promoCode)
-      setPromoText(promoCode ? promocodes[promoCode] : '')
-      setIsWithGift(!!giftCode)
-    // }, 2000)
-
-    // return () => clearTimeout(timer) // Очищаем таймер при размонтировании
-  }, [utmCookie])
 
   const closePromo = () => setIsPromo(false)
   // /SticyTop

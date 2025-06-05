@@ -1,95 +1,200 @@
-'use client'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import stls from '@/styles/pages/PromoList.module.sass'
-import Wrapper from '@/ui/Wrapper'
-import PromocodePopup from '../popups/PromocodesPopup/PromocodePopup'
-import PromoCard from '../cards/PromoCard/PromoCard'
-export interface PromoCode {
-  is_active: boolean
-  id: number
-  name: string
-  promo_code: string
-  redirect_url: string
+// components/pages/PromoList.tsx
+'use client';
+
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import stls from '@/styles/pages/PromoList.module.sass';
+import Wrapper from '@/ui/Wrapper';
+import PromocodePopup from '../popups/PromocodesPopup/PromocodePopup';
+import PromoCard from '../cards/PromoCard/PromoCard';
+import InputSearch from '@/ui/InputSearch';
+import { PromoCode, PromoCodeItems } from '@/lib/promo';
+import { useRouter } from 'next/navigation';
+
+interface PromoListProps {
+  initPromocodes: PromoCode;
 }
 
-const PromoList = ({ initPromocodes }) => {
-  const [promocodes, setPromocodes] = useState<PromoCode[]>(initPromocodes)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedPromo, setSelectedPromo] = useState<PromoCode | null>(null)
-  const [modalType, setModalType] = useState<'add' | 'edit' | null>(null)
-  const [error, setError] = useState<string | null>(null)
+const PromoList = ({ initPromocodes }: PromoListProps) => {
+  const [promocodes, setPromocodes] = useState<PromoCode>(initPromocodes);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPromo, setSelectedPromo] = useState<PromoCodeItems | null>(null);
+  const [modalType, setModalType] = useState<'add' | 'edit' | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(initPromocodes.page);
+
+  const router = useRouter();
+
+  // Фильтрация промокодов по поиску
+  const filteredPromocodes = promocodes.items.filter(
+    promo =>
+      promo.name?.toLowerCase()?.includes(searchQuery?.toLowerCase()) ||
+      promo?.promo_code?.toLowerCase()?.includes(searchQuery?.toLowerCase())
+  );
+
+  // Загрузка промокодов для указанной страницы
+  const fetchPromocodesPage = async (page: number) => {
+    try {
+      const response = await axios.get<PromoCode>(`/api/getPromoPage?page=${page}`);
+      setPromocodes(response.data);
+      setCurrentPage(response.data.page);
+    } catch (err) {
+      if(err.response.status === 401) {
+        router.push('/marketing');
+      }
+      console.error('Ошибка при загрузке промокодов:', err);
+      setError('Не удалось загрузить промокоды.');
+    }
+  };
 
   useEffect(() => {
-    setPromocodes(initPromocodes)
-  }, [initPromocodes])
+    setPromocodes(initPromocodes);
+    setCurrentPage(initPromocodes.page);
+  }, [initPromocodes]);
 
-  const openModal = (promo?: PromoCode) => {
-    setSelectedPromo(promo || null)
-    setModalType(promo ? 'edit' : 'add')
-    setIsModalOpen(true)
-  }
+  const openModal = (promo?: PromoCodeItems) => {
+    setSelectedPromo(promo || null);
+    setModalType(promo ? 'edit' : 'add');
+    setIsModalOpen(true);
+  };
 
   const closeModal = () => {
-    setIsModalOpen(false)
-    setSelectedPromo(null)
-    setModalType(null)
-    setError(null)
-  }
+    setIsModalOpen(false);
+    setSelectedPromo(null);
+    setModalType(null);
+    setError(null);
+  };
 
-  const handleSubmit = async (data: Omit<PromoCode, 'id'>) => {
+  const handleSubmit = async (data: Omit<PromoCodeItems, 'id'>) => {
     try {
       if (modalType === 'edit' && selectedPromo) {
-        const response = await axios.put(`/api/promo/update/${selectedPromo.id}`, data)
-        setPromocodes(prev => prev.map(p => (p.id === selectedPromo.id ? response.data : p)))
+        const response = await axios.put(`/api/promo/update/${selectedPromo.id}`, data);
+        setPromocodes(prev => ({
+          ...prev,
+          items: prev.items.map(p => (p.id === selectedPromo.id ? response.data : p)),
+        }));
       } else {
-        const response = await axios.post('/api/promo/create', data)
-        setPromocodes(prev => [...prev, response.data])
+        const response = await axios.post('/api/promo/create', data);
+        setPromocodes(prev => ({
+          ...prev,
+          items: [...prev.items, response.data],
+          count: prev.count + 1,
+        }));
       }
-      closeModal()
+      await fetchPromocodesPage(currentPage);
+      closeModal();
     } catch (err) {
-      console.error('Ошибка при сохранении промокода:', err)
-      setError('Не удалось сохранить промокод. Попробуйте позже.')
+      closeModal();
+      if(err.response.status === 401) {
+        router.push('/marketing');
+      }
+      console.error('Ошибка при сохранении промокода:', err);
+      setError('Не удалось сохранить промокод. Попробуйте позже.');
     }
-  }
+  };
 
   const handleDelete = async (id: number) => {
     if (confirm('Вы уверены, что хотите удалить этот промокод?')) {
       try {
-        await axios.delete(`/api/promo/delete/${id}`)
-        setPromocodes(prev => prev.filter(p => p.id !== id))
+        await axios.delete(`/api/promo/delete/${id}`);
+        const updatedPromocodes = {
+          ...promocodes,
+          items: promocodes.items.filter(p => p.id !== id),
+          count: promocodes.count - 1,
+        };
+        setPromocodes(updatedPromocodes);
+        // Перезагружаем текущую страницу
+        if (updatedPromocodes.items.length === 0 && currentPage > 1) {
+          const newPage = currentPage - 1;
+          await fetchPromocodesPage(newPage);
+        } else {
+          await fetchPromocodesPage(currentPage);
+        }
       } catch (err) {
-        console.error('Ошибка при удалении промокода:', err)
-        setError('Не удалось удалить промокод. Попробуйте позже.')
+        if(err.response.status === 401) {
+          router.push('/marketing');
+        }
+        console.error('Ошибка при удалении промокода:', err);
+        setError('Не удалось удалить промокод. Попробуйте позже.');
       }
     }
-  }
+  };
 
   const handleToggle = async (id: number) => {
     try {
-      await axios.put(`/api/promo/activate/${id}`)
-      setPromocodes(prev => prev.map(p => (p.id === id ? { ...p, is_active: !p.is_active } : p)))
+      await axios.put(`/api/promo/activate/${id}`);
+      setPromocodes(prev => ({
+        ...prev,
+        items: prev.items.map(p => (p.id === id ? { ...p, is_active: !p.is_active } : p)),
+      }));
     } catch (err) {
-      console.error('Ошибка при изменении статуса промокода:', err)
-      setError('Не удалось изменить статус промокода. Попробуйте позже.')
+      if(err.response.status === 401) {
+        router.push('/marketing');
+      }
+      console.error('Ошибка при изменении статуса промокода:', err);
+      setError('Не удалось изменить статус промокода.');
     }
-  }
+  };
+
+  // Обработчики пагинации
+  const totalPages = Math.ceil(promocodes.count / promocodes.per_page);
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      fetchPromocodesPage(page);
+    }
+  };
 
   return (
     <Wrapper>
       <h2 className={stls.maintitle}>Управление промокодами</h2>
-      {promocodes?.map(promo => (
-        <PromoCard
-          key={promo.id}
-          promo={promo}
-          onEdit={() => openModal(promo)}
-          onDelete={() => handleDelete(promo.id)}
-          onToggle={() => handleToggle(promo.id)}
-        />
-      ))}
+      <InputSearch
+        value={searchQuery}
+        onChange={e => setSearchQuery(e.target.value)}
+      />
       <button onClick={() => openModal()} className={stls.mainActionBtn}>
         Добавить промокод
       </button>
+      <div className={stls.promoWrapper}>
+        {filteredPromocodes.length > 0 ? (
+          filteredPromocodes.map(promo => (
+            <PromoCard
+              key={promo.id}
+              promo={promo}
+              onEdit={() => openModal(promo)}
+              onDelete={() => handleDelete(promo.id)}
+              onToggle={() => handleToggle(promo.id)}
+            />
+          ))
+        ) : (
+          <p className={stls.noResults}>Промокоды не найдены</p>
+        )}
+      </div>
+
+      {/* Пагинация */}
+      {totalPages > 1 && (
+        <div className={stls.pagination}>
+          <button
+            className={stls.pageButton}
+            disabled={currentPage === 1}
+            onClick={() => handlePageChange(currentPage - 1)}
+          >
+            Предыдущая
+          </button>
+          <span className={stls.pageInfo}>
+            Страница {currentPage} из {totalPages}
+          </span>
+          <button
+            className={stls.pageButton}
+            disabled={currentPage === totalPages}
+            onClick={() => handlePageChange(currentPage + 1)}
+          >
+            Следующая
+          </button>
+        </div>
+      )}
+
+      
       <PromocodePopup
         isOpen={isModalOpen}
         modalType={modalType}
@@ -97,8 +202,33 @@ const PromoList = ({ initPromocodes }) => {
         onClose={closeModal}
         onSubmit={handleSubmit}
       />
+      {error && <div className={stls.error}>{error}</div>}
     </Wrapper>
-  )
-}
+  );
+};
 
-export default PromoList
+export default PromoList;
+
+
+// pogrebjiskaya: 'Погребижская',
+//   alex4planet: 'ПЛАНЕТА',
+//   porakpsihologu: 'Пора к Психологу',
+//   muradimovaalina: 'АЛИНА10',
+//   maniloun: 'MANILOUN',
+//   neprinyato: 'НЕ ПРИНЯТО ОБСУЖДАТЬ',
+//   retrograd29: 'МЕРКУРИЙ',
+//   globa: 'ГЛОБА',
+//   uzefovich: 'ЮЗЕФОВИЧ',
+//   shahimat: 'Шах и Мат',
+//   eninaanna: 'ЕНИНА',
+//   dashtolc: 'dashatolc',
+//   sobchak: 'СОБЧАК',
+//   sulim: 'СУЛИМ',
+//   strelezc: 'СТРЕЛЕЦ',
+//   pubum: 'СТРЕЛЕЦ',
+//   christiagata: 'АГАТАКРИСТИ',
+//   mashnews4: 'MASH',
+//   alexandraposnova: 'ПОСНОВА',
+//   pogrebjiskaya2: 'Погребижская',
+//   irenaponaroshku: 'Ирена',
+//   morskaya: 'МОРСКАЯ',

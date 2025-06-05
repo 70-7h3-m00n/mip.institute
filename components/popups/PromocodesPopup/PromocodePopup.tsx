@@ -2,15 +2,15 @@
 import { useForm } from 'react-hook-form';
 import classNames from 'classnames';
 import styles from './PromocodesPopup.module.sass';
-import { PromoCode } from '@/lib/promo';
+import { PromoCodeItems } from '@/lib/promo';
 import { useEffect } from 'react';
 
 interface PromocodePopupProps {
   isOpen: boolean;
   modalType: 'add' | 'edit' | null;
-  selectedPromo: PromoCode | null;
+  selectedPromo: PromoCodeItems | null;
   onClose: () => void;
-  onSubmit: (data: Omit<PromoCode, 'id'>) => void;
+  onSubmit: (data: Omit<PromoCodeItems, 'id'>) => void;
 }
 
 export default function PromocodePopup({
@@ -25,7 +25,7 @@ export default function PromocodePopup({
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<Omit<PromoCode, 'id'>>({
+  } = useForm<Omit<PromoCodeItems, 'id'>>({
     defaultValues: {
       name: selectedPromo?.name || '',
       promo_code: selectedPromo?.promo_code || '',
@@ -76,7 +76,7 @@ export default function PromocodePopup({
               id="redirect_url"
               type="text"
               className={classNames(styles.input, { [styles.inputError]: errors.redirect_url })}
-              {...register('redirect_url', { required: 'Ссылка обязательна' })}
+              {...register('redirect_url')}
             />
             {errors.redirect_url && <div className={styles.errorMessage}>{errors.redirect_url.message}</div>}
           </div>
