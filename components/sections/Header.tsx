@@ -24,6 +24,8 @@ import TagManager from 'react-gtm-module'
 import Router from 'next/router'
 import Script from 'next/script'
 import { WPheaderJsonLd } from 'constants/header'
+import axios from 'axios'
+import { PromoCode } from '@/lib/promo'
 
 const Header = () => {
   const { menuIsOpen, closeMenu } = useContext(MenuContext)
@@ -40,6 +42,33 @@ const Header = () => {
   const [isWithGift, setIsWithGift] = useState(false)
 
   const utmCookie = getCookie('utm')?.toString() || ''
+
+  useEffect(() => {
+    const fetchPromocodes = async () => {
+      try {
+        const response = await axios.get('/api/promo/getPromos');
+        console.log(response);
+        
+        const fetchedPromocodes: PromoCode[] = response.data;
+        // setPromocodes(fetchedPromocodes);
+
+        // Проверка UTM и установка промо
+        // const promo = fetchedPromocodes.find(p => utmCookie?.includes(p.promo_code));
+        // setIsPromo(!!promo);
+        // setPromoText(promo ? promo.name : '');
+
+        // Проверка промокодов с подарком
+        // const giftPromo = fetchedPromocodes.find(p => p.is_gift && utmCookie?.includes(p.promo_code));
+        // setIsWithGift(!!giftPromo);
+      } catch (err) {
+        console.error('Ошибка при загрузке промокодов:', err);
+        // setError('Не удалось загрузить промокоды');
+      }
+    };
+
+    fetchPromocodes();
+  }, [utmCookie]);
+    
 
   useEffect(() => {
     // const timer = setTimeout(() => {

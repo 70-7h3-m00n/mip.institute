@@ -1,0 +1,102 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  display: flex
+  justify-content: center
+  align-items: center
+  min-height: 100vh
+  padding: 20px
+  background-color: #f5f5f5
+
+.formContainer
+  width: 100%
+  max-width: 400px
+  padding: 30px
+  background-color: white
+  border-radius: 8px
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+
+.title
+  margin-bottom: 24px
+  font-size: 24px
+  font-weight: 600
+  text-align: center
+  color: #333
+
+.form
+  display: flex
+  flex-direction: column
+  gap: 20px
+
+.formGroup
+  display: flex
+  flex-direction: column
+  gap: 8px
+
+.label
+  font-size: 14px
+  font-weight: 500
+  color: #555
+
+.input
+  padding: 12px 16px
+  border: 1px solid #ddd
+  border-radius: 4px
+  font-size: 16px
+  transition: border-color 0.3s
+  &:focus
+    outline: none
+    border-color: #0070f3
+  &::placeholder
+    color: #aaa
+
+.button
+  margin-top: 10px
+  padding: 12px 16px
+  background-color: c.$purple-700
+  color: white
+  border: none
+  border-radius: 4px
+  font-size: 16px
+  font-weight: 500
+  cursor: pointer
+  transition: background-color 0.3s
+  &:hover
+    background-color: c.$purple-800
+  &:disabled
+    background-color: #ccc
+    cursor: not-allowed
+
+.errorMessage
+  padding: 8px
+  margin-top: 4px
+  background-color: #ffebee
+  color: #d32f2f
+  border-radius: 4px
+  font-size: 14px
+
+.successMessage
+  padding: 12px
+  margin-bottom: 20px
+  background-color: #e8f5e9
+  color: #2e7d32
+  border-radius: 4px
+  font-size: 14px
+
+.footer
+  margin-top: 24px
+  text-align: center
+  font-size: 14px
+  color: #666
+  p
+    margin: 8px 0
+
+.link
+  color: #0070f3
+  text-decoration: none
+  transition: color 0.3s
+  &:hover
+    color: #0060df
+    text-decoration: underline
