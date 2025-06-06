@@ -1,22 +1,51 @@
 'use client'
-import PartnersNavigation from '@/components/partners/OurPartners/PartnersNavigation/PartnersNavigation'
-import PartnersList from '@/components/partners/OurPartners/PartnersList/PartnersList'
+
+import React, { useEffect, useState } from 'react'
+import PartnersNavigation from './PartnersNavigation/PartnersNavigation'
+import PartnersList from './PartnersList/PartnersList'
 import styles from './OurPartners.module.sass'
-import { PropsOurPartners } from '../type'
 import Wrapper from '@/ui/Wrapper'
 import classNames from 'classnames'
+import { Partner } from '../type'
+import OurPartnersSkelet from './OurPartnersSkelet'
 
-const OurPartners: React.FC<PropsOurPartners> = ({
+interface Props {
+  allTypes?: string[]
+  allPartners?: Partner[]
+  onePartner?: Partner[]
+  noPaddings?: boolean
+}
+
+const OurPartners: React.FC<Props> = ({
   allTypes,
-  currentType,
+  allPartners,
   onePartner,
   noPaddings = false
 }) => {
+  const isTabbed = allTypes && allPartners // если есть вкладки
+  const [currentType, setCurrentType] = useState<string>('')
+  // Устанавливаем текущий тип, когда данные появились
+  useEffect(() => {
+    if (isTabbed) {
+      setCurrentType(allTypes[0])
+    }
+  }, [isTabbed, allTypes])
+
+  // Показываем скелет, если данные не загружены
+  if (isTabbed && !currentType) {
+    return <OurPartnersSkelet />
+  }
+
+  const partnersToRender =
+    isTabbed && allPartners
+      ? allPartners.filter(partner => partner.type === currentType)
+      : onePartner || []
+
   return (
-    <section className={classNames({ [styles.container]: true, [styles.noPaddings]: noPaddings })}>
+    <section className={classNames(styles.container, { [styles.noPaddings]: noPaddings })}>
       <Wrapper>
         {allTypes ? (
-          <h1 className={styles.title}>Наши партнеры</h1>
+          <h2 className={styles.title}>Наши партнеры</h2>
         ) : (
           <h2 className={styles.title}>
             С нами вы можете{' '}
@@ -24,12 +53,14 @@ const OurPartners: React.FC<PropsOurPartners> = ({
             ОППЛ и АППП{' '}
           </h2>
         )}
-        {/* Навигация по типам партнеров */}
-        {allTypes && currentType && (
-          <PartnersNavigation types={allTypes} currentType={currentType} />
+        {isTabbed && (
+          <PartnersNavigation
+            types={allTypes}
+            currentType={currentType}
+            onClickType={setCurrentType}
+          />
         )}
-        {/* Отображение партнеров по типу */}
-        <PartnersList partners={onePartner} />
+        <PartnersList partners={partnersToRender} />
       </Wrapper>
     </section>
   )

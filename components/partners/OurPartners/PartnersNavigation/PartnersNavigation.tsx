@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import React from 'react'
 import styles from './PartnersNavigation.module.sass'
 import classNames from 'classnames'
@@ -6,9 +5,14 @@ import classNames from 'classnames'
 interface PartnersNavigationProps {
   types: string[]
   currentType: string
+  onClickType: (type: string) => void
 }
 
-export default function PartnersNavigation({ types, currentType }: PartnersNavigationProps) {
+export default function PartnersNavigation({
+  types,
+  currentType,
+  onClickType
+}: PartnersNavigationProps) {
   const translations: Record<string, string> = {
     association: 'Ассоциации',
     fund: 'Фонды',
@@ -18,18 +22,18 @@ export default function PartnersNavigation({ types, currentType }: PartnersNavig
   return (
     <nav className={styles.navigation}>
       {types
-        .slice() // Создаем копию массива
-        .sort((a, b) => a.localeCompare(b)) // Сортируем в алфавитном порядке
+        .slice()
+        .sort((a, b) => a.localeCompare(b))
         .map(t => (
-          <Link prefetch={true} href={`/partners/${t}`} key={t} passHref>
-            <p
-              className={classNames(styles.link, {
-                [styles.active]: t === currentType
-              })}
-            >
-              {translations[t] || t}
-            </p>
-          </Link>
+          <button
+            key={t}
+            onClick={() => onClickType(t)}
+            className={classNames(styles.link, {
+              [styles.active]: t === currentType
+            })}
+            type='button'>
+            {translations[t] || t}
+          </button>
         ))}
     </nav>
   )
