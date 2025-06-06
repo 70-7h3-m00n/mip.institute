@@ -10,14 +10,45 @@
     display: flex
     flex-direction: column
 
+.desktopOnly
+  @include m.media(phone, tablet)
+    display: none
+
 .maintitle
   @include m.gap( $ptb: f.px(20))
 
 .mainActionBtn
   background-color: #489DEB
   padding: 12px 20px
-  border-radius: 4px
+  border-radius: f.px(4)
   align-self: center  
-  margin-bottom: 20px
+  // margin-bottom: 20px
   color: white
+  &:hover
+    opacity: 0.8
 
+
+
+.pagination
+  display: flex 
+  justify-content: center
+  gap: f.px(16)
+  @include m.gap( $mb: f.px(16))
+  align-items: center
+
+.pageButton
+  background-color: c.$purple-450
+  color: c.$white-900
+  @include m.gap($p: f.px(12))
+  border-radius: f.px(4)
+  &:hover:not(:disabled)
+    background-color: c.$purple-400
+  &:disabled
+    opacity: 0.5
+
+.topMenu
+  display: flex
+  justify-content: space-between
+  @include m.media(phone, tablet)
+    gap: f.px(12)
+    flex-direction: column
