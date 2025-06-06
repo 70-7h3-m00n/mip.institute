@@ -7,6 +7,7 @@ import styles from './OurPartners.module.sass'
 import Wrapper from '@/ui/Wrapper'
 import classNames from 'classnames'
 import { Partner } from '../type'
+import OurPartnersSkelet from './OurPartnersSkelet'
 
 interface Props {
   allTypes?: string[]
@@ -29,6 +30,11 @@ const OurPartners: React.FC<Props> = ({
       setCurrentType(allTypes[0])
     }
   }, [isTabbed, allTypes])
+
+  // Показываем скелет, если данные не загружены
+  if (isTabbed && !currentType) {
+    return <OurPartnersSkelet />
+  }
 
   const partnersToRender =
     isTabbed && allPartners

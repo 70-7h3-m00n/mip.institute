@@ -31,7 +31,7 @@ const ProfessionPage: NextPage<TypePageProgramProps> = ({
 
   const psyCons = slug === 'psiholog-konsultant'
 
-  const PsyConsAB = 'new'
+  const PsyConsAB = getCookie('PsyConsAB')?.toString() || ''
   const [roistatAB, setRoistatAB] = useState<string | null>('old')
   useEffect(() => {
     setRoistatAB(PsyConsAB as 'old' | 'new')
