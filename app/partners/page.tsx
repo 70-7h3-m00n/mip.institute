@@ -10,11 +10,12 @@ import company from '@/config/company'
 import prod from '@/config/prod'
 import { Metadata } from 'next'
 
-export const generateMetadata = ({params}): Metadata => {
-  const {type} = params
-  
+export const generateMetadata = ({ params }): Metadata => {
+  const { type } = params
+
   const title = 'Партнеры Московского Института Психологии '
-  const description ='Подробная информация о действующих партнерах Московского Института Психологии '
+  const description =
+    'Подробная информация о действующих партнерах Московского Института Психологии '
   const canonical = `${routes.front.root}/partners/${type}`
   const logoUrl = `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`
 
@@ -85,22 +86,17 @@ export async function generateStaticParams(): Promise<Params[]> {
 }
 
 // Главный компонент
-export default async function Partners({ params }: { params: Params }) {
-  const { type } = params
-
+export default async function Partners() {
   // Получаем всех партнеров
   const allPartners = await getAllPartners()
 
   // Получаем все уникальные типы партнеров
   const allTypes: string[] = Array.from(new Set(allPartners.map(partner => partner.type)))
 
-  // Фильтруем партнеров по указанному типу
-  const onePartner = allPartners.filter(partner => partner.type === type)
-
   return (
     <>
       <CommunitySection />
-      <OurPartners allTypes={allTypes} currentType={type} onePartner={onePartner} />
+      <OurPartners allTypes={allTypes} allPartners={allPartners} />
       <BecomePartner />
     </>
   )
