@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import Script from 'next/script'
 import getUtmSourceFromCookie from '@/helpers/funcs/getUtmSourceFromCookie'
 import { getCookie } from 'cookies-next'
-import { WPFooterJsonLd } from 'constants/footer'
+import { EducationalOrganizationJsonLd, WPFooterJsonLd } from 'constants/footer'
 
 const Footer = () => {
   const isMobileAndTabletLayout = useBetterMediaQuery('(max-width: 768px)')
@@ -28,11 +28,19 @@ const Footer = () => {
     <>
       <footer className={stls.container}>
         <Script
-          id='footer-jsonld'
+          id='wpfooter-jsonld'
           type='application/ld+json'
           strategy='afterInteractive'
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(WPFooterJsonLd, null, 2)
+          }}
+        />
+        <Script
+          id='organization-jsonld'
+          type='application/ld+json'
+          strategy='afterInteractive'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(EducationalOrganizationJsonLd, null, 2)
           }}
         />
         {isMobileAndTabletLayout ? (
