@@ -16,7 +16,7 @@ const OurPartners: React.FC<PropsOurPartners> = ({
     <section className={classNames({ [styles.container]: true, [styles.noPaddings]: noPaddings })}>
       <Wrapper>
         {allTypes ? (
-          <h1 className={styles.title}>Наши партнеры</h1>
+          <h2 className={styles.title}>Наши партнеры</h2>
         ) : (
           <h2 className={styles.title}>
             С нами вы можете{' '}
