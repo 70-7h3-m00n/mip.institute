@@ -78,11 +78,11 @@ const PromoList = ({ initPromocodes }: PromoListProps) => {
         const response = await axios.post('/api/promo/create', data);
         setPromocodes(prev => ({
           ...prev,
-          items: [...prev.items, response.data],
+          items: [response.data, ...prev.items],
           count: prev.count + 1,
         }));
       }
-      await fetchPromocodesPage(currentPage);
+      // await fetchPromocodesPage(currentPage);
       closeModal();
     } catch (err) {
       closeModal();
@@ -104,13 +104,14 @@ const PromoList = ({ initPromocodes }: PromoListProps) => {
           count: promocodes.count - 1,
         };
         setPromocodes(updatedPromocodes);
+        
         // Перезагружаем текущую страницу
-        if (updatedPromocodes.items.length === 0 && currentPage > 1) {
-          const newPage = currentPage - 1;
-          await fetchPromocodesPage(newPage);
-        } else {
-          await fetchPromocodesPage(currentPage);
-        }
+        // if (updatedPromocodes.items.length === 0 && currentPage > 1) {
+        //   const newPage = currentPage - 1;
+        //   await fetchPromocodesPage(newPage);
+        // } else {
+        //   await fetchPromocodesPage(currentPage);
+        // }
       } catch (err) {
         if(err.response.status === 401) {
           router.push('/marketing');
