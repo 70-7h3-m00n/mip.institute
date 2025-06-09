@@ -72,7 +72,6 @@ const MyApp = ({ Component, pageProps, router }) => {
     }))
   }
 
-  //cookie for edPartners
   useEffect(() => {
     const utmCookie = getCookie('utm')
     let arr
@@ -80,25 +79,24 @@ const MyApp = ({ Component, pageProps, router }) => {
       arr = JSON.parse(utmCookie)
     }
     const urlUtmsArr = router.asPath.split('?')[1]
-
+    
     // переписываем куку если отличается сурс от того, что был до этого
     if (urlUtmsArr) {
       const urlUtmsArr = router.asPath.split('?')[1]
-      let utms = {}
-      urlUtmsArr &&
-        urlUtmsArr.split('&').forEach(utm => {
-          const [key, value] = utm.split('=')
-          utms[key] = decodeURIComponent(value) // Декодирование URL-кодированной строки
-        })
+      let utms: { [key: string]: string } = {}
 
-      setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
+      urlUtmsArr.split('&').forEach(utm => {
+        const [key, value] = utm.split('=')
+        utms[key] = decodeURIComponent(value) // Декодирование URL-кодированной строки
+      })
+
+      const isLeadmagnet = utms.utm_source === 'leadmagnet'
+      const maxAge = isLeadmagnet ? 86400 * 120 : 7776000 // 120 дней или 90 дней
+
+      setCookie('utm', JSON.stringify(utms), { maxAge })
+
     }
   }, [router.query, router.asPath])
-
-  //cookie for edPartners
-  // ?utm_source=yandex_alexej&utm_medium=cpc&utm_campaign=компания&utm_content=[Поиск] Логопед с доп. квалификацией - GZ / RF / CPC&utm_term=ключ
-  // ?utm_source=yandex-Feed&utm_medium=free&utm_campaign=psychology&utm_content=professions
-  // ?utm_source=edpartners&utm_medium=cpa&utm_campaign=affiliate&cl_uid=7a61af20124c1918ac49130334cd03c8
 
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })

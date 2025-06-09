@@ -7,7 +7,6 @@ const genezis = async values => {
     values.id = uuidv4()
     const res = await axios.post(`/api/genezis`, values)
     await axios.post(`${routes.front.root}/api/advCakeNew`, values)
-
     if (values?.utm?.utm_source === 'admitad') {
       await axios.post(`${routes.front.root}/api/admitad`, values)
     }
@@ -22,6 +21,9 @@ const genezis = async values => {
 
     if (values?.utm?.utm_source === 'careerru') {
       await axios.post(`${routes.front.root}/api/hh`, values)
+    }
+    if (values?.utm?.utm_source === 'leadmagnet') {
+      await axios.post(`${routes.front.root}/api/leadmagnet`, values)
     }
 
     let output
