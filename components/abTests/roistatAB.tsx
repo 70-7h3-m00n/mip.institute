@@ -26,7 +26,7 @@ const ABTestScript = () => {
       {
         id: "PsyConsAB",
         variants: ["new", "old"],
-        weights: [0.1, 0.9], // 90% для "a", 10% для "b"
+        weights: [0.5, 0.5], // 90% для "a", 10% для "b"
       },
     ];
 
