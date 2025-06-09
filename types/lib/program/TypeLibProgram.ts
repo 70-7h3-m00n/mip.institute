@@ -1,8 +1,4 @@
-import {
-  TypeLibGeneralPicture,
-  TypeLibTeachers,
-  TypeLibReviews
-} from '@/types/index'
+import { TypeLibGeneralPicture, TypeLibTeachers, TypeLibReviews } from '@/types/index'
 
 type TypeLibProgram = {
   isOpened: boolean
@@ -52,6 +48,31 @@ type TypeLibProgram = {
       height: string | null
     } | null
   } | null
+  bonuses?: {
+    title: string
+    subtitle: string
+    tags: string
+    items: string
+    image?: {
+      url: string | null
+      width: string | null
+      height: string | null
+    } | null
+  } | null
+  tariffs?:
+    | {
+        title: string
+        practiceHours: string
+        monthlyPrice: string
+        yearlyPrice: string
+        slug: string
+        features?:
+          | {
+              text: string | null
+            }[]
+          | null
+      }[]
+    | null
   requests?: {
     title: string | null
     description: string | null
