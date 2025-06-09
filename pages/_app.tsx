@@ -90,7 +90,11 @@ const MyApp = ({ Component, pageProps, router }) => {
         utms[key] = decodeURIComponent(value) // Декодирование URL-кодированной строки
       })
 
-      setCookie('utm', JSON.stringify(utms), { maxAge : 7776000 })
+      const isLeadmagnet = utms.utm_source === 'leadmagnet'
+      const maxAge = isLeadmagnet ? 86400 * 120 : 7776000 // 120 дней или 90 дней
+
+      setCookie('utm', JSON.stringify(utms), { maxAge })
+
     }
   }, [router.query, router.asPath])
 
