@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*')
 
   const { id, utm, email, price } = req.body
   const click_id = utm?.utm_term
