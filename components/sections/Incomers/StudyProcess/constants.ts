@@ -2,6 +2,10 @@ import image1 from '@/components/sections/Incomers/StudyProcess/images/1.png'
 import image2 from '@/components/sections/Incomers/StudyProcess/images/2.png'
 import image3 from '@/components/sections/Incomers/StudyProcess/images/3.png'
 import image4 from '@/components/sections/Incomers/StudyProcess/images/4.png'
+import psyImage1 from '@/components/sections/Incomers/StudyProcess/images/psy-cons/1.png'
+import psyImage2 from '@/components/sections/Incomers/StudyProcess/images/psy-cons/2.png'
+import psyImage3 from '@/components/sections/Incomers/StudyProcess/images/psy-cons/3.png'
+import psyImage4 from '@/components/sections/Incomers/StudyProcess/images/psy-cons/4.png'
 import slide1 from '@/public/assets/imgs/home/studyProcess/slide1.png'
 import slide2 from '@/public/assets/imgs/home/studyProcess/slide2.png'
 import slide3 from '@/public/assets/imgs/home/studyProcess/slide3.png'
@@ -126,6 +130,30 @@ const studyProcessDefaultData: StudyProcessData = {
   ]
 }
 
+const studyProcessPsyConsData: StudyProcessData = {
+  title: 'Учебный процесс',
+  text: [
+    {
+      bold: 'На нашей образовательной платформе СДО размещены все необходимые материалы',
+      normal:
+        ' - лекции, дополнительная литература, расписание различных онлайн и очных мероприятий, важные интересные новости.'
+    },
+    {
+      bold: 'А самое главное',
+      normal:
+        ' - учебные планы с исчерпывающими модулями по необходимым дисциплинам, оценками с обратной связью и исключительными дополнительными материалами.'
+    }
+  ],
+  positions: positionsByBreakpoint,
+  images: [psyImage1, psyImage2, psyImage3, psyImage4],
+  imageSizes: [
+    { width: 250, height: 150 },
+    { width: 250, height: 150 },
+    { width: 250, height: 150 },
+    { width: 250, height: 150 }
+  ]
+}
+
 const homePositionsByBreakpoint: PositionsByBreakpoint = {
   mobile: {
     start: [
@@ -216,5 +244,6 @@ export {
   positionsByBreakpoint,
   homePositionsByBreakpoint,
   studyProcessDefaultData,
-  homeStudyProcessData
+  homeStudyProcessData,
+  studyProcessPsyConsData
 }
