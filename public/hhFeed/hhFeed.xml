@@ -35,48 +35,43 @@
       </offer>
 
       <offer id="3_geshtalt_terapist" available="true">
-        <name>Гештальт-терапевт</name>
+        <name>Гештальт-терапия в психологическом консультировании</name>
         <description>
-            В результате обучения вы научитесь: 
-            — Владеть техникой гештальт-подхода;
-            — Способность осуществлять коррекцию психосоматических нарушений, тревог и пограничных состояний.
+            Гештальт-терапия – это современное направление психотерапии. 
         </description>
         <param name="Уровень курса">Для новичков</param>
         <param name="Формат курса">Самостоятельно с наставником</param>
         <param name="Регион проведения">Москва</param>
-        <param name="Длительность курса">8 месяцев</param>
-        <oldprice>165000</oldprice>
-        <price>115260</price>
+        <param name="Длительность курса">14 месяцев</param>
+        <oldprice>331000</oldprice>
+        <price>232000</price>
         <discount>30</discount>
-        <param name="Ежемесячный платеж">9600</param>
+        <param name="Ежемесячный платеж">19300</param>
         <currencyId>RUR</currencyId>
         <param name="Промокод">MIPHH</param>
         <param name="Скидка по промокоду в процентах">10</param>
-        <param name="Ссылка на курс">https://mip.institute/professions/psihoterapiya/geshtalt-terapevt?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/psihoterapiya/geshtalt-terapevt/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
         <param name="Выдаётся сертификат">Да</param>
         <param name="Помощь с трудоустройством"></param>
       </offer>
 
       <offer id="4_art_therapist" available="true">
-        <name>Арт-терапевт</name>
+        <name>Арт-терапия в психологическом консультировании</name>
         <description>
-            В результате обучения вы научитесь: 
-            — Понимать виды, методы и подходы арт-терапии;
-            — Проводить психодиагностику с помощью метода арт-терапии;
-            — Структура арт-терапевтического тренинга, диагностика и взаимодействие в группе.
+            Арт-терапия – это направление в психологии, которое основано на творческой деятельности. 
         </description>
         <param name="Уровень курса">С Нуля</param>
         <param name="Формат курса">ONLINE</param>
         <param name="Регион проведения">Москва</param>
-        <param name="Длительность курса">6 месяцев</param>
-        <oldprice>128000</oldprice>
-        <price>89460</price>
+        <param name="Длительность курса">14 месяцев</param>
+        <oldprice>331000</oldprice>
+        <price>232000</price>
         <discount>30</discount>
-        <param name="Ежемесячный платеж">7500</param>
+        <param name="Ежемесячный платеж">19300</param>
         <currencyId>RUR</currencyId>
         <param name="Промокод">MIPHH</param>
         <param name="Скидка по промокоду в процентах">10</param>
-        <param name="Ссылка на курс">https://mip.institute/professions/konsultirovanie/art-terapevt?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/konsultirovanie/art-terapevt/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
         <param name="Выдаётся сертификат">Да</param>
         <param name="Помощь с трудоустройством"></param>
       </offer>
@@ -129,24 +124,22 @@
       </offer>
 
       <offer id="8_Cognitive_Behavioral_Psychotherapist" available="true">
-        <name>Когнитивно-поведенческий психотерапевт</name>
+        <name>КПТ. Психологическое консультирование в когнитивно-поведенческом подходе</name>
         <description>
-            В результате обучения вы научитесь: 
-            — Понимать типологию основных подходов когнитивно-поведенческой психотерапии;
-            — Эффективно использовать технологии психологического консультирования.
+            Когнитивно-поведенческая терапия – вид психотерапии, изучающий взаимосвязь чувств, мыслей, эмоций.
         </description>
         <param name="Уровень курса">С Нуля</param>
         <param name="Формат курса">ONLINE</param>
         <param name="Регион проведения">Москва</param>
-        <param name="Длительность курса">6 месяцев</param>
-        <oldprice>160000</oldprice>
-        <price>112320</price>
+        <param name="Длительность курса">14 месяцев</param>
+        <oldprice>331000</oldprice>
+        <price>232000</price>
         <discount>30</discount>
-        <param name="Ежемесячный платеж">9400</param>
+        <param name="Ежемесячный платеж">19300</param>
         <currencyId>RUR</currencyId>
         <param name="Промокод">MIPHH</param>
         <param name="Скидка по промокоду в процентах">10</param>
-        <param name="Ссылка на курс">https://mip.institute/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/psihoterapiya/kognitivno-povedencheskij-psihoterapevt/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
         <param name="Выдаётся сертификат">Да</param>
         <param name="Помощь с трудоустройством"></param>
       </offer>
@@ -193,31 +186,6 @@
         <param name="Промокод">MIPHH</param>
         <param name="Скидка по промокоду в процентах">10</param>
         <param name="Ссылка на курс">https://mip.institute/professions/organizacionnaya-psihologiya/psiholog-biznes-konsultant.-kouch?utm_source=hh&amp;utm_medium=cpa</param>
-        <param name="Выдаётся сертификат">Да</param>
-        <param name="Помощь с трудоустройством"></param>
-      </offer>
-
-      <offer id="11_psychologist-consultant" available="true">
-        <name>Психолог-консультант</name>
-        <description>
-            В результате обучения вы научитесь: 
-            — Анализировать психологическое состояние клиента;
-            — Оказывать психологическую помощь личности по разрешению внутриличностных проблем;
-            — Владеть принципами индивидуального и группового консультирования;
-            — Понимать особенности диагностики психического развития людей разного возраста.
-        </description>
-        <param name="Уровень курса">С Нуля</param>
-        <param name="Формат курса">ONLINE</param>
-        <param name="Регион проведения">Москва</param>
-        <param name="Длительность курса">12 месяцев</param>
-        <oldprice>222000</oldprice>
-        <price>155520</price>
-        <discount>30</discount>
-        <param name="Ежемесячный платеж">13000</param>
-        <currencyId>RUR</currencyId>
-        <param name="Промокод">MIPHH</param>
-        <param name="Скидка по промокоду в процентах">10</param>
-        <param name="Ссылка на курс">https://mip.institute/professions/konsultirovanie/psiholog-konsultant?utm_source=hh&amp;utm_medium=cpa</param>
         <param name="Выдаётся сертификат">Да</param>
         <param name="Помощь с трудоустройством"></param>
       </offer>
@@ -555,29 +523,151 @@
       </offer>
 
       <offer id="39_speech_therapist" available="true">
-        <name>Логопед с доп. квалификацией Специальный психолог</name>
+        <name>Логопед</name>
         <description>
-            В результате обучения вы научитесь: 
-            — Создавать условия для получения образования у детей со специальными образовательными потребностями;
-            — Проводить мероприятия по компенсации и коррекции нарушений у детей;
-            — Оказывать консультативную помощь родителям детей с проблемами в развитии.
+            Учитель-логопед изучает различные речевые дефекты, причины их возникновения и способы устранения. 
         </description>
         <param name="Уровень курса">С Нуля</param>
         <param name="Формат курса">ONLINE</param>
         <param name="Регион проведения">Москва</param>
         <param name="Длительность курса">10 месяцев</param>
-        <oldprice>93000</oldprice>
-        <price>65340</price>
+        <oldprice>331000</oldprice>
+        <price>232000</price>
         <discount>30</discount>
-        <param name="Ежемесячный платеж">5500</param>
+        <param name="Ежемесячный платеж">19300</param>
         <currencyId>RUR</currencyId>
         <param name="Промокод">MIPHH</param>
         <param name="Скидка по промокоду в процентах">10</param>
-        <param name="Ссылка на курс">https://mip.institute/professions/detskaya-psihologiya/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog?utm_source=hh&amp;utm_medium=cpa</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/detskaya-psihologiya/logoped-s-dop.-kvalifikaciej-specialnyj-psiholog/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
         <param name="Выдаётся сертификат">Да</param>
         <param name="Помощь с трудоустройством"></param>
       </offer>
+      
 
+           <offer id="Fundamentals_Stress_Management_Prevention_Professional_Burnout" available="true">
+        <name>Основы стресс–менеджмента и профилактика профессионального выгорания</name>
+        <description>
+            Основы стресс-менеджмента – это курс, направленный на формирование навыков эффективного взаимодействия со стрессовыми ситуациями, преодоления стресса.
+            Задача стресс-менеджмента – снизить негативное влияние стресса, повысив качество жизни и поддержать активный образ жизни.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">2 мес</param>
+        <oldprice>36000</oldprice>
+        <price>25446</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/shortTerm/organizacionnaya-psihologiya/osnovy-stress-menedzhmenta-i-profilaktika-professionalnogo-vygoraniya/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+        <param name="Выдаётся сертификат">Да</param>
+      </offer>
+
+       <offer id="Techniques_Skills_Gestalt_Therapy" available="true">
+        <name>Техники и навыки гештальт-терапии</name>
+        <description>
+            Программа "Техники и навыки гештальт- терапии" направлена на расширение знаний и навыков в области гештальт-терапии.
+            Гештальт-терапия — это направление в психотерапии, которое фокусируется на осознавании настоящего момента и развитии способности человека взаимодействовать с окружающей средой здесь и сейчас.
+            Вы изучите принципы и методы гештальт-терапии, научитесь диагностировать и оценивать психологические проблемы с точки зрения этого подхода, освоите техники работы с клиентами.  
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">3 мес</param>
+        <oldprice>149000</oldprice>
+        <price>104528</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ежемесячный платеж">8700</param>
+        <param name="Ссылка на курс">https://mip.institute/courses/psihoterapiya/geshtalt-terapiya/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+        <param name="Выдаётся сертификат">Да</param>
+      </offer>
+
+      <offer id="Techniques-Skills_Body-oriented_Therapy" available="true">
+        <name>Техники и навыки телесно-ориентированной терапии</name>
+        <description>
+            Телесно ориентированная психотерапия (ТОП) — это направление психотерапии, основанное на взаимосвязи тела и психики.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">3 мес</param>
+        <oldprice>149000</oldprice>
+        <price>104528</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ежемесячный платеж">8700</param>
+        <param name="Ссылка на курс">https://mip.institute/courses/psihoterapiya/telesno-orientirovannaya-psihoterapiya/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+        <param name="Выдаётся сертификат">Да</param>
+      </offer>
+
+          <offer id="Cognitive_Behavioral_Therapy" available="true">
+        <name>Когнитивно-поведенческая терапия</name>
+        <description>
+            Когнитивно-поведенческая терапия (КПТ) является психотерапевтическим направлением с научно доказанной эффективностью, ориентированным на изменения психологических установок, негативных мыслей и шаблонов поведения личности.
+            Курс повышения квалификации «Когнитивно-поведенческая терапия» даст возможность слушателям освоить базовые принципы подхода, классические и современные техники для эффективной самостоятельной практики и поддержки клиентов на пути к улучшению эмоционального состояния.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">3 мес</param>
+        <oldprice>149000</oldprice>
+        <price>104528</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ежемесячный платеж">8700</param>
+        <param name="Ссылка на курс">https://mip.institute/courses/psihoterapiya/kognitivno-povedencheskaya-terapiya/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+        <param name="Выдаётся сертификат">Да</param>
+      </offer>
+
+          <offer id="Art_Therapy_Techniques_Skills" available="true">
+        <name>Техники и навыки арт-терапии</name>
+        <description>
+            Программа повышения квалификации «Арт-терапия» направлена на расширение знаний и навыков в области арт-терапии. Арт-терапия — направление в психотерапии, которое использует творческие процессы и искусство для работы с психологическими проблемами.
+            Вы изучите принципы и методы арт-терапии, научитесь диагностировать и оценивать психологические проблемы с учётом творческого самовыражения клиента, освоите техники работы с клиентами.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">3 мес</param>
+        <oldprice>149000</oldprice>
+        <price>104528</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ежемесячный платеж">8700</param>
+        <param name="Ссылка на курс">https://mip.institute/courses/konsultirovanie/art-terapiya/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+        <param name="Выдаётся сертификат">Да</param>
+      </offer>
+
+           <offer id="1_Psychological_Сounseling" available="true">
+        <name>Психологическое консультирование</name>
+        <description>
+            Психологическое консультирование  рассчитанна на оказание краткосрочной психологической помощи.
+        </description>
+        <param name="Уровень курса">С Нуля</param>
+        <param name="Формат курса">ONLINE</param>
+        <param name="Регион проведения">Москва</param>
+        <param name="Длительность курса">12 месяцев</param>
+        <oldprice>257000</oldprice>
+        <price>180000</price>
+        <discount>30</discount>
+        <param name="Ежемесячный платеж">15000</param>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Ссылка на курс">https://mip.institute/professions/konsultirovanie/psiholog-konsultant/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+      </offer>
       <offer id="30_psihologo_pedagogicheskoye_obrazovanie" available="true">
         <name>Психолого–педагогическое образование</name>
         <description>
@@ -676,6 +766,112 @@
         <param name="Регион проведения">_____</param>
         <param name="Длительность курса">2 часа</param>
         <param name="Ссылка на курс">https://mip-institute-formveb.ru/mk?utm_source=hh&amp;utm_medium=cpa</param>
+      </offer>
+
+      <offer id="Narcissism_Narcissistic_Disorders" available="true">
+        <name>Нарциссизм и нарциссические расстройства</name>
+        <description>
+           Из всех ориентаций характера нарциссизм наиболее трудно распознать в себе.
+           В той мере, в какой человек нарциссичен, он превозносит себя и не способен видеть свои недостатки и ограниченные возможности.
+           Он убежден, что его образ себя как замечательного человека правильный, а поскольку это его образ, он не видит причин в нём сомневаться.
+        </description>
+        <param name="Уровень курса">новичок</param>
+        <param name="Формат курса">ONLINE</param>
+        <oldprice>36000</oldprice>
+        <price>25446</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+        <param name="Регион проведения">_____</param>
+        <param name="Длительность курса">1 мес</param>
+        <param name="Ссылка на курс">https://mip.institute/shortTerm/psihoterapiya/narcissizm-i-narcissicheskie-rasstrojstva/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+      </offer>
+
+       <offer id="Practical_Art_therapy_Methods" available="true">
+        <name>Практическое использование методов арт-терапии</name>
+        <description>
+          Арт-терапия – это отрасль искусства в консультативной психологии, базирующаяся на анализе продуктов творческой деятельности человека. Видов арт-терапии существует столько же, сколько и видов творчества.
+        </description>
+        <param name="Уровень курса">новичок</param>
+        <param name="Формат курса">ONLINE</param>
+        <oldprice>36000</oldprice>
+        <price>25446</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+        <param name="Регион проведения">_____</param>
+        <param name="Длительность курса">1 мес</param>
+        <param name="Ссылка на курс">https://mip.institute/shortTerm/konsultirovanie/prakticheskoe-ispolzovanie-metodov-art-terapii/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+      </offer>
+
+       <offer id="Psychology_Communication" available="true">
+        <name>Психология общения</name>
+        <description>
+          Общение является важной частью в жизни для каждого человека, частью психического и социального становления человека.
+          Коммуникация важна не только для конкретного человека, но и для общества в целом.
+          О том, как правильно общаться, выстраивать крепкие социальные связи и поведает наш курс психологии общения.
+        </description>
+        <param name="Уровень курса">новичок</param>
+        <param name="Формат курса">ONLINE</param>
+        <oldprice>36000</oldprice>
+        <price>25446</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+        <param name="Регион проведения">_____</param>
+        <param name="Длительность курса">1 мес</param>
+        <param name="Ссылка на курс">https://mip.institute/shortTerm/obshaya-psihologiya/psihologiya-obsheniya/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+      </offer>
+
+        <offer id="Psychology_Effective_Negotiations" available="true">
+        <name>Психология эффективных переговоров</name>
+        <description>
+          Социальная психология переговоров – это направление, рассчитанное на установление партнёрских отношений между организациями и их представителями.
+          Для успешного завершения требуется обладать знаниями о специфических свойствах переговоров и обладать навыками данного процесса.
+        </description>
+        <param name="Уровень курса">новичок</param>
+        <param name="Формат курса">ONLINE</param>
+        <oldprice>36000</oldprice>
+        <price>25446</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+        <param name="Регион проведения">_____</param>
+        <param name="Длительность курса">2 мес</param>
+        <param name="Ссылка на курс">https://mip.institute/shortTerm/organizacionnaya-psihologiya/psihologiya-effektivnyh-peregovorov/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
+      </offer>
+
+      <offer id="Conflict_Management" available="true">
+        <name>Управление конфликтами</name>
+        <description>
+          Управление конфликтами – это навык разрешать конфликтные ситуации между людьми и коллективами для достижения определённой цели.
+          Также задачей отрасли является изучение и воздействие на динамику конфликта для изменения социальной среды, в которой конфликт возник.
+        </description>
+        <param name="Уровень курса">новичок</param>
+        <param name="Формат курса">ONLINE</param>
+        <oldprice>36000</oldprice>
+        <price>25446</price>
+        <discount>30</discount>
+        <currencyId>RUR</currencyId>
+        <param name="Промокод">MIPHH</param>
+        <param name="Скидка по промокоду в процентах">10</param>
+        <param name="Выдаётся сертификат">Да</param>
+        <param name="Помощь с трудоустройством"></param>
+        <param name="Регион проведения">_____</param>
+        <param name="Длительность курса">1 мес</param>
+        <param name="Ссылка на курс">https://mip.institute/shortTerm/organizacionnaya-psihologiya/upravlenie-konfliktami/?utm_source=headhunter&amp;utm_medium=cpa&amp;utm_campaign=affiliate&amp;utm_content=hhru_do</param>
       </offer>
 
     </offers>
