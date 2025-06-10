@@ -1,5 +1,3 @@
-import ProgramStudyDuration from '@/components/program/ProgramStudyDuration'
-import { routes } from '@/config/index'
 import stls from '@/styles/components/cards/CardNextEvents.module.sass'
 import { Lectorium } from '@/types/page/lectorium/TypePageLectoriumPropsQuery'
 import Image from 'next/image'

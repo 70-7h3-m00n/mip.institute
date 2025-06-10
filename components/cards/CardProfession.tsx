@@ -119,7 +119,7 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
                     <span className={stls.months}>
                       <ProgramStudyDuration
                         studyMounthsDuration={profession.studyMounthsDuration}
-                        monthsOnly
+                        
                       />{' '}
                     </span>
                     <span className={stls.hours}>{`/ ${profession.studyHours} часов`}</span>
@@ -164,10 +164,10 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
                 <span className={stls.months}>
                   <ProgramStudyDuration
                     studyMounthsDuration={profession.studyMounthsDuration}
-                    monthsOnly
+                    
                   />{' '}
                 </span>
-                <span className={stls.hours}>{`/ ${profession.studyHours} часов`}</span>
+                <span className={stls.hours}>{` ${profession.studyHours} часов`}</span>
               </div>
             )}
           </div>
