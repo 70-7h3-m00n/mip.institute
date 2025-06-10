@@ -119,7 +119,7 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
                     <span className={stls.months}>
                       <ProgramStudyDuration
                         studyMounthsDuration={profession.studyMounthsDuration}
-                        
+                        monthsOnly
                       />{' '}
                     </span>
                     <span className={stls.hours}>{`/ ${profession.studyHours} часов`}</span>
@@ -161,13 +161,27 @@ const CardProfession = ({ profession = null, onMain = false }: Props) => {
             <p className={stls.title}>{profession.title}</p>
             {profession.studyMounthsDuration && (
               <div className={stls.duration}>
-                <span className={stls.months}>
-                  <ProgramStudyDuration
-                    studyMounthsDuration={profession.studyMounthsDuration}
-                    
-                  />{' '}
-                </span>
-                <span className={stls.hours}>{` ${profession.studyHours} часов`}</span>
+                <div className={stls.lite}>
+                  <span className={stls.months}>
+                    <ProgramStudyDuration
+                      studyMounthsDuration={profession.studyMounthsDuration}
+                      monthsOnly
+                    />{' '}
+                  </span>
+                  <span className={stls.hours}>{`/ ${profession.studyHours} часов`}</span>
+                </div>
+
+                {profession.studyMounthsDurationStandart && (
+                  <div className={stls.lite}>
+                    <span className={stls.months}>
+                      <ProgramStudyDuration
+                        studyMounthsDuration={profession.studyMounthsDurationStandart}
+                        monthsOnly
+                      />{' '}
+                    </span>
+                    <span className={stls.hours}>{`/ ${profession.studyHoursStandart} часов`}</span>
+                  </div>
+                )}
               </div>
             )}
           </div>

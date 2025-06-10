@@ -84,6 +84,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           typeLabel
           studyMounthsDuration
           studyHours
+          studyMounthsDurationStandart
+          studyHoursStandart
           price
           isPopular
           courseOpened
@@ -213,6 +215,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             studyForm
             type
             studyMounthsDuration
+            studyMounthsDurationStandart
+            studyHoursStandart
             description
             studyFormLabel
             typeLabel
