@@ -10,7 +10,6 @@ import Script from 'next/script'
 const PopupThankyouNew = ({ close }) => {
   const { program } = useContext(ContextStaticProps)
 
-
   useEffect(() => {
     const tagManagerArgs = {
       dataLayer: {

@@ -12,7 +12,7 @@ import stls from '@/styles/components/sections/Header.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useContext, useEffect, useState } from 'react'
+import { Suspense, useContext, useEffect, useState } from 'react'
 import IconsDropDown from '../dropdown/IconsDropDown'
 import SearchProgramsDropDown from '../dropdown/SearchProgramsDropDown'
 import promocodesWithGift from '@/helpers/promoWithGIfts'
@@ -22,6 +22,8 @@ import StickyTop from './StickyTop'
 import NProgress from 'nprogress'
 import TagManager from 'react-gtm-module'
 import Router from 'next/router'
+import Script from 'next/script'
+import { WPheaderJsonLd } from 'constants/header'
 
 const Header = () => {
   const { menuIsOpen, closeMenu } = useContext(MenuContext)
@@ -36,21 +38,20 @@ const Header = () => {
   const [isPromo, setIsPromo] = useState(false)
   const [promoText, setPromoText] = useState('')
   const [isWithGift, setIsWithGift] = useState(false)
-  
+
   const utmCookie = getCookie('utm')?.toString() || ''
 
-  
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // const timer = setTimeout(() => {
       const promoCode = Object.keys(promocodes).find(code => utmCookie?.includes(code))
       const giftCode = Object.keys(promocodesWithGift).find(code => utmCookie?.includes(code))
 
       setIsPromo(!!promoCode)
       setPromoText(promoCode ? promocodes[promoCode] : '')
       setIsWithGift(!!giftCode)
-    }, 2000)
+    // }, 2000)
 
-    return () => clearTimeout(timer) // Очищаем таймер при размонтировании
+    // return () => clearTimeout(timer) // Очищаем таймер при размонтировании
   }, [utmCookie])
 
   const closePromo = () => setIsPromo(false)
@@ -121,12 +122,22 @@ const Header = () => {
 
   return (
     <>
+      <Script
+        id='header-jsonld'
+        type='application/ld+json'
+        strategy='afterInteractive'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(WPheaderJsonLd, null, 2)
+        }}
+      />
+    <Suspense>
       <StickyTop
         isWithGift={isWithGift}
         onClick={closePromo}
         isPromo={isPromo}
         promoText={promoText}
       />
+      </Suspense>
       <header
         className={classNames({
           [stls.container]: true,
@@ -145,7 +156,9 @@ const Header = () => {
               <BtnFields />
             </div>
             <SearchProgramsDropDown />
-            <IconsDropDown newMainPage={pathname === '/'} />
+            <IconsDropDown
+              newMainPage={pathname === '/'}
+            />
           </div>
           {pathname === '/' && (
             <div className={stls.bottom}>

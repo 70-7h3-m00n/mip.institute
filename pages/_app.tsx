@@ -23,11 +23,20 @@ import 'swiper/css/scrollbar'
 import SEO from '../seo.config'
 import dynamic from 'next/dynamic'
 import getDefaultStateProps from '@/helpers/funcs/getDefaultStateProps'
+import { tgPixelRoutes } from '../constants/scripts/tgPixel'
 import ABTestScript from '@/components/abTests/roistatAB'
+import { navigationItems } from 'constants/header'
+import Footer from '@/components/sections/Footer/Footer'
 
-const Footer = dynamic(() => import('@/components/sections/Footer/Footer'), {
-  ssr: false
-})
+const navigationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SiteNavigationElement',
+  name: navigationItems.map(item => item.val),
+  url: navigationItems.map(item =>
+    item.href.startsWith('http') ? item.href : `https://mip.institute${item.href}`
+  )
+}
+
 // Динамический импорт StickyBottom без SSR чтобы не перерендеривался на изменения на странице
 const StickyBottom = dynamic(() => import('@/components/sections/StickyBottom'), { ssr: false })
 
@@ -63,7 +72,6 @@ const MyApp = ({ Component, pageProps, router }) => {
     }))
   }
 
-  //cookie for edPartners
   useEffect(() => {
     const utmCookie = getCookie('utm')
     let arr
@@ -71,25 +79,24 @@ const MyApp = ({ Component, pageProps, router }) => {
       arr = JSON.parse(utmCookie)
     }
     const urlUtmsArr = router.asPath.split('?')[1]
-
+    
     // переписываем куку если отличается сурс от того, что был до этого
     if (urlUtmsArr) {
       const urlUtmsArr = router.asPath.split('?')[1]
-      let utms = {}
-      urlUtmsArr &&
-        urlUtmsArr.split('&').forEach(utm => {
-          const [key, value] = utm.split('=')
-          utms[key] = decodeURIComponent(value) // Декодирование URL-кодированной строки
-        })
+      let utms: { [key: string]: string } = {}
 
-      setCookie('utm', JSON.stringify(utms), { maxAge: 7776000 })
+      urlUtmsArr.split('&').forEach(utm => {
+        const [key, value] = utm.split('=')
+        utms[key] = decodeURIComponent(value) // Декодирование URL-кодированной строки
+      })
+
+      const isLeadmagnet = utms.utm_source === 'leadmagnet'
+      const maxAge = isLeadmagnet ? 86400 * 120 : 7776000 // 120 дней или 90 дней
+
+      setCookie('utm', JSON.stringify(utms), { maxAge })
+
     }
   }, [router.query, router.asPath])
-
-  //cookie for edPartners
-  // ?utm_source=yandex_alexej&utm_medium=cpc&utm_campaign=компания&utm_content=[Поиск] Логопед с доп. квалификацией - GZ / RF / CPC&utm_term=ключ
-  // ?utm_source=yandex-Feed&utm_medium=free&utm_campaign=psychology&utm_content=professions
-  // ?utm_source=edpartners&utm_medium=cpa&utm_campaign=affiliate&cl_uid=7a61af20124c1918ac49130334cd03c8
 
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
@@ -151,6 +158,10 @@ const MyApp = ({ Component, pageProps, router }) => {
     setRoistatVisit(roistat_visit as string)
   }, [roistat_visit])
 
+  // Нормализация пути (удаляем query-параметры и trailing slash)
+  const normalizePath = (path: string) => path.split('?')[0].replace(/\/$/, '')
+  const currentPath = normalizePath(router.asPath)
+
   return (
     <>
       <Script src='https://api.flocktory.com/v2/loader.js?site_id=5428' />
@@ -178,7 +189,14 @@ const MyApp = ({ Component, pageProps, router }) => {
           {roistatVisit}
         </div>
       )}
-
+      <Script
+        id='navigation-jsonld'
+        type='application/ld+json'
+        strategy='afterInteractive'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(navigationJsonLd, null, 2)
+        }}
+      />
       <Script async src='https://www.googletagmanager.com/gtag/js?id=AW-822792302' />
       <Script
         id='google-tag'
@@ -334,7 +352,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         }}
       />
 
-      <Script async src='/assets/js/vendors/pixel.js' />
+      {/*<Script async src='/assets/js/vendors/pixel.js' />*/}
 
       {router.asPath === '/' ? (
         <Script
@@ -354,6 +372,16 @@ const MyApp = ({ Component, pageProps, router }) => {
           window.advcake_data.push({
               pageType: 2
           });`
+          }}
+        />
+      )}
+
+      {tgPixelRoutes.includes(currentPath) && (
+        <Script
+          id='tg_pixel'
+          strategy='afterInteractive'
+          dangerouslySetInnerHTML={{
+            __html: `(function(t,l,g,r,m){t[g]||(g=t[g]=function(){g.run?g.run.apply(g,arguments):g.queue.push(arguments)},g.queue=[],t=l.createElement(r),t.async=!0,t.src=m,l=l.getElementsByTagName(r)[0],l.parentNode.insertBefore(t,l))})(window,document,'tgp','script','https://telegram.org/js/pixel.js');tgp('init','ZGar7r3D');`
           }}
         />
       )}

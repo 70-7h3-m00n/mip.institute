@@ -49,7 +49,7 @@ const routes: TRoutes = {
     liveCourses: '/live-courses',
     ochuvomipConstituent: '/docs/ochu-vo-mip/constituent',
     ochuvomipGeneral: '/docs/ochu-vo-mip/general',
-    partners: '/partners/association',
+    partners: '/partners',
     payment: '/payment_edu_mip',
     policiesOferta: '/policies/oferta-mip.pdf',
     policiesOfertaEvent: '/policies/oferta-event.pdf',

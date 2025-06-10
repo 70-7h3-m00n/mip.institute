@@ -65,6 +65,8 @@ const promocodes = {
   winivino: 'ВИНИВИНО',
   lyalyausa: 'ЛЯЛЯ',
   kontext_may: 'Контекст',
+  katerinalo2305: 'KATERINALO',
+  vselennaya10206: 'ВСЕЛЕННАЯ'
 }
 
 export default promocodes

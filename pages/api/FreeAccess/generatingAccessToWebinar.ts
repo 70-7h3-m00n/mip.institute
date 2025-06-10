@@ -3,7 +3,7 @@ import crypto from 'crypto'
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { name, lastName, phone, email } = req.body
+    const { name, email } = req.body
     const staticKey = '3ykOQzkL2X647dWw8dDx7h5c'
 
     try {
@@ -18,15 +18,11 @@ export default async function handler(req, res) {
       const g = 'Почувствуйте себя студентом МИПа'
 
       // Создание ссылки для логина
-      const Link = `https://lms.mip.institute/local/ilogin/rlogin.php?un=${email}&pw=${generatePswrd}&ln=${lastName}&fn=${name}&g=87&e=${email}&t=${time}&k=${k}&ee=${endEducation}&be=${beginEducation}&g=${g}`
+      const Link = `https://lms.mip.institute/local/ilogin/rlogin.php?un=${email}&pw=${generatePswrd}&fn=${name}&g=87&e=${email}&t=${time}&k=${k}&ee=${endEducation}&be=${beginEducation}&g=${g}`
 
-      res
-        .status(200)
-        .json({ link: Link, password: generatePswrd, login: email })
+      res.status(200).json({ link: Link, password: generatePswrd, login: email })
     } catch (error) {
-      res
-        .status(500)
-        .json({ message: 'Ошибка генерации ссылки', error: error.message })
+      res.status(500).json({ message: 'Ошибка генерации ссылки', error: error.message })
     }
   } else {
     res.status(405).json({ message: 'Метод не разрешен' })

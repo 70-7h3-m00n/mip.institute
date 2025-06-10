@@ -22,6 +22,7 @@ const BachelorStudyCost = ({ costRef }: Props) => {
         <div className={stls.content}>
           <div className={stls.left}>
             <BachelorProgramCost
+              fullPriceYear={bachelor?.OnlinePriceYear}
               fullPrice={bachelor?.onlineFullPrice}
               priceWithDiscount={bachelor?.onlinePriceWithDiscount}
               violetBtn
@@ -37,6 +38,7 @@ const BachelorStudyCost = ({ costRef }: Props) => {
           </div>
           <div className={stls.center}>
             <BachelorProgramCost
+              fullPriceYear={bachelor?.OfflinePriceYear}
               fullPrice={bachelor?.offlineFullPrice}
               priceWithDiscount={bachelor?.offlinePriceWithDiscount}
               orangeBtn
@@ -51,7 +53,9 @@ const BachelorStudyCost = ({ costRef }: Props) => {
             />
           </div>
           <div className={stls.right}>
-            <p className={stls.titleRight}>Мы предоставляем скидки на обучение:</p>
+            <p className={stls.titleRight}>
+              Мы предоставляем скидки на обучение (скидки не суммируются):
+            </p>
             <ul className={stls.points}>
               {points.map((point, idx) => (
                 <li key={point + idx} className={stls.point}>

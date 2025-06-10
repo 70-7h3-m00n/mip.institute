@@ -26,6 +26,7 @@ interface FormFreeAccessProps {
   showPopup: boolean
   setShowPopup: React.Dispatch<React.SetStateAction<boolean>>
 }
+
 const FormFreeAccess: React.FC<FormFreeAccessProps> = ({
   setDisabled,
   disabled,
@@ -41,9 +42,9 @@ const FormFreeAccess: React.FC<FormFreeAccessProps> = ({
   } = useForm<FormValues>({
     defaultValues: {
       name: '',
-      lastName: '',
       phone: '',
-      email: ''
+      email: '',
+      lastName: 'Демо3дня'
     }
   })
 
@@ -68,34 +69,35 @@ const FormFreeAccess: React.FC<FormFreeAccessProps> = ({
       reset(parsedData)
     }
   }, [setShowPopup, setDisabled, reset])
- const onSubmit = async (formData: FormValues) => {
-  try {
-    const response = await axios.post('/api/FreeAccess/generatingAccessToWebinar', formData)
-    const { link, password, login } = response.data
+  const onSubmit = async (formData: FormValues) => {
+    try {
+      const response = await axios.post('/api/FreeAccess/generatingAccessToWebinar', formData)
+      const { link, password, login } = response.data
 
-    localStorage.setItem('formData', JSON.stringify(formData))
-    localStorage.setItem('accessLink', link)
-    localStorage.setItem('accessPassword', password)
-    localStorage.setItem('accessLogin', login)
+      localStorage.setItem('formData', JSON.stringify(formData))
+      localStorage.setItem('accessLink', link)
+      localStorage.setItem('accessPassword', password)
+      localStorage.setItem('accessLogin', login)
 
-    setDataStorage({ login, password, link })
-    setShowPopup(true)
-    setDisabled(true)
+      setDataStorage({ login, password, link })
+      setShowPopup(true)
+      setDisabled(true)
 
-    // Собираем данные для CRM
-    const crmData = prepareCrmData(
-      formData, 
-      { link, password, login }, 
-      router.asPath
-    )
+      // Собираем данные для CRM
+      const crmData = prepareCrmData(formData, { link, password, login }, router.asPath)
 
-    // Отправляем данные в CRM
-    const res = await axios.post(`${routes.front.root}/api/genezis`, crmData)
+      // Отправляем данные в CRM
+      const res = await axios.post(`${routes.front.root}/api/genezis`, crmData)
 
-  } catch (error) {
-    console.error('Error generating link:', error)
+      if (res.status === 200) {
+        if (typeof window.tgp === 'function') {
+          window.tgp('event', 'ZGar7r3D-6jrcxRT8')
+        }
+      }
+    } catch (error) {
+      console.error('Error generating link:', error)
+    }
   }
-}
 
   return (
     <>
@@ -128,29 +130,6 @@ const FormFreeAccess: React.FC<FormFreeAccessProps> = ({
             )}
           />
           {errors.name && <span className={styles.error}>{errors.name.message}</span>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <Controller
-            name='lastName'
-            control={control}
-            rules={{
-              required: '*Фамилия обязательно',
-              minLength: {
-                value: 3,
-                message: '*Фамилия должна содержать минимум 3 символа'
-              }
-            }}
-            render={({ field }) => (
-              <input
-                disabled={disabled}
-                {...field}
-                placeholder='Введите фамилию'
-                className={styles.input}
-              />
-            )}
-          />
-          {errors.lastName && <span className={styles.error}>{errors.lastName.message}</span>}
         </div>
 
         <div className={styles.formGroup}>

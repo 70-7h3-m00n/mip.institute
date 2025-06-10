@@ -1,9 +1,0 @@
-@use '@/styles/utils/mixin' as m
-@use '@/styles/utils/funcs' as f
-@use '@/styles/themes/default/colors' as c
-
-.container
-  @include m.flex
-  @include m.sizeIcon($w: 56, $h: 56)
-  @include m.media(phone, tablet)
-    @include m.sizeIcon($w: 32, $h: 32)

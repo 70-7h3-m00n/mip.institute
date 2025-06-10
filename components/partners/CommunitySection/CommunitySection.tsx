@@ -74,10 +74,10 @@ const CommunitySection = () => {
         </div>
         {/* Центральный контент */}
         <div className={styles.content}>
-          <h2 className={styles.title}>
+          <h1 className={styles.title}>
             Сильное сообщество — <span className={styles.highlight}>больше возможностей</span> для
             студентов
-          </h2>
+          </h1>
           <p className={styles.description}>
             Мы создаем партнерства, которые помогают нашим студентам развиваться, набираться опыта и
             строить карьеру.

@@ -32,7 +32,7 @@ const Scripts = () => {
         }}
       />
       <Script async src='/assets/js/vendors/roistatWA.js' />
-
+      <Script src="https://dmp.one/sync?stock_key=adc88b88cdc24470b495327c9381ad2d" async/>
       {roistatVisit && (
         <div className='js-whatsapp-message-container' style={{ display: 'none' }}>
           Обязательно отправьте это сообщение и дождитесь ответа. Ваш номер обращения:{' '}
@@ -54,10 +54,6 @@ const Scripts = () => {
         }}
       />
 
-      <link
-        rel='stylesheet'
-        href='https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css'
-      />
       <Script src='/assets/js/vendors/swiped-events.min.js' />
       <Script type='text/javascript' id='carrot' src='/assets/js/vendors/carrot.js' />
       <Script type='text/javascript' id='advcakeAsync' src='/assets/js/vendors/advCake.js' />
@@ -158,20 +154,6 @@ const Scripts = () => {
           }}
         />
       )}
-      <Script
-      id='victorycorp'
-      async
-      dangerouslySetInnerHTML={{
-        __html: `(function (d, w) {
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script");
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = "https://victorycorp.ru/index.php?ref="+d.referrer+"&page=" + encodeURIComponent(w.location.href);
-            n.parentNode.insertBefore(s, n);
-    })(document, window);`
-      }}
-      />
 
       <noscript>
         <div>

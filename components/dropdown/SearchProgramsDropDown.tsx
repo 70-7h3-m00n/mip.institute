@@ -1,14 +1,15 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+'use client'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import stls from '@/styles/components/sections/Header.module.sass'
 import CardTooltip from '../cards/CardTooltip'
 import IconArrowRight from '@/components/icons/IconArrowRight'
 import IconSearchAlt from '@/components/icons/IconSearchAlt'
 import convertEnglishToRussian from '@/helpers/convertEnglishToRussian'
-import routes from '@/config/routes'
 import BtnField from '../btns/BtnField'
 import { usePathname } from 'next/navigation'
 import { useProgramsSafe } from '@/hooks/general/useSafeContext'
+import { navigationItems } from 'constants/header'
 
 type Program = {
   id: string
@@ -42,29 +43,14 @@ export default function SearchProgramsDropDown() {
   const inputRef = useRef<HTMLInputElement | null>(null)
   const iconRef = useRef<HTMLDivElement | null>(null)
 
-  //Список ссылок
-  const list = useMemo(
-    () => [
-      { href: routes.front.about, val: 'Об институте' },
-      { href: routes.front.lectoriums, val: 'Семинары' },
-      { href: routes.front.supervision, val: 'Супервизия' },
-      { href: routes.front.incomers, val: 'Поступающим' },
-      { href: routes.front.teachers, val: 'Преподаватели' },
-      { href: routes.front.webinars, val: 'Вебинары' },
-      { href: routes.front.journals, val: 'Журнал' },
-      { href: routes.front.reviews, val: 'Отзывы' },
-      { href: routes.front.vacancies, val: 'Вакансии' }
-    ],
-    []
-  )
 
   const pathname = usePathname()
 
   // Обновляем текст описания при изменении `pathname`
   useEffect(() => {
-    const currentItem = list.find(item => item.href === pathname)
+    const currentItem = navigationItems.find(item => item.href === pathname)
     setDescriptionText(currentItem ? currentItem.val : 'Об институте')
-  }, [pathname, list])
+  }, [pathname])
 
   // Обновляем `filteredPrograms` при изменении `searchQuery`
   useEffect(() => {
@@ -168,7 +154,7 @@ export default function SearchProgramsDropDown() {
         </p>
         <div className={directionOnHover ? stls.directionsPopup : stls.hidden}>
           <div className={stls.oneDirection}>
-            {list.map(item => (
+            {navigationItems.map(item => (
               <div key={item.href + item.val} className={stls.popupLink}>
                 <Link href={item.href} passHref>
                   {item.val}
@@ -182,7 +168,7 @@ export default function SearchProgramsDropDown() {
         </div>
         <div className={directionOnHover ? stls.directionsPopup : stls.hidden}>
           <div className={stls.oneDirection}>
-            {list.map(item => (
+            {navigationItems.map(item => (
               <div key={item.href + item.val} className={stls.popupLink}>
                 <Link href={item.href} passHref>
                   {item.val}
