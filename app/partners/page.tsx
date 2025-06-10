@@ -3,31 +3,24 @@ import axios from 'axios'
 import React from 'react'
 import qs from 'qs'
 import OurPartners from '@/components/partners/OurPartners/OurPartners'
-import { Params, Partner } from '@/components/partners/type'
+import { Partner } from '@/components/partners/type'
 import CommunitySection from '@/components/partners/CommunitySection/CommunitySection'
 import BecomePartner from '@/components/partners/BecomePartner/BecomePartner'
 import company from '@/config/company'
 import prod from '@/config/prod'
 import { Metadata } from 'next'
 
-export const generateMetadata = ({params}): Metadata => {
-  const {type} = params
-  
-  const title = 'Партнеры Московского Института Психологии '
-  const description ='Подробная информация о действующих партнерах Московского Института Психологии '
-  const canonical = `${routes.front.root}/partners/${type}`
+export const generateMetadata = (): Metadata => {
+  const title = 'Партнеры Московского Института Психологии'
+  const description = 'Подробная информация о действующих партнерах Московского Института Психологии'
+  const canonical = `${routes.front.root}/partners`
   const logoUrl = `${routes.front.root}${routes.front.assetsImgsIconsManifestIcon512}`
 
   return {
     title,
     description,
-    alternates: {
-      canonical
-    },
-    robots: {
-      index: prod,
-      follow: prod
-    },
+    alternates: { canonical },
+    robots: { index: prod, follow: prod },
     openGraph: {
       url: canonical,
       title,
@@ -46,6 +39,7 @@ export const generateMetadata = ({params}): Metadata => {
   }
 }
 
+
 const queryString = qs.stringify(
   {
     populate: {
@@ -61,7 +55,6 @@ const queryString = qs.stringify(
 )
 
 export const revalidate = false
-export const dynamicParams = false
 
 // Функция получения всех партнеров
 async function getAllPartners(): Promise<Partner[]> {
@@ -77,30 +70,18 @@ async function getAllPartners(): Promise<Partner[]> {
   return response.data.data
 }
 
-// Генерация статических параметров для ISR
-export async function generateStaticParams(): Promise<Params[]> {
-  const partners = await getAllPartners()
-  const categories = Array.from(new Set(partners.map(partner => partner.type)))
-  return categories.map(type => ({ type }))
-}
-
 // Главный компонент
-export default async function Partners({ params }: { params: Params }) {
-  const { type } = params
-
+export default async function Partners() {
   // Получаем всех партнеров
   const allPartners = await getAllPartners()
 
   // Получаем все уникальные типы партнеров
   const allTypes: string[] = Array.from(new Set(allPartners.map(partner => partner.type)))
 
-  // Фильтруем партнеров по указанному типу
-  const onePartner = allPartners.filter(partner => partner.type === type)
-
   return (
     <>
       <CommunitySection />
-      <OurPartners allTypes={allTypes} currentType={type} onePartner={onePartner} />
+      <OurPartners allTypes={allTypes} allPartners={allPartners} />
       <BecomePartner />
     </>
   )
