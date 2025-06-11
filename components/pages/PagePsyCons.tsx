@@ -21,6 +21,8 @@ import FutureDiploms from '@/components/sections/RedesignedProgram/FutureDiploms
 import SalaryCalculatorNew from '../sections/RedesignedProgram/SalaryCalculator/SalaryCalculator'
 import dynamic from 'next/dynamic'
 import CoursePreviewVideo from '../sections/RedesignedProgram/CoursePreviewVideo/CoursePreviewVideo'
+import { studyProcessPsyConsData } from '@/components/sections/Incomers/StudyProcess/constants'
+
 const PracticalOrientatedProgram = dynamic(
   () =>
     import(
@@ -28,6 +30,7 @@ const PracticalOrientatedProgram = dynamic(
     ),
   { ssr: false }
 )
+
 interface Props {}
 
 const partners = [
@@ -111,7 +114,7 @@ const PagePsyCons: React.FC<Props> = ({}) => {
       <ShortCourseDescription />
       <PracticalOrientatedProgram />
       <HomeForm />
-      <StudyProcess />
+      <StudyProcess studyProcess={studyProcessPsyConsData} />
       <Bonuses />
       <CourseWorkTopics />
       <TeachersSlider />
