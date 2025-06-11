@@ -18,7 +18,7 @@ const ProgramStudyDuration = ({
         getCasedRuMonthString({ months: studyMounthsDuration })
       ) : (
         <>
-          {getCasedRuYearString({ years })} {getCasedRuMonthString({ months })}
+          {getCasedRuYearString({ years })} {getCasedRuMonthString({ months }) }
         </>
       )}
     </>

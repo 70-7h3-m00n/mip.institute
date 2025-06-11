@@ -118,9 +118,13 @@
 
 .duration
   @include m.gap($mt: f.px(20))
+  display: flex
+  align-items: center
+  justify-content: space-between
+  gap: f.px(16)
 
 .months
-  @include m.gap($mt: f.px(20))
+  // @include m.gap($mt: f.px(20))
   font-size: f.px(12) !important
   font-weight: 500
   line-height: 120%

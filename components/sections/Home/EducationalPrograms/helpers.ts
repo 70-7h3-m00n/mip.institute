@@ -11,10 +11,22 @@ const getDurationText = (card: EducationalProgram) => {
     'studyHours' in card &&
     card.studyHours
   ) {
-    return `${card.studyMounthsDuration} месяцев / ${card.studyHours} часов` // Для Program
+    return `${card.studyMounthsDuration} мес. / ${card.studyHours} часов` // Для Program
   }
   if ('minTime' in card && 'maxTime' in card) {
     return `${card.minTime} - ${card.maxTime} лет` // Для Bachelor
+  }
+  return null
+}
+
+const getDurationTextStandart = (card: EducationalProgram) => {
+  if (
+    'studyMounthsDurationStandart' in card &&
+    card.studyMounthsDurationStandart &&
+    'studyHoursStandart' in card &&
+    card.studyHoursStandart
+  ) {
+    return `${card.studyMounthsDurationStandart} мес. / ${card.studyHoursStandart} часов` // Для Program
   }
   return null
 }
@@ -64,4 +76,4 @@ const getProgramLink = (program: EducationalProgram): string => {
   }
 }
 
-export { getDurationText, getProgramLink, getProgramCategory }
+export { getDurationText, getProgramLink, getProgramCategory, getDurationTextStandart }

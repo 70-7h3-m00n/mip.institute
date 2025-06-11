@@ -24,6 +24,7 @@ import ProgramOverview from '../sections/ProgramOverview'
 import RequestsCard from '../sections/RequestsCard'
 import SalaryCounter from '../sections/SalaryCounter'
 import YourResumeNew from '../sections/YourResumeNew'
+import PricingSection from '../sections/OldProgram/PricingSection/PricingSection'
 
 type PagesProgramType = {
   ofType: string | undefined
@@ -136,7 +137,12 @@ const PagesProgram = ({
         />
       )}
 
-      <StudyCost costRef={costRef} ofType={ofType} />
+      {program.bonuses && program.tariffs ? (
+        <PricingSection tariffs={program.tariffs} bonuses={program.bonuses} costRef={costRef} />
+      ) : (
+        <StudyCost costRef={costRef} ofType={ofType} />
+      )}
+
       <Reviews reviewsRef={reviewsRef} reviews={reviewsSorted} />
       <EntryForm />
       <Faq faqRef={faqRef} />
