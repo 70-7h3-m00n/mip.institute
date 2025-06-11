@@ -11,11 +11,33 @@ const getStaticPropsPracticalTraining = async ({
   props: TypePagePracticalTrainingProps
   revalidate: number | boolean
 }> => {
-  const slug = context?.params?.slug?.toString() || null  
+  const slug = context?.params?.slug?.toString() || null
   try {
     const res = await apolloClient.query<TypePagePracticalTrainingPropsQuery>({
       query: gql`
         query getStaticPropsPracticalTraining($slug: String!) {
+          programs {
+            id
+            title
+            slug
+            studyField
+            studyFieldSlug
+            type
+            typeLabel
+            studyMounthsDuration
+            studyHours
+            price
+            isPopular
+            courseOpened
+            heroPicture {
+              url
+              width
+              height
+            }
+            index_number {
+              idx
+            }
+          }
           practicalTraining: practicalTrainings(where: { slug: $slug }) {
             title
             subtitle
@@ -101,7 +123,7 @@ const getStaticPropsPracticalTraining = async ({
             }
             review {
               name
-              image{
+              image {
                 url
                 width
                 height
@@ -150,20 +172,20 @@ const getStaticPropsPracticalTraining = async ({
         slug
       }
     })
-    
+
     return {
       props: {
         practicalTraining: res?.data?.practicalTraining?.[0] || null
       },
       revalidate: revalidate.default
-    }    
+    }
   } catch (error) {
     console.error('Ошибка запроса:', error)
     console.error('Статус код:', error.statusCode)
     console.error('Результат:', error.result)
     console.log('errrrrrr', error.networkError.result)
     return error
-  }  
+  }
 }
 
 export default getStaticPropsPracticalTraining

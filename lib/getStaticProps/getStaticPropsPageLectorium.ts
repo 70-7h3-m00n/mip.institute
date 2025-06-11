@@ -16,6 +16,28 @@ const getStaticPropsPageLectorium = async ({
     const res = await apolloClient.query<TypePageLectoriumPropsQuery>({
       query: gql`
         query getStaticPropsPageLectorium($slug: String!) {
+          programs {
+            id
+            title
+            slug
+            studyField
+            studyFieldSlug
+            type
+            typeLabel
+            studyMounthsDuration
+            studyHours
+            price
+            isPopular
+            courseOpened
+            heroPicture {
+              url
+              width
+              height
+            }
+            index_number {
+              idx
+            }
+          }
           lectorium: lectoriums(where: { slug: $slug }) {
             slug
             title

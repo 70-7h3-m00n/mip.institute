@@ -21,10 +21,30 @@ const getStaticPropsPageJournal = async ({
   try {
     const res = await apolloClient.query<TypePageJournalPropsQuery>({
       query: gql`
-        query GetStaticPropsPageJournal(
-          $slug: String!
-        ) {
-          blog: blogs(where: { slug: $slug}) {
+        query GetStaticPropsPageJournal($slug: String!) {
+          programs {
+            id
+            title
+            slug
+            studyField
+            studyFieldSlug
+            type
+            typeLabel
+            studyMounthsDuration
+            studyHours
+            price
+            isPopular
+            courseOpened
+            heroPicture {
+              url
+              width
+              height
+            }
+            index_number {
+              idx
+            }
+          }
+          blog: blogs(where: { slug: $slug }) {
             id
             title
             slug
@@ -39,17 +59,17 @@ const getStaticPropsPageJournal = async ({
               height
             }
             blogs {
-            date
-            picture {
-              width
-              height
-              url
+              date
+              picture {
+                width
+                height
+                url
               }
-            slug
-            studyField
-            studyFieldSlug
-            subtitle
-            title
+              slug
+              studyField
+              studyFieldSlug
+              subtitle
+              title
             }
             blogAuthor {
               name
@@ -94,67 +114,66 @@ const getStaticPropsPageJournal = async ({
               ... on ComponentBlogSubtitle {
                 subtitle
                 subtitleSlug
-                color 
+                color
               }
               __typename
               ... on ComponentBlogBigSizeText {
                 text
-                textColor 
+                textColor
               }
               __typename
               ... on ComponentBlogFullColoredTextBlock {
                 text
-                textColor 
+                textColor
               }
               __typename
               ... on ComponentBlogList {
                 listItem {
                   id
                   text
-                  icon 
+                  icon
                 }
               }
               __typename
               ... on ComponentBlogListWithTitle {
-                icon 
+                icon
                 item {
                   id
                   title
                   text
-                  icon 
+                  icon
                 }
               }
               ... on ComponentBlogSingleImageBlock {
                 alternativeText
                 picture {
-                    url
-                    width
-                    height
-                  }
+                  url
+                  width
+                  height
+                }
               }
               ... on ComponentBlogCommentBlock {
                 text
-                lineColor 
+                lineColor
               }
               __typename
               ... on ComponentBlogTextBlockWithBackground {
                 text
-                backgroundColor 
+                backgroundColor
                 borderColor
-                textColor 
+                textColor
               }
-              
+
               __typename
               ... on ComponentBlogListWithBackgroundAndTitle {
                 title
-                backgroundColor 
-                lineColor 
-                icon 
+                backgroundColor
+                lineColor
+                icon
                 item {
                   id
                   text
                   icon
-                  
                 }
               }
               __typename
@@ -183,17 +202,16 @@ const getStaticPropsPageJournal = async ({
                 row {
                   id
                   record {
-                  id
-                  text
+                    id
+                    text
                   }
                 }
-                
               }
               __typename
               ... on ComponentBlogTeacherComment {
                 specialization
                 comment
-                borderColor 
+                borderColor
                 teacher {
                   name
                   specialization
@@ -209,7 +227,7 @@ const getStaticPropsPageJournal = async ({
         }
       `,
       variables: {
-        slug,
+        slug
         // studyFieldSlug
       }
     })

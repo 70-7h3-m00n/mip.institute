@@ -8,11 +8,10 @@ const queryString = qs.stringify(
     populate: {
       incomersInfo: {
         populate: {
-          img :{
+          img: {
             fields: ['url', 'width', 'height']
           }
-        },
-
+        }
       },
       AdventureCards: {
         populate: {
@@ -46,11 +45,11 @@ const queryString = qs.stringify(
       },
       careerCenter: {
         populate: {
-          img :{
+          img: {
             fields: ['url', 'width', 'height']
           }
         }
-      },
+      }
     }
   },
   {
@@ -60,13 +59,12 @@ const queryString = qs.stringify(
 )
 export const getStaticPropsIncomers = async () => {
   try {
-    
     const response = await axios.get(`${routes.back.rootv2}/api/incomer?${queryString}`, {
       headers: {
         Authorization: `Bearer ${process.env.STRAPI_BEARER}` // Замените на ваш токен
       }
     })
-    
+
     return {
       props: {
         incomers: response?.data?.data || []
@@ -78,7 +76,7 @@ export const getStaticPropsIncomers = async () => {
     return {
       props: {
         incomers: e.response.data || []
-      },
+      }
     }
   }
 }

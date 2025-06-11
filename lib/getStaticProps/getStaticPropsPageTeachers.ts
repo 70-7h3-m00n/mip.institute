@@ -19,14 +19,17 @@ const getStaticPropsPageTeachers = async ({
         query GetStaticPropsPageTeachers {
           programs {
             id
-            studyField
-            studyFieldSlug
             title
             slug
-            typeLabel
+            studyField
+            studyFieldSlug
             type
+            typeLabel
             studyMounthsDuration
             studyHours
+            price
+            isPopular
+            courseOpened
             heroPicture {
               url
               width
@@ -53,7 +56,7 @@ const getStaticPropsPageTeachers = async ({
         }
       `
     })
-  
+
     return {
       props: res.data,
       revalidate: revalidate.default
@@ -61,7 +64,6 @@ const getStaticPropsPageTeachers = async ({
   } catch (error) {
     return error
   }
-  
 }
 
 export default getStaticPropsPageTeachers

@@ -323,7 +323,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
       props: {
         program: res?.data?.program?.[0] || null,
-
+        programs,
+        studyFieldSlug,
         reviews: reviewsData
       },
       revalidate: revalidate.default

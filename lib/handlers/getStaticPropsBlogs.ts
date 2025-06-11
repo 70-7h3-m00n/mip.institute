@@ -2,6 +2,9 @@ import revalidate from '@/config/revalidate'
 import routes from '@/config/routes'
 import axios from 'axios'
 import qs from 'qs'
+import { TypePageProgramsPropsQuery } from '@/types/index'
+import { gql } from '@apollo/client'
+import apolloClient from '@/lib/apolloClient'
 
 // test token strapi v 5
 
@@ -36,10 +39,38 @@ export const getStaticPropsBlogs = async () => {
         Authorization: `Bearer ${process.env.STRAPI_BEARER}` // Токен из .env
       }
     })
-
+    const res = await apolloClient.query<TypePageProgramsPropsQuery>({
+      query: gql`
+        query GetStaticPropsPagePrograms {
+          programs {
+            id
+            title
+            slug
+            studyField
+            studyFieldSlug
+            type
+            typeLabel
+            studyMounthsDuration
+            studyHours
+            price
+            isPopular
+            courseOpened
+            heroPicture {
+              url
+              width
+              height
+            }
+            index_number {
+              idx
+            }
+          }
+        }
+      `
+    })
     return {
       props: {
-        blogs: response?.data?.data || []
+        blogs: response?.data?.data || [],
+        ...res.data
       },
       revalidate: revalidate.default ?? 10 // Добавляем fallback значение
     }
