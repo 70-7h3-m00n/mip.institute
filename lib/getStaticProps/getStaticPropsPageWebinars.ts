@@ -19,8 +19,22 @@ const getStaticPropsPageWebinars = async ({
         query GetStaticPropsPageWebinars {
           programs {
             id
+            title
+            slug
             studyField
             studyFieldSlug
+            type
+            typeLabel
+            studyMounthsDuration
+            studyHours
+            price
+            isPopular
+            courseOpened
+            heroPicture {
+              url
+              width
+              height
+            }
             index_number {
               idx
             }
@@ -42,7 +56,7 @@ const getStaticPropsPageWebinars = async ({
         }
       `
     })
-  
+
     return {
       props: res.data,
       revalidate: revalidate.default
@@ -50,7 +64,6 @@ const getStaticPropsPageWebinars = async ({
   } catch (error) {
     return error
   }
-
 }
 
 export default getStaticPropsPageWebinars

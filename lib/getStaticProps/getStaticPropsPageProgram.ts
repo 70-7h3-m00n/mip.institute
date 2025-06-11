@@ -21,11 +21,7 @@ const getStaticPropsPageProgram = async ({
 
   const res = await apolloClient.query<TypePageProgramPropsQuery>({
     query: gql`
-      query GetStaticPropsPageProgram(
-        $slug: String!
-        $studyFieldSlug: String!
-        $type: String!
-      ) {
+      query GetStaticPropsPageProgram($slug: String!, $studyFieldSlug: String!, $type: String!) {
         reviews {
           id
           name
@@ -42,12 +38,27 @@ const getStaticPropsPageProgram = async ({
 
         programs {
           id
+          title
+          slug
           studyField
           studyFieldSlug
+          type
+          typeLabel
+          studyMounthsDuration
+          studyHours
+          price
+          isPopular
+          courseOpened
+          heroPicture {
+            url
+            width
+            height
+          }
+          index_number {
+            idx
+          }
         }
-        program: programs(
-          where: { slug: $slug, studyFieldSlug: $studyFieldSlug, type: $type }
-        ) {
+        program: programs(where: { slug: $slug, studyFieldSlug: $studyFieldSlug, type: $type }) {
           id
           title
           heroPicture {

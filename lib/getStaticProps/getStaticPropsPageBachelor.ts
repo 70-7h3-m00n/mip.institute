@@ -69,7 +69,16 @@ const getStaticPropsBachelor = async ({
             programs {
               id
               title
+              slug
+              studyField
+              studyFieldSlug
+              type
+              typeLabel
+              studyMounthsDuration
               studyHours
+              price
+              isPopular
+              courseOpened
               heroPicture {
                 url
                 width
