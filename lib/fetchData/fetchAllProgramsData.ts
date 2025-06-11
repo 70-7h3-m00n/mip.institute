@@ -21,6 +21,8 @@ export const fetchAllProgramsData = cache(async (): Promise<ProgramsDataQueryRes
             typeLabel
             studyMounthsDuration
             studyHours
+            studyMounthsDurationStandart
+            studyHoursStandart
             price
             tag
             isPopular

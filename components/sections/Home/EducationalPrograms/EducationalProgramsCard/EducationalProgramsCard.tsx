@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 import { EducationalProgram, ProgramGeneralType, Tag } from '@/types/page/home/homeGeneralTypes'
 import {
   getDurationText,
+  getDurationTextStandart,
   getProgramCategory,
   getProgramLink
 } from '@/components/sections/Home/EducationalPrograms/helpers'
@@ -63,7 +64,8 @@ const EducationalProgramsCard = ({ card, idx }: Props) => {
             'Получите специальность на стыке психологии, педагогики и воспитания, чтобы проводить качественное обучение учащихся и оказывать им необходимую психологическую поддержку.'}
         </p>
 
-        {!isFlipped && <p className={stls.studyHours}>{getDurationText(card) ?? ''}</p>}
+        {!isFlipped && (<div className={stls.studyHoursWrapper}><p className={stls.studyHours}>{getDurationText(card) ?? ''}</p>
+          <p className={stls.studyHours}>{card?.studyHoursStandart && getDurationTextStandart(card)}</p></div>)}
       </Link>
     </li>
   )

@@ -10,6 +10,7 @@ import IconMap from '@/components/icons/IconMap'
 import IconFile from '@/components/icons/IconFile'
 
 import ProgramAdmissionUntil from './ProgramAdmissionUntil'
+import ProgramStudyDurationTarifs from './ProgramStudyDurationTarifs'
 
 const ProgramInfo = () => {
   const { program } = useContext(ContextStaticProps)
@@ -21,7 +22,7 @@ const ProgramInfo = () => {
   const vals = [
     {
       key: 'Срок обучения:',
-      val: <ProgramStudyDuration studyMounthsDuration={studyMounthsDuration} />,
+      val: program?.studyMounthsDurationStandart ? (<ProgramStudyDurationTarifs studyMounthsDurationStandart={program?.studyMounthsDurationStandart} studyMounthsDuration={studyMounthsDuration}/> ) : (<ProgramStudyDuration studyMounthsDuration={studyMounthsDuration} />),
       icon: <IconCalendarAlt />
     },
     {
@@ -36,7 +37,7 @@ const ProgramInfo = () => {
     },
     {
       key: 'Количество часов:',
-      val: `${studyHours} ч`,
+      val: program?.studyHoursStandart ? `${studyHours } / ${program?.studyHoursStandart} ч` : `${studyHours} ч`,
       icon: <IconClock />
     },
     {

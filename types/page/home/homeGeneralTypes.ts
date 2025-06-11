@@ -8,6 +8,8 @@ export interface ProgramGeneralType {
   typeLabel?: string
   studyMounthsDuration?: number
   studyHours?: number
+  studyMounthsDurationStandart?: number
+  studyHoursStandart?: number
   shortDescription?: string
   isPopular?: boolean
   tag?: Tag
@@ -49,6 +51,8 @@ export type BachelorType = {
   __typename: 'Bachelor'
   isPopular?: boolean
   tag?: Tag
+  studyMounthsDurationStandart?: number
+  studyHoursStandart?: number
 }
 
 export type PracticalTrainingType = {
@@ -61,6 +65,8 @@ export type PracticalTrainingType = {
   __typename: 'PracticalTraining'
   isPopular?: boolean
   tag?: Tag
+  studyMounthsDurationStandart?: number
+  studyHoursStandart?: number
 }
 
 type Review = {
