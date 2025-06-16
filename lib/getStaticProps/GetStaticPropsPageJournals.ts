@@ -14,6 +14,28 @@ const getStaticPropsPageJournals = async ({
   const res = await apolloClient.query<TypePageJournalsPropsQuery>({
     query: gql`
       query GetStaticPropsPageJournal {
+      programs {
+            id
+            title
+            slug
+            studyField
+            studyFieldSlug
+            type
+            typeLabel
+            studyMounthsDuration
+            studyHours
+            price
+            isPopular
+            courseOpened
+            heroPicture {
+              url
+              width
+              height
+            }
+            index_number {
+              idx
+            }
+          }
         blogs(sort: "date:desc") {
           id
           title

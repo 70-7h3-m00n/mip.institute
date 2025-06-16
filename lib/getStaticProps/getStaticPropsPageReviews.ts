@@ -16,14 +16,28 @@ const getStaticPropsPageReviews = async ({
   const res = await apolloClient.query<TypePageReviewsPropsQuery>({
     query: gql`
       query GetStaticPropsPageReviews {
-        programs {
-          id
-          studyField
-          studyFieldSlug
-          index_number {
-            idx
+           programs {
+            id
+            title
+            slug
+            studyField
+            studyFieldSlug
+            type
+            typeLabel
+            studyMounthsDuration
+            studyHours
+            price
+            isPopular
+            courseOpened
+            heroPicture {
+              url
+              width
+              height
+            }
+            index_number {
+              idx
+            }
           }
-        }
         uniqueReviews{
           id
           name
